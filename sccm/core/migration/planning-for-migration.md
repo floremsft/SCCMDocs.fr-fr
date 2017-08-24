@@ -1,6 +1,6 @@
 ---
-title: Planen der Migration | Microsoft-Dokumentation
-description: "Erfahren Sie mehr über Standorte und Hierarchien, bevor Sie Daten in eine Zielhierarchie in System Center Configuration Manager migrieren."
+title: Planifier la migration | Microsoft Docs
+description: "Informez-vous sur les sites et les hiérarchies avant de migrer des données vers une hiérarchie de destination System Center Configuration Manager."
 ms.custom: na
 ms.date: 1/12/2017
 ms.prod: configuration-manager
@@ -18,42 +18,42 @@ manager: angrobe
 ms.openlocfilehash: fffef1e95e1dfa03971f140a6e5a7fff9bfe5e27
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="plan-for-migration-to-system-center-configuration-manager"></a>Planen der Migration zu System Center Configuration Manager
+# <a name="plan-for-migration-to-system-center-configuration-manager"></a>Planifier la migration vers System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Stellen Sie sicher, dass Sie mit Standorten und Hierarchien in Configuration Manager vertraut sind, bevor Sie Daten in eine System Center Configuration Manager-Zielhierarchie migrieren. Weitere Informationen zu Standorten und Hierarchien finden Sie unter [Grundlagen von System Center Configuration Manager](../../core/understand/fundamentals.md).  
+Avant de migrer des données vers une hiérarchie de destination System Center Configuration Manager, familiarisez-vous avec les sites et les hiérarchies dans Configuration Manager. Pour plus d’informations sur les sites et les hiérarchies, consultez [Principes de base de System Center Configuration Manager](../../core/understand/fundamentals.md).  
 
- Sie müssen zuerst eine System Center Configuration Manager-Hierarchie als Zielhierarchie installieren, bevor Sie Daten aus einer unterstützten Quellhierarchie migrieren können.  
+ Avant de migrer des données à partir d’une hiérarchie source prise en charge, vous devez installer une hiérarchie System Center Configuration Manager comme hiérarchie de destination.  
 
- Richten Sie nach dem Installieren der Zielhierarchie die Verwaltungsfeatures und -funktionen ein, die Sie in Ihrer Zielhierarchie verwenden möchten, bevor Sie mit dem Migrieren von Daten beginnen.  
+ Une fois la hiérarchie de destination installée, avant de commencer à migrer les données, configurez les fonctionnalités de gestion et les fonctions que vous voulez utiliser dans votre hiérarchie de destination.  
 
- Möglicherweise müssen Sie zusätzlich Vorkehrungen für eine Überlappung der Quellhierarchie mit der Zielhierarchie treffen. Beispielsweise können Sie beim Einrichten der Quellhierarchie angeben, dass die gleichen Netzwerkspeicherorte oder -grenzen wie für die Zielhierarchie verwendet werden sollen. Anschließend installieren Sie neue Clients für Ihre Zielhierarchie und verwenden die automatische Standortzuweisung. Bei diesem Szenario ist es möglich, dass vom Client eine fehlerhafte Zuweisung zur Quellhierarchie vorgenommen wird, weil vom neu installierten Configuration Manager-Client aus beiden Hierarchien ein Standort für den Beitritt ausgewählt werden kann. Planen Sie daher die Zuweisung jedes neuen Clients in der Zielhierarchie zu einem bestimmten Standort dieser Hierarchie, anstatt die automatische Standortzuweisung zu verwenden.  
+ En outre, vous devrez peut-être anticiper un éventuel chevauchement entre la hiérarchie source et votre hiérarchie de destination. Supposons par exemple que vous configurez une hiérarchie source pour utiliser les mêmes emplacements réseau ou les mêmes limites que votre hiérarchie de destination, que vous installez ensuite de nouveaux clients sur votre hiérarchie de destination et que vous utilisez l’affectation de site automatique. Dans ce scénario, comme un client Configuration Manager nouvellement installé peut sélectionner un site à rejoindre dans l’une ou l’autre des hiérarchies, le client risque d’être incorrectement affecté à votre hiérarchie source. Par conséquent, au lieu d’utiliser la fonctionnalité d’affectation de site automatique, prévoyez plutôt d’affecter chaque nouveau client de la hiérarchie de destination à un site spécifique de cette hiérarchie.  
 
- Weitere Informationen zu Standortzuweisungen finden Sie im Abschnitt [Überlegungen zur Clientstandortzuweisung](../../core/plan-design/hierarchy/interoperability-between-different-versions.md#BKMK_SupConfigSiteAssignment) des Themas [Interoperabilität zwischen verschiedenen Versionen von System Center Configuration Manager](../../core/plan-design/hierarchy/interoperability-between-different-versions.md).  
+ Pour plus d’informations sur les affectations de site, consultez [Considérations sur l’affectation de sites aux clients](../../core/plan-design/hierarchy/interoperability-between-different-versions.md#BKMK_SupConfigSiteAssignment) dans [Interopérabilité entre les différentes versions de System Center Configuration Manager](../../core/plan-design/hierarchy/interoperability-between-different-versions.md).  
 
-## <a name="plan-topics"></a>Planen von Themen  
- Die folgenden Themen sind bei der Migration einer unterstützten Quellhierarchie in eine System Center Configuration Manager-Zielhierarchie hilfreich:
+## <a name="plan-topics"></a>Rubriques liées à la planification  
+ Utilisez les rubriques suivantes pour planifier la migration d’une hiérarchie source prise en charge vers une hiérarchie de destination System Center Configuration Manager :
 
--   [Voraussetzungen für die Migration in System Center Configuration Manager](../../core/migration/prerequisites-for-migration.md)  
+-   [Prérequis de la migration dans System Center Configuration Manager](../../core/migration/prerequisites-for-migration.md)  
 
--   [Administratorchecklisten zur Migrationsplanung in System Center Configuration Manager](../../core/migration/administrator-checklists-for-migration-planning.md)  
+-   [Listes de vérification de l’administrateur pour la planification de la migration dans System Center Configuration Manager](../../core/migration/administrator-checklists-for-migration-planning.md)  
 
--   [Bestimmen, ob Daten zu System Center Configuration Manager migriert werden sollen](../../core/migration/determine-whether-to-migrate-data.md)  
+-   [Déterminer s’il faut migrer des données vers System Center Configuration Manager](../../core/migration/determine-whether-to-migrate-data.md)  
 
--   [Planen einer Strategie für Quellhierarchien in System Center Configuration Manager](../../core/migration/planning-a-source-hierarchy-strategy.md)  
+-   [Planifier une stratégie de hiérarchie source dans System Center Configuration Manager](../../core/migration/planning-a-source-hierarchy-strategy.md)  
 
--   [Administratorchecklisten zur Migrationsplanung in System Center Configuration Manager](../../core/migration/administrator-checklists-for-migration-planning.md)  
+-   [Listes de vérification de l’administrateur pour la planification de la migration dans System Center Configuration Manager](../../core/migration/administrator-checklists-for-migration-planning.md)  
 
--   [Planen einer Strategie für die Clientmigration in System Center Configuration Manager](../../core/migration/planning-a-client-migration-strategy.md)  
+-   [Planifier une stratégie de migration de clients dans System Center Configuration Manager](../../core/migration/planning-a-client-migration-strategy.md)  
 
--   [Planen einer Migrationsstrategie für die Inhaltsbereitstellung in System Center Configuration Manager](../../core/migration/planning-a-content-deployment-migration-strategy.md)  
+-   [Planifier une stratégie de migration de déploiement de contenu dans System Center Configuration Manager](../../core/migration/planning-a-content-deployment-migration-strategy.md)  
 
--   [Planen der Migration von Configuration Manager-Objekten zu System Center Configuration Manager](../../core/migration/planning-for-the-migration-of-objects.md)  
+-   [Planifier la migration d’objets Configuration Manager vers System Center Configuration Manager](../../core/migration/planning-for-the-migration-of-objects.md)  
 
--   [Planen der Überwachung der Migrationsaktivitäten in System Center Configuration Manager](../../core/migration/planning-to-monitor-migration-activity.md)  
+-   [Planifier la surveillance de la migration dans System Center Configuration Manager](../../core/migration/planning-to-monitor-migration-activity.md)  
 
--   [Planen des Abschließens der Migration in System Center Configuration Manager](../../core/migration/planning-to-complete-migration.md)  
+-   [Planifier la fin de la migration dans System Center Configuration Manager](../../core/migration/planning-to-complete-migration.md)  

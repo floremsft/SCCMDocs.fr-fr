@@ -6,21 +6,19 @@ ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 3343eccf-bf09-41cd-9e68-03e893c7f904
-caps.latest.revision: 16
+caps.latest.revision: "16"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: 916aac9a8f724e37044884cd73de5fea1f1a8f97
 ms.openlocfilehash: 76f907b17df0dd2f102e34ca3cfb3ffc813c0004
-ms.lasthandoff: 01/03/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="introduction-to-system-center-configuration-manager"></a>Présentation de System Center Configuration Manager
 
@@ -220,4 +218,3 @@ Il implémente ces fonctionnalités en effectuant les étapes de configuration d
 -   Pour obtenir une vue d’ensemble technique globale de System Center Configuration Manager, consultez [Principes de base de System Center Configuration Manager](../../core/understand/fundamentals.md).  
 
 Quand vous êtes familiarisé avec les concepts de base, aidez-vous de la documentation de System Center Configuration Manager pour déployer et utiliser correctement Configuration Manager.  
-

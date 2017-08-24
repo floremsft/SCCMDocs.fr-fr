@@ -1,6 +1,6 @@
 ---
-title: "Beispiel-Überprüfungszustandsübergänge für Asset Intelligence | Microsoft-Dokumentation"
-description: "Beispiele für Überprüfungsstatusübergänge für Asset Intelligence in System Center Configuration Manager."
+title: "Exemples de transitions d’état de validation pour Asset Intelligence | Microsoft Docs"
+description: "Découvrez des exemples de transition d’état de validation pour Asset Intelligence dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 2/22/2017
 ms.prod: configuration-manager
@@ -18,65 +18,65 @@ manager: angrobe
 ms.openlocfilehash: f280e06f34c0ed355b7c2652c571e36eb6684c59
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="example-validation-state-transitions-for-asset-intelligence-in-system-center-configuration-manager"></a>Beispiel-Überprüfungszustandsübergänge für Asset Intelligence in System Center Configuration Manager
+# <a name="example-validation-state-transitions-for-asset-intelligence-in-system-center-configuration-manager"></a>Exemples de transitions d’état de validation pour Asset Intelligence dans System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Überprüfungszustände für Asset Intelligence in System Center Configuration Manager sind nicht statisch und können sich durch Verwaltungsaktionen, die die im Asset Intelligence-Katalog gespeicherten Daten beeinflussen, ändern. Dieses Thema enthält Beispiele für mögliche Überprüfungsstatusübergänge.
+Les états de validation Asset Intelligence dans System Center Configuration Manager ne sont pas statiques et peuvent se distinguer des actions administratives que vous exécutez pour affecter les données stockées dans le catalogue Asset Intelligence. Cette rubrique propose des exemples possibles de transition d’état de validation.
 
-##  <a name="BKMK_UncategorizedIsCategorized"></a> Nicht kategorisiertes Katalogelement wird vom Administrator kategorisiert  
+##  <a name="BKMK_UncategorizedIsCategorized"></a> Un élément de catalogue sans catégorie est catégorisé par l’utilisateur administratif  
 
-|**Zustandsübergang**|**Beschreibung des Zustandsübergangs**|  
+|**Transition d'état**|**Description de la transition d'état**|  
 |--------------------------|--------------------------------------|  
-|**Nicht kategorisiert**|Ein inventarisierter Softwaretitel, der noch nicht von System Center Online kategorisiert wurde oder vom Administrator in den Asset Intelligence-Katalog eingetragen wurde.|  
-|**Nicht kategorisierte** auf **Benutzerdefinierten**|Das nicht kategorisierte Element wird vom Administrator kategorisiert.|  
+|**Sans catégorie**|Titre de logiciel inventorié qui n'a pas été catégorisé précédemment par System Center Online ou saisi par l'utilisateur administratif dans le catalogue Asset Intelligence.|  
+|**Sans catégorie** à **Définipar l’utilisateur**|L'élément sans catégorie est catégorisé par l'utilisateur administratif.|  
 
-##  <a name="BKMK_CategorizedIsReCategorized"></a> Kategorisiertes Katalogelement wird vom Administrator neu kategorisiert  
+##  <a name="BKMK_CategorizedIsReCategorized"></a> Un élément de catalogue catégorisé est de nouveau catégorisé par l’utilisateur administratif  
 
-|**Zustandsübergang**|**Beschreibung des Zustandsübergangs**|  
+|**Transition d'état**|**Description de la transition d'état**|  
 |--------------------------|--------------------------------------|  
-|**Überprüft**|Der Katalogeintrag wurde von System Center Online-Entwicklern definiert und ist im Asset Intelligence-Katalog vorhanden.|  
-|**Überprüft** zu **Benutzerdefiniert**|Das kategorisierte Katalogelement wird vom Administrator neu kategorisiert.|  
+|**Validé**|L'élément du catalogue a été défini par les chercheurs de System Center Online et figure dans le catalogue Asset Intelligence.|  
+|**Validé** à **Défini par l'utilisateur**|Un élément de catalogue validé est de nouveau catégorisé par l'utilisateur administratif.|  
 
 > [!NOTE]  
->  Da die von System Center Online erhaltenen Kategorisierungsinformationen in der Datenbank gespeichert werden und nicht gelöscht werden können, kann der Administrator zu einem späteren Zeitpunkt wieder auf die System Center Online-Kategorisierung zurückgreifen.  
+>  Étant donné que les informations de catégorisation obtenues à partir de System Center Online sont stockées dans la base de données et ne peuvent pas être supprimées, l'utilisateur administratif peut restaurer la catégorisation de System Center Online ultérieurement.  
 
-##  <a name="BKMK_UserDefinedIsRecategorized"></a> Benutzerdefiniertes Katalogelement wird von System Center Online neu kategorisiert  
+##  <a name="BKMK_UserDefinedIsRecategorized"></a> Un élément du catalogue défini par l’utilisateur est de nouveau catégorisé par System Center Online  
 
-|**Zustandsübergang**|**Beschreibung des Zustandsübergangs**|  
+|**Transition d'état**|**Description de la transition d'état**|  
 |--------------------------|--------------------------------------|  
-|**Nicht kategorisiert**|Ein inventarisierter Softwaretitel, der noch nicht von System Center Online oder vom Administrator kategorisiert wurde, wird in den Asset Intelligence-Katalog eingegeben.|  
-|**Benutzerdefiniert**|Das nicht kategorisierte Element wird vom Administrator kategorisiert.|  
-|**Benutzerdefiniert** zu **Aktualisierbar**|Ein benutzerdefiniertes Katalogelement wurde von System Center Online bei den darauffolgenden manuellen Massenaktualisierungen des Asset Intelligence-Katalogs anders kategorisiert.<br /><br /> Mittels des Dialogfelds **Auflösung des Konflikts zwischen Softwaredetails** kann der Administrator festlegen, ob die neuen Kategorisierungsinformationen oder der vorherige benutzerdefinierte Wert verwendet werden sollen.|  
-|**Aktualisierbar** zu **Überprüft**|Mittels des Dialogfelds **Auflösung des Konflikts zwischen Softwaredetails** kann der Administrator die neuen Kategorisierungsinformationen verwenden, die bei der vorherigen Katalogaktualisierung von System Center Online übermittelt wurden.|  
-|oder||  
-|**Aktualisierbar** zu **Benutzerdefiniert**|Mittels des Dialogfelds **Auflösung des Konflikts zwischen Softwaredetails** kann der Administrator den vorherigen benutzerdefinierten Wert verwenden.|  
+|**Sans catégorie**|Un titre logiciel inventorié sans catégorie par System Center Online ou par l'utilisateur administratif est ajouté au catalogue Asset Intelligence.|  
+|**Défini par l'utilisateur**|L'élément sans catégorie est catégorisé par l'utilisateur administratif.|  
+|**Défini par l'utilisateur** à **Peut être mis à jour**|Un élément de catalogue défini par l'utilisateur a été catégorisé différemment par System Center Online au cours de mises à jour manuelles en bloc ultérieures du catalogue Asset Intelligence.<br /><br /> L'utilisateur administratif peut utiliser la boîte de dialogue **Résolution de conflit de détails de logiciel** pour décider s'il souhaite utiliser les nouvelles informations de catégorisation ou la valeur précédente définie par l'utilisateur.|  
+|**Peut être mis à jour** à **Validé**|L'utilisateur administratif utilise la boîte de dialogue **Résolution de conflit de détails de logiciel** pour utiliser les nouvelles informations de catégorisation reçues depuis System Center Online au cours de la mise à jour précédente du catalogue.|  
+|ou||  
+|**Peut être mis à jour** à **Défini par l'utilisateur**|L'utilisateur administratif utilise la boîte de dialogue **Résolution de conflit de détails de logiciel** pour utiliser la valeur précédente définie par l'utilisateur.|  
 
 > [!NOTE]  
->  Da die von System Center Online erhaltenen Kategorisierungsinformationen in der Datenbank gespeichert werden und nicht gelöscht werden können, kann der Administrator zu einem späteren Zeitpunkt wieder auf die System Center Online-Kategorisierung zurückgreifen.  
+>  Étant donné que les informations de catégorisation obtenues à partir de System Center Online sont stockées dans la base de données et ne peuvent pas être supprimées, l'utilisateur administratif peut restaurer la catégorisation de System Center Online ultérieurement.  
 
-##  <a name="BKMK_UncategorizedIsSubmitted"></a> Nicht kategorisiertes Katalogelement wird zur Kategorisierung an System Center Online übermittelt  
+##  <a name="BKMK_UncategorizedIsSubmitted"></a> Un élément de catalogue sans catégorie est soumis à System Center Online à des fins de catégorisation  
 
-|**Zustandsübergang**|**Beschreibung des Zustandsübergangs**|  
+|**Transition d'état**|**Description de la transition d'état**|  
 |--------------------------|--------------------------------------|  
-|**Nicht kategorisiert**|Ein inventarisierter Softwaretitel, der noch nicht von System Center Online oder vom Administrator kategorisiert wurde, wird in die Asset Intelligence-Datenbank eingegeben.|  
-|**Nicht kategorisiert** zu **Ausstehend**|Das nicht kategorisierte Element wird zur Kategorisierung vom Administrator an System Center Online übermittelt.|  
-|**Ausstehend** zu **Überprüft**|Das Element wird von System Center Online kategorisiert. Vom Administrator wird das Element mithilfe einer Massenkatalogaktualisierung oder einer Asset Intelligence-Katalogsynchronisierung in den Asset Intelligence-Katalog importiert. Beide sind durch Verwendung der Standortsystemrolle für den Asset Intelligence-Synchronisierungspunkt verfügbar.|  
+|**Sans catégorie**|Un titre logiciel inventorié sans catégorie par System Center Online ou par l'utilisateur administratif est ajouté à la base de données Asset Intelligence.|  
+|**Sans catégorie** à **En attente**|L'élément sans catégorie est soumis à System Center Online afin que l'utilisateur administratif puisse le classer.|  
+|**En attente** à **Validé**|L'élément est catégorisé par System Center Online. L'utilisateur administratif importe l'élément dans le catalogue Asset Intelligence à l'aide d'une mise à jour en bloc du catalogue ou de la synchronisation du catalogue Asset Intelligence. Les deux sont disponibles en utilisant le rôle de système de site du point de synchronisation Asset Intelligence.|  
 
-##  <a name="BKMK_UserDefinedIsSubmitted"></a> Benutzerdefiniertes Katalogelement wird zur Kategorisierung an System Center Online übermittelt  
+##  <a name="BKMK_UserDefinedIsSubmitted"></a> Un élément de catalogue défini par l’utilisateur est soumis à System Center Online à des fins de catégorisation  
 
-|**Zustandsübergang**|**Beschreibung des Zustandsübergangs**|  
+|**Transition d'état**|**Description de la transition d'état**|  
 |--------------------------|--------------------------------------|  
-|**Nicht kategorisiert**|Ein inventarisierter Softwaretitel, der noch nicht von einem Administrator oder von System Center Online kategorisiert wurde, wird in die Asset Intelligence-Datenbank eingegeben.|  
-|**Benutzerdefiniert**|Das nicht kategorisierte Element wurde kategorisiert.|  
-|**Benutzerdefiniert** zu **Ausstehend**|Das benutzerdefinierte Element wird zur Kategorisierung an System Center Online übermittelt.|  
-|**Ausstehend** zu **Aktualisierbar**|Ein benutzerdefiniertes Katalogelement wurde von System Center Online während einer nachfolgenden Katalogsynchronisierung anders kategorisiert. Sie können mithilfe der Aktion **Konflikt beheben** entscheiden, ob die neuen Kategorisierungsinformationen oder der vorherige benutzerdefinierte Wert verwendet werden sollen. Weitere Informationen zum Lösen von Konflikten finden Sie unter [Softwaredetailkonflikte lösen](../../../../core/clients/manage/asset-intelligence/operations-for-asset-intelligence.md#BKMK_ResolveSoftwareDetails).|  
-|**Aktualisierbar** zu **Überprüft**|Verwenden Sie die Aktion **Konflikt beheben** , und wählen Sie die neuen Kategorisierungsinformationen aus, die bei der vorherigen Katalogaktualisierung von System Center Online übermittelt wurden. Weitere Informationen zum Lösen von Konflikten finden Sie unter [Softwaredetailkonflikte lösen](../../../../core/clients/manage/asset-intelligence/operations-for-asset-intelligence.md#BKMK_ResolveSoftwareDetails).|  
-|oder||  
-|**Aktualisierbar** zu **Benutzerdefiniert**|Verwenden Sie die Aktion **Konflikt beheben** , und verwenden Sie den vorherigen benutzerdefinierten Wert. Weitere Informationen zum Lösen von Konflikten finden Sie unter [Softwaredetailkonflikte lösen](../../../../core/clients/manage/asset-intelligence/operations-for-asset-intelligence.md#BKMK_ResolveSoftwareDetails).|  
+|**Sans catégorie**|Un titre logiciel inventorié sans catégorie précédemment par un utilisateur administratif ou par System Center Online est ajouté à la base de données Asset Intelligence.|  
+|**Défini par l'utilisateur**|Vous avez catégorisé l'élément sans catégorie.|  
+|**Défini par l'utilisateur** à **En attente**|Vous soumettez l'élément défini par l'utilisateur à System Center Online à des fins de catégorisation.|  
+|**En attente** à **Peut être mis à jour**|Un élément du catalogue défini par un utilisateur a été catégorisé différemment par System Center Online lors de la synchronisation de catalogue suivante. Vous pouvez exécuter l'action **Résoudre le conflit** pour décider si vous allez utiliser les nouvelles informations de catégorisation ou la précédente valeur définie par l'utilisateur. Pour plus d’informations sur la résolution des conflits, consultez [Résoudre les conflits de détails de logiciel](../../../../core/clients/manage/asset-intelligence/operations-for-asset-intelligence.md#BKMK_ResolveSoftwareDetails).|  
+|**Peut être mis à jour** à **Validé**|Vous exécutez l'action **Résoudre le conflit** et sélectionnez les nouvelles informations de catégorisation reçues depuis System Center Online lors de la précédente mise à jour de catalogue. Pour plus d’informations sur la résolution des conflits, consultez [Résoudre les conflits de détails de logiciel](../../../../core/clients/manage/asset-intelligence/operations-for-asset-intelligence.md#BKMK_ResolveSoftwareDetails).|  
+|ou||  
+|**Peut être mis à jour** à **Défini par l'utilisateur**|Vous exécutez l'action **Résoudre le conflit** et choisissez d'utiliser la précédente valeur définie par l'utilisateur. Pour plus d’informations sur la résolution des conflits, consultez [Résoudre les conflits de détails de logiciel](../../../../core/clients/manage/asset-intelligence/operations-for-asset-intelligence.md#BKMK_ResolveSoftwareDetails).|  
 
 > [!NOTE]  
->  Da die von System Center Online erhaltenen Kategorisierungsinformationen in der Datenbank gespeichert werden und nicht gelöscht werden können, können Sie zu einem späteren Zeitpunkt wieder auf die System Center Online-Kategorisierung zurückgreifen.  
+>  Étant donné que les informations de catégorisation obtenues à partir de System Center Online sont stockées dans la base de données et ne peuvent pas être supprimées, vous pouvez restaurer la catégorisation de System Center Online ultérieurement.  

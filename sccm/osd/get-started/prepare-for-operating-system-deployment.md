@@ -1,6 +1,6 @@
 ---
-title: Vorbereiten auf die Betriebssystembereitstellung | Microsoft-Dokumentation
-description: "Lesen Sie diese Artikel, um zu erfahren, was Sie im Configuration Manager zur Vorbereitung von Betriebssystembereitstellungen tun müssen."
+title: "Préparer un déploiement de système d’exploitation | Microsoft Docs"
+description: "Lisez ces articles pour en savoir plus sur ce que vous devez faire dans Configuration Manager pour préparer les déploiements de système d’exploitation."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,25 +17,25 @@ manager: angrobe
 ms.openlocfilehash: dcc35f39b6ece8b466fc3770c6b9f304180eb42a
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="prepare-for-operating-system-deployment-in-system-center-configuration-manager"></a>Vorbereiten auf die Betriebssystembereitstellung in System Center Configuration Manager
+# <a name="prepare-for-operating-system-deployment-in-system-center-configuration-manager"></a>Préparer un déploiement de système d’exploitation dans System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Es gibt mehrere Dinge, die Sie in Configuration Manager ausführen müssen, bevor Sie Betriebssysteme bereitstellen können. Verwenden Sie die folgenden Themen zur Vorbereitung der Betriebssystembereitstellung:  
+Vous devez effectuer plusieurs opérations dans Configuration Manager avant de pouvoir déployer des systèmes d’exploitation. Utilisez les rubriques suivantes pour préparer un déploiement de système d’exploitation :  
 
--   [Verwalten von Startimages](manage-boot-images.md)  
+-   [Gérer les images de démarrage](manage-boot-images.md)  
 
--   [Verwalten von Betriebssystemimages](manage-operating-system-images.md)  
+-   [Gérer les images de système d’exploitation](manage-operating-system-images.md)  
 
--   [Verwalten von Betriebssystem-Upgradepaketen](manage-operating-system-upgrade-packages.md)  
+-   [Gérer les packages de mise à niveau de système d’exploitation](manage-operating-system-upgrade-packages.md)  
 
--   [Verwalten von Treibern](manage-drivers.md)  
+-   [Gérer les pilotes](manage-drivers.md)  
 
--   [Verwalten des Benutzerzustands](manage-user-state.md)  
+-   [Gérer l’état utilisateur](manage-user-state.md)  
 
--   [Vorbereiten auf Bereitstellungen für unbekannte Computer](prepare-for-unknown-computer-deployments.md)  
+-   [Préparer les déploiements d’ordinateurs inconnus](prepare-for-unknown-computer-deployments.md)  
 
--   [Zuordnen von Benutzern zu einem Zielcomputer](associate-users-with-a-destination-computer.md)  
+-   [Associer des utilisateurs à un ordinateur de destination](associate-users-with-a-destination-computer.md)  

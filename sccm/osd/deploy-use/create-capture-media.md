@@ -1,6 +1,6 @@
 ---
-title: "Erstellen von Erfassungsmedien – Configuration Manager | Microsoft-Dokumentation"
-description: Verwenden Sie den Assistenten zum Erstellen von Tasksequenzmedien, um Erfassungsmedien in Configuration Manager zum Erfassen eines Betriebssystemimages von einem Referenzcomputer zu erstellen.
+title: "Créer un média de capture - Configuration Manager | Microsoft Docs"
+description: "Utilisez l’Assistant Création d’un média de séquence de tâches pour créer un média de capture dans Configuration Manager pour capturer une image de système d’exploitation à partir d’un ordinateur de référence."
 ms.custom: na
 ms.date: 01/23/2017
 ms.prod: configuration-manager
@@ -18,64 +18,64 @@ manager: angrobe
 ms.openlocfilehash: 5acf800ff5aebd849e294393337755145a60cca5
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-capture-media-with-system-center-configuration-manager"></a>Erstellen von Erfassungsmedien mit System Center Configuration Manager
+# <a name="create-capture-media-with-system-center-configuration-manager"></a>Créer un média de capture avec System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Mithilfe von Erfassungsmedien in Configuration Manager können Sie ein Betriebssystemimage von einem Referenzcomputer erfassen. Verwenden Sie Erfassungsmedien für das folgende Szenario:  
+Dans Configuration Manager, un média de capture vous permet de capturer une image de système d’exploitation à partir d’un ordinateur de référence. Utilisez un média de capture dans le scénario suivant :  
 
--   [Erstellen einer Tasksequenz zum Erfassen eines Betriebssystems](create-a-task-sequence-to-capture-an-operating-system.md)  
+-   [Créer une séquence de tâches pour capturer un système d’exploitation](create-a-task-sequence-to-capture-an-operating-system.md)  
 
-##  <a name="BKMK_CreateCaptureMedia"></a> Erstellen von Erfassungsmedien  
- Verwenden Sie Erfassungsmedien, um ein Betriebssystemabbild auf einem Referenzcomputer zu erfassen. Die Erfassungsmedien enthalten das Startabbild zum Starten des Referenzcomputers und die Tasksequenz zum Erfassen des Betriebssystemabbilds.
+##  <a name="BKMK_CreateCaptureMedia"></a> Comment créer un média de capture  
+ Utilisez un média de capture pour capturer une image de système d'exploitation à partir d'un ordinateur de référence. Un média de capture contient l'image de démarrage qui démarre l'ordinateur de référence et la séquence de tâches qui capture l'image du système d'exploitation.
 
-Sie erstellen vorab Erfassungsmedien mit dem Assistenten zum Erstellen von Tasksequenzmedien. Achten Sie vor der Ausführung des Assistenten darauf, dass die folgenden Bedingungen erfüllt sind:  
+Vous créez des média de capture à l'aide de l'Assistant Création d'un média de séquence de tâches. Avant d'exécuter l'Assistant, assurez-vous que toutes les conditions suivantes sont remplies :  
 
-|Aufgabe|Beschreibung|  
+|Tâche|Description|  
 |----------|-----------------|  
-|Startabbild|Beachten Sie die folgenden Informationen zum Startabbild, das Sie in der Tasksequenz zum Erfassen des Betriebssystems verwenden:<br /><br /> - Die Architektur des Startimages muss für die Architektur des Zielcomputers geeignet sein. Beispielsweise kann ein x86- oder x64-Startabbild von einem x64-Zielcomputer gestartet und ausgeführt werden. Bei einem x86-Zielcomputer sind jedoch nur der Start und die Ausführung eines x86-Startabbilds möglich.<br />- Achten Sie darauf, dass das Startimage die zur Bereitstellung des Zielcomputers erforderlichen Netzwerk- und Massenspeichertreiber enthält.|  
-|Verteilen aller der Tasksequenz zugeordneten Inhalte|Sie müssen alle für die Tasksequenz erforderlichen Inhalte auf mindestens einen Verteilungspunkt verteilen. Dies schließt das Startabbild, Betriebssystemabbild und andere zugehörige Dateien ein. Die Informationen werden vom Assistenten beim Erstellen des eigenständigen Mediums vom Verteilungspunkt abgerufen. Sie benötigen **Lesezugriffsrechte** für die Inhaltsbibliothek am Verteilungspunkt.  Weitere Informationen finden Sie unter [Distribute content (Verteilen von Inhalt)](../../core/servers/deploy/configure/deploy-and-manage-content.md#bkmk_distribute).|  
-|Vorbereiten des USB-Wechseldatenträgers|Für einen USB-Wechseldatenträger:<br /><br /> Bei Verwendung eines USB-Wechseldatenträgers muss das USB-Laufwerk mit dem Computer verbunden werden, auf dem der Assistent ausgeführt wird. Das USB-Laufwerk muss zudem für Windows als Wechselmedium erkennbar sein. Beim Erstellen der Medien wird vom Assistenten direkt auf das USB-Laufwerk geschrieben.|  
-|Erstellen eines Ausgabeordners|Für einen CD/DVD-Satz:<br /><br /> Sie müssen für die vom Assistenten zum Erstellen von Tasksequenzmedien erstellten Ausgabedateien einen Ordner anlegen, bevor Sie den Assistenten ausführen, um Medien für einen CD- oder DVD-Satz zu erstellen. Die für einen CD- oder DVD-Satz erstellten Medien werden als ISO-Dateien direkt in den Ordner geschrieben.|  
+|Image de démarrage|Prenez en considération les éléments suivants relatifs à l’image de démarrage que vous utiliserez dans la séquence de tâches pour capturer le système d’exploitation :<br /><br /> -   L’architecture de l’image de démarrage doit être adaptée à l’architecture de l’ordinateur de destination. Par exemple, un ordinateur de destination x64 peut démarrer et exécuter une image de démarrage x86 ou x64. Toutefois, un ordinateur de destination x86 peut démarrer et exécuter uniquement une image de démarrage x86.<br />-   Vérifiez que l’image de démarrage contient les pilotes de stockage de masse et de réseau nécessaires à l’approvisionnement de l’ordinateur de destination.|  
+|Distribuer tout le contenu associé à la séquence de tâches|Vous devez distribuer tout le contenu exigé par la séquence de tâches à au moins un point de distribution. Cela inclut l’image de démarrage, l’image du système d’exploitation et les autres fichiers associés. L'Assistant collecte les informations à partir du point de distribution lorsqu'il crée le média autonome. Vous devez disposer de droits d’accès en **Lecture** à la bibliothèque de contenu sur ce point de distribution.  Pour plus d’informations, consultez [Distribuer du contenu](../../core/servers/deploy/configure/deploy-and-manage-content.md#bkmk_distribute).|  
+|Préparer le lecteur USB amovible|Pour un lecteur USB amovible :<br /><br /> Si vous envisagez d’utiliser un lecteur USB amovible, ce dernier doit être connecté à l’ordinateur sur lequel est exécuté l’Assistant et il doit être détectable par Windows en tant que périphérique amovible. L’Assistant écrit directement sur le lecteur USB quand il crée le média.|  
+|Créer un dossier de sortie|Pour un ensemble de CD/DVD :<br /><br /> Avant d'exécuter l'Assistant Création d'un média de séquence de tâches afin de créer un média pour un ensemble de CD ou DVD, vous devez créer un dossier pour les fichiers de sortie créés par l'Assistant. Le média créé pour un ensemble de CD ou DVD est écrit sous forme de fichiers .iso directement dans le dossier.|  
 
- Wenden Sie das folgende Verfahren an, um vorab Erfassungsmedien zu erstellen.  
+ Pour créer un média de capture, procédez comme suit.  
 
-#### <a name="to-create-capture-media"></a>So erstellen Sie Erfassungsmedien  
+#### <a name="to-create-capture-media"></a>Pour créer un support de capture  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Softwarebibliothek**.  
+1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
-2.  Erweitern Sie im Arbeitsbereich **Softwarebibliothek** den Bereich **Betriebssysteme**, und klicken Sie dann auf **Tasksequenzen**.  
+2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Séquences de tâches**.  
 
-3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** auf **Tasksequenzmedien erstellen** , um den Assistenten zum Erstellen von Tasksequenzmedien zu starten.  
+3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer un média de séquence de tâches** pour démarrer l'Assistant Création d'un média de séquence de tâches.  
 
-4.  Wählen Sie auf der Seite **Medientyp wählen** die Option **Erfassungsmedien**aus, und klicken Sie auf **Weiter**.  
+4.  Sur la page **Sélectionner le type de média** , sélectionnez **Média de capture**, puis cliquez sur **Suivant**.  
 
-5.  Geben Sie auf der Seite **Medientyp** an, ob das Medium ein Speicherstick oder ein CD/DVD-Satz ist, und klicken Sie dann, um Folgendes zu konfigurieren:  
+5.  Dans la page **Type de média** , spécifiez si le média est un disque mémoire flash ou un ensemble de CD/DVD, puis cliquez pour configurer les éléments suivants :  
 
-    -   Wenn Sie **USB-Speicherstick**auswählen, geben Sie das Laufwerk an, auf dem der Inhalt gespeichert wird.  
+    -   Si vous sélectionnez **Périphérique flash USB**, spécifiez le lecteur sur lequel stocker le contenu.  
 
-    -   Wenn Sie **CD/DVD-Satz**auswählen, geben Sie die Kapazität der Medien und Namen sowie Pfad der Ausgabedateien an. Die Ausgabedateien werden vom Assistenten an diesen Speicherort geschrieben. Beispiel: **\\\Servername\Ordner\Ausgabedatei.iso**  
+    -   Si vous sélectionnez **Ensemble CD/DVD**, spécifiez la capacité du média et le nom et le chemin d'accès des fichiers de sortie. L'Assistant écrit les fichiers de sortie à cet emplacement. Par exemple : **\\\nom_serveur\dossier\fichier_sortie.iso**  
 
-         Wenn die Medienkapazität zu gering zum Speichern des gesamten Inhalts ist, werden mehrere Dateien erstellt, und Sie müssen den Inhalt auf mehreren CDs oder DVDs speichern. Falls mehrere Medien erforderlich sind, wird dem Namen jeder von Configuration Manager erstellten Ausgabedatei eine Sequenznummer hinzugefügt. Außerdem wird die Anwendung von Configuration Manager auf mehreren Medien gespeichert, wenn Sie eine Anwendung zusammen mit dem Betriebssystem bereitstellen und die Anwendung nicht auf ein einzelnes Medium passt. Wenn das eigenständige Medium ausgeführt wird, wird der Benutzer von Configuration Manager zum Angeben des nächsten Mediums aufgefordert, auf dem die Anwendung gespeichert ist.  
+         Si la capacité du média est insuffisante pour stocker l’ensemble du contenu, plusieurs fichiers sont créés et vous devez stocker le contenu sur plusieurs CD ou DVD. Quand plusieurs médias sont nécessaires, Configuration Manager ajoute un numéro de séquence au nom de chaque fichier de sortie qu’il crée. De plus, si vous déployez une application en même temps que le système d’exploitation et que cette application ne peut pas tenir sur un seul média, Configuration Manager stocke l’application sur plusieurs médias. Quand le média autonome est exécuté, Configuration Manager invite l’utilisateur à insérer le média suivant sur lequel l’application est stockée.  
 
         > [!IMPORTANT]  
-        >  Wenn Sie ein vorhandenes ISO-Abbild auswählen, wird dieses ISO-Abbild vom Assistenten zum Erstellen von Tasksequenzmedien auf dem Laufwerk oder der Freigabe gelöscht, sobald Sie mit der nächsten Seite des Assistenten fortfahren. Das vorhandene Abbild wird selbst dann gelöscht, wenn Sie den Assistenten anschließend abbrechen.  
+        >  Si vous sélectionnez une image .iso existante, l'Assistant Média de séquence de tâches supprime cette image du lecteur ou du partage dès lors que vous passez à la page suivante de l'Assistant. L'image existante est supprimée même si vous annulez ensuite l'Assistant.  
 
-     Klicken Sie auf **Weiter**.  
+     Cliquez sur **Suivant**.  
 
-6.  Geben Sie auf der Seite **Startabbild** die folgenden Informationen an, und klicken Sie dann auf **Weiter**.  
+6.  Sur la page **Image de démarrage** , spécifiez les informations suivantes et cliquez sur **Suivant**.  
 
     > [!IMPORTANT]  
-    >  Die Architektur des angegebenen Startabbilds muss für die Architektur des Referenzcomputers geeignet sein. Beispielsweise kann ein x86- oder x64-Startabbild von einem x64-Referenzcomputer gestartet und ausgeführt werden. Bei einem x86-Referenzcomputer sind jedoch nur der Start und die Ausführung eines x86-Startabbilds möglich.  
+    >  L'architecture de l'image de démarrage que vous spécifiez doit être adaptée à l'architecture de l'ordinateur de référence. Par exemple, un ordinateur de référence x64 peut démarrer et exécuter une image de démarrage x86 ou x64. Toutefois, un ordinateur de référence x86 peut démarrer et exécuter uniquement une image de démarrage x86.  
 
-    -   Geben Sie im Feld **Startabbild** das Startabbild zum Starten des Referenzcomputers an.  
+    -   Dans la zone **Image de démarrage** , spécifiez l'image de démarrage pour démarrer l'ordinateur de référence.  
 
-    -   Geben Sie im Feld **Verteilungspunkt** den Verteilungspunkt an, auf dem das Startabbild sich befindet. Das Startabbild wird von dem Assistenten vom Verteilungspunkt abgerufen und auf das Medium geschrieben.  
+    -   Dans la zone **Point de distribution** , spécifiez le point de distribution où réside l'image de démarrage. L'Assistant extrait l'image de démarrage à partir du point de distribution et l'écrit sur le média.  
 
         > [!NOTE]  
-        >  Sie benötigen Lesezugriffsrechte für die Inhaltsbibliothek am Verteilungspunkt.  
+        >  Vous devez disposer de droits d'accès en lecture à la bibliothèque de contenu sur le point de distribution.  
 
-7.  Schließen Sie den Assistenten ab.  
+7.  Effectuez toutes les étapes de l'Assistant.  

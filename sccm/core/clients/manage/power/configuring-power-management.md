@@ -1,6 +1,6 @@
 ---
-title: Konfigurieren der Energieverwaltung | Microsoft-Dokumentation
-description: Konfigurieren Sie die Energieverwaltung in System Center Configuration Manager.
+title: "Configuration de la gestion de l’alimentation | Microsoft Docs"
+description: "Configurez la gestion de l’alimentation dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -18,69 +18,69 @@ manager: angrobe
 ms.openlocfilehash: e111ac2545dd9e0b96a50c10246bb75d286a737a
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="configuring-power-management-in-system-center-configuration-manager"></a>Konfigurieren der Energieverwaltung in System Center Configuration Manager
+# <a name="configuring-power-management-in-system-center-configuration-manager"></a>Configuration de la gestion de l’alimentation dans System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Bevor Sie die Energieverwaltung in System Center Configuration Manager verwenden können, müssen Sie die folgenden Konfigurationsschritte ausführen.  
+Avant de pouvoir utiliser la gestion de l’alimentation dans System Center Configuration Manager, vous devez effectuer les étapes de configuration suivantes.  
 
-## <a name="enable-and-configure-power-management-client-settings"></a>Aktivieren und Konfigurieren von Clienteinstellungen zur Energieverwaltung  
- Mithilfe dieses Verfahrens werden die Clientstandardeinstellungen für die Energieverwaltung konfiguriert. Es gilt für alle Computer in der Hierarchie. Wenn diese Einstellungen nur auf manche Computer angewendet werden sollen, erstellen Sie eine benutzerdefinierte Geräteclienteinstellung, und weisen Sie diese einer Sammlung mit den Computern zu, auf denen die Energieverwaltung verwendet werden soll. Weitere Informationen zum Erstellen benutzerdefinierter Geräteeinstellungen finden Sie unter [How to configure client settings in System Center Configuration Manager (Konfigurieren von Clienteinstellungen in System Center Configuration Manager)](../../../../core/clients/deploy/configure-client-settings.md).  
+## <a name="enable-and-configure-power-management-client-settings"></a>Activer et configurer les paramètres client de gestion de l’alimentation  
+ Cette procédure configure les paramètres client par défaut pour la gestion de l'alimentation et s'appliquera à tous les ordinateurs de votre hiérarchie. Si vous souhaitez que ces paramètres s'appliquent uniquement à certains ordinateurs, créez un paramètre client de périphérique personnalisé et affectez-le à un regroupement contenant les ordinateurs pour lesquels vous souhaitez utiliser la gestion de l'alimentation. Pour plus d’informations sur la création de paramètres de d’appareil personnalisés, consultez [Guide pratique pour configurer les paramètres client dans System Center Configuration Manager](../../../../core/clients/deploy/configure-client-settings.md).  
 
-#### <a name="to-enable-power-management-and-configure-client-settings"></a>So aktivieren Sie die Energieverwaltung und konfigurieren die Clienteinstellungen  
+#### <a name="to-enable-power-management-and-configure-client-settings"></a>Pour activer la gestion de l'alimentation et configurer les paramètres client  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Verwaltung**.  
+1.  Dans la console Configuration Manager, cliquez sur **Administration**.  
 
-2.  Klicken Sie im Arbeitsbereich **Verwaltung** auf **Clienteinstellungen**.  
+2.  Dans l'espace de travail **Administration** , cliquez sur **Paramètres client**.  
 
-3.  Klicken Sie auf **Clientstandardeinstellungen**.  
+3.  Cliquez sur **Paramètres client par défaut**.  
 
-4.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Eigenschaften** auf **Eigenschaften**.  
+4.  Dans l'onglet **Accueil** , dans le groupe **Propriétés** , cliquez sur **Propriétés**.  
 
-5.  Klicken Sie im Dialogfeld **Clientstandardeinstellungen** auf **Energieverwaltung**.  
+5.  Dans la boîte de dialogue **Paramètres client par défaut** , cliquez sur **Gestion de l'alimentation**.  
 
-6.  Konfigurieren Sie den folgenden Wert für die Clienteinstellungen zur Energieverwaltung:  
+6.  Configurez la valeur suivante pour les paramètres client de gestion de l’alimentation :  
 
-    -   **Energieverwaltung von Geräten zulassen** – Wählen Sie aus der Dropdownliste den Wert **Wahr** aus, um die Energieverwaltung zu aktivieren.  
+    -   **Autoriser la gestion de l'alimentation des périphériques** – Dans la liste déroulante, sélectionnez **Vrai** pour activer la gestion de l'alimentation.  
 
-7.  Konfigurieren Sie die erforderlichen Clienteinstellungen. Eine Liste der Clienteinstellungen zur Energieverwaltung, die Sie konfigurieren können, finden Sie im Abschnitt [Power Management](../../../../core/clients/deploy/about-client-settings.md#power-management) des Themas [About client settings in System Center Configuration Manager (Informationen zu Clienteinstellungen in System Center Configuration Manager)](../../../../core/clients/deploy/about-client-settings.md).  
+7.  Configurez les paramètres client dont vous avez besoin. Pour obtenir la liste des paramètres client de gestion de l’alimentation que vous pouvez configurer, consultez la section [Gestion de l’alimentation](../../../../core/clients/deploy/about-client-settings.md#power-management) dans la rubrique [À propos des paramètres client dans System Center Configuration Manager](../../../../core/clients/deploy/about-client-settings.md).  
 
-8.  Klicken Sie auf **OK** , um das Dialogfeld **Clientstandardeinstellungen** zu schließen.  
+8.  Cliquez sur **OK** pour fermer la boîte de dialogue **Paramètres client par défaut** .  
 
- Die Clientcomputer werden beim nächsten Clientrichtliniendownload mit diesen Einstellungen konfiguriert. Informationen zum Initiieren des Abrufens von Richtlinien für einen einzelnen Client finden Sie unter [How to manage clients in System Center Configuration Manager](../../../../core/clients/manage/manage-clients.md).  
+ Les ordinateurs client sont configurés avec ces paramètres lorsqu'ils téléchargent la stratégie client. Pour lancer la récupération de stratégie pour un client unique, consultez [How to manage clients in System Center Configuration Manager](../../../../core/clients/manage/manage-clients.md).  
 
-## <a name="exclude-computers-from-power-management"></a>Ausschließen von Computern aus der Energieverwaltung  
- Sie können verhindern, dass von Computersammlungen Energieverwaltungseinstellungen empfangen werden. Wenn ein Computer Mitglied einer Sammlung ist, die aus den Energieverwaltungseinstellungen ausgeschlossen wurde, werden auf diesen Computer keine Energieverwaltungseinstellungen angewendet. Dies gilt auch, wenn er gleichzeitig Mitglied einer anderen Sammlung ist, auf die Energieverwaltungseinstellungen angewendet werden.  
+## <a name="exclude-computers-from-power-management"></a>Exclure des ordinateurs de la gestion de l’alimentation  
+ Vous pouvez empêcher les regroupements d'ordinateurs de recevoir les paramètres de gestion de l'alimentation. Si un ordinateur est membre d'un regroupement qui est exclu des paramètres de gestion de l'alimentation, cet ordinateur n'applique pas les paramètres de gestion de l'alimentation, même s'il est membre d'un autre regroupement qui applique les paramètres de gestion de l'alimentation.  
 
- Möglicherweise möchten Sie Computer aus folgenden Gründen aus der Energieverwaltung ausschließen:  
+ Vous pouvez exclure des ordinateurs de la gestion de l’alimentation pour l’une des raisons suivantes :  
 
--   Aufgrund einer Unternehmensanforderung müssen Computer ständig eingeschaltet sein.  
+-   Une exigence métier requiert que les ordinateurs soient constamment allumés.  
 
--   Sie haben eine Kontrollsammlung von Computern erstellt, auf die Sie keine Energieverwaltungseinstellungen anwenden möchten.  
+-   Vous avez créé un regroupement de contrôle d'ordinateurs sur lesquels vous ne souhaitez pas appliquer les paramètres de gestion de l'alimentation.  
 
--   Bei einigen Computern ist es nicht möglich, Energieverwaltungseinstellungen anzuwenden.  
+-   Certains de vos ordinateurs sont incapables d'appliquer des paramètres de gestion de l'alimentation.  
 
--   Sie möchten Computer, auf denen Windows Server ausgeführt wird, aus der Energieverwaltung ausschließen.  
+-   Vous voulez exclure des ordinateurs qui exécutent Windows Server à partir de la gestion de l'alimentation.  
 
 > [!NOTE]  
->  Wenn die Option **Benutzern das Ausschließen ihres Geräts aus der Energieverwaltung gestatten** in den Clienteinstellungen konfiguriert ist, können Benutzer ihre Computer über das Softwarecenter aus der Energieverwaltung ausschließen.  
+>  Si l'option **Autoriser les utilisateurs à exclure leur périphérique de la gestion de l'alimentation** est configurée dans les paramètres client, les utilisateurs peuvent exclure leurs propres ordinateurs de la gestion de l'alimentation à l'aide du Centre logiciel.  
 
- Führen Sie den Bericht **Ausgeschlossene Computer**aus, um herauszufinden, welche Computer aus der Energieverwaltung ausgeschlossen wurden. Weitere Informationen zu diesem Bericht finden Sie unter [Computers Excluded (Ausgeschlossene Computer)](../../../../core/clients/manage/power/monitor-and-plan-for-power-management.md#BKMK_Excluded) im Thema [How to Monitor and Plan for Power Management in Configuration Manager (Überwachen und Planen der Energieverwaltung in System Center Configuration Manager)](../../../../core/clients/manage/power/monitor-and-plan-for-power-management.md).  
+ Pour savoir quels ordinateurs ont été exclus de la gestion de l'alimentation, exécutez le rapport **Ordinateurs exclus**. Pour plus d’informations sur ce rapport, consultez [Ordinateurs exclus](../../../../core/clients/manage/power/monitor-and-plan-for-power-management.md#BKMK_Excluded) dans [Guide pratique pour surveiller et planifier la gestion de l’alimentation dans System Center Configuration Manager](../../../../core/clients/manage/power/monitor-and-plan-for-power-management.md).  
 
 > [!IMPORTANT]  
->  Energieeinstellungen, die auf Computer mit Windows XP oder Windows Server 2003 angewendet werden, werden auch dann nicht auf ihre ursprünglichen Werte zurückgesetzt, wenn Sie die Computer aus der Energieverwaltung ausschließen. Bei späteren Versionen von Windows bewirkt das Ausschließen eines Computers aus der Energieverwaltung, dass sämtliche Energieeinstellungen auf ihre ursprünglichen Werte zurückgesetzt werden. Es können keine einzelnen Energieeinstellungen auf ihre ursprünglichen Werte zurückgesetzt werden.  
+>  Les paramètres d'alimentation appliqués aux ordinateurs qui exécutent Windows XP ou Windows Server 2003 ne sont pas rétablis selon leurs valeurs d'origine, même si vous excluez l'ordinateur de la gestion de l'alimentation. Sur les versions ultérieures de Windows, l'exclusion d'un ordinateur de la gestion de l'alimentation entraîne le rétablissement des valeurs d'origine de tous les paramètres d'alimentation. Il est impossible de rétablir les valeurs d'origine de chaque paramètre d'alimentation.  
 
-#### <a name="to-exclude-a-collection-of-computers-from-power-management"></a>So schließen Sie eine Computersammlung aus der Energieverwaltung aus  
+#### <a name="to-exclude-a-collection-of-computers-from-power-management"></a>Pour exclure un regroupement d'ordinateurs de la gestion de l'alimentation  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Bestand und Kompatibilität**.  
+1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.  
 
-2.  Klicken Sie im Arbeitsbereich **Bestand und Kompatibilität** auf **Gerätesammlungen**.  
+2.  Dans l'espace de travail **Ressources et Conformité** , cliquez sur **Regroupements d’appareils**.  
 
-3.  Wählen Sie in der Liste **Gerätesammlungen** die Sammlung aus, die Sie aus der Energieverwaltung ausschließen möchten. Klicken Sie dann auf der Registerkarte **Startseite** in der Gruppe **Eigenschaften** auf **Eigenschaften**.  
+3.  Dans la liste **Regroupements de périphériques** , sélectionnez le regroupement que vous souhaitez exclure de la gestion de l'alimentation, puis, dans l'onglet **Accueil** , dans le groupe **Propriétés** , cliquez sur **Propriétés**.  
 
-4.  Wählen Sie im Dialogfeld **Eigenschaften** von *Sammlungsname\>* auf der Registerkarte  **Energieverwaltung** die Option **Energieverwaltungseinstellungen nie auf Computer in dieser Sammlung anwenden**.  
+4.  Sous l’onglet **Gestion de l’alimentation** de la boîte de dialogue **Propriétés de** *<Nom du regroupement\>*, sélectionnez **Ne jamais appliquer les paramètres de gestion de l’alimentation aux ordinateurs de ce regroupement**.  
 
-5.  Klicken Sie auf **OK**, um das **Dialogfeld** Eigenschaften von *Sammlungsname\>* zu schließen und die Einstellungen zu speichern.  
+5.  Cliquez sur **OK** pour fermer la boîte de dialogue **Propriétés de** *<Nom du regroupement\>* et pour enregistrer vos paramètres.  

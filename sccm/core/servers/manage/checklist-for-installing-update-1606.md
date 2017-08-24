@@ -1,6 +1,6 @@
 ---
-title: "Checkliste für 1606 | Microsoft-Dokumentation"
-description: "Erhalten Sie mehr über Aktionen, die Sie durchführen müssen, bevor Sie eine Aktualisierung von System Center Configuration Manager Version 1511 oder 1602 auf Version 1606 ausführen."
+title: "Liste de contrôle pour 1606 | Microsoft Docs"
+description: "Découvrez les mesures à prendre avant d’effectuer la mise à jour de System Center Configuration Manager version 1511 ou 1602 vers la version 1606."
 ms.custom: na
 ms.date: 6/6/2017
 ms.reviewer: na
@@ -17,93 +17,93 @@ manager: angrobe
 ms.openlocfilehash: a6bda116499845fedff0126e2890755931de85bb
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="checklist-for-installing-update-1606-for-system-center-configuration-manager"></a>Checkliste für die Installation von Update 1606 für System Center Configuration Manager
+# <a name="checklist-for-installing-update-1606-for-system-center-configuration-manager"></a>Liste de contrôle pour l’installation de la mise à jour 1606 pour System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Version 1606 für System Center Configuration Manager (Current Branch) ist ein Update, das Sie für das Aktualisieren von Version 1511 oder 1602 verwenden können.
+La version 1606 de la branche CB (Current Branch) de System Center Configuration Manager est une mise à jour que vous pouvez utiliser pour effectuer la mise à jour à partir de la version 1511 ou 1602.
 
-Lesen Sie vor der Installation von Version 1606 als Update die folgenden Informationen und die Checkliste mit Aktionen, die vor Beginn des Updates durchgeführt werden müssen.
+Avant d’installer la version 1606 en tant que mise à jour, passez en revue les informations et la liste de contrôle suivantes pour connaître les mesures à prendre avant de commencer la mise à jour.
 
-Informationen zu Basisversionen finden Sie unter [Updates für System Center Configuration Manager](../../../core/servers/manage/updates.md) im Abschnitt [Baseline- und Updateversionen](../../../core/servers/manage/updates.md#bkmk_Baselines).
+Pour plus d’informations sur les versions de base de référence, consultez [Versions de base de référence et de mise à jour](../../../core/servers/manage/updates.md#bkmk_Baselines) dans [Mises à jour pour System Center Configuration Manager](../../../core/servers/manage/updates.md).
 
- ## <a name="about-installing-update-1606"></a>Informationen zur Installation des Updates 1606
+ ## <a name="about-installing-update-1606"></a>À propos de l’installation de la mise à jour 1606
 
-Als *Update* kann 1606 nur am Standort der obersten Ebene Ihrer Hierarchie installiert werden. Das bedeutet, dass Sie die Installation vom Standort der zentralen Verwaltung (falls vorhanden) oder vom eigenständigen primären Standort aus starten.  
+En tant que *mise à jour*, vous ne pouvez installer la version 1606 que sur le site de niveau supérieur de votre hiérarchie. Cela signifie que vous lancez l’installation à partir de votre site d’administration centrale si en avez un, ou à partir de votre site principal autonome.  
 
--   An untergeordneten primären Standorten wird das Update automatisch installiert, sobald die Installation des Updates am Standort der zentralen Verwaltung abgeschlossen ist. Mithilfe von Dienstfenstern können Sie steuern, wann Updates an einem Standort installiert werden. Vor Version 1606 wurden Dienstfenster als Wartungsfenster bezeichnet. Weitere Informationen finden Sie unter [Dienstfenster für Standortserver](/sccm/core/servers/manage/service-windows).  
+-   Les sites principaux enfants installent automatiquement la mise à jour après que le site d’administration centrale a fini de l’installer. Vous pouvez utiliser des fenêtres de service pour contrôler le moment auquel un site installe les mises à jour. Avant la version 1606, les fenêtres de service étaient désignées sous le nom de fenêtres de maintenance. Pour plus d’informations, consultez [Fenêtres de maintenance pour les serveurs de site](/sccm/core/servers/manage/service-windows).  
 
--   Sie müssen sekundäre Standorte von der Configuration Manager-Konsole aus manuell aktualisieren, nachdem die Installation des Updates am primären übergeordneten Standort abgeschlossen wurde. Die automatische Aktualisierung sekundärer Standortserver wird nicht unterstützt.  
+-   Une fois que le site parent principal a installé la mise à jour, vous devez mettre à jour manuellement les sites secondaires à partir de la console Configuration Manager. La mise à jour automatique des serveurs de sites secondaires n’est pas prise en charge.  
 
-Bei der Installation des Updates auf dem Standortserver werden Standortsystemrollen, die auf dem Standortserver und auf Remotecomputern installiert sind, automatisch aktualisiert. Stellen Sie daher vor der Installation des Updates sicher, dass jeder Standortsystemserver die neuen Voraussetzungen für den Betrieb mit der neuen Updateversion erfüllt.  
+Quand le serveur de site installe la mise à jour, les rôles de système de site installés sur le serveur de site et sur des ordinateurs distants sont automatiquement mis à jour. Par conséquent, avant d’installer la mise à jour, vérifiez que chaque serveur de système de site remplit les nouveaux prérequis pour les opérations avec la nouvelle version de mise à jour.  
 
-Bei der ersten Verwendung einer Configuration Manager-Konsole nach Installation des Updates werden Sie aufgefordert, die Konsole zu aktualisieren.  Dazu müssen Sie das Configuration Manager-Setup auf dem Computer ausführen, der die Konsole hostet, und dann die Option zum Aktualisieren der Konsole auswählen. Es wird empfohlen, die Installation des Updates auf der Konsole unverzüglich durchzuführen.
+La première fois que vous utilisez une console Configuration Manager à l’issue de la mise à jour, vous êtes invité à mettre à jour cette console.  Pour cela, vous devez exécuter le programme d’installation de Configuration Manager sur l’ordinateur hébergeant la console, puis choisir l’option de mise à jour de la console. Nous vous recommandons de ne pas retarder l’installation de la mise à jour sur la console.
 
- **Bekannte Probleme dieses Updates**   
-  Die folgenden Probleme betreffen Sie, wenn Sie den Installationsstatus des Updatepakets anzeigen:
-  - Beim Aktualisieren von Version 1602 auf 1606 zeigt der Schritt **Updatepaket-Nutzlast extrahieren** den Status **Nicht gestartet** an, auch wenn der Download abgeschlossen ist.
-  - Beim Aktualisieren von Version 1511 auf 1606 zeigen einige Schritte den Status **Abgeschlossen**, jedoch keinen Wert für **Zeitpunkt der letzten Aktualisierung** an.
+ **Problèmes connus pour cette mise à jour**   
+  Les problèmes suivants se posent quand vous affichez l’état de l’installation du package de mise à jour :
+  - Lors de la mise à jour de la version 1602 vers 1606, l’étape **Extraire la charge utile du package de mise à jour** affiche l’état **Non démarré**, même si le téléchargement est terminé.
+  - Lors de la mise à jour de la version 1511 vers 1606, certaines étapes présentent l’état **Terminé**, mais n’affichent pas de valeur pour **Heure de la dernière mise à jour**.
 
 
-## <a name="checklist"></a>Prüfliste  
+## <a name="checklist"></a>Liste de contrôle  
 
- **Stellen Sie sicher, dass an allen Standorten eine unterstützte Version von System Center Configuration Manager ausgeführt wird:** Auf jedem Standortserver in der Hierarchie muss die gleiche Version von Configuration Manager ausgeführt werden (entweder 1511 oder 1602), bevor Sie die Installation des Updates 1606 starten.
+ **Vérifiez que tous les sites exécutent une version prise en charge de System Center Configuration Manager** : avant de démarrer l’installation de la mise à jour 1606, chaque serveur de site dans la hiérarchie doit exécuter la même version de System Center Configuration Manager, que ce soit la version 1511 ou 1602.
 
- **Überprüfen Sie die installierten Microsoft .NET-Versionen auf den Standortsystemservern:** Bei der Installation von Update 1606 an einem Standort installiert Configuration Manager automatisch .NET Framework 4.5.2 auf jedem Computer, auf dem eine der folgenden Standortsystemrollen gehostet wird (wenn .NET Framework 4.5 oder höher nicht bereits installiert ist):  
+ **Examinez les versions installées de Microsoft .NET sur les serveurs de système de site** : quand un site installe la mise à jour 1606, Configuration Manager installe automatiquement le .NET Framework 4.5.2 sur chaque ordinateur hébergeant un des rôles de système de site suivants (si le .NET Framework 4.5 ou ultérieur n’est pas déjà installé) :  
 
--   Anmeldungsproxypunkt  
+-   Point proxy d'inscription  
 
--   Anmeldungspunkt  
+-   Point d'inscription  
 
--   Verwaltungspunkt  
+-   Point de gestion  
 
--   Dienstverbindungspunkt  
+-   Point de connexion de service  
 
-Diese Installation kann den Standortsystemserver in den Zustand „Ausstehender Neustart“ versetzen und Fehler an die Configuration Manager-Komponentenstatusanzeige melden. Darüber hinaus treten bei .NET-Anwendungen auf dem Server gelegentlich Fehler auf, bis der Server neu gestartet wird.  
+Cette installation peut mettre le serveur de système de site en état d’attente de redémarrage, et signaler des erreurs sur l’Afficheur des messages d’état du composant Configuration Manager. En outre, des applications .NET sur le serveur peuvent présenter des défaillances aléatoires jusqu’au redémarrage du serveur.  
 
- Weitere Informationen finden Sie unter [Standort- und Standortsystemanforderungen](../../../core/plan-design/configs/site-and-site-system-prerequisites.md).  
+ Pour plus d’informations, consultez [Prérequis des sites et systèmes de site](../../../core/plan-design/configs/site-and-site-system-prerequisites.md).  
 
- **Prüfen Sie den Standort- und Hierarchiestatus, und stellen Sie sicher, dass keine ungelösten Probleme vorliegen:** Bevor Sie das Update für einen Standort durchführen, sollten Sie alle Betriebsprobleme beheben, die den Standortserver, den Standortdatenbankserver und die auf Remotecomputern installierten Standortsystemrollen betreffen. Betriebsprobleme können die Ursache für Fehler beim Update von Standorten sein.
+ **Examinez l’état du site et de la hiérarchie, et vérifiez l’absence de tout problème non résolu :** avant de mettre à jour un site, résolvez tous les problèmes opérationnels pour le serveur de site, le serveur de bases de données du site et les rôles de système de site installés sur des ordinateurs distants. Une mise à niveau de site peut échouer en raison de l’existence de problèmes opérationnels.
 
- Weitere Informationen finden Sie unter [Verwenden von Benachrichtigungen und des Statussystems für System Center Configuration Manager](../../../core/servers/manage/use-alerts-and-the-status-system.md).  
+ Pour plus d'informations, voir [Utiliser des alertes et le système d’état pour System Center Configuration Manager](../../../core/servers/manage/use-alerts-and-the-status-system.md).  
 
- **Überprüfen Sie die Datei- und Datenreplikation zwischen Standorten:**  Stellen Sie sicher, dass die Datei- und Datenreplikation zwischen Standorten betriebsbereit und aktuell ist. Verzögerungen oder Rückstände können ein reibungsloses und erfolgreiches Update verhindern.    
+ **Examinez la réplication des fichiers et données entre sites :**  vérifiez que la réplication des fichiers et bases de données entre les sites est opérationnelle et active. Des retards ou backlogs dans ces domaines peuvent perturber ou empêcher la mise à jour.    
 
-Für die Datenbankreplikation können Sie die Replikationslinkanalyse verwenden, um Probleme vor Beginn des Updates zu lösen. Weitere Informationen finden Sie unter [Informationen zur Replikationslinkanalyse](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md#BKMK_RLA) im Thema [Überwachen der Hierarchie- und Replikationsinfrastruktur in System Center Configuration Manager](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md).  
+Pour la réplication de la base de données, vous pouvez utiliser l’Analyseur de lien de réplication pour faciliter la résolution des problèmes avant de commencer la mise à jour. Pour plus d’informations, consultez [À propos de l’analyseur de lien de réplication](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md#BKMK_RLA) dans la rubrique [Surveiller l’infrastructure de la hiérarchie et de la réplication dans System Center Configuration Manager](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md).  
 
- **Installieren Sie alle anwendbaren wichtigen Updates für Betriebssysteme auf Computern, auf denen der Standort gehostet wird, auf dem Standortdatenbankserver und auf Remote-Standortsystemrollen:** Installieren Sie vor der Installation eines Updates für Configuration Manager alle wichtigen Updates für jedes relevante Standortsystem. Wenn für ein von Ihnen installiertes Update ein Neustart erforderlich ist, starten Sie die jeweiligen Computer neu, bevor Sie mit dem Upgrade beginnen.  
+ **Installez toutes les mises à jour critiques applicables pour les systèmes d’exploitation sur les ordinateurs hébergeant le site, le serveur de base de données du site et les rôles de système de site distants :** avant d’installer une mise à jour pour Configuration Manager, installez toutes les mises à jour critiques pour chaque système de site concerné. Si vous installez une mise à jour qui nécessite un redémarrage, redémarrez les ordinateurs concernés avant d'entreprendre la mise à jour.  
 
- **Deaktivieren Sie Datenbankreplikate für Verwaltungspunkte an primären Standorten:** Configuration Manager kann einen primären Standort, an dem ein Datenbankreplikat für Verwaltungspunkte aktiviert ist, nicht erfolgreich aktualisieren. Deaktivieren Sie die Datenbankreplikation, bevor Sie ein Update für Configuration Manager installieren.  
+ **Désactivez les réplicas de base de données pour les points de gestion sur les sites principaux :** Configuration Manager ne peut pas mettre à jour correctement un site principal ayant un réplica de base de données activé pour des points de gestion. Désactivez la réplication de base de données avant d’installer une mise à jour pour Configuration Manager.  
 
-Weitere Informationen finden Sie unter [Datenbankreplikate für Verwaltungspunkte für System Center Configuration Manager](../../../core/servers/deploy/configure/database-replicas-for-management-points.md).  
+Pour plus d’informations, consultez [Réplicas de base de données pour les points de gestion de System Center Configuration Manager](../../../core/servers/deploy/configure/database-replicas-for-management-points.md).  
 
- **Legen Sie SQL Server Always On-Verfügbarkeitsgruppen auf manuelles Failover fest:**  
- Vor der Installation von Updates, z.B. Version 1606, stellen Sie sicher, dass die Verfügbarkeitsgruppe auf manuelles Failover festgelegt ist. Nachdem der Standort aktualisiert wurde, können Sie wieder auf automatisches Failover umstellen. Weitere Informationen finden Sie unter [SQL Server AlwaysOn für eine hoch verfügbare Standortdatenbank für System Center Configuration Manager](../../../core/servers/deploy/configure/sql-server-alwayson-for-a-highly-available-site-database.md).
+ **Définir un basculement manuel pour les groupes de disponibilité SQL Server AlwaysOn :**  
+ Avant d’installer les mises à jour, comme la version 1606, vérifiez que le groupe de disponibilité est défini pour un basculement manuel. Une fois le site mis à jour, vous pouvez restaurer le basculement automatique. Pour plus d’informations, consultez [SQL Server AlwaysOn pour une base de données de site](../../../core/servers/deploy/configure/sql-server-alwayson-for-a-highly-available-site-database.md).
 
- **Konfigurieren Sie Softwareupdatepunkte mit NLBs neu:** Configuration Manager kann kein Update für Standorte durchführen, an denen Softwareupdatepunkte mithilfe eines Netzwerklastenausgleich-Clusters (Network Load Balancing, NLB) gehostet werden.  
+ **Reconfigurez les points de mise à jour logicielle qui utilisent des équilibrages de la charge réseau :** Configuration Manager ne peut pas mettre à jour un site utilisant un cluster d’équilibrage de la charge réseau (NLB) pour héberger des points de mise à jour logicielle.  
 
-Wenn Sie für Softwareupdatepunkte NLB-Cluster verwenden, entfernen Sie den NLB-Cluster mithilfe von Windows PowerShell.    
+Si vous utilisez des clusters NLB pour les points de mise à jour logicielle, utilisez Windows PowerShell pour supprimer le cluster NLB.    
 
- Weitere Informationen finden Sie unter [Planen von Softwareupdates in System Center Configuration Manager](../../../sum/plan-design/plan-for-software-updates.md).  
+ Pour plus d’informations, consultez [Planifier les mises à jour logicielles dans System Center Configuration Manager](../../../sum/plan-design/plan-for-software-updates.md).  
 
- **Deaktivieren Sie alle Standortwartungstasks an jedem Standort für die Dauer der Updateinstallation am jeweiligen Standort:** Deaktivieren Sie vor der Updateinstallation alle Standortwartungstasks, die möglicherweise während des Zeitraums ausgeführt werden, für den der Updatevorgang aktiv ist. Zu diesen Tasks gehören u. a. folgende:  
+ **Désactivez toutes les tâches de maintenance de site sur chaque site pendant la durée de l’installation de la mise à jour sur celui-ci** : avant d’installer la mise à jour, désactivez toute tâche de maintenance de site susceptible de s’exécuter pendant que le processus de mise à jour est actif. Cela inclut, sans toutefois s'y limiter, les tâches suivantes :  
 
--   Standortserver sichern  
+-   Serveur de site de sauvegarde  
 
--   Veraltete Clientvorgänge löschen  
+-   Supprimer les anciennes opérations du client  
 
--   Veraltete Ermittlungsdaten löschen  
+-   Supprimer les données de découverte anciennes  
 
-Wenn ein Standortdatenbank-Wartungstask während der Updateinstallation ausgeführt wird, kann bei der Updateinstallation ein Fehler auftreten. Bevor Sie einen Task deaktivieren, zeichnen Sie den Zeitplan des Tasks auf, sodass Sie die Konfiguration nach Abschluss des Updates wiederherstellen können.  
+Si une tâche de maintenance de base de données du site s’exécute pendant l’installation de la mise à jour, celle-ci peut échouer. Avant de désactiver une tâche, enregistrez sa planification pour pouvoir restaurer sa configuration une fois la mise à jour installée.  
 
-Weitere Informationen finden Sie unter [Wartungstasks für System Center Configuration Manager](../../../core/servers/manage/maintenance-tasks.md) und [Referenz für Wartungstasks für System Center Configuration Manager](../../../core/servers/manage/reference-for-maintenance-tasks.md).  
+Pour plus d’informations, consultez [Tâches de maintenance pour System Center Configuration Manager](../../../core/servers/manage/maintenance-tasks.md) et [Référence des tâches de maintenance pour System Center Configuration Manager](../../../core/servers/manage/reference-for-maintenance-tasks.md).  
 
- **Erstellen Sie eine Sicherung der Standortdatenbank am Standort der zentralen Verwaltung und an den primären Standorten:** Sichern Sie vor dem Update eines Standorts die Standortdatenbank, um sicherzustellen, dass Sie eine erfolgreiche Sicherung für die Notfallwiederherstellung besitzen.   
+ **Créez une sauvegarde de la base de données du site d’administration centrale et des sites principaux :** avant de mettre à jour un site, sauvegardez sa base de données pour être certain de disposer d’une sauvegarde correcte utilisable en cas de récupération d’urgence.   
 
-Weitere Informationen finden Sie unter [Sicherung und Wiederherstellung für System Center Configuration Manager](../../../protect/understand/backup-and-recovery.md).  
+Pour plus d’informations, consultez [Sauvegarde et récupération pour System Center Configuration Manager](../../../protect/understand/backup-and-recovery.md).  
 
 <!-- Removed from update guidance 6/6/2017
  **Test the database upgrade on a copy of the most recent site database backup:** Before you update a System Center Configuration Manager central administration site or primary site, test the site database upgrade process on a copy of the site database.  
@@ -123,24 +123,24 @@ Configuration Manager does not support the backup of secondary sites nor does it
 Do not run a test database upgrade on the production site database. Doing so updates the site database and could render your site inoperable. For more information, For more information, see [Step 2: Test the database upgrade before installing an update](/sccm/core/servers/manage/install-in-console-updates#bkmk_step2) from **Before you install an in-console update**.
 -->
 
- **Planen Sie Pilottests für Clients:** Wenn Sie ein Update zum Aktualisieren des Clients installieren, können Sie dieses neue Clientupdate in der Präproduktionsphase testen, bevor es bereitgestellt und das Upgrade für all Ihre aktiven Clients durchgeführt wird.   
+ **Planifiez un test du client** : quand vous installez une mise à jour qui affecte le client, vous pouvez la tester en mode préproduction avant de procéder au déploiement et à la mise à niveau de tous vos clients actifs.   
 
- Um diese Option vor der Installation des Updates zu nutzen, müssen Sie Ihren Standort für die Unterstützung automatischer Updates für die Präproduktionsphase konfigurieren. Weitere Informationen finden Sie unter [Aktualisieren von Clients in System Center Configuration Manager](../../../core/clients/manage/upgrade/upgrade-clients.md) und   
-[Testen von Clientupgrades in einer Präproduktionssammlung in System Center Configuration Manager](../../../core/clients/manage/upgrade/test-client-upgrades.md).  
+ Pour tirer parti de cette option, avant de commencer l’installation de la mise à jour, vous devez configurer votre site pour qu’il prenne en charge les mises à niveau automatiques pour la préproduction. Pour plus d’informations, consultez [Mettre à niveau les clients dans System Center Configuration Manager](../../../core/clients/manage/upgrade/upgrade-clients.md) et   
+[Guide pratique pour tester les mises à niveau du client dans un regroupement de préproduction dans System Center Configuration Manager](../../../core/clients/manage/upgrade/test-client-upgrades.md).  
 
- **Planen Sie die Verwendung von Dienstfenstern, um den Zeitpunkt der Updateinstallation auf den Standortservern zu steuern:** Mithilfe der Dienstfenster können Sie einen Zeitraum definieren, in dem Updates an einem Standortserver installiert werden können.
+ **Planifiez l’utilisation de fenêtres de service pour contrôler le moment où les serveurs de site installent les mises à jour :** vous pouvez utiliser les fenêtres de service pour définir une période au cours de laquelle des mises à jour peuvent être installées sur un serveur de site.
 
-Damit können Sie steuern, wann das Update an Standorten in Ihrer Hierarchie installiert werden kann.
-Vor Version 1606 wurden Dienstfenster als Wartungsfenster bezeichnet. Weitere Informationen finden Sie unter [Dienstfenster für Standortserver](/sccm/core/servers/manage/service-windows).  
+Cela peut vous aider à contrôler le moment où les sites au sein de votre hiérarchie installent la mise à jour.
+Avant la version 1606, les fenêtres de service étaient désignées sous le nom de fenêtres de maintenance. Pour plus d’informations, consultez [Fenêtres de maintenance pour les serveurs de site](/sccm/core/servers/manage/service-windows).  
 
- **Führen Sie die Setup-Voraussetzungsprüfung aus:** Vor der Installation des Updates 1606 können Sie die Voraussetzungsprüfung unabhängig von der Updateinstallation ausführen. Beim Installieren des Updates am Standort wird die Voraussetzungsprüfung erneut ausgeführt.  
+ **Exécutez l’outil de vérification des prérequis à l’installation** : avant d’installer la mise à jour 1606, vous pouvez exécuter l’outil de vérification des prérequis indépendamment de l’installation de la mise à jour. Quand vous installez la mise à jour sur le site, l’outil de vérification des prérequis s’exécute à nouveau.  
 
-Weitere Informationen finden Sie unter **Schritt 3: Ausführen der Voraussetzungsprüfung vor der Installation eines Updates** im Thema [Updates für System Center Configuration Manager](../../../core/servers/manage/install-in-console-updates.md).  
+Pour plus d’informations, consultez **Étape 3 : exécuter l’Outil de vérification des conditions préalables avant d’installer une mise à jour** dans la rubrique [Mises à jour pour System Center Configuration Manager](../../../core/servers/manage/install-in-console-updates.md).  
 
 > [!IMPORTANT]  
->  Wenn die Voraussetzungsprüfung im Rahmen einer Updateinstallation oder unabhängig davon ausgeführt wird, werden vom Prozess einige Produktquelldateien aktualisiert, die für Standortwartungstasks verwendet werden. Wenn Sie daher nach Durchführung der Voraussetzungsprüfung, aber vor Installation des Updates 1606 einen Standortwartungstask durchführen müssen, führen Sie **Setupwpf.exe** (Configuration Manager-Setup) im Ordner „CD.Latest“ auf dem Standortserver aus.  
+>  Quand l’outil de vérification des prérequis s’exécute indépendamment ou dans le cadre de l’installation d’une mise à jour, le processus met à jour certains fichiers sources du produit qui sont utilisés pour les tâches de maintenance de site. Par conséquent, après l’exécution de l’outil de vérification des prérequis, mais avant l’installation de la mise à jour 1606, si vous devez effectuer une tâche de maintenance de site, exécutez **Setupwfe.exe** (programme d’installation de Configuration Manager) à partir du dossier CD.Latest sur le serveur de site.  
 
- **Aktualisieren Sie Standorte:** Sie können nun die Updateinstallation für Ihre Hierarchie starten.  
-  Es wird empfohlen, die Installation des Updates für jeden Standort außerhalb der normalen Geschäftszeiten zu planen, wenn die Installation des Updates und die zugehörigen Aktionen zum Neuinstallieren von Standortkomponenten und Standortsystemrollen die geringsten Auswirkungen auf die Geschäftsvorgänge haben.
+ **Mettez à jour les sites :** vous êtes maintenant prêt à commencer l’installation de la mise à jour pour votre hiérarchie.  
+  Nous vous recommandons de planifier l’installation de la mise à jour en dehors des heures de bureau normales pour chaque site, quand le processus d’installation de la mise à jour et ses actions pour réinstaller les composants du site et les rôles de système de site auront le moins d’effet sur les opérations de votre entreprise.
 
-Weitere Informationen finden Sie unter [Updates für System Center Configuration Manager](../../../core/servers/manage/updates.md).  
+Pour plus d’informations, consultez [Mises à jour pour System Center Configuration Manager](../../../core/servers/manage/updates.md).  

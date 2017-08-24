@@ -1,6 +1,6 @@
 ---
-title: "Verwalten von Clients im Internet – Configuration Manager | Microsoft-Dokumentation"
-description: "In diesem Artikel erhalten Sie Informationen über das Verwalten von Clients mithilfe des Cloudverwaltungsgateways und über die internetbasierte Clientverwaltung in Configuration Manager."
+title: "Gérer les clients sur Internet - Configuration Manager | Microsoft Docs"
+description: "Découvrez la gestion de clients avec la passerelle de gestion cloud et la gestion du client basée sur Internet de Configuration Manager."
 ms.date: 04/23/2017
 ms.prod: configuration-manager
 ms.technology: configmgr-client
@@ -11,61 +11,61 @@ manager: angrobe
 ms.openlocfilehash: 1b6752be448e1062c97a3225db4fa8af9f4832a6
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-clients-on-the-internet-with-configuration-manager"></a>Verwalten von Clients im Internet mit Configuration Manager
+# <a name="manage-clients-on-the-internet-with-configuration-manager"></a>Gérer les clients sur Internet avec Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-In der Regel sind in Configuration Manager die meisten verwalteten Computer und Server auf demselben internen privaten oder Unternehmensnetzwerk wie die Standortsystemserver, die Verwaltungsfunktionen ausführen. Allerdings können Sie Client-Computer außerhalb des Unternehmensnetzwerks verwalten, wenn sie mit dem Internet verbunden sind, ohne dass die Clients eine Verbindung über virtuelle private Netzwerke herstellen müssen, um die Standortsystemserver zu erreichen.
+En général, dans Configuration Manager, la plupart des ordinateurs et serveurs gérés se trouvent physiquement sur le même réseau d’entreprise ou privé interne que les serveurs de système de site qui exécutent des fonctions de gestion. Toutefois, vous pouvez gérer les ordinateurs clients en dehors de votre réseau d’entreprise s’ils sont connectés à Internet sans obliger les clients à se connecter via des réseaux privés virtuels pour atteindre les serveurs de système de site.
 
-Configuration Manager bietet zwei Methoden, mit dem Internet verbundene Clients zu verwalten:
+Configuration Manager fournit deux façons de gérer les clients connectés à Internet :
 
--   Cloudverwaltungsgateway
+-   Passerelle de gestion cloud
 
--   Internetbasierte Clientverwaltung
+-   Gestion des clients basés sur Internet
 
-## <a name="cloud-management-gateway"></a>Cloudverwaltungsgateway
+## <a name="cloud-management-gateway"></a>Passerelle de gestion cloud
 
-Ab Version 1610 bietet Configuration Manager das Cloudverwaltungsgateway. Diese neue Methode bietet eine Möglichkeit zur Verwaltung von internetbasierten Clients mit einer Kombination aus einem Cloud-Dienst, der für Microsoft Azure bereitgestellt wird, und einer neuen Standortsystemrolle, die mit diesem Dienst kommuniziert. Clients verwenden dann den Dienst, um mit Configuration Manager zu kommunizieren.
+Depuis la version 1610, Configuration Manager présente la passerelle de gestion cloud. Cette nouvelle méthode fournit un moyen de gérer les clients Internet en combinant un service cloud déployé sur Microsoft Azure et un nouveau rôle de système de site qui communique avec ce service. Les clients utilisent ensuite le service pour communiquer avec Configuration Manager.
 
-Vorteile:
+Avantages :
 
--   Keine zusätzlichen Infrastrukturinvestitionen erforderlich.
+-   Aucun investissement n’est nécessaire pour l’infrastructure supplémentaire.
 
--   Lokale Infrastruktur bleibt vom Internet getrennt.
+-   L’infrastructure locale n’est pas exposée sur Internet.
 
--   Virtuelle Computer in der Cloud, auf denen der Dienst ausgeführt wird, werden vollständig von Azure verwaltet und erfordern keine Wartung.
+-   Les machines virtuelles du cloud qui exécutent le service sont entièrement gérées par Azure et ne nécessitent aucune maintenance.
 
--   Einfache Einrichtung und Konfiguration in der Configuration Manager-Konsole.
+-   Installation et configuration faciles dans la console Configuration Manager.
 
-Nachteile:
+Inconvénients :
 
--   Cloud-Abonnement-Kosten.
+-   Coût de l’abonnement au cloud.
 
--   Verwaltungsdaten werden über Cloud-Dienst gesendet.
+-   Données de gestion envoyées via le service cloud.
 
-Weitere Informationen finden Sie unter [Planen des Cloudverwaltungsgateways](plan-cloud-management-gateway.md).
+Pour plus d’informations, consultez [Planifier la passerelle de gestion cloud](plan-cloud-management-gateway.md).
 
-## <a name="internet-based-client-management"></a>Internetbasierte Clientverwaltung
+## <a name="internet-based-client-management"></a>Gestion des clients basés sur Internet
 
-Diese Methode beruht auf Internet-bezogenen Standortsystemservern, mit denen Clients zu Verwaltungszwecken kommunizieren. Bei dieser Methode müssen Clients und Standortsystemserver für die internetbasierte Verwaltung konfiguriert werden.
+Cette méthode s’appuie sur les serveurs de système de site Internet avec lesquels les clients communiquent à des fins de gestion. Elle nécessite que les clients et serveurs de système de site soient configurés pour une gestion basée sur Internet.
 
-Vorteile:
+Avantages :
 
--   Keine Abhängigkeit von einem Cloud-Dienst.
+-   Aucune dépendance du service cloud.
 
--   Ohne zusätzliche Kosten eines Cloud-Abonnements.
+-   Aucun coût supplémentaire associé à un abonnement au cloud.
 
--   Vollständige Kontrolle von Servern und Rollen, die den Dienst bereitstellen.
+-   Contrôle total des serveurs et rôles assurant le service.
 
-Nachteile:
+Inconvénients :
 
--   Zusätzliche Infrastrukturinvestitionen erforderlich.
+-   Un investissement est nécessaire pour l’infrastructure supplémentaire.
 
--   Gemeinkosten und Betriebskosten der zusätzlichen Infrastruktur.
+-   Frais généraux et coût opérationnel de l’infrastructure supplémentaire.
 
--   Infrastruktur muss mit dem Internet verbunden sein.
+-   L’infrastructure doit être exposée sur Internet.
 
-Weitere Informationen finden Sie unter [Planen der internetbasierten Clientverwaltung](plan-internet-based-client-management.md).
+Pour plus d’informations, consultez [Planifier la gestion des clients basés sur Internet](plan-internet-based-client-management.md).

@@ -1,6 +1,6 @@
 ---
-title: Erstellen von Konfigurationselementen | Microsoft-Dokumentation
-description: "Erstellen Sie Konfigurationen für Geräte, die sowohl von System Center Configuration Manager verwaltet als auch bei Microsoft Intune registriert sind, und stellen Sie sie für diese Geräte bereit."
+title: "Guide pratique pour créer des éléments de configuration | Microsoft Docs"
+description: "Créez et déployez des configurations sur des appareils qui sont à la fois gérés par System Center Configuration Manager et inscrits auprès de Microsoft Intune."
 ms.custom: na
 ms.date: 03/28/2017
 ms.prod: configuration-manager
@@ -18,17 +18,17 @@ manager: angrobe
 ms.openlocfilehash: cddf549f017792add1b17b722bf51769060520b7
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-create-configuration-items-in-system-center-configuration-manager"></a>Erstellen von Konfigurationselementen in System Center Configuration Manager
+# <a name="how-to-create-configuration-items-in-system-center-configuration-manager"></a>Comment créer des éléments de configuration dans System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Mit den Konformitätseinstellungen in System Center Configuration Manager können Sie Konfigurationen sowohl für Geräte, die von Configuration Manager verwaltet werden, als auch für Geräte, die bei Microsoft Intune registriert werden, erstellen und bereitstellen.  
+Les paramètres de compatibilité dans System Center Configuration Manager vous permettent de créer et de déployer des configurations sur les appareils qui sont gérés par Configuration Manager et les appareils qui ont été inscrits auprès de Microsoft Intune.  
 
-## <a name="in-this-section"></a>Inhalt dieses Abschnitts  
+## <a name="in-this-section"></a>Dans cette section  
 
--   [Konfigurationselemente für Geräte, die mit dem System Center Configuration Manager-Client verwaltet werden](../../compliance/deploy-use/configuration-items-for-devices-managed-with-the-client.md)  
+-   [Éléments de configuration pour les appareils gérés avec le client System Center Configuration Manager](../../compliance/deploy-use/configuration-items-for-devices-managed-with-the-client.md)  
 
--   [Konfigurationselemente für Geräte, die mit Intune verwaltet werden](../../compliance/deploy-use/configuration-items-for-devices-managed-without-the-client.md)  
+-   [Éléments de configuration pour les appareils gérés avec Microsoft Intune](../../compliance/deploy-use/configuration-items-for-devices-managed-without-the-client.md)  

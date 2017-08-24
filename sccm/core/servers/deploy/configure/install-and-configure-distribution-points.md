@@ -1,6 +1,6 @@
 ---
-title: Verwalten von Verteilungspunkten | Microsoft-Dokumentation
-description: "Hosten Sie den Inhalt (Dateien und Software), den Sie für Geräte und Benutzer bereitstellen, mithilfe von Verteilungspunkten. In diesem Artikel erhalten Sie eine Installations- und Konfigurationsanleitung."
+title: "Gérer les points de distribution | Microsoft Docs"
+description: "Hébergez le contenu (fichiers et logiciels) que vous déployez pour les appareils et les utilisateurs sur des points de distribution. Voici comment les installer et les configurer."
 ms.custom: na
 ms.date: 2/14/2017
 ms.prod: configuration-manager
@@ -17,374 +17,374 @@ manager: angrobe
 ms.openlocfilehash: 4c94e4de5bbfe621492e8682c9424a48eb38196d
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="install-and-configure-distribution-points-for-system-center-configuration-manager"></a>Installieren und Konfigurieren von Verteilungspunkten für System Center Configuration Manager
+# <a name="install-and-configure-distribution-points-for-system-center-configuration-manager"></a>Installer et configurer des points de distribution pour System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
  
-Verteilungspunkte in System Center Configuration Manager werden installiert, um den Inhalt (Dateien und Software) zu hosten, den Sie für Geräte und Benutzer bereitstellen. Sie können auch Verteilungspunktgruppen erstellen, die die Verwaltung von Verteilungspunkten und die Verteilung von Inhalt an die Verteilungspunkte erleichtern.  
+Vous pouvez installer des points de distribution System Center Configuration Manager pour héberger le contenu (fichiers et logiciels) que vous déployez sur des appareils et des utilisateurs. Vous pouvez aussi créer des groupes de points de distribution de façon à simplifier la gestion des points de distribution, ainsi que la distribution du contenu aux points de distribution.  
 
- Wenn Sie *einen neuen Verteilungspunkt installieren* (mithilfe des Installations-Assistenten) oder *die Eigenschaften eines vorhandenen Verteilungspunkts verwalten* (durch Bearbeiten der Verteilungspunkteigenschaften), können Sie einen Großteil der Einstellungen des Verteilungspunkts konfigurieren. Es gibt jedoch einige Einstellungen, die entweder bei der Installation oder bei der Bearbeitung, aber nicht gleichzeitig verfügbar sind:  
+ Lorsque vous *installez un nouveau point de distribution* (à l’aide de l’Assistant Installation) ou que vous *gérez les propriétés d’un point de distribution* (en les modifiant), vous pouvez configurer la plupart des paramètres du point de distribution. Certains paramètres ne sont disponibles que lorsque vous effectuez une installation ou une modification, mais pas les deux :  
 
--   Einstellungen, die nur bei der Installation eines Verteilungspunkts verfügbar sind:  
+-   Paramètres disponibles uniquement lors de l’installation d’un point distribution :  
 
-    -   **Zulassen, dass Configuration Manager IIS auf dem Verteilungspunktcomputer installiert**
+    -   **Allow Configuration Manager to install IIS on the distribution point computer (Autoriser Configuration Manager à installer IIS sur l’ordinateur du point de distribution)**
 
-    -   **Konfigurieren der Laufwerksspeicherplatzeinstellungen für den Verteilungspunkt**  
+    -   **Configure drive space settings for the distribution point (Configurer les paramètres d’espace disque pour le point de distribution)**  
 
--   Einstellungen, die nur bei der Bearbeitung der Eigenschaften eines Verteilungspunkts verfügbar sind:  
+-   Paramètres disponibles seulement pendant lorsque vous modifiez les propriétés d’un point distribution :  
 
-    -   **Verwalten der Beziehungen zwischen Verteilungspunktgruppen**  
+    -   **Manage distribution point group relationships (Gérer les relations d’un groupe de points de distribution)**  
 
-    -   **Anzeigen von auf dem Verteilungspunkt bereitgestelltem Inhalt**  
+    -   **View Content deployed to the distribution point (Afficher le contenu déployé sur le point de distribution)**  
 
-    -   **Konfigurieren der Begrenzung der Datenübertragungsrate für Datenübertragungen an Verteilungspunkte**  
+    -   **Configure Rate limits for data transfers to distribution points (Configurer des limites de taux pour les transferts de données vers les points de distribution)**  
 
-    -   **Konfigurieren der Zeitpläne für Datenübertragungen an Verteilungspunkte**  
+    -   **Configure Schedules for data transfers to distribution points (Configurer des planifications pour les transferts de données vers les points de distribution)**  
 
-##  <a name="bkmk_install"></a> Installieren eines Verteilungspunkts  
- Sie müssen einen Standortsystemserver als Verteilungspunkt festlegen, bevor Inhalt für Clientcomputer verfügbar gemacht werden kann. Sie können die Standortrolle „Verteilungspunkt“ einem neuen oder einem vorhandenen Standortsystemserver hinzufügen.  
+##  <a name="bkmk_install"></a> Installer un point de distribution  
+ Vous devez désigner un serveur de système de site en tant que point de distribution pour rendre le contenu disponible pour les ordinateurs clients. Vous pouvez ajouter un rôle de site de point de distribution à un nouveau serveur de système de site ou ajouter le rôle de site à un système de site existant.  
 
- Wenn Sie einen neuen Verteilungspunkt installieren, verwenden Sie einen Installations-Assistenten, der mit Ihnen die verfügbaren Einstellungen durchgeht. Bevor Sie beginnen, beachten Sie Folgendes:  
+ Quand vous installez un nouveau point de distribution, vous utilisez un Assistant d’installation qui vous guide à travers les paramètres disponibles. Avant de commencer, tenez compte des points suivants :  
 
--   Sie benötigen die folgenden Sicherheitsberechtigungen, um einen Verteilungspunkt zu erstellen und zu konfigurieren:  
+-   Pour créer et configurer un point de distribution, vous devez disposer des autorisations de sécurité suivantes :  
 
-    -   **Lesen** für das Objekt **Verteilungspunkt**  
+    -   **Lecture** pour l'objet **Point de distribution**  
 
-    -   **Kopieren an Verteilungspunkt** für das Objekt **Verteilungspunkt**  
+    -   **Copier vers le point de distribution** pour l'objet **Point de distribution**  
 
-    -   **Ändern** für das Objekt **Standort**  
+    -   **Modifier** pour l'objet **Site**  
 
-    -   **Zertifikate für Betriebssystembereitstellung verwalten** für das Objekt **Standort**  
+    -   **Gérer des certificats pour le déploiement de système d'exploitation** pour l'objet **Site**  
 
--   Internet Information Services (IIS) muss auf dem Server installiert werden, der den Verteilungspunkt hostet. Bei der Installation der Standortsystemrolle kann Configuration Manager IIS für Sie installieren und konfigurieren.  
+-   IIS (Internet Information Services) doit être installé sur le serveur qui hébergera le point de distribution. Quand vous installez le rôle de système de site, Configuration Manager peut installer et configurer IIS automatiquement.  
 
-Verwenden Sie die folgenden grundlegenden Verfahren zum Installieren oder Ändern eines Verteilungspunkts. Weitere Informationen zu den verfügbaren Konfigurationsoptionen finden Sie unter dem Abschnitt [Konfigurieren eines Verteilungspunkts](#bkmk_configs) dieses Themas.  
+Utilisez les procédures de base suivantes pour installer ou modifier un point de distribution. Pour plus d’informations sur les options de configuration disponibles, consultez la section [Configurer un point de distribution](#bkmk_configs) de cette rubrique.  
 
-#### <a name="to-install-a-distribution-point"></a>So installieren Sie einen Verteilungspunkt  
+#### <a name="to-install-a-distribution-point"></a>Pour installer un point de distribution  
 
-1.  Wählen Sie in der Configuration Manager-Konsole die Optionen **Verwaltung** >  **Standortkonfiguration** > **Server und Standortsystemrollen** aus.  
+1.  Dans la console Configuration Manager, choisissez **Administration** >  **Configuration du site** > **Serveurs et rôles de système de site**.  
 
-2.  Fügen Sie die Standortsystemrolle „Verteilungspunkt“ einem neuen oder vorhandenen Standortsystemserver hinzu:  
+2.  Ajoutez le rôle de système de site de point de distribution à un serveur de système de site nouveau ou existant :  
 
-    -   **Neuer Standortsystemserver**: Wählen Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** die Option **Standortsystemserver erstellen** aus. Der Assistent zum Erstellen von Standortsystemservern wird geöffnet.  
+    -   **Nouveau serveur de système de site** : dans l’onglet **Accueil** puis dans le groupe **Créer**, choisissez **Créer un serveur de système de site**. L'Assistant Création de serveur de système de site s'ouvre.  
 
-    -   **Bestehender Standortsystemserver**: Wählen Sie den Server aus, auf dem die Standortsystemrolle „Verteilungspunkt“ installiert werden soll. Wenn Sie einen Server auswählen, wird im Ergebnisbereich eine Liste der Standortsystemrollen angezeigt, die bereits auf dem Server installiert sind.  
+    -   **Serveur de système de site existant** : choisissez le serveur sur lequel vous souhaitez installer le rôle de système de site du point de distribution. Lorsque vous choisissez un serveur, la liste des rôles de système de site déjà installés sur le serveur s’affiche dans le panneau des résultats.  
 
-         Wählen Sie auf der Registerkarte **Startseite** in der Gruppe **Server** die Option **Standortsystemrolle hinzufügen** aus. Der Assistent zum Hinzufügen von Standortsystemrollen wird geöffnet.  
+         Dans l’onglet **Accueil** puis dans le groupe **Serveur**, choisissez **Ajouter des rôles de système de site**. L'Assistant Ajout de rôles de système de site s'ouvre.  
 
-3.  Geben Sie auf der Seite **Allgemein** die allgemeinen Einstellungen für den Standortsystemserver an. Wenn Sie den Verteilungspunkt einem vorhandenen Standortsystemserver hinzufügen, überprüfen Sie die Werte, die zuvor konfiguriert wurden.  
+3.  Sur la page **Général** , spécifiez les paramètres généraux du serveur de système de site. Lorsque vous ajoutez le point de distribution à un serveur de système de site existant, vérifiez les valeurs qui ont été précédemment configurées.  
 
-4.  Wählen Sie auf der Seite **Systemrollenauswahl** in der Liste der verfügbaren Rollen **Verteilungspunkt** aus. Anschließend wählen Sie **Weiter** aus.  
+4.  Dans la page **Sélection du rôle système**, choisissez **Point de distribution** dans la liste des rôles disponibles, puis choisissez **Suivant**.  
 
-5.  Informationen zu den nachfolgenden Seiten des Assistenten finden Sie im Abschnitt [Konfigurieren eines Verteilungspunkts](#bkmk_configs).  
+5.  Pour les pages suivantes de l’Assistant, consultez les informations fournies dans la section [Configurer un point de distribution](#bkmk_configs).  
 
-     Wenn Sie den Verteilungspunkt z. B. als Pullverteilungspunkt installieren möchten, wählen Sie die Option **Inhaltspulling von anderen Verteilungspunkten für diesen Verteilungspunkt aktivieren** aus, und nehmen Sie dann die für die Pullverteilungspunkte erforderlichen weiteren Konfigurationen vor.  
+     Par exemple, si vous souhaitez installer le point de distribution en tant que point de distribution d’extraction, choisissez **Activer ce point de distribution pour extraire le contenu à partir d’autres points de distribution**, puis procédez aux configurations supplémentaires requises par les points de distribution d’extraction.  
 
-6.  Wenn Sie den Assistenten abschließen, wird die Standortrolle „Verteilungspunkt“ dem Standortserver hinzugefügt.  
+6.  Après avoir fermé l’Assistant, le rôle de site du point de distribution est ajouté au serveur de système de site.  
 
-#### <a name="to-change-a-distribution-point"></a>So ändern Sie einen Verteilungspunkt  
+#### <a name="to-change-a-distribution-point"></a>Pour modifier un point de distribution  
 
-1.  Wählen Sie in der Configuration Manager-Konsole **Verwaltung** >  **Verteilungspunkte** und dann den Verteilungspunkt aus, den Sie konfigurieren möchten.  
+1.  Dans la console Configuration Manager, choisissez **Administration** >  **Points de distribution**, puis sélectionnez le point de distribution à configurer.  
 
-2.  Wählen Sie auf der Registerkarte **Startseite** in der Gruppe **Eigenschaften** die Option **Eigenschaften** aus.  
+2.  Sous l’onglet **Accueil**, dans le groupe **Propriétés**, choisissez **Propriétés**.  
 
-3.  Verwenden Sie beim Bearbeiten der Eigenschaften des Verteilungspunkts die Informationen im Abschnitt [Konfigurieren von Verteilungspunkten](#bkmk_configs).  
+3.  Utilisez les informations de la section [Configurer un point de distribution](#bkmk_configs) pour modifier les propriétés du point de distribution.  
 
-4.  Nachdem Sie die gewünschten Änderungen vorgenommen haben, speichern Sie Ihre Einstellungen, und schließen Sie die Verteilungspunkteigenschaften.  
+4.  Après avoir apporté les modifications souhaitées, enregistrez vos paramètres et fermez la page des propriétés.  
 
-##  <a name="bkmk_manage"></a> Verwalten von Verteilungspunktgruppen  
- Verteilungspunktgruppen stellen eine logische Gruppierung von Verteilungspunkten für die Inhaltsverteilung dar. Mithilfe dieser Gruppen können Sie Inhalte von einem zentralen Speicherort für Verteilungspunkte, die mehrere Standorte umfassen, verwalten und überwachen. Beachten Sie die folgenden Punkte:
+##  <a name="bkmk_manage"></a> Gérer les groupes de points de distribution  
+ Les groupes de points de distribution fournissent un regroupement logique de points de distribution pour la distribution de contenu. Vous pouvez utiliser ces groupes pour gérer et surveiller de manière centralisée le contenu des points de distribution qui s’étendent sur plusieurs sites. Gardez à l’esprit les points suivants :
 
--   Sie können der Verteilungspunktgruppe von beliebigen Standorten innerhalb einer Hierarchie Verteilungspunkte hinzufügen.  
+-   Vous pouvez ajouter un ou plusieurs points de distribution à partir de n’importe quel site de la hiérarchie, dans un groupe de points de distribution.  
 
--   Sie können einen Verteilungspunkt zu mehreren Verteilungspunktgruppen hinzufügen.  
+-   Vous pouvez ajouter un point de distribution à plusieurs groupes de points de distribution.  
 
--   Wenn Sie Inhalt an eine Verteilungspunktgruppe verteilen, wird der Inhalt von Configuration Manager an alle Verteilungspunkte verteilt, die dieser Verteilungspunktgruppe angehören.  
+-   Lorsque vous diffusez du contenu à un groupe de points de distribution, Configuration Manager le distribue à tous les points de distribution membres de ce groupe.  
 
--   Wenn Sie einer Verteilungspunktgruppe nach der ersten Inhaltsverteilung einen Verteilungspunkt hinzufügen, wird der Inhalt von Configuration Manager automatisch an das neue Mitglied der Verteilungspunktgruppe verteilt.  
+-   Si vous ajoutez un point de distribution au groupe de points de distribution après une distribution de contenu initiale, Configuration Manager distribue automatiquement le contenu au nouveau membre du groupe.  
 
--   Sie können einer Verteilungspunktgruppe eine Sammlung zuordnen. Wenn Sie Inhalte an diese Sammlung verteilen, bestimmt Configuration Manager, welche Verteilungspunktgruppen der Sammlung zugeordnet werden. Dann wird der Inhalt an alle Verteilungspunkte verteilt, die Mitglieder dieser Verteilungspunktgruppen sind.  
+-   Vous pouvez associer un regroupement à un groupe de points de distribution. Lorsque vous distribuez du contenu à ce regroupement, Configuration Manager identifie les groupes de points de distribution associés au regroupement. Le contenu est ensuite distribué à tous les points de distribution qui sont membres de ces groupes de points de distribution.  
 
     > [!NOTE]  
-    >  Wenn Sie eine Sammlung einer neuen Verteilungspunktgruppe zuordnen, nachdem bereits Inhalte an die Sammlung verteilt wurden, müssen Sie die Inhalte erneut an die Sammlung verteilen, damit sie auch an die neue Verteilungspunktgruppe verteilt werden.  
+    >  Si, après avoir distribué du contenu à un regroupement, vous associez ce regroupement à un nouveau groupe de points de distribution, vous devez redistribuer le contenu au regroupement pour pouvoir distribuer le contenu au nouveau groupe.  
 
-#### <a name="to-create-and-configure-a-new-distribution-point-group"></a>So erstellen und konfigurieren Sie eine neue Verteilungspunktgruppe  
+#### <a name="to-create-and-configure-a-new-distribution-point-group"></a>Pour créer et configurer un nouveau groupe de points de distribution  
 
-1.  Wählen Sie in der Configuration Manager-Konsole auf **Verwaltung** > **Verteilungspunktgruppen** aus.  
+1.  Dans la console Configuration Manager, choisissez **Administration** > **Groupes de points de distribution**.  
 
-2.  Wählen Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** die Option **Gruppe erstellen** aus.  
+2.  Dans l’onglet **Accueil** puis dans le groupe **Créer**, choisissez **Créer un groupe**.  
 
-3.  Geben Sie den Namen und die Beschreibung für die Verteilungspunktgruppe ein.  
+3.  Entrez le nom et la description du groupe de points de distribution.  
 
-4.  Wählen Sie auf der Registerkarte **Sammlungen** die Option **Hinzufügen** und dann die Sammlungen aus, die der Verteilungspunktgruppe zugeordnet werden sollen, und klicken Sie dann auf **OK**.  
+4.  Dans l’onglet **Regroupements**, cliquez sur **Ajouter**, sélectionnez les regroupements à associer au groupe de points de distribution, puis choisissez **OK**.  
 
-5.  Wählen Sie auf der Registerkarte **Mitglieder** die Option **Hinzufügen** und dann die Verteilungspunkte aus, die der Verteilungspunktgruppe als Mitglieder hinzugefügt werden sollen, und wählen Sie dann **OK** aus.  
+5.  Dans l’onglet **Membres**, choisissez **Ajouter**, sélectionnez les points de distribution à ajouter comme membres du groupe de points de distribution, puis choisissez **OK**.  
 
-6.  Wählen Sie **OK** aus, um die Verteilungspunktgruppe zu erstellen.  
+6.  Choisissez **OK** pour créer le groupe de points de distribution.  
 
-#### <a name="to-add-distribution-points-and-associate-collections-with-an-existing-distribution-point-group"></a>So fügen Sie einer vorhandenen Verteilungspunktgruppe Verteilungspunkte hinzu und ordnen ihr Sammlungen zu  
+#### <a name="to-add-distribution-points-and-associate-collections-with-an-existing-distribution-point-group"></a>Pour ajouter des points de distribution et associer des regroupements à un groupe de points de distribution  
 
-1.  Wählen Sie in der Configuration Manager-Konsole auf **Verwaltung** > **Verteilungspunktgruppen** aus.  
+1.  Dans la console Configuration Manager, choisissez **Administration** > **Groupes de points de distribution**.  
 
-2.  Wählen Sie auf der Registerkarte **Startseite** in der Gruppe **Eigenschaften** die Option **Eigenschaften** aus.  
+2.  Sous l’onglet **Accueil**, dans le groupe **Propriétés**, choisissez **Propriétés**.  
 
-3.  Wählen Sie auf der Registerkarte **Sammlungen** die Option **Hinzufügen** aus, um die Sammlungen auszuwählen, die Sie der Verteilungspunktgruppe zuordnen möchten, und wählen Sie dann **OK** aus.  
+3.  Dans l’onglet **Regroupements**, choisissez **Ajouter** pour sélectionner les regroupements à associer au groupe de points de distribution, puis choisissez **OK**.  
 
-4.  Wählen Sie auf der Registerkarte **Mitglieder** die Option **Hinzufügen** und dann die Verteilungspunkte aus, die der Verteilungspunktgruppe als Mitglieder hinzugefügt werden sollen, und klicken Sie dann auf **OK**.  
+4.  Dans l’onglet **Membres**, choisissez **Ajouter** pour sélectionner les points de distribution à ajouter comme membres du groupe de points de distribution, puis choisissez **OK**.  
 
-5.  Wählen Sie **OK** aus, um die Änderungen der Verteilungspunktgruppe zu speichern.  
+5.  Choisissez **OK** pour enregistrer les modifications apportées au groupe de points de distribution.  
 
-#### <a name="to-add-selected-distribution-points-to-a-new-distribution-point-group"></a>So fügen Sie ausgewählte Verteilungspunkte einer neuen Verteilungspunktgruppe hinzu  
+#### <a name="to-add-selected-distribution-points-to-a-new-distribution-point-group"></a>Pour ajouter les points de distribution sélectionnés à un nouveau groupe de points de distribution  
 
-1.  Wählen Sie in der Configuration Manager-Konsole die Option **Verwaltung** > **Verteilungspunkte** und dann die Verteilungspunkte aus, die Sie der neuen Verteilungspunktgruppe hinzufügen möchten.  
+1.  Dans la console Configuration Manager, choisissez **Administration** > **Points de distribution**, puis sélectionnez les points de distribution à ajouter au nouveau groupe de points de distribution.  
 
-2.  Erweitern Sie auf der Registerkarte **Startseite** in der Gruppe **Verteilungspunkte** den Knoten **Ausgewählte Elemente hinzufügen**, und wählen Sie dann **Ausgewählte Elemente neuer Verteilungspunktgruppe hinzufügen** aus.  
+2.  Dans l’onglet **Accueil** puis dans le groupe **Point de distribution**, développez **Ajouter les éléments sélectionnés**, puis choisissez **Ajouter les éléments sélectionnés au nouveau groupe de points de distribution**.  
 
-3.  Geben Sie den Namen und die Beschreibung für die Verteilungspunktgruppe ein.  
+3.  Entrez le nom et la description du groupe de points de distribution.  
 
-4.  Wählen Sie auf der Registerkarte **Sammlungen** die Option **Hinzufügen** aus, um die Sammlungen auszuwählen, die Sie der Verteilungspunktgruppe zuordnen möchten, und wählen Sie dann **OK** aus.  
+4.  Dans l’onglet **Regroupements**, choisissez **Ajouter** pour sélectionner les regroupements à associer au groupe de points de distribution, puis choisissez **OK**.  
 
-5.  Überprüfen Sie auf der Registerkarte **Mitglieder**, ob Configuration Manager die aufgelisteten Verteilungspunkte der Verteilungspunktgruppe als Mitglieder hinzufügen soll. Wählen Sie **Hinzufügen** aus, um die Verteilungspunkte hinzuzufügen, und wählen Sie dann **OK** aus.  
+5.  Sous l’onglet **Membres**, confirmez votre souhait de voir Configuration Manager ajouter les points de distribution répertoriés en tant que membres du groupe de points de distribution. Choisissez **Ajouter** pour ajouter les points de distribution, puis choisissez **OK**.  
 
-6.  Wählen Sie **OK** aus, um die Verteilungspunktgruppe zu erstellen.  
+6.  Choisissez **OK** pour créer le groupe de points de distribution.  
 
-#### <a name="to-add-selected-distribution-points-to-existing-distribution-point-groups"></a>So fügen Sie ausgewählte Verteilungspunkte vorhandenen Verteilungspunktgruppen hinzu  
+#### <a name="to-add-selected-distribution-points-to-existing-distribution-point-groups"></a>Pour ajouter les points de distribution sélectionnés à des groupes de points de distribution existants  
 
-1.  Wählen Sie in der Configuration Manager-Konsole die Option **Verwaltung** > **Verteilungspunkte** und dann die Verteilungspunkte aus, die Sie der neuen Verteilungspunktgruppe hinzufügen möchten.  
+1.  Dans la console Configuration Manager, choisissez **Administration** > **Points de distribution**, puis sélectionnez les points de distribution à ajouter au nouveau groupe de points de distribution.  
 
-2.  Erweitern Sie auf der Registerkarte **Startseite** in der Gruppe **Verteilungspunkte** den Knoten **Ausgewählte Elemente hinzufügen**, und wählen Sie dann **Ausgewählte Elemente vorhandenen Verteilungspunktgruppen hinzufügen** aus.  
+2.  Dans l’onglet **Accueil** puis dans le groupe **Point de distribution**, développez **Ajouter les éléments sélectionnés**, puis choisissez **Ajouter les éléments sélectionnés aux groupes de points de distribution existants**.  
 
-3.  Wählen Sie unter **Verfügbare Verteilungspunktgruppen**die Verteilungspunktgruppen aus, denen die ausgewählten Verteilungspunkte als Mitglieder hinzugefügt werden sollen, und wählen Sie dann **OK** aus.  
+3.  Dans **Groupes de points de distribution disponibles**, sélectionnez les groupes de points de distribution auxquels les points de distribution sélectionnés doivent être ajoutés en tant que membres, puis choisissez **OK**.  
 
-##  <a name="bkmk_configs"></a> Konfigurieren eines Verteilungspunkts  
- Einzelne Verteilungspunkte unterstützen viele verschiedene Konfigurationen. Allerdings unterstützen nicht alle Verteilungspunkttypen alle Konfigurationen. Cloudbasierte Verteilungspunkte unterstützen beispielsweise keine Inhaltsbereitstellungen, die für PXE oder Multicast aktiviert sind. Informationen zu den spezifischen Einschränkungen finden in den folgenden Themen:  
+##  <a name="bkmk_configs"></a> Configurer un point de distribution  
+ Chaque point de distribution prend en charge plusieurs configurations différentes. Toutefois, tous les types de point de distribution ne prennent pas en charge toutes les configurations. Par exemple, les points de distribution cloud ne prennent pas en charge les déploiements de contenu activés pour PXE ou la multidiffusion. Les rubriques suivantes contiennent des informations sur certaines limitations :  
 
--   [Verwenden eines cloudbasierten Verteilungspunkts mit System Center Configuration Manager](../../../../core/plan-design/hierarchy/use-a-cloud-based-distribution-point.md)  
+-   [Utiliser un point de distribution cloud avec System Center Configuration Manager](../../../../core/plan-design/hierarchy/use-a-cloud-based-distribution-point.md)  
 
--   [Verwenden eines Pullverteilungspunkts mit System Center Configuration Manager](/sccm/core/plan-design/hierarchy/use-a-pull-distribution-point)  
+-   [Utiliser un point de distribution d’extraction avec System Center Configuration Manager](/sccm/core/plan-design/hierarchy/use-a-pull-distribution-point)  
 
-In den folgenden Abschnitten sind die Konfigurationen beschrieben, die Sie beim Installieren eines neuen Verteilungspunkts oder beim Bearbeiten der Eigenschaften eines vorhandenen Verteilungspunkts auswählen können.  
+Les sections suivantes décrivent les configurations que vous pouvez sélectionner pendant l’installation d’un nouveau point de distribution ou la modification des propriétés d’un point de distribution.  
 
-### <a name="general"></a>Allgemein  
- Konfigurieren Sie die allgemeinen Einstellungen des Verteilungspunkts.  
+### <a name="general"></a>Général  
+ Configurez les paramètres généraux des points de distribution :  
 
--   **IIS installieren und konfigurieren, sofern dies für Configuration Manager erforderlich ist:** Wählen Sie diese Einstellung, damit Configuration Manager die Internetinformationsdienste (IIS) auf dem Server installiert und konfiguriert, sofern noch nicht erfolgt. IIS müssen auf allen Verteilungspunkten installiert werden. Wenn IIS nicht auf dem Server installiert sind und Sie diese Einstellung nicht auswählen, müssen Sie IIS installieren, damit der Verteilungspunkt erfolgreich installiert werden kann.  
+-   **Installer et configurer IIS si requis par Configuration Manager** : sélectionnez ce paramètre pour permettre à Configuration Manager d’installer et de configurer IIS sur le serveur si IIS n’est pas déjà installé. Les services Internet doivent être installés sur tous les points de distribution. Si IIS n’est pas installé sur le serveur et si vous ne sélectionnez pas ce paramètre, vous devez installer IIS pour pouvoir installer le point de distribution.  
 
     > [!NOTE]  
-    >  Diese Option ist nur bei der Installation eines neuen Verteilungspunkts verfügbar.  
+    >  Cette option n’est disponible que lorsque vous installez un nouveau point de distribution.  
 
-- **BranchCache für diesen Verteilungspunkt aktivieren und konfigurieren:** Wählen Sie diese Einstellung aus, damit Configuration Manager Windows BranchCache auf dem Verteilungspunktserver installiert. Weitere Informationen zur Verwendung von Windows BranchCache mit System Center Configuration Manager finden Sie unter [BranchCache](/sccm/core/plan-design/configs/support-for-windows-features-and-networks#a-namebkmkbranchcachea-branchcache) in *Unterstützung für Windows-Features und -Netzwerke in System Center Configuration Manager*.
+- **Activer et configurer BranchCache pour ce point de distribution** : sélectionnez ce paramètre pour permettre à Configuration Manager de configurer Windows BranchCache sur le serveur de point de distribution. Pour plus d’informations sur l’utilisation de Windows BranchCache avec System Center Configuration Manager, consultez [BranchCache](/sccm/core/plan-design/configs/support-for-windows-features-and-networks#a-namebkmkbranchcachea-branchcache) dans *Prise en charge des fonctionnalités de Windows et des réseaux dans System Center Configuration Manager*.
 
--   **Konfigurieren, wie der Clientgeräte mit dem Verteilungspunkt kommunizieren:** Die Verwendung von HTTP und HTTPS hat Vor- und Nachteile. Weitere Informationen finden Sie unter „Bewährte Sicherheitsmethoden für die Inhaltsverwaltung“ im Thema [Sicherheit und Datenschutz für die Inhaltsverwaltung in Configuration Manager](../../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md).  
+-   **Configure how client devices communicate with the distribution point (Configurer comment les appareils clients communiquent avec le point de distribution)** : l’utilisation de HTTP et de HTTPS présente des avantages et des inconvénients. Pour plus d’informations, consultez Meilleures pratiques de sécurité pour la gestion de contenu dans [Principes de base de la gestion de contenu dans System Center Configuration Manager](../../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md).  
 
--   **Clients gestatten, eine anonyme Verbindung herzustellen:** Mit dieser Einstellung geben Sie an, ob vom Verteilungspunkt anonyme Verbindungen von Configuration Manager-Clients mit der Inhaltsbibliothek zugelassen werden sollen.  
+-   **Autoriser les clients à se connecter anonymement** : ce paramètre indique si le point de distribution autorise les connexions anonymes des clients Configuration Manager à la bibliothèque de contenu.  
 
     > [!IMPORTANT]  
-    >  Wenn Sie diese Einstellung nicht verwenden, kann die Reparatur einer Windows Installer-Anwendung auf einem Client fehlschlagen.  
+    >  La réparation d’une application Windows Installer sur un client peut échouer si vous n’utilisez pas ce paramètre.  
     >   
-    >  Bei der Bereitstellung einer Windows Installer-Anwendung auf einem Configuration Manager-Client wird die Datei von Configuration Manager in den lokalen Cache des Clients heruntergeladen. Die Dateien werden nach Abschluss der Installation schließlich entfernt.
+    >  Lorsque vous déployez une application Windows Installer sur un client Configuration Manager, Configuration Manager télécharge le fichier dans le cache local du client. Les fichiers sont supprimés, une fois l’installation terminée.
     >  
-    >  Bei der Windows Installer-Quellliste der installierten Windows Installer-Anwendungen wird vom Configuration Manager-Client ein Update mit dem Inhaltspfad der Inhaltsbibliothek auf zugeordneten Verteilungspunkten ausgeführt. Wenn Sie später mit der Systemsteuerungsoption „Software“ für einen Configuration Manager-Client eine Reparaturaktion starten, wird von MSIExec versucht, über einen anonymen Benutzer auf den Inhaltspfad zuzugreifen.  
+    >  Le client Configuration Manager met à jour la liste source Windows Installer des applications Windows Installer installées avec le chemin de contenu de la bibliothèque de contenu sur les points de distribution associés. Par la suite, si vous démarrez l’action de réparation via Ajout/Suppression de programmes sur un client Configuration Manager, MSIExec tente d’accéder au chemin de contenu avec un compte d’utilisateur anonyme.  
     >   
-    >  Allerdings können Sie das im Microsoft Knowledge Base-Artikel [2619572](http://go.microsoft.com/fwlink/?LinkId=279699) beschriebene Update installieren und anschließend einen Registrierungsschlüssel ändern, um dieses Verhalten zu ändern.  
+    >  Vous pouvez toutefois changer ce comportement en installant la mise à jour décrite dans l’article [2619572](http://go.microsoft.com/fwlink/?LinkId=279699) de la Base de connaissances Microsoft, puis en modifiant une clé de Registre.  
     >   
-    >  Nachdem das Update auf den Clients installiert wurde, wird von MSIExec mithilfe des angemeldeten Benutzerkontos auf den Inhaltspfad zugegriffen, wenn Sie die Einstellung **Clients gestatten, eine anonyme Verbindung herzustellen** nicht aktivieren.  
+    >  Une fois la mise à jour installée sur les clients, MSIExec accède au chemin du contenu en utilisant le compte d’utilisateur connecté, lorsque vous ne choisissez pas le paramètre **Autoriser les clients à se connecter anonymement**.  
 
--   **Für den Verteilungspunkt ein selbstsigniertes Zertifikat erstellen oder ein PKI-Clientzertifikat (Public Key-Infrastruktur) importieren:** Das Zertifikat erfüllt die folgenden Zwecke:  
+-   **Create a self-signed certificate or import a public key infrastructure (PKI) client certificate for the distribution point (Créer un certificat auto-signé ou importer un certificat client d’infrastructure à clé publique (PKI) pour le point de distribution)** : le certificat remplit les fonctions suivantes :  
 
-    -   Durch das Zertifikat wird der Verteilungspunkt gegenüber einem Verwaltungspunkt authentifiziert, bevor vom Verteilungspunkt Statusmeldungen gesendet werden.  
+    -   Il authentifie le point de distribution à un point de gestion avant que le point de distribution n'envoie des messages d'état.  
 
-    -   Wenn Sie auf der Seite **PXE-Einstellungen** das Kontrollkästchen **PXE-Unterstützung für Clients aktivieren** aktivieren, wird das Zertifikat an Computer gesendet, von denen ein PXE-Start ausgeführt wird. Bei der Bereitstellung des Betriebssystems kann dann von diesen Computern eine Verbindung mit dem Verwaltungspunkt hergestellt werden.  
+    -   Lorsque vous activez la case à cocher **Activer la prise en charge PXE pour les clients** sur la page **Paramètres PXE**, le certificat est envoyé aux ordinateurs qui redémarrent PXE pour pouvoir se connecter à un point de gestion pendant le déploiement du système d’exploitation.  
 
-    Wenn alle Verwaltungspunkte am Standort für HTTP konfiguriert sind, erstellen Sie ein selbstsigniertes Zertifikat. Wenn die Verwaltungspunkte für HTTPS konfiguriert sind, importieren Sie ein PKI-Clientzertifikat.  
+    Lorsque tous vos points de gestion du site sont configurés pour le protocole HTTP, créez un certificat auto-signé. Lorsque vos points de gestion sont configurés pour le protocole HTTPS, importez un certificat client PKI.  
 
-    Um das Zertifikat zu importieren, wechseln Sie zu einer PKCS #12-Datei (Public Key Cryptography Standard), die ein PKI-Zertifikat mit den folgenden Anforderungen für Configuration Manager enthält:  
+    Pour importer le certificat, accédez à un fichier PKCS #12 (Public Key Cryptography Standard #12) qui contient un certificat PKI avec les spécifications suivantes pour Configuration Manager :  
 
-    -   Die Clientauthentifizierung muss zur Verwendung vorgesehen sein.  
+    -   L'utilisation prévue doit inclure l'authentification du client.  
 
-    -   Der private Schlüssel muss für den Export aktiviert sein.  
+    -   La clé privée doit être activée pour l'exportation.  
 
     > [!TIP]  
-    >  Es gibt keine speziellen Anforderungen für den Zertifikatantragsteller oder den alternativen Antragstellernamen (SAN). Sie können ein Zertifikat für mehrere Verteilungspunkte verwenden.  
+    >  Il n'existe aucune exigence particulière pour l'objet du certificat ou le nom alternatif d'objet du certificat (SAN), et vous pouvez utiliser le même certificat pour plusieurs points de distribution.  
 
-     Weitere Informationen zu den Zertifikatanforderungen finden Sie unter [PKI-Zertifikatanforderungen für System Center Configuration Manager](../../../../core/plan-design/network/pki-certificate-requirements.md).  
+     Pour plus d’informations sur la configuration requise pour les certificats, consultez [Configuration requise des certificats PKI pour System Center Configuration Manager](../../../../core/plan-design/network/pki-certificate-requirements.md).  
 
-     Eine Beispielbereitstellung dieses Zertifikats finden Sie im Abschnitt „Bereitstellen des Clientzertifikats für Verteilungspunkte“ des Themas [Beispiel für die schrittweise Bereitstellung der PKI-Zertifikate für System Center Configuration Manager: Windows Server 2008-Zertifizierungsstelle](/sccm/core/plan-design/network/example-deployment-of-pki-certificates).  
+     Pour obtenir un exemple de déploiement de ce certificat, consultez la section Déployer le certificat client pour les points de distribution de la rubrique [Exemple de déploiement pas à pas des certificats PKI pour System Center Configuration Manager : autorité de certification Windows Server 2008](/sccm/core/plan-design/network/example-deployment-of-pki-certificates).  
 
--   **Diesen Verteilungspunkt für vorab bereitgestellten Inhalt aktivieren:** Mit dieser Einstellung können Sie den Verteilungspunkt für vorab bereitgestellten Inhalt aktivieren. Ist diese Einstellung ausgewählt, können Sie das Verteilungsverhalten bei der Inhaltsverteilung konfigurieren. Sie können immer eine der folgenden Optionen wählen:
+-   **Activer ce point de distribution pour le contenu préparé** : choisissez ce paramètre pour activer le point de distribution du contenu préparé. Lorsque ce paramètre est sélectionné, vous pouvez configurer le comportement de distribution lors de la distribution du contenu. Vous pouvez choisir de toujours effectuer l’une des opérations suivantes :
 
- - Inhalt wird vorab auf dem Verteilungspunkt bereitgestellt.
- - Der Anfangsinhalt des Pakets wird vorab bereitgestellt, Inhaltsaktualisierungen erfolgen mithilfe des regulären Inhaltsverteilungsvorgangs.
- - Für Inhalt des Pakets wird der reguläre Inhaltsverteilungsvorgang verwendet.  
+ - Préparer le contenu sur le point de distribution.
+ - Préparer le contenu initial du package, puis utiliser le processus de distribution de contenu standard lorsque le contenu fait l’objet de mises à jour.
+ - Utiliser le processus de distribution standard pour le contenu du package.  
 
-### <a name="drive-settings"></a>Laufwerkseinstellungen  
-
-> [!NOTE]  
->  Diese Optionen sind nur bei der Installation eines neuen Verteilungspunkts verfügbar.  
-
-Geben Sie die Laufwerkseinstellungen für den Verteilungspunkt an. Sie können bis zu zwei Laufwerke für die Inhaltsbibliothek und zwei Laufwerke für die Paketfreigabe konfigurieren. Configuration Manager kann zusätzliche Laufwerke verwenden, wenn die ersten beiden die konfigurierte Laufwerksspeicherreserve erreichen. Auf der Seite **Laufwerkseinstellungen** werden die Priorität der Laufwerke und der freie Speicherplatz, der auf jedem Laufwerk verbleiben muss, festgelegt.  
-
--   **Laufwerksspeicherreserve (MB):** Hiermit geben Sie an, wie viel freier Speicher auf einem Laufwerk verbleiben muss. Wird der Wert erreicht, wählt Configuration Manager ein anderes Laufwerk aus, auf dem der Kopiervorgang fortgesetzt wird. Inhaltsdateien können sich über mehrere Laufwerke erstrecken.  
-
--   **Inhaltsorte**: Geben Sie die Inhaltsorte für die Inhaltsbibliothek und die Paketfreigabe an. Configuration Manager kopiert solange Inhalte zum primären Inhaltsort, bis die Menge des freien Speicherplatzes den unter **Laufwerksspeicherreserve (MB)** angegebenen Wert erreicht. Die Inhaltsorte sind standardmäßig auf **Automatisch**festgelegt. Das Laufwerk, bei dem zum Zeitpunkt der Installation der meiste freie Speicherplatz verfügbar ist, wird als primärer Inhaltsort festgelegt, und das Laufwerk mit dem nächstmeisten freien Speicherplatz als sekundärer Inhaltsort. Wenn vom primären und sekundären Laufwerk die Laufwerksspeicherreserve erreicht wird, wählt Configuration Manager ein anderes verfügbares Laufwerk mit dem meisten freien Speicherplatz aus und setzt den Kopiervorgang dort fort.  
+### <a name="drive-settings"></a>Paramètres du lecteur  
 
 > [!NOTE]  
->  Wenn die Installation durch Configuration Manager nicht auf einem bestimmten Laufwerk erfolgen soll, erstellen Sie eine leere Datei namens **no_sms_on_drive.sms**, und legen Sie sie im Stammordner des Laufwerks ab, bevor Sie den Verteilungspunkt installieren.  
+>  Ces options ne sont disponibles que lorsque vous installez un nouveau point de distribution.  
 
-### <a name="pull-distribution-point"></a>Pullverteilungspunkt  
-Wenn Sie die Option **Inhaltspulling von anderen Verteilungspunkten für diesen Verteilungspunkt aktivieren** auswählen, ändern Sie die Art und Weise, wie der Computer den Inhalt abruft, den Sie an den Verteilungspunkt verteilen. Der Verteilungspunkt wird zu einem Pullverteilungspunkt.  
+Spécifiez les paramètres du lecteur pour le point de distribution. Vous pouvez configurer jusqu’à deux lecteurs de disque pour la bibliothèque de contenu et deux lecteurs de disque pour le partage de package. Configuration Manager peut utiliser des lecteurs supplémentaires lorsque les deux premiers atteignent la réserve d’espace disque configurée. La page **Paramètres du lecteur** permet de configurer la priorité des lecteurs de disque et la quantité d'espace disque libre restant sur chaque lecteur de disque.  
 
-Für jeden Pullverteilungspunkt, den Sie konfigurieren, müssen Sie mindestens einen Quellverteilungspunkt angeben, von dem der Inhalt vom Pullverteilungspunkt abgerufen wird:  
+-   **Réserve d’espace libre sur le lecteur (Mo)** : la valeur que vous configurez pour ce paramètre détermine la quantité d’espace libre sur un lecteur avant que Configuration Manager choisisse un autre lecteur et poursuive le processus de copie sur ce lecteur. Les fichiers de contenu peuvent s'étendre sur plusieurs lecteurs.  
 
--   Wählen Sie **Hinzufügen** und dann mindestens einen verfügbaren Verteilungspunkt als Quellverteilungspunkt aus.  
-
--   Wählen Sie **Entfernen** aus, um den ausgewählten Verteilungspunkt als Quellverteilungspunkt zu entfernen.  
-
--   Mit den Pfeiltasten können Sie die Reihenfolge anpassen, in der die Quellverteilungspunkte vom Pullverteilungspunkt kontaktiert werden, wenn vom Pullverteilungspunkt Inhalt übertragen werden soll. Verteilungspunkte mit dem niedrigsten Wert werden zuerst angesprochen.  
-
-### <a name="pxe"></a>PXE  
-Geben Sie an, ob PXE auf dem Verteilungspunkt aktiviert werden soll. Wenn Sie PXE aktivieren, installiert Configuration Manager bei Bedarf die Windows-Bereitstellungsdienste auf dem Server. Der Windows-Bereitstellungsdienst ist der Dienst, von dem der PXE-Start zur Installation von Betriebssystemen ausgeführt wird. Wenn Sie den Assistenten zum Erstellen des Verteilungspunkts abgeschlossen haben, installiert Configuration Manager einen Anbieter in den Windows-Bereitstellungsdiensten, der die PXE-Startfunktionen verwendet.  
-
-Wenn Sie die Option **PXE-Unterstützung für Clients aktivieren** auswählen, konfigurieren Sie die folgenden Einstellungen:  
-
--   **Antwort auf eingehende PXE-Anforderungen durch diesen Verteilungspunkt zulassen**: Hiermit wird angegeben, ob die Windows-Bereitstellungsdienste aktiviert werden sollen, damit auf PXE-Dienstanforderungen geantwortet werden kann. Mithilfe dieses Kontrollkästchens können Sie den Dienst aktivieren oder deaktivieren, ohne die PXE-Funktionalität vom Verteilungspunkt zu entfernen.  
-
--   **Unterstützung für unbekannte Computer aktivieren:** Hiermit wird angegeben, ob die Unterstützung für Computer aktiviert werden soll, die nicht von Configuration Manager verwaltet werden.  
-
--   **Kennwort erforderlich, wenn PXE von Computern verwendet wird**: Geben Sie ein sicheres Kennwort an, um die Sicherheit für Ihre PXE-Bereitstellungen zusätzlich zu erhöhen.  
-
--   **Affinität zwischen Benutzer und Gerät**: Geben Sie an, wie bei PXE-Bereitstellungen die Zuordnung von Benutzern und Zielcomputer durch den Verteilungspunkt erfolgen soll. Wählen Sie eine der folgenden Optionen aus:  
-
-    -   **Affinität zwischen Benutzer und Gerät mit automatischer Genehmigung zulassen**: Wählen Sie diese Einstellung aus, wenn Benutzer dem Zielcomputer automatisch zugeordnet werden sollen, ohne dass auf die Genehmigung gewartet wird.  
-
-    -   **Affinität zwischen Benutzer und Gerät mit ausstehender Genehmigung durch den Administrator zulassen**: Wählen Sie diese Einstellung aus, wenn auf die Genehmigung eines Administrators gewartet werden soll, bevor Benutzer dem Zielcomputer zugeordnet werden.  
-
-    -   **Affinität zwischen Benutzer und Gerät nicht zulassen**: Wählen Sie diese Einstellung aus, um anzugeben, dass Benutzer dem Zielcomputer nicht zugeordnet werden sollen.  
-
-     Weitere Informationen zur Affinität zwischen Benutzer und Gerät finden Sie unter [Verknüpfen von Benutzern und Geräten mit Affinität zwischen Benutzer und Gerät in System Center Configuration Manager](../../../../apps/deploy-use/link-users-and-devices-with-user-device-affinity.md).  
-
--   **Netzwerkschnittstellen**: Geben Sie an, ob vom Verteilungspunkt auf PXE-Anforderungen von allen oder nur von bestimmten Netzwerkschnittstellen geantwortet werden soll. Wenn nur auf PXE-Anforderungen von bestimmten Netzwerkschnittstellen geantwortet werden soll, müssen Sie die MAC-Adressen dieser Schnittstellen bereitstellen.  
-
--   **Reaktionsverzögerung für den PXE-Server (in Sekunden) angeben**: Gibt die Länge der Verzögerung (in Sekunden) an, bevor vom PXE-Verteilungspunkt auf Computeranforderungen reagiert wird, wenn mehrere für PXE aktivierte Verteilungspunkte verwendet werden. Standardmäßig reagiert der Configuration Manager-PXE-Dienstpunkt zunächst auf Netzwerk-PXE-Anforderungen.  
+-   **Emplacements du contenu**: Spécifiez les emplacements de contenu pour le partage de bibliothèque et de package de contenu. Configuration Manager copie le contenu à l’emplacement de contenu principal jusqu’à ce que la quantité d’espace libre atteigne la valeur spécifiée dans **Réserve d’espace libre sur le lecteur (Mo)**. Par défaut, les emplacements du contenu sont définis sur **Automatique**. L’emplacement de contenu principal est défini sur le lecteur de disque disposant le plus d’espace lors de l’installation. L’emplacement secondaire, quant à lui, est attribué au deuxième lecteur de disque disposant le plus d’espace. Quand le lecteur principal et le lecteur secondaire atteignent la réserve d’espace libre sur le lecteur, Configuration Manager sélectionne un autre lecteur disponible ayant le plus d’espace disque libre et poursuit le processus de copie.  
 
 > [!NOTE]  
->  Sie können das PXE-Protokoll zum Starten von Betriebssystembereitstellungen für Configuration Manager-Clientcomputer verwenden. Configuration Manager verwendet die für PXE aktivierte Bereitstellungspunkt-Standortrolle zum Initiieren der Betriebssystembereitstellung. Der PXE-aktivierte Verteilungspunkt muss für Folgendes konfiguriert sein:
+>  Pour empêcher l’installation de Configuration Manager sur un lecteur spécifique, créez un fichier vide intitulé **no_sms_on_drive.sms** et copiez-le dans le dossier racine du lecteur avant d’installer le point de distribution.  
+
+### <a name="pull-distribution-point"></a>Point de distribution d'extraction  
+Quand vous choisissez **Activer ce point de distribution pour extraire le contenu à partir d’autres points de distribution**, vous modifiez la méthode employée par l’ordinateur pour obtenir le contenu que vous distribuez au point de distribution. Ce point de distribution devient un point de distribution d’extraction.  
+
+Pour chaque point de distribution d’extraction que vous configurez, vous devez spécifier un ou plusieurs points de distribution sources à partir desquels le point de distribution d’extraction obtient le contenu :  
+
+-   Choisissez **Ajouter**, puis sélectionnez un ou plusieurs des points de distribution disponibles comme points de distribution sources.  
+
+-   Choisissez **Supprimer** pour supprimer le point de distribution sélectionné comme point de distribution source.  
+
+-   Utilisez les boutons fléchés pour définir l’ordre dans lequel le point de distribution d’extraction contacte les points de distribution sources lorsqu’il tente de transférer du contenu. Les points de distribution associés à la valeur la plus faible sont contactés en premier.  
+
+### <a name="pxe"></a>Environnement PXE  
+Indiquez si vous souhaitez activer l'environnement PXE sur le point de distribution. Quand vous activez l’environnement PXE, Configuration Manager installe les services de déploiement Windows sur le serveur, si nécessaire. Les services de déploiement Windows démarrent PXE pour installer les systèmes d’exploitation. Après avoir effectué toutes les étapes de l’Assistant pour créer le point de distribution, Configuration Manager installe dans les services de déploiement Windows un fournisseur qui utilise les fonctions de démarrage PXE.  
+
+Lorsque vous choisissez **Activer la prise en charge PXE pour les clients**, configurez les paramètres suivants :  
+
+-   **Autoriser ce point de distribution à répondre aux requêtes PXE entrantes** : permet de spécifier si les Services de déploiement Windows doivent être activés, pour qu’ils répondent aux demandes de service PXE. Utilisez cette case à cocher pour activer et désactiver le service sans supprimer la fonctionnalité PXE du point de distribution.  
+
+-   **Activer la prise en charge d’ordinateur inconnu** : indiquez si la prise en charge des ordinateurs non gérés par Configuration Manager doit être activée.  
+
+-   **Exiger un mot de passe lorsque les ordinateurs utilisent PXE**: pour renforcer la sécurité de vos déploiements PXE, spécifiez un mot de passe fort.  
+
+-   **Affinité entre appareil et utilisateur**: indiquez de quelle manière le point de distribution doit associer les utilisateurs à l'ordinateur de destination dans le cadre des déploiements PXE. Choisissez l'une des options suivantes :  
+
+    -   **Autoriser une affinité entre périphérique et utilisateur avec approbation automatique** : choisissez ce paramètre pour associer automatiquement les utilisateurs à l’ordinateur de destination sans attendre l’approbation.  
+
+    -   **Autoriser une affinité entre périphérique et utilisateur en attente de l’approbation de l’administrateur** : choisissez ce paramètre pour attendre l’approbation d’un utilisateur administratif avant d’associer des utilisateurs à l’ordinateur de destination.  
+
+    -   **Ne pas autoriser d’affinité entre périphérique et utilisateur** : choisissez ce paramètre pour empêcher l’association d’utilisateurs à l’ordinateur de destination.  
+
+     Pour plus d’informations sur l’affinité entre utilisateur et appareil, consultez [Lier des utilisateurs et des appareils avec l’affinité entre utilisateur et appareil dans System Center Configuration Manager](../../../../apps/deploy-use/link-users-and-devices-with-user-device-affinity.md).  
+
+-   **Interfaces réseau**: Spécifiez que le point de distribution répond aux requêtes PXE à partir de toutes les interfaces réseau ou d'interfaces réseau spécifiques. Si le point de distribution répond à des interfaces réseau spécifiques, vous devez fournir l’adresse MAC pour chaque interface réseau.  
+
+-   **Spécifier le délai de réponse du serveur PXE (secondes)** : indiquez, en secondes, le délai d’attente à l’issue duquel le point de distribution répond aux requêtes de l’ordinateur lorsque plusieurs points de distribution PXE sont utilisés. Par défaut, le point de service PXE de Configuration Manager répond d’abord aux demandes PXE du réseau.  
+
+> [!NOTE]  
+>  Le protocole PXE permet de démarrer les déploiements de système d’exploitation sur les ordinateurs clients Configuration Manager. Configuration Manager utilise le rôle de site du point de distribution PXE pour lancer le processus de déploiement du système d’exploitation. Le point de distribution PXE doit être configuré pour :
 >
-> 1. Antworten auf PXE-Boot-Anfragen, die von Configuration Manager-Clients im Netzwerk gestellt werden.
-> 2. Interagieren mit der Configuration Manager-Infrastruktur zur Ermittlung der geeigneten Bereitstellungsaktionen.  
+> 1. Répondre aux demandes de démarrage PXE émanant des clients Configuration Manager sur le réseau.
+> 2. Interagir avec l’infrastructure Configuration Manager pour déterminer les actions de déploiement appropriées à entreprendre.  
 
-### <a name="multicast"></a>Multicast  
-Geben Sie an, ob Multicast auf dem Verteilungspunkt aktiviert werden soll. Wenn Sie Multicast aktivieren, installiert Configuration Manager bei Bedarf die Windows-Bereitstellungsdienste auf dem Server.  
+### <a name="multicast"></a>Multidiffusion  
+Indiquez si vous souhaitez activer la multidiffusion sur le point de distribution. Quand vous activez la multidiffusion, Configuration Manager installe les services de déploiement Windows sur le serveur, si nécessaire.  
 
-Wenn Sie das Kontrollkästchen **Multicast aktivieren, um gleichzeitig Daten an mehrere Clients zu senden** aktivieren, konfigurieren Sie die folgenden Einstellungen:  
+Lorsque vous activez la case à cocher **Activer la multidiffusion pour envoyer simultanément des données à plusieurs clients**, configurez les paramètres suivants :  
 
--   **Multicastverbindungskonto:** Geben Sie das Konto an, das verwendet werden soll, wenn Sie Configuration Manager-Datenbankverbindungen für Multicast konfigurieren.  
+-   **Compte de connexion multidiffusion** : indiquez le compte à utiliser quand vous configurez des connexions de base de données Configuration Manager pour la multidiffusion.  
 
--   **Multicastadresseinstellungen**: Geben Sie die IP-Adressen an, die zum Senden von Daten an die Zielcomputer verwendet werden sollen. Standardmäßig wird die IP-Adresse von einem DHCP-Server vergeben, der für die Verteilung von Multicastadressen aktiviert ist. Je nach Netzwerkumgebung können Sie IP-Adressen im Bereich von 239.0.0.0 bis 239.255.255.255 angeben.  
-
-    > [!IMPORTANT]  
-    >  Die IP-Adressen, die Sie konfigurieren, müssen für die Zielcomputer, von denen das Betriebssystemabbild angefordert wird, zugänglich sein. Vergewissern Sie sich, dass Multicastdatenverkehr von Routern und Firewalls zwischen Zielcomputer und Standortserver zugelassen wird.  
-
--   **UDP-Portbereich für Multicasts**: Geben Sie den Bereich von UDP-Ports (User Datagram-Protokoll) zum Senden von Daten an die Zielcomputer an.  
+-   **Paramètres de l’adresse de multidiffusion** : spécifiez les adresses IP pour envoyer des données vers les ordinateurs de destination. Par défaut; l'adresse IP est fournie par un serveur DCHP chargé de distribuer des adresses de multidiffusion. Selon l’environnement réseau, vous pouvez spécifier une plage d’adresses IP entre 239.0.0.0 et 239.255.255.255.  
 
     > [!IMPORTANT]  
-    >  Die UDP-Ports müssen für die Zielcomputer, von denen das Betriebssystemabbild angefordert wird, zugänglich sein. Vergewissern Sie sich, dass Multicastdatenverkehr von Routern und Firewalls zwischen Zielcomputer und Standortserver zugelassen wird.  
+    >  Les adresses IP que vous configurez doivent être accessibles par les ordinateurs de destination qui demandent l'image du système d'exploitation. Vérifiez que les routeurs et pare-feu autorisent le trafic de multidiffusion entre l'ordinateur de destination et le serveur de site.  
 
--   **Clientübertragungsrate**: Wählen Sie die Clientübertragungsrate, die zum Herunterladen von Daten auf die Zielcomputer verwendet wird, aus.  
+-   **Étendue du port UDP pour la multidiffusion** : spécifiez la plage de ports UDP (User Datagram Protocol) utilisés pour envoyer des données aux ordinateurs de destination.  
 
--   **Max. Anzahl von Clients**: Geben Sie die maximale Anzahl von Zielcomputern, von denen das Betriebssystem von diesem Verteilungspunkt heruntergeladen werden kann, an.  
+    > [!IMPORTANT]  
+    >  Les ports UDP doivent être accessibles par les ordinateurs de destination qui demandent l'image du système d'exploitation. Vérifiez que les routeurs et pare-feu autorisent le trafic de multidiffusion entre l'ordinateur de destination et le serveur de site.  
 
--   **Geplanten Multicast aktivieren:** Geben Sie an, wie Configuration Manager die Startzeit der Bereitstellung des Betriebssystems für Zielcomputer steuert. Konfigurieren Sie die folgenden Optionen:  
+-   **Taux de transfert client**: Sélectionnez la vitesse de transfert utilisée pour télécharger des données sur les ordinateurs de destination.  
 
-    -   **Sitzungsstartverzögerung (Minuten):** Geben Sie an, wie viele Minuten Configuration Manager warten soll, bis auf die erste Bereitstellungsanfrage reagiert wird.  
+-   **Nombre maximum de clients**: Spécifiez le nombre maximal d'ordinateurs de destination qui peuvent télécharger le système d'exploitation à partir de ce point de distribution.  
 
-    -   **Minimale Sitzungsgröße (Clients):** Geben Sie an, wie viele Anforderungen empfangen werden müssen, bevor Configuration Manager das Betriebssystem bereitstellt.  
+-   **Activer la multidiffusion planifiée** : indiquez comment Configuration Manager contrôle le lancement du déploiement des systèmes d’exploitation sur les ordinateurs de destination. Configurez les options suivantes :  
+
+    -   **Délai de démarrage de session (en minutes)** : indiquez le nombre de minutes écoulé avant que Configuration Manager réponde à la première demande de déploiement.  
+
+    -   **Taille minimale de la session (clients)** : indiquez le nombre de demandes qui doivent être reçues avant que Configuration Manager commence à déployer le système d’exploitation.  
 
 > [!NOTE]  
->  Bei Multicastbereitstellungen wird die Netzwerkbandbreite beibehalten, indem gleichzeitig Daten an mehrere Configuration Manager-Clients gesendet werden, anstatt dass eine Kopie der Daten über eine separate Verbindung an jeden Client einzeln gesendet wird. Weitere Informationen zur Verwendung von Multicast zum Bereitstellen von Betriebssystemen finden Sie unter [Verwenden von Multicast zum Bereitstellen von Windows über das Netzwerk mit System Center Configuration Manager](../../../../osd/deploy-use/use-multicast-to-deploy-windows-over-the-network.md).  
+>  Les déploiements de multidiffusion économisent la bande passante réseau en envoyant de manière simultanée des données à plusieurs clients Configuration Manager au lieu d’envoyer une copie des données à chaque client via une connexion distincte. Pour plus d’informations sur l’utilisation de la multidiffusion pour le déploiement de systèmes d’exploitation, consultez [Utiliser la multidiffusion pour Windows sur le réseau avec System Center Configuration Manager](../../../../osd/deploy-use/use-multicast-to-deploy-windows-over-the-network.md).  
 
-### <a name="group-relationships"></a>Gruppenbeziehungen  
+### <a name="group-relationships"></a>Relations de groupe  
 
 > [!NOTE]  
->  Diese Optionen sind nur bei der Bearbeitung der Eigenschaften eines zuvor installierten Verteilungspunkts verfügbar.  
+>  Ces options ne sont disponibles que quand vous modifiez les propriétés d’un point de distribution déjà installé.  
 
-Verwalten Sie die Verteilungspunktgruppen, in denen dieser Verteilungspunkt Mitglied ist.  
+Gérez les groupes de points de distribution dont ce point de distribution est membre.  
 
-Wählen Sie **Hinzufügen** aus, um diesen Verteilungspunkt einer vorhandenen Verteilungspunktgruppe als Mitglied hinzuzufügen. Wählen Sie eine vorhandene Verteilungspunktgruppe in der Liste des Dialogfelds **Zu Verteilungspunktgruppen hinzufügen** und dann **OK** aus.  
+Pour ajouter ce point de distribution en tant que membre à un groupe de points de distribution, choisissez **Ajouter**. Sélectionnez un groupe de points de distribution dans la liste de la boîte de dialogue **Ajouter aux groupes de points de distribution**, puis choisissez **OK**.  
 
-Wählen Sie eine Verteilungspunktgruppe in der Liste und dann **Entfernen** aus, um den Verteilungspunkt aus dieser Verteilungspunktgruppe zu entfernen.  
+Pour supprimer ce point de distribution d’un groupe de points de distribution, sélectionnez le groupe dans la liste, puis choisissez **Supprimer**.  
 
 ### <a name="content"></a>Content  
 
 > [!NOTE]  
->  Diese Optionen sind nur bei der Bearbeitung der Eigenschaften eines zuvor installierten Verteilungspunkts verfügbar.  
+>  Ces options ne sont disponibles que quand vous modifiez les propriétés d’un point de distribution déjà installé.  
 
-Verwalten Sie den Inhalt, der an den Verteilungspunkt verteilt wurde. Im Abschnitt **Bereitstellungspakete** finden Sie eine Liste der Pakete, die an diesen Verteilungspunkt verteilt wurden. Sie können ein Paket aus der Liste auswählen und die folgenden Aktionen ausführen:  
+Gérez le contenu qui a été distribué au point de distribution. La section **Packages de déploiement** fournit la liste des packages distribués à ce point de distribution. Vous pouvez sélectionner un package dans la liste, puis effectuer les actions suivantes :  
 
--   **Überprüfen**: Hiermit starten Sie den Vorgang zum Überprüfen der Integrität der Inhaltsdateien im Paket. Zum Anzeigen der Ergebnisse der Inhaltsprüfung erweitern Sie im Arbeitsbereich **Überwachung** den Bereich **Verteilungsstatus** und wählen Sie den Knoten **Inhaltsstatus** aus.  
+-   **Valider**: Démarre le processus de validation de l'intégrité des fichiers de contenu dans le package. Pour afficher les résultats du processus de validation du contenu, dans l’espace de travail **Surveillance**, développez **État de distribution**, puis choisissez le nœud **État du contenu**.  
 
--   **Neu verteilen**: Hiermit kopieren Sie alle Inhaltsdateien im Paket an den Verteilungspunkt und überschreiben vorhandene Dateien. Normalerweise verwenden Sie diese Aktion, um Inhaltsdateien im Paket zu reparieren.  
+-   **Redistribuer**: Copie tous les fichiers de contenu dans le package vers le point de distribution et remplace les fichiers existants. Vous utilisez généralement cette opération pour réparer les fichiers de contenu dans le package.  
 
--   **Entfernen**: Hiermit entfernen Sie die Inhaltsdateien für das Paket vom Verteilungspunkt.  
+-   **Supprimer**: Supprime les fichiers de contenu du point de distribution du package.  
 
-### <a name="content-validation"></a>Inhaltsprüfung  
-Geben Sie an, ob ein Zeitplan für die Überprüfung der Integrität von Inhaltsdateien am Verteilungspunkt festgelegt werden soll. Wenn Sie die Inhaltsprüfung nach einem Zeitplan aktivieren, initiiert Configuration Manager den Vorgang zum festgesetzten Zeitpunkt, und am Verteilungspunkt werden alle Inhalte geprüft. Sie können auch die Priorität der Inhaltsprüfung konfigurieren. Standardmäßig ist die Priorität auf den Wert **Niedrigste (Standard)**festgelegt.  
+### <a name="content-validation"></a>Validation du contenu  
+Indiquez si vous souhaitez définir une planification pour valider l'intégrité des fichiers de contenu sur le point de distribution. Quand vous activez la validation de contenu selon une planification, Configuration Manager démarre le processus à l’heure planifiée, et tout le contenu est vérifié sur le point de distribution. Vous pouvez également configurer la priorité de la validation du contenu. Par défaut, la priorité est définie sur **La plus faible**.  
 
-Zum Anzeigen der Ergebnisse der Inhaltsprüfung erweitern Sie im Arbeitsbereich **Überwachung** den Bereich **Verteilungsstatus** und wählen Sie den Knoten **Inhaltsstatus** aus. Der Inhalt jedes Pakettyps (z. B. Anwendung, Softwareupdatepaket und Startabbild) wird angezeigt.  
+Pour afficher les résultats du processus de validation du contenu, dans l’espace de travail **Surveillance**, développez **État de distribution**, puis choisissez le nœud **État du contenu**. Le contenu de chaque type de package (par exemple, application, package de mises à jour logicielles et image de démarrage) s’affiche.  
 
 > [!WARNING]  
->  Sie geben den Zeitplan für die Inhaltsprüfung zwar anhand der lokalen Zeit des Computers an, der Zeitplan wird in der Configuration Manager-Konsole jedoch anhand der UTC (Coordinated Universal Time, koordinierte Weltzeit) angezeigt.  
+>  Même si vous planifiez la validation du contenu en utilisant l’heure locale de l’ordinateur, la planification affichée dans la console Configuration Manager est exprimée en heure UTC.  
 
-### <a name="boundary-group"></a>Begrenzungsgruppe  
-Verwalten Sie die Begrenzungsgruppen, denen dieser Verteilungspunkt zugeordnet ist. Sie können einem Verteilungspunkt Begrenzungsgruppen zuordnen. Bei der Inhaltsbereitstellung müssen sich die Clients in einer dem Verteilungspunkt zugeordneten Begrenzungsgruppe befinden, damit der Verteilungspunkt als Quellort für Inhalt verwendet werden kann.
+### <a name="boundary-group"></a>Groupes de limites  
+Gérez les groupes de limites pour lesquels ce point de distribution est attribué. Vous pouvez associer des groupes de limites à un point de distribution. Au cours de déploiement de contenu, les clients doivent se trouver dans un groupe de limites associé au point de distribution pour l'utiliser en tant qu'emplacement source pour le contenu.
 
-Darüber hinaus gilt:
+En outre :
 
-- Vor Version 1610 können Sie das Kontrollkästchen **Die Verwendung eines Fallbackquellpfads für den Inhalt durch Clients zulassen** aktivieren, um für Clients außerhalb dieser Begrenzungsgruppen ein Ausweichen auf den Verteilungspunkt als Quellort für Inhalt zu ermöglichen, wenn keine anderen Verteilungspunkte verfügbar sind. Weitere Informationen zu Begrenzungsgruppen finden Sie unter [Begrenzungsgruppen für Version 1511, 1602 und 1606](/sccm/core/servers/deploy/configure/boundary-groups-for-1511-1602-and-1606). Informationen zu bevorzugten Verteilungspunkten finden Sie unter [Grundlegende Konzepte für die Inhaltsverwaltung in System Center Configuration Manager](../../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md).
+- À compter de la version 1610, vous pouvez activer la case à cocher **Allow clients to use this site system as a fallback source location for content (Autoriser les clients à utiliser ce système de site en tant qu’emplacement source de secours du contenu)** pour permettre aux clients hors de ces groupes de limites d’être restaurés et d’utiliser le point de distribution comme emplacement source du contenu si aucun autre point de distribution n’est disponible. Pour plus d’informations sur les groupes de limites, consultez [Boundary groups for versions 1511, 1602, and 1606 (Groupes de limites pour les versions 1511, 1602 et 1606)](/sccm/core/servers/deploy/configure/boundary-groups-for-1511-1602-and-1606). Pour plus d’informations sur les points de distribution préférés, consultez [Principes de base de la gestion de contenu dans System Center Configuration Manager](../../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md).
 
-- Mit Version 1610 oder höher können Sie *Beziehungen* für Begrenzungsgruppen definieren, um festzulegen, wann und auf welche Begrenzungsgruppen ein Client ausweichen kann, um nach Inhalten zu suchen. Weitere Informationen finden Sie unter [Begrenzungsgruppen](/sccm/core/servers/deploy/configure/define-site-boundaries-and-boundary-groups#boundary-groups).
+- À partir de la version 1610, vous configurez des *relations* qui définissent à quel moment et auprès de quels groupes de limites un client peut effectuer une action de secours pour trouver du contenu. Pour plus d’informations, consultez [Groupes de limites](/sccm/core/servers/deploy/configure/define-site-boundaries-and-boundary-groups#boundary-groups).
 
 
-### <a name="schedule"></a>Zeitplan  
+### <a name="schedule"></a>Planification  
 
 > [!NOTE]  
->  Diese Optionen sind nur bei der Bearbeitung der Eigenschaften eines zuvor installierten Verteilungspunkts verfügbar.  
+>  Ces options ne sont disponibles que quand vous modifiez les propriétés d’un point de distribution déjà installé.  
 
 > [!TIP]  
->  Diese Registerkarte ist nur verfügbar, wenn Sie die Eigenschaften für einen Verteilungspunkt bearbeiten, der sich an einem vom Standortservercomputer entfernten Ort befindet.  
+>  Cet onglet n’est disponible que lorsque vous modifiez les propriétés d’un point de distribution distant de l’ordinateur du serveur de site.  
 
- Geben Sie an, ob ein Zeitplan konfiguriert werden soll, von dem die Datenübertragungszeiten von Configuration Manager an den Verteilungspunkt eingeschränkt werden.  
+ Indiquez s’il convient de configurer une planification qui limite la période de transfert de données de Configuration Manager vers le point de distribution.  
 
 > [!IMPORTANT]  
->  Der Zeitplan basiert auf der Zeitzone des sendenden Standorts, nicht auf der des Verteilungspunkts.  
+>  La planification est basée sur le fuseau horaire du site émetteur, et non sur celui du point de distribution.  
 
-Wählen Sie das Zeitfenster und dann eine der folgenden Einschränkungen für **Verfügbarkeit** aus, um die Datenübertragungszeiten einzuschränken:  
+Pour restreindre les données, sélectionnez la période, puis choisissez l’un des paramètres suivants sous **Disponibilité** :  
 
--   **Offen für alle Prioritäten:** Gibt an, dass die Datenübertragung von Configuration Manager an den Verteilungspunkt uneingeschränkt erfolgt  
+-   **Ouvrir pour toutes les priorités** : indique que Configuration Manager envoie les données au point de distribution sans restriction.  
 
--   **Mittlere und hohe Priorität zulassen:** Gibt an, dass Configuration Manager nur Daten mit mittlerer und hoher Priorität an den Verteilungspunkt sendet.  
+-   **Autoriser les priorités moyennes et élevées** : indique que Configuration Manager n’envoie au point de distribution que les données de priorité moyenne et élevée.  
 
--   **Nur hohe Priorität zulassen:** Gibt an, dass Configuration Manager nur Daten mit hoher Priorität an den Verteilungspunkt sendet.  
+-   **Autoriser uniquement la priorité élevée** : indique que Configuration Manager n’envoie au point de distribution que les données de priorité élevée.  
 
--   **Geschlossen:** Gibt an, dass Configuration Manager keine Daten an den Verteilungspunkt sendet  
+-   **Fermé** : indique que Configuration Manager n’envoie pas de données au point de distribution.  
 
-Sie können Daten nach Priorität einschränken oder die Verbindung für ausgewählte Zeiträume schließen.  
+Vous pouvez limiter les données par priorité ou fermer la connexion durant des périodes sélectionnées.  
 
-### <a name="rate-limits"></a>Begrenzung der Datenübertragungsrate  
+### <a name="rate-limits"></a>Limites du taux de transfert  
 
 > [!NOTE]  
->  Diese Optionen sind nur bei der Bearbeitung der Eigenschaften eines zuvor installierten Verteilungspunkts verfügbar.  
+>  Ces options ne sont disponibles que quand vous modifiez les propriétés d’un point de distribution déjà installé.  
 
 > [!TIP]  
->  Diese Registerkarte ist nur verfügbar, wenn Sie die Eigenschaften für einen Verteilungspunkt bearbeiten, der sich an einem vom Standortservercomputer entfernten Ort befindet.  
+>  Cet onglet n’est disponible que lorsque vous modifiez les propriétés d’un point de distribution distant de l’ordinateur du serveur de site.  
 
-Geben Sie an, ob eine Begrenzung der Datenübertragungsrate konfiguriert werden soll, um die Netzwerkauslastung bei der Inhaltsübertragung durch Configuration Manager auf den Verteilungspunkt zu steuern. Sie können unter folgenden Optionen wählen:  
+Spécifiez si vous souhaitez configurer des limites du taux de transfert pour contrôler la bande passante réseau utilisée lorsque Configuration Manager transfère du contenu vers le point de distribution. Vous pouvez choisir parmi les options suivantes :  
 
--   **Unbegrenzt beim Senden an dieses Ziel:** Gibt an, dass die Inhaltsübertragung von Configuration Manager an den Verteilungspunkt ohne Begrenzung der Datenübertragungsrate erfolgt.  
+-   **Illimité lors de l’expédition de données à cette destination** : cette option spécifie que Configuration Manager envoie le contenu au point de distribution sans aucune limite de taux de transfert.  
 
--   **Pulsmodus**: Gibt die Größe der Datenblöcke beim Senden an den Verteilungspunkt an. Sie können auch eine zeitliche Verzögerung zwischen dem Senden der einzelnen Datenblöcke angeben. Verwenden Sie diese Option, wenn Sie Daten über Netzwerke mit sehr niedriger Bandbreite an den Verteilungspunkt senden müssen. Dies kann beispielsweise der Fall sein, wenn eine Beschränkung vorliegt, dass unabhängig von der Geschwindigkeit der Verknüpfung oder deren Auslastung zu einem bestimmten Zeitpunkt nur alle fünf Sekunden 1 KB Daten gesendet werden dürfen.  
+-   **Mode impulsion** : cette option spécifie la taille des blocs de données qui sont envoyés au point de distribution. Vous pouvez également spécifier un délai entre l'envoi de chaque bloc de données. Utilisez cette option lorsque vous devez envoyer des données au point de distribution via une connexion réseau à très faible bande passante. Par exemple, vous pouvez forcer l'envoi de 1 Ko de données toutes les cinq secondes, quelle que soit la vitesse de la liaison ou son utilisation.  
 
--   **Begrenzt auf angegebene maximale Übertragungsraten pro Stunde**: Geben Sie diese Einstellung an, damit die Datenübertragung auf einen Verteilungspunkt nur im konfigurierten Zeitanteil erfolgt. Wenn Sie diese Option verwenden, ermittelt Configuration Manager nicht die verfügbare Netzwerkbandbreite. Stattdessen wird die Zeit, innerhalb derer Daten gesendet werden können, aufgeteilt. Die Daten werden dann innerhalb eines kurzen Zeitblocks gesendet. In den darauffolgenden Zeitblöcken werden keine Daten gesendet. Wenn die Höchstrate beispielsweise auf **50 %**festgelegt ist, überträgt Configuration Manager die Daten für eine bestimmte Dauer, und für eine ebenso lange Dauer werden anschließend keine Daten übertragen. Die tatsächliche Datenmenge bzw. die Größe der Datenblöcke wird nicht verwaltet. Stattdessen wird nur die Dauer der Datenübertragung verwaltet.  
+-   **Limité aux taux de transfert maximaux indiqués par heure**: spécifiez ce paramètre pour qu'un site envoie des données à un point de distribution en utilisant uniquement le pourcentage de temps que vous avez configuré. Quand vous utilisez cette option, Configuration Manager n’identifie pas la bande passante disponible du réseau, mais divise le temps pendant lequel il peut envoyer des données. Puis les données sont envoyées pendant une courte plage horaire, suivie de plages horaires pendant lesquelles aucune donnée n'est envoyée. Par exemple, si le taux maximal est fixé à **50 %**, Configuration Manager transmet les données sur une période, qui est suivie d’une période égale où aucune donnée n’est envoyée. La taille effective des donnés ou la taille des blocs de données ne sont pas gérées. En revanche, seule la durée pendant laquelle des données sont envoyées est gérée.  

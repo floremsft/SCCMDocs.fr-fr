@@ -1,6 +1,6 @@
 ---
-title: Benutzerdefinierte Datenbank-Dateispeicherorte | Microsoft-Dokumentation
-description: "Erfahren Sie, wie Sie benutzerdefinierte Speicherorte für SQL Server-Datenbankdateien angeben."
+title: "Emplacements des fichiers de base de données personnalisés | Microsoft Docs"
+description: "Découvrez comment spécifier des emplacements personnalisés pour des fichiers de base de données SQL Server."
 ms.custom: na
 ms.date: 10/06/2016
 ms.reviewer: na
@@ -17,28 +17,28 @@ manager: angrobe
 ms.openlocfilehash: cfac2c03c1b71b40c68d8acd5fbd96c5e98caaa9
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="custom-locations-for-system-center-configuration-manager-site-database-files"></a>Benutzerdefinierte Dateispeicherorte für Standortdatenbanken mit System Center Configuration Manager
+# <a name="custom-locations-for-system-center-configuration-manager-site-database-files"></a>Emplacements personnalisés pour les fichiers de base de données du site System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
- System Center Configuration Manager unterstützt benutzerdefinierte Speicherorte für SQL Server-Datenbankdateien.  
+ System Center Configuration Manager prend en charge les emplacements personnalisés pour les fichiers de base de données SQL Server.  
 
 > [!NOTE]  
->  Die Option zur Angabe der vom Standard abweichenden Speicherorte ist nicht verfügbar, wenn Sie einen SQL Server-Cluster verwenden.  
+>  Cette possibilité de spécifier des emplacements de fichiers autres que les emplacements par défaut n'est pas disponible quand vous utilisez un cluster SQL Server.  
 
- **Während des Setups** eines neuen primären Standorts oder eines Standorts der zentralen Verwaltung haben Sie folgende Möglichkeiten:  
+ **Durant l’installation** d’un nouveau site principal ou d’un site d’administration centrale, vous pouvez :  
 
--   **Angeben nicht standardmäßiger Dateispeicherorte für die Standortdatenbank**: Das Configuration Manager-Setup erstellt dann die Standortdatenbank anhand dieser Speicherorte.  
+-   **Spécifier des emplacements de fichiers autres que ceux par défaut pour la base de données du site** : le programme d’installation de Configuration Manager crée alors la base de données du site en utilisant ces emplacements.  
 
--   **Angeben der Nutzung einer vorab erstellten SQL Server-Datenbank, die benutzerdefinierte Dateispeicherorte verwendet**: Das Configuration Manager-Setup nutzt dann diese vorab erstellte Datenbank und ihre vorkonfigurierten Dateispeicherorte.  
+-   **Spécifier l’utilisation d’une base de données SQL Server déjà créée qui utilise des emplacements de fichiers personnalisés** : le programme d’installation de Configuration Manager utilise alors cette base de données déjà créée et ses emplacements de fichiers préconfigurés.  
 
-**Nach dem Setup** können Sie den Speicherort der Standortdatenbankdateien ändern. Dazu müssen Sie den Standort beenden und den Dateispeicherort in SQL Server bearbeiten:  
+**Après l’installation**, vous pouvez modifier l’emplacement des fichiers de base de données du site. Pour ce faire, vous devez arrêter le site et modifier l’emplacement du fichier dans SQL Server :  
 
--   Beenden Sie auf dem Configuration Manager-Standortserver den Dienst **SMS_Executive**.  
+-   Sur le serveur de site Configuration Manager, arrêtez le service **SMS_Executive**.  
 
--   Verwenden Sie die Dokumentation für Ihre Version von SQL Server, in der Sie Anweisungen zum Verschieben einer Benutzerdatenbank finden. Wenn Sie beispielsweise SQL Server 2014 nutzen, lesen Sie [Verschieben von Benutzerdatenbanken](https://technet.microsoft.com/library/ms345483\(v=sql.120\).aspx) in TechNet.  
+-   Utilisez la documentation de votre version de SQL Server pour savoir comment déplacer une base de données utilisateur. Par exemple, si vous utilisez SQL Server 2014, consultez [Déplacer des bases de données utilisateur](https://technet.microsoft.com/library/ms345483\(v=sql.120\).aspx) sur TechNet.  
 
--   Starten Sie nach dem Verschieben der Datenbankdateien den Dienst **SMS_Executive** auf dem Configuration Manager-Standortserver neu.  
+-   Après avoir déplacé le fichier de base de données, redémarrez le service **SMS_Executive** sur le serveur de site Configuration Manager.  

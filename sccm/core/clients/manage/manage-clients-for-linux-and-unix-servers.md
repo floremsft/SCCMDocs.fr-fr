@@ -1,6 +1,6 @@
 ---
-title: Verwalten von Linux- und UNIX-Clients | Microsoft-Dokumentation
-description: Verwalten Sie Clients auf Linux- und UNIX-Servern in System Center Configuration Manager.
+title: "Gérer les clients Linux et UNIX | Microsoft Docs"
+description: "Découvrez comment gérer les clients sur des serveurs Linux et UNIX dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
@@ -18,63 +18,63 @@ manager: angrobe
 ms.openlocfilehash: 506df4f7c7baa5f0586a1ddf0cb02b3de9f4d076
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-manage-clients-for-linux-and-unix-servers-in-system-center-configuration-manager"></a>Verwalten von Clients für Linux- und UNIX-Server in System Center Configuration Manager
+# <a name="how-to-manage-clients-for-linux-and-unix-servers-in-system-center-configuration-manager"></a>Guide pratique pour gérer les clients pour des serveurs Linux et UNIX dans System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Bei der Verwaltung von Linux- und UNIX-Servern mit System Center Configuration Manager können Sie Sammlungen, Wartungsfenster und Clienteinstellungen zum Verwalten der Server konfigurieren. Darüber hinaus können Sie erzwingen, dass der Client manuell die Clientrichtlinie abruft, obwohl der Configuration Manager-Client für Linux und UNIX über keine Benutzeroberfläche verfügt.
+Quand vous gérez des serveurs Linux et UNIX avec System Center Configuration Manager, vous pouvez configurer des regroupements, des fenêtres de maintenance et des paramètres client pour mieux gérer les serveurs. Par ailleurs, le client Configuration Manager pour Linux et UNIX n’a pas d’interface utilisateur, mais vous pouvez forcer le client à interroger manuellement la stratégie du client.
 
-##  <a name="BKMK_CollectionsforLnU"></a> Collections of Linux and UNIX servers  
- Sie verwenden Sammlungen, um Gruppen von Linux- und UNIX-Servern in der gleichen Weise wie andere Clienttypen zu verwalten. Sammlungen können Sammlungen mit direkter Mitgliedschaft oder abfragebasierte Sammlungen sein. Abfragebasierte Sammlungen identifizieren Clientbetriebssysteme, Hardwarekonfigurationen oder andere in der Standortdatenbank gespeicherte Details zum Client. Mit Sammlungen, die Linux- und UNIX-Server enthalten, können Sie z. B. die folgenden Einstellungen verwalten:  
+##  <a name="BKMK_CollectionsforLnU"></a> Regroupements de serveurs Linux et UNIX  
+ Utilisez les regroupements pour gérer des groupes de serveurs Linux et UNIX de la même façon que d’autres types de clients. Les regroupements peuvent être des regroupements avec adhésion directe ou des regroupements basés sur une requête. Les regroupements basés sur une requête identifient les systèmes d’exploitation clients, les configurations matérielles ou d’autres détails sur le client qui sont stockés dans la base de données du site. Par exemple, vous pouvez utiliser des regroupements qui incluent des serveurs Linux et UNIX pour gérer les paramètres suivants :  
 
--   Clienteinstellungen  
+-   Paramètres du client  
 
--   Softwarebereitstellungen  
+-   Déploiements de logiciels  
 
--   Erzwingen von Wartungsfenstern  
+-   Application de fenêtres de maintenance  
 
- Bevor Sie einen Linux- oder UNIX-Client anhand seines Betriebssystems oder der Verteilung identifizieren können, müssen Sie die [Hardwareinventur](../../../core/clients/manage/inventory/hardware-inventory-for-linux-and-unix.md) des Clients erfassen.  
+ Avant de pouvoir identifier un client Linux ou UNIX par son système d’exploitation ou sa distribution, vous devez collecter l’[inventaire matériel](../../../core/clients/manage/inventory/hardware-inventory-for-linux-and-unix.md) du client.  
 
- Die standardmäßigen Clienteinstellungen für die Hardwareinventur umfassen Informationen zum Betriebssystem eines Clientcomputers. Können Sie die Eigenschaft **Caption** der Klasse **Operating System** verwenden, um das Betriebssystem eines Linux- oder UNIX-Servers zu identifizieren.  
+ Les paramètres client par défaut pour l’inventaire matériel incluent des informations sur le système d’exploitation de l’ordinateur client. Vous pouvez utiliser la propriété **Légende** de la classe **Système d’exploitation** pour identifier le système d’exploitation d’un serveur Linux ou UNIX.  
 
- Details zu Computern, auf denen der Configuration Manager-Client für Linux und UNIX ausgeführt wird, können Sie unter dem Knoten **Geräte** im Arbeitsbereich **Bestand und Kompatibilität** der Configuration Manager-Konsole anzeigen. Im Arbeitsbereich **Bestand und Kompatibilität** der Configuration Manager-Konsole wird der Name des **Betriebssystems** jedes Computers in der Spalte Betriebssystem angezeigt.  
+ Vous pouvez afficher des informations détaillées sur les ordinateurs qui exécutent le client Configuration Manager pour Linux et UNIX dans le nœud **Appareils** de l’espace de travail **Ressources et Conformité**, dans la console Configuration Manager. Dans l’espace de travail **Ressources et Conformité** de la console Configuration Manager, la colonne **Système d’exploitation** affiche le nom du système d’exploitation de chaque ordinateur.  
 
- Linux- und UNIX-Server sind standardmäßig Mitglieder der Sammlung **Alle Systeme** . Es wird empfohlen, benutzerdefinierte Sammlungen zu erstellen, die nur Linux- und UNIX-Server oder einen Teil davon enthalten. Durch benutzerdefinierte Sammlungen können Sie Vorgänge wie das Bereitstellen von Software oder das Zuweisen von Clienteinstellungen auf Gruppen entsprechender Computer verwalten, sodass Sie den Erfolg einer Bereitstellung exakt messen können.   
+ Par défaut, les serveurs Linux et UNIX sont membres du regroupement **Tous les systèmes** . Nous recommandons de créer des regroupements personnalisés qui incluent uniquement les serveurs Linux et UNIX, ou un sous-ensemble de ces serveurs. Les regroupements personnalisés vous permettent de gérer des opérations telles que le déploiement de logiciels ou l’affectation de paramètres client à des groupes d’ordinateurs similaires, et de mesurer ainsi avec précision la réussite d’un déploiement.   
 
- Fügen Sie beim Erstellen einer benutzerdefinierten Sammlung für Linux- und UNIX-Server Mitgliedsregelabfragen hinzu, die für das Attribut „Operating System“ das Attribut „Caption“ enthalten. Informationen zum Erstellen von Sammlungen finden Sie unter [Erstellen von Sammlungen in System Center Configuration Manager](../../../core/clients/manage/collections/create-collections.md).  
+ Quand vous créez un regroupement personnalisé pour des serveurs Linux et UNIX, insérez des requêtes de règle d’appartenance qui incluent l’attribut Légende pour l’attribut Système d’exploitation. Pour plus d’informations sur la création de regroupements, consultez [Guide pratique pour créer des regroupements dans System Center Configuration Manage](../../../core/clients/manage/collections/create-collections.md).  
 
-##  <a name="BKMK_MaintenanceWindowsforLnU"></a> Maintenance windows for Linux and UNIX servers  
- Der Configuration Manager-Client für Linux- und UNIX-Server unterstützt die Verwendung von [Wartungsfenstern](../../../core/clients/manage/collections/use-maintenance-windows.md). Diese Unterstützung unterscheidet sich nicht von Windows-basierten Clients.  
+##  <a name="BKMK_MaintenanceWindowsforLnU"></a> Fenêtres de maintenance pour les serveurs Linux et UNIX  
+ Le client Configuration Manager pour les serveurs Linux et UNIX prend en charge l’utilisation des [fenêtres de maintenance](../../../core/clients/manage/collections/use-maintenance-windows.md). Cette prise en charge est inchangée par rapport à celle des clients Windows.  
 
-##  <a name="BKMK_ClientSettingsforLnU"></a> Client settings for Linux and UNIX servers  
- Sie können [Clienteinstellungen](../../../core/clients/deploy/configure-client-settings.md) für Linux- und UNIX-Server auf die gleiche Weise wie Einstellungen für andere Clients konfigurieren.  
+##  <a name="BKMK_ClientSettingsforLnU"></a> Paramètres client pour les serveurs Linux et UNIX  
+ Vous pouvez [configurer les paramètres client](../../../core/clients/deploy/configure-client-settings.md) qui s’appliquent aux serveurs Linux et UNIX de la même façon que vous configurez les paramètres d’autres clients.  
 
- Standardmäßig gelten die **Client-Agent-Standardeinstellungen** für Linux- und UNIX-Server. Sie können auch benutzerdefinierte Clienteinstellungen erstellen und für Sammlungen von bestimmten Clients bereitstellen.  
+ Par défaut, les **paramètres d’agent client par défaut** s’appliquent aux serveurs Linux et UNIX. Vous pouvez également créer des paramètres client personnalisés et les déployer dans des regroupements de clients spécifiques.  
 
- Es gibt keine zusätzlichen Clienteinstellungen, die nur für Linux- und UNIX-Clients gelten. Es gibt jedoch Standardclienteinstellungen, die auf Linux- und UNIX-Clients nicht anwendbar sind. Der Client für Linux und UNIX wendet Einstellungen nur für die von ihm unterstützten Funktionen an.  
+ Il n’existe pas d’autres paramètres client qui s’appliquent uniquement aux clients Linux et UNIX. Toutefois, il existe des paramètres client par défaut qui ne s’appliquent pas aux clients Linux et UNIX. Le client pour Linux et UNIX applique uniquement les paramètres pour les fonctionnalités qu’il prend en charge.  
 
- Eine benutzerdefinierte Geräteclienteinstellung, mit der Remotesteuerungseinstellungen aktiviert und konfiguriert werden, wird von den Linux- und UNIX-Servern beispielsweise ignoriert, da der Client für Linux und UNIX die Remotesteuerung nicht unterstützt.  
+ Par exemple, un paramètre d’appareil client personnalisé qui active et configure les paramètres de contrôle à distance est ignoré par les serveurs Linux et UNIX, car le client pour Linux et UNIX ne prend pas en charge le contrôle à distance.  
 
-##  <a name="BKMK_PolicyforLnU"></a> Computer policy for Linux and UNIX servers  
- Der Client für Linux- und UNIX-Server fragt den Standort in regelmäßigen Abständen nach Computerrichtlinien ab, um angeforderte Konfigurationen zu ermitteln und nach Bereitstellungen zu suchen.  
+##  <a name="BKMK_PolicyforLnU"></a> Stratégie d’ordinateur pour les serveurs Linux et UNIX  
+ Le client pour les serveurs Linux et UNIX interroge régulièrement la stratégie d’ordinateur de son site pour connaître les configurations demandées et rechercher les déploiements.  
 
- Sie können auch erzwingen, dass der Client auf einem Linux- oder UNIX-Server Computerrichtlinien sofort abruft. Verwenden Sie hierzu auf dem Server **Stammanmeldedaten** zum Ausführen des folgenden Befehls: **/opt/microsoft/configmgr/bin/ccmexec -rs policy**  
+ Vous pouvez également forcer le client sur un serveur Linux ou UNIX à interroger immédiatement la stratégie d’ordinateur. Pour cela, utilisez les informations d’identification **racine** sur le serveur pour exécuter la commande suivante : **/opt/microsoft/configmgr/bin/ccmexec -rs policy**  
 
- Details zum Computerrichtlinienabruf werden in die freigegebene Clientprotokolldatei, **scxcm.log**, geschrieben.  
+ Des détails sur l’interrogation de la stratégie d’ordinateur sont entrés dans le fichier journal du client partagé **scxcm.log**.  
 
 > [!NOTE]  
->  Der Configuration Manager-Client für Linux und UNIX fordert nie Benutzerrichtlinien an und verarbeitet diese nie.  
+>  Le client Configuration Manager pour Linux et UNIX ne demande et ne traite jamais de stratégie utilisateur.  
 
-##  <a name="BKMK_ManageLinuxCerts"></a> How to manage certificates on the client for Linux and UNIX  
- Nach der Installation des Clients für Linux und UNIX können Sie das **certutil** -Tool zum Aktualisieren des Clients mit einem neuen PKI-Zertifikat und zum Importieren einer neuen Zertifikatsperrliste (CRL) verwenden. Bei der Installation des Clients für Linux und UNIX befindet sich dieses Tool im Verzeichnis **/opt/microsoft/configmgr/bin/certutil**. 
+##  <a name="BKMK_ManageLinuxCerts"></a> Gérer les certificats sur le client pour Linux et UNIX  
+ Après avoir installé le client pour Linux et UNIX, vous pouvez utiliser l’outil **certutil** pour mettre à jour le client avec un nouveau certificat PKI et importer une nouvelle liste de révocation de certificats (CRL). Quand vous installez le client pour Linux et UNIX, cet outil est placé dans **/opt/microsoft/configmgr/bin/certutil**. 
 
- Führen Sie zum Verwalten von Zertifikaten auf jedem Client das certutil-Tool mit einer der folgenden Optionen aus:  
+ Pour gérer les certificats, sur chaque client, exécutez certutil avec l’une des options suivantes :  
 
-|Option|Weitere Informationen|  
+|Option|Plus d'informations|  
 |------------|----------------------|  
-|importPFX|Verwenden Sie diese Option, um ein Zertifikat anzugeben, mit dem das derzeit von einem Client verwendete Zertifikat ersetzt werden soll.<br /><br /> Bei Verwendung von **-importPFX** müssen Sie außerdem den **–password**-Befehlszeilenparameter verwenden, um das der PKCS#12-Datei zugeordnete Kennwort anzugeben.<br /><br /> Verwenden Sie **-rootcerts** , um mögliche weitere Anforderungen an das Stammzertifikat anzugeben.<br /><br /> Beispiel: **certutil -importPFX &lt; Pfad zum PKCS#12-Zertifikat > -password &lt;Zertifikatkennwort\> [-rootcerts &lt;durch Komma getrennte Liste der Zertifikate>]**|  
-|-importsitecert|Verwenden Sie diese Option, um das Standortserver-Signaturzertifikat auf dem Verwaltungsserver zu aktualisieren.<br /><br /> Beispiel: **certutil -importsitecert &lt;Pfad zum DER-Zertifikat\>**|  
-|-importcrl|Verwenden Sie diese Option, um die Zertifikatsperrliste (CRL) auf dem Client mit einem oder mehreren CRL-Dateipfaden zu aktualisieren.<br /><br /> Beispiel: **certutil -importcrl &lt;durch Kommas getrennte CRL-Dateipfade\>**|  
+|importPFX|Utilisez cette option pour spécifier un certificat pour remplacer le certificat actuellement utilisé par un client.<br /><br /> Quand vous utilisez **-importPFX**, vous devez également utiliser le paramètre de ligne de commande **-password** pour fournir le mot de passe associé au fichier PKCS#12.<br /><br /> Utilisez **-rootcerts** pour spécifier des exigences de certificat racine supplémentaires.<br /><br /> Exemple : **certutil -importPFX &lt;chemin du certificat PKCS#12> -mot de passe &lt;mot de passe de certificat\> [-rootcerts &lt;liste de certificats séparés par des virgules>]**|  
+|-importsitecert|Utilisez cette option pour mettre à jour le certificat de signature du serveur de site qui se trouve sur le serveur d’administration.<br /><br /> Exemple : **certutil -importsitecert &lt;chemin du certificat DER\>**|  
+|-importcrl|Utilisez cette option pour mettre à jour la liste de révocation de certificats sur le client avec un ou plusieurs chemins d’accès de fichiers CRL.<br /><br /> Exemple : **certutil -importcrl &lt;liste de chemins de fichier CRL séparés par des virgules\>**|  

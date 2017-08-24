@@ -1,6 +1,6 @@
 ---
-title: Vorbereiten des Windows PE-Peercache zum Reduzieren des WAN-Datenverkehrs | Microsoft-Dokumentation
-description: Der Windows PE-Peercache funktioniert in der Windows PE, von wo Inhalt von einem lokalen Peer abgerufen und WAN-Datenverkehr minimiert wird, wenn kein lokaler Verteilungspunkt vorhanden ist.
+title: "Préparer le cache d’homologue Windows PE pour réduire le trafic WAN | Microsoft Docs"
+description: "Le cache d’homologue Windows PE vise à obtenir le contenu d’un homologue local et à réduire le trafic WAN en l’absence de point de distribution local."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,126 +17,126 @@ manager: angrobe
 ms.openlocfilehash: 814c6133a30b1116d05aaeafddb0dfb7fe2a390e
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="prepare-windows-pe-peer-cache-to-reduce-wan-traffic-in-system-center-configuration-manager"></a>Vorbereiten des Windows PE-Peercache zum Reduzieren des WAN-Datenverkehrs in System Center Configuration Manager
+# <a name="prepare-windows-pe-peer-cache-to-reduce-wan-traffic-in-system-center-configuration-manager"></a>Préparer le cache d’homologue Windows PE pour réduire le trafic WAN dans System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Beim Bereitstellen eines neuen Betriebssystems in System Center Configuration Manager können Computer, auf denen die Tasksequenz ausgeführt wird, Windows PE-Peercache verwenden, um Inhalte von einem lokalen Peer (einer Peercachequelle) abzurufen, anstatt sie von einem Verteilungspunkt herunterzuladen. Auf diese Weise können Sie WAN-Datenverkehr in Zweigstellenszenarios minimieren, wenn kein lokaler Verteilungspunkt vorhanden ist.  
+Quand vous déployez un nouveau système d’exploitation dans System Center Configuration Manager, les ordinateurs qui exécutent la séquence de tâches peuvent utiliser le cache d’homologue Windows PE pour obtenir du contenu à partir d’un homologue local (source de cache d’homologue) au lieu de le télécharger à partir d’un point de distribution. Cela permet de réduire le trafic du réseau étendu dans les scénarios de succursale où il n'existe aucun point de distribution local.  
 
- Windows PE-Peercache gleicht [Windows BranchCache](http://technet.microsoft.com/library/mt617255\(TechNet.10\).aspx#bkmk_branchcache), funktioniert jedoch in Windows Preinstallation Environment (Windows PE). Wenn Sie die Tasksequenz aus dem Kontext des Betriebssystems starten, z. B. aus dem Software Center auf dem Client, wird Windows PE-Peercache nicht verwendet. Die folgenden Begriffe werden verwendet, um die Clients zu beschreiben, auf denen Windows PE-Peercache verwendet wird:  
+ La mise en cache d’homologue Windows PE est similaire à [Windows BranchCache](http://technet.microsoft.com/library/mt617255\(TechNet.10\).aspx#bkmk_branchcache), mais elle fonctionne dans l’environnement de préinstallation Windows (Windows PE). Si vous démarrez la séquence de tâches à partir du contexte du système d’exploitation, par exemple à partir du Centre logiciel sur le client, la mise en cache d’homologue Windows PE n’est pas utilisée. Les termes suivants sont employés pour décrire les clients qui utilisent la mise en cache d’homologue Windows PE :  
 
--   Ein **Peercacheclient** ist ein Computer, der für die Verwendung von Windows PE-Peercache konfiguriert ist.  
+-   Un **client de mise en cache d'homologue** est un ordinateur configuré pour utiliser la mise en cache d'homologue Windows PE.  
 
--   Eine **Peercachequelle** ist ein Client, der für Peercache konfiguriert ist und anderen Peercacheclients, die Inhalt anfordern, diesen zur Verfügung stellt.  
+-   Une **source de mise en cache d'homologue** est un client  configuré pour la mise en cache d'homologue et qui met du contenu à disposition d'autres clients de cache d'homologue qui demandent ce contenu.  
 
-In den folgenden Abschnitten erfahren Sie, wie Sie Peercache verwalten.
+Pour savoir comment gérer le cache d’homologue, consultez les sections suivantes.
 
-##  <a name="BKMK_PeerCacheObjects"></a> In einer Peercachequelle gespeicherte Objekte  
- Eine für die Verwendung von Windows PE-Peercache konfigurierte Tasksequenz kann die folgenden Inhaltsobjekte bei der Ausführung in Windows PE abrufen:  
+##  <a name="BKMK_PeerCacheObjects"></a> Objets stockés dans une source de mise en cache d’homologue  
+ Une séquence de tâches configurée pour utiliser la mise en cache d’homologue Windows PE peut obtenir les objets de contenu suivants en cas d’exécution dans Windows PE :  
 
--   Betriebssystemabbild  
+-   Image du système d'exploitation  
 
--   Treiberpaket  
+-   Package de pilotes  
 
--   Pakete und Programme (Wenn der Client die Tasksequenz weiterhin in der Vollversion des Betriebssystems ausführt, ruft der Client diese Inhalte aus einer Peercachequelle ab, sofern die Tasksequenz ursprünglich bei der Ausführung in Windows PE für Peercache konfiguriert wurde.)  
+-   Packages et des programmes (lorsque le client continue d’exécuter la séquence de tâches dans le système d’exploitation complet, le client obtient ce contenu à partir d’une source de mise en cache d’homologue si la séquence de tâches a été initialement configurée pour la mise en cache d’homologue lors de l’exécution dans Windows PE).  
 
--   Zusätzliche Startimages  
+-   des images de démarrage supplémentaires.  
 
- Die folgenden Inhaltsobjekte werden nie unter Verwendung von Peercache übertragen. Stattdessen werden sie von einem Verteilungspunkt oder durch Windows BranchCache übertragen, sofern Windows BranchCache in Ihrer Umgebung konfiguriert wurde:  
+ Les objets de contenu suivants ne sont jamais transférés à l’aide de la mise en cache d’homologue. Au lieu de cela, ils sont transférés à partir d’un point de distribution, ou par Windows BranchCache si vous avez configuré Windows BranchCache dans votre environnement :  
 
 -   Applications  
 
--   Softwareupdates  
+-   Mises à jour logicielles  
 
-##  <a name="BKMK_PeerCacheWork"></a> Funktionsweise von Windows PE-Peercache  
- Stellen sie sich ein Szenario mit einer Zweigstelle vor, die über keinen Verteilungspunkt, aber über mehrere Clients verfügt, die für die Verwendung von Windows PE-Peercache aktiviert sind. Sie stellen die Tasksequenz, die für die Verwendung von Peerchache konfiguriert ist, auf mehreren Clients bereit, die als Teil der Peercachequelle konfiguriert sind. Der erste Client, der die Tasksequenz ausführt, sendet eine Anforderung nach einem Peer mit dem Inhalt. Er findet keinen, daher erhält er den Inhalt von einem Verteilungspunkt über das WAN. Der Client installiert das neue Image und speichert den Inhalt dann in seinem Configuration Manager-Clientcache, sodass er anschließend als Peercachequelle für andere Clients fungieren kann. Wenn der nächste Client die Tasksequenz ausführt, sendet er eine Anforderung zur Suche nach einer Peercachequelle im Subnetz, und der erste Client antwortet und stellt den zwischengespeicherten Inhalt zur Verfügung.  
+##  <a name="BKMK_PeerCacheWork"></a> Comment fonctionne la mise en cache d’homologue Windows PE ?  
+ Imaginez un scénario avec une filiale qui ne dispose pas de point de distribution, mais qui a plusieurs clients activés pour utiliser la mise en cache d’homologue Windows PE. Vous déployez la séquence de tâches configurée pour utiliser la mise en cache d’homologue sur plusieurs clients qui sont configurés comme faisant partie de la source de mise en cache d’homologue. Le premier client à exécuter la séquence de tâches diffuse une demande pour trouver un homologue qui possède le contenu. N’en trouvant aucun, il obtient le contenu à partir d’un point de distribution sur le réseau étendu. Le client installe la nouvelle image et stocke ensuite le contenu dans son cache de client Configuration Manager pour pouvoir fonctionner en tant que source de cache d’homologue pour d’autres clients. Lorsque le client suivant exécute la séquence de tâches, il diffuse une requête sur le sous-réseau pour une source de mise en cache d'homologue et le premier client répond et rend son contenu mis en cache accessible.  
 
-##  <a name="BKMK_PeerCacheDetermine"></a> Ermitteln der Clients, die Teil der Windows PE-Peercachequelle sein werden  
- Es müssen verschiedene Dinge berücksichtigt werden, um Sie bei der Ermittlung der Computer zu unterstützen, die als Windows PE-Peercachequelle ausgewählt werden:  
+##  <a name="BKMK_PeerCacheDetermine"></a> Déterminer les clients qui feront partie de la source de mise en cache d’homologue Windows PE  
+ Pour faciliter la sélection des ordinateurs qui doivent faire partie de la source de mise en cache d’homologue Windows PE, vous devez prendre en compte plusieurs facteurs :  
 
--   Die Windows PE-Peercachequelle sollte ein Desktopcomputer sein, der immer eingeschaltet und für Peercacheclients verfügbar ist.  
+-   La source de mise en cache d’homologue Windows PE doit être un ordinateur de bureau qui est toujours sous tension et accessible aux clients de mise en cache d’homologue.  
 
--   Der Windows PE-Peercache verfügt über einen ausreichend großen Clientcache, um die Images zu speichern.  
+-   La mise en cache d’homologue Windows PE a une taille de cache client suffisante pour stocker les images.  
 
-##  <a name="BKMK_PeerCacheRequirements"></a> Anforderungen für einen Client zur Verwendung einer Windows PE-Peercachequelle  
- Damit Clients eine Windows PE-Peercachequelle verwenden können, müssen die folgenden Anforderungen erfüllt werden:  
+##  <a name="BKMK_PeerCacheRequirements"></a> Configuration requise pour qu’un client puisse utiliser une source de mise en cache d’homologue Windows PE  
+ Pour qu’un client puisse utiliser une source de mise en cache d’homologue Windows PE, il doit remplir les conditions suivantes :  
 
--   Der Configuration Manager-Client muss in der Lage sein, über die folgenden Ports in Ihrem Netzwerk zu kommunizieren:  
+-   Le client Configuration Manager doit pouvoir communiquer via les ports suivants sur votre réseau :  
 
-    -   Port für die erste Netzwerkübertragung, um eine Peercachequelle zu finden: Die Standardeinstellung hierfür ist Port 8004.  
+    -   Port pour la diffusion réseau initiale, pour rechercher une source de mise en cache d’homologue. Par défaut, il s’agit du port 8004.  
 
-    -   Port für Inhalte, die von einer Peercachequelle (HTTP und HTTPS) heruntergeladen werden: Standardmäßig wird Port 8003 verwendet.  
+    -   Port pour le téléchargement de contenu à partir d’une source de mise en cache d’homologue (HTTP et HTTPS). Par défaut, il s’agit du port 8003.  
 
         > [!TIP]  
-        >  Die Clients werden HTTPS zum Herunterladen von Inhalten verwenden, wenn es verfügbar ist. Allerdings wird für HTTP oder HTTPS dieselbe Portnummer verwendet.  
+        >  Les clients utilisent le protocole HTTPS pour télécharger le contenu quand il est disponible. Toutefois, le même numéro de port est utilisé pour HTTP ou HTTPS.  
 
--   [Configure the Client Cache for Configuration Manager Clients](../../core/clients/manage/manage-clients.md#BKMK_ClientCache) auf Clients, um sicherzustellen, dass ausreichend Speicherplatz für die bereitzustellenden Images verfügbar ist. Windows PE-Peercache wirkt sich nicht auf die Konfiguration oder das Verhalten des Clientcaches aus.  
+-   [Configurez le cache client pour les clients Configuration Manager](../../core/clients/manage/manage-clients.md#BKMK_ClientCache) sur les clients pour vous assurer qu’ils ont suffisamment d’espace pour stocker les images que vous déployez. La mise en cache d’homologue Windows PE n’affecte pas la configuration ou le comportement du cache du client.  
 
--   Die Bereitstellungsoptionen für die Bereitstellung der Tasksequenz müssen als „Inhalt lokal herunterladen, wenn er von der Tasksequenz benötigt wird“ konfiguriert werden.  
+-   Les options de déploiement de séquence de tâches doivent être configurées pour télécharger le contenu localement si nécessaire, en exécutant la séquence de tâches.  
 
-##  <a name="BKMK_PeerCacheConfigure"></a> Konfigurieren des Windows PE-Peercaches  
- Sie können die folgenden Methoden verwenden, um einem Client Peercacheinhalt bereitzustellen, damit dieser als Peercachequelle dienen kann:  
+##  <a name="BKMK_PeerCacheConfigure"></a> Configurer la mise en cache d’homologue Windows PE  
+ Vous pouvez appliquer les méthodes suivantes pour approvisionner un client avec du contenu de mise en cache d’homologue, pour qu’il puisse agir comme source de mise en cache d’homologue :  
 
--   Ein Peercacheclient, der keine Peercachequelle mit dem Inhalt finden kann, lädt den Inhalt von einem Verteilungspunkt herunter.  Wenn der Client Clienteinstellungen empfängt, die Peercache aktivieren, und die Tasksequenz so konfiguriert ist, dass zwischengespeicherter Inhalt erhalten bleibt, wird der Client zu einer Peercachequelle.  
+-   Un client de mise en cache d'homologue qui ne trouve pas de source de mise en cache d'homologue avec le contenu le télécharge à partir d'un point de distribution.  Si le client reçoit des paramètres client qui activent la mise en cache d'homologue et que la séquence de tâches est configurée pour conserver le contenu mis en cache, le client devient une source de mise en cache d'homologue.  
 
--   Ein Peercacheclient kann von einem anderen Peercacheclient (einer Peercachequelle) Inhalt abrufen.  Da der Client für Peercache konfiguriert wurde, wird er zu einer Peercachequelle, wenn er eine Tasksequenz ausführt, die so konfiguriert ist, dass zwischengespeicherter Inhalt erhalten bleibt.  
+-   Un client de mise en cache d'homologue peut obtenir du contenu à partir d'un autre client de mise en cache d'homologue (une source de mise en cache d'homologue).  Le client étant configuré pour la mise en cache d'homologue, quand il exécute une séquence de tâches configurée pour conserver le contenu mis en cache, il devient une source de mise en cache d'homologue.  
 
--   Ein Client führt eine Tasksequenz aus, die den optionalen Schritt [Download Package Content](../understand/task-sequence-steps.md#BKMK_DownloadPackageContent)enthält, der verwendet wird, den relevanten Inhalt vorab bereitzustellen, der in der Windows PE-Peercache-Tasksequenz enthalten ist. Wenn Sie diese Methode verwenden:  
+-   Un client exécute une séquence de tâches qui comprend l’étape facultative [Télécharger le contenu du package](../understand/task-sequence-steps.md#BKMK_DownloadPackageContent), qui sert à préparer le contenu pertinent inclus dans la séquence de tâches de mise en cache d’homologue Windows PE. Quand vous appliquez cette méthode :  
 
-    -   Der Client muss das bereitgestellte Image nicht installieren.  
+    -   Le client n'a pas besoin d'installer l'image qui est en cours de déploiement.  
 
-    -   Zusätzlich zur Option **Paketinhalt herunterladen** muss die Tasksequenz auch die Option **Configuration Manager-Clientcache** verwenden. Sie verwenden diese Option, um den Inhalt im Clientcache zu speichern, damit der Client als Peercachequelle für andere Peercacheclients fungieren kann.  
+    -   Outre l’option **Télécharger le contenu du package**, la séquence de tâches doit également utiliser l’option **Cache du client Configuration Manager**. Cette option vous permet de stocker le contenu dans le cache des clients pour que le client puisse agir comme source de mise en cache d'homologue pour d'autres clients de mise en cache d'homologue.  
 
- Mit den folgenden Verfahren können Sie Windows PE-Peercache auf Clients und Tasksequenzen zur Unterstützung von Peercache konfigurieren.  
+ Les procédures suivantes vous aideront à configurer la mise en cache d'homologue Windows PE sur les clients et à configurer des séquences de tâches qui prennent en charge la mise en cache d'homologue.  
 
-### <a name="to-configure-the-windows-pe-peer-cache-source-computers"></a>So konfigurieren Sie die Quellcomputer für Windows PE-Peercache  
+### <a name="to-configure-the-windows-pe-peer-cache-source-computers"></a>Pour configurer les ordinateurs sources de mise en cache d’homologue Windows PE  
 
-1.  Navigieren Sie in der Configuration Manager-Konsole zu **Verwaltung** > **Clienteinstellungen**, und erstellen Sie dann ein neues Objekt **Benutzerdefinierte Geräteclienteinstellungen**, oder bearbeiten Sie ein vorhandenes Einstellungsobjekt. Außerdem können Sie diese Konfiguration für das Objekt **Clientstandardeinstellungen** vornehmen.  
+1.  Dans la console Configuration Manager, accédez à **Administration** > **Paramètres client**, puis créez des **paramètres de périphérique client personnalisés** ou modifiez un objet de paramètres existant. Vous pouvez aussi configurer cela pour l'objet **Paramètres client par défaut** .  
 
     > [!TIP]  
-    >  Verwenden Sie ein "Benutzerdefinierte Einstellungen"-Objekt, um zu verwalten, welche Clients diese Konfiguration erhalten. Möglicherweise möchten Sie z. B. vermeiden, diese Konfiguration auf den Laptops von Benutzern vorzunehmen, die häufig unterwegs sind. Ein stark mobile genutztes System kann eine ungeeignete Quelle zum Bereitstellen von Inhalt für andere Peercacheclients sein.  
+    >  Utilisez un objet de paramètres personnalisés pour gérer les clients qui reçoivent cette configuration. Par exemple, vous souhaiterez peut-être éviter de configurer cela sur les ordinateurs portables des utilisateurs qui sont souvent en déplacement. Un système hautement mobile peut être une source médiocre pour fournir du contenu à d'autres clients de mise en cache d'homologue.  
     >   
-    >  Bedenken Sie außerdem, dass sich die Konfiguration auf alle Clients in Ihrer Umgebung auswirkt, wenn Sie diese Einstellung als Teil der **Clientstandardeinstellungen**konfigurieren.  
+    >  Souvenez-vous aussi que lorsque vous configurez ce paramètre dans le cadre des **Paramètres client par défaut**, la configuration s'applique à tous les clients de votre environnement.  
 
-2.  Legen Sie unter **Windows PE-Peercache**die Option **Configuration Manager-Client in der Vollversion des Betriebssystems die Freigabe von Inhalt gestatten** auf **Ja**fest.  
+2.  Sous **Mise en cache d'homologue Windows PE**, affectez la valeur **Oui** à **Permettre au client Configuration Manager exécutant le système d'exploitation complet de partager du contenu**.  
 
-    -   Standardmäßig ist nur HTTP aktiviert. Wenn Sie Clients das Herunterladen von Inhalt über HTTPS ermöglichen möchten, legen Sie **HTTPS für Clientpeerkommunikation aktivieren** auf **Ja**fest.  
+    -   Par défaut, seul le protocole HTTP est activé. Si vous souhaitez permettre aux clients de télécharger du contenu via HTTPS, affectez la valeur **Oui** à **Activer HTTPS pour la communication d'homologues clients**.  
 
-    -   Standardmäßig ist der Port für Broadcasts auf 8004 und der Port für den Download von Inhalten auf 8003 festgelegt. Sie können beide Werte ändern.  
+    -   Par défaut, le port pour les diffusions est défini sur 8004 et le port pour les téléchargements de contenu est défini sur 8003. Vous pouvez les changer tous les deux.  
 
-3.  Speichern Sie die Clienteinstellungen, und stellen Sie sie auf den Clients bereit, die Sie als Peercachequelle auswählen.  
+3.  Enregistrez et déployer les paramètres client sur les clients que vous sélectionnez comme sources de mise en cache d’homologue.  
 
- Nachdem ein Gerät mit diesem Einstellungsobjekt konfiguriert wurde, kann es als Peercachequelle fungieren. Diese Einstellungen sollten auf potenziellen Peercacheclients bereitgestellt werden, um die erforderlichen Ports und Protokolle zu konfigurieren.  
+ Une fois qu'un appareil est configuré avec cet objet de paramètres, il est configuré pour agir comme source de mise en cache d'homologue. Vous devez déployer ces paramètres sur les clients de mise en cache d'homologue potentiels pour configurer les ports et protocoles nécessaires.  
 
-###  <a name="BKMK_PeerCacheConfigureTS"></a> Konfigurieren einer Tasksequenz für Windows PE-Peercache  
- Verwenden Sie beim Konfigurieren der Tasksequenz die folgenden Tasksequenzvariablen als Sammlungsvariablen in der Sammlung, der die Tasksequenz bereitgestellt wird:  
+###  <a name="BKMK_PeerCacheConfigureTS"></a> Configurer une séquence de tâches pour la mise en cache d’homologue Windows PE  
+ Quand vous configurez la séquence de tâches, utilisez les variables suivantes comme Variables du regroupement sur le regroupement dans lequel la séquence de tâches est déployée :  
 
 -   **SMSTSPeerDownload**  
 
-     Wert: WAHR  
+     Valeur :  TRUE  
 
-     Ermöglicht dem Client die Verwendung von Windows PE-Peercache.  
+     Cela permet au client d'utiliser la mise en cache d'homologue Windows PE.  
 
 -   **SMSTSPeerRequestPort**  
 
-     Wert: <Portnummer\>  
+     Valeur : <Numéro de port\>  
 
-     Wenn Sie nicht den in den Clienteinstellungen konfigurierten Standardport (8004) verwenden, müssen Sie diese Variable mit einem benutzerdefinierten Wert für den Netzwerkport konfigurieren, der für die erste Übertragung verwendet werden soll.  
+     Lorsque vous n’utilisez pas le port par défaut configuré dans les Paramètres client (8004), vous devez configurer cette variable avec une valeur personnalisée du port réseau à utiliser pour la diffusion initiale.  
 
 -   **SMSTSPreserveContent**  
 
-     Wert: WAHR  
+     Valeur : TRUE  
 
-     Dies kennzeichnet den Inhalt in der Tasksequenz, der im Configuration Manager-Clientcache nach der Bereitstellung erhalten bleiben soll. Dies ist anders als mit SMSTSPersisContent, bei dem der Inhalt nur für die Dauer der Tasksequenz behalten wird, und der den Tasksequenzcache verwendet und nicht die Configuration Manager-Clientcache.  
+     Le contenu est ainsi marqué dans la séquence de tâches de façon à être conservé dans le cache du client Configuration Manager après le déploiement. Cette variable se distingue de SMSTSPersisContent, qui conserve uniquement le contenu pendant la durée de la séquence de tâches et utilise le cache de la séquence de tâches, et non le cache du client Configuration Manager.  
 
- Weitere Informationen finden Sie unter [Task sequence built-in variables (Integrierte Tasksequenzvariablen)](../understand/task-sequence-built-in-variables.md).  
+ Pour plus d’informations, consultez [Variables intégrées de séquence de tâches](../understand/task-sequence-built-in-variables.md).  
 
-###  <a name="BKMK_PeerCacheValidate"></a> Überprüfen, ob Windows PE-Peercache erfolgreich verwendet werden kann  
- Nach der Verwendung von Windows PE-Peercache zum Bereitstellen und Installieren einer Tasksequenz können Sie überprüfen, ob der Peercache im Prozess erfolgreich verwendet wurde, indem Sie **smsts.log** auf dem Client anzeigen, auf dem die Tasksequenz ausgeführt wurde.  
+###  <a name="BKMK_PeerCacheValidate"></a> Valider la réussite de l’utilisation de la mise en cache d’homologue Windows PE  
+ Une fois que vous avez utilisé la mise en cache d’homologue Windows PE pour déployer et installer une séquence de tâches, vous pouvez vérifier que le processus a bien utilisé la mise en cache d’homologue en consultant le fichier **smsts.log** sur le client qui a exécuté la séquence de tâches.  
 
- Suchen Sie im Protokoll einen Eintrag ähnlich dem folgenden, in dem <*Quellservername*> den Computer identifiziert, von dem der Client den Inhalt erhalten hat. Dieser Computer sollte eine Peercachequelle und kein Verteilungspunktserver sein. Die weiteren Details variieren basierend auf Ihrer lokalen Umgebung und den Konfigurationen.  
+ Dans le journal, recherchez une entrée similaire à la suivante, où <*Nom_Serveur_Source*> identifie l’ordinateur à partir duquel le client a obtenu le contenu. Cet ordinateur doit être une source de mise en cache d'homologue, et non un serveur de point de distribution. Les autres informations varient en fonction de votre environnement local et des configurations.  
 
--   *<![LOG[Datei heruntergeladen von http:// <Quellservername\>:8003/SCCM_BranchCache$/SS10000C/sccm?/install.wim auf C:\\_SMSTaskSequence\Packages\SS10000C\install.wim ]LOG]!><time="14:24:33.329+420" date="06-26-2015" component="ApplyOperatingSystem" context="" type="1" thread="1256" file="downloadcontent.cpp:1626">*  
+-   *<![LOG[Downloaded file from http:// <Nom_Serveur_Source\>:8003/SCCM_BranchCache$/SS10000C/sccm?/install.wim to C:\\_SMSTaskSequence\Packages\SS10000C\install.wim ]LOG]!><time="14:24:33.329+420" date="06-26-2015" component="ApplyOperatingSystem" context="" type="1" thread="1256" file="downloadcontent.cpp:1626">*  

@@ -1,6 +1,6 @@
 ---
-title: "Vorgänge und Wartungstasks für die Berichterstellung | Microsoft-Dokumentation"
-description: "Erfahren Sie mehr über das Verwalten von Berichten und Berichtsabonnements in System Center Configuration Manager."
+title: "Opérations et maintenance pour les rapports | Microsoft Docs"
+description: "Découvrez les détails de la gestion des rapports et des abonnements aux rapports dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,346 +17,346 @@ manager: angrobe
 ms.openlocfilehash: df572cd0c64c82e25164430a53e1b893b3ba3cf5
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="operations-and-maintenance-for-reporting-in-system-center-configuration-manager"></a>Vorgänge und Wartungstasks für die Berichterstellung in System Center Configuration Manager
+# <a name="operations-and-maintenance-for-reporting-in-system-center-configuration-manager"></a>Opérations et maintenance pour les rapports dans System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Es gibt mehrere Operationen, die Sie normalerweise ausführen, um Berichte und Berichtsabonnements zu verwalten, wenn die Infrastruktur vorhanden ist, die für die Berichterstellung in System Center Configuration Manager erforderlich ist.  
+Une fois l’infrastructure en place pour la création de rapports dans System Center Configuration Manager, il existe un certain nombre d’opérations que vous pouvez généralement effectuer pour gérer les rapports et les abonnements aux rapports.  
 
-##  <a name="BKMK_ManageReports"></a> Verwalten von Configuration Manager-Berichten  
- In Configuration Manager sind über 400 vordefinierte Berichte verfügbar. Diese können Sie nutzen, um Informationen zu Benutzern, Hardware- und Softwareinventar, Softwareupdates, Anwendungen, Standortstatus und anderen Configuration Manager-Operationen in Ihrer Organisation zu erfassen, zu organisieren und darzustellen. Sie können die vordefinierten Berichte so verwenden, wie sie sind, oder sie nach Ihren Anforderungen ändern. Sie können auch benutzerdefinierte modell\- und SQL\-basierte Berichte nach Ihren Anforderungen erstellen. In den folgenden Abschnitten finden Sie Informationen zum Verwalten von Configuration Manager-Berichten.  
+##  <a name="BKMK_ManageReports"></a> Gérer les rapports Configuration Manager  
+ Configuration Manager offre plus de 400 rapports prédéfinis qui vous aident à recueillir, organiser et présenter des informations relatives aux utilisateurs, à l’inventaire logiciel et matériel, aux mises à jour logicielles, aux applications, à l’état du site et à d’autres opérations de Configuration Manager dans votre organisation. Vous pouvez utiliser les rapports prédéfinis comme ils sont, ou vous pouvez modifier un rapport pour qu'il réponde à vos besoins. Vous pouvez également créer des rapports personnalisés basés sur des modèles ou sur SQL qui répondent à vos besoins. Utilisez les sections suivantes pour mieux gérer les rapports Configuration Manager.  
 
-###  <a name="BKMK_RunReport"></a> Ausführen eines Configuration Manager-Berichts  
- Berichte in Configuration Manager in SQL Server Reporting Services gespeichert sind, und die Daten im Bericht gerendert werden aus der Configuration Manager-Datenbank abgerufen. Sie können Berichte in Configuration Manager-Konsole oder mithilfe des Berichts-Manager, die Sie in einem Webbrowser zugreifen zugreifen. Sie können Berichte auf jedem Computer öffnen, von dem aus Sie auf den Computer zugreifen können, auf dem SQL Server Reporting Services ausgeführt werden. Sie benötigen allerdings entsprechende Rechte, um die Berichte anzuzeigen. Wenn Sie einen Bericht ausführen, werden Titel, Beschreibung und Kategorie des Berichts in der Sprache des lokalen Betriebssystems angezeigt.  
+###  <a name="BKMK_RunReport"></a> Exécuter un rapport Configuration Manager  
+ Rapports dans le Gestionnaire de Configuration sont stockés dans SQL Server Reporting Services et les données affichées dans le rapport sont récupérées à partir de la base de données de site Configuration Manager. Vous pouvez accéder aux rapports dans la console Configuration Manager ou à l'aide du Gestionnaire de rapports dans un navigateur web. Les rapports peuvent être ouverts depuis n'importe quel ordinateur disposant d'un accès à l'ordinateur exécutant SQL Server Reporting Services, si vous possédez les droits vous permettant de consulter les rapports. Lorsque vous exécutez un rapport, le titre du rapport, la description et la catégorie sont affichés dans la langue du système d'exploitation local.  
 
 > [!NOTE]  
->  In bestimmten anderen Sprachen als Englisch werden Zeichen in Berichten möglicherweise nicht richtig angezeigt.  In diesem Fall können die Berichte mithilfe des webbasierten Berichts-Managers oder über die Remoteadministratorkonsole angezeigt werden.  
+>  Dans certaines langues autres que l’anglais, les caractères peuvent ne pas apparaître correctement dans les rapports.  Dans ce cas, les rapports peuvent être affichés à l’aide du Gestionnaire de rapports basé sur le web ou par le biais de la console Administration à distance.  
 
 > [!WARNING]  
->  Zum Ausführen von Berichten benötigen Sie das Recht **Lesen** für die Berechtigung **Standort** sowie die Berechtigung **Bericht ausführen** , die für bestimmte Objekte konfiguriert ist.  
+>  Pour exécuter des rapports, vous devez disposez des droits de **Lecture** pour l'autorisation **Site** et l'autorisation **Exécuter le rapport** configurée pour des objets spécifiques.  
 
 > [!IMPORTANT]    
-> Es muss eine bidirektionale Vertrauensstellung für Benutzer eingerichtet werden, die zu einer anderen Domäne als das Konto des Reporting Services-Punkts gehören, um erfolgreich Berichte auszuführen.
+> Il doit y avoir une relation d’approbation bidirectionnelle pour les utilisateurs d’un domaine différent de celui du compte du Point de Reporting Servicies pour pouvoir exécuter des rapports.
 
 > [!NOTE]  
->  Der Berichts-Manager ist ein webbasiertes Zugriffs- und Verwaltungstool für Berichte. Sie können ihn zum Verwalten einer einzelnen Berichtsserverinstanz an einem Remotestandort mithilfe einer HTTP-Verbindung verwenden. Sie können den Berichts-Manager für Betriebstasks einsetzen, beispielsweise um Berichte anzuzeigen, Berichtseigenschaften zu ändern und zugeordnete Berichtsabonnements zu verwalten. In diesem Thema finden Sie die Schritte zum Anzeigen eines Berichts und zum Ändern der Berichtseigenschaften im Berichts-Manager. Weitere Informationen zu den anderen Optionen vom Berichts-Manager finden Sie unter [Berichts-Manager](http://go.microsoft.com/fwlink/p/?LinkId=224916) in der SQL Server 2008-Onlinedokumentation.  
+>  Le Gestionnaire de rapports est un outil de gestion et d’accès aux rapports basé sur le web que vous utilisez pour administrer une instance de serveur de rapports unique sur un emplacement distant via une connexion HTTP. Vous pouvez utiliser le Gestionnaire de rapports pour les tâches opérationnelles, par exemple, pour afficher des rapports, modifier les propriétés des rapports et gérer les abonnements aux rapports associés. Cette rubrique indique les étapes permettant d'afficher un rapport et de modifier ses propriétés dans le Gestionnaire de rapports. Pour plus d'informations sur les autres options du Gestionnaire de rapports, voir [Gestionnaire de rapports](http://go.microsoft.com/fwlink/p/?LinkId=224916) dans la documentation en ligne de SQL Server 2008.  
 
- Verwenden Sie die folgenden Verfahren, um Configuration Manager-Berichten auszuführen.  
+ Utilisez les procédures suivantes pour exécuter un rapport de Configuration Manager.  
 
-##### <a name="to-run-a-report-in-the-configuration-manager-console"></a>Ausführen eines Berichts in der Configuration Manager-Konsole  
+##### <a name="to-run-a-report-in-the-configuration-manager-console"></a>Pour exécuter un rapport dans la console Configuration Manager  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Überwachung**.  
+1.  Dans la console Configuration Manager, cliquez sur **Surveillance**.  
 
-2.  Erweitern Sie im Arbeitsbereich **Überwachung** die Option **Berichterstattung**, und klicken Sie dann auf **Berichte** , um die verfügbaren Berichte aufzulisten.  
+2.  Dans l'espace de travail **Surveillance** , développez **Rapports**, puis cliquez sur **Rapports** pour consulter la liste des rapports disponibles.  
 
     > [!IMPORTANT]  
-    >  In dieser Version von Configuration Manager werden in Berichten des Typs **Gesamter Inhalt** nur Pakete, nicht aber Anwendungen angezeigt.  
+    >  Dans cette version de Configuration Manager, les rapports **Tout le contenu** affichent uniquement les packages, pas les applications.  
 
     > [!TIP]  
-    >  Wenn keine Berichte aufgelistet werden, vergewissern Sie sich, dass der Reporting Services-Punkt installiert und konfiguriert ist. Weitere Informationen finden Sie unter [Konfigurieren von Berichten](configuring-reporting.md).  
+    >  Si aucun rapport n'est répertorié, vérifiez que le point de Reporting Services est installé et configuré. Pour plus d’informations, consultez [Configuration des rapports](configuring-reporting.md).  
 
-3.  Wählen Sie den Bericht aus, der ausgeführt werden soll, und klicken Sie dann auf der Registerkarte **Startseite** im Bereich **Berichtsgruppe** auf **Ausführen** , um den Bericht zu öffnen.  
+3.  Sélectionnez le rapport à exécuter, puis dans l'onglet **Accueil** , dans la section **Groupe de rapports** , cliquez sur **Exécuter** pour ouvrir le rapport.  
 
-4.  Wenn Parameter erforderlich sind, geben Sie die Parameter an, und klicken Sie dann auf **Bericht anzeigen**.  
+4.  Lorsque des paramètres sont requis, spécifiez-les, puis cliquez sur **Afficher le rapport**.  
 
-#### <a name="to-run-a-report-in-a-web-browser"></a>So führen Sie einen Bericht in einem Webbrowser aus  
+#### <a name="to-run-a-report-in-a-web-browser"></a>Pour exécuter un rapport depuis un navigateur Web  
 
-1.  Geben Sie die URL des Berichts-Managers in Ihren Webbrowser ein, beispielsweise **http:\/\/Server1\/Reports**. Sie können die URL des Berichts-Managers bestimmen, auf die **URL des Berichts-Managers** Seite in Configuration Manager für Reporting Services.  
+1.  Dans votre navigateur web, entrez l’URL du Gestionnaire de rapports, par exemple **http:\/\/Server1\/Reports**. Vous pouvez déterminer l'URL du Gestionnaire de rapports sur le **URL du Gestionnaire de rapports** page dans le Gestionnaire de Configuration de Reporting Services.  
 
-2.  Klicken Sie im Berichts-Manager auf den Berichtsordner für Configuration Manager, z.B. **ConfigMgr\_CAS**.  
-
-    > [!TIP]  
-    >  Wenn keine Berichte aufgelistet werden, vergewissern Sie sich, dass der Reporting Services-Punkt installiert und konfiguriert ist. Weitere Informationen finden Sie unter [Konfigurieren von Berichten](configuring-reporting.md).  
-
-3.  Klicken Sie auf die Berichtskategorie des Berichts, den Sie ausführen möchten, und dann auf den Link zum Bericht. Der Bericht wird im Berichts-Manager geöffnet.  
-
-4.  Wenn Parameter erforderlich sind, geben Sie die Parameter an, und klicken Sie dann auf **Bericht anzeigen**.  
-
-###  <a name="BKMK_ModifyReportProperties"></a> Ändern der Eigenschaften eines Configuration Manager-Berichts  
- In der Configuration Manager-Konsole können Sie die Eigenschaften eines Berichts anzeigen, beispielsweise Namen und Beschreibung des Berichts. Zum Ändern der Eigenschaften verwenden Sie jedoch den Berichts-Manager. Wenden Sie das folgende Verfahren an, um die Eigenschaften eines Configuration Manager-Berichts zu ändern.  
-
-#### <a name="to-modify-report-properties-in-report-manager"></a>So ändern Sie Berichtseigenschaften im Berichts-Manager  
-
-1.  Geben Sie die URL des Berichts-Managers in Ihren Webbrowser ein, beispielsweise **http:\/\/Server1\/Reports**. Sie können die URL des Berichts-Managers bestimmen, auf die **URL des Berichts-Managers** Seite in Configuration Manager für Reporting Services.  
-
-2.  Klicken Sie im Berichts-Manager auf den Berichtsordner für Configuration Manager, z.B. **ConfigMgr\_CAS**.  
+2.  Dans le Gestionnaire de rapports, cliquez sur le dossier de rapports pour Configuration Manager, par exemple, **ConfigMgr\_CAS**.  
 
     > [!TIP]  
-    >  Wenn keine Berichte aufgelistet werden, vergewissern Sie sich, dass der Reporting Services-Punkt installiert und konfiguriert ist. Weitere Informationen finden Sie unter [Konfigurieren von Berichten](configuring-reporting.md)  
+    >  Si aucun rapport n'est répertorié, vérifiez que le point de Reporting Services est installé et configuré. Pour plus d’informations, consultez [Configuration des rapports](configuring-reporting.md).  
 
-3.  Klicken Sie auf die Berichtskategorie des Berichts, dessen Eigenschaften Sie ändern möchten, und dann auf den Link zum Bericht. Der Bericht wird im Berichts-Manager geöffnet.  
+3.  Cliquez sur la catégorie de rapport du rapport que vous souhaitez exécuter, puis cliquez sur le lien du rapport. Le rapport s'ouvre dans le Gestionnaire de rapports.  
 
-4.  Klicken Sie auf die Registerkarte **Eigenschaften** . Sie können den Namen und die Beschreibung des Berichts ändern.  
+4.  Lorsque des paramètres sont requis, spécifiez-les, puis cliquez sur **Afficher le rapport**.  
 
-5.  Wenn Sie fertig sind, klicken Sie auf **Übernehmen**. Die Berichtseigenschaften werden auf dem Berichtsserver gespeichert, und die aktualisierten Eigenschaften des Berichts werden von der Configuration Manager-Konsole abgerufen.  
+###  <a name="BKMK_ModifyReportProperties"></a> Modifier les propriétés d’un rapport Configuration Manager  
+ Dans la console Configuration Manager, vous pouvez afficher les propriétés d’un rapport, telles que son nom et sa description. Si vous souhaitez modifier ces propriétés, utilisez le Gestionnaire de rapports. Utilisez la procédure suivante pour modifier les propriétés d’un rapport Configuration Manager.  
 
-###  <a name="BKMK_EditReport"></a> Bearbeiten eines Configuration Manager-Berichts  
- Sie können einen vorhandenen Configuration Manager-Bericht in Berichts-Generator ändern, wenn nicht die gewünschten Informationen enthalten sind oder Sie ein anderes Layout bzw. einen anderen Entwurf wünschen.  
+#### <a name="to-modify-report-properties-in-report-manager"></a>Pour modifier les propriétés de rapports dans le Gestionnaire de rapports  
+
+1.  Dans votre navigateur web, entrez l’URL du Gestionnaire de rapports, par exemple **http:\/\/Server1\/Reports**. Vous pouvez déterminer l'URL du Gestionnaire de rapports sur le **URL du Gestionnaire de rapports** page dans le Gestionnaire de Configuration de Reporting Services.  
+
+2.  Dans le Gestionnaire de rapports, cliquez sur le dossier de rapports pour Configuration Manager, par exemple, **ConfigMgr\_CAS**.  
+
+    > [!TIP]  
+    >  Si aucun rapport n'est répertorié, vérifiez que le point de Reporting Services est installé et configuré. Pour plus d’informations, consultez [Configuration des rapports](configuring-reporting.md).  
+
+3.  Cliquez sur la catégorie du rapport dont vous souhaitez modifier les propriétés, puis cliquez sur son lien. Le rapport s'ouvre dans le Gestionnaire de rapports.  
+
+4.  Cliquez sur l'onglet **Propriétés** . Vous pouvez modifier le nom et la description du rapport.  
+
+5.  Lorsque vous avez terminé, cliquez sur **Appliquer**. Les propriétés du rapport sont enregistrées sur le serveur de rapports et la console Configuration Manager récupère les propriétés de rapport mises à jour pour le rapport.  
+
+###  <a name="BKMK_EditReport"></a> Modifier un rapport Configuration Manager  
+ Lorsqu’un rapport Configuration Manager existant ne récupère pas les informations dont vous devez disposer ou qu’il ne donne pas la mise en page ou l’aspect que vous souhaitez, vous pouvez le modifier dans le Générateur de rapports.  
 
 > [!NOTE]  
->  Auf Wunsch können Sie außerdem einen bestehenden Bericht klonen, indem Sie ihn zur Bearbeitung öffnen und dann auf **Speichern unter** klicken, um ihn als neuen Bericht zu speichern.  
+>  Vous pouvez aussi choisir de cloner un rapport existant en l'ouvrant pour le modifier et en cliquant sur **Enregistrer sous** pour l'enregistrer en tant que nouveau rapport.  
 
 > [!IMPORTANT]  
->  Für das Benutzerkonto sind für die spezifischen Objekte, die dem Bericht zugeordnet sind und die Sie ändern möchten, die Berechtigungen **Ändern** für den Standort und **Bericht ändern** erforderlich.  
+>  Le compte d'utilisateur doit disposer des autorisations **Site - Modifier** et **Modifier le rapport** sur les objets spécifiques associés au rapport que vous souhaitez modifier.  
 
 > [!IMPORTANT]  
->  Wenn bei Configuration Manager ein Upgrade auf eine neuere Version ausgeführt wird, werden die vordefinierten Berichte von neuen Berichten überschrieben. Sie müssen geänderte vordefinierte Berichte sichern, bevor Sie die neue Version installieren, und sie nach dem Upgrade in Reporting Services wiederherstellen. Wenn Sie an einem Bericht erhebliche Änderungen ausführen möchten, erwägen Sie stattdessen das Erstellen eines neuen Berichts. Neue Berichte, die Sie erstellt haben, werden bei einem Upgrade des Standorts nicht überschrieben.  
+>  Lorsque Configuration Manager est mis à niveau vers une version plus récente, les nouveaux rapports remplacent les rapports prédéfinis. Si vous modifiez un rapport prédéfini, vous devez sauvegarder le rapport avant d'installer la nouvelle version, puis restaurer le rapport dans Reporting Services. Si vous apportez des modifications importantes à un rapport prédéfini, envisagez plutôt de créer un nouveau rapport. Les nouveaux rapports que vous créez avant la mise à niveau d'un site ne sont pas remplacés.  
 
- Wenden Sie das folgende Verfahren an, um die Eigenschaften eines Configuration Manager-Berichts zu ändern.  
+ Utilisez la procédure suivante pour modifier les propriétés d’un rapport Configuration Manager.  
 
-#### <a name="to-edit-report-properties"></a>So bearbeiten Sie Berichtseigenschaften  
+#### <a name="to-edit-report-properties"></a>Pour modifier les propriétés d'un rapport  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Überwachung**.  
+1.  Dans la console Configuration Manager, cliquez sur **Surveillance**.  
 
-2.  Erweitern Sie im Arbeitsbereich **Überwachung** die Option **Berichterstattung**, und klicken Sie dann auf **Berichte** , um die verfügbaren Berichte aufzulisten.  
+2.  Dans l'espace de travail **Surveillance** , développez **Rapports**, puis cliquez sur **Rapports** pour consulter la liste des rapports disponibles.  
 
-3.  Wählen Sie den Bericht aus, den Sie ändern möchten, und klicken Sie dann auf der Registerkarte **Startseite** in der Gruppe **Berichtsgruppe** auf **Bearbeiten**. Geben Sie Ihr Benutzerkonto und Ihr Kennwort ein, wenn Sie dazu aufgefordert werden, und klicken Sie dann auf **OK**. Wenn Report Builder auf dem Computer nicht installiert ist, werden Sie zur Installation aufgefordert. Klicken Sie auf **Ausführen** , um Report Builder zu installieren. Report Builder ist zum Erstellen und Ändern von Berichten erforderlich.  
+3.  Sélectionnez le rapport à modifier, puis dans l'onglet **Accueil** , dans la section **Groupe de rapports** , cliquez sur **Modifier**. Entrez votre compte d'utilisateur et votre mot de passe si vous y êtes invité, puis cliquez sur **OK**. Si le Générateur de rapports n'est pas installé sur l'ordinateur, vous êtes invité à l'installer. Cliquez sur **Exécuter** pour installer le Générateur de rapports, qui est requis pour modifier et créer des rapports.  
 
-4.  Ändern Sie in Report Builder die entsprechenden Berichtseinstellungen, und klicken Sie dann auf **Speichern** , um den Bericht auf dem Berichtsserver zu speichern.  
+4.  Dans le Générateur de rapports, modifiez les paramètres de rapport appropriés, puis cliquez sur **Enregistrer** pour enregistrer le rapport sur le serveur de rapports.  
 
-###  <a name="BKMK_CreateModelBasedReport"></a> Erstellen eines modellbasierten Berichts  
- Mit einem modellbasierten Bericht können Sie die Objekte, die Sie in den Bericht einschließen möchten, interaktiv auswählen. Weitere Informationen zum Erstellen von Berichtsmodellen finden Sie unter [Erstellen benutzerdefinierter Berichtsmodelle für System Center Configuration Manager in SQL Server Reporting Services](creating-custom-report-models-in-sql-server-reporting-services.md).  
-
-> [!IMPORTANT]  
->  Zum Erstellen eines neuen Berichts muss das Benutzerkonto über die Berechtigung **Ändern** für den Standort verfügen. Benutzer können einen Bericht nur in Ordnern erstellen, für die diese über die Berechtigung **Bericht ändern** verfügen.  
-
- Gehen Sie wie folgt vor, um einen modellbasierten Configuration Manager-Bericht zu erstellen.  
-
-#### <a name="to-create-a-model-based-report"></a>So erstellen Sie einen modellbasierten Bericht  
-
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Überwachung**.  
-
-2.  Erweitern Sie im Arbeitsbereich **Überwachung** die Option **Berichterstattung** , und klicken Sie auf **Berichte**.  
-
-3.  Klicken Sie auf der Registerkarte **Startseite** im Bereich **Erstellen** auf **Bericht erstellen** , um den **** Assistenten zum Erstellen von Berichten zu öffnen.  
-
-4.  Konfigurieren Sie auf der Seite **Informationen** die folgenden Einstellungen:  
-
-    -   **Typ**: Wählen Sie **Modellbasierter Bericht** aus, um in Berichts-Generator einen Bericht mithilfe eines Reporting Services-Modells zu erstellen.  
-
-    -   **Name**: Geben Sie einen Namen für den Bericht an.  
-
-    -   **Beschreibung**: Geben Sie eine Beschreibung für den Bericht an.  
-
-    -   **Server**: Zeigt den Namen des Berichtsservers an, auf dem Sie diesen Bericht erstellen.  
-
-    -   **Pfad**: Klicken Sie auf **Durchsuchen** , um einen Ordner anzugeben, in dem der Bericht gespeichert werden soll.  
-
-     Klicken Sie auf **Weiter**.  
-
-5.  Wählen Sie auf der Seite **Modellauswahl** ein verfügbares Modell zum Erstellen des Berichts aus der Liste aus. Wenn Sie das Berichtsmodell auswählen, werden im Bereich **Vorschau** die SQL Server-Ansichten und Entitäten angezeigt, die durch das ausgewählte Berichtsmodell verfügbar sind.  
-
-6.  Überprüfen Sie auf der Seite **Zusammenfassung** die Einstellungen. Klicken Sie auf **Zurück**, um die Einstellungen zu ändern, oder auf **Weiter**, um den Bericht in Configuration Manager zu erstellen.  
-
-7.  Klicken Sie auf der Seite **Bestätigung** auf **Schließen** , um den Assistenten zu schließen, und öffnen Sie dann Report Builder, um die Berichtseinstellungen zu konfigurieren. Geben Sie Ihr Benutzerkonto und Ihr Kennwort ein, wenn Sie dazu aufgefordert werden, und klicken Sie dann auf **OK**. Wenn Report Builder auf dem Computer nicht installiert ist, werden Sie zur Installation aufgefordert. Klicken Sie auf **Ausführen** , um Report Builder zu installieren. Report Builder ist zum Erstellen und Ändern von Berichten erforderlich.  
-
-8.  In Microsoft Report Builder können Sie das Berichtslayout erstellen, Daten in den verfügbaren SQL Server-Ansichten auswählen, Parameter zum Bericht hinzufügen etc. Weitere Informationen zum Erstellen eines neuen Berichts mit Report Builder finden Sie in der Hilfe zu Report Builder.  
-
-9. Klicken Sie auf **Ausführen** , um den Bericht auszuführen. Überprüfen Sie, ob die erwarteten Informationen im Bericht enthalten sind. Klicken Sie auf **Entwurf** , um zur Entwurfansicht zurückzukehren und den Bericht erforderlichenfalls zu ändern.  
-
-10. Klicken Sie auf **Speichern** , um den Bericht auf dem Berichtsserver zu speichern. Sie können den neuen Bericht im Arbeitsbereich **Überwachung** im Knoten **Berichte** ausführen und ändern.  
-
-###  <a name="BKMK_CreateSQLBasedReport"></a> Erstellen eines SQL\-basierten Berichts  
- Mit einem SQL\-basierten Bericht können Sie Daten auf Basis einer SQL-Anweisung für Berichte abrufen.  
+###  <a name="BKMK_CreateModelBasedReport"></a> Créer un rapport basé sur un modèle  
+ Un rapport basé sur un modèle vous permet de sélectionner les éléments que vous souhaitez inclure dans votre rapport de manière interactive. Pour plus d’informations sur la création de modèles de rapport personnalisés, consultez [Création de modèles de rapport personnalisés pour System Center Configuration Manager dans SQL Server Reporting Services](creating-custom-report-models-in-sql-server-reporting-services.md).  
 
 > [!IMPORTANT]  
->  Wenn Sie eine SQL-Anweisung für einen benutzerdefinierten Bericht erstellen, sollten Sie nicht direkt auf SQL Server-Tabellen verweisen. Verweisen Sie stattdessen auf SQL Server-Berichtsansichten \(Ansichten, die mit „v\_“ beginnen\) der Standortdatenbank. Sie können auch auf öffentliche gespeicherte Prozeduren \(gespeicherte Prozeduren, deren Name mit „sp\_“ beginnt\) der Standortdatenbank verweisen.  
+>  Pour pouvoir créer un rapport, le compte d'utilisateur doit disposer d'une autorisation **Site - Modifier** . L'utilisateur peut créer un rapport uniquement dans les dossiers pour lesquels il dispose d'autorisations **Modifier le rapport** .  
+
+ Pour créer un rapport Configuration Manager basé sur un modèle, procédez comme suit.  
+
+#### <a name="to-create-a-model-based-report"></a>Pour créer un rapport basé sur un modèle  
+
+1.  Dans la console Configuration Manager, cliquez sur **Surveillance**.  
+
+2.  Dans l'espace de travail **Surveillance** , développez **Rapports** et cliquez sur **Rapports**.  
+
+3.  Dans l'onglet **Accueil** , dans la section **Créer** , cliquez sur **Créer un rapport** pour ouvrir l' **Assistant Création de rapport**.  
+
+4.  Sur la page **Informations** , configurez les paramètres suivants :  
+
+    -   **Type** : Sélectionnez **Rapport basé sur un modèle** pour créer un rapport dans le Générateur de rapports en utilisant un modèle de Reporting Services.  
+
+    -   **Nom**: Spécifiez le nom du rapport.  
+
+    -   **Description**: Spécifiez la description du rapport.  
+
+    -   **Serveur**: Permet d'afficher le nom du serveur sur lequel le rapport est créé.  
+
+    -   **Chemin**: Cliquez sur **Parcourir** pour spécifier un dossier dans lequel vous souhaitez stocker le rapport.  
+
+     Cliquez sur **Suivant**.  
+
+5.  Sur la page **Sélection de modèle** , sélectionnez un modèle disponible dans la liste que vous utilisez pour créer ce rapport. Lorsque vous sélectionnez le modèle de rapport, la section **Aperçu** affiche les vues et les entités de SQL Server qui sont rendues disponibles par le modèle de rapport sélectionné.  
+
+6.  Dans la page **Résumé** , vérifiez les paramètres. Cliquez sur **Précédent** pour modifier les paramètres ou cliquez sur **Suivant** pour créer le rapport dans Configuration Manager.  
+
+7.  Sur la page **Confirmation** , cliquez sur **Fermer** pour quitter l'Assistant, puis ouvrez le Générateur de rapports pour configurer les paramètres du rapport. Entrez votre compte d'utilisateur et votre mot de passe si vous y êtes invité, puis cliquez sur **OK**. Si le Générateur de rapports n'est pas installé sur l'ordinateur, vous êtes invité à l'installer. Cliquez sur **Exécuter** pour installer le Générateur de rapports, qui est requis pour modifier et créer des rapports.  
+
+8.  Dans le Générateur de rapports Microsoft, effectuez la mise en page du rapport, sélectionnez des données dans les vues SQL Server disponibles, ajoutez des paramètres au rapport et ainsi de suite. Pour plus d'informations sur l'utilisation du Générateur de rapports pour créer un nouveau rapport, consultez l'aide du Générateur de rapports.  
+
+9. Cliquez sur **Exécuter** pour exécuter le rapport. Vérifiez que le rapport fournit les informations désirées. Cliquez sur **Création** pour revenir au mode Création pour modifier le rapport, si nécessaire.  
+
+10. Cliquez sur **Enregistrer** pour enregistrer le rapport sur le serveur de rapports. Vous pouvez exécuter et modifier le nouveau rapport dans le nœud **Rapports** de l'espace de travail **Surveillance** .  
+
+###  <a name="BKMK_CreateSQLBasedReport"></a> Créer un rapport basé sur SQL  
+ Un rapport basé sur SQL vous permet de récupérer des données basées sur une instruction SQL de rapport.  
 
 > [!IMPORTANT]  
->  Zum Erstellen eines neuen Berichts muss das Benutzerkonto über die Berechtigung **Ändern** für den Standort verfügen. Benutzer können einen Bericht nur in Ordnern erstellen, für die diese über die Berechtigung **Bericht ändern** verfügen.  
+>  Lorsque vous créez une instruction SQL pour un rapport personnalisé, ne faites pas directement référence aux tables SQL Server. Faites plutôt référence aux vues SQL Server de rapports \(noms de vues qui commencent par v\_\) à partir de la base de données de site. Vous pouvez également faire référence aux procédures stockées publiques \(noms de procédures stockées qui commencent par sp\_\) à partir de la base de données de site.  
 
- Gehen Sie wie folgt vor, um einen SQL\-basierten Configuration Manager-Bericht zu erstellen.  
+> [!IMPORTANT]  
+>  Pour pouvoir créer un rapport, le compte d'utilisateur doit disposer d'une autorisation **Site - Modifier** . L'utilisateur peut créer un rapport uniquement dans les dossiers pour lesquels il dispose d'autorisations **Modifier le rapport** .  
 
-#### <a name="to-create-a-sql-based-report"></a>So erstellen Sie einen SQL\-basierten Bericht  
+ Pour créer un rapport Configuration Manager basé sur SQL, procédez comme suit.  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Überwachung**.  
+#### <a name="to-create-a-sql-based-report"></a>Pour créer un rapport basé sur SQL  
 
-2.  Erweitern Sie im Arbeitsbereich **Überwachung** die Option **Berichterstattung**, und klicken Sie dann auf **Berichte**.  
+1.  Dans la console Configuration Manager, cliquez sur **Surveillance**.  
 
-3.  Klicken Sie auf der Registerkarte **Startseite** im Bereich **Erstellen** auf **Bericht erstellen** , um den **** Assistenten zum Erstellen von Berichten zu öffnen.  
+2.  Dans l'espace de travail **Surveillance** , développez **Rapports**, puis cliquez sur **Rapports**.  
 
-4.  Konfigurieren Sie auf der Seite **Informationen** die folgenden Einstellungen:  
+3.  Dans l'onglet **Accueil** , dans la section **Créer** , cliquez sur **Créer un rapport** pour ouvrir l' **Assistant Création de rapport**.  
 
-    -   **Typ**: Wählen Sie **SQL\-basierter Bericht** aus, um in Berichts-Generator einen Bericht mithilfe einer SQL-Anweisung zu erstellen.  
+4.  Sur la page **Informations** , configurez les paramètres suivants :  
 
-    -   **Name**: Geben Sie einen Namen für den Bericht an.  
+    -   **Type** : Sélectionnez **Rapport basé sur SQL** pour créer un rapport dans le Générateur de rapports en utilisant une instruction SQL.  
 
-    -   **Beschreibung**: Geben Sie eine Beschreibung für den Bericht an.  
+    -   **Nom**: Spécifiez le nom du rapport.  
 
-    -   **Server**: Zeigt den Namen des Berichtsservers an, auf dem Sie diesen Bericht erstellen.  
+    -   **Description**: Spécifiez la description du rapport.  
 
-    -   **Pfad**: Klicken Sie auf **Durchsuchen** , um einen Ordner anzugeben, in dem der Bericht gespeichert werden soll.  
+    -   **Serveur**: Permet d'afficher le nom du serveur sur lequel le rapport est créé.  
 
-     Klicken Sie auf **Weiter**.  
+    -   **Chemin**: Cliquez sur **Parcourir** pour spécifier un dossier dans lequel vous souhaitez stocker le rapport.  
 
-5.  Überprüfen Sie auf der Seite **Zusammenfassung** die Einstellungen. Klicken Sie auf **Zurück**, um die Einstellungen zu ändern, oder auf **Weiter**, um den Bericht in Configuration Manager zu erstellen.  
+     Cliquez sur **Suivant**.  
 
-6.  Klicken Sie auf der Seite **Bestätigung** auf **Schließen** , um den Assistenten zu schließen, und öffnen Sie dann Report Builder, um die Berichtseinstellungen zu konfigurieren. Geben Sie Ihr Benutzerkonto und Ihr Kennwort ein, wenn Sie dazu aufgefordert werden, und klicken Sie dann auf **OK**. Wenn Report Builder auf dem Computer nicht installiert ist, werden Sie zur Installation aufgefordert. Klicken Sie auf **Ausführen** , um Report Builder zu installieren. Report Builder ist zum Erstellen und Ändern von Berichten erforderlich.  
+5.  Dans la page **Résumé** , vérifiez les paramètres. Cliquez sur **Précédent** pour modifier les paramètres ou cliquez sur **Suivant** pour créer le rapport dans Configuration Manager.  
 
-7.  Stellen Sie in Microsoft Report Builder die SQL-Anweisung für den Bericht bereit oder erstellen Sie die SQL-Anweisung mithilfe der Spalten in den SQL Server-Ansichten; fügen Sie Parameter zum Bericht hinzu etc.  
+6.  Sur la page **Confirmation** , cliquez sur **Fermer** pour quitter l'Assistant et ouvrez le Générateur de rapports pour configurer les paramètres du rapport. Entrez votre compte d'utilisateur et votre mot de passe si vous y êtes invité, puis cliquez sur **OK**. Si le Générateur de rapports n'est pas installé sur l'ordinateur, vous êtes invité à l'installer. Cliquez sur **Exécuter** pour installer le Générateur de rapports, qui est requis pour modifier et créer des rapports.  
 
-8.  Klicken Sie auf **Ausführen** , um den Bericht auszuführen. Überprüfen Sie, ob die erwarteten Informationen im Bericht enthalten sind. Klicken Sie auf **Entwurf** , um zur Entwurfansicht zurückzukehren und den Bericht erforderlichenfalls zu ändern.  
+7.  Dans le Générateur de rapports Microsoft, renseignez l'instruction SQL pour le rapport ou créez une instruction SQL à l'aide des colonnes dans les vues de SQL Server disponibles, puis ajoutez des paramètres au rapport et ainsi de suite.  
 
-9. Klicken Sie auf **Speichern** , um den Bericht auf dem Berichtsserver zu speichern. Sie können den neuen Bericht im Arbeitsbereich **Überwachung** im Knoten **Berichte** ausführen.  
+8.  Cliquez sur **Exécuter** pour exécuter le rapport. Vérifiez que le rapport fournit les informations désirées. Cliquez sur **Création** pour revenir au mode Création pour modifier le rapport, si nécessaire.  
 
-##  <a name="BKMK_ManageReportSubscriptions"></a> Verwalten von Berichtsabonnements  
- Mithilfe von Berichtsabonnements in SQL Server Reporting Services können Sie die automatische Übermittlung von angegebenen Berichten per E-Mail oder an eine Dateifreigabe in geplanten Zeitintervallen konfigurieren. Verwenden Sie den **Assistenten zum Erstellen von Abonnements** in System Center 2012 Configuration Manager, um Berichtsabonnements zu konfigurieren.  
+9. Cliquez sur **Enregistrer** pour enregistrer le rapport sur le serveur de rapports. Vous pouvez exécuter le nouveau rapport dans le nœud **Rapports** de l'espace de travail **Surveillance** .  
 
-###  <a name="BKMK_ReportSubscriptionFileShare"></a> Erstellen eines Berichtsabonnements zum Übermitteln eines Berichts an eine Dateifreigabe  
- Wenn Sie ein Berichtsabonnement zum Übermitteln eines Berichts an eine Dateifreigabe erstellen, wird der Bericht im angegebenen Format auf die angegebene Dateifreigabe kopiert. Sie können die Übermittlung von nur einem Bericht auf einmal abonnieren bzw. anfordern.  
+##  <a name="BKMK_ManageReportSubscriptions"></a> Gérer les abonnements aux rapports  
+ Les abonnements aux rapports dans SQL Server Reporting Services permettent de configurer la remise automatique des rapports spécifiés par courrier électronique ou vers une solution de partage de fichiers, à des intervalles de temps planifiés. Utilisez l’**Assistant Création d’abonnement** dans System Center 2012 Configuration Manager pour configurer les abonnements aux rapports.  
 
- Im Gegensatz zu Berichten, die von einem Berichtsserver gehostet und verwaltet werden, handelt es sich bei Berichten, die an eine Dateifreigabe übermittelt werden, um statische Dateien. Bei Berichten, die als Dateien im Dateisystem gespeichert werden, können interaktive Funktionen, die für den Bericht definiert wurden, nicht verwendet werden. Interaktive Funktionen werden als statische Elemente dargestellt. Wenn im Bericht Diagramme enthalten sind, wird die Standardpräsentation verwendet. Wenn im Bericht auf einen anderen Bericht verwiesen wird, wird der Link als statischer Text gerendert. Wenn interaktive Funktionen in einem übermittelten Bericht erhalten bleiben sollen, übermitteln Sie den Bericht stattdessen per E-Mail. Weitere Informationen zum Übermitteln per E-Mail finden Sie im Abschnitt [Erstellen eines Berichtsabonnements zum Übermitteln eines Berichts per E-Mail](#BKMK_ReportSubscriptionEmail) weiter unten im Thema.  
+###  <a name="BKMK_ReportSubscriptionFileShare"></a> Créer un abonnement aux rapports pour remettre un rapport à un partage de fichiers  
+ Lorsque vous créez un abonnement aux rapports pour remettre un rapport à un partage de fichiers, le rapport est copié au format spécifié pour le partage de fichiers que vous avez indiqué. Vous ne pouvez vous abonner et demander la remise que pour un seul rapport à la fois.  
 
- Wenn Sie ein Abonnement erstellen, von dem die Dateifreigabeübermittlung verwendet wird, müssen Sie einen vorhandenen Ordner als Zielordner angeben. Vom Berichtsserver werden keine Ordner im Dateisystem erstellt. Über eine Netzwerkverbindung muss ein Zugriff auf den angegebenen Ordner möglich sein. Wenn Sie den Zielordner in einem Abonnement angeben, verwenden Sie einen UNC-Pfad. Schließen Sie keinen umgekehrten Schrägstrich am Ende des Ordnerpfads ein. So könnte beispielsweise ein gültiger UNC-Pfad für den Zielordner aussehen: \\\\&lt;Servername\>\\reportfiles\\operations\\2011.  
+ À la différence des rapports qui sont hébergés et gérés par un serveur de rapports, les rapports qui sont remis à un dossier partagé sont des fichiers statiques. Les fonctionnalités interactives définies pour le rapport ne fonctionnent pas pour les rapports qui sont stockés sous forme de fichiers sur le système de fichiers. Les fonctionnalités d'interaction sont représentées comme des éléments statiques. Si le rapport comprend des graphiques, la présentation par défaut est utilisée. Si le rapport contient des liens renvoyant à un autre rapport, le lien est restitué sous forme de texte statique. Si vous souhaitez conserver les fonctionnalités interactives dans un rapport remis, utilisez plutôt la remise par courrier électronique. Pour plus d’informations sur la remise de courrier électronique, consultez la section [Créer un abonnement aux rapports pour remettre un rapport par courrier électronique](#BKMK_ReportSubscriptionEmail) plus loin dans cette rubrique.  
 
- Berichte können in verschiedenen Dateiformaten wie MHTML oder Excel gerendert werden. Um den Bericht in einem bestimmten Dateiformat zu speichern, wählen Sie dieses Renderformat, wenn Sie das Abonnement erstellen. Wenn Sie beispielsweise Excel auswählen, wird der Bericht als Microsoft Excel-Datei gespeichert. Sie können zwar jedes unterstützte Renderformat auswählen, doch einige Formate sind zum Rendern besser geeignet als andere.  
+ Lorsque vous créez un abonnement qui utilise la remise par partage de fichiers, vous devez spécifier un dossier existant comme dossier de destination. Le serveur de rapports ne crée pas de dossiers sur le système de fichiers. Le dossier que vous spécifiez doit être accessible via une connexion réseau. Lorsque vous spécifiez le dossier de destination dans un abonnement, utilisez un chemin UNC et n'incluez pas de barres obliques inverses à la fin du chemin du dossier. Voici un exemple de chemin UNC valide pour le dossier de destination : \\\\&lt;nom_serveur\>\\reportfiles\\operations\\2011.  
 
- Gehen Sie wie folgt vor, um ein Berichtsabonnement zur Übermittlung eines Berichts an eine Dateifreigabe zu erstellen.  
+ Les rapports peuvent être rendus dans une variété de formats de fichier, tels que MHTML ou Excel. Pour enregistrer le rapport dans un format de fichier spécifique, sélectionnez ce format de rendu lors de la création de votre abonnement. Par exemple, choisir Excel enregistre le rapport sous forme de fichier Microsoft Excel. Même s'il est possible de sélectionner n'importe quel format de rendu pris en charge, certains formats fonctionnent mieux que d'autres lors du rendu d'un fichier.  
 
-#### <a name="to-create-a-report-subscription-to-deliver-a-report-to-a-file-share"></a>So erstellen Sie ein Berichtsabonnement zur Übermittlung eines Berichts an eine Dateifreigabe  
+ Utilisez la procédure suivante pour créer un abonnement aux rapports pour remettre un rapport à un partage de fichiers.  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Überwachung**.  
+#### <a name="to-create-a-report-subscription-to-deliver-a-report-to-a-file-share"></a>Pour créer un abonnement à un rapport en vue de remettre un rapport à un partage de fichiers  
 
-2.  Erweitern Sie im Arbeitsbereich **Überwachung** den Knoten **Berichterstattung** , und klicken Sie dann auf **Berichte** , um die verfügbaren Berichte aufzulisten. Sie können einen Berichtsordner auswählen, um nur die Berichte aufzulisten, die dem Ordner zugeordnet sind.  
+1.  Dans la console Configuration Manager, cliquez sur **Surveillance**.  
 
-3.  Wählen Sie den Bericht aus, der dem Abonnement hinzugefügt werden soll, und klicken Sie dann auf der Registerkarte **Startseite** im Bereich **Berichtsgruppe** auf **Abonnement erstellen** , um den **** Assistenten zum Erstellen von Abonnements zu öffnen.  
+2.  Dans l'espace de travail **Surveillance** , développez **Rapports** , puis cliquez sur **Rapports** pour consulter la liste des rapports disponibles. Vous pouvez sélectionner un dossier de rapports pour répertorier uniquement les rapports associés à ce dossier.  
 
-4.  Konfigurieren Sie auf der Seite **Abonnementübermittlung** die folgenden Einstellungen:  
+3.  Sélectionnez le rapport que vous souhaitez ajouter à l'abonnement, puis dans l'onglet **Accueil** , dans la section **Groupe de rapports** , cliquez sur **Créer un abonnement** pour ouvrir l' **Assistant Création d'abonnement**.  
 
-    -   Bericht übermittelt von: Wählen Sie **Windows-Dateifreigabe** aus, um den Bericht an eine Dateifreigabe zu übermitteln.  
+4.  Sur la page **Remise d'abonnement** , configurez les paramètres suivants :  
 
-    -   **Dateiname**: Geben Sie den Dateinamen des Berichts an. Standardmäßig ist bei der Berichtsdatei keine Dateinamenerweiterung enthalten. Wählen Sie die Option **Dateierweiterung beim Erstellen hinzufügen** aus, um diesem Bericht automatisch eine Dateinamenerweiterung anhand des Renderformats hinzuzufügen.  
+    -   Rapport remis par : Sélectionnez **Partage de fichiers Windows** pour remettre le rapport à un partage de fichiers.  
 
-    -   **Pfad**:Geben Sie einen UNC-Pfad zu einem vorhandenen Ordner an, in den Sie diesen Bericht übermitteln möchten \(z.B. \\\\&lt;Servername\>\\&lt;Serverfreigabe\>\\&lt;Berichtsordner\>\).  
+    -   **Nom du fichier**: Spécifiez le nom de fichier du rapport. Par défaut, le fichier de rapport n'inclut pas d'extension de nom de fichier. Sélectionnez **Ajouter une extension de fichier à la création** pour ajouter automatiquement une extension de nom de fichier à ce rapport, en fonction du format de rendu.  
+
+    -   **Chemin** : Spécifiez un chemin UNC vers un dossier existant, dans lequel vous souhaitez remettre ce rapport \(par exemple, \\\\&lt;nom_serveur\>\\&lt;partage_serveur\>\\&lt;dossier_rapport\>\).  
 
         > [!NOTE]  
-        >  Für den weiter unten auf dieser Seite angegebenen Benutzernamen müssen Zugriffsrechte für diese Serverfreigabe und Schreibzugriff für den Zielordner vorliegen.  
+        >  Le nom d'utilisateur spécifié ultérieurement sur cette page doit avoir accès à ce partage de serveur et disposer des autorisations d'écriture sur le dossier de destination.  
 
-    -   **Renderformat**: Wählen Sie eines der folgenden Formate für die Berichtsdatei:  
+    -   **Format de rendu**: Sélectionnez l'un des formats suivants pour le fichier de rapport :  
 
-        -   **XML-Datei mit Berichtsdaten**: Der Bericht wird im XML-Format (Extensible Markup Language) gespeichert.  
+        -   **Fichier XML avec données de rapport**: Enregistre le rapport au format Extensible Markup Language.  
 
-        -   **CSV \(Komma-getrennt\)**: Der Bericht wird im \-CSV-Format\- (Comma Separated Value, kommagetrennte Werte) gespeichert.  
+        -   **CSV \(délimité par des virgules\)** : Enregistre le rapport au format de valeurs séparées par des virgules.  
 
-        -   **TIFF-Datei**: Der Bericht wird im TIFF-Format (Tagged Image File Format) gespeichert.  
+        -   **Fichier TIFF**: Enregistre le rapport au format de fichier TIFF (Tagged Image File Format).  
 
-        -   **Acrobat-Datei \(PDF\)**: Der Bericht wird im PDF-Format (Acrobat Portable Document Format) gespeichert.  
+        -   **Fichier Acrobat \(PDF\)** : Enregistre le rapport au format Acrobat Portable Document Format.  
 
-        -   **HTML 4.0**: Der Bericht wird als Webseite gespeichert, die nur in Browsern mit Unterstützung für HTML 4.0 angezeigt werden kann. Internet Explorer 5 und höhere Versionen unterstützen HTML 4.0.  
+        -   **HTML 4.0**: Enregistre le rapport sous la forme d'une page Web affichable uniquement dans les navigateurs qui prennent en charge le langage HTML 4.0. Internet Explorer 5 et versions ultérieures prennent en charge le langage HTML 4.0.  
 
             > [!NOTE]  
-            >  Wenn in Ihrem Bericht Bilder enthalten sind, werden diese mit der HTML 4.0-Datei nicht gespeichert.  
+            >  Si votre rapport contient des images, le format HTML 4.0 ne les inclut pas dans le fichier.  
 
-        -   **MHTML \(Webarchiv\)**: Der Bericht wird im MIME HTML-Format \(mhtml\) gespeichert, das in vielen Webbrowsern angezeigt werden kann.  
+        -   **MHTML \(archive web\)** : Enregistre le rapport au format MIME HTML \(mhtml\) pouvant être consulté avec de nombreux navigateurs web.  
 
-        -   **RPL-Renderer**: Speichert den Bericht im Berichtsseitenlayout-Format \(RPL\).  
+        -   **Convertisseur RPL** : Enregistre le rapport au format RPL \(Report Page Layout\).  
 
-        -   **Excel**: Der Bericht wird als Microsoft Excel-Arbeitsblatt gespeichert.  
+        -   **Excel**: Enregistre le rapport sous forme de feuille de calcul Microsoft Excel.  
 
-        -   **Word**: Der Bericht wird als Microsoft Word-Dokument gespeichert.  
+        -   **Word**: Enregistre le rapport sous forme de document Microsoft Word.  
 
-    -   **Benutzername**: Geben Sie ein Windows-Benutzerkonto mit Berechtigungen für den Zugriff auf die Zielserverfreigabe und den Zielordner an. Für das Benutzerkonto müssen Zugriffsrechte für diese Serverfreigabe und Schreibzugriff für den Zielordner vorliegen.  
+    -   **Nom d'utilisateur**: Spécifiez un compte d'utilisateur Windows disposant des autorisations pour accéder au partage de serveur et au dossier de destination. Le compte d'utilisateur doit avoir accès à ce partage de serveur ainsi que l'autorisation d'écriture sur le dossier de destination.  
 
-    -   **Kennwort**: Geben Sie das Kennwort für das Windows-Benutzerkonto an. Geben Sie im Feld **Kennwort bestätigen** das Kennwort erneut ein.  
+    -   **Mot de passe**: Spécifiez le mot de passe du compte d'utilisateur Windows. Dans **Confirmer le mot de passe**, retapez le mot de passe.  
 
-    -   Wählen Sie eine der folgenden Optionen aus, um zu konfigurieren, wie vorgegangen werden soll, wenn eine Datei mit dem gleichen Namen bereits im Zielordner vorhanden ist.  
+    -   Sélectionnez l'une des options suivantes pour configurer le comportement, lorsqu'un fichier du même nom existe déjà dans le dossier de destination :  
 
-        -   **Vorhandene Datei mit einer neueren Version überschreiben**: Wenn die Berichtsdatei bereits vorhanden ist, wird sie von der neuen Version überschrieben.  
+        -   **Remplacer un fichier existant par une version plus récente**: Spécifie que la nouvelle version remplace le fichier de rapport lorsqu'il existe déjà.  
 
-        -   **Vorhandene Datei nicht überschreiben**: Wenn die Berichtsdatei bereits vorhanden ist, wird keine Aktion ausgeführt.  
+        -   **Ne pas remplacer un fichier existant**: Spécifie qu'aucune action n'est effectuée lorsque le fichier de rapport existe déjà.  
 
-        -   **Dateinamen inkrementieren, wenn neuere Versionen hinzugefügt werden**: Wenn die Berichtsdatei bereits vorhanden ist, wird dem Dateinamen des neuen Berichts eine Nummer hinzufügt, um ihn von anderen Versionen zu unterscheiden.  
+        -   **Incrémenter des noms de fichier dès que des versions plus récentes sont ajoutées**: Spécifie qu'un numéro est ajouté au nom de fichier du nouveau rapport pour le différencier des autres versions lorsque le fichier de rapport existe déjà.  
 
-    -   **Beschreibung**: Hier wird die Beschreibung für das Berichtsabonnement angegeben.  
+    -   **Description**: Spécifie la description de cet abonnement au rapport.  
 
-     Klicken Sie auf **Weiter**.  
+     Cliquez sur **Suivant**.  
 
-5.  Wählen Sie auf der Seite **Abonnementzeitplan** eine der folgenden Optionen für den Übermittlungszeitplan des Berichtsabonnements aus:  
+5.  Sur la page **Planification d'abonnement** , sélectionnez l'une des options de planification de remise suivantes pour l'abonnement aux rapports :  
 
-    -   **Freigegebenen Zeitplan verwenden**: Ein freigegebener Zeitplan ist ein zuvor festgelegter Zeitplan, der von anderen Berichtsabonnements verwendet werden kann. Aktivieren Sie dieses Kontrollkästchen, und wählen Sie dann in der Liste einen freigegebenen Zeitplan aus, falls Zeitpläne angegeben wurden.  
+    -   **Utiliser une planification partagée**: Une planification partagée est une planification prédéfinie pouvant être utilisée avec d'autres abonnements à des rapports. Activez cette case à cocher, puis sélectionnez une planification partagée dans la liste si un élément a été spécifié.  
 
-    -   **Neuen Zeitplan erstellen**: Konfigurieren Sie den Zeitplan, nach dem dieser Bericht ausgeführt werden soll, mit Intervall sowie Anfangs- und Enddatum für das Abonnement.  
+    -   **Créer une nouvelle planification**: Configurez la planification selon laquelle ce rapport doit s'exécuter, y compris l'intervalle, l'heure et la date de début et la date de fin de cet abonnement.  
 
-6.  Geben Sie auf der Seite **Abonnementparameter** die Parameter für die unbeaufsichtigte Ausführung dieses Berichts an. Wenn keine Parameter für den Bericht vorhanden sind, wird diese Seite nicht angezeigt.  
+6.  Sur la page **Paramètres d'abonnement** , spécifiez les paramètres pour ce rapport qui seront utilisés lorsqu'il est exécuté en mode sans assistance. Lorsqu'il n'y a aucun paramètre pour le rapport, cette page n'est pas affichée.  
 
-7.  Überprüfen Sie auf der Seite **Zusammenfassung** die Einstellungen für das Berichtsabonnement. Klicken Sie auf **Zurück** , um die Einstellungen zu ändern, oder auf **Weiter** , um das Berichtsabonnement zu erstellen.  
+7.  Sur la page **Résumé** , passez en revue les paramètres d'abonnement au rapport. Cliquez sur **Précédent** pour modifier les paramètres ou cliquez sur **Suivant** pour créer un abonnement à un rapport.  
 
-8.  Klicken Sie auf der Seite **Abschluss des Vorgangs** zum Beenden des Assistenten auf **Schließen** . Überprüfen Sie, ob das Berichtsabonnement erfolgreich erstellt wurde. Sie können Berichtsabonnements im Arbeitsbereich **Überwachung** unter **Berichterstattung** im Knoten **Berichte** anzeigen und ändern.  
+8.  Sur la page **Dernière étape** , cliquez sur **Fermer** pour quitter l'Assistant. Vérifiez que l'abonnement au rapport a été créé avec succès. Vous pouvez afficher et modifier des abonnements aux rapports dans le nœud **Abonnements** sous **Rapports** dans l'espace de travail **Surveillance** .  
 
-###  <a name="BKMK_ReportSubscriptionEmail"></a> Erstellen eines Berichtsabonnements zum Übermitteln eines Berichts per E-Mail  
- Wenn Sie ein Berichtsabonnement für die Übermittlung eines Berichts per E-Mail erstellen, wird eine E-Mail mit dem Bericht als Anlage an die konfigurierten Empfänger gesendet. Dabei werden die E-Mail-Adressen nicht überprüft, und es werden auch keine E-Mail-Adressen von einem E-Mail-Server abgerufen. Sie müssen im Voraus wissen, welche E-Mail-Adressen Sie verwenden möchten. Standardmäßig können Sie Berichte an beliebige E-Mail-Konten innerhalb oder außerhalb Ihres Unternehmens senden. Sie können eine oder beide der folgenden E-Mail-Übermittlungsoptionen auswählen:  
+###  <a name="BKMK_ReportSubscriptionEmail"></a> Créer un abonnement aux rapports pour remettre un rapport par e-mail  
+ Lorsque vous créez un abonnement aux rapports afin de remettre un rapport par courrier électronique, un message qui contient le rapport en pièce jointe est envoyé aux destinataires que vous aurez configurés. Le serveur de rapports ne valide pas les adresses de messagerie et n'obtient pas d'adresses à partir d'un serveur de messagerie. Vous devez connaître à l'avance les adresses de messagerie que vous souhaitez utiliser. Par défaut, vous pouvez envoyer des rapports à n'importe quel compte de messagerie électronique valide au sein ou en dehors de votre organisation. Vous pouvez sélectionner une ou les deux options de remise par courrier électronique suivantes :  
 
--   Senden Sie eine Benachrichtigung und einen Hyperlink zum generierten Bericht.  
+-   Envoyer une notification et un lien hypertexte vers le rapport généré.  
 
--   Senden Sie einen eingebetteten oder angehängten Bericht. Ob der Bericht eingebettet oder angehängt wird, ist abhängig vom Renderformat und vom Browser. Wenn Ihr Browser HTML 4.0 und MHTML unterstützt und Sie das Renderformat MHTML \(Webarchiv\) auswählen, wird der Bericht in den Text der Nachricht eingebettet. Bei allen anderen Renderformaten \(CSV, PDF, Word usw.\) werden Berichte als Anlagen übermittelt. Die Größe der Anlage oder Nachricht wird von Reporting Services vor dem Senden des Berichts nicht überprüft. Wenn der Grenzwert des Mailservers für die maximal zulässige Größe durch die Anlage oder die Nachricht überschritten wird, wird der Bericht nicht übermittelt.  
+-   Envoyer un rapport incorporé ou joint au message. Le format de rendu et le navigateur déterminent si le rapport est incorporé ou joint. Si votre navigateur prend en charge HTML 4.0 et MHTML et que vous sélectionnez le format de rendu MHTML \(archive web\), le rapport est incorporé dans le corps du message. Tous les autres formats de rendu \(CSV, PDF, Word, etc.\) sont ajoutés au message sous forme de pièces jointes. Reporting Services ne vérifie pas la taille de la pièce jointe ni du message avant d'envoyer le rapport. Si le message ou la pièce jointe dépasse la limite maximale autorisée par votre serveur de messagerie, le rapport n'est pas remis.  
 
 > [!IMPORTANT]  
->  Sie müssen die E-Mail-Einstellungen in Reporting Services so konfigurieren, dass die Übermittlungsoption **E-Mail** verfügbar ist. Weitere Informationen zum Konfigurieren der E-Mail-Einstellungen in Reporting Services finden Sie unter [Konfigurieren eines Berichtsservers für die E-Mail-Übermittlung](http://go.microsoft.com/fwlink/p/?LinkId=226668) in der Onlinedokumentation zu SQL Server.  
+>  Vous devez configurer les paramètres de courrier électronique dans Reporting Services pour que l'option de remise **Courrier électronique** soit disponible. Pour plus d'informations sur la configuration des paramètres de courrier électronique dans Reporting Services, voir [Configuration d'un serveur de rapport pour la remise par courrier électronique](http://go.microsoft.com/fwlink/p/?LinkId=226668) dans la documentation en ligne de SQL Server.  
 
- Gehen Sie wie folgt vor, um ein Berichtsabonnement zur Übermittlung eines Berichts per E-Mail zu erstellen.  
+ Utilisez la procédure suivante pour créer un abonnement aux rapports permettant de remettre un rapport par courrier électronique.  
 
-#### <a name="to-create-a-report-subscription-to-deliver-a-report-by-email"></a>So erstellen Sie ein Berichtsabonnement zur Übermittlung eines Berichts per E-Mail  
+#### <a name="to-create-a-report-subscription-to-deliver-a-report-by-email"></a>Pour créer un abonnement aux rapports permettant de remettre un rapport par courrier électronique  
 
--   Klicken Sie in der Configuration Manager-Konsole auf **Überwachung**.  
+-   Dans la console Configuration Manager, cliquez sur **Surveillance**.  
 
--   Erweitern Sie im Arbeitsbereich **Überwachung** den Knoten **Berichterstattung** , und klicken Sie dann auf **Berichte** , um die verfügbaren Berichte aufzulisten. Sie können einen Berichtsordner auswählen, um nur die Berichte aufzulisten, die dem Ordner zugeordnet sind.  
+-   Dans l'espace de travail **Surveillance** , développez **Rapports** , puis cliquez sur **Rapports** pour consulter la liste des rapports disponibles. Vous pouvez sélectionner un dossier de rapports pour répertorier uniquement les rapports associés à ce dossier.  
 
--   Wählen Sie den Bericht aus, der dem Abonnement hinzugefügt werden soll, und klicken Sie dann auf der Registerkarte **Startseite** im Bereich **Berichtsgruppe** auf **Abonnement erstellen** , um den **** Assistenten zum Erstellen von Abonnements zu öffnen.  
+-   Sélectionnez le rapport que vous souhaitez ajouter à l'abonnement, puis dans l'onglet **Accueil** , dans la section **Groupe de rapports** , cliquez sur **Créer un abonnement** pour ouvrir l' **Assistant Création d'abonnement**.  
 
--   Konfigurieren Sie auf der Seite **Abonnementübermittlung** die folgenden Einstellungen:  
+-   Sur la page **Remise d'abonnement** , configurez les paramètres suivants :  
 
-    -   **Bericht übermittelt von**: Wählen Sie **E\-Mail** aus, um den Bericht als Anlage einer E-Mail-Nachricht zu übermitteln.  
+    -   **Rapport remis par** : Sélectionnez **E\-mail** pour remettre le rapport en tant que pièce jointe dans un message électronique.  
 
-    -   **Bis**: Geben Sie eine gültige E-Mail-Adresse an, an die dieser Bericht gesendet werden soll.  
+    -   **À**: Spécifiez une adresse de messagerie valide du destinataire du rapport.  
 
         > [!NOTE]  
-        >  Sie können mehrere E-Mail-Empfänger eingeben, indem Sie die E-Mail-Adressen durch ein Semikolon trennen.  
+        >  Vous pouvez saisir plusieurs destinataires en séparant chaque adresse de messagerie par un point-virgule.  
 
-    -   **Cc**: Geben Sie optional eine E-Mail-Adresse an, an die eine Kopie dieses Berichts gesendet werden soll.  
+    -   **Cc**: Spécifiez l'adresse de messagerie d'un autre destinataire d'une copie du rapport (facultatif).  
 
-    -   **Bcc**: Geben Sie optional eine E-Mail-Adresse an, an die dieser Bericht per Blindkopie gesendet werden soll.  
+    -   **Cci**: Spécifiez l'adresse de messagerie d'un autre destinataire d'une copie confidentielle du rapport (facultatif).  
 
-    -   **Antwort an**: Geben Sie die Antwortadresse an, falls der Empfänger auf die E-Mail-Nachricht antworten möchte.  
+    -   **Répondre à**: Spécifiez l'adresse de réponse à utiliser au cas où le destinataire déciderait de répondre au message électronique.  
 
-    -   **Betreff**: Geben Sie eine Betreffzeile für die Abonnement-E-Mail an.  
+    -   **Objet**: Spécifiez une ligne d'objet pour le message électronique d'abonnement.  
 
-    -   **Priorität**: Wählen Sie die Priorität für diese E-Mail aus. Wählen Sie **Niedrig**, **Normal**oder **Hoch**aus. Anhand der Einstellung der Priorität wird von Microsoft Exchange ein Kennzeichen festgelegt, das die Wichtigkeit der E-Mail-Nachricht anzeigt.  
+    -   **Priorité**: Sélectionnez l'indicateur de priorité pour ce message électronique. Sélectionnez **Faible**, **Normale**ou **Haute**. Le paramètre de priorité est utilisé par Microsoft Exchange pour définir un indicateur dans le but de spécifier l'importance du message électronique.  
 
-    -   **Comment**: Geben Sie Text an, der dem Textteil der Abonnement-E-Mail hinzugefügt wird.  
+    -   **Commentaire**: Spécifiez un texte à ajouter au corps du message électronique d'abonnement.  
 
-    -   **Beschreibung**: Geben Sie eine Beschreibung für dieses Berichtsabonnement an.  
+    -   **Description**: Spécifiez la description de l'abonnement à un rapport.  
 
-    -   **Link einschließen**: Bei Auswahl dieser Option wird eine URL zum abonnierten Bericht in den Textteil der E-Mail-Nachricht eingeschlossen.  
+    -   **Inclure un lien**: Inclut une URL au rapport d'abonnement dans le corps du message électronique.  
 
-    -   **Bericht einschließen**: Geben Sie an, dass der Bericht an die E\-Mail-Nachricht angehängt wird. Das Format, in dem der Bericht angehängt wird, wird über die Liste **Renderformat** angegeben.  
+    -   **Inclure un rapport** : Spécifiez que le rapport est joint au message électronique. Le format à utiliser pour joindre le rapport est indiqué dans la liste **Format de rendu** .  
 
-    -   **Renderformat**: Wählen Sie eines der folgenden Formate für den angehängten Bericht aus:  
+    -   **Format de rendu**: Sélectionnez l'un des formats suivants pour le rapport joint :  
 
-        -   **XML-Datei mit Berichtsdaten**: Der Bericht wird im XML-Format (Extensible Markup Language) gespeichert.  
+        -   **Fichier XML avec données de rapport**: Enregistre le rapport au format Extensible Markup Language.  
 
-        -   **CSV \(Komma-getrennt\)**: Der Bericht wird im \-CSV-Format\- (Comma Separated Value, kommagetrennte Werte) gespeichert.  
+        -   **CSV \(délimité par des virgules\)** : Enregistre le rapport au format de valeurs séparées par des virgules.  
 
-        -   **TIFF-Datei**: Der Bericht wird im TIFF-Format (Tagged Image File Format) gespeichert.  
+        -   **Fichier TIFF**: Enregistre le rapport au format de fichier TIFF (Tagged Image File Format).  
 
-        -   **Acrobat-Datei \(PDF\)**: Der Bericht wird im PDF-Format (Acrobat Portable Document Format) gespeichert.  
+        -   **Fichier Acrobat \(PDF\)** : Enregistre le rapport au format Acrobat Portable Document Format.  
 
-        -   **MHTML \(Webarchiv\)**: Der Bericht wird im MIME HTML-Format \(mhtml\) gespeichert, das in vielen Webbrowsern angezeigt werden kann.  
+        -   **MHTML \(archive web\)** : Enregistre le rapport au format MIME HTML \(mhtml\) pouvant être consulté avec de nombreux navigateurs web.  
 
-        -   **Excel**: Der Bericht wird als Microsoft Excel-Arbeitsblatt gespeichert.  
+        -   **Excel**: Enregistre le rapport sous forme de feuille de calcul Microsoft Excel.  
 
-        -   **Word**: Der Bericht wird als Microsoft Word-Dokument gespeichert.  
+        -   **Word**: Enregistre le rapport sous forme de document Microsoft Word.  
 
--   Wählen Sie auf der Seite **Abonnementzeitplan** eine der folgenden Optionen für den Übermittlungszeitplan des Berichtsabonnements aus:  
+-   Sur la page **Planification d'abonnement** , sélectionnez l'une des options de planification de remise suivantes pour l'abonnement aux rapports :  
 
-    -   **Freigegebenen Zeitplan verwenden**: Ein freigegebener Zeitplan ist ein zuvor festgelegter Zeitplan, der von anderen Berichtsabonnements verwendet werden kann. Aktivieren Sie dieses Kontrollkästchen, und wählen Sie dann in der Liste einen freigegebenen Zeitplan aus, falls Zeitpläne angegeben wurden.  
+    -   **Utiliser une planification partagée**: Une planification partagée est une planification prédéfinie pouvant être utilisée avec d'autres abonnements à des rapports. Activez cette case à cocher, puis sélectionnez une planification partagée dans la liste si un élément a été spécifié.  
 
-    -   **Neuen Zeitplan erstellen**: Konfigurieren Sie den Zeitplan, nach dem dieser Bericht ausgeführt wird, mit Intervall sowie Anfangs- und Enddatum für das Abonnement.  
+    -   **Créer une nouvelle planification**: Configurez la planification selon laquelle ce rapport s'exécutera, y compris l'intervalle, l'heure et la date de début et la date de fin de cet abonnement.  
 
--   Geben Sie auf der Seite **Abonnementparameter** die Parameter für die unbeaufsichtigte Ausführung dieses Berichts an. Wenn keine Parameter für den Bericht vorhanden sind, wird diese Seite nicht angezeigt.  
+-   Sur la page **Paramètres d'abonnement** , spécifiez les paramètres pour ce rapport qui seront utilisés lorsqu'il est exécuté en mode sans assistance. Lorsqu'il n'y a aucun paramètre pour le rapport, cette page n'est pas affichée.  
 
--   Überprüfen Sie auf der Seite **Zusammenfassung** die Einstellungen für das Berichtsabonnement. Klicken Sie auf **Zurück** , um die Einstellungen zu ändern, oder auf **Weiter** , um das Berichtsabonnement zu erstellen.  
+-   Sur la page **Résumé** , passez en revue les paramètres d'abonnement au rapport. Cliquez sur **Précédent** pour modifier les paramètres ou cliquez sur **Suivant** pour créer un abonnement à un rapport.  
 
--   Klicken Sie auf der Seite **Abschluss des Vorgangs** zum Beenden des Assistenten auf **Schließen** . Überprüfen Sie, ob das Berichtsabonnement erfolgreich erstellt wurde. Sie können Berichtsabonnements im Arbeitsbereich **Überwachung** unter **Berichterstattung** im Knoten **Berichte** anzeigen und ändern.  
+-   Sur la page **Dernière étape** , cliquez sur **Fermer** pour quitter l'Assistant. Vérifiez que l'abonnement au rapport a été créé avec succès. Vous pouvez afficher et modifier des abonnements aux rapports dans le nœud **Abonnements** sous **Rapports** dans l'espace de travail **Surveillance** .  

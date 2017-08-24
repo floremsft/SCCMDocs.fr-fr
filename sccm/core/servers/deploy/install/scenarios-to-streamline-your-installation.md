@@ -1,6 +1,6 @@
 ---
-title: Installationsszenarios | Microsoft-Dokumentation
-description: "Lernen Sie Verfahren für die Installation einer neuen Configuration Manager-Hierarchie kennen, wenn Sie ein Update oder ein Upgrade für eine Seite durchführen."
+title: "Scénarios d’installation | Microsoft Docs"
+description: "Découvrez les techniques d’installation d’une nouvelle hiérarchie Configuration Manager lors de la mise à jour ou de la mise à niveau d’un site."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,114 +17,114 @@ manager: angrobe
 ms.openlocfilehash: 938b2970e4d8534fdd5f3daf0c9a5ddb1f576e60
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="scenarios-to-streamline-your-installation-of-system-center-configuration-manager"></a>Szenarien für die Optimierung Ihrer Installation von System Center Configuration Manager
+# <a name="scenarios-to-streamline-your-installation-of-system-center-configuration-manager"></a>Scénarios pour simplifier votre installation de System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Mit dem Release von Updateversionen für System Center Configuration Manager (Current Branch) gibt es neue Szenarios für die Optimierung der Installation einer neuen Hierarchie mit einer Updateversion (wie Update 1610) und für ein Upgrade von Microsoft System Center 2012 Configuration Manager.
+Avec la publication des versions de mise à jour pour la branche Current Branch de System Center Configuration Manager, de nouveaux scénarios sont apparus pour simplifier l’installation d’une nouvelle hiérarchie sur une version de mise à jour (par exemple, la mise à jour 1610), et pour opérer une mise à niveau à partir de Microsoft System Center 2012 Configuration Manager.
 
-Unterstützte Szenarien:  
+Les scénarios pris en charge sont les suivants :  
 
-**Installieren einer neuen System Center Configuration Manager-Hierarchie (Current Branch)**, in der eine Updateversion ausgeführt wird.  
+**Installer une nouvelle hiérarchie de branche Current Branch System Center Configuration Manager** exécutant une version de mise à jour.  
 
--   Installieren Sie nur den Standort auf oberster Ebene und unmittelbar danach ein Update, um diesen Standort mit der gewünschten Updateversion zu versehen. Anschließend können Sie zusätzliche Standorte direkt mit dieser Updateversion installieren.  
--   Bei diesem Szenario wird das Installieren zusätzlicher Standorte auf einer Baselinestufe übersprungen, die dann anschließend auf die gewünschte Updateversion aktualisiert werden müssen.  
--   Dieses Szenario überspringt die Installation von Clients mit einer Baselineversion, die dann anschließend neu installiert werden müssen, wenn Sie ein Update auf eine spätere Version durchführen.  
+-   Installez uniquement le site de niveau supérieur puis, immédiatement après, mettez-le à jour avec la version que vous voulez utiliser. Vous pouvez ensuite installer d’autres sites directement sur cette version de mise à jour.  
+-   Ce scénario évite de devoir installer d’autres sites à un niveau de référence, puis de les mettre à jour avec la version de mise à jour que vous voulez utiliser.  
+-   Il évite également de devoir installer les clients sur une version de référence, puis de les réinstaller lors de la mise à jour vers une version ultérieure.  
 
-**Upgrade von Microsoft System Center 2012 Configuration Manager** auf eine Updateversion von System Center Configuration Manager.  
+**Mettre à niveau une infrastructure System Center 2012 Configuration Manager** vers une version de mise à jour de System Center Configuration Manager.  
 
--   Führen Sie ein Upgrade für Ihren Standort der zentralen Verwaltung und alle primären Standorte auf eine Baselineversion (wie Version 1606) manuell durch, bevor Sie eine Updateversion (wie Version 1610) installieren.  
--   Führen Sie erst dann ein Upgrade für sekundäre Standorte von Microsoft System Center 2012 Configuration Manager durch, wenn Ihre primären Standorte die gewünschte Updateversion ausführen.  
--   Sie führen erst dann ein Upgrade für Clients von Microsoft System Center 2012 Configuration Manager durch, wenn Ihre primären Standorte die gewünschte Updateversion ausführen.  
+-   Mettez à niveau manuellement votre site d’administration centrale et chaque site principal vers une version de référence (par exemple, la version 1606) avant d’installer une version de mise à jour (par exemple, la version 1610).  
+-   Ne mettez pas à niveau les sites secondaires à partir de Microsoft System Center 2012 Configuration Manager tant que vos sites principaux n’exécutent pas la version de mise à jour que vous voulez utiliser.  
+-   Ne mettez pas à niveau les clients à partir de Microsoft System Center 2012 Configuration Manager tant que vos sites principaux n’exécutent pas la version de mise à jour que vous voulez utiliser.  
 
-## <a name="scenario-install-a-new-hierarchy-to-an-update-version"></a>Szenario: Installieren einer neuen Hierarchie mit einer Updateversion  
-Installieren Sie in diesem Beispielszenario den ersten Standort einer Hierarchie mit einer Baselineversion von System Center Configuration Manager wie z.B. Version 1610. Installieren Sie dann das Update 1610, bevor Sie zusätzliche Standorte oder Clients bereitstellen.  
+## <a name="scenario-install-a-new-hierarchy-to-an-update-version"></a>Scénario : Installer une nouvelle hiérarchie sur une version de mise à jour  
+Dans cet exemple de scénario, installez le premier site d’une hiérarchie à l’aide d’une version de référence de System Center Configuration Manager, telle que la version 1610. Ensuite, installez la mise à jour 1610 avant de déployer des sites ou des clients supplémentaires.  
 
--   Da Sie planen, eine Updateversion (z.B. Version 1610) zu verwenden, und keine Baselineversion (z.B. Version 1606) beibehalten wollen, müssen Sie keine zusätzlichen Standorte installieren und dann upgraden. Dies gilt auch für Clients.  
--   Installieren Sie keine sekundären Standorte mit Version 1606, die Sie dann auf Version 1610 upgraden. Installieren Sie stattdessen sekundäre Standorte, wenn Ihre primären Standorte Version 1610 bereits ausführen.  
+-   Comme vous prévoyez d’utiliser une version de mise à jour (telle que la version 1610) et de ne pas en rester à la version de référence (telle que la version 1606), vous n’avez pas besoin d’installer des sites supplémentaires puis de les mettre à niveau. Cela s’applique également aux clients.  
+-   N’installez pas les sites secondaires de version 1606 pour les mettre à niveau vers la version 1610. Au lieu de cela, installez les sites secondaires une fois que les sites principaux exécutent la version 1610.  
 
-Gehen Sie wie folgt vor:  
+Suivez l’ordre ci-dessous :  
 
-1.  **Installieren Sie einen Standort auf oberster Ebene für Ihre neue Hierarchie** mithilfe der Baselinemedien.  
+1.  **Installez un site de niveau supérieur pour votre nouvelle hiérarchie** à l’aide du support de référence.  
 
-    -   Mithilfe der Baselinemedien kann nur der erste Standort einer neuen Hierarchie installiert werden.  
-    -   Installieren Sie beispielsweise einen Standort auf oberster Ebene mit der Baselineversion 1606. Weitere Informationen finden Sie unter [Verwenden des Setup-Assistenten zum Installieren von Standorten](/sccm/core/servers/deploy/install/use-the-setup-wizard-to-install-sites).  
+    -   Vous pouvez utiliser le support de référence uniquement pour installer le premier site d’une nouvelle hiérarchie.  
+    -   Par exemple, installez un site de niveau supérieur à l’aide de la version de référence 1606. Pour plus d’informations, voir [Utiliser l’Assistant Installation pour installer des sites](/sccm/core/servers/deploy/install/use-the-setup-wizard-to-install-sites).  
 
-    Nach diesem Schritt wird der Standort auf oberster Ebene mit Version 1606 ausgeführt.  
+    Après cette étape, votre site de niveau supérieur exécute la version 1606.  
 
-2.  **Verwenden Sie Updates in der Konsole, um Ihren Standort auf oberster Ebene auf eine spätere Version zu aktualisieren.**  
+2.  **Utilisez des mises à jour dans la console pour mettre à jour votre site de niveau supérieur vers une version ultérieure.**  
 
-    -   Vor der Installation untergeordneter Standorte oder Clients aktualisieren Sie Ihren Standort auf oberster Ebene auf die Updateversion, die Sie verwenden möchten.  
-    -   Beispielsweise können Sie Ihren Standort auf oberster Ebene von Version 1606 auf Version 1610 aktualisieren. Weitere Informationen finden Sie unter [Updates für System Center Configuration Manager](../../../../core/servers/manage/updates.md).  
+    -   Avant d’installer des clients ou des sites enfants, mettez à jour votre site de niveau supérieur vers la version de mise à jour que vous prévoyez d’utiliser.  
+    -   Par exemple, vous pouvez mettre à jour vers la version 1610 votre site de niveau supérieur qui exécute la version 1606. Pour plus d’informations, consultez [Mises à jour pour System Center Configuration Manager](../../../../core/servers/manage/updates.md).  
 
-    Nach diesem Schritt wird der Standort auf oberster Ebene mit Version 1610 ausgeführt.  
+    Après cette étape, votre site de niveau supérieur exécute la version 1610.  
 
-3.  **Installieren Sie neue untergeordnete Standorte unter einem Standort der zentralen Verwaltung.**  
+3.  **Installez les nouveaux sites principaux enfants sous un site d’administration centrale.**  
 
-    -   Verwenden Sie das Installationsmedium im Ordner „CD.Latest“ auf dem Standortserver der zentralen Verwaltung, um untergeordnete primäre Standorte zu installieren. Weitere Informationen finden Sie unter [Der Ordner „CD.Latest“ für System Center Configuration Manager](../../../../core/servers/manage/the-cd.latest-folder.md).  
+    -   Utilisez le support d’installation du dossier CD.Latest sur le serveur du site d’administration centrale pour installer les sites principaux enfants. Pour plus d’informations, voir [Dossier CD.Latest pour System Center Configuration Manager](../../../../core/servers/manage/the-cd.latest-folder.md).  
 
-      Dieses Quellmedium ist erforderlich, um sicherzustellen, dass neue untergeordnete primäre Standorte der Version des Standorts der zentralen Verwaltung entsprechen.  
+      Ce support de source d’installation est requis pour s’assurer que la version des nouveaux sites principaux enfants corresponde à celle du site d’administration centrale.  
 
-    Nach diesem Schritt führen Ihre neuen untergeordneten primären Standorte Version 1610 aus.  
+    Après cette étape, vos nouveaux sites principaux enfants exécutent la version 1610.  
 
-4.  **Verwenden Sie an jedem primären Standort die Option in der Konsole, um neue sekundäre Standorte zu installieren.**  
+4.  **Au niveau de chaque site principal, utilisez l’option d’installation dans la console pour installer de nouveaux sites secondaires.**  
 
-    -   Da Sie keine sekundären Standorte installiert haben, als die primären Standorte Version 1606 aufwiesen, müssen Sie für die sekundären Standorte kein Upgrade durchführen.  
-    -   Installieren Sie stattdessen neue sekundäre Standorte, die Version 1610 ausführen. Weitere Informationen finden Sie unter [Install a secondary site](/sccm/core/servers/deploy/install/use-the-setup-wizard-to-install-sites#bkmk_secondary) (Installieren eines sekundären Standorts) im Thema [Use the Setup Wizard to install sites](/sccm/core/servers/deploy/install/use-the-setup-wizard-to-install-sites) (Verwenden des Setup-Assistenten zum Installieren von Standorten).  
+    -   Comme vous n’avez pas installé les sites secondaires quand les sites principaux utilisaient la version 1606, vous n’avez pas besoin de mettre à niveau les sites secondaires.  
+    -   Au lieu de cela, installez de nouveaux sites secondaires qui exécutent la version 1610. Pour plus d’informations, consultez [Installer un site secondaire](/sccm/core/servers/deploy/install/use-the-setup-wizard-to-install-sites#bkmk_secondary) dans la rubrique [Utiliser l’Assistant Installation pour installer des sites](/sccm/core/servers/deploy/install/use-the-setup-wizard-to-install-sites).  
 
-    Nach diesem Schritt werden neue sekundäre Standorte installiert, die Version 1610 ausführen.  
+    Après cette étape, les nouveaux sites secondaires sont installés et exécutent la version 1610.  
 
-5.  **Installieren Sie neue Clients am primären Standort.**  
+5.  **Installez les nouveaux clients sur le site principal.**  
 
-    -   Da Sie keine Clients installiert haben, als die primären Standorte Version 1606 aufwiesen, müssen Sie für die Clients kein Upgrade von Version 1606 auf Version 1610 durchführen.  
-    -   Installieren Sie stattdessen neue Clients, die Version 1610 ausführen. Weitere Informationen finden Sie unter [Bereitstellen von Clients in System Center Configuration Manager](../../../clients/deploy/deploy-clients-to-windows-computers.md).  
+    -   Comme vous n’avez pas installé de clients quand les sites principaux utilisaient la version 1606, vous n’avez pas besoin de mettre à niveau de clients de version 1606 vers la version 1610.  
+    -   Au lieu de cela, installez de nouveaux clients exécutant la version 1610. Pour plus d’informations, voir [Déployer des clients dans System Center Configuration Manager](../../../clients/deploy/deploy-clients-to-windows-computers.md).  
 
-    Nach diesem Schritt werden neue Clients installiert, die Version 1610 ausführen.  
+    Après cette étape, de nouveaux clients exécutant la version 1610 sont installés.  
 
-## <a name="scenario-upgrade-system-center-2012-configuration-manager-to-an-update-version-of-system-center-configuration-manager-current-branch"></a>Szenario: Upgraden von System Center 2012 Configuration Manager auf eine Updateversion von System Center Configuration Manager (Current Branch)  
-Führen Sie in diesem Beispielszenario für Ihre Microsoft System Center 2012 Configuration Manager-Infrastruktur ein Upgrade auf eine Updateversion von System Center Configuration Manager durch, z.B. Version 1610.  
+## <a name="scenario-upgrade-system-center-2012-configuration-manager-to-an-update-version-of-system-center-configuration-manager-current-branch"></a>Scénario : Mettre à niveau System Center 2012 Configuration Manager vers une version de mise à jour de la branche Current Branch de System Center Configuration Manager  
+Dans cet exemple de scénario, mettez à niveau votre infrastructure System Center 2012 Configuration Manager vers une version de mise à jour de System Center Configuration Manager, telle que la version 1610.  
 
--   Der Standort der zentralen Verwaltung und alle primären Standorte müssen auf die Baselineversion 1606 upgegradet werden, bevor Sie das Update für Version 1610 installieren.  
--   Für sekundäre Standorte und Clients erfolgt kein Upgrade auf bzw. keine Installation von Version 1606. Stattdessen werden sie direkt von Microsoft System Center 2012 Configuration Manager auf System Center Configuration Manager Version 1610 aktualisiert.  
+-   Le site d’administration centrale et chaque site principal nécessitent une mise à niveau vers la version de référence 1606 avant l’installation de la mise à jour pour la version 1610.  
+-   La version 1606 n’est pas installée ni mise à niveau sur les sites secondaires et les clients. Au lieu de cela, ils passent directement de Microsoft System Center 2012 Configuration Manager à System Center Configuration Manager version 1610.  
 
-Gehen Sie wie folgt vor:  
+Suivez l’ordre ci-dessous :  
 
-1.  **Upgraden Sie den Microsoft System Center 2012 Configuration Manager-Standort der obersten Ebene** auf eine Baselineversion (Current Branch), indem Sie Quellmedien für System Center Configuration Manager (wie Version 1606) verwenden. Weitere Informationen finden Sie unter [Upgrade auf System Center Configuration Manager](../../../../core/servers/deploy/install/upgrade-to-configuration-manager.md).  
+1.  **Mettez à niveau votre site Microsoft System Center 2012 Configuration Manager de niveau supérieur** vers une version de référence de la branche Current Branch (comme la version 1606) à l’aide du support de source d’installation pour System Center Configuration Manager. Pour plus d’informations, consultez [Mettre à niveau vers System Center Configuration Manager](../../../../core/servers/deploy/install/upgrade-to-configuration-manager.md).  
 
-    -   Wie bei herkömmlichen Upgradeszenarien aktualisieren Sie stets zuerst den Standort auf oberster Ebene einer Hierarchie und anschließend untergeordnete Standorte.  
+    -   Comme dans les scénarios de mise à niveau classiques, vous mettez toujours à niveau d’abord le site de niveau supérieur d’une hiérarchie, puis les sites enfants.  
 
-    Nach diesem Schritt wird der Standort auf oberster Ebene mit Version 1606 ausgeführt.  
+    Après cette étape, votre site de niveau supérieur exécute la version 1606.  
 
-2.  **Upgraden Sie jeden untergeordneten primären Standort in Ihrer Hierarchie** ebenfalls auf diese Baselineversion.  
+2.  **Mettez à niveau chaque site principal enfant dans votre hiérarchie** vers cette même version de référence.  
 
-    -   Wenn Sie ein Upgrade von Microsoft System Center 2012 Configuration Manager durchführen, müssen Sie für jeden primären Standort manuell ein Upgrade auf eine Baselineversion von Current Branch durchführen.  
-    -   Zu diesem Zeitpunkt upgraden Sie keine sekundären Standorte.  
+    -   Quand vous effectuez la mise à niveau à partir de Microsoft System Center 2012 Configuration Manager, vous devez mettre à niveau manuellement chaque site principal vers une version de référence de Current Branch.  
+    -   Vous ne devez pas mettre à niveau les sites secondaires à ce stade.  
 
-    Nach diesem Schritt wird an jedem primären Standort Version 1606 ausgeführt.  
+    Après cette étape, chaque site principal exécute la version 1606.  
 
-3.  **Legen Sie Wartungsfenster für untergeordnete primäre Standorte fest.** Nach dem Upgrade aller primären Standorte auf die Baselineversion planen Sie die Konfiguration von Wartungsfenstern, um zu steuern, wann für diese Standorte Infrastruktur-Updates installiert werden sollen. Weitere Informationen finden Sie unter [Verwenden von Wartungsfenstern in System Center Configuration Manager](../../../../core/clients/manage/collections/use-maintenance-windows.md).  (Wartungsfenster werden in Version 1606 als *Servicezeitfenster* bezeichnet.)  
+3.  **Définissez des fenêtres de maintenance sur les sites principaux enfants.** Après avoir mis à niveau tous vos sites principaux vers la version de référence, envisagez de configurer des fenêtres de maintenance pour contrôler le moment où ces sites installeront les mises à jour de l’infrastructure. Pour plus d’informations, consultez [Guide pratique pour utiliser les fenêtres de maintenance dans System Center Configuration Manager](../../../../core/clients/manage/collections/use-maintenance-windows.md).  (Les fenêtres de maintenance sont appelées *fenêtres de service* dans la version 1606.)  
 
-    -   Ein untergeordneter primärer Standort installiert automatisch dieselben Updates, die Sie an einem Standort der zentralen Verwaltung installieren.  
-    -   An sekundären Standorten werden neue Versionen nicht automatisch installiert. Sie müssen diese manuell aus der Konsole upgraden.  
+    -   Un site principal enfant installe automatiquement les mises à jour que vous installez sur un site d’administration centrale.  
+    -   Les sites secondaires n’installent pas automatiquement les nouvelles versions. Vous devez les mettre à niveau manuellement dans la console.  
 
-  Wenn Sie nach diesem Schritt Updates am Standort der zentralen Verwaltung installieren, installieren untergeordnete primäre Standorte dieses Update, sobald ihr Wartungsfenster es zulässt.  
+  Après cette étape, lorsque vous installez des mises à jour sur le site d’administration centrale, les sites principaux enfants n’installent ces mises à jour que lorsque leur fenêtre de maintenance les y autorise.  
 
-4.  **Installieren Sie die Updateversion am Standort auf oberster Ebene.** Dadurch wird der Standort auf oberster Ebene aktualisiert. Nachdem die Updateversion am Standort der zentralen Verwaltung installiert wurde, wird an allen untergeordneten primären Standorten das Update automatisch installiert, es sei denn die Installation wird durch ein Wartungsfenster verhindert.  
+4.  **Installez la version de mise à jour sur votre site de niveau supérieur.** Cela a pour effet de mettre à jour votre site de niveau supérieur. Une fois qu’un site d’administration centrale a installé la version de mise à jour, chaque site principal enfant installe automatiquement cette mise à jour, à moins que l’installation soit bloquée par une fenêtre de maintenance.  
 
-    -   Beispielsweise können Sie Ihren Standort auf oberster Ebene von Version 1606 auf Version 1610 aktualisieren. Weitere Informationen finden Sie unter [Updates für System Center Configuration Manager](../../../../core/servers/manage/updates.md).  
+    -   Par exemple, vous pouvez mettre à jour votre site de niveau supérieur de la version 1606 vers la version 1610. Pour plus d’informations, consultez [Mises à jour pour System Center Configuration Manager](../../../../core/servers/manage/updates.md).  
 
-    Nach diesem Schritt wird an Ihrem Standort der zentralen Verwaltung und allen primären Standorten Version 1610 ausgeführt.  
+    Après cette étape, votre site d’administration centrale et chaque site principal exécutent la version 1610.  
 
-5.  **Führen Sie ein Upgrade sekundärer Standorten durch.** Sobald an einem primären Standort das Update installiert wurde und Version 1610 ausgeführt wird, können Sie mithilfe der Option in der Konsole sekundäre Standorte upgraden.  
+5.  **Mettez à niveau les sites secondaires.** Une fois qu’un site principal a installé la mise à jour et exécute la version 1610, utilisez l’option dans la console pour mettre à niveau les sites secondaires.  
 
-    -   Dabei werden sekundäre Standorte direkt von Microsoft System Center 2012 Configuration Manager auf die Updateversion upgegradet, die Sie am primären Standort installiert haben.  
-    -   Weitere Informationen zum Upgraden eines sekundären Standorts finden Sie unter [Upgraden von Standorten](../../../../core/servers/deploy/install/upgrade-to-configuration-manager.md#bkmk_upgrade) im Thema [Upgrade auf System Center Configuration Manager](../../../../core/servers/deploy/install/upgrade-to-configuration-manager.md).  
+    -   Cela a pour effet de mettre à niveau les sites secondaires directement à partir de Microsoft System Center 2012 Configuration Manager vers la version de mise à jour que vous avez installée sur le site principal.  
+    -   Pour plus d’informations sur la mise à niveau d’un site secondaire, consultez la section sur la [mise à niveau des sites](../../../../core/servers/deploy/install/upgrade-to-configuration-manager.md#bkmk_upgrade) dans la rubrique [Mettre à niveau vers System Center Configuration Manager](../../../../core/servers/deploy/install/upgrade-to-configuration-manager.md).  
 
-6.  **Aktualisieren von Clients** Verwenden Sie zum Upgraden von Clients die Informationen unter [Upgraden von Clients für Windows-Computer in System Center Configuration Manager](../../../../core/clients/manage/upgrade/upgrade-clients-for-windows-computers.md).  
+6.  **Mettez à niveau les clients.** Pour mettre à niveau les clients, utilisez les informations de la rubrique [Comment mettre à niveau les clients pour les ordinateurs Windows dans System Center Configuration Manager](../../../../core/clients/manage/upgrade/upgrade-clients-for-windows-computers.md).  
 
-    -   Dabei werden Clients direkt von Microsoft System Center 2012 Configuration Manager auf die Updateversion upgegradet, die Sie am primären Standort installiert haben.  
+    -   Cela a pour effet de mettre à niveau les clients directement à partir de Microsoft System Center 2012 Configuration Manager vers la version de mise à jour que vous avez installée sur le site principal.  
 
-    Nach diesem Schritt werden die Clients auf Version 1610 upgegradet, ohne dass zuvor ein Upgrade auf Version 1606 erfolgt.
+    Après cette étape, les clients sont mis à niveau vers la version 1610 sans mise à niveau préalable vers la version 1606.

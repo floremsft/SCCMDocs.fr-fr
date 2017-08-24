@@ -1,6 +1,6 @@
 ---
-title: Migrationsquellhierarchien | Microsoft-Dokumentation
-description: "Konfigurieren Sie eine Quellhierarchie und Quellstandorte, damit Daten zu Ihrer System Center Configuration Manager-Umgebung migriert werden können."
+title: "Hiérarchies sources de migration | Microsoft Docs"
+description: "Configurez une hiérarchie source et des sites sources pour permettre la migration de données vers votre environnement System Center Configuration Manager."
 ms.custom: na
 ms.date: 12/29/2016
 ms.prod: configuration-manager
@@ -18,88 +18,88 @@ manager: angrobe
 ms.openlocfilehash: 80c43ab93ee5a2de6bf8d7993dfd46f0005d2df8
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="configure-source-hierarchies-and-source-sites-for-migration-to-system-center-configuration-manager"></a>Konfigurieren von Quellhierarchien und Quellstandorten für die Migration zu System Center Configuration Manager
+# <a name="configure-source-hierarchies-and-source-sites-for-migration-to-system-center-configuration-manager"></a>Configurer des hiérarchies sources et des sites sources pour la migration vers System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Zur Migration von Daten zu Ihrer System Center Configuration Manager-Umgebung müssen Sie eine unterstützte Configuration Manager-Quellhierarchie konfigurieren sowie mindestens einen Quellstandort in dieser Hierarchie, der zu migrierende Daten enthält.  
+Pour permettre la migration de données vers votre environnement System Center Configuration Manager, vous devez configurer une hiérarchie source Configuration Manager prise en charge et, dans cette hiérarchie, configurer un ou plusieurs sites sources contenant les données à migrer.  
 
 > [!NOTE]  
->  Vorgänge für die Migration werden am Standort der obersten Ebene in der Zielhierarchie ausgeführt. Bei der Konfiguration einer Migration mittels einer Configuration Manager-Konsole, die mit einem untergeordneten primären Standort verbunden ist, müssen Sie Zeit für die folgenden Vorgänge einplanen: die Replikation der Konfiguration zum Standort der zentralen Verwaltung, den Start sowie die Replikation des Status zurück zum primären Standort, mit dem Sie verbunden sind.  
+>  Les opérations de migration sont exécutées sur le site de niveau supérieur de la hiérarchie de destination. Si vous configurez la migration à partir d’une console Configuration Manager connectée à un site enfant principal, vous devez donner le temps à la configuration de se répliquer vers le site d’administration centrale, de démarrer, puis de répliquer l’état vers le site principal auquel vous êtes connecté.  
 
- Anhand der Informationen und Verfahren in den folgenden Abschnitten können Sie die Quellhierarchie angeben, und zusätzliche Quellstandorte hinzufügen. Nachdem Sie diese Verfahren durchgeführt haben, können Sie Migrationsaufträge erstellen, und mit der Migration von Daten aus der Quell- zur Zielhierarchie beginnen.  
+ Pour spécifier la hiérarchie source et ajouter d’autres sites sources, aidez-vous des informations et des procédures figurant dans les sections suivantes. Au terme de ces procédures, vous pouvez créer des tâches de migration et commencer à migrer les données de la hiérarchie source vers la hiérarchie de destination.  
 
--   [Angeben einer Quellhierarchie für die Migration](#BKBM_ConfigSrcHierarchy)  
+-   [Spécifier une hiérarchie source pour la migration](#BKBM_ConfigSrcHierarchy)  
 
--   [Identifizieren von zusätzlichen Quellstandorten der Quellhierarchie](#BKBM_ConfigSrcSites)  
+-   [Identifier des sites sources supplémentaires dans la hiérarchie source](#BKBM_ConfigSrcSites)  
 
-##  <a name="BKBM_ConfigSrcHierarchy"></a> Angeben einer Quellhierarchie für die Migration  
- Zur Migration von Daten zur Zielhierarchie müssen Sie eine unterstützte Quellhierarchie angeben, die die zu migrierenden Daten enthält. Standardmäßig wird der Standort der obersten Ebene dieser Hierarchie zu einem Quellstandort der Quellhierarchie. Bei der Migration einer Configuration Manager 2007-Hierarchie können Sie nach Abschluss der Datensammlung vom ersten Quellstandort weitere Quellstandorte für die Migration konfigurieren. Bei der Migration einer System Center 2012 Configuration Manager- oder System Center Configuration Manager-Hierarchie müssen Sie keine weiteren Quellstandorte einrichten, um die Daten aus der Quellhierarchie zu überführen. Dies liegt daran, dass in diesen Versionen von Configuration Manager eine freigegebene Datenbank verwendet wird, die am Standort der obersten Ebene der Quellhierarchie verfügbar ist. Die freigegebene Datenbank enthält alle Informationen, die Sie migrieren können.  
+##  <a name="BKBM_ConfigSrcHierarchy"></a> Spécifier une hiérarchie source pour la migration  
+ Pour migrer les données vers votre hiérarchie de destination, vous devez spécifier une hiérarchie source prise en charge qui présente les données à migrer. Par défaut, le site de niveau supérieur de cette hiérarchie devient un site source de la hiérarchie source. Si vous effectuez la migration à partir d’une hiérarchie Configuration Manager 2007, vous pouvez configurer des sites sources supplémentaires pour la migration après avoir collecté les données du site source initial. Si vous effectuez la migration à partir d’une hiérarchie System Center 2012 Configuration Manager ou System Center Configuration Manager, vous n’avez pas besoin de configurer des sites sources supplémentaires pour migrer les données de la hiérarchie source. Ceci est dû au fait que ces versions de Configuration Manager utilisent une base de données partagée qui est disponible sur le site de niveau supérieur dans la hiérarchie source. La base de données partagée présente toutes les informations que vous pouvez migrer.  
 
- Verwenden Sie folgende Verfahren zum Angeben einer Quellhierarchie zur Migration und zum Identifizieren zusätzlicher Quellstandorte in einer Configuration Manager 2007-Hierarchie.  
+ Utilisez les procédures suivantes pour spécifier une hiérarchie source pour la migration et pour identifier des sites sources supplémentaires dans une hiérarchie Configuration Manager 2007.  
 
- Führen Sie diese Schritte mit einer Configuration Manager-Konsole aus, die mit der Zielhierarchie verbunden ist:  
+ Exécutez cette procédure dans une console Configuration Manager qui est connectée à la hiérarchie de destination :  
 
-### <a name="to-configure-a-source-hierarchy"></a>So konfigurieren Sie eine Quellhierarchie   
+### <a name="to-configure-a-source-hierarchy"></a>Pour configurer une hiérarchie source   
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Verwaltung**.  
+1.  Dans la console Configuration Manager, cliquez sur **Administration**.  
 
-2.  Erweitern Sie im Arbeitsbereich **Verwaltung** die Option **Migration**, und klicken Sie dann auf **Quellhierarchie**.  
+2.  Dans l'espace de travail **Administration** , développez **Migration**, puis cliquez sur **Hiérarchie source**.  
 
-3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Migration** auf **Quellhierarchie angeben**.  
+3.  Sous l'onglet **Accueil** , dans le groupe **Migration** , cliquez sur **Spécifier la hiérarchie source**.  
 
-4.  Wählen Sie im Dialogfeld **Quellhierarchie angeben** für **Quellhierarchie**die Option **Neue Quellhierarchie**aus.  
+4.  Dans la boîte de dialogue **Spécifier une hiérarchie source** , pour **Hiérarchie source**, sélectionnez **Nouvelle hiérarchie source**.  
 
-5.  Geben Sie unter **Configuration Manager-Standortserver auf oberster Ebene** den Namen oder die IP-Adresse des Standortservers der obersten Ebene einer unterstützten Quellhierarchie ein.  
+5.  Dans **Serveur de site Configuration Manager de niveau supérieur**, entrez le nom ou l’adresse IP du site de niveau supérieur d’une hiérarchie source prise en charge.  
 
-6.  Geben Sie Zugriffskonten des Quellstandorts an, die über die folgenden Berechtigungen verfügen:  
+6.  Spécifiez les comptes d'accès au site source qui disposent des autorisations suivantes :  
 
-    -   Konto des Quellstandorts: Berechtigung **Lesen** für den SMS-Anbieter für den angegebenen Standort auf oberster Ebene in der Quellhierarchie. Für die Freigabe und Upgrades von Verteilungspunkten sind in der Quellhierarchie die Berechtigungen **Ändern** und **Löschen** für den Standort erforderlich.
+    -   Compte du site source : Autorisation **Lecture** pour le fournisseur SMS du site de niveau supérieur spécifié dans la hiérarchie source. Les mises à niveau et le partage des points de distribution nécessitent les autorisations **Modifier** et **Supprimer** sur le site dans la hiérarchie source.
 
-    -   Konto der Datenbank des Quellstandorts: Berechtigungen **Lesen** und **Ausführen** für die SQL Server-Datenbank für den angegebenen Standort auf oberster Ebene in der Quellhierarchie.  
+    -   Compte de base de données du site source : Autorisation **Lecture** et **Exécution** sur la base de données SQL Server du site de niveau supérieur spécifié dans la hiérarchie source.  
 
-     Wenn Sie die Verwendung des Computerkontos aktivieren, wird von Configuration Manager das Computerkonto des Standorts der obersten Ebene der Zielhierarchie verwendet. Für diese Option müssen Sie sicherstellen, dass das betreffende Konto ein Mitglied der Sicherheitsgruppe **Distributed COM-Benutzer** in der Domäne ist, in der sich der Standort der obersten Ebene der Quellhierarchie befindet.  
+     Si vous spécifiez l’utilisation du compte d’ordinateur, Configuration Manager utilise le compte d’ordinateur du site de niveau supérieur de la hiérarchie de destination. Pour cette option, assurez-vous que ce compte est membre du groupe de sécurité **Utilisateurs du modèle COM distribué** dans le domaine où réside le site de niveau supérieur de la hiérarchie source.  
 
-7.  Für das Freigeben von Verteilungspunkten zwischen Quell- und Zielhierarchien aktivieren Sie das Kontrollkästchen **Gemeinsame Verwendung des Verteilungspunkts für den Quellstandortserver aktivieren** . Wenn Sie die gemeinsame Verwendung des Verteilungspunkts zu diesem Zeitpunkt nicht aktivieren, können Sie dies auch nach Abschluss der Datensammlung vornehmen, indem Sie die Anmeldeinformationen des Quellstandorts bearbeiten.  
+7.  Pour partager des points de distribution entre des hiérarchies source et de destination, activez la case à cocher **Activer le partage du point de distribution pour ce serveur de site source** . Si vous n’activez pas le partage des points de distribution maintenant, vous pouvez le faire en modifiant les informations d’identification du site source à la fin de la collecte des données.  
 
-8.  Klicken Sie auf **OK** , um die Konfiguration zu speichern. So wird das Dialogfeld **Status des Sammelns von Daten** geöffnet, und das Sammeln von Daten wird automatisch gestartet.  
+8.  Cliquez sur **OK** pour enregistrer la configuration. La boîte de dialogue **État de la collecte de données** s'ouvre, et la collecte de données démarre automatiquement.  
 
-9. Klicken Sie nach Abschluss der Datensammlung auf **Schließen** , um das Dialogfeld **Status des Sammelns von Daten** zu schließen und die Konfiguration abzuschließen.  
+9. À la fin de la collecte des données, cliquez sur **Fermer** pour fermer la boîte de dialogue **État de la collecte de données** et terminer la configuration.  
 
-##  <a name="BKBM_ConfigSrcSites"></a> Identifizieren von zusätzlichen Quellstandorten der Quellhierarchie  
- Beim Konfigurieren einer unterstützten Quellhierarchie wird der Standort der obersten Ebene dieser Hierarchie automatisch als Quellstandort konfiguriert, und die Daten werden automatisch von diesem Standort gesammelt. Welche Aktion Sie als nächstes durchführen, hängt von der Configuration Manager-Version ab, die von der Quellhierarchie ausgeführt wird:  
+##  <a name="BKBM_ConfigSrcSites"></a> Identifier des sites sources supplémentaires dans la hiérarchie source  
+ Lorsque vous configurez une hiérarchie source prise en charge, le site de niveau supérieur de cette hiérarchie est automatiquement configuré comme un site source, et les données sont collectées à partir de celui-ci. L’action suivante à effectuer dépend de la version de Configuration Manager qui est exécutée par la hiérarchie source :  
 
--   Für eine Configuration Manager 2007-Quellhierarchie können Sie nach Abschluss der Datensammlung für den ersten Quellstandort die Migration nur von diesem ersten Quellstandort aus starten, oder Sie können weitere Quellstandorte aus der Quellhierarchie konfigurieren. Richten Sie zum Migrieren von Daten, die nur an einem untergeordneten Standort verfügbar sind, zusätzliche Quellstandorte für eine Configuration Manager 2007-Hierarchie ein. Beispielsweise können Sie zusätzliche Quellstandorte zum Sammeln von Daten über Inhalte verwenden, die Sie migrieren möchten, wenn die betreffenden Inhalte an einem untergeordneten Standort in der Quellhierarchie erstellt wurden und am Standort der obersten Ebene der Quellhierarchie nicht zur Verfügung stehen.  
+-   S’il s’agit d’une hiérarchie source Configuration Manager 2007, vous pouvez commencer la migration à partir de ce site source initial ou configurer des sites sources supplémentaires dans la hiérarchie source à la fin de la collecte des données du site source initial. Pour migrer des données qui sont disponibles uniquement sur un site enfant, configurez des sites sources supplémentaires dans une hiérarchie Configuration Manager 2007. Par exemple, vous pouvez configurer des sites sources supplémentaires pour collecter des données relatives au contenu que vous souhaitez migrer quand il est créé sur un site enfant de la hiérarchie source et qu’il n’est pas disponible sur le site de niveau supérieur dans la hiérarchie source.  
 
--   Für eine System Center 2012 Configuration Manager- oder System Center Configuration Manager-Quellhierarchie müssen Sie keine weiteren Quellstandorte konfigurieren. Dies liegt daran, dass in diesen Versionen von Configuration Manager eine freigegebene Datenbank verwendet wird, die am Standort der obersten Ebene der Quellhierarchie verfügbar ist. Die freigegebene Datenbank enthält alle Informationen, die Sie von allen Standorten der Quellhierarchie migrieren können. Dadurch werden migrierbare Daten am Standort der obersten Ebene der Quellhierarchie verfügbar.  
+-   Dans le cas d’une hiérarchie source System Center 2012 Configuration Manager ou System Center Configuration Manager, vous n’avez pas besoin de configurer de sites sources supplémentaires. Ceci est dû au fait que ces versions de Configuration Manager utilisent une base de données partagée qui est disponible sur le site de niveau supérieur dans la hiérarchie source. La base de données partagée présente toutes les informations que vous pouvez migrer à partir de tous les sites dans cette hiérarchie source. Les données que vous pouvez migrer sont donc disponibles à partir du site de niveau supérieur de la hiérarchie source.  
 
-Wenn Sie für eine Configuration Manager 2007-Quellhierarchie zusätzliche Quellstandorte konfigurieren, müssen Sie dabei in der Quellhierarchie von oben nach unten vorgehen. Sie müssen einen übergeordneten Standort als Quellstandort konfigurieren, bevor Sie einen seiner untergeordneten Standorte als Quellstandort konfigurieren können.  
+Quand vous configurez des sites sources supplémentaires dans une hiérarchie source Configuration Manager 2007, vous devez les configurer du haut de la hiérarchie source vers le bas. Vous devez configurer un site parent comme site source pour pouvoir configurer ses sites enfant comme sites source.  
 
-Verwenden Sie das folgende Verfahren für die Konfiguration zusätzlicher Quellstandorte für Configuration Manager 2007-Quellhierarchien:  
+Effectuez la procédure suivante pour configurer des sites sources supplémentaires dans une hiérarchie source Configuration Manager 2007 :  
 
-### <a name="to-identify-additional-source-sites-in-the-source-hierarchy"></a>So konfigurieren Sie zusätzliche Quellstandorte in der Quellhierarchie 
+### <a name="to-identify-additional-source-sites-in-the-source-hierarchy"></a>Pour identifier des sites sources supplémentaires dans la hiérarchie source 
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Verwaltung**.  
+1.  Dans la console Configuration Manager, cliquez sur **Administration**.  
 
-2.  Erweitern Sie im Arbeitsbereich **Verwaltung** die Option **Migration**, und klicken Sie dann auf **Quellhierarchie**.  
+2.  Dans l'espace de travail **Administration** , développez **Migration**, puis cliquez sur **Hiérarchie source**.  
 
-3.  Wählen Sie den Standort aus, den Sie als Quellstandort konfigurieren möchten.  
+3.  Choisissez le site à configurer comme site source.  
 
-4.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Quellstandort** auf **Konfigurieren**.  
+4.  Dans l' onglet **Accueil** , dans le groupe **Site source** , cliquez sur **Configurer**.  
 
-5.  Geben Sie im Dialogfeld **Anmeldeinformationen des Quellstandorts** für die Zugriffskonten des Quellstandorts Konten mit folgenden Berechtigungen ein:  
+5.  Dans la boîte de dialogue **Informations d'identification du site source** , pour des comptes d'accès de site source, définissez les comptes qui disposent des autorisations suivantes :  
 
-    -   Konto des Quellstandorts: Berechtigung **Lesen** für den SMS-Anbieter für den angegebenen Standort auf oberster Ebene in der Quellhierarchie. Für die Freigabe und Upgrades von Verteilungspunkten sind in der Quellhierarchie die Berechtigungen **Ändern** und **Löschen** für den Standort erforderlich.  
+    -   Compte du site source : Autorisation **Lecture** pour le fournisseur SMS du site de niveau supérieur spécifié dans la hiérarchie source. Les mises à niveau et le partage des points de distribution nécessitent les autorisations **Modifier** et **Supprimer** sur le site dans la hiérarchie source.  
 
-    -   Konto der Datenbank des Quellstandorts: Berechtigungen **Lesen** und **Ausführen** für die SQL Server-Datenbank für den angegebenen Standort auf oberster Ebene in der Quellhierarchie.  
+    -   Compte de base de données du site source : Autorisation **Lecture** et **Exécution** sur la base de données SQL Server du site de niveau supérieur spécifié dans la hiérarchie source.  
 
-    Wenn Sie die Verwendung des Computerkontos aktivieren, wird von Configuration Manager das Computerkonto des Standorts der obersten Ebene der Zielhierarchie verwendet. Für diese Option müssen Sie sicherstellen, dass das betreffende Konto ein Mitglied der Sicherheitsgruppe **Distributed COM-Benutzer** in der Domäne ist, in der sich der Standort der obersten Ebene der Quellhierarchie befindet.  
+    Si vous spécifiez l’utilisation du compte d’ordinateur, Configuration Manager utilise le compte d’ordinateur du site de niveau supérieur de la hiérarchie de destination. Pour cette option, assurez-vous que ce compte est membre du groupe de sécurité **Utilisateurs du modèle COM distribué** dans le domaine où réside le site de niveau supérieur de la hiérarchie source.  
 
-6.  Für das Freigeben von Verteilungspunkten zwischen Quell- und Zielhierarchien aktivieren Sie das Kontrollkästchen **Gemeinsame Verwendung des Verteilungspunkts für den Quellstandortserver aktivieren** . Wenn Sie die gemeinsame Verwendung des Verteilungspunkts zu diesem Zeitpunkt nicht aktivieren, können Sie dies auch nach Abschluss der Datensammlung vornehmen, indem Sie die Anmeldeinformationen für den Quellstandort bearbeiten.  
+6.  Pour partager des points de distribution entre des hiérarchies source et de destination, activez la case à cocher **Activer le partage du point de distribution pour ce serveur de site source** . Si vous n’activez pas le partage des points de distribution maintenant, vous pouvez le faire en modifiant les informations d’identification du site source à la fin de la collecte des données.  
 
-7. Klicken Sie auf **OK** , um die Konfiguration zu speichern. So wird das Dialogfeld **Status des Sammelns von Daten** geöffnet, und das Sammeln von Daten wird automatisch gestartet.  
+7. Cliquez sur **OK** pour enregistrer la configuration. La boîte de dialogue **État de la collecte de données** s'ouvre, et la collecte de données démarre automatiquement.  
 
-8.  Klicken Sie nach Abschluss der Datensammlung auf **Schließen** , um die Konfiguration abzuschließen.  
+8.  À la fin de la collecte des données, cliquez sur **Fermer** pour terminer la configuration.  

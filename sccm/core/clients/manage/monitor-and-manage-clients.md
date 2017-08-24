@@ -1,6 +1,6 @@
 ---
-title: "Überwachen von Clients | Microsoft-Dokumentation"
-description: "Erfahren Sie, wie Sie Clients in System Center Configuration Manager überwachen und verwalten."
+title: Surveiller les clients | Microsoft Docs
+description: "Découvrez comment surveiller et gérer les clients dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
@@ -17,21 +17,21 @@ manager: angrobe
 ms.openlocfilehash: 828f615e14b2ad40108d0c7afdc050c7d17d4038
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="monitor-and-manage-clients-in-system-center-configuration-manager"></a>Überwachen und Verwalten von Clients in System Center Configuration Manager
+# <a name="monitor-and-manage-clients-in-system-center-configuration-manager"></a>Surveiller et gérer les clients dans System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-System Center Configuration Manager (auch ConfigMgr oder SCCM genannt) bietet verschiedene Methoden zum Überwachen und Verwalten der Clientsoftware, nachdem diese auf Computern und Geräten in Ihrer Organisation bereitgestellt wurde.  Sie können Clients überwachen, um ihren Status zu überprüfen. In einigen Fällen kann Configuration Manager basierend auf dem erkannten Problem eine automatische Wiederherstellung oder Korrektur vornehmen. Die Configuration Manage-Konsole bietet auch Methoden zum Verwalten von Clients für einzelne Geräte oder Gerätesammlungen.  
+System Center Configuration Manager (également appelé ConfigMgr ou SCCM) propose plusieurs manières de surveiller et de gérer le logiciel client une fois celui-ci déployé sur les ordinateurs et les appareils de votre organisation.  Vous pouvez surveiller les clients pour vérifier leur état et, dans certains cas, Configuration Manager peut effectuer des corrections automatiques en fonction du problème détecté. La console Configuration Manager offre aussi différentes manières de gérer les clients pour chaque appareil ou regroupement d’appareils.  
 
- Anhand der Informationen in den folgenden Themen erfahren Sie, wie Sie Clients überwachen und verwalten. Außerdem erfahren Sie detailliert, wie Sie Clients für Linux- und UNIX-Server überwachen und verwalten:  
+ Consultez les rubriques suivantes pour découvrir comment surveiller et gérer les clients, et comment obtenir des détails supplémentaires pour surveiller et gérer les clients pour les serveurs Linux et UNIX :  
 
--   [Überwachen von Clients in System Center Configuration Manager](../../../core/clients/manage/monitor-clients.md)  
+-   [Guide pratique pour surveiller les clients dans System Center Configuration Manager](../../../core/clients/manage/monitor-clients.md)  
 
--   [Überwachen von Clients für Linux- und UNIX-Server in System Center Configuration Manager](../../../core/clients/manage/monitor-clients-for-linux-and-unix-servers.md)  
+-   [Guide pratique pour surveiller les clients pour des serveurs Linux et UNIX dans System Center Configuration Manager](../../../core/clients/manage/monitor-clients-for-linux-and-unix-servers.md)  
 
--   [Verwalten von Clients in System Center Configuration Manager](../../../core/clients/manage/manage-clients.md)  
+-   [Guide pratique pour gérer les clients dans System Center Configuration Manager](../../../core/clients/manage/manage-clients.md)  
 
--   [Verwalten von Clients für Linux- und UNIX-Server in System Center Configuration Manager](../../../core/clients/manage/manage-clients-for-linux-and-unix-servers.md)  
+-   [Guide pratique pour gérer les clients pour des serveurs Linux et UNIX dans System Center Configuration Manager](../../../core/clients/manage/manage-clients-for-linux-and-unix-servers.md)  

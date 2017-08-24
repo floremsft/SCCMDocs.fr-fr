@@ -1,6 +1,6 @@
 ---
-title: Installieren der Konsole | Microsoft-Dokumentation
-description: "Erfahren Sie mehr über das Installieren der Configuration Manager-Konsole, um eine Verbindung zu einem Standort der zentralen Verwaltung oder einem primären Standort herzustellen."
+title: Installer la console | Microsoft Docs
+description: "Découvrez comment installer la console Configuration Manager pour vous connecter à un site d’administration centrale ou à un site principal."
 ms.custom: na
 ms.date: 1/3/2017
 ms.prod: configuration-manager
@@ -17,81 +17,81 @@ manager: angrobe
 ms.openlocfilehash: 88ecbc48fd03ce988f04408d0378844cbed1de2b
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="install-the-system-center-configuration-manager-console"></a>Installieren der System Center Configuration Manager-Konsole
+# <a name="install-the-system-center-configuration-manager-console"></a>Installer la console System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Administratoren verwenden die System Center Configuration Manager-Konsole zum Verwalten der Configuration Manager-Umgebung. Jede Configuration Manager-Konsole kann eine Verbindung zu einem Standort der zentralen Verwaltung oder zu einem primären Standort herstellen. Sie können eine Configuration Manager-Konsole jedoch nicht mit einem sekundären Standort verbinden.
+Les utilisateurs administratifs se servent de la console System Center Configuration Manager pour gérer l’environnement Configuration Manager. Chaque console Configuration Manager peut se connecter à un site d’administration centrale ou à un site principal, mais pas à un site secondaire.
 
 > [!NOTE]  
->  Welche Objekte ein Administrator sieht, der die Konsole ausführt, hängt von den Berechtigungen ab, die seinem Benutzerkonto zugeordnet sind. Weitere Informationen zur rollenbasierten Verwaltung finden Sie unter [Grundlagen der rollenbasierten Verwaltung für System Center Configuration Manager](../../../../core/understand/fundamentals-of-role-based-administration.md).  
+>  Les objets visibles par l’administrateur qui exécute la console dépendent des autorisations attribuées à son compte d’utilisateur. Pour plus d’informations sur l’administration basée sur des rôles, consultez [Principes de base de l’administration basée sur des rôles pour System Center Configuration Manager](../../../../core/understand/fundamentals-of-role-based-administration.md).  
 
- Sie können die Configuration Manager-Konsole während der Installation des Standortservers mit dem Setup-Assistenten installieren, oder Sie können eine eigenständige Installationsanwendung ausführen, die den Setup-Assistenten verwendet.  
+ Vous pouvez installer la console Configuration Manager pendant l’installation du serveur de site via l’Assistant Installation, ou vous pouvez exécuter une application d’installation autonome qui utilise l’Assistant Installation.  
 
- Gehen Sie wie folgt vor, um eine Configuration Manager-Konsole mithilfe der eigenständigen Anwendung zu installieren.  
+ Procédez comme suit pour installer une console Configuration Manager à l’aide de l’application autonome.  
 
-## <a name="to-install-the-configuration-manager-console-by-using-the-setup-wizard"></a>So installieren Sie die Configuration Manager-Konsole mithilfe des Setup-Assistenten  
+## <a name="to-install-the-configuration-manager-console-by-using-the-setup-wizard"></a>Pour installer la console Configuration Manager à l’aide de l’Assistant Installation  
 
-1.  Stellen Sie sicher, dass Sie die folgenden Anforderungen erfüllen:  
+1.  Vérifiez que vous disposez des droits suivants :  
 
-    -  Sie haben **lokale Administratorrechte** auf dem Computer, auf dem die Konsole ausgeführt wird.  
+    -  Les droits d’**Administrateur local** sur l’ordinateur sur lequel la console doit s’exécuter.  
 
-    -   Sie haben eine **Leseberechtigung** für den Speicherort der Installationsdateien der Configuration Manager-Konsole.  
+    -   Les droits de **Lecture** sur l’emplacement des fichiers d’installation de la console Configuration Manager.  
 
-2.  Wechseln Sie zu einem der folgenden Speicherorte:  
+2.  Accédez à l’un des emplacements suivants :  
 
-    -   Navigieren Sie auf dem Standortserver zu **<*Installationspfad des Configuration Manager-Standortservers*>\Tools\ConsoleSetup**.  
+    -   Sur le serveur de site, accédez à **<*Chemin d’installation du serveur de site Configuration Manager*>\Tools\ConsoleSetup**.  
 
-    -   Navigieren Sie auf dem Configuration Manager-Quellmedium zu **<*Configuration Manager-Quelldateien*>\Smssetup\Bin\I386**.  
+    -   À partir du média source de Configuration Manager, accédez à **<*Fichiers sources de Configuration Manager*>\Smssetup\Bin\I386**.  
 
     > [!TIP]  
-    >  Es wird empfohlen, die Installation der Configuration Manager-Konsole statt über das Installationsmedium für System Center Configuration Manager über einen Standortserver zu initiieren. Bei der Installationsmethode über den Standortserver werden die Configuration Manager-Konsoleninstallationsdateien sowie die unterstützten Language Packs für den Standort in den Unterordner **Tools\ConsoleSetup** kopiert. Bei der Installation der Configuration Manager-Konsole über das Installationsmedium wird stets die englische Version installiert, unabhängig von den unterstützten Sprachen auf dem Standortserver oder den Spracheinstellungen für das Betriebssystem auf dem Computer. Optional können Sie den Ordner **ConsoleSetup** an einen anderen Speicherort kopieren, um mit der Installation zu beginnen.
+    >  Nous vous recommandons de lancer l’installation de la console Configuration Manager à partir d’un serveur de site plutôt que du média d’installation de System Center Configuration Manager. La méthode d’installation du serveur de site copie les fichiers d’installation de la console Configuration Manager et les modules linguistiques pris en charge pour le site dans le sous-dossier **Tools\ConsoleSetup**. L’installation de la console Configuration Manager à partir du média d’installation installe toujours la version anglaise, indépendamment des langues prises en charge sur le serveur de site ou des paramètres de langue du système d’exploitation s’exécutant sur l’ordinateur. Vous pouvez éventuellement copier le dossier **ConsoleSetup** vers un autre emplacement pour démarrer l’installation.
 
-3.  Um den Setup-Assistenten für die Configuration Manager-Konsole zu öffnen, doppelklicken Sie auf **consolesetup.exe**.  
+3.  Pour ouvrir l’Assistant Installation de la console Configuration Manager, double-cliquez sur **consolesetup.exe**.  
 
     > [!IMPORTANT]  
-    >  Installieren Sie die Configuration Manager-Konsole immer mithilfe der Datei „consolesetup.exe“. Die Configuration Manager-Konsole kann zwar durch Ausführen von „adminconsole.msi“ installiert werden, bei dieser Methode werden allerdings keine Voraussetzungs- oder Abhängigkeitsprüfungen vorgenommen, sodass die Installation u.U. nicht ordnungsgemäß verläuft.  
+    >  Installez toujours la console Configuration Manager à l’aide de la commande consolesetup.exe. Même si vous pouvez installer la console Configuration Manager en exécutant adminconsole.msi, cette méthode ne vérifie pas les prérequis ou les dépendances, et l’installation risque de ne pas se dérouler correctement.  
 
-4.  Wählen Sie im Assistenten **Weiter** aus.  
+4.  Dans l’Assistant, sélectionnez **Suivant**.  
 
-5.  Geben Sie auf der Seite **Standortserver** den vollqualifizierten Domänennamen (FQDN) des Standortservers an, mit dem sich die Configuration Manager-Konsole verbindet.  
+5.  Dans la page **Serveur de site**, entrez le nom de domaine complet (FQDN) du serveur de site auquel la console Configuration Manager doit se connecter.  
 
-6.  Geben Sie auf der Seite **Installationsordner** den Installationsordner für die Configuration Manager-Konsole ein. Der Ordnerpfad darf nicht auf Leerzeichen enden und darf keine Unicode-Zeichen enthalten.  
+6.  Dans la page **Dossier d’installation**, entrez le dossier d’installation de la console Configuration Manager. Le chemin du dossier ne doit pas contenir d'espaces de fin ni de caractères Unicode.  
 
-7.  Wählen Sie auf der Seite **Programm zur Verbesserung der Benutzerfreundlichkeit** (CEIP) aus, ob Sie an diesem Programm teilnehmen möchten.  
+7.  Dans la page **Programme d’amélioration des services**, indiquez si vous voulez participer à ce programme.  
 
-8.  Wählen Sie auf der Seite **Installationsbereit** die Option **Installieren** aus, um die Configuration Manager-Konsole zu installieren.  
+8.  Dans la page **Prêt pour l’installation**, cliquez sur **Installer** pour installer la console Configuration Manager.  
 
-## <a name="to-install-the-configuration-manager-console-from-a-command-prompt"></a>So installieren Sie die Configuration Manager-Konsole mithilfe einer Eingabeaufforderung  
+## <a name="to-install-the-configuration-manager-console-from-a-command-prompt"></a>Pour installer la console Configuration Manager à partir d’une invite de commandes  
 
-1.  Öffnen Sie auf dem Server, von dem aus Sie die Configuration Manager-Konsole installieren möchten, ein Eingabeaufforderungsfenster, und navigieren Sie zu einem der folgenden Speicherorte:  
+1.  Sur le serveur à partir duquel vous installez la console Configuration Manager, ouvrez une fenêtre d’invite de commandes et accédez à l’un des emplacements suivants :  
 
-    -   **<*Installationspfad des Configuration Manager-Standortservers*>\Tools\ConsoleSetup**  
+    -   **<*Chemin d’installation du serveur de site Configuration Manager*>\Tools\ConsoleSetup**  
 
-    -   **<*Configuration Manager-Installationsmedium*>\SMSSETUP\BIN\I386**  
+    -   **<*Média d’installation de Configuration Manager*>\SMSSETUP\BIN\I386**  
 
     > [!TIP]  
-    >  Wenn Sie eine Configuration Manager-Konsole über eine Eingabeaufforderung installieren, wird stets die englische Version installiert, unabhängig von den Spracheinstellungen für das auf dem Computer ausgeführte Betriebssystem. Um die Configuration Manager-Konsole in einer anderen Sprache als Englisch zu installieren, müssen Sie die [Configuration Manager-Konsole mithilfe des Setup-Assistenten installieren](#to-install-the-configuration-manager-console-by-using-the-setup-wizard).  
+    >  Quand vous installez une console Configuration Manager à partir d’une invite de commandes, la version anglaise est toujours installée, quel que soit le paramètre de langue défini pour le système d’exploitation s’exécutant sur l’ordinateur. Pour installer la console Configuration Manager dans une langue autre que l’anglais, vous devez [installer la console Configuration Manager à l’aide de l’Assistant Installation](#to-install-the-configuration-manager-console-by-using-the-setup-wizard).  
 
-2.  Geben Sie an der Eingabeaufforderung den Befehl **consolesetup.exe** ein. Wählen Sie aus den folgenden Befehlszeilenoptionen aus:  
+2.  À partir de l’invite de commandes, tapez **consolesetup.exe**. Choisissez l’une des options de ligne de commande suivantes.  
 
-|  .     | Beschreibung     |
+|  Option de ligne de commande     | Description     |
   | :------------- | :------------- |
-  |/q|Installiert die Configuration Manager-Konsole unbeaufsichtigt Wenn Sie diese Option verwenden, sind die Optionen **EnableSQM**, **TargetDir**und **DefaultSiteServerName** erforderlich.|  
-  |/uninstall|Deinstalliert die Configuration Manager-Konsole Sie müssen diese Option zuerst angeben, wenn Sie sie mit der Option **/q** verwenden.|  
-  |LangPackDir|Gibt den Pfad zu dem Ordner an, der die Sprachdateien enthält. Sie können die Sprachdateien mit dem **Setup-Downloadprogramm** herunterladen. Wenn Sie diese Option nicht verwenden, wird von Setup im aktuellen Ordner nach dem Sprachordner gesucht. Wenn der Sprachordner nicht gefunden wird, wird nur die Sprache Englisch installiert. Weitere Informationen finden Sie unter [Setup-Downloadprogramm](setup-downloader.md).|  
-  |TargetDir|Gibt den Installationsordner zur Installation der Configuration Manager-Konsole an. Diese Option ist erforderlich, wenn Sie die Option **/q** verwenden.|  
-  |EnableSQM|Hiermit wird angegeben, ob Sie am Programm zur Verbesserung der Benutzerfreundlichkeit (CEIP) teilnehmen möchten. Verwenden Sie den Wert **1**, um die CEIP-Funktion zu verknüpfen, und den Wert **0**, um nicht am Programm teilzunehmen. Diese Option ist erforderlich, wenn Sie die Option **/q** verwenden.|  
-  |DefaultSiteServerName|Damit wird der FQDN des Standortservers angegeben, mit dem beim Start der Konsole eine Verbindung hergestellt wird. Diese Option ist erforderlich, wenn Sie die Option **/q** verwenden.|  
+  |/q|Installe la console Configuration Manager sans assistance. Les options **EnableSQM**, **TargetDir**et **DefaultSiteServerName** sont obligatoires avec cette option.|  
+  |/uninstall|Désinstalle la console Configuration Manager. Vous devez spécifier cette option en premier lorsque vous utilisez l’option **/q** .|  
+  |LangPackDir|Spécifie le chemin d'accès au dossier qui contient les fichiers de langue. Vous pouvez utiliser le **téléchargeur d’installation** pour télécharger les fichiers de langue. Si vous n'utilisez pas cette option, le programme d'installation recherche le dossier de langue dans le dossier actuel. Si le dossier de langue n'est pas trouvé, le programme d'installation poursuit l'installation en anglais uniquement. Pour plus d’informations, consultez [Téléchargeur d’installation](setup-downloader.md).|  
+  |TargetDir|Spécifie le dossier où installer la console Configuration Manager. Vous devez spécifier cette option lorsque vous utilisez l’option **/q** .|  
+  |EnableSQM|Permet de préciser si vous souhaitez vous joindre au programme d'amélioration de l'expérience utilisateur. Utilisez la valeur **1** pour participer au programme d’amélioration des services et la valeur **0** pour ne pas participer au programme. Vous devez spécifier cette option lorsque vous utilisez l’option **/q** .|  
+  |DefaultSiteServerName|Spécifie le nom de domaine complet du serveur de site auquel la console se connecte à son ouverture. Vous devez spécifier cette option lorsque vous utilisez l’option **/q** .|  
 
 
-  **Beispiele:**
+  **Exemples :**
 
-  -  **consolesetup.exe /q TargetDir="D:\Programme\ConfigMgr" EnableSQM=1 DefaultSiteServerName=MyServer.Contoso.com**  
+  -  **consolesetup.exe /q TargetDir="D:\Program Files\ConfigMgr" EnableSQM=1 DefaultSiteServerName=MyServer.Contoso.com**  
 
-  -  **consolesetup.exe /q LangPackDir=C:\Downloads\ConfigMgr TargetDir="D:\Programme\ConfigMgr" Console EnableSQM=1 DefaultSiteServerName=MyServer.Contoso.com**  
+  -  **consolesetup.exe /q LangPackDir=C:\Downloads\ConfigMgr TargetDir="D:\Program Files\ConfigMgr" Console EnableSQM=1 DefaultSiteServerName=MyServer.Contoso.com**  
 
   -  **consolesetup.exe /uninstall /q**  

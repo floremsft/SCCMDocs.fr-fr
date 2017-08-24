@@ -1,6 +1,6 @@
 ---
-title: "Anpassen von Betriebssystemimages – Configuration Manager | Microsoft-Dokumentation"
-description: Verwenden Sie die Tasksequenzen zum Erfassen und Erstellen, die manuelle Konfiguration oder eine Kombination aus beidem, um ein Betriebssystemimage anzupassen.
+title: "Personnaliser les images de système d’exploitation - Configuration Manager | Microsoft Docs"
+description: "Pour personnaliser une image de système d’exploitation, utilisez des séquences de tâches de capture et de génération, une configuration manuelle ou une combinaison des deux."
 ms.custom: na
 ms.date: 01/23/2017
 ms.prod: configuration-manager
@@ -18,121 +18,121 @@ manager: angrobe
 ms.openlocfilehash: 485cb3ca4988f983c1ec71b6c8daf136571bf0ea
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="customize-operating-system-images-with-system-center-configuration-manager"></a>Anpassen von Betriebssystemabbildern mit System Center Configuration Manager
+# <a name="customize-operating-system-images-with-system-center-configuration-manager"></a>Personnaliser les images de système d’exploitation avec System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Betriebssystemimages in System Center Configuration Manager sind WIM-Dateien und stellen eine komprimierte Sammlung von Referenzdateien und -ordnern dar, die für die erfolgreiche Installation und Konfiguration eines Betriebssystems auf einem Computer erforderlich sind. Ein benutzerdefiniertes Betriebssystemabbild wird von einem Referenzcomputer erstellt und erfasst, den Sie mit allen erforderlichen Betriebssystemdateien, Unterstützungsdateien, Softwareupdates, Tools und sonstigen Softwareapps konfigurieren. Sie entscheiden, in welchem Umfang der Referenzcomputer manuell konfiguriert wird. Mithilfe einer Tasksequenz zum Erstellen und Erfassen können Sie die Konfiguration des Referenzcomputers vollständig automatisieren. Alternativ konfigurieren Sie bestimmte Aspekte des Referenzcomputers manuell und automatisieren dann den Rest, indem Sie Tasksequenzen verwenden, oder Sie konfigurieren Referenzcomputer ohne Tasksequenzen vollständig manuell. Folgende Abschnitte bieten Informationen zum Anpassen eines Betriebssystems.
+Dans System Center Configuration Manager, les images de système d’exploitation sont des fichiers WIM qui représentent un regroupement compressé des fichiers et dossiers de référence nécessaires à l’installation et à la configuration d’un système d’exploitation sur un ordinateur. Une image de système d’exploitation personnalisée est créée et capturée à partir d’un ordinateur de référence que vous configurez avec l’ensemble des fichiers de système d’exploitation, fichiers de prise en charge, mises à jour logicielles, outils et autres applications logicielles nécessaires. Il vous revient de décider dans quelle mesure vous voulez configurer manuellement l’ordinateur de référence. Vous pouvez totalement automatiser la configuration de l’ordinateur de référence à l’aide d’une séquence de tâches de création et de capture, vous pouvez configurer manuellement certains aspects de l’ordinateur de référence puis automatiser le reste à l’aide de séquences de tâches ou vous pouvez configurer manuellement l’ordinateur de référence sans utiliser de séquences de tâches. Utilisez les sections suivantes pour personnaliser un système d’exploitation.
 
-##  <a name="BKMK_PrepareReferenceComputer"></a> Vorbereiten des Referenzcomputers  
- Bevor Sie ein Betriebssystemabbild von einem Referenzcomputer erfassen, müssen einige Punkte bedacht werden.  
+##  <a name="BKMK_PrepareReferenceComputer"></a> Préparer l’ordinateur de référence  
+ Avant de capturer l’image de système d’exploitation d’un ordinateur de référence, vous devez réfléchir à plusieurs aspects.  
 
-###  <a name="BKMK_RefComputerDecide"></a> Entscheiden zwischen automatisierter oder manueller Konfiguration  
- Im Folgenden werden die Vor- und Nachteile der automatischen und manuellen Konfiguration des Referenzcomputers dargestellt:  
+###  <a name="BKMK_RefComputerDecide"></a> Choisir entre une configuration automatisée ou manuelle  
+ La section suivante décrit les avantages et inconvénients des configurations manuelle et automatisée de l’ordinateur de référence.  
 
-#### <a name="automated-configuration"></a>Automatische Konfiguration  
- **Vorteile**  
+#### <a name="automated-configuration"></a>Configuration automatisée  
+ **Avantages**  
 
--   Die Konfiguration kann vollkommen unbeaufsichtigt erfolgen, sodass kein Administrator oder Benutzer anwesend sein muss.  
+-   La configuration peut être complètement autonome et ne pas nécessiter la présence d'un administrateur ou d'un utilisateur.  
 
--   Sie können die Tasksequenz wiederverwenden, um die Konfiguration zusätzlicher Referenzcomputer mit einem hohen Maß an Zuverlässigkeit zu wiederholen.  
+-   Vous pouvez réutiliser la séquence de tâches pour répéter la configuration d'ordinateurs de référence supplémentaires, en toute confiance.  
 
--   Sie können die Tasksequenz ändern, um Unterschiede bei Referenzcomputern zu berücksichtigen. Eine erneute Erstellung der gesamten Tasksequenz ist nicht nötig.  
+-   Vous pouvez modifier la séquence de tâches pour appliquer des différences aux ordinateurs de référence sans avoir à recréer toute la séquence de tâches.  
 
- **Nachteile**  
+ **Inconvénients**  
 
--   Das erste Erstellen und Testen einer Tasksequenz kann sehr lange dauern.  
+-   L'action initiale de création et de test d'une séquence de tâches peut prendre du temps.  
 
--   Wenn sich die Anforderungen des Referenzcomputers erheblich ändern, kann das erneute Erstellen und Testen der Tasksequenz ebenfalls viel Zeit in Anspruch nehmen.  
+-   Si la configuration requise de l'ordinateur de référence change de façon significative, les nouvelles étapes de création et de test de la séquence de tâches peuvent prendre du temps.  
 
-#### <a name="manual-configuration"></a>Manuelle Konfiguration  
- **Vorteile**  
+#### <a name="manual-configuration"></a>Configuration manuelle  
+ **Avantages**  
 
--   Sie brauchen keine Tasksequenz zu erstellen, und der Zeitaufwand für Tests und die Problembehandlung für die Tasksequenz entfällt.  
+-   Vous n'avez pas besoin de créer une séquence de tâches, ni de perdre du temps à tester et corriger la séquence de tâches.  
 
--   Die Installation kann direkt von den CDs erfolgen, ohne alle Softwarepakete (einschließlich Windows selbst) in ein Configuration Manager-Paket zu integrieren.  
+-   Vous pouvez l’installer directement à partir de CD sans avoir à insérer tous les packages logiciels (y compris Windows lui-même) dans un package Configuration Manager.  
 
- **Nachteile**  
+ **Inconvénients**  
 
--   Die Genauigkeit der Konfiguration des Referenzcomputers wird durch den Administrator oder Benutzer vorgegeben, der den Computer konfiguriert.  
+-   La précision de la configuration de l’ordinateur de référence dépend de l’administrateur ou de l’utilisateur qui configure l’ordinateur.  
 
--   Sich müssen weiterhin überprüfen und testen, ob der Referenzcomputer ordnungsgemäß konfiguriert ist.  
+-   Vous devez toujours vérifier et tester l'ordinateur de référence pour vous assurer qu'il est correctement configuré.  
 
--   Sie können die Konfigurationsmethode nicht wiederverwenden.  
+-   Vous ne pouvez pas réutiliser la méthode de configuration.  
 
--   Erfordert eine Person, die aktiv am gesamten Prozess beteiligt ist.  
+-   Requiert qu'une personne soit activement impliquée tout au long du processus.  
 
-###  <a name="BKMK_RefComputerConsiderations"></a> Überlegungen zum Referenzcomputer  
- Im Folgenden werden die grundlegenden Punkte aufgezeigt, die Sie bei der Konfiguration eines Referenzcomputers beachten müssen.  
+###  <a name="BKMK_RefComputerConsiderations"></a> Considérations relatives à l’ordinateur de référence  
+ La section suivante répertorie les éléments de base à prendre en compte lorsque vous configurez un ordinateur de référence.  
 
--   **Bereitzustellendes Betriebssystem**  
+-   **Système d’exploitation à déployer**  
 
-     Auf dem Referenzcomputer muss das Betriebssystem installiert sein, das Sie auf Ihren Zielcomputern bereitstellen möchten. Weitere Informationen zu den Betriebssystemen, die Sie bereitstellen können, finden Sie unter [Anforderungen an die Infrastruktur für die Betriebssystembereitstellung](../plan-design/infrastructure-requirements-for-operating-system-deployment.md).  
+     L'ordinateur de référence doit être installé avec le système d'exploitation que vous avez l'intention de déployer sur vos ordinateurs de destination. Pour plus d’informations sur les systèmes d’exploitation que vous pouvez déployer, consultez [Configuration requise de l’infrastructure pour le déploiement de système d’exploitation](../plan-design/infrastructure-requirements-for-operating-system-deployment.md).  
 
--   **Mit dem entsprechenden Service Pack**  
+-   **Service Pack approprié**  
 
-     Auf dem Referenzcomputer muss das Betriebssystem installiert sein, das Sie auf Ihren Zielcomputern bereitstellen möchten.  
+     L'ordinateur de référence doit être installé avec le système d'exploitation que vous avez l'intention de déployer sur vos ordinateurs de destination.  
 
--   **Mit den entsprechenden Softwareupdates**  
+-   **Mises à jour logicielles appropriées**  
 
-     Installieren Sie alle Softwareanwendungen, die in das vom Referenzcomputer zu erfassende Betriebssystemabbild eingeschlossen werden sollen. Sie können Softwareanwendungen auch bei der Bereitstellung eines Betriebssystemabbilds auf Ihren Zielcomputern installieren.  
+     Installez toutes les applications logicielles que vous souhaitez inclure dans l'image du système d'exploitation que vous capturez à partir de l'ordinateur de référence. Vous pouvez également installer des applications logicielles lorsque vous déployez l'image capturée du système d'exploitation sur vos ordinateurs de destination.  
 
--   **Mitgliedschaft in einer Arbeitsgruppe**  
+-   **Appartenance au groupe de travail**  
 
-     Der Referenzcomputer muss als Mitglied einer Arbeitsgruppe konfiguriert sein.  
+     L'ordinateur de référence doit être configuré en tant que membre d'un groupe de travail.  
 
 -   **Sysprep**  
 
-     Das Tool für die Systemvorbereitung (Sysprep) ist eine Technologie, die Sie in Verbindung mit anderen Bereitstellungstools zum Installieren von Windows-Betriebssystemen auf neuer Hardware verwenden können. Mithilfe von Sysprep wird ein Computer für die Erstellung eines Festplattenabbilds oder für die Bereitstellung für einen Kunden vorbereitet, indem der Computer so konfiguriert wird, dass beim Neustart des Computers eine neue Sicherheitskennung (SID) erstellt wird. Außerdem werden mit Sysprep benutzer- und computerspezifische Einstellungen und Daten bereinigt, die nicht auf den Zielcomputer kopiert werden dürfen.  
+     L'outil de préparation du système (Sysprep) est une technologie que vous pouvez utiliser avec d'autres outils de déploiement pour installer des systèmes d'exploitation Windows sur du matériel neuf. Sysprep prépare un ordinateur en vue de la création d'une image disque ou de sa livraison à un client, en configurant l'ordinateur de telle sorte qu'un nouvel identificateur de sécurité (SID) soit créé pour l'ordinateur lors de son redémarrage. Par ailleurs, Sysprep nettoie les paramètres et les données des utilisateurs et de l'ordinateur qui ne doivent pas être copiés sur un ordinateur de destination.  
 
-     Sie können Sysprep mithilfe des folgenden Befehls manuell auf dem Referenzcomputer ausführen:  
+     Vous pouvez appliquer Sysprep manuellement sur l'ordinateur de référence en exécutant la commande suivante :  
 
      `Sysprep /quiet /generalize /reboot`  
 
-     Die /generalize-Option bewirkt, dass Sysprep systemspezifische Daten aus der Windows-Installation entfernt. Systemspezifische Daten sind Ereignisprotokolle, eindeutige Sicherheits-IDs (SIDs) und weitere eindeutige Informationen. Nachdem die eindeutigen Systeminformationen entfernt wurden, wird der Computer neu gestartet.  
+     L’option /generalize indique à Sysprep de supprimer les données propres au système de l’installation de Windows. Les informations spécifiques du système incluent, entre autres, les journaux des événements et les ID de sécurité uniques (SID). Une fois les informations système uniques supprimées, l’ordinateur redémarre.  
 
-     Sie können Sysprep mithilfe des Tasksequenzschritts [Prepare Windows for Capture](../understand/task-sequence-steps.md#BKMK_PrepareWindowsforCapture) oder mithilfe von Erfassungsmedien automatisieren.  
+     Vous pouvez automatiser Sysprep à l'aide de l'étape [Prepare Windows for Capture](../understand/task-sequence-steps.md#BKMK_PrepareWindowsforCapture) d'une séquence de tâches ou d'un média de capture.  
 
     > [!IMPORTANT]  
-    >  Im Tasksequenzschritt [Prepare Windows for Capture](../understand/task-sequence-steps.md#BKMK_PrepareWindowsforCapture) wird versucht, das lokale Administratorkennwort auf dem Referenzcomputer vor der Ausführung von Sysprep auf einen leeren Wert zurückzusetzen. Wenn die lokale Sicherheitsrichtlinie **Kennwort muss Komplexitätsvoraussetzungen entsprechen** aktiviert ist, kann das Administratorkennwort nicht von diesem Tasksequenzschritt zurückgesetzt werden. Deaktivieren Sie in diesem Fall die Richtlinie, bevor Sie die Tasksequenz ausführen.  
+    >  L'étape de séquence de tâches [Prepare Windows for Capture](../understand/task-sequence-steps.md#BKMK_PrepareWindowsforCapture) tente de réinitialiser le mot de passe de l'administrateur local sur l'ordinateur de référence sur une valeur vide avant l'exécution de Sysprep. Si la stratégie de sécurité locale **Le mot de passe doit respecter certaines exigences de complexité** est activée, cette étape de séquence de tâches ne parvient pas à réinitialiser le mot de passe administrateur. Dans ce cas, désactivez cette stratégie avant d'exécuter la séquence de tâches.  
 
-     Weitere Informationen zu Sysprep finden Sie unter [Sysprep (Systemvorbereitung) – Übersicht](http://go.microsoft.com/fwlink/?LinkId=280286).  
+     Pour plus d’informations sur Sysprep, consultez [Informations techniques de référence de l’outil de préparation du système (Sysprep)](http://go.microsoft.com/fwlink/?LinkId=280286).  
 
--   **Mit den entsprechenden erforderlichen Tools und Skripts für die Installationsszenarien**  
+-   **Outils et scripts appropriés nécessaires à l’atténuation des scénarios d’installation**  
 
-     Mit den entsprechenden erforderlichen Tools und Skripts für die Installationsszenarien  
+     Outils et scripts appropriés nécessaires à l'atténuation des scénarios d'installation  
 
--   **Mit der entsprechenden Desktopanpassung (Hintergrundbild, Branding, Standardbenutzerprofil)**  
+-   **Personnalisation de bureau appropriée, telle que fond d’écran, logo et profil utilisateur par défaut**  
 
-     Sie können den Referenzcomputer mit entsprechenden benutzerdefinierten Desktopeigenschaften konfigurieren, die beim Erfassen des Betriebssystemabbilds vom Referenzcomputer berücksichtigt werden sollen. Zu den Desktopeigenschaften zählen Hintergrundbild, Branding und ein Standardbenutzerprofil.  
+     Vous pouvez configurer l'ordinateur de référence avec les propriétés de personnalisation du bureau que vous souhaitez inclure lorsque vous capturez l'image du système d'exploitation à partir de l'ordinateur de référence. Les propriétés de bureau incluent un fond d’écran, un logo de l’entreprise et un profil utilisateur par défaut standard.  
 
-##  <a name="BKMK_ManuallyBuildReference"></a> Manuelles Erstellen eines Referenzcomputers  
- Gehen Sie wie folgt vor, um einen Referenzcomputer manuell zu erstellen.  
+##  <a name="BKMK_ManuallyBuildReference"></a> Créer manuellement un ordinateur de référence  
+ Utilisez la procédure suivante pour créer manuellement un ordinateur de référence.  
 
 > [!NOTE]  
->  Wenn Sie den Referenzcomputer manuell erstellen, können Sie das Betriebssystemabbild mithilfe von Erfassungsmedien erfassen. Weitere Informationen finden Sie unter [Erstellen von Erfassungsmedien](../deploy-use/create-capture-media.md).  
+>  Quand vous créez manuellement l’ordinateur de référence, vous pouvez capturer l’image du système d’exploitation à l’aide d’un média de capture. Pour plus d’informations, consultez [Créer un média de capture](../deploy-use/create-capture-media.md).  
 
-#### <a name="to-manually-build-the-reference-computer"></a>So erstellen Sie den Referenzcomputer manuell  
+#### <a name="to-manually-build-the-reference-computer"></a>Pour créer manuellement l’ordinateur de référence  
 
-1.  Identifizieren Sie den Computer, der als Referenzcomputer verwendet werden soll.  
+1.  Identifiez l'ordinateur à utiliser comme ordinateur de référence.  
 
-2.  Konfigurieren Sie den Referenzcomputer mit dem geeigneten Betriebssystem sowie weiterer Software, die zum Erstellen des bereitzustellenden Betriebssystemabbilds erforderlich ist.  
+2.  Configurez l'ordinateur de référence avec le système d'exploitation approprié et tout autre logiciel requis pour créer l'image du système d'exploitation que vous souhaitez déployer.  
 
     > [!WARNING]  
-    >  Installieren Sie mindestens das entsprechende Betriebssystem und Service Pack, die Supporttreiber und die erforderlichen Softwareupdates.  
+    >  Installez au minimum le système d’exploitation et le Service Pack appropriés, les pilotes de prise en charge et les mises à jour logicielles requises.  
 
-3.  Konfigurieren Sie den Referenzcomputer als Mitglied einer Arbeitsgruppe.  
+3.  Configurez l'ordinateur de référence en tant que membre d'un groupe de travail.  
 
-4.  Setzen Sie das lokale Administratorkennwort auf dem Referenzcomputer zurück, sodass es leer ist.  
+4.  Réinitialisez le mot de passe de l'administrateur local sur l'ordinateur de référence pour que la valeur du mot de passe soit vide.  
 
-5.  Führen Sie Sysprep mithilfe des folgenden Befehls aus:  **sysprep /quiet /generalize /reboot**. Die /generalize-Option bewirkt, dass Sysprep systemspezifische Daten aus der Windows-Installation entfernt. Systemspezifische Daten sind Ereignisprotokolle, eindeutige Sicherheits-IDs (SIDs) und weitere eindeutige Informationen. Nachdem die eindeutigen Systeminformationen entfernt wurden, wird der Computer neu gestartet.  
+5.  Exécutez Sysprep au moyen de la commande :  **sysprep /quiet /generalize /reboot**. L’option /generalize indique à Sysprep de supprimer les données propres au système de l’installation de Windows. Les informations spécifiques du système incluent, entre autres, les journaux des événements et les ID de sécurité uniques (SID). Une fois les informations système uniques supprimées, l’ordinateur redémarre.  
 
- Sobald der Referenzcomputer bereit ist, erfassen Sie mithilfe einer Tasksequenz das Betriebssystemabbild vom Referenzcomputer.  Detaillierte Anweisungen finden Sie unter [Erfassen eines Betriebssystemabbilds von einem vorhandenen Referenzcomputer](../deploy-use/create-a-task-sequence-to-capture-an-operating-system.md#BKMK_CaptureExistingRefComputer).  
+ Une fois que l’ordinateur de référence est prêt, capturez l’image de système d’exploitation de l’ordinateur de référence à l’aide d’une séquence de tâches.  Pour une procédure détaillée, consultez [Capturer une image de système d’exploitation à partir d’un ordinateur de référence existant](../deploy-use/create-a-task-sequence-to-capture-an-operating-system.md#BKMK_CaptureExistingRefComputer).  
 
-##  <a name="BKMK_UseTSToBuildReference"></a> Verwenden einer Tasksequenz zum Erstellen eines Referenzcomputers  
- Sie können den Prozess zum Erstellen eines Referenzcomputers automatisieren, indem Sie mithilfe einer Tasksequenz das Betriebssystem, Treiber, Anwendungen usw. bereitstellen.  Führen Sie die folgenden Schritte aus, um den Referenzcomputer zu erstellen, von dem Sie anschließend das Betriebssystemabbild erfassen.  
+##  <a name="BKMK_UseTSToBuildReference"></a> Utiliser une séquence de tâches pour créer un ordinateur de référence  
+ Vous pouvez automatiser le processus de création d’un ordinateur de référence en déployant le système d’exploitation, les pilotes, les applications et autres éléments à l’aide d’une séquence de tâches.  Pour créer l’ordinateur de référence et capturer l’image de système d’exploitation à partir de ce même ordinateur de référence, procédez comme suit.  
 
--   Nutzen Sie eine Tasksequenz zum Erstellen und Erfassen des Betriebssystemabbilds vom Referenzcomputer.  Eine Schritt-für-Schritt-Anleitung finden Sie unter [Verwenden einer Tasksequenz zum Erstellen und Erfassen eines Referenzcomputers](../deploy-use/create-a-task-sequence-to-capture-an-operating-system.md#BKMK_BuildCaptureTS).  
+-   Utilisez une séquence de tâches pour créer et capturer l’image de système d’exploitation à partir de l’ordinateur de référence.  Pour une procédure détaillée, voir [Utiliser une séquence de tâches pour créer et capturer un ordinateur de référence](../deploy-use/create-a-task-sequence-to-capture-an-operating-system.md#BKMK_BuildCaptureTS).  

@@ -1,6 +1,6 @@
 ---
-title: Schemaerweiterungen | Microsoft-Dokumentation
-description: "Erweitern des Active Directory-Schemas für System Center Configuration Manager."
+title: "Extensions de schéma | Microsoft Docs"
+description: "Étendre le schéma Active Directory pour prendre en charge System Center Configuration Manager."
 ms.custom: na
 ms.date: 2/7/2017
 ms.prod: configuration-manager
@@ -19,86 +19,86 @@ robots: noindex
 ms.openlocfilehash: 5b5540c35c02df6e3d06e4aa9269b8da3238233e
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="schema-extensions-for-system-center-configuration-manager"></a>Schemaerweiterungen für System Center Configuration Manager
+# <a name="schema-extensions-for-system-center-configuration-manager"></a>Extensions de schéma pour System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Sie können das Active Directory-Schema so erweitern, dass es Configuration Manager unterstützt. Hierdurch wird das Active Directory-Schema einer Gesamtstruktur so bearbeitet, dass ein neuer Container und mehrere Attribute hinzugefügt werden. Diese werden von Configuration Manager-Standorten dazu verwendet, wichtige Informationen in Active Directory zu veröffentlichen, wo Clients sicher darauf zugreifen können. Diese Informationen können die Bereitstellung und Konfiguration von Clients vereinfachen und versetzen Clients in die Lage, Standortressourcen, etwa Server mit bereitgestellten Inhalten, oder Standortressourcen zu finden, die verschiedene Dienste für Clients bereitstellen.  
+Vous pouvez étendre le schéma Active Directory pour prendre en charge Configuration Manager. Cette opération modifie le schéma Active Directory d’une forêt pour ajouter un nouveau conteneur et plusieurs attributs grâce auxquels les sites Configuration Manager peuvent publier dans Active Directory des informations clés utilisables par les clients de manière sécurisée. Ces informations peuvent simplifier le déploiement et la configuration des clients et aider ces derniers à localiser les ressources du site, comme les serveurs sur lesquels le contenu a été déployé ou qui fournissent différents services aux clients.  
 
--   Es ist ratsam, das Active Directory-Schema zu erweitern, aber es ist nicht erforderlich.  
+-   Il est conseillé d’étendre le schéma Active Directory, mais ceci n’est pas obligatoire.  
 
-Bevor Sie [das Active Directory-Schema erweitern](https://msdnstage.redmond.corp.microsoft.com/en-US/library/mt345589\(TechNet.10\).aspx), sollten Sie mit Active Directory-Domänendienste vertraut sein und wissen, wie ein [Ändern des Active Directory-Schemas](https://technet.microsoft.com/library/cc759402\(v=ws.10\).aspx)vorgenommen wird.  
+Avant d’ [étendre le schéma Active Directory](https://msdnstage.redmond.corp.microsoft.com/en-US/library/mt345589\(TechNet.10\).aspx), vous devez être familiarisé avec les services de domaine Active Directory et la [modification du schéma Active Directory](https://technet.microsoft.com/library/cc759402\(v=ws.10\).aspx).  
 
-## <a name="considerations-for-extending-the-active-directory-schema-for-configuration-manager"></a>Überlegungen zum Erweitern des Active Directory-Schemas für Configuration Manager  
+## <a name="considerations-for-extending-the-active-directory-schema-for-configuration-manager"></a>Considérations relatives à l’extension du schéma Active Directory pour Configuration Manager  
 
--   Die Active Directory-Schemaerweiterungen für System Center Configuration Manager sind dieselben, die auch in Configuration Manager 2007 und Configuration Manager 2012 verwendet wurden. Wenn Sie das Schema bereits für eine der Versionen erweitert haben, müssen Sie es nicht erneut erweitern.  
+-   Les extensions de schéma Active Directory pour System Center Configuration Manager sont identiques à celles utilisées par Configuration Manage 2007 et Configuration Manager 2012. Si vous avez déjà étendu le schéma pour l’une de ces versions, vous n’avez plus besoin de l’étendre.  
 
--   Das Erweitern des Schemas ist eine gesamtstrukturweite, einmalige, nicht rückgängig zu machende Aktion.  
+-   L’extension du schéma est une action irréversible, unique et à l’échelle de la forêt.  
 
--   Das Erweitern des Schemas kann nur von einem Mitglied der Gruppe „Schema-Admins“ oder von einem Benutzer ausgeführt werden, der die erforderlichen Berechtigungen zum Ändern des Schemas besitzt.  
+-   Seul un utilisateur membre du groupe Administrateurs du schéma ou disposant d’autorisations suffisantes pour modifier le schéma peut étendre ce dernier.  
 
--   Sie können das Schema zwar vor oder nach dem Ausführen von Setup für Configuration Manager erweitern, aber es empfiehlt sich, das Schema zu erweitern, bevor Sie damit beginnen, Ihre Standorte und Hierarchieeinstellungen zu konfigurieren. Dadurch lassen sich viele der späteren Konfigurationsschritte vereinfachen.  
+-   Bien que vous puissiez étendre le schéma avant ou après l’exécution du programme d’installation de Configuration Manager, nous vous conseillons d’étendre le schéma avant de commencer à configurer vos sites et vos paramètres de hiérarchie. Ce procédé simplifie la plupart des étapes de configuration ultérieures.  
 
--   Nachdem Sie das Schema erweitert haben, wird der globale Katalog von Active Directory in der Gesamtstruktur repliziert. Daher sollten Sie die Schemaerweiterung vornehmen, wenn der Replikationsdatenverkehr keine negativen Auswirkungen auf andere vom Netzwerk abhängige Prozesse hat:  
+-   Une fois le schéma étendu, le catalogue global Active Directory est répliqué dans toute la forêt. Ainsi, choisissez une période calme, afin de ne pas affecter d’autres processus dépendant du réseau :  
 
-    -   In Windows 2000-Gesamtstrukturen führt das Erweitern des Schemas zu einer vollständigen Synchronisierung des gesamten globalen Katalogs.  
+    -   Dans les forêts Windows 2000, l’extension du schéma entraîne une synchronisation complète du catalogue global.  
 
-    -   Bei Gesamtstrukturen ab Windows 2003 werden nur die neu hinzugefügten Attribute repliziert.  
+    -   À partir des forêts Windows 2003, seuls les attributs ajoutés récemment sont répliqués.  
 
-**Geräte und Clients, die das Active Directory-Schema nicht verwenden:**  
+**Appareils et clients qui n’utilisent pas le schéma Active Directory :**  
 
--   Mobile Geräte, die vom Exchange Server-Connector verwaltet werden  
+-   Appareils mobiles gérés par le connecteur du serveur Exchange Server  
 
--   Client für Macintosh-Computer  
+-   Client des ordinateurs Mac  
 
--   Client für Linux- und UNIX-Server  
+-   Client des serveurs Linux et UNIX  
 
--   Von Configuration Manager registrierte mobile Geräte  
+-   Appareils mobiles inscrits par Configuration Manager  
 
--   Durch Microsoft Intune registrierte mobile Geräte  
+-   Appareils mobiles inscrits par Microsoft Intune  
 
--   Legacyclients für mobile Geräte  
+-   Clients d'appareil mobile hérités  
 
--   Windows-Clients, die für die rein internetbasierte Clientverwaltung konfiguriert sind  
+-   Clients Windows configurés pour être gérés uniquement via Internet  
 
--   Windows-Clients, die von Configuration Manager im Internet erkannt werden  
+-   Clients Windows détectés par Configuration Manager comme étant connectés à Internet  
 
-## <a name="capabilities-that-benefit-from-extending-the-schema"></a>Funktionen, für die das Erweitern des Schemas vorteilhaft ist  
-**Clientcomputerinstallation und Standortzuweisung:** Wenn ein neuer Client auf einem Windows-Computer installiert wird, durchsucht der Client Active Directory Domain Services nach Installationseigenschaften.  
+## <a name="capabilities-that-benefit-from-extending-the-schema"></a>Fonctionnalités qui bénéficient de l’extension du schéma  
+**Installation de l’ordinateur client et attribution de site** : quand un ordinateur Windows installe un nouveau client, ce dernier recherche des propriétés d’installation dans Active Directory Domain Services.  
 
--   **Problemumgehung:** Wenn Sie das Schema nicht erweitern, sollten Sie eine der folgenden Optionen verwenden, um für die Installation auf Computern erforderliche Konfigurationsdaten bereitzustellen:  
+-   **Solutions de contournement** : si vous n’étendez pas le schéma, utilisez l’une des options suivantes pour fournir les détails de configuration que les ordinateurs doivent installer :  
 
-    -   **Verwenden Sie die Clientpushinstallation**. Bevor Sie eine Clientinstallationsmethode verwenden, stellen Sie sicher, dass alle Voraussetzungen erfüllt sind. Weitere Informationen finden Sie unter [Voraussetzungen für die Windows-Clientbereitstellung in Configuration Manager](/sccm/core/clients/deploy/prerequisites-for-deploying-clients-to-windows-computers) im Abschnitt „Installationsmethodenabhängigkeiten“.  
+    -   **Utiliser l’installation poussée du client**. Avant d’utiliser une méthode d’installation du client, vérifiez que tous les prérequis sont remplis. Pour plus d’informations, consultez la section « Dépendances liées aux méthodes d’installation » dans [Prérequis au déploiement de clients sur des ordinateurs Windows](/sccm/core/clients/deploy/prerequisites-for-deploying-clients-to-windows-computers).  
 
-    -   **Manuelles Installieren von Clients** und Bereitstellen von Installationseigenschaften über die CCMSetup-Befehlszeileneigenschaften für die Installation. Dies umfasst folgende Aktionen:  
+    -   **Installer les clients manuellement** et fournir les propriétés d'installation du client en utilisant les propriétés de ligne de commande d'installation CCMSetup. Ces méthodes doivent inclure :  
 
-        -   Geben Sie einen Verwaltungspunkt oder Quellpfad an, damit der Computer die Installationsdateien über die CCMSetup-Eigenschaft **/mp:=&lt;Computername des Verwaltungspunkts\>** bzw. **/source:&lt;Pfad für die Clientquelldateien\>** auf der CCMSetup-Befehlszeile während der Clientinstallation herunterladen kann.  
+        -   Spécifiez un point de gestion ou un chemin source à partir duquel l’ordinateur peut télécharger les fichiers d’installation en utilisant la propriété CCMSetup **/mp:&lt;nom_ordinateur_nom_point_de_gestion\>** ou **/source:&lt;chemin_fichiers_sources_client\>** sur la ligne de commande CCMSetup lors de l’installation du client.  
 
-        -   Geben Sie eine Liste von ersten Verwaltungspunkten an, die vom Client verwendet werden, damit eine Zuordnung zum Standort möglich ist und die Clientrichtlinie sowie die Standorteinstellungen heruntergeladen werden können. Zu diesem Zweck verwenden Sie die „CCMSetup Client.msi“-Eigenschaft „SMSMP“.  
+        -   Spécifiez une liste de points de gestion initiale pour le client pour qu’il puisse les attribuer au site et ensuite télécharger les paramètres de stratégie client et du site. Pour ce faire, utilisez la propriété CCMSetup Client.msi de SMSMP.  
 
-    -   **Veröffentlichen des Verwaltungspunkts in DNS oder WINS** und Konfigurieren von Clients für die Verwendung dieser Dienstidentifizierungsmethode.  
+    -   **Publier le point de gestion dans DNS ou WINS** et configurer des clients pour utiliser cette méthode d’emplacement de service.  
 
-**Portkonfiguration für die Kommunikation zwischen Client und Server** – Wenn ein Client installiert wird, wird er mit Portinformationen konfiguriert, die in Active Directory gespeichert sind. Wenn Sie den Port für die Kommunikation zwischen Client und Server für einen Standort später ändern, kann ein Client diesen neuen Port aus en Active Directory-Domänendienste abrufen.  
+**Configuration du port pour la communication client à serveur** : quand un client est installé, il est configuré avec les informations du port stockées dans Active Directory. Si vous modifiez ultérieurement le port de communication client à serveur pour un site, un client peut obtenir ce nouveau paramètre de port par les services de domaine Active Directory.  
 
--   **Problemumgehung:** Wenn Sie das Schema nicht erweitern, verwenden Sie eine der folgenden Optionen, um die neuen Portkonfigurationen für vorhandene Clients bereitzustellen:  
+-   **Solutions de contournement :** si vous n’étendez pas le schéma, utilisez l’une des options suivantes pour fournir de nouvelles configurations de port aux clients existants :  
 
-    -   **Installieren Sie Clients neu** mit Optionen, die den neuen Port konfigurieren.  
+    -   **Réinstaller les clients** à l’aide d’options qui configurent le nouveau port.  
 
-    -   **Stellen Sie auf den Clients ein benutzerdefiniertes Skript zum Aktualisieren der Portinformationen bereit**. Können Clients wegen einer Portänderung nicht mit einem Standort kommunizieren, können Sie Configuration Manager nicht für die Skriptbereitstellung verwenden. Sie könnten beispielsweise Gruppenrichtlinien verwenden.  
+    -   **Déployer sur les clients un script personnalisé qui met à jour les informations de port**. Si les clients ne peuvent pas communiquer avec un site en raison d’une modification du port, vous ne pouvez pas utiliser Configuration Manager pour déployer ce script. Vous pouvez par exemple utiliser la Stratégie de groupe.  
 
-**Szenarios für die Inhaltsbereitstellung** – Wenn Sie Inhalte an einem Standort erstellen und an einem anderen Standort in der Hierarchie bereitstellen, muss der Zielstandort in der Lage sein, die Signatur der signierten Inhaltsdaten zu überprüfen. Dazu ist der Zugriff auf den öffentlichen Schlüssel des Quellstandorts erforderlich, auf dem die Daten erstellt wurde. Wenn Sie das Active Directory-Schema für Configuration Manager erweitern, steht der öffentliche Schlüssel eines Standorts allen Standorten in der Hierarchie zur Verfügung.  
+**Scénarios de déploiement de contenu** : quand vous créez du contenu sur un site et que vous déployez ce contenu vers un autre site de la hiérarchie, le site récepteur doit être capable de vérifier la signature des données du contenu signé. Cela nécessite un accès à la clé publique du site source dans lequel vous créez ces données. Quand vous étendez le schéma Active Directory pour Configuration Manager, la clé publique d’un site est accessible à tous les sites de la hiérarchie.  
 
--   **Problemumgehung:** Wenn Sie das Schema nicht erweitern, können Sie die Informationen zu dem sicheren Schlüssel über das Hierarchieverwaltungstool, **preinst.exe**, zwischen Standorten austauschen.  
+-   **Solutions de contournement :** si vous n’étendez pas le schéma, utilisez l’outil de maintenance de hiérarchie, **preinst.exe**, pour échanger les informations de la clé sécurisées entre les sites.  
 
-     Wenn Sie beispielsweise planen, Inhalte an einem primären Standort zu erstellen und diese dann an einem sekundären Standort unterhalb eines anderen primären Standorts bereitzustellen, müssen Sie entweder das Active Directory-Schema erweitern, damit der öffentliche Schlüssel des primären Quellstandorts durch den sekundären Standort abgerufen werden kann, oder die Schlüssel mithilfe von „preinst.exe“ direkt zwischen beiden Standorten freigeben.  
+     Par exemple, si vous envisagez de créer du contenu sur un site principal et le déployer sur un site secondaire inférieur à un site principal différent, vous devez soit étendre le schéma Active Directory pour permettre au site secondaire d’obtenir la clé publique de la source des sites principaux, soit utiliser preinst.exe pour partager les clés directement entre les deux sites.  
 
-## <a name="active-directory-attributes-and-classes"></a>Active Directory-Attribute und -Klassen  
-Wenn Sie das Schema für System Center Configuration Manager erweitern, werden dem Schema die folgenden Klassen und Attribute hinzugefügt und für alle Configuration Manager-Standorte in der Active Directory-Gesamtstruktur verfügbar gemacht.  
+## <a name="active-directory-attributes-and-classes"></a>Classes et attributs Active Directory  
+Quand vous étendez le schéma pour System Center Configuration Manager, les classes et les attributs suivants sont ajoutés au schéma et sont accessibles à tous les sites Configuration Manager dans cette forêt Active Directory.  
 
--   Attribute:  
+-   Attributs :  
 
     -   cn=mS-SMS-Assignment-Site-Code  
 
@@ -119,7 +119,7 @@ Wenn Sie das Schema für System Center Configuration Manager erweitern, werden d
     -   cn=MS-SMS-Ranged-IP-Low  
 
     -   cn=MS-SMS-Roaming-Boundaries  
-        auf  
+        sur  
 
     -   cn=MS-SMS-Site-Boundaries  
 
@@ -129,7 +129,7 @@ Wenn Sie das Schema für System Center Configuration Manager erweitern, werden d
 
     -   cn=mS-SMS-Version  
 
--   Klassen:  
+-   Classes :  
 
     -   cn=MS-SMS-Management-Point  
 
@@ -141,10 +141,10 @@ Wenn Sie das Schema für System Center Configuration Manager erweitern, werden d
 
 > [!NOTE]  
 
->  Die Schemaerweiterungen können Attribute und Klassen enthalten, die aus vorherigen Versionen des Produkts übernommen wurden, aber von System Center Configuration Manager nicht verwendet werden. Beispiel:  
+>  Les extensions de schéma peuvent inclure des attributs et des classes issus de versions précédentes du produit, qui ne sont plus utilisés par System Center Configuration Manager. Exemple :  
 
 >   
->  -   Attribut: cn=MS-SMS-Site-Boundaries  
-> -   Klasse: cn=MS-SMS-Server-Locator-Point  
+>  -   Attribut : cn=MS-SMS-Site-Boundaries  
+> -   Classe : cn=MS-SMS-Server-Locator-Point  
 
-Sie können sicherstellen, dass die vorangehenden Listen aktuell sind, indem Sie die Datei **ConfigMgr_ad_schema.LDF** aus dem Ordner **\SMSSETUP\BIN\x64** der System Center Configuration Manager-Installationsmedien anzeigen.  
+Vous pouvez vous assurer que les listes précédentes sont à jour en consultant le fichier **ConfigMgr_ad_schema.LDF**, situé dans le dossier **\SMSSETUP\BIN\x64** du support d’installation de System Center Configuration Manager.  

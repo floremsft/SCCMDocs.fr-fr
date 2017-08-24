@@ -6,20 +6,19 @@ ms.date: 12/30/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4db1e15f-e832-4cf9-be33-d3971e635a55
-caps.latest.revision: 6
+caps.latest.revision: "6"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: 68527c0e82861106b7ec28b34bffa8fd74b2dd4a
 ms.openlocfilehash: f13f38be2a19ab8a1ead246e5272515dd0570984
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="fundamentals-of-sites-and-hierarchies-for-system-center-configuration-manager"></a>Notions de base des sites et des hiérarchies pour System Center Configuration Manager
 
@@ -72,9 +71,3 @@ Les autres rôles de système de site sont facultatifs. Utilisez-les uniquement 
  *L’extension du schéma Active Directory* n’est effectuée qu’une fois pour chaque forêt, au choix avant ou après l’installation de Configuration Manager.   Quand vous étendez le schéma, vous devez créer un conteneur Active Directory nommé System Management dans chaque domaine. Le conteneur fournit un site Configuration Manager qui publie les données dont les clients ont besoin. Pour plus d’informations, consultez [Préparer Active Directory pour la publication de site](../../core/plan-design/network/extend-the-active-directory-schema.md).  
 
  La *publication des données du site* renforce la sécurité de votre hiérarchie Configuration Manager et réduit la surcharge administrative, mais elle est facultative pour les fonctionnalités de base de Configuration Manager.  
-
-
-
-<!--HONumber=Dec16_HO5-->
-
-

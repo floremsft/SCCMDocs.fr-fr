@@ -1,6 +1,6 @@
 ---
-title: Verwalten von Konfigurationsdaten | Microsoft-Dokumentation
-description: "Nachdem Sie Konfigurationselemente und Baselines in System Center Configuration Manager erstellt haben, können Sie andere Befehle verwenden, um verschiedene Aktionen ausführen."
+title: "Gérer les données de configuration | Microsoft Docs"
+description: "Après avoir créé les éléments de configuration et les bases de référence de configuration dans System Center Configuration Manager, vous pouvez utiliser d’autres commandes pour effectuer diverses actions."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -18,42 +18,42 @@ manager: angrobe
 ms.openlocfilehash: 1a6084834384e695b49a71fe23833049c86f8dbc
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-configuration-data-in-system-center-configuration-manager"></a>Verwalten von Konfigurationsdaten in System Center Configuration Manager
+# <a name="manage-configuration-data-in-system-center-configuration-manager"></a>Gérer les données de configuration dans System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Nachdem Sie Konfigurationselemente und Konfigurationsbaselines in Configuration Manager erstellt haben, sind weitere Befehle zur Ausführung verschiedener Aktionen verfügbar.  
+Une fois que vous avez créé les éléments de configuration et les bases de référence de configuration dans System Center Configuration Manager, vous pouvez utiliser d’autres commandes pour effectuer plus rapidement diverses actions.  
 
-## <a name="manage-configuration-items"></a>Verwalten von Konfigurationselementen  
+## <a name="manage-configuration-items"></a>Gérer les éléments de configuration  
 
--   Erweitern Sie im Arbeitsbereich **Bestand und Kompatibilität** die Option **Kompatibilitätseinstellungen** > **Konfigurationselemente**, und wählen Sie das zu verwaltende Konfigurationselement und dann einen Verwaltungstask aus.  
+-   Dans l’espace de travail **Ressources et Conformité**, développez **Paramètres de compatibilité** > **Éléments de configuration**, sélectionnez l’élément de configuration à gérer, puis sélectionnez une tâche de gestion.  
 
-|Verwaltungstask|Details|  
+|Tâche de gestion|Détails|  
 |---------------------|-------------|  
-|**Untergeordnetes Konfigurationselement erstellen**|Öffnet den **Assistenten zum Erstellen untergeordneter Konfigurationselemente** , mit dem Sie aus einem ausgewählten Konfigurationselement ein untergeordnetes Konfigurationselement erstellen können.<br /><br /> Von einem Mobilgerät-Konfigurationselement können Sie kein untergeordnetes Konfigurationselement erstellen.<br /><br /> Details finden Sie unter [Erstellen untergeordneter Konfigurationselemente](../../compliance/deploy-use/create-child-configuration-items.md).|  
-|**Revisionsverlauf**|Öffnet das Dialogfeld **Konfigurationselement-Revisionsverlauf** , in dem Sie vorherige Revisionen des ausgewählten Konfigurationselements anzeigen und verwalten können.|  
-|**XML-Definition anzeigen**|Zeigt die XML-Definitionsdatei des ausgewählten Konfigurationselements in einem neuen Fenster an. Diese Informationen können hilfreich sein, wenn Sie Konfigurationsdaten manuell erstellen möchten.|  
-|**Exportierenieren**|Exportiert ein Konfigurationselement in eine CAB-Datei, unter der Voraussetzung, dass sie an diesem Standort erstellt wurde. Anschließend können Sie das Element in denselben oder einen anderen Configuration Manager-Standort importieren. Konfigurationsdaten werden in DCM Digest konvertiert.|  
-|**Kopieren**|Erstellt eine Kopie des ausgewählten Konfigurationselements mit einem von Ihnen angegebenen Namen. Vom neuen Konfigurationselement wird keine Beziehung zum ursprünglichen Konfigurationselement beibehalten. Dies bedeutet, dass vom Duplikat des Konfigurationselements keine Konfigurationsinformationen mehr vom ursprünglichen Konfigurationselement übernommen werden.|  
-|**Löschen**|Öffnet das Dialogfeld **Konfigurationselement löschen** , in dem Sie Verweise auf dieses Konfigurationselement überprüfen können.<br /><br /> Sie müssen erst alle Verweise auf ein Konfigurationselement entfernen, bevor Sie das Konfigurationselement löschen können.|  
+|**Créer un élément de configuration enfant**|Ouvre l' **Assistant Création d'élément de configuration enfant** où vous pouvez créer un élément de configuration enfant depuis l'élément de configuration sélectionné.<br /><br /> Il n'est pas possible de créer un élément de configuration enfant à partir d'un élément de configuration d’appareil mobile.<br /><br /> Pour plus d’informations, consultez [Créer des éléments de configuration enfants](../../compliance/deploy-use/create-child-configuration-items.md).|  
+|**Historique des révisions**|Ouvre la boîte de dialogue **Historique de révision des éléments de configuration** dans laquelle vous pouvez afficher et gérer les révisions précédentes de l'élément de configuration sélectionné.|  
+|**Afficher la définition XML**|Affiche le fichier de définition XML de l’élément de configuration sélectionné dans une nouvelle fenêtre. Cette information peut être utile lorsque vous souhaitez créer manuellement les données de configuration.|  
+|**Exporter**|Exporte un élément de configuration dans un fichier de format .cab (cabinet) s'il a été créé sur ce site. Vous pouvez ensuite l’importer vers le même site ou un site Configuration Manager différent. Les données de configuration sont converties dans le format DCM Digest.|  
+|**Copier**|Crée une copie de l'élément de configuration sélectionné avec un nom que vous spécifiez. Le nouvel élément de configuration ne conserve pas de relation avec l'élément de configuration d'origine. En d'autres termes, l'élément de configuration dupliqué n'hérite plus des informations de configuration de l'élément de configuration d'origine.|  
+|**Supprimer**|Ouvre la boîte de dialogue **Supprimer un élément de configuration** dans laquelle vous pouvez consulter toutes les références à cet élément de configuration.<br /><br /> Vous devez supprimer toutes les références à un élément de configuration pour pouvoir supprimer l'élément de configuration.|  
 
-## <a name="manage-configuration-baselines"></a>Verwalten von Konfigurationsbaselines  
+## <a name="manage-configuration-baselines"></a>Gérer les bases de référence de configuration  
 
--   Erweitern Sie im Arbeitsbereich **Bestand und Kompatibilität** die Option **Kompatibilitätseinstellungen** > **Konfigurationsbaselines**, und wählen Sie das zu verwaltende Konfigurationselement und dann einen Verwaltungstask aus.  
+-   Dans l’espace de travail **Ressources et Conformité**, développez **Paramètres de compatibilité** > **Bases de référence de configuration**, sélectionnez la base de référence de configuration à gérer, puis sélectionnez une tâche de gestion.  
 
 
-|Verwaltungstask|Details|  
+|Tâche de gestion|Détails|  
 |---------------------|-------------|  
-|**Mitglieder anzeigen**|Zeigt alle Konfigurationselemente an, auf die in der Konfigurationsbasislinie verwiesen wird.|  
-|**Zusammenfassung planen**|Konfiguriert den Zeitplan, nach dem die im Knoten **Konfigurationsbaselines** in der Configuration Manager-Konsole angezeigten Daten mit den neuesten Informationen aus der Standortdatenbank aktualisiert werden.|  
-|**Zusammenfassung ausführen**|Durch die Zusammenfassung werden Daten im Knoten **Konfigurationsbasislinien** mit den neuesten Daten von der Standortdatenbank aktualisiert. Diese Aktion kann einige Minuten dauern. Möglicherweise müssen Sie auf **Aktualisieren** klicken, damit die neuesten Daten in der Konsole angezeigt werden.|  
-|**XML-Definition anzeigen**|Zeigt die XML-Definitionsdatei für die ausgewählte Konfigurationsbasislinie in einem neuen Fenster an. Diese Informationen können hilfreich sein, wenn Sie Konfigurationsdaten manuell erstellen möchten.|  
-|**Aktivieren**|Aktiviert eine Konfigurationsbasislinie für die Kompatibilitätsüberwachung.|  
-|**Deaktivieren**|Deaktiviert eine Konfigurationsbasislinie, sodass sie auf Clientcomputern nicht mehr auf Kompatibilität bewertet wird. Konfigurationsbasislinien, die auf diese Konfigurationsbasislinie verweisen, werden ebenfalls deaktiviert.|  
-|**Exportierenieren**|Exportiert eine Konfigurationsbasislinie in eine CAB-Datei, unter der Voraussetzung, dass sie an diesem Standort erstellt wurde. Anschließend können Sie das Element in denselben oder einen anderen Configuration Manager-Standort importieren. Konfigurationsdaten werden in DCM Digest konvertiert.<br /><br /> Informationen zum Importieren von Konfigurationsdaten finden Sie unter [Importieren von Konfigurationsdaten](../../compliance/deploy-use/import-configuration-data.md).|  
-|**Kopieren**|Erstellt eine Kopie der ausgewählten Konfigurationsbasislinie mit einem von Ihnen angegebenen Namen. Von der neuen Konfigurationsbasislinie wird keine Beziehung zur ursprünglichen Konfigurationsbasislinie beibehalten.|  
-|**Löschen**|Öffnet das Dialogfeld **Konfigurationsbasislinie löschen** , in dem Sie Verweise auf diese Konfigurationsbasislinie überprüfen können.<br /><br /> Sie müssen erst alle Verweise auf eine Konfigurationsbasislinie entfernen, bevor Sie die Konfigurationsbasislinie löschen können.|  
-|**Bereitstellen**|Öffnet das Dialogfeld **Konfigurationsbasislinien bereitstellen** , in dem Sie eine oder mehrere Konfigurationsbasislinien für Geräte in der Hierarchie bereitstellen können.<br /><br /> Details finden Sie unter [Bereitstellen von Konfigurationsbaselines](../../compliance/deploy-use/deploy-configuration-baselines.md).|  
+|**Afficher les membres**|Affiche tous les éléments de configuration qui sont référencés par la ligne de base de configuration.|  
+|**Planifier le résumé**|Configure la planification pour que les données affichées dans le nœud **Lignes de base de configuration** dans la console Configuration Manager soient mises à jour avec les informations les plus récentes de la base de données de site.|  
+|**Exécuter le résumé**|Le résumé actualise les données du noeud **Lignes de base de configuration** avec les dernières données de la base de données du site. Cette action peut prendre plusieurs minutes. Vous devrez peut-être cliquer sur **Actualiser** pour afficher les données les plus récentes dans la console.|  
+|**Afficher la définition XML**|Affiche le fichier de définition XML de la ligne de base de configuration sélectionnée dans une nouvelle fenêtre. Cette information peut être utile lorsque vous souhaitez créer manuellement les données de configuration.|  
+|**Activer**|Active une ligne de base de configuration pour la surveillance de la compatibilité.|  
+|**Désactiver**|Désactive une ligne de base de configuration afin qu'elle ne soit plus évaluée pour la compatibilité sur les ordinateurs clients. Les lignes de base de configuration qui font référence à cette ligne de base de configuration seront également désactivées.|  
+|**Exporter**|Exporte une ligne de base de configuration dans un fichier .cab (cabinet) si elle a été créée sur ce site. Vous pouvez ensuite l’importer vers le même site ou un site Configuration Manager différent. Les données de configuration sont converties dans le format DCM Digest.<br /><br /> Pour plus d’informations sur l’importation des données de configuration, consultez [Importer des données de configuration](../../compliance/deploy-use/import-configuration-data.md).|  
+|**Copier**|Crée une copie de la ligne de base de configuration sélectionnée avec un nom que vous spécifiez. La nouvelle ligne de base de configuration ne conserve pas de relation avec la ligne de base de configuration d'origine.|  
+|**Supprimer**|Ouvre la boîte de dialogue **Supprimer une ligne de base de configuration** dans laquelle vous pouvez consulter toutes les références à cette ligne de base de configuration.<br /><br /> Vous devez supprimer toutes les références à une ligne de base de configuration pour pouvoir supprimer la ligne de base de configuration.|  
+|**Déployer**|Ouvre la boîte de dialogue **Déployer des lignes de base de configuration** dans laquelle vous pouvez déployer une ou plusieurs lignes de base de configuration sur les appareils de votre hiérarchie.<br /><br /> Pour plus d’informations, consultez [Déployer des bases de référence de configuration](../../compliance/deploy-use/deploy-configuration-baselines.md).|  

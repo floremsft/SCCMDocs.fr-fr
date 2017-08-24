@@ -1,6 +1,6 @@
 ---
-title: Erstellen von Windows Embedded-Anwendungen | Microsoft Docs
-description: "Erfahren Sie, was Sie beim Erstellen und Bereitstellen von Anwendungen für Windows Embedded-Geräte berücksichtigen müssen."
+title: "Créer des applications Windows Embedded | Documents Microsoft"
+description: "Examinez les éléments à prendre en compte quand vous créez et déployez des applications pour appareils Windows Embedded."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,35 +17,35 @@ manager: angrobe
 ms.openlocfilehash: cb0c22f3060ba654778dca958d620f1e1725b93c
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-windows-embedded-applications-with-system-center-configuration-manager"></a>Erstellen von Windows Embedded-Anwendungen mit System Center Configuration Manager
+# <a name="create-windows-embedded-applications-with-system-center-configuration-manager"></a>Créer des applications Windows Embedded avec System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Zusätzlich zu den anderen System Center Configuration Manager-Anforderungen und -Verfahren zum Erstellen einer Anwendung müssen beim Erstellen und Bereitstellen von Anwendungen für Windows Embedded-Geräte die folgenden Aspekte berücksichtigt werden.  
+En plus des autres exigences et procédures System Center Configuration Manager à observer pour créer une application, vous devez aussi prendre en compte les éléments suivants au moment de créer et déployer des applications pour des appareils Windows Embedded.  
 
-## <a name="general-considerations"></a>Allgemeine Aspekte  
+## <a name="general-considerations"></a>Éléments généraux à prendre en compte  
 
--   Beim Bereitstellen von Anwendungen für Windows Embedded-Geräte mit aktivierten Schreibfiltern können Sie angeben, ob der Schreibfilter auf dem Gerät während der App-Bereitstellung deaktiviert werden soll. Sie können zudem auswählen, dass der Schreibfilter nach der App-Bereitstellung neu gestartet werden soll. Wenn der Schreibfilter nicht deaktiviert ist, wird die Software auf einem temporären Overlay bereitgestellt. Das bedeutet, dass die Software bei einem Neustart des Geräts nicht mehr installiert wird, es sei denn, die Beibehaltung der Änderungen wird durch eine andere Bereitstellung erzwungen.  
+-   Quand vous déployez des applications sur des appareils Windows Embedded activés pour le filtrage d’écriture, vous pouvez spécifier s’il faut désactiver le filtre d’écriture sur l’appareil pendant le déploiement de l’application. Vous pouvez ensuite choisir de redémarrer le filtre d’écriture une fois l’application déployée. Si le filtre d’écriture n’est pas désactivé, le logiciel est déployé sur un segment de recouvrement temporaire. Cela signifie que, sauf si un autre déploiement force la conservation des modifications, le logiciel n’est plus installé lors du redémarrage de l’appareil.  
 
--   Stellen Sie beim Bereitstellen einer Anwendung auf einem Windows Embedded-Gerät sicher, dass das Gerät Mitglied einer Sammlung ist, für die ein Wartungsfenster konfiguriert ist. So können Sie verwalten, wann der Schreibfilter deaktiviert bzw. aktiviert ist und wann das Gerät neu gestartet wird.  
+-   Lorsque vous déployez une application sur un appareil Windows Embedded, assurez-vous que l'appareil fait partie des membres d'un regroupement pour lequel une fenêtre de maintenance a été configurée. Cela vous permet de gérer le moment auquel le filtre d'écriture est désactivé et activé et le moment auquel l'appareil redémarre.  
 
--   Das Verhalten der Schreibfilter wird über das Kontrollkästchen **Änderungen zum Stichtag oder während eines Wartungsfensters ausführen (erfordert Neustart)** gesteuert.  
+-   Le paramètre qui contrôle le comportement du filtre d’écriture est une case à cocher nommée **Valider les changements à l’échéance ou pendant une fenêtre de maintenance (redémarrage requis)**.  
 
-## <a name="tips-for-deploying-applications"></a>Tipps zum Bereitstellen von Anwendungen  
+## <a name="tips-for-deploying-applications"></a>Conseils sur le déploiement d’applications  
 
-**Verwenden von erforderlichen Anwendungen anstelle von verfügbaren Anwendungen für Windows Embedded-Geräte mit aktivierten Schreibfiltern.** Da Benutzer auf einem Windows Embedded-Gerät, für das Schreibfilter aktiviert sind, keine Apps aus dem Softwarecenter installieren können, sollten Sie anstelle von **verfügbaren** Anwendungen immer Anwendungen bereitstellen, die auch wirklich **erforderlich** sind. Normalerweise ist dies kein Problem, da auf Computern mit Windows Embedded-Betriebssystem häufig eine einzelne Anwendung ausgeführt wird, die für mehrere Benutzer gleich ausgeführt werden muss. Daher verfügen diese Geräte über einen hohen Verwaltungsgrad und sind von der IT-Abteilung gesperrt. Erforderliche Anwendungen sind für dieses Szenario gut geeignet.
+**Utilisez les applications obligatoires plutôt que les applications disponibles pour les appareils Windows Embedded dont les filtres d’écriture sont activés.** Comme les utilisateurs ne peuvent pas installer d’applications à partir du Centre logiciel sur un appareil Windows Embedded dont les filtres d’écriture sont activés, déployez toujours les applications ayant pour objet du déploiement la valeur **Obligatoire** et non **Disponible** sur ces appareils. En général, cela ne pose pas de problème, car les ordinateurs qui exécutent un système d’exploitation Windows Embedded n’exécutent souvent qu’une seule application de la même manière pour plusieurs utilisateurs. Ainsi, ces périphériques font l'objet d'une gestion de haut niveau et sont verrouillés par le service informatique de l'entreprise. Les applications requises sont bien adaptées à ce scénario.
 
- Falls Benutzer auf eingebetteten Geräten jedoch mehr als eine Anwendung ausführen, wenn Schreibfilter aktiviert sind, sollten Sie diese Benutzer über die folgenden Einschränkungen informieren:  
+ Toutefois, si des utilisateurs exécutent plusieurs applications sur des périphériques Windows Embedded alors que les filtres d'écriture sont activés, pensez à les informer des limitations suivantes :  
 
--   Benutzer können erforderliche Software nicht über das Softwarecenter installieren.  
+-   Les utilisateurs ne peuvent pas installer les logiciels requis à partir du Centre logiciel.  
 
--   Benutzer können ihre Geschäftszeiten im Softwarecenter auf der Registerkarte „Optionen“ nicht ändern.  
+-   Les utilisateurs ne peuvent pas modifier leurs heures de bureau sous l’onglet Options du Centre logiciel.  
 
--   Benutzer können die Installation einer erforderlichen Anwendung nicht verschieben.  
+-   Les utilisateurs ne peuvent pas reporter l'installation d'une application requise.  
 
-Benutzer mit geringen Rechten können sich nicht während eines Wartungszeitraums anmelden, wenn Configuration Manager Änderungen für Softwareinstallationen und Updates übernimmt. Während dieses Zeitraums wird Benutzern die Meldung angezeigt, dass das Gerät nicht verfügbar ist, weil es gewartet wird.  
+Par ailleurs, les utilisateurs disposant de droits restreints ne peuvent pas ouvrir une session pendant une période de maintenance si Configuration Manager valide des modifications pour les installations et les mises à jour logicielles. Au cours de cette période, les utilisateurs voient un message indiquant que le périphérique n'est pas disponible pour des raisons de maintenance.  
 
-**Vermeiden der Bereitstellung von Anwendungen auf Windows Embedded-Geräten mit aktivierten Schreibfiltern, wenn die Anwendungen von Benutzern erfordern, dass den Lizenzbedingungen zugestimmt wird.** Wenn die Schreibfilter deaktiviert sind, sodass von Configuration Manager Software auf eingebetteten Geräten installiert werden kann, können sich Benutzer mit geringen Rechten auf dem Gerät nicht anmelden. Wenn die Installation die Zustimmung zu den Lizenzbedingungen durch den Benutzer erfordert, ist dies nicht möglich, und bei der Installation tritt ein Fehler auf. Stellen Sie sicher, dass Sie keine Software auf Windows Embedded-Geräten bereitstellen, wenn für die Installation eine Benutzerinteraktion erforderlich ist. Sie können die Liste „Zutreffende Plattformen“ zum Filtern dieser Betriebssysteme verwenden.  
+**Si des applications obligent l’utilisateur à accepter les termes du contrat de licence, ne les déployez pas sur des appareils Windows Embedded dont les filtres d’écriture sont activés.** Quand les filtres d’écriture sont désactivés et que Configuration Manager peut donc installer des logiciels sur les appareils intégrés, les utilisateurs disposant de droits restreints ne peuvent pas ouvrir de session sur l’appareil. Si l'installation oblige l'utilisateur à accepter les termes du contrat de licence, l'installation échoue, car cette opération est impossible. Si l'installation nécessite l'intervention de l'utilisateur, veillez à ne pas déployer des logiciels sur des périphériques Windows Embedded. Pour filtrer ces systèmes d’exploitation, vous pouvez utiliser la liste Plateformes applicables.  

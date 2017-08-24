@@ -1,6 +1,6 @@
 ---
-title: "Übliche Tasks für die Konformitätsverwaltung von clientverwalteten Geräten | Microsoft-Dokumentation"
-description: "Erfahren Sie mehr über System Center Configuration Manager-Kompatibilitätseinstellungen, indem Sie einige Szenarios durcharbeiten."
+title: "Tâches courantes de gestion de la compatibilité pour les appareils gérés par un client - Configuration Manager | Microsoft Docs"
+description: "Découvrez les paramètres de compatibilité de System Center Configuration Manager en examinant certains scénarios courants."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,95 +17,95 @@ manager: angrobe
 ms.openlocfilehash: 2012ab5e55da8d707fd668e0163b42fe7d56c72f
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="common-tasks-for-managing-compliance-on-devices-with-the-system-center-configuration-manager-client"></a>Allgemeine Aufgaben zur Verwaltung der Kompatibilität auf Geräten mit dem System Center Configuration Manager-Client
+# <a name="common-tasks-for-managing-compliance-on-devices-with-the-system-center-configuration-manager-client"></a>Tâches courantes de gestion de la compatibilité des appareils avec le client System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Die Szenarios in diesem Thema dienen zur Einführung in das Verwenden der System Center Configuration Manager-Kompatibilitätseinstellungen, indem Sie einige gängige Szenarios durcharbeiten, die auftreten könnten.  
+Cette rubrique vous propose une introduction à l’utilisation des paramètres de compatibilité de System Center Configuration Manager à travers des exemples de scénarios courants que vous êtes susceptible de rencontrer.  
 
- Wenn Sie bereits mit den Kompatibilitätseinstellungen vertraut sind, finden Sie eine ausführliche Dokumentation zu allen verwendbaren Features im Abschnitt [Konfigurationselemente für Geräte, die mit dem System Center Configuration Manager-Client verwaltet werden](../../compliance/deploy-use/configuration-items-for-devices-managed-with-the-client.md).  
+ Si vous connaissez déjà les paramètres de compatibilité, vous trouverez une documentation détaillée sur toutes les fonctionnalités que vous utilisez dans la section [Éléments de configuration pour les appareils gérés avec le client System Center Configuration Manager](../../compliance/deploy-use/configuration-items-for-devices-managed-with-the-client.md).  
 
- Bevor Sie beginnen, lesen Sie [Erste Schritte mit Kompatibilitätseinstellungen](../../compliance/get-started/get-started-with-compliance-settings.md), um einige Grundlagen der Kompatibilitätseinstellungen zu erfahren, und lesen Sie zudem [Planen und Konfigurieren von Kompatibilitätseinstellungen](../../compliance/plan-design/plan-for-and-configure-compliance-settings.md), um jegliche notwendigen Voraussetzungen zu implementieren.  
+ Avant de commencer, lisez [Bien démarrer avec les paramètres de compatibilité](../../compliance/get-started/get-started-with-compliance-settings.md) pour apprendre les notions de base sur les paramètres de compatibilité, et lisez également [Planifier et configurer les paramètres de compatibilité](../../compliance/plan-design/plan-for-and-configure-compliance-settings.md) pour implémenter tous les prérequis.  
 
-## <a name="general-information-for-each-scenario"></a>Allgemeine Informationen für jedes Szenario  
- In jedem Szenario erstellen Sie ein Konfigurationselement, das eine bestimmte Aufgabe ausführt. Öffnen Sie den Assistenten zum Erstellen von Konfigurationselementen, und führen Sie die folgenden Schritte aus:  
+## <a name="general-information-for-each-scenario"></a>Informations générales pour chaque scénario  
+ Dans chaque scénario, vous allez créer un élément de configuration qui effectue une tâche spécifique. Pour ouvrir l’Assistant Création d’élément de configuration, procédez comme suit :  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Bestand und Kompatibilität** > **Kompatibilitätseinstellungen** > **Konfigurationselemente**.  
+1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité** > **Paramètres de compatibilité** > **Éléments de configuration**.  
 
-3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** auf **Konfigurationselement erstellen**.  
+3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer un élément de configuration**.  
 
-4.  Geben Sie auf der Registerkarte **Allgemein** des nachstehend gezeigten Assistenten zum Erstellen von Konfigurationselementen einen Namen und eine Beschreibung des Konfigurationselements an. Wählen Sie dann den für jedes Szenario geeigneten Konfigurationselementtyp.  
+4.  Sous l’onglet **Général** de l’Assistant Création d’élément de configuration illustré ci-dessous, nommez et décrivez l’élément de configuration, puis choisissez le type d’élément de configuration approprié pour chaque scénario de cette rubrique.  
 
-     ![Zeigt die Seite „Allgemein“ des Assistenten zum Erstellen von Konfigurationselementen](/sccm/compliance/plan-design/media/Compliance-Settings-Wizard---1.png)  
+     ![Affiche la page Général de l’Assistant Création d’élément de configuration.](/sccm/compliance/plan-design/media/Compliance-Settings-Wizard---1.png)  
 
-## <a name="scenarios-for-windows-10-devices-managed-with-the-configuration-manager-client"></a>Szenarien für Windows 10-Geräte, die mit dem Configuration Manager-Client verwaltet werden  
+## <a name="scenarios-for-windows-10-devices-managed-with-the-configuration-manager-client"></a>Scénarios pour appareils Windows 10 gérés avec le client Configuration Manager  
 
-### <a name="scenario-disable-the-use-of-bluetooth-on-windows-10-devices"></a>Szenario: Deaktivieren von Bluetooth auf Windows 10-Geräten  
- In diesem Szenario hat Ihre Sicherheitsabteilung festgestellt, dass die Bluetooth-Funktion auf Geräten als Mittel genutzt werden kann, um vertrauliche Unternehmensdaten aus dem Unternehmen zu schmuggeln. Sie haben vor Kurzem alle Ihre PCs auf Windows 10 aktualisiert und sich entschieden, die Bluetooth-Funktion auf diesen Geräten zu deaktivieren.  
+### <a name="scenario-disable-the-use-of-bluetooth-on-windows-10-devices"></a>Scénario : désactiver l’utilisation de la fonction Bluetooth sur les appareils Windows 10  
+ Dans ce scénario, votre service de sécurité a identifié la fonctionnalité Bluetooth des appareils comme un moyen pouvant servir à transmettre des informations sensibles de l’entreprise vers l’extérieur. Vous avez dernièrement mis à niveau tous vos PC vers Windows 10 et décidez de désactiver la fonctionnalité Bluetooth sur ces appareils.  
 
-1.  Wählen Sie im Assistenten zum Erstellen von Konfigurationselementen auf der Seite **Allgemein** den Konfigurationselementtyp **Windows 10** aus, und klicken Sie auf **Weiter**.  
+1.  Dans la page **Général** de l’Assistant Création d’élément de configuration, sélectionnez le type d’élément de configuration **Windows 10** , puis cliquez sur **Suivant**.  
 
-2.  Wählen Sie auf der Seite **Unterstützte Plattformen** des Assistenten alle Windows 10-Plattformen aus.  
+2.  Dans la page **Plateformes prises en charge** de l’Assistant, sélectionnez toutes les plateformes Windows 10.  
 
-3.  Wählen Sie auf der Seite **Geräteeinstellungen** die Option **Gerät**aus, und klicken Sie dann auf **Weiter**.  
+3.  Dans la page **Paramètres du périphérique** , sélectionnez **Périphérique**, puis cliquez sur **Suivant**.  
 
-4.  Wählen Sie auf der Seite **Sicherheit** die Option **Nicht zulässig** als Einstellung für **Bluetooth**aus.  
+4.  Dans la page **Périphérique** , sélectionnez la valeur **Interdit** pour **Bluetooth**.  
 
-5.  Wählen Sie **Nicht kompatible Einstellungen wiederherstellen** aus, um sicherzustellen, dass die Änderung auf alle Windows 10-Geräte angewendet wird.  
+5.  Sélectionnez **Résoudre les paramètres non compatibles** pour faire en sorte que la modification s’applique à tous les appareils Windows 10.  
 
-6.  Schließen Sie den Assistenten ab, um das neue Konfigurationselement zu erstellen.  
+6.  Terminez l’Assistant pour créer l’élément de configuration.  
 
- Sie können nun die Informationen im Thema [Allgemeine Aufgaben zum Erstellen und Bereitstellen von Konfigurationsbaselines mit System Center Configuration Manager](../../compliance/plan-design/common-tasks-for-creating-and-deploying-configuration-baselines.md) verwenden, die Ihnen beim Bereitstellen der von Ihnen erstellten Konfiguration auf Geräten helfen.  
+ Vous pouvez maintenant utiliser les informations contenues dans la rubrique [Tâches courantes de création et de déploiement de bases de référence de configuration avec System Center Configuration Manager](../../compliance/plan-design/common-tasks-for-creating-and-deploying-configuration-baselines.md) pour déployer la configuration que vous avez créée sur les appareils.  
 
-## <a name="scenarios-for-windows-desktop-and-server-computers-managed-with-the-configuration-manager-client"></a>Szenarien für Windows-Desktop- und -Servercomputer, die mit dem Configuration Manager-Client verwaltet werden  
- Auf Macintosh-Computern mit ausgeführtem Configuration Manager-Client haben Sie zwei Optionen zur Bewertung der Kompatibilität:  
+## <a name="scenarios-for-windows-desktop-and-server-computers-managed-with-the-configuration-manager-client"></a>Scénarios pour ordinateurs de bureau et serveurs Windows gérés avec le client Configuration Manager  
+ Sur les ordinateurs Mac exécutant le client Configuration Manager, vous avez le choix entre deux options pour évaluer la compatibilité :  
 
--   Auswerten einer Datei mit Einstellungen für Mac OS X (.plist)  
+-   Évaluer un fichier de préférences (plist) Mac OS X.  
 
--   Verwenden eines benutzerdefinierten Skripts und Auswerten der vom Skript zurückgegeben Ergebnisse  
+-   Utiliser un script personnalisé et évaluer les résultats retournés par le script.  
 
- Mehr Informationen finden Sie unter [Erstellen von Konfigurationselementen für Mac OS X-Geräte, die mit dem System Center Configuration Manager-Client verwaltet werden](../../compliance/deploy-use/create-configuration-items-for-mac-os-x-devices-managed-with-the-client.md).  
+ Pour plus d’informations, consultez [Guide pratique pour créer des éléments de configuration pour les appareils Mac OS X gérés avec le client System Center Configuration Manager](../../compliance/deploy-use/create-configuration-items-for-mac-os-x-devices-managed-with-the-client.md).  
 
-### <a name="scenario-remediate-an-incorrect-registry-value-on-windows-desktop-computers"></a>Szenario: Wiederherstellen eines falschen Registrierungswerts auf Windows-Desktopcomputern  
- In diesem Szenario erkennen Sie, dass eine wichtige Sparten-App auf einigen von Ihnen verwalteten Computern mit Windows 8.1. nicht ordnungsgemäß funktioniert. Die Untersuchung ergibt, dass der Wert des Registrierungsschlüssels **HKEY_LOCAL_MACHINE\SOFTWARE\Woodgrove\LOB App\Configuration\Configuration1** auf einigen Computern auf **0** festgelegt ist. Damit die Sparten-App ordnungsgemäß funktioniert, muss dieser Wert auf **1**festgelegt werden.  
+### <a name="scenario-remediate-an-incorrect-registry-value-on-windows-desktop-computers"></a>Scénario : corriger une valeur de Registre incorrecte sur les ordinateurs de bureau Windows  
+ Dans ce scénario, vous constatez qu’une d’applications métier importante ne fonctionne pas correctement sur certains ordinateurs que vous gérez et qui exécutent Windows 8.1. Après enquête, vous découvrez que le problème est lié à la définition de la clé de Registre **HKEY_LOCAL_MACHINE\SOFTWARE\Woodgrove\LOB App\Configuration\Configuration1** , qui a la valeur **0** sur certains ordinateurs. Pour que l’application métier s’exécute correctement, cette valeur doit être égale à **1**.  
 
- Bei diesem Verfahren erstellen Sie ein Konfigurationselement, das eine Überwachung auf falsche Registrierungsschlüsselwerte vornimmt und diese automatisch korrigiert.  
+ Dans cette procédure, vous allez créer un élément de configuration destiné à rechercher les valeurs de clé de Registre incorrectes et à les corriger automatiquement, le cas échéant.  
 
-1.  Wählen Sie im Assistenten zum Erstellen von Konfigurationselementen auf der Seite **Allgemein** den Konfigurationselementtyp **Windows-Desktop oder -Server (benutzerdefiniert)** aus, und klicken Sie auf **Weiter**.  
+1.  Dans la page **Général** de l’Assistant Création d’élément de configuration, sélectionnez le type d’élément de configuration **Ordinateurs et serveurs Windows (personnalisés)** , puis cliquez sur **Suivant**.  
 
-2.  Wählen Sie auf der Seite **Unterstützte Plattformen** des Assistenten **Windows 8.1** aus (um sicherzustellen, dass das Konfigurationselement nur für betroffene Computer gilt).  
+2.  Dans la page **Plateformes prises en charge** de l’Assistant, sélectionnez **Windows 8.1** (pour faire en sorte que l’élément de configuration ne s’applique qu’aux ordinateurs concernés).  
 
-3.  Klicken Sie auf der Seite **Einstellungen** auf **Neu** , um eine neue Einstellung zu erstellen.  
+3.  Dans la page **Paramètres** , cliquez sur **Nouveau** pour créer un paramètre.  
 
-4.  Konfigurieren Sie auf der Registerkarte **Allgemein** des Dialogfelds **Einstellung erstellen** die folgenden Informationen:  
+4.  Sous l’onglet **Général** de la boîte de dialogue **Créer un paramètre** , configurez les éléments suivants :  
 
-    -   **Name** > **Beispieleinstellung**  
+    -   **Nom** > **Paramètre de l’exemple**  
 
-    -   **Einstellungstyp** > **Registrierungswert**  
+    -   **Type de paramètre** > **Valeur de Registre**  
 
-    -   **Datentyp** > **Ganze Zahl** (da der Wert nur eine Zahl enthält)  
+    -   **Type de données** > **Entier** (sachant que la valeur ne peut être qu’un nombre)  
 
-    -   **Struktur** > **HKEY_LOCAL_MACHINE**  
+    -   **Ruche** > **HKEY_LOCAL_MACHINE**  
 
-    -   **Schlüssel** > **SOFTWARE\Woodgrove\LOB App\Configuration\Configuration1**  
+    -   **Clé** > **SOFTWARE\Woodgrove\LOB App\Configuration\Configuration1**  
 
-    -   **Wert** > **1** (der erforderliche Wert)  
+    -   **Valeur** > **1** (valeur requise)  
 
-5.  Klicken Sie im Dialogfeld **Einstellung erstellen** auf der Registerkarte **Kompatibilitätsregeln** auf **Neu**, und konfigurieren Sie dann im Dialogfeld **Regel erstellen** Folgendes:  
+5.  Sous l’onglet **Règles de compatibilité** de la boîte de dialogue **Créer un paramètre** , cliquez sur **Nouveau**puis, dans la boîte de dialogue **Créer une règle** , configurez les éléments suivants :  
 
-    -   **Name** > **Beispielregel**  
+    -   **Nom** > **Règle de l’exemple**  
 
-    -   **Ausgewählte Einstellung** – Überprüfen, ob die ausgewählte Einstellung **Beispieleinstellung**ist.  
+    -   **Paramètre sélectionné** : vérifiez que le paramètre sélectionné est le **paramètre de l’exemple**.  
 
-    -   **Regeltyp** > **Wert**  
+    -   **Type de règle** > **Valeur**  
 
-    -   **Die folgende Regel muss von der Einstellung erfüllt werden** – Stellen Sie sicher, dass der Name der Einstellung richtig ist, und konfigurieren Sie die Option, um anzugeben, dass der Einstellungswert **1**sein muss.  
+    -   **Le paramètre doit être conforme à la règle suivante** : vérifiez que le nom du paramètre est correct et configurez l’option pour spécifier que la valeur du paramètre doit être égale à **1**.  
 
-    -   **Nicht kompatible Regeln wiederherstellen, falls dies unterstützt wird** – Aktivieren Sie dieses Kontrollkästchen, um sicherzustellen, dass Configuration Manager den Wert des Registrierungsschlüssels auf den richtigen Wert zurücksetzt, wenn er falsch ist.  
+    -   **Résoudre les règles non compatibles lorsqu’elles sont prises en charge** – Cochez cette case pour garantir que Configuration manager rétablira la valeur correcte de la clé de Registre si sa valeur est incorrecte.  
 
-6.  Schließen Sie den Assistenten ab, um das neue Konfigurationselement zu erstellen.  
+6.  Terminez l’Assistant pour créer l’élément de configuration.  
 
- Sie können nun die Informationen im Thema [Allgemeine Aufgaben zum Erstellen und Bereitstellen von Konfigurationsbaselines](../../compliance/plan-design/common-tasks-for-creating-and-deploying-configuration-baselines.md) verwenden, die Ihnen beim Bereitstellen der von Ihnen erstellten Konfiguration auf Geräten helfen.  
+ Vous pouvez maintenant utiliser les informations contenues dans la rubrique [Tâches courantes de création et de déploiement de bases de référence de configuration](../../compliance/plan-design/common-tasks-for-creating-and-deploying-configuration-baselines.md) pour déployer la configuration que vous avez créée sur les appareils.  

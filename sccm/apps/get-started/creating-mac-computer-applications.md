@@ -1,6 +1,6 @@
 ---
-title: "Erstellen von Anwendungen für Macintosh-Computer | Microsoft-Dokumentation"
-description: "Erfahren Sie, was Sie beim Erstellen und Bereitstellen von Anwendungen für Macintosh-Computer berücksichtigen müssen."
+title: "Créer des applications pour ordinateurs Mac | Microsoft Docs"
+description: "Examinez les éléments à prendre en compte quand vous créez et déployez des applications pour des ordinateurs Mac."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,199 +17,199 @@ manager: angrobe
 ms.openlocfilehash: ffd66a4047ec253704e9772e2c3e3a4d9db7c46f
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-mac-computer-applications-with-system-center-configuration-manager"></a>Erstellen von Anwendungen für Macintosh-Computer mit System Center Configuration Manager
+# <a name="create-mac-computer-applications-with-system-center-configuration-manager"></a>Créer des applications pour ordinateurs Mac avec System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Berücksichtigen Sie beim Erstellen und Bereitstellen von Apps für Macintosh-Computer folgende Überlegungen.  
+Gardez à l’esprit les considérations suivantes quand vous créez et déployez des applications pour des ordinateurs Mac.  
 
 > [!IMPORTANT]  
->  Die Verfahren in diesem Thema enthalten Informationen zum Bereitstellen von Anwendungen auf Macintosh-Computern, auf denen Sie den Configuration Manager-Client installiert haben. Macintosh-Computer, die Sie bei Microsoft Intune registriert haben, unterstützen keine Anwendungsbereitstellung.  
+>  Les procédures décrites dans cette rubrique abordent des informations sur le déploiement d’applications sur des ordinateurs Mac sur lesquels vous avez installé le client Configuration Manager. Les ordinateurs Mac que vous avez inscrits auprès de Microsoft Intune ne prennent pas en charge le déploiement d’applications.  
 
-## <a name="general-considerations"></a>Allgemeine Aspekte  
- Sie können System Center Configuration Manager nutzen, um Anwendungen auf Macintosh-Computern bereitzustellen, die den Configuration Manager-Client für Macintosh ausführen. Die Schritte zum Bereitstellen von Software auf Macintosh-Computern ähneln den Schritten zum Bereitstellen von Software auf Windows-Computern. Berücksichtigen Sie jedoch folgende Punkte, bevor Sie Anwendungen für Macintosh-Computer, die von Configuration Manager verwaltet werden, erstellen und bereitstellen:  
+## <a name="general-considerations"></a>Éléments généraux à prendre en compte  
+ Vous pouvez utiliser System Center Configuration Manager pour déployer des applications sur les ordinateurs Mac qui exécutent le client Configuration Manager pour Mac. La procédure de déploiement de logiciels sur les ordinateurs Mac est similaire à celle utilisée pour le déploiement de logiciels sur les ordinateurs Windows. Toutefois, avant de créer et déployer des applications pour des ordinateurs Mac gérés par Configuration Manager, tenez compte des points suivants :  
 
--   Bevor Sie Macintosh-Anwendungspakete auf Macintosh-Computern bereitstellen können, müssen Sie das Tool **CMAppUtil** auf einem Macintosh-Computer verwenden, um diese Anwendungen in ein Format zu konvertieren, das von Configuration Manager gelesen werden kann.  
+-   Pour pouvoir déployer des packages d’application Mac sur des ordinateurs Mac, vous devez vous servir de l’outil **CMAppUtil** sur un ordinateur Mac pour convertir ces applications dans un format lisible par Configuration Manager.  
 
--   Configuration Manager unterstützt die Bereitstellung von Macintosh-Anwendungen für Benutzer nicht. Diese Bereitstellungen müssen stattdessen für ein Gerät erfolgen. Genauso gilt für die Bereitstellung von Macintosh-Anwendungen, dass Configuration Manager die Option **Software vorab auf dem primären Gerät des Benutzers bereitstellen** auf der Seite **Bereitstellungseinstellungen** des **Assistenten zum Bereitstellen von Software** nicht unterstützt.  
+-   Configuration Manager ne prend pas en charge le déploiement d’applications Mac sur les utilisateurs. Ces déploiements doivent plutôt être dirigés sur un appareil. De même, pour les déploiements d’applications Mac, Configuration Manager ne prend pas en charge l’option **Prédéployer des logiciels sur le périphérique principal de l’utilisateur** proposée dans la page **Paramètres de déploiement** de l’**Assistant Déploiement logiciel**.  
 
--   Simulierte Bereitstellungen werden von Macintosh-Anwendungen unterstützt.  
+-   Les applications Mac prennent en charge les déploiements simulés.  
 
--   Anwendungen mit dem Zweck **Verfügbar**können auf Macintosh-Computern nicht bereitgestellt werden.  
+-   Vous ne pouvez pas déployer d'applications sur des ordinateurs Mac dont l'objet est **Disponible**.  
 
--   Die Option zum Senden von Aktivierungspaketen beim Bereitstellen von Software wird für Macintosh-Computer nicht unterstützt.  
+-   L'option d'envoi de paquets de mise en éveil lors du déploiement de logiciels n'est pas prise en charge pour les ordinateurs Mac.  
 
--   Background Intelligent Transfer Service (BITS) zum Herunterladen von Anwendungsinhalten wird von Macintosh-Computern nicht unterstützt. Treten beim Herunterladen einer Anwendung Fehler auf, wird der Download neu gestartet.  
+-   Les ordinateurs Mac ne prennent pas en charge le service de transfert intelligent en arrière-plan (BITS) pour le téléchargement de contenu d’application. Si le téléchargement d’une application échoue, il redémarre entièrement.  
 
--   Configuration Manager unterstützt globale Bedingungen nicht, wenn Sie Bereitstellungstypen für Macintosh-Computer erstellen.  
+-   Configuration Manager ne prend pas en charge les conditions globales lorsque vous créez des types de déploiement pour ordinateurs Mac.  
 
-## <a name="steps-to-create-and-deploy-an-application"></a>Schritte zum Erstellen und Bereitstellen einer Anwendung  
- In der folgenden Tabelle finden Sie Schritte, Details und Informationen zum Erstellen von Anwendungen für Macintosh-Computer.  
+## <a name="steps-to-create-and-deploy-an-application"></a>Procédure de création et de déploiement d’une application  
+ Le tableau suivant présente la procédure, des détails et des informations pour créer et déployer des applications pour ordinateurs Mac.  
 
-|Schritt|Details|  
+|Étape|Détails|  
 |----------|-------------|  
-|**Schritt 1**: Vorbereiten von Macintosh-Anwendungen für Configuration Manager|Bevor Sie Configuration Manager-Anwendungen von Macintosh-Softwarepaketen erstellen können, müssen Sie das Tool **CMAppUtil** auf einem Macintosh-Computer verwenden, um die Macintosh-Software in eine Configuration Manager **CMMAC**-Datei zu konvertieren.|  
-|**Schritt 2**: Erstellen einer Configuration Manager-Anwendung, in der die Macintosh-Software enthalten ist|Verwenden Sie den **Assistenten zum Erstellen von Anwendungen**, um eine Anwendung für die Macintosh-Software zu erstellen.|  
-|**Schritt 3**: Erstellen eines Bereitstellungstyps für die Macintosh-Anwendung|Dieser Schritt ist nur erforderlich, wenn diese Informationen nicht automatisch aus der Anwendung importiert wurden.|  
-|**Schritt 4**: Bereitstellen der Macintosh-Anwendung|Verwenden Sie den **Assistenten zum Bereitstellen von Software**, um die Anwendung auf Macintosh-Computern bereitzustellen.|  
-|**Schritt 5**: Überwachen der Bereitstellung von Macintosh-Anwendungen|Überwachen Sie den Erfolg der Bereitstellung von Anwendungen auf Macintosh-Computern.|  
+|**Étape 1** : préparer les applications Mac pour Configuration Manager|Pour pouvoir créer des applications Configuration Manager à partir de packages logiciels Mac, vous devez vous servir de l’outil **CMAppUtil** sur un ordinateur Mac pour convertir le logiciel Mac en fichier **.cmmac** Configuration Manager.|  
+|**Étape 2** : créer une application Configuration Manager contenant le logiciel Mac|Utilisez l’**Assistant Création d’une application** pour créer une application pour le logiciel Mac.|  
+|**Étape 3** : créer un type de déploiement pour l’application Mac|Cette étape n'est nécessaire que si vous n'avez pas importé automatiquement ces informations à partir de l'application.|  
+|**Étape 4** : déployer l’application Mac|Utilisez l’**Assistant Déploiement logiciel** pour déployer l’application sur les ordinateurs Mac.|  
+|**Étape 5** : surveiller le déploiement de l’application Mac|Assurez-vous que les déploiements d'application sur les ordinateurs Mac aboutissent.|  
 
-## <a name="supplemental-procedures-to-create-and-deploy-applications-for-mac-computers"></a>Zusätzliche Verfahren zum Erstellen und Bereitstellen von Anwendungen für Macintosh-Computer  
- Gehen Sie wie folgt vor, um Anwendungen für Macintosh-Computer, die von Configuration Manager verwaltet werden, zu erstellen und bereitzustellen.  
+## <a name="supplemental-procedures-to-create-and-deploy-applications-for-mac-computers"></a>Procédures supplémentaires de création et de déploiement d’applications pour ordinateurs Mac  
+ Les procédures suivantes permettent de créer et déployer des applications pour les ordinateurs Mac gérés par Configuration Manager.  
 
-###  <a name="step-1-prepare-mac-applications-for-configuration-manager"></a>Schritt 1: Vorbereiten von Macintosh-Anwendungen für Configuration Manager  
- Die Schritte zum Erstellen und Bereitstellen von Configuration Manager-Anwendungen auf Macintosh-Computern ähneln dem Bereitstellungsprozess für Windows-Computer. Bevor Sie jedoch Configuration Manager-Anwendungen erstellen, die Macintosh-Bereitstellungstypen enthalten, müssen Sie die Anwendungen mit der Verwendung des Tools **CMAppUtil** vorbereiten. Dieses Tool wird mit den Macintosh-Clientinstallationsdateien heruntergeladen. Mit dem **CMAppUtil** -Tool können Informationen zur Anwendung erfasst werden, darunter Erkennungsdaten von folgenden Macintosh-Paketen:  
+###  <a name="step-1-prepare-mac-applications-for-configuration-manager"></a>Étape 1 : préparer les applications Mac pour Configuration Manager  
+ La procédure à suivre pour créer et déployer des applications Configuration Manager sur des ordinateurs Mac est similaire à la procédure de déploiement applicable aux ordinateurs Windows. Toutefois, avant de créer des applications Configuration Manager contenant des types de déploiements Mac, vous devez préparer les applications à l’aide de l’outil **CMAppUtil**. Cet outil est téléchargé en même temps que les fichiers d'installation du client Mac. L'outil **CMAppUtil** peut recueillir des informations sur l'application, notamment des données de détection issues des packages Mac suivants :  
 
--   Apple Disc Image (.dmg)  
+-   Image disque Apple (.dmg)  
 
--   Meta Package-Datei (.mpkg)  
+-   Fichier métapaquet (.mpkg)  
 
--   Mac OS X Installer-Paket (.pkg)  
+-   Paquet d'installation Mac OS X (.pkg)  
 
--   Mac OS X-Anwendung (.app)  
+-   Application Mac OS X (.app)  
 
-Nach dem Erfassen von Anwendungsinformationen wird von **CMAppUtil** eine Datei mit der Erweiterung **.cmmac**erstellt. Diese Datei enthält die Installationsdateien für die Macintosh-Software und Informationen über Erkennungsmethoden, mit denen ermittelt werden kann, ob die Anwendung bereits installiert ist. Von**CMAppUtil** können auch **.dmg** -Dateien verarbeitet werden, die mehrere Macintosh-Anwendungen enthalten und mit denen pro Anwendung verschiedene Bereitstellungstypen erstellt werden.  
+Après avoir recueilli les informations sur l'application, **CMAppUtil** crée un fichier avec l'extension **.cmmac**. Ce fichier contient les fichiers d'installation du logiciel Mac et des informations sur les méthodes de détection pouvant être utilisées pour déterminer si l'application est déjà installée. **CMAppUtil** peut également traiter des fichiers **.dmg** qui contiennent plusieurs applications Mac et créer différents types de déploiement pour chaque application.  
 
-1.  Kopieren Sie das Macintosh-Softwareinstallationspaket in einen Ordner auf dem Macintosh-Computer, auf dem Sie den Inhalt der von der Microsoft Download Center-Website heruntergeladenen Datei **macclient.dmg** extrahiert haben.  
+1.  Copiez le package d'installation du logiciel Mac dans le dossier de l'ordinateur Mac dans lequel vous avez extrait le contenu du fichier **macclient.dmg** que vous avez téléchargé à partir du Centre de téléchargement Microsoft.  
 
-2.  Öffnen Sie auf diesem Macintosh-Computer ein Terminal-Fenster, und navigieren Sie zu dem Ordner, in dem Sie den Inhalt der **macclient.dmg** -Datei extrahiert haben.  
+2.  Sur ce même ordinateur Mac, ouvrez une fenêtre de terminal et accédez au dossier dans lequel vous avez extrait le contenu du fichier **macclient.dmg** .  
 
-3.  Navigieren Sie zum Ordner **Tools**, und geben Sie folgenden Befehl in die Befehlszeile ein:  
+3.  Accédez au dossier **Outils**, puis tapez la commande de ligne de commande suivante :  
 
-     **./CMAppUtil** *<Eigenschaften\>*  
+     **./CMAppUtil** *<propriétés\>*  
 
-     Nehmen wir beispielsweise an, dass Sie die Inhalte einer Apple-Datenträgerimagedatei namens **MySoftware.dmg** konvertieren möchten, die im Ordner „Desktop“ eines Benutzers in einer **CMMAC**-Datei im gleichen Ordner gespeichert ist. Sie sollten auch **CMMAC**-Dateien für alle Anwendungen erstellen, die in der Datenträgerimagedatei gefunden werden. Verwenden Sie dazu die folgende Befehlszeile:  
+     Par exemple, supposez que vous souhaitez convertir le contenu d’un fichier image de disque Apple nommé **MySoftware.dmg** stocké dans le dossier Desktop de l’utilisateur en fichier **cmmac** dans le même dossier. Vous voulez également créer des fichiers **cmmac** pour toutes les applications se trouvant dans le fichier image de disque. Pour cela, utilisez la ligne de commande suivante :  
 
-     **./CMApputil –c /Users/** *Benutzername\>* **/Desktop/MySoftware.dmg -o /Users/** *<Benutzername\>* **/Desktop -a**  
+     **./CMApputil –c /Users/** *<nom_utilisateur\>* **/Desktop/MySoftware.dmg -o /Users/** *<nom_utilisateur\>* **/Desktop -a**  
 
     > [!NOTE]  
-    >  Der Anwendungsname darf nicht mehr als 128 Zeichen umfassen.  
+    >  Le nom de l’application ne doit pas dépasser 128 caractères.  
 
-     Verwenden Sie zum Konfigurieren der Optionen für **CMAppUtil**die Befehlszeileneigenschaften aus der folgenden Tabelle:  
+     Pour configurer les options de **CMAppUtil**, utilisez les propriétés de ligne de commande décrites dans le tableau suivant :  
 
-    |Eigenschaft|Weitere Informationen|  
+    |Propriété|Plus d'informations|  
     |--------------|----------------------|  
-    |**-h**|Zeigt die verfügbaren Befehlszeileneigenschaften an.|  
-    |**-r**|Gibt die **detection.xml** -Datei der angegebenen **.cmmac** -Datei in **stdout**aus. Die Ausgabe enthält die Erkennungsparameter und die Version von **CMAppUtil** , die zum Erstellen der **.cmmac** -Datei verwendet wurde.|  
-    |**-c**|Gibt die zu konvertierende Quelldatei an.|  
-    |**-o**|Gibt den Ausgabepfad zusammen mit der Eigenschaft „-c“ an.|  
-    |**-a**|Erstellt automatisch CMMAC-Dateien zusammen mit der Eigenschaft „-c“ für alle Anwendung und Pakete in der Datenträgerimagedatei.|  
-    |**-s**|Damit wird die Erstellung der **detection.xml** -Datei übersprungen, wenn keine Erkennungsparameter gefunden wurden, und die Erstellung der **.cmmac** -Datei ohne die **detection.xml** -Datei erzwungen.|  
-    |**-v**|Zeigt eine ausführlichere Ausgabe aus dem **CMAppUtil** -Tool sowie Diagnoseinformationen an.|  
+    |**-h**|Affiche les propriétés de ligne de commande disponibles.|  
+    |**-r**|Génère **detection.xml** du fichier **.cmmac** fourni à **stdout**. La sortie contient les paramètres de détection et la version de **CMAppUtil** qui a été utilisée pour créer le fichier **.cmmac** .|  
+    |**-c**|Spécifie le fichier source à convertir.|  
+    |**-o**|Spécifie le chemin de sortie conjointement avec la propriété –c.|  
+    |**-a**|Crée automatiquement des fichiers .cmmac conjointement avec la propriété –c pour l’ensemble des applications et des packages dans le fichier image de disque.|  
+    |**-s**|Ignore la génération de **detection.xml** si aucun paramètre de détection n'est trouvé et force la création du fichier **.cmmac** sans le fichier **detection.xml** .|  
+    |**-v**|Affiche une sortie plus détaillée de l'outil **CMAppUtil** , ainsi que des informations de diagnostic.|  
 
-4.  Stellen Sie sicher, dass die **.cmmac** -Datei in dem angegebenen Ausgabeordner erstellt wurde.  
+4.  Assurez-vous que le fichier **.cmmac** a été créé dans le dossier de sortie que vous avez spécifié.  
 
-###  <a name="create-a-configuration-manager-application-that-contains-the-mac-software"></a>Erstellen einer Configuration Manager-Anwendung, in der die Macintosh-Software enthalten ist  
+###  <a name="create-a-configuration-manager-application-that-contains-the-mac-software"></a>créer une application Configuration Manager contenant le logiciel Mac  
 
-Gehen Sie wie folgt vor, um eine Anwendung für Macintosh-Computer, die von Configuration Manager verwaltet werden, zu erstellen.  
+La procédure suivante permet de créer une application pour les ordinateurs Mac gérés par Configuration Manager.  
 
-1.  Wählen Sie in der Configuration Manager-Konsole die Optionen **Softwarebibliothek** > **Anwendungsverwaltung** > **Anwendungen** aus.  
+1.  Dans la console Configuration Manager, choisissez **Bibliothèque de logiciels** > **Gestion des applications** > **Applications**.  
 
-3.  Wählen Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** die Option **Anwendung erstellen** aus.  
+3.  Sous l’onglet **Accueil**, dans le groupe **Créer**, choisissez **Créer une application**.  
 
-4.  Wählen Sie im Assistenten zum Erstellen von Anwendungen auf der Seite **Anwendungsassistent erstellen** unter **Allgemein**die Option **Informationen zu dieser Anwendung automatisch anhand der Installationsdateien erkennen**aus.  
-
-    > [!NOTE]  
-    >  Wählen Sie die Option **Anwendungsinformationen manuell angeben** aus, wenn Sie selbst Informationen über die Anwendung angeben möchten. Weitere Informationen zum manuellen Angeben der Information finden Sie unter [Erstellen von Anwendungen mit System Center Configuration Manager](../../apps/deploy-use/create-applications.md).  
-
-5.  Wählen Sie in der Dropdownliste **Typ** die Option **Mac OS X**aus.  
-
-6.  Geben Sie im Feld **Speicherort** den UNC-Pfad zur Macintosh-Anwendungsinstallationsdatei (**CMMAC-Datei**) an, mit der die Anwendungsinformationen erkannt wird. Verwenden Sie dazu das Format *\\\\<Server\>\\<Freigabe\>\\<Dateiname\>*. Alternativ dazu können Sie **Durchsuchen** auswählen und den Speicherort der Installationsdatei angeben.  
+4.  Sur la page **Général** de l' **Assistant Création d'une application**, sélectionnez **Détecter automatiquement les informations de cette application à partir des fichiers d'installation**.  
 
     > [!NOTE]  
-    >  Sie benötigen Zugriff auf den UNC-Pfad mit der Anwendung.  
+    >  Si vous souhaitez spécifier vous-même des informations sur l’application, sélectionnez **Spécifier manuellement les informations de l’application**. Pour plus d’informations sur la façon de spécifier manuellement les informations, consultez [Comment créer des applications avec System Center Configuration Manager](../../apps/deploy-use/create-applications.md).  
 
-7.  Wählen Sie **Weiter** aus.  
+5.  Dans la liste déroulante **Type** , sélectionnez **Mac OS X**.  
 
-8.  Überprüfen Sie auf der Seite **Informationen importieren** des **Assistenten zum Erstellen von Anwendungen** die importierten Informationen. Bei Bedarf können Sie **Zurück** auswählen, um Fehler zu korrigieren. Wählen Sie **Weiter** aus, um den Vorgang fortzusetzen.  
-
-9. Geben Sie auf der Seite **Allgemeine Informationen** des **Assistenten zum Erstellen von Anwendungen** Informationen zur Anwendung wie den Anwendungsnamen, Kommentare, die Version und eine optionale Referenz der Anwendung für die Configuration Manager-Konsole an.  
+6.  Dans le champ **Emplacement**, spécifiez le chemin UNC au format *\\\\<serveur\>\\<partage\>\\<nom_fichier\>* du fichier d’installation de l’application pour Mac (fichier **.cmmac**) qui détectera les informations de l’application. Sinon, choisissez **Parcourir** pour rechercher et spécifier l’emplacement du fichier d’installation.  
 
     > [!NOTE]  
-    >  Einige Anwendungsinformationen sind auf dieser Seite möglicherweise schon vorhanden, wenn sie bereits aus den Anwendungsinstallationsdateien abgerufen wurden.  
+    >  Vous devez avoir accès au chemin d'accès UNC qui contient l'application.  
 
-10. Wählen Sie **Weiter** aus, überprüfen Sie auf der Seite **Zusammenfassung** die Anwendungsinformationen, und schließen Sie den **Assistenten zum Erstellen von Anwendungen** ab.  
+7.  Choisissez **Suivant**.  
 
-11. Die neue Anwendung wird im Knoten **Anwendungen** der Configuration Manager-Konsole angezeigt.  
+8.  Dans la page **Importer des informations** de l’**Assistant Création d’une application**, examinez les informations qui ont été importées. Si nécessaire, vous pouvez choisir **Précédent** pour revenir en arrière et corriger les erreurs éventuelles. Choisissez **Suivant** pour continuer.  
 
-###  <a name="step-3-create-a-deployment-type-for-the-mac-application"></a>Schritt 3: Erstellen eines Bereitstellungstyps für die Macintosh-Anwendung  
- Gehen Sie wie folgt vor, um einen Bereitstellungstyp für Macintosh-Computer, die von Configuration Manager verwaltet werden, zu erstellen.  
+9. Dans la page **Informations générales** de l’**Assistant Création d’une application**, spécifiez des informations sur l’application, telles que le nom d’application, des commentaires, la version et éventuellement une référence qui vous aidera à retrouver l’application dans la console Configuration Manager.  
+
+    > [!NOTE]  
+    >  Certaines informations sur l’application peuvent déjà être présentes dans cette page si elles ont été obtenues préalablement à partir des fichiers d’installation de l’application.  
+
+10. Choisissez **Suivant**, examinez les informations sur l’application figurant dans la page **Résumé**, puis suivez toutes les étapes de l’**Assistant Création d’une application**.  
+
+11. La nouvelle application s’affiche dans le nœud **Applications** de la console Configuration Manager.  
+
+###  <a name="step-3-create-a-deployment-type-for-the-mac-application"></a>Étape 3 : créer un type de déploiement pour l’application Mac  
+ La procédure suivante permet de créer un type de déploiement pour les ordinateurs Mac gérés par Configuration Manager.  
 
 > [!NOTE]  
->  Wenn Sie mit dem **Assistenten zum Erstellen von Anwendungen** automatisch Informationen zur Anwendung importiert haben, wurde möglicherweise bereits ein Bereitstellungstyp für die Anwendung erstellt.  
+>  Si vous avez importé automatiquement des informations sur l’application dans l’**Assistant Création d’une application**, il se peut qu’un type de déploiement ait déjà été créé pour l’application.  
 
-1.  Wählen Sie in der Configuration Manager-Konsole die Optionen **Softwarebibliothek** > **Anwendungsverwaltung** > **Anwendungen** aus.  
+1.  Dans la console Configuration Manager, choisissez **Bibliothèque de logiciels** > **Gestion des applications** > **Applications**.  
 
-3.  Wählen Sie eine Anwendung aus. Wählen Sie anschließend auf der Registerkarte **Startseite** in der Gruppe **Anwendung** **Bereitstellungstyp erstellen** aus, um einen neuen Bereitstellungstyp für diese Anwendung zu erstellen.  
-
-    > [!NOTE]  
-    >  Sie können den **Assistenten zum Erstellen neuer Bereitstellungstypen** auch über den **Assistenten zum Erstellen von Anwendungen** sowie über die Registerkarte **Bereitstellungstypen** im Dialogfeld *<Anwendungsname\>* **Eigenschaften** starten.  
-
-4.  Wählen Sie im **Assistenten zum Erstellen neuer Bereitstellungstypen** auf der Seite **Allgemein** in der Dropdownliste **Typ** den Eintrag **Mac OS X** aus.  
-
-5.  Geben Sie im Feld **Speicherort** den UNC-Pfad zur Anwendungsinstallationsdatei (**CMMAC-Datei**) an. Verwenden Sie dazu das Format \\\\<Server\>\\<Freigabe\>\\<Dateiname\>. Alternativ dazu können Sie **Durchsuchen** auswählen und den Speicherort der Installationsdatei angeben.  
+3.  Sélectionnez une application. Ensuite, sous l’onglet **Accueil**, dans le groupe **Application**, choisissez **Créer un type de déploiement** pour créer un type de déploiement pour cette application.  
 
     > [!NOTE]  
-    >  Sie benötigen Zugriff auf den UNC-Pfad mit der Anwendung.  
+    >  Vous pouvez également démarrer l’**Assistant Création d’un type de déploiement** à partir de l’**Assistant Création d’une application** et sous l’onglet **Types de déploiement** de la boîte de dialogue **Propriétés de** *<nom_application\>*.  
 
-6.  Wählen Sie **Weiter** aus.  
+4.  Dans la page **Général** de l’**Assistant Création d’un type de déploiement**, dans la liste déroulante **Type**, sélectionnez **Mac OS X**.  
 
-7.  Überprüfen Sie auf der Seite **Informationen importieren** des **** Assistenten zum Erstellen neuer Bereitstellungstypen die importierten Informationen. Bei Bedarf können Sie **Zurück** auswählen, um Fehler zu korrigieren. Wählen Sie zum Fortfahren **Weiter** aus.  
-
-8.  Geben Sie auf der Seite **Allgemeine Informationen** des **** Assistenten zum Erstellen neuer Bereitstellungstypen Informationen zur Anwendung an, beispielsweise Anwendungsname, Kommentare und die Sprachen, in denen dieser Bereitstellungstyp verfügbar sein soll.  
+5.  Dans le champ **Emplacement**, spécifiez le chemin UNC au format \\\\<serveur\>\\<partage\>\\<nom_fichier\> du fichier d’installation de l’application (fichier **.cmmac**). Sinon, choisissez **Parcourir** pour rechercher et spécifier l’emplacement du fichier d’installation.  
 
     > [!NOTE]  
-    >  Einige Informationen zum Bereitstellungstyp sind auf dieser Seite möglicherweise schon vorhanden, wenn sie bereits aus den Anwendungsinstallationsdateien abgerufen wurden.  
+    >  Vous devez avoir accès au chemin d'accès UNC qui contient l'application.  
 
-9. Wählen Sie **Weiter** aus.  
+6.  Choisissez **Suivant**.  
 
-10. Auf der Seite **Anforderungen** des **Assistenten zum Erstellen neuer Bereitstellungstypen** können Sie die Bedingungen angegeben, die erfüllt sein müssen, damit ein Bereitstellungstyp auf einem Macintosh-Computer installiert werden kann.  
+7.  Sur la page **Importer des informations** de l' **Assistant Création d'un type de déploiement**, examinez les informations qui ont été importées. Si nécessaire, choisissez **Précédent** pour revenir en arrière et corriger les erreurs éventuelles. Choisissez **Suivant** pour continuer.  
 
-11. Wählen Sie **Hinzufügen** aus, um das Dialogfeld **Anforderung erstellen** zu öffnen und eine neue Anforderung hinzuzufügen.  
+8.  Sur la page **Informations générales** de l' **Assistant Création d'un type de déploiement**, spécifiez des informations sur l'application, telles que le nom de l'application, des commentaires et les langues dans lesquelles le type de déploiement est disponible.  
 
     > [!NOTE]  
-    >  Sie können neue Anforderungen auch im Dialogfeld **Eigenschaften** von *<Name des Bereitstellungstyps\>* auf der Registerkarte **Anforderungen** hinzufügen.  
+    >  Certaines des informations sur le type de déploiement peuvent déjà être présentes dans cette page si elles ont été obtenues préalablement à partir des fichiers d’installation de l’application.  
 
-12. Wählen Sie in der Dropdownliste **Kategorie** aus, dass diese Anforderung für ein Gerät bestimmt ist.  
+9. Choisissez **Suivant**.  
 
-13. Wählen Sie in der Dropdownliste **Bedingung** die Bedingung aus, anhand derer bewertet werden soll, ob der Windows- bzw. der Macintosh-Computer den Installationsanforderungen entspricht. Der Inhalt dieser Liste variiert je nach Kategorie, die Sie auswählen.  
+10. Dans la page **Spécifications** de l’**Assistant Création d’un type de déploiement**, vous pouvez spécifier les conditions à remplir pour que le type de déploiement puisse être installé sur des ordinateurs Mac.  
 
-14. Wählen Sie in der Dropdownliste **Operator** den Operator aus, der zum Vergleichen der ausgewählten Bedingung mit dem angegebenen Wert verwendet werden soll, um zu bewerten, ob der Benutzer bzw. das Gerät den Installationsanforderungen entspricht. Welche Operatoren verfügbar sind, ist von der ausgewählten Bedingung abhängig.  
+11. Choisissez **Ajouter** pour ouvrir la boîte de dialogue **Créer une spécification**, puis ajoutez une nouvelle spécification.  
 
-15. Geben Sie im Feld **Wert** die Werte ein, die in Kombination mit der ausgewählten Bedingung und dem Operator verwendet werden sollen, um zu bewerten, ob der Benutzer bzw. das Gerät den Installationsanforderungen entspricht. Welche Werte verfügbar sind, ist von der ausgewählten Bedingung und dem ausgewählten Operator abhängig.
+    > [!NOTE]  
+    >  Vous pouvez également ajouter de nouvelles spécifications sous l’onglet **Spécifications** de la boîte de dialogue **Propriétés** de *<nom_type_déploiement\>*.  
 
-16. Wählen Sie **OK** aus, um die Anforderungsregel zu speichern und das Dialogfeld **Anforderung erstellen** zu schließen.  
+12. Dans la liste déroulante **Catégorie** , indiquez que cette spécification concerne un périphérique.  
 
-17. Wählen Sie im **Assistenten zum Erstellen neuer Bereitstellungstypen** auf der Seite **Anforderungen** **Weiter** aus.  
+13. Dans la liste déroulante **Condition**, sélectionnez la condition que vous souhaitez utiliser pour déterminer si l’ordinateur Mac répond aux spécifications de l’installation. Le contenu de cette liste varie en fonction de la catégorie sélectionnée.  
 
-18. Überprüfen Sie im Assistenten zum Erstellen neuer Bereitstellungstypen auf der Seite **Zusammenfassung** die Aktionen, die von diesem Assistenten **** ausgeführt werden sollen.  Bei Bedarf können Sie **Zurück** auswählen, um die Einstellungen für den Bereitstellungstyp zu ändern. Wählen Sie **Weiter** aus, um den Bereitstellungstyp zu erstellen.  
+14. Dans la liste déroulante **Opérateur**, choisissez l’opérateur qui sera utilisé pour comparer la condition sélectionnée à la valeur spécifiée afin d’évaluer si l’utilisateur ou l’appareil répond aux spécifications de l’installation. Les opérateurs disponibles varient en fonction de la condition sélectionnée.  
 
-19. Nachdem die Seite **Status** abgeschlossen ist, überprüfen Sie die ausgeführten Aktionen, und wählen Sie dann **Schließen** aus, um den **Assistenten zum Erstellen von Bereitstellungstypen** abzuschließen.  
+15. Dans le champ **Valeur**, indiquez les valeurs qui seront utilisées avec l’opérateur et la condition sélectionnés afin d’évaluer si l’utilisateur ou l’appareil répond aux spécifications de l’installation. Les valeurs disponibles varient en fonction de la condition et de l’opérateur sélectionnés.
 
-20. Wenn dieser Assistent mit **Anwendungsassistent erstellen** gestartet wurde, wird jetzt die Seite **Bereitstellungstypen** angezeigt.  
+16. Choisissez **OK** pour enregistrer la règle de spécification et fermer la boîte de dialogue **Créer une spécification**.  
 
-###  <a name="deploy-the-mac-application"></a>Bereitstellen der Macintosh-Anwendung  
- Die Schritte zum Bereitstellen von Anwendungen auf Macintosh-Computern ähneln den Schritten zum Bereitstellen von Anwendungen auf Windows-Computern mit folgenden Ausnahmen:  
+17. Dans la page **Spécifications** de l’**Assistant Création d’un type de déploiement**, choisissez **Suivant**.  
 
--   Die Bereitstellung von Anwendungen für Benutzer wird nicht unterstützt.  
+18. Sur la page **Résumé** de l' **Assistant Création d'un type de déploiement**, passez en revue les actions que doit prendre l'Assistant.  Si nécessaire, choisissez **Précédent** pour revenir en arrière et modifier les paramètres du type de déploiement. Choisissez **Suivant** pour créer le type de déploiement.  
 
--   Bereitstellungen mit dem Zweck **Verfügbar** werden nicht unterstützt.  
+19. Après la fermeture de la page **Progression**, passez en revue les actions qui ont été menées, puis choisissez **Fermer** pour terminer l’**Assistant Création d’un type de déploiement**.  
 
--   Die Option **Software vorab auf dem primären Gerät des Benutzers bereitstellen** auf der Seite **Bereitstellungseinstellungen** des **Assistenten zum Bereitstellen von Software** wird nicht unterstützt.  
+20. Si vous avez démarré cet Assistant à partir de l’**Assistant Création d’une application**, vous revenez à la page **Types de déploiement**.  
 
--   Da das Softwarecenter von Macintosh-Computern nicht unterstützt wird, wird die Einstellung **Benutzerbenachrichtigungen** auf der Seite **Benutzerfreundlichkeit** des **Assistenten zum Bereitstellen von Software** ignoriert.  
+###  <a name="deploy-the-mac-application"></a>déployer l'application Mac  
+ La procédure à suivre pour déployer une application sur des ordinateurs Mac est identique à celle applicable aux ordinateurs Windows, à l’exception des points suivants :  
 
--   Die Option zum Senden von Aktivierungspaketen beim Bereitstellen von Software wird für Macintosh-Computer nicht unterstützt.  
+-   Le déploiement d'applications à destination des utilisateurs n'est pas pris en charge.  
+
+-   Les déploiements dont l'objet est **Disponible** ne sont pas pris en charge.  
+
+-   L’option **Prédéployer des logiciels sur le périphérique principal de l’utilisateur** de la page **Paramètres de déploiement** de l’**Assistant Déploiement logiciel** n’est pas prise en charge.  
+
+-   Les ordinateurs Mac ne prenant pas en charge le Centre logiciel, le paramètre **Notifications à l’utilisateur** de la page **Expérience utilisateur** de l’**Assistant Déploiement logiciel** est ignoré.  
+
+-   L'option d'envoi de paquets de mise en éveil lors du déploiement de logiciels n'est pas prise en charge pour les ordinateurs Mac.  
 
 > [!NOTE]  
->  Sie können eine Sammlung erstellen, die ausschließlich Macintosh-Computer enthält. Erstellen Sie dazu eine Sammlung, von der eine Abfrageregel verwendet wird, und nutzen Sie eine beispielhafte WQL-Abfrage im Thema [Erstellen von Abfragen](../../core/servers/manage/create-queries.md).  
+>  Vous pouvez créer un regroupement qui contient uniquement des ordinateurs Mac. Pour ce faire, créez un regroupement qui utilise une règle de requête et utilisez l’exemple de requête WQL figurant dans la rubrique [Guide pratique pour créer des requêtes](../../core/servers/manage/create-queries.md).  
 
- Weitere Informationen finden Sie unter [Bereitstellen von Anwendungen](../../apps/deploy-use/deploy-applications.md).  
+ Pour plus d’informations, consultez [Déployer des applications](../../apps/deploy-use/deploy-applications.md).  
 
-###  <a name="step-5-monitor-the-deployment-of-the-mac-application"></a>Schritt 5: Überwachen der Bereitstellung von Macintosh-Anwendungen  
- Die Überwachung von Anwendungsbereitstellungen auf Macintosh-Computern kann auf dieselbe Weise erfolgen wie auf Windows-Computern.  
+###  <a name="step-5-monitor-the-deployment-of-the-mac-application"></a>Étape 5 : surveiller le déploiement de l’application Mac  
+ Pour surveiller les déploiements d’applications sur les ordinateurs Mac, vous pouvez suivre la même procédure que celle applicable aux déploiements d’applications sur les ordinateurs Windows.  
 
- Weitere Informationen finden Sie unter [Überprüfen von Anwendungen](/sccm/apps/deploy-use/monitor-applications-from-the-console).  
+ Pour plus d’informations, consultez [Surveiller des applications](/sccm/apps/deploy-use/monitor-applications-from-the-console).  

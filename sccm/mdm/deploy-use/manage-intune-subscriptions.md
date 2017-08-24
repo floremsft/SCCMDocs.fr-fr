@@ -1,6 +1,6 @@
 ---
-title: Verwalten Ihres Intune-Abonnements, das System Center Configuration Manager zugeordnet ist | Microsoft-Dokumentation
-description: Verwalten Ihres Intune-Abonnements, das System Center Configuration Manager zugeordnet ist.
+title: "Gérer un abonnement Microsoft Intune associé à System Center Configuration Manager | Microsoft Docs"
+description: "Gérez un abonnement Microsoft Intune associé à System Center Configuration Manager."
 ms.custom: na
 ms.date: 06/02/2017
 ms.prod: configuration-manager
@@ -18,39 +18,39 @@ manager: angrobe
 ms.openlocfilehash: 2cb4d724c8b78657458a30c0bb020f67c6b62795
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-an-intune-subscription-associated-with-system-center-configuration-manager"></a>Verwalten Ihres Intune-Abonnements, das System Center Configuration Manager zugeordnet ist
+# <a name="manage-an-intune-subscription-associated-with-system-center-configuration-manager"></a>Gérer un abonnement Microsoft Intune associé à System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Wenn Sie Configuration Manager ein Microsoft Intune-Abonnement (Testabonnement oder kostenpflichtiges Abonnement) hinzufügen und dann zu einem anderen Intune-Abonnement wechseln müssen, müssen Sie sowohl das **Microsoft Intune-Abonnement** als auch den **Dienstverbindungspunkt** aus der Configuration Manager-Konsole löschen, bevor Sie ein neues Abonnement hinzufügen können.
+Si vous ajoutez un abonnement Microsoft Intune (abonnement d’essai ou payant) à Configuration Manager, et si vous devez ensuite passer à un autre abonnement Intune, vous devez supprimer l’**abonnement Microsoft Intune** et le **point de connexion de service** dans la console Configuration Manager avant de pouvoir ajouter un nouvel abonnement.
 
 > [!NOTE]
-> Sie können jeweils nur ein Intune-Abonnement in der hybriden Verwaltung mobiler Geräte konfigurieren.
+> Vous ne pouvez configurer qu’un seul abonnement Intune à la fois dans la fonction de gestion des appareils mobiles hybride.
 
-## <a name="how-to-delete-an-intune-subscription-from-configuration-manager"></a>Löschen eines Intune-Abonnements aus Configuration Manager
+## <a name="how-to-delete-an-intune-subscription-from-configuration-manager"></a>Comment supprimer un abonnement Intune de Configuration Manager
 
 > [!IMPORTANT]
->  Alle Inhalte, einschließlich Benutzerregistrierungen, Richtlinien und App-Bereitstellungen, die für Geräte konfiguriert sind, die vom Intune-Abonnement verwaltet werden, werden beim Löschen des Abonnements entfernt.
+>  Tout le contenu, dont les inscriptions des utilisateurs, les stratégies et les déploiements d’applications configurés pour les appareils gérés par l’abonnement Intune, est supprimé quand vous supprimez l’abonnement.
 
-1.  Wählen Sie in der Configuration Manager-Konsole **Verwaltung** > **Übersicht** > **Clouddienste** > **Microsoft Intune-Abonnements** aus.
+1.  Dans la console Configuration Manager, accédez à **Administration** > **Vue d’ensemble** > **Services cloud** > **Abonnements Microsoft Intune**.
 
-2.  Klicken Sie mit der rechten Maustaste auf das aufgeführte **Microsoft Intune-Abonnement**, und klicken Sie anschließend auf **Löschen**.
+2.  Cliquez avec le bouton droit sur l’**abonnement Microsoft Intune** répertorié, puis cliquez sur **Supprimer**.
 
-3.   Klicken Sie im Assistenten auf **Microsoft Intune-Abonnement aus Configuration Manager entfernen**, klicken Sie auf **Weiter**, und klicken Sie anschließend erneut auf **Weiter**, um das Abonnement zu entfernen.
+3.   Dans l’Assistant, cliquez sur **Remove Microsoft Intune Subscription from Configuration Manager** (Supprimer l’abonnement Microsoft Intune de Configuration Manager), sur **Suivant**, puis à nouveau sur **Suivant** pour supprimer l’abonnement.
 
 
-## <a name="how-to-remove-the-service-connection-point-role"></a>So entfernen Sie die Rolle „Dienstverbindungspunkt“
+## <a name="how-to-remove-the-service-connection-point-role"></a>Comment supprimer le rôle de point de connexion de service
 
-1.  Wechseln Sie zu **Verwaltung** > **Übersicht** > **-Standortkonfiguration** > **Server und Standortsystemrollen**.
+1.  Accédez à **Administration** > **Vue d’ensemble** > **Configuration du site** > **Serveurs et rôles de système de site**.
 
-2.  Wählen Sie den Server aus, auf dem die Rolle **Dienstverbindungspunkt** gehostet wird.
+2.  Sélectionnez le serveur hébergeant le rôle **Point de connexion de service**.
 
-3.  Wählen Sie in der Liste **Standortsystemrollen** die Option **Dienstverbindungspunkt** aus, und klicken Sie anschließend im Menüband auf **Rolle entfernen**. Bestätigen Sie, dass Sie die Rolle entfernen möchten. Der Dienstverbindungspunkt wird gelöscht.
+3.  Dans la liste **Rôles système de site**, sélectionnez **Point de connexion de service**, puis cliquez sur **Supprimer le rôle** dans le ruban. Confirmez que vous souhaitez supprimer le rôle. Le point de connexion de service est supprimé.
 
-Sie können jetzt einen neuen Dienstverbindungspunkt erstellen, Configuration Manager ein neues Intune-Abonnement hinzufügen und Configuration Manager als MDM-Autorität festlegen.
+Vous pouvez à présent créer un nouveau point de connexion de service, ajouter un nouvel abonnement Intune à Configuration Manager et définir Configuration Manager comme autorité de gestion des appareils mobiles.
 
-## <a name="how-to-change-mdm-authority-to-intune"></a>So stellen Sie die MDM-Autorität auf Intune um
-Ab Configuration Manager, Version 1610, und Microsoft Intune, Version 1705, können Sie Ihre MDM-Autorität ohne Unterstützung durch den Microsoft-Support und ohne Aufheben der Registrierung und erneutes Registrieren Ihrer vorhandenen verwalteten Geräte umstellen. Einzelheiten finden Sie unter [Umstellen der MDM-Autorität](/sccm/mdm/deploy-use/change-mdm-authority).
+## <a name="how-to-change-mdm-authority-to-intune"></a>Comment définir l’autorité MDM sur Intune
+À compter de Configuration Manager version 1610 et de Microsoft Intune version 1705, vous pouvez modifier votre autorité de gestion des appareils mobiles sans avoir à contacter le Support Microsoft et sans devoir annuler l’inscription de vos appareils gérés existants et les réinscrire. Pour plus d’informations, consultez [Changer d’autorité MDM](/sccm/mdm/deploy-use/change-mdm-authority).

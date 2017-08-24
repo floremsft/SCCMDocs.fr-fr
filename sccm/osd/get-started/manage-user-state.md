@@ -1,6 +1,6 @@
 ---
-title: "Verwalten des Benutzerstatus – Configuration Manager | Microsoft-Dokumentation"
-description: "System Center Configuration Manager verwendet das Migrationstool für den Benutzerstatus, um in Szenarios für die Betriebssystembereitstellung den Benutzerstatus zu erfassen und wiederherzustellen."
+title: "Gérer l’état utilisateur - Configuration Manager| Microsoft Docs"
+description: "System Center Configuration Manager utilise l’outil de migration de l’état utilisateur pour capturer et restaurer les données d’état utilisateur dans les scénarios de déploiement de système d’exploitation."
 ms.custom: na
 ms.date: 01/23/2017
 ms.prod: configuration-manager
@@ -18,114 +18,114 @@ manager: angrobe
 ms.openlocfilehash: a0bd86587669c32377b1eafa6a890d37e10ac3f6
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-user-state-in-system-center-configuration-manager"></a>Verwalten des Benutzerzustands in System Center Configuration Manager
+# <a name="manage-user-state-in-system-center-configuration-manager"></a>Gérer l’état utilisateur dans System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Mit System Center Configuration Manager-Tasksequenzen können Sie bei der Betriebssystembereitstellung die Benutzerstatusdaten erfassen und wiederherstellen, wenn Sie den Benutzerstatus des aktuellen Betriebssystems beibehalten möchten. Beispiel:  
+Vous pouvez utiliser des séquences de tâches System Center Configuration Manager pour capturer et restaurer les données d’état utilisateur dans les scénarios de déploiement de système d’exploitation où vous souhaitez conserver l’état utilisateur du système d’exploitation actuel. Exemple :  
 
--   Bereitstellungen, bei denen Sie den Benutzerzustand auf einem Computer erfassen und auf einem anderen Computer wiederherstellen möchten  
+-   Déploiements dans lesquels vous voulez capturer l’état utilisateur d’un ordinateur pour le restaurer sur un autre ordinateur.  
 
--   Updatebereitstellungen, bei denen Sie den Benutzerzustand auf dem gleichen Computer erfassen und wiederherstellen möchten  
+-   Déploiements de mise à jour dans lesquels vous voulez capturer et restaurer l'état utilisateur sur le même ordinateur.  
 
- Configuration Manager verwendet das Migrationstool für den Benutzerstatus (USMT 10.0), um nach Abschluss der Installation des Betriebssystems die Migration von Benutzerstatusdaten von einem Quellcomputer zu einem Zielcomputer zu verwalten. Weitere Informationen zu häufigen Migrationsszenarien für USMT 10.0 finden Sie unter  [Häufige Migrationsszenarien](https://technet.microsoft.com/library/mt299169\(v=vs.85\).aspx).  
+ Configuration Manager utilise la version 10.0 de l’outil de migration de l’état utilisateur (USMT) pour gérer la migration des données d’état utilisateur d’un ordinateur source vers un ordinateur de destination après l’installation du système d’exploitation. Pour plus d’informations sur les scénarios de migration courants pour la version 10.0 de l’outil USMT, consultez  [Scénarios de migration courants](https://technet.microsoft.com/library/mt299169\(v=vs.85\).aspx).  
 
- Mithilfe der folgenden Abschnitte können Sie Benutzerdaten erfassen und wiederherstellen.
+ Aidez-vous des informations des sections suivantes pour capturer et restaurer les données d’état utilisateur.
 
 
-##  <a name="BKMK_StoringUserData"></a> Speichern von Benutzerzustandsdaten  
- Wenn Sie den Benutzerzustand erfassen, können Sie die Benutzerzustandsdaten auf dem Zielcomputer oder auf einem Zustandsmigrationspunkt speichern. Sie müssen einen Configuration Manager-Standortsystemserver verwenden, auf dem die Standortsystemrolle „Statusmigrationspunkt“ gehostet wird, um den Benutzerstatus auf einem Migrationspunkt für den Benutzerstatus zu speichern. Wenn Sie den Benutzerzustand auf dem Zielcomputer speichern möchten, müssen Sie die Tasksequenz so konfigurieren, dass die Daten lokal mithilfe von Links gespeichert werden.  
+##  <a name="BKMK_StoringUserData"></a> Stocker les données d’état utilisateur  
+ Quand vous capturez l’état utilisateur, vous pouvez stocker les données d’état utilisateur sur l’ordinateur de destination ou sur un point de migration d’état. Pour stocker l’état utilisateur sur un point de migration d’état utilisateur, vous devez utiliser un serveur de système de site Configuration Manager qui héberge le rôle de système de site de point de migration d’état. Pour stocker l'état utilisateur sur l'ordinateur de destination, vous devez configurer votre séquence de tâches pour stocker les données utilisant localement des liens.  
 
 > [!NOTE]  
->  Die Links, mit deren Hilfe der Benutzerzustand lokal gespeichert wird, werden als feste Links bezeichnet. Feste Links sind eine Funktion von USMT 10.0. Diese Funktion dient dazu, den Computer auf Benutzerdateien und -einstellungen zu durchsuchen und dann die festen Links zu diesen Dateien in einem Verzeichnis zu erfassen. Mithilfe der festen Links werden dann die Benutzerdaten wiederhergestellt, nachdem das neue Betriebssystem bereitgestellt wurde.  
+>  Les liens qui sont utilisés pour stocker l'état utilisateur localement sont appelés liens physiques. Les liens physiques sont une fonctionnalité de l’outil USMT 10.0 qui analyse l’ordinateur à la recherche de fichiers et de paramètres utilisateur, et qui crée ensuite un répertoire de liens physiques vers ces fichiers. Les liens physiques sont ensuite utilisés pour restaurer les données utilisateur après le déploiement du nouveau système d'exploitation.  
 
 > [!IMPORTANT]  
->  Es ist nicht möglich, zum Speichern der Benutzerzustandsdaten sowohl einen Zustandsmigrationspunkt als auch feste Links zu verwenden.  
+>  Vous ne pouvez pas utiliser un point de migration d'état et utiliser des liens physiques pour stocker les données d'état utilisateur en même temps.  
 
- Wenn die Benutzerzustandsinformationen erfasst sind, können sie auf folgende Arten gespeichert werden:  
+ Lorsque les informations d'état utilisateur sont capturées, elles peuvent être stockées selon l'une des manières suivantes :  
 
--   Sie können die Benutzerzustandsdaten remote speichern, indem Sie einen Zustandsmigrationspunkt konfigurieren. Die Daten werden von der Tasksequenz **Erfassen** an den Zustandsmigrationspunkt gesendet. Nach der Bereitstellung des Betriebssystems werden die Daten von der Tasksequenz **Wiederherstellen** abgerufen, und der Benutzerzustand wird auf dem Zielcomputer wiederhergestellt.  
+-   Vous pouvez stocker les données d'état utilisateur à distance en configurant un point de migration d'état. La séquence de tâches **Capturer** envoie les données au point de migration d’état. Ensuite, une fois le système d’exploitation déployé, la séquence de tâches **Restaurer** récupère les données et restaure l’état utilisateur sur l’ordinateur de destination.  
 
--   Sie können die Benutzerzustandsdaten lokal an einem bestimmten Speicherort speichern. In diesem Szenario werden die Benutzerdaten von der Tasksequenz **Erfassen** an einen bestimmten Speicherort auf dem Zielcomputer kopiert. Nach der Bereitstellung des Betriebssystems werden die Daten durch die Tasksequenz **Wiederherstellen** von diesem Speicherort abgerufen.  
+-   Vous pouvez stocker les données d'état utilisateur localement à un emplacement spécifique. Dans ce scénario, la séquence de tâches **Capturer** copie les données utilisateur vers un emplacement spécifique sur l’ordinateur de destination. Ensuite, une fois le système d’exploitation déployé, la séquence de tâches **Restaurer** récupère les données utilisateur à partir de cet emplacement.  
 
--   Sie können Hardlinks angeben, die verwendet werden können, um die Benutzerdaten am ursprünglichen Speicherort wiederherzustellen. In diesem Szenario verbleiben die Benutzerdaten auf dem Laufwerk, wenn das alte Betriebssystem entfernt wird. Nach der Bereitstellung des neuen Betriebssystems werden die Benutzerzustandsdaten von der Tasksequenz **Wiederherstellen** mithilfe der festen Links am ursprünglichen Speicherort wiederhergestellt.  
+-   Vous pouvez spécifier les liens physiques qui peuvent être utilisés pour restaurer les données utilisateur vers leur emplacement d'origine. Dans ce scénario, les données d'état utilisateur restent sur le lecteur lorsque l'ancien système d'exploitation est supprimé. Ensuite, une fois le nouveau système d’exploitation déployé, la séquence de tâches **Restaurer** utilise les liens physiques pour restaurer les données d’état utilisateur vers leur emplacement d’origine.  
 
-###  <a name="BKMK_UserDataSMP"></a> Speichern von Benutzerdaten auf einem Zustandsmigrationspunkt  
- Sie müssen die folgenden Schritte ausführen, um die Benutzerzustandsdaten auf einem Zustandsmigrationspunkt zu speichern:  
+###  <a name="BKMK_UserDataSMP"></a> Stocker des données utilisateur sur un point de migration d’état  
+ Pour stocker les données d’état utilisateur sur un point de migration d’état, vous devez procéder comme suit :  
 
-1.  [Configure a state migration point](#BKMK_StateMigrationPoint) , um die die Benutzerzustandsdaten zu speichern.  
+1.  [Configure a state migration point](#BKMK_StateMigrationPoint) pour stocker les données d’état utilisateur.  
 
-2.  [Create a computer association](#BKMK_ComputerAssociation) zwischen dem Quellcomputer und dem Zielcomputer. Sie müssen diese Zuordnung erstellen, bevor Sie den Benutzerzustand auf dem Quellcomputer erfassen.  
+2.  [Create a computer association](#BKMK_ComputerAssociation) entre l’ordinateur source et l’ordinateur de destination. Vous devez créer cette association avant de capturer l'état utilisateur sur l'ordinateur source.  
 
-3.  [Eine Tasksequenz zum Erfassen und Wiederherstellen eines Benutzerstatus in System Center Configuration Manager erstellen](../deploy-use/create-a-task-sequence-to-capture-and-restore-user-state.md). Insbesondere müssen Sie die folgenden Schritte der Tasksequenz ausführen, um Benutzerdaten von einem Computer zu erfassen, die Benutzerdaten auf einem Statusmigrationspunkt zu speichern und anschließend auf einem Computer wiederherzustellen:  
+3.  [Créez une séquence de tâches pour capturer et restaurer l’état utilisateur dans System Center Configuration Manager](../deploy-use/create-a-task-sequence-to-capture-and-restore-user-state.md). Plus précisément, vous devez ajouter les étapes de séquence de tâches suivantes pour capturer des données utilisateur à partir d’un ordinateur, stocker les données utilisateur sur un point de migration, puis restaurer les données utilisateur sur un ordinateur :  
 
-    -   [Statusspeicher anfordern](../understand/task-sequence-steps.md#BKMK_RequestStateStore), um den Zugriff auf einen Statusmigrationspunkt anzufordern, wenn der Computerstatus erfasst oder auf einem Computer wiederhergestellt werden soll.  
+    -   [Demandez le magasin d’état](../understand/task-sequence-steps.md#BKMK_RequestStateStore) pour demander l’accès à un point de migration d’état dans le cadre d’une capture d’état d’un ordinateur ou d’une restauration de l’état sur un ordinateur.  
 
-    -   [Benutzerstatus erfassen](../understand/task-sequence-steps.md#BKMK_CaptureUserState), um die Benutzerstatusdaten zu erfassen und auf dem Statusmigrationspunkt zu speichern.  
+    -   [Capturez l’état utilisateur](../understand/task-sequence-steps.md#BKMK_CaptureUserState) pour capturer et stocker les données d’état utilisateur sur le point de migration d’état.  
 
-    -   [Benutzerstatus wiederherstellen](../understand/task-sequence-steps.md#BKMK_RestoreUserState), um den Benutzerstatus durch Abrufen der Daten von einem Migrationspunkt für den Benutzerstatus auf dem Zielcomputer wiederherzustellen.  
+    -   [Restaurez l’état utilisateur](../understand/task-sequence-steps.md#BKMK_RestoreUserState) pour restaurer l’état utilisateur sur l’ordinateur de destination en récupérant les données à partir d’un point de migration d’état utilisateur.  
 
-    -   [Statusspeicher freigeben](../understand/task-sequence-steps.md#BKMK_ReleaseStateStore), um den Statusmigrationspunkt darüber zu benachrichtigen, dass die Erfassungs- oder Wiederherstellungsaktion abgeschlossen ist.  
+    -   [Libérez le magasin d’état](../understand/task-sequence-steps.md#BKMK_ReleaseStateStore) pour signaler au point de migration d’état que l’action de capture ou de restauration est terminée.  
 
-###  <a name="BKMK_UserDataDestination"></a> Speichern von Benutzerdaten auf einem lokalen Computer  
- Um die Benutzerdaten lokal zu speichern, gehen Sie folgendermaßen vor:  
+###  <a name="BKMK_UserDataDestination"></a> Stocker des données utilisateur localement  
+ Pour stocker les données d’état utilisateur localement, vous devez procéder comme suit :  
 
--   [Tasksequenz erstellen](../deploy-use/create-a-task-sequence-to-capture-and-restore-user-state.md), um den Benutzerstatus zu erfassen und wiederherzustellen. Insbesondere müssen Sie die folgenden Schritte der Tasksequenz ausführen, um Benutzerdaten von einem Computer zu erfassen und anschließend auf einem Computer unter Verwendung von festen Links wiederherzustellen:  
+-   [Créez une séquence de tâches pour capturer et restaurer l’état utilisateur](../deploy-use/create-a-task-sequence-to-capture-and-restore-user-state.md). Plus précisément, vous devez ajouter les étapes de séquence de tâches suivantes pour capturer des données utilisateur à partir d’un ordinateur et restaurer les données utilisateur sur un ordinateur à l’aide de liens physiques.  
 
-    -   [Benutzerstatus erfassen](../understand/task-sequence-steps.md#BKMK_CaptureUserState), um die Benutzerdaten zu erfassen und unter Verwendung von festen Links in einen lokalen Ordner zu speichern.  
+    -   [Capturez l’état utilisateur](../understand/task-sequence-steps.md#BKMK_CaptureUserState) pour capturer et stocker les données d’état utilisateur dans un dossier local à l’aide de liens physiques.  
 
-    -   [Benutzerstatus wiederherstellen](../understand/task-sequence-steps.md#BKMK_RestoreUserState), um den Benutzerstatus durch Abrufen der Daten unter Verwendung von festen Links auf dem Zielcomputer wiederherzustellen.  
+    -   [Restaurez l’état utilisateur](../understand/task-sequence-steps.md#BKMK_RestoreUserState) pour restaurer l’état utilisateur sur l’ordinateur de destination en récupérant les données à l’aide de liens physiques.  
 
         > [!NOTE]  
-        >  Die Benutzerzustandsdaten, auf die von den festen Links verwiesen wird, verbleiben auf dem Computer, nachdem das alte Betriebssystem von der Tasksequenz entfernt wurde. Dies sind die Daten, mit deren Hilfe die Benutzerdaten wiederhergestellt werden, wenn das neue Betriebssystem bereitgestellt wird.  
+        >  Les données d'état utilisateur auxquelles font référence les liens physiques restent sur l'ordinateur une fois que la séquence de tâches a supprimé l'ancien système d'exploitation. Il s'agit de données qui sont utilisées pour restaurer l'état utilisateur lors du déploiement du nouveau système d'exploitation.  
 
 ##  <a name="BKMK_StateMigrationPoint"></a> Configure a state migration point  
- Vom Zustandsmigrationspunkt werden die auf einem Computer erfassten Benutzerdaten gespeichert und anschließend auf einem anderen Computer wiederhergestellt. Wenn Sie jedoch Benutzereinstellungen für eine Betriebssystembereitstellung auf dem gleichen Computer erfassen, z. B. zur Aktualisierung des Betriebssystems auf dem Zielcomputer, können Sie die Daten auf dem gleichen Computer unter Verwendung von festen Links oder auf dem Zustandsmigrationspunkt speichern. Wenn Sie den Statusspeicher erstellen, wird von Configuration Manager bei einigen Computerbereitstellungen automatisch eine Zuordnung zwischen Statusspeicher und Zielcomputer erstellt. Mithilfe der folgenden Methoden können Sie einen Zustandsmigrationspunkt zum Speichern der Benutzerzustandsdaten konfigurieren:  
+ Le point de migration d'état stocke les données d'état utilisateur qui sont capturées sur un seul ordinateur puis restaurées sur un autre ordinateur. Toutefois, quand vous capturez des paramètres utilisateur pour un déploiement de système d’exploitation sur le même ordinateur, comme un déploiement où vous actualisez le système d’exploitation sur l’ordinateur de destination, vous pouvez stocker les données sur le même ordinateur à l’aide de liens physiques ou sur un point de migration d’état. Pour certains déploiements d’ordinateur, quand vous créez le magasin d’état, Configuration Manager crée automatiquement une association entre le magasin d’état et l’ordinateur de destination. Vous pouvez utiliser les méthodes suivantes afin de configurer un point de migration d'état pour stocker les données d'état utilisateur :  
 
--   Verwenden Sie den Assistenten zum Erstellen von ****  Standortsystemservern, um einen neuen Standortsystemserver für den Zustandsmigrationspunkt zu erstellen.  
+-   Utilisez l' **Assistant Création d'un serveur de système de site** pour créer un nouveau serveur de système de site pour le point de migration d'état.  
 
--   Verwenden Sie den Assistenten zum Hinzufügen von ****  Standortsystemrollen, um einem vorhandenen Server einen Zustandsmigrationspunkt hinzuzufügen.  
+-   Utilisez l' **Assistant Ajout des rôles de système de site** pour ajouter un point de migration d'état à un serveur existant.  
 
- Wenn Sie diese Assistenten verwenden, werden Sie aufgefordert, die folgenden Angaben zum Zustandsmigrationspunkt zu machen:  
+ Lorsque vous utilisez ces Assistants, vous êtes invité à fournir les informations suivantes pour le point de migration d'état :  
 
--   Die Ordner, in denen die Benutzerzustandsdaten gespeichert werden  
+-   Les dossiers pour stocker les données d'état utilisateur.  
 
--   Die maximale Anzahl von Clients, von denen Daten auf dem Zustandsmigrationspunkt gespeichert werden können  
+-   Le nombre maximal de clients pouvant stocker des données sur le point de migration d'état.  
 
--   Der für einen Zustandsmigrationspunkt zum Speichern der Benutzerzustandsdaten mindestens erforderliche freie Speicherplatz  
+-   L'espace libre minimum pour le point de migration d'état pour stocker les données d'état utilisateur.  
 
--   Die Löschrichtlinie für die Rolle. Sie können angeben, ob die Benutzerzustandsdaten sofort oder erst nach Ablauf einer bestimmten Anzahl von Tagen nach ihrer Wiederherstellung auf einem Computer gelöscht werden.  
+-   La stratégie de suppression du rôle. Vous pouvez spécifier que les données d'état utilisateur sont supprimées immédiatement après leur restauration sur un ordinateur, ou après un nombre de jours spécifique après la restauration des données utilisateur sur un ordinateur.  
 
--   Ob vom Zustandsmigrationspunkt nur Anforderungen zum Wiederherstellen von Benutzerzustandsdaten beantwortet werden. Wenn Sie diese Option aktivieren, können Sie den Zustandsmigrationspunkt nicht zum Speichern von Benutzerzustandsdaten verwenden.  
+-   Si le point de migration d’état répond uniquement aux demandes de restauration des données d’état utilisateur. Lorsque vous activez cette option, vous ne pouvez pas utiliser le point de migration d'état pour stocker les données d'état utilisateur.  
 
- Weitere Informationen zum Statusmigrationspunkt und den entsprechenden Konfigurationsschritten finden Sie unter [Statusmigrationspunkt](prepare-site-system-roles-for-operating-system-deployments.md#BKMK_StateMigrationPoints).  
+ Pour plus d’informations sur le point de migration d’état et les étapes nécessaires pour le configurer, consultez [Point de migration d’état](prepare-site-system-roles-for-operating-system-deployments.md#BKMK_StateMigrationPoints).  
 
 ##  <a name="BKMK_ComputerAssociation"></a> Create a computer association  
- Erstellen Sie eine Computerzuordnung, um eine Beziehung zwischen einem Quellcomputer und einem Zielcomputer zu definieren, wenn Sie ein Betriebssystem auf neuer Hardware installieren und Benutzereinstellungen erfassen und wiederherstellen möchten. Der Quellcomputer ist ein vorhandener Computer, der von Configuration Manager verwaltet wird. Wenn Sie das neue Betriebssystem auf dem Zielcomputer bereitstellen, enthält der Quellcomputer den Benutzerzustand, der zum Zielcomputer migriert wird.  
+ Créez une association d’ordinateurs pour définir une relation entre un ordinateur source et un ordinateur de destination quand vous installez un système d’exploitation sur du nouveau matériel et que vous souhaitez capturer et restaurer les paramètres de données utilisateur. L’ordinateur source est un ordinateur existant qui est géré par Configuration Manager. Lorsque vous déployez le nouveau système d'exploitation sur l'ordinateur de destination, l'ordinateur source contient l'état utilisateur qui est migré vers l'ordinateur de destination.  
 
 > [!NOTE]  
->  Das Erstellen einer Computerzuordnung zwischen Computern an einem übergeordneten Configuration Manager-Standort und Computern an einem untergeordneten Standort wird nicht unterstützt. Computerzuordnungen sind standortspezifisch und werden nicht repliziert.  
+>  La création d’une association d’ordinateurs entre des ordinateurs situés dans un site parent Configuration Manager et des ordinateurs situés dans un site enfant n’est pas prise en charge. Les associations d’ordinateurs sont spécifiques à un site et ne sont pas répliquées.  
 
-#### <a name="to-create-a-computer-association"></a>So erstellen Sie eine Computerzuordnung  
+#### <a name="to-create-a-computer-association"></a>Pour créer une association d'ordinateurs  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Bestand und Kompatibilität**.  
+1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.  
 
-2.  Klicken Sie im Arbeitsbereich **Bestand und Kompatibilität** auf **Benutzerzustandsmigration**.  
+2.  Dans l'espace de travail **Ressources et Conformité** , cliquez sur **Migration de l'état utilisateur**.  
 
-3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** auf **Computerzuordnung erstellen**.  
+3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer une association d'ordinateurs**.  
 
-4.  Geben Sie im Dialogfeld **Eigenschaften der Computerzuordnung** auf der Registerkarte **Computerzuordnung** den Quellcomputer an, auf dem der Benutzerzustand erfasst wird, sowie den Zielcomputer, auf dem die Benutzerzustandsdaten wiederhergestellt werden.  
+4.  Dans l'onglet **Association d'ordinateurs** de la boîte de dialogue **Propriétés de l'association d'ordinateurs** , indiquez l'ordinateur source qui contient l'état utilisateur à capturer et l'ordinateur de destination sur lequel les données d'état utilisateur seront restaurées.  
 
-5.  Geben Sie auf der Registerkarte **Benutzerkonten** die Benutzerkonten an, die zum Zielcomputer migriert werden sollen. Geben Sie eine der folgenden Einstellungen an:  
+5.  Dans l'onglet **Comptes d'utilisateur** , spécifiez les comptes d'utilisateur à migrer vers l'ordinateur de destination. Spécifiez l'un des paramètres suivants :  
 
-    -   **Alle Benutzerkonten erfassen und wiederherstellen**: Bei dieser Einstellung werden alle Benutzerkonten erfasst und wiederhergestellt. Verwenden Sie diese Einstellung, um mehrere Zuordnungen zum gleichen Quellcomputer zu erstellen.  
+    -   **Capturer et restaurer tous les comptes d’utilisateur**: ce paramètre capture et restaure tous les comptes d’utilisateur. Ce paramètre permet de créer plusieurs associations sur le même ordinateur source.  
 
-    -   **Alle Benutzerkonten erfassen und bestimmte Konten wiederherstellen**: Bei dieser Einstellung werden alle Benutzerkonten auf dem Quellcomputer erfasst und nur die von Ihnen angegebenen Konten auf dem Zielcomputer wiederhergestellt. Sie können mit dieser Einstellung auch mehrere Zuordnungen zum gleichen Quellcomputer erstellen.  
+    -   **Capturer tous les comptes d’utilisateur et restaurer les comptes spécifiés**: ce paramètre capture tous les comptes d’utilisateur sur l’ordinateur source et restaure seulement les comptes que vous spécifiez sur l’ordinateur de destination. En outre, vous pouvez utiliser ce paramètre lorsque vous souhaitez créer plusieurs associations sur le même ordinateur source.  
 
-    -   **Bestimmte Benutzerkonten erfassen und wiederherstellen**: Bei dieser Einstellung werden nur die von Ihnen angegebenen Konten erfasst und wiederhergestellt. Wenn diese Einstellung ausgewählt ist, ist es nicht möglich, mehrere Zuordnungen zum gleichen Quellcomputer zu erstellen.  
+    -   **Capturer et restaurer les comptes d’utilisateur spécifiés**: ce paramètre capture et restaure seulement les comptes que vous spécifiez. Vous ne pouvez pas créer plusieurs associations sur le même ordinateur source lorsque vous sélectionnez ce paramètre.  
 
-##  <a name="BKMK_MigrationFails"></a> Wiederherstellen von Benutzerzustandsdaten, wenn bei einer Betriebssystembereitstellung ein Fehler auftritt  
- Wenn bei der Bereitstellung des Betriebssystems ein Fehler auftritt, können Sie die LoadState-Funktion von USMT 10.0 verwenden, um die während des Bereitstellungsvorgangs erfassten Benutzerzustandsdaten abzurufen. Dazu gehören auch Daten, die auf einem Zustandsmigrationspunkt oder lokal auf dem Zielcomputer gespeichert sind. Weitere Informationen zu dieser USMT-Funktion finden Sie unter [LoadState-Syntax](https://technet.microsoft.com/library/mt299188\(v=vs.85\).aspx).  
+##  <a name="BKMK_MigrationFails"></a> Restaurer des données d’état utilisateur en cas d’échec d’un déploiement de système d’exploitation  
+ Si le déploiement de système d’exploitation échoue, utilisez la fonctionnalité LoadState de l’outil USMT 10.0 pour récupérer les données d’état utilisateur capturées pendant le processus de déploiement. Ces données incluent notamment les données stockées sur un point de migration d'état ou les données enregistrées localement sur l'ordinateur de destination. Pour plus d'informations sur cette fonctionnalité d'USMT, voir [Syntaxe LoadState](https://technet.microsoft.com/library/mt299188\(v=vs.85\).aspx).  

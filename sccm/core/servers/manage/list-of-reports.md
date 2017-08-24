@@ -1,6 +1,6 @@
 ---
-title: Liste von Berichten | Microsoft-Dokumentation
-description: "Prüfen Sie eine Liste von Berichten, die im Lieferumfang von Configuration Manager enthalten sind. Die Berichte werden in verschiedenen Kategorien angezeigt."
+title: Liste des rapports | Microsoft Docs
+description: "Passez en revue la liste des rapports fournis avec Configuration Manager. Les rapports sont répartis dans différentes catégories."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -18,774 +18,774 @@ manager: angrobe
 ms.openlocfilehash: 1480c38a6a3afef76b2e8759eaafd47d28f978f4
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="list-of-reports-in-system-center-configuration-manager"></a>Liste der System Center Configuration Manager-Berichte
+# <a name="list-of-reports-in-system-center-configuration-manager"></a>Liste des rapports dans System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Mit System Center Configuration Manager werden viele integrierte Berichte bereitgestellt, die zahlreiche Berichtstasks abdecken, die Sie möglicherweise ausführen möchten. Sie können die SQL-Anweisungen in diesen Berichten auch zur Unterstützung beim Erstellen eigener Berichte verwenden. Verwenden Sie die Informationen in diesem Thema, um die mit Configuration Manager bereitgestellten Berichte kennenzulernen.  
+De nombreux rapports intégrés sont fournis avec System Center Configuration Manager, couvrant une grande partie des tâches de création de rapports que vous pourriez souhaiter effectuer. Vous pouvez également utiliser les instructions SQL dans ces rapports pour vous aider à rédiger vos propres rapports. Utilisez les informations de cette rubrique pour en savoir plus sur les rapports fournis avec Configuration Manager.  
 
-## <a name="list-of-built-in-configuration-manager-reports"></a>Liste der integrierten Configuration Manager-Berichte  
- Die folgenden Berichte sind in Configuration Manager enthalten. Die Berichte werden in verschiedenen Kategorien angezeigt.  
+## <a name="list-of-built-in-configuration-manager-reports"></a>Liste des rapports Configuration Manager intégrés  
+ Les rapports suivants sont fournis avec Configuration Manager. Les rapports sont répartis dans différentes catégories.  
 
-### <a name="administrative-security"></a>Administrative Sicherheit  
- Die folgenden Berichte sind unter der Kategorie **Administrative Sicherheit** aufgeführt.  
+### <a name="administrative-security"></a>Sécurité administrative  
+ Les rapports suivants sont répertoriés sous la catégorie **Sécurité administrative** .  
 
-|Berichtsname|Beschreibung|  
+|Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Verwaltungsaktivitätsprotokoll**|Zeigt einen Datensatz der für Administratoren, Sicherheitsrollen, Sicherheitsbereiche und Sammlungen vorgenommenen administrativen Änderungen an.|  
-|**Sicherheitszuweisungen für Administratoren**|Zeigt Administratoren, deren zugeordneten Sicherheitsrollen und die jeder Sicherheitsrolle für die jeweiligen Benutzer zugeordneten Sicherheitsbereiche an.|  
-|**Objekte, die von einem einzelnen Sicherheitsbereich gesichert sind**|Zeigt Objekte an, die durch einen angegebenen Sicherheitsbereich gesichert werden und nur diesem Sicherheitsbereich zugewiesen sind. Dieser Bericht zeigt keine Objekte an, die mehr als einem Sicherheitsbereich zugeordnet sind.|  
-|**Sicherheit für ein bestimmtes oder mehrere Configuration Manager-Objekte**|Zeigt sicherungsfähige Objekte, die diesen Objekten zugeordneten Sicherheitsbereiche sowie die Administratoren an, die über Zugriffsrechte für diese Objekte verfügen.|  
-|**Zusammenfassung der Sicherheitsrollen**|Zeigt die Sicherheitsrollen und die Configuration Manager-Administratoren an, die den jeweiligen Rollen zugeordnet sind|  
-|**Zusammenfassung der Sicherheitsbereiche**|Zeigt die Sicherheitsbereiche und Configuration Manager-Administratoren sowie die jedem Bereich zugeordneten Sicherheitsgruppen an|  
+|**Journal des activités d'administration**|Affiche un enregistrement des modifications administratives apportées aux utilisateurs administratifs, aux rôles de sécurité, aux étendues de sécurité et aux regroupements.|  
+|**Utilisateurs administratifs et affectations de sécurité**|Affiche les utilisateurs administratifs, leurs rôles de sécurité associés et les étendues de sécurité associées à chaque rôle de sécurité pour chaque utilisateur.|  
+|**Objets sécurisés par une seule étendue de sécurité**|Affiche les objets qui sont sécurisés par une étendue de sécurité spécifiée et qui sont uniquement assignés à cette étendue de sécurité. Ce rapport n'affiche pas les objets qui sont associés à plusieurs étendues de sécurité.|  
+|**Sécurité pour un ou plusieurs objets Configuration Manager**|Affiche les objets sécurisables, les étendues de sécurité associées aux objets et les utilisateurs administratifs qui ont des droits sur les objets.|  
+|**Récapitulatif des rôles de sécurité**|Affiche les rôles de sécurité et les administrateurs Configuration Manager associés à chaque rôle.|  
+|**Récapitulatif des étendues de sécurité**|Affiche les étendues de sécurité, les utilisateurs administratifs Configuration Manager et les groupes de sécurité associés à chaque étendue.|  
 
-### <a name="alerts"></a>Warnungen  
+### <a name="alerts"></a>Alertes  
 
-|Berichtsname|Beschreibung|  
+|Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Warnungs-Scorecard**|Zeigt eine Zusammenfassung aller zurückgestellten Warnungen an, die zwischen dem angegebenen Start- und Enddatum generiert wurden.|  
-|**Meisterzeugte Warnungen**|Zeigt eine Zusammenfassung der Warnungen an, die vom heutigen Datum bis zurück zum angegebenen Datum für den angegebenen Featurebereich am häufigsten generiert wurden.|  
+|**Tableau de bord des alertes**|Affiche la synthèse de toutes les alertes différées qui ont été générées entre les dates de début et de fin spécifiées.|  
+|**Alertes générées le plus souvent**|Affiche la synthèse des alertes qui ont été générées le plus souvent depuis la date spécifiée jusqu'à ce jour pour le composant spécifié.|  
 
 ### <a name="asset-intelligence"></a>Asset Intelligence  
 
-|Berichtsname|Beschreibung|  
+|Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Hardware 01A – Zusammenfassung von Computern in einer bestimmten Sammlung**|Zeigt eine Asset Intelligence-Zusammenfassungsansicht der Computer in einer von Ihnen angegebenen Sammlung an.|  
-|**Hardware 03A – Primäre Computerbenutzer**|Zeigt Benutzer und die Anzahl der Computer an, auf denen diese die primären Benutzer sind.|  
-|**Hardware 03B – Computer für einen bestimmten primären Konsolenbenutzer**|Zeigt alle Computer an, für die ein angegebener Benutzer der primäre Konsolenbenutzer ist.|  
-|**Hardware 04A – Computer mit mehreren Benutzern (gemeinsam genutzt)**|Zeigt Computer an, die keinen primären Benutzer aufweisen. Dies sind Computer, auf denen keiner der Benutzer für mehr als 66 % der Anmeldezeit bei der %-Konsole verantwortlich ist.|  
-|**Hardware 05A – Konsolenbenutzer auf einem bestimmten Computer**|Zeigt alle Konsolenbenutzer auf einem angegebenen Computer an.|  
-|**Hardware 06A – Computer ohne ermittelte Konsolenbenutzer**|Unterstützt Administratoren beim Identifizieren von Computern, für die die Sicherheitsprotokollierung aktiviert sein muss.|  
-|**Hardware 07A – USB-Geräte nach Hersteller**|Zeigt USB-Geräte nach Hersteller gruppiert an.|  
-|**Hardware 07B – USB-Geräte nach Hersteller und Beschreibung**|Zeigt USB-Geräte nach Hersteller und Beschreibung gruppiert an.|  
-|**Hardware 07C – Computer mit einem bestimmten USB-Gerät**|Zeigt alle Computer mit einem angegebenen USB-Gerät an.|  
-|**Hardware 07D – USB-Geräte auf einem bestimmten Computer**|Zeigt alle USB-Geräte auf einem angegebenen Computer an.|  
-|**Hardware 08A – Hardware, die für ein Softwareupdate nicht bereit ist**|Zeigt die Hardware an, die die Mindestanforderungen nicht erfüllt.|  
-|**Hardware 09A – Suche nach Computern**|Zeigt eine Asset-Manager-Zusammenfassung von Computern an, die durch eine Schlüsselwortsuche nach Computername, Configuration Manager-Standort, Domäne, Hauptkonsolenbenutzer, Betriebssystem, Hersteller oder Modell gefunden wurden|  
-|**Hardware 10A – Computer in einer angegebenen Sammlung mit Änderungen während eines angegebenen Zeitraums**|Zeigt eine Liste der Computer in einer angegebenen Sammlung an, in der während eines angegebenen Zeitraums eine Hardwareklasse geändert wurde.|  
-|**Hardware 10B – Änderungen auf einem angegebenen Computer während eines angegebenen Zeitraums**|Zeigt die Klassen an, die auf einem angegebenen Computer während eines angegebenen Zeitraums geändert wurden.|  
-|**Lizenz 01A – Microsoft-Volumenlizenzregister für Microsoft-Lizenzzusammenfassungen**|Zeigt ein Inventar aller Microsoft-Softwaretitel an, die im Microsoft-Volumenlizenzprogramm verfügbar sind.|  
-|**Lizenz 01B – Microsoft-Volumenlizenzregisterprodukte nach Vertriebskanal**|Identifiziert den Vertriebskanal für inventarisierte Microsoft-Volumenlizenzsoftware und zeigt diesen an.|  
-|**Lizenz 01C – Computer mit einem bestimmten Microsoft-Volumenlizenzregisterprodukt und Vertriebskanal**|Identifiziert Computer und zeigt diese an, die ein angegebenes Produkt aus dem Microsoft-Volumenlizenzregister aufweisen.|  
-|**Lizenz 01D – Microsoft-Volumenlizenzregisterprodukte auf einem bestimmten Computer**|Identifiziert alle Microsoft-Volumenlizenzregisterprodukte auf einem angegebenen Computer und zeigt diese an.|  
-|**Lizenz 02A – Anzahl der Lizenzen, die demnächst ablaufen, nach Zeitabschnitten**|Zeigt die Anzahl der Lizenzen, die demnächst ablaufen, nach einem angegebenen Zeitabschnitt an. Es werden die Produkte angezeigt, deren Lizenzen vom Softwarelizenzierungsdienst verwaltet werden.|  
-|**Lizenz 02B – Computer mit ablaufenden Lizenzen**|Zeigt die angegebenen Computer mit Lizenzen an, die demnächst ablaufen.|  
-|**Lizenz 02C – Lizenzinformationen für einen bestimmten Computer**|Zeigt Produkte auf einem angegebenen Computer an, deren Lizenzen vom Softwarelizenzierungsdienst verwaltet werden.|  
-|**Lizenz 03A – Anzahl der Lizenzen, geordnet nach Lizenzstatus**|Zeigt Produkte nach Lizenzstatus an, deren Lizenzen vom Softwarelizenzierungsdienst verwaltet werden.|  
-|**Lizenz 03B – Computer mit einem bestimmten Lizenzstatus**|Zeigt Produkte mit einem angegebenen Lizenzstatus an, deren Lizenzen vom Softwarelizenzierungsdienst verwaltet werden.|  
-|**Lizenz 04A – Anzahl der mithilfe des Softwarelizenzierungsdiensts verwalteten Produkte**|Zeigt eine Anzahl von Produkten an, deren Lizenzen vom Softwarelizenzierungsdienst verwaltet werden.|  
-|**Lizenz 04B – Computer mit einem bestimmten vom Softwarelizenzierungsdienst verwalteten Produkt**|Zeigt vom Softwarelizenzierungsdienst verwaltete Computer an, die ein angegebenes Produkt enthalten.|  
-|**Lizenz 05A – Computer, auf denen Schlüsselverwaltungsdienste bereitgestellt werden**|Zeigt Computer an, die als Schlüsselverwaltungsserver fungieren.|  
-|**Lizenz 06A – Anzahl von Prozessoren für Produkte mit Lizenzierung pro Prozessor**|Zeigt die Anzahl der Prozessoren auf Computern an, die Microsoft-Produkte verwenden, die die Lizenzierung pro Prozessor unterstützen.|  
-|**Lizenz 06B – Computer mit einem bestimmten Produkt, das die Lizenzierung pro Prozessor unterstützt**|Zeigt eine Liste der Computer, auf denen ein angegebenes Microsoft-Produkt installiert ist, das die Lizenzierung pro Prozessor unterstützt.|  
-|**Lizenz 14A – Bericht zum Microsoft-Volumenlizenzabgleich**|Zeigt einen Abgleich der über den Microsoft-Volumenlizenzvertrag gekauften Softwarelizenzen und die aktuelle Anzahl von Softwarelizenzen im Inventar an.|  
-|**Lizenz 14B – Liste des nicht im MVLS gefundenen Microsoft-Softwareinventars**|Dieser Bericht zeigt die verwendeten Microsoft-Softwaretitel an, die nicht im Microsoft-Volumenlizenzvertrag gefunden wurden.|  
-|**Lizenz 15A – Bericht zum allgemeinen Lizenzabgleich**|Zeigt einen Abgleich der gekauften allgemeinen Softwarelizenzen und die aktuelle Anzahl von Softwarelizenzen im Inventar an.|  
-|**Lizenz 15B – Bericht zum Abgleich allgemeiner Lizenzen, geordnet nach Computer**|Zeigt Computer an, auf denen das lizenzierte Produkt mit einer bestimmten Version installiert ist.|  
-|**Software 01A – Zusammenfassung der in einer bestimmten Sammlung installierten Software**|Zeigt eine Zusammenfassung der installierten Software geordnet nach Anzahl der Instanzen an, die im Inventar gefunden wurde.|  
-|**Software 02A – Produktfamilien für eine bestimmte Sammlung**|Zeigt die Produktfamilien und die Anzahl der Software in der Familie für eine angegebene Sammlung an.|  
-|**Software 02B – Produktkategorien für eine bestimmte Produktfamilie**|Zeigt die Produktkategorien in einer angegebenen Produktfamilie und die Anzahl der Software in der Kategorie an.|  
-|**Software 02C – Software in einer bestimmten Produktfamilie und Produktkategorie**|Zeigt sämtliche Software an, die sich in der angegebenen Produktfamilie und Produktkategorie befindet.|  
-|**Software 02D – Computer, auf denen eine bestimmte Software installiert ist**|Zeigt alle Computer an, auf denen eine angegebene Software installiert ist.|  
-|**Software 02E – Installierte Software auf einem bestimmten Computer**|Zeigt die gesamte auf einem angegebenen Computer installierte Software an.|  
-|**Software 03A – Nicht kategorisierte Software**|Zeigt die Software an, die entweder als „unbekannt“ oder nicht kategorisiert ist.|  
-|**Software 04A – Software, die für die automatische Ausführung auf Computern konfiguriert ist**|Zeigt eine Liste der für die automatische Ausführung auf Computern konfigurierten Software an.|  
-|**Software 04B – Computer mit bestimmter Software, die für die automatische Ausführung konfiguriert ist**|Zeigt alle Computer mit angegebener Software an, die für die automatische Ausführung konfiguriert ist.|  
-|**Software 04C – Software, die für die automatische Ausführung auf einem bestimmten Computer konfiguriert ist**|Zeigt die installierte Software an, die für die automatische Ausführung auf einem angegebenen Computer konfiguriert ist.|  
-|**Software 05A – Browserhilfsobjekte**|Zeigt die Browserhilfsobjekte an, die auf Computern in einer angegebenen Sammlung installiert sind.|  
-|**Software 05B – Computer mit einem bestimmten Browserhilfsobjekt**|Zeigt alle Computer mit einem angegebenen Browserhilfsobjekt an.|  
-|**Software 05C – Browserhilfsobjekte auf einem bestimmten Computer**|Zeigt alle Browserhilfsobjekte auf einem angegebenen Computer an.|  
-|**Software 06A – Suche nach installierter Software**|Dieser Bericht enthält eine Zusammenfassung der installierten Software, geordnet nach der Anzahl von Instanzen, basierend auf Suchkriterien für Produktnamen, Herausgeber oder Version.|  
-|**Software 06B – Software nach Produktname**|Zeigt eine Zusammenfassung der installierten Software, geordnet nach Anzahl der Instanzen, basierend auf einem angegebenen Produktnamen an.|  
-|**Software 07A – Zuletzt verwendete ausführbare Programme, geordnet nach Anzahl von Computern**|Zeigt zuletzt verwendete ausführbare Programme und die Anzahl der Computer an, auf denen sie verwendet wurden. Damit diese Website diesen Bericht anzeigen kann, muss die Softwaremessung aktiviert sein.|  
-|**Software 07B – Computer, auf denen ein angegebenes ausführbares Programm zuletzt verwendet wurde**|Wenn Sie die Einstellung für den Softwaremessungsclient aktivieren, werden die Computer angezeigt, auf denen ein angegebenes ausführbares Programm zuletzt verwendet wurde.|  
-|**Software 07C – Zuletzt verwendete ausführbare Programme auf einem bestimmten Computer**|Wenn Sie die Einstellung für den Softwaremessungsclient aktivieren, werden die ausführbaren Dateien angezeigt, die auf einem angegebenen Computer zuletzt verwendet wurden.|  
-|**Software 08A – Zuletzt verwendete ausführbare Programme, geordnet nach Anzahl von Benutzern**|Wenn Sie die Einstellung für den Softwaremessungsclient aktivieren, werden die zuletzt verwendeten ausführbaren Programme sowie die Anzahl der sie ausführenden Benutzer angezeigt.|  
-|**Software 08B – Benutzer, die ein angegebenes ausführbares Programm zuletzt verwendet haben**|Wenn Sie die Einstellung für den Softwaremessungsclient aktivieren, werden die Benutzer angezeigt, die ein angegebenes ausführbares Programm zuletzt verwendet haben.|  
-|**Software 08C – Zuletzt verwendete ausführbare Programme, geordnet nach angegebenem Benutzer**|Wenn Sie die Einstellung für den Softwaremessungsclient aktivieren, werden die ausführbaren Programme angezeigt, die von einem angegebenen Benutzer zuletzt verwendet wurden.|  
-|**Software 09A – Selten verwendete Software**|Zeigt die Softwaretitel an, die innerhalb eines angegebenen Zeitraums nicht verwendet wurden.|  
-|**Software 09B – Computer, auf denen selten verwendete Software installiert ist**|Zeigt Computer mit installierter Software an, die innerhalb eines angegebenen Zeitraums nicht verwendet wurde. Der angegebene Zeitraum basiert auf dem im Bericht „Software 09A – Selten verwendete Software“ angegebenen Wert.|  
-|**Software 10A – Softwaretitel mit mehreren spezifischen benutzerdefinierten Bezeichnungen**|Zeigt Softwaretitel an, bei denen alle Kriterien für die ausgewählten benutzerdefinierten Bezeichnungen übereinstimmen. Zum Verfeinern der Suche nach Softwaretiteln können drei benutzerdefinierte Bezeichnungen ausgewählt werden.|  
-|**Software 10B – Computer, auf denen Softwaretitel mit einer bestimmten benutzerdefinierten Bezeichnung installiert sind**|Zeigt alle Computer in dieser Sammlung an, auf denen Softwaretitel mit den angegebenen benutzerdefinierten Bezeichnungen installiert sind.|  
-|**Software 11A – Softwaretitel, bei denen eine bestimmte benutzerdefinierte Bezeichnung definiert ist**|Zeigt Softwaretitel an, bei denen mindestens ein Kriterium für die ausgewählten benutzerdefinierten Bezeichnungen übereinstimmt.|  
-|**Software 12A – Softwaretitel ohne benutzerdefinierte Bezeichnung**|Zeigt alle Softwaretitel an, für die keine benutzerdefinierte Bezeichnung festgelegt ist.|  
-|**Software 14A – Suche nach softwareerkennungstagfähiger Software**|Zeigt die Anzahl installierter Software mit aktiviertem Softwareerkennungstag an.|  
-|**Software 14B – Computer, auf denen eine bestimmte softwareerkennungstagfähige Software installiert ist**|Zeigt alle Computer an, auf denen Software mit angegebenem aktivierten Softwareerkennungstag installiert ist.|  
-|**Software 14C – Installierte softwareerkennungstagfähige Software auf einem bestimmten Computer**|Zeigt sämtliche installierte Software mit einem angegebenem aktivierten Softwareerkennungstag auf einem angegebenen Computer an.|  
+|**Matériel 01A - Synthèse des ordinateurs d'un regroupement spécifique**|Affiche la vue de synthèse d'Asset Intelligence des ordinateurs inclus dans un regroupement que vous spécifiez.|  
+|**Matériel 03A - Utilisateurs d'ordinateurs principaux**|Affiche les utilisateurs et le nombre d'ordinateurs sur lesquels ils sont l'utilisateur principal.|  
+|**Matériel 03B - Ordinateurs d'un utilisateur de console principal spécifique**|Affiche tous les ordinateurs pour lesquels un utilisateur spécifié est l'utilisateur principal de la console.|  
+|**Matériel 04A - Ordinateurs avec plusieurs utilisateurs (partagés)**|Affiche les ordinateurs qui n'ont pas d'utilisateur principal car aucun utilisateur n'a un pourcentage de temps de connexion à la console supérieur à 66 %.|  
+|**Matériel 05A - Utilisateurs de la console sur un ordinateur spécifique**|Affiche tous les utilisateurs de la console sur un ordinateur spécifié.|  
+|**Matériel 06A - Ordinateurs pour lesquels aucun utilisateur de console n'a pu être déterminé**|Aide les utilisateurs administratifs à identifier les ordinateurs pour lesquels la journalisation de sécurité doit être activée.|  
+|**Matériel 07A - Périphériques USB par fabricant**|Affiche les périphériques USB, regroupés par fabricant.|  
+|**Matériel 07B - Périphériques USB par fabricant et description**|Affiche les périphériques USB, regroupés par fabricant et description.|  
+|**Matériel 07C - Ordinateurs munis d'un périphérique USB spécifique**|Affiche tous les ordinateurs munis d'un périphérique USB spécifié.|  
+|**Matériel 07D - Périphériques USB sur un ordinateur spécifique**|Affiche tous les périphériques USB sur un ordinateur spécifié.|  
+|**Matériel 08A - Matériel qui n'est pas prêt pour une mise à niveau logicielle**|Affiche le matériel qui ne satisfait pas à la configuration matérielle minimale requise.|  
+|**Matériel 09A - Recherche d'ordinateurs**|Affiche la synthèse du gestionnaire de biens des ordinateurs correspondant aux filtres de mots clés sur le nom d’ordinateur, le site Configuration Manager, le domaine, l’utilisateur principal de la console, le système d’exploitation, le fabricant ou le modèle.|  
+|**Matériel 10A - Ordinateurs d'un regroupement spécifié qui ont été modifiés pendant un laps de temps spécifié**|Affiche la liste des ordinateurs inclus dans un regroupement spécifié où une classe de matériel a changé pendant une période spécifiée.|  
+|**Matériel 10B - Modifications apportées à un ordinateur spécifié pendant un laps de temps spécifié**|Affiche les classes qui ont changé sur l'ordinateur spécifié pendant un laps de temps spécifié.|  
+|**Licence 01A - Grand livre des licences en volume Microsoft pour les relevés de licences Microsoft**|Affiche un inventaire de tous les logiciels Microsoft qui sont disponibles à partir du programme de licence en volume Microsoft.|  
+|**Licence 01B - Élément du Grand livre des licences en volume Microsoft par canal de vente**|Identifie et affiche le canal de vente des logiciels de licence en volume Microsoft inventoriés.|  
+|**Licence 01C - Ordinateurs possédant un élément du Grand livre des licences en volume Microsoft et canaux de vente**|Identifie et affiche les ordinateurs qui ont un élément spécifié du Grand livre des licences en volume Microsoft.|  
+|**Licence 01D - Produits du Grand livre des licences en volume Microsoft sur un ordinateur spécifique**|Identifie et affiche tous les éléments du Grand livre des licences en volume Microsoft sur un ordinateur spécifié.|  
+|**Licence 02A - Nombre de licences arrivant à expiration par périodes**|Affiche le nombre de licences arrivant à expiration pour une période spécifiée. Les produits affichés sont ceux dont la licence est gérée par le service de gestion de licences des logiciels.|  
+|**Licence 02B - Ordinateurs dont les licences arrivent à expiration**|Affiche les ordinateurs dont les licences arrivent à expiration.|  
+|**Licence 02C - Informations de licence sur un ordinateur spécifique**|Affiche les produits sur un ordinateur spécifié dont les licences sont gérées par le service de gestion de licences des logiciels.|  
+|**Licence 03A - Nombre de licences par état de licence**|Affiche les produits, par état de licence, dont les licences sont gérées par le service de gestion de licences des logiciels.|  
+|**Licence 03B - Ordinateurs avec un état de licence spécifique**|Affiche les produits, avec un état de licence spécifié, dont les licences sont gérées par le service de gestion de licences des logiciels.|  
+|**Licence 04A - Nombre de produits gérés par le service de gestion de licences des logiciels**|Affiche le nombre de produits dont les licences sont gérées par le service de gestion de licences des logiciels.|  
+|**Licence 04B - Ordinateurs présentant un produit spécifique géré par le service de gestion des licences**|Affiche les ordinateurs, gérés par le service de gestion de licences des logiciels, qui contiennent un produit donné.|  
+|**Licence 05A - Ordinateurs agissant en tant que service de gestion de clés**|Affiche les ordinateurs qui agissent en tant que serveurs de gestion de clés.|  
+|**Licence 06A - Nombre de processeurs pour les produits avec une licence par processeur**|Affiche le nombre total de processeurs sur des ordinateurs qui utilisent des produits Microsoft prenant en charge la gestion des licences pour chaque processeur.|  
+|**Licence 06B - Ordinateurs équipés d'un produit spécifique prenant en charge la gestion des licences par processeur**|Affiche la liste des ordinateurs sur lesquels est installé un produit Microsoft spécifié qui prend en charge la gestion des licences par processeur.|  
+|**Licence 14A - Rapport de rapprochement des licences en volume Microsoft**|Affiche le rapprochement entre les licences logicielles achetées via le contrat de licence en volume Microsoft et le nombre réel de logiciels.|  
+|**Licence 14B - Liste des logiciels Microsoft introuvables dans MVLS**|Ce rapport affiche les logiciels Microsoft en cours d'utilisation qui ne figurent pas dans le contrat de licence en volume Microsoft.|  
+|**Licence 15A - Rapport de rapprochement des licences générales**|Affiche le rapprochement entre les licences logicielles générales achetées et le nombre réel de logiciels.|  
+|**Licence 15B - Rapport de rapprochement des licences générales par ordinateur**|Affiche les ordinateurs qui ont installé le produit sous licence avec une version spécifiée.|  
+|**Logiciel 01A - Synthèse des logiciels installés dans un regroupement spécifique**|Affiche la synthèse des logiciels installés, classés par nombre d'instances, répertoriés dans l'inventaire.|  
+|**Logiciel 02A - Familles de produits pour un regroupement spécifique**|Affiche les familles de produits et le nombre de logiciels dans la famille pour un regroupement spécifié.|  
+|**Logiciel 02B - Catégories de produits pour une famille de produits spécifique**|Affiche les catégories de produits dans une famille de produits spécifiée et le nombre de logiciels au sein de la catégorie.|  
+|**Logiciel 02C - Logiciels dans une famille et une catégorie de produits spécifiques**|Affiche tous les logiciels qui se trouvent dans la famille et la catégorie de produits spécifiées.|  
+|**Logiciel 02D - Ordinateurs équipés de logiciels spécifiques**|Affiche tous les ordinateurs sur lesquels sont installés les logiciels spécifiés.|  
+|**Logiciel 02E - Logiciels installés sur un ordinateur spécifique**|Ce rapport affiche tous les logiciels installés sur un ordinateur spécifié.|  
+|**Logiciel 03A - Logiciels sans catégorie**|Affiche les logiciels dont la catégorie est inconnue ou qui n'ont aucune catégorie.|  
+|**Logiciel 04A - Logiciels configurés pour s'exécuter automatiquement sur les ordinateurs**|Affiche la liste des logiciels configurés pour s'exécuter automatiquement sur les ordinateurs.|  
+|**Logiciel 04B - Ordinateurs dotés de logiciels spécifiques configurés pour s'exécuter automatiquement**|Affiche tous les ordinateurs dotés de logiciels spécifiques configurés pour s'exécuter automatiquement|  
+|**Logiciel 04C - Logiciels configurés pour s'exécuter automatiquement sur un ordinateur spécifique**|Affiche les logiciels installés et configurés pour s'exécuter automatiquement sur un ordinateur spécifié.|  
+|**Logiciel 05A - Objets d'assistance du navigateur**|Affiche les objets d'assistance du navigateur installés sur les ordinateurs dans un regroupement spécifié.|  
+|**Logiciel 05B - Ordinateurs équipés d'un objet d'assistance du navigateur spécifique**|Affiche tous les ordinateurs équipés d'un objet d'assistance du navigateur spécifié.|  
+|**Logiciel 05C - Objets d'assistance du navigateur sur un ordinateur spécifique**|Affiche tous les objets d'assistance du navigateur sur l'ordinateur spécifié.|  
+|**Logiciel 06A - Recherche des logiciels installés**|Ce rapport fournit la synthèse des logiciels installés, classés par nombre d'instances selon des critères de recherche du nom du produit, de l'éditeur ou de la version.|  
+|**Logiciel 06B - Logiciels par nom de produit**|Affiche la synthèse des logiciels installés, classés par nombre d'instances selon un nom de produit spécifié.|  
+|**Logiciel 07A - Programmes exécutables récemment utilisés par nombre d'ordinateurs**|Affiche les programmes exécutables qui ont été récemment utilisés, ainsi que le nombre d'ordinateurs sur lesquels ils ont été utilisés. Le contrôle de logiciel doit être activé pour que ce site affiche ce rapport.|  
+|**Logiciel 07B - Ordinateurs ayant récemment utilisé un programme exécutable spécifié**|Affiche les ordinateurs sur lesquels un programme exécutable spécifié a récemment été utilisé quand vous activez le paramètre client de contrôle de logiciel.|  
+|**Logiciel 07C - Programmes exécutables récemment utilisés sur un ordinateur spécifié**|Affiche les fichiers exécutables qui ont été récemment utilisés sur un ordinateur spécifié quand vous activez le paramètre client de contrôle de logiciel.|  
+|**Logiciel 08A - Programmes exécutables récemment utilisés par nombre d'utilisateurs**|Affiche les programmes exécutables qui ont été récemment utilisés avec le nombre d'utilisateurs qui les ont utilisés quand vous activez le paramètre client de contrôle de logiciel.|  
+|**Logiciel 08B - Utilisateurs ayant récemment utilisé un programme exécutable spécifié**|Affiche les utilisateurs qui ont le plus récemment utilisé un programme exécutable spécifié quand vous activez le paramètre client de contrôle de logiciel.|  
+|**Logiciel 08C - Programmes exécutables récemment utilisés par un utilisateur spécifié**|Affiche les programmes exécutables qui ont été récemment utilisés par un utilisateur spécifié quand vous activez le paramètre client de contrôle de logiciel.|  
+|**Logiciel 09A - Logiciels rarement utilisés**|Affiche les logiciels qui n'ont pas été utilisés pendant une certaine période.|  
+|**Logiciel 09B - Ordinateurs sur lesquels sont installés des logiciels rarement utilisés**|Affiche les ordinateurs sur lesquels sont installés des logiciels qui n'ont pas été utilisés pendant une certaine période. La période spécifiée se base sur la valeur spécifiée dans le rapport « Logiciel 09A - Logiciels rarement utilisés ».|  
+|**Logiciel 10A - Titres des logiciels avec plusieurs légendes personnalisées spécifiques définies**|Affiche les titres des logiciels selon leur correspondance à tous les critères de légende personnalisée spécifiés. Il est possible de sélectionner jusqu'à trois légendes personnalisées pour affiner une recherche de titre de logiciel.|  
+|**Logiciel 10B - Ordinateurs équipés d'un logiciel avec une légende personnalisée spécifique**|Affiche tous les ordinateurs d'un regroupement sur lesquels est installé un logiciel spécifique avec une légende personnalisée.|  
+|**Logiciel 11A - Titres des logiciels avec une légende personnalisée spécifique définie**|Affiche les titres des logiciels selon leur correspondance à au moins un des critères de légende personnalisée spécifiés.|  
+|**Software 12A - Titres des logiciels sans légende personnalisée**|Affiche tous les titres des logiciels qui n'ont pas de légende personnalisée définie.|  
+|**Logiciel 14A - Recherche de logiciels dont la balise d'identification logicielle est activée**|Affiche le nombre de logiciels installés dont la balise d'identification logicielle est activée.|  
+|**Logiciel 14B - Ordinateurs sur lesquels sont installés des logiciels dont la balise d'identification logicielle est activée**|Affiche tous les ordinateurs sur lesquels sont installés des logiciels qui ont une balise d'identification logicielle spécifique activée.|  
+|**Logiciel 14C - Logiciels installés sur un ordinateur spécifique et dont la balise d'identification logicielle est activée**|Affiche tous les logiciels installés qui ont une balise d'identification logicielle spécifiée activée sur un ordinateur spécifié.|  
 
-### <a name="client-push"></a>Clientpush  
+### <a name="client-push"></a>Installation Push du client  
 
-|Berichtsname|Beschreibung|  
+|Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Details zum Clientpushinstallationsstatus**|Zeigt Informationen zum Clientpushinstallationsprozess für alle Standorte an.|  
-|**Clientpushinstallationsstatus für einen bestimmten Standort**|Zeigt Informationen zum Clientpushinstallationsprozess für einen angegebenen Standort an.|  
-|**Zusammenfassung des Clientpushinstallationsstatus**|Zeigt eine Zusammenfassungsansicht des Clientpushinstallationsstatus für alle Standorte an.|  
-|**Zusammenfassung des Clientpushinstallationsstatus für einen bestimmten Standort**|Zeigt eine Zusammenfassungsansicht des Clientpushinstallationsstatus für einen angegebenen Standort an.|  
+|**Détails de l'état de l'installation Push du client**|Affiche des informations sur le processus d'installation Push du client pour tous les sites.|  
+|**Détails de l'état de l'installation Push du client pour un site spécifié**|Affiche des informations sur le processus d'installation Push du client pour un site spécifié.|  
+|**Synthèse de l'état de l'installation Push du client**|Affiche la synthèse de l'état de l'installation Push du client pour tous les sites.|  
+|**Synthèse de l'état de l'installation Push du client pour un site spécifié**|Affiche la synthèse de l'état de l'installation Push du client pour un site spécifié.|  
 
-### <a name="client-status"></a>Clientstatus  
+### <a name="client-status"></a>État du client  
 
-|Berichtsname|Beschreibung|  
+|Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Clientwiederherstellungsdetails**|Zeigt die Wiederherstellungsdetails zu Clientaktionen für eine angegebene Sammlung an.|  
-|**Clientwiederherstellungs-Zusammenfassung**|Zeigt eine Zusammenfassung zu den Clientwiederherstellungsaktionen für eine angegebene Sammlung an.|  
-|**Clientstatus – Verlauf**|Zeigt eine Verlaufsansicht über den Clientstatus insgesamt am Standort an.|  
-|**Clientstatus – Zusammenfassung**|Zeigt die Ergebnisse der Clientüberprüfung von aktiven Clients für eine angegebene Sammlung an.|  
-|**Clientzeit zum Anfordern einer Richtlinie**|Zeigt den Prozentsatz der Clients an, von denen mindestens einmal innerhalb der letzten 30 Tage eine Richtlinie angefordert wurde. Jeder Tag stellt einen Prozentsatz der Gesamtanzahl der Clients dar, die seit dem ersten Zyklustag eine Richtlinie anforderten.|  
-|**Details zu Clients mit Fehlern bei Clientprüfung**|Zeigt Details zu den Clients an, bei deren Clientüberprüfung für eine bestimmte Sammlung ein Fehler aufgetreten ist.|  
-|**Details zu inaktiven Clients**|Zeigt eine detaillierte Liste der inaktiven Clients für eine angegebene Sammlung an.|  
+|**Détails des corrections du client**|Affiche les détails des actions de correction du client pour un regroupement que vous spécifiez.|  
+|**Synthèse des corrections du client**|Affiche la synthèse des actions de correction du client pour un regroupement spécifié.|  
+|**Historique de l'état du client**|Affiche l'historique de l'état général du client dans le site.|  
+|**Résumé de l'état du client**|Affiche les résultats de la vérification des clients actifs pour un regroupement donné.|  
+|**Temps client pour demande de stratégie**|Affiche le pourcentage de clients qui ont demandé une stratégie au moins une fois au cours des 30 derniers jours. Chaque jour représente un pourcentage du nombre total de clients qui ont demandé une stratégie depuis le premier jour du cycle.|  
+|**Clients avec détails des clients sains ayant échoué**|Affiche des détails sur les clients pour lesquels la vérification de l'intégrité a échoué pour un regroupement spécifié.|  
+|**Détails des clients inactifs**|Affiche la liste détaillée des clients inactifs pour un regroupement donné.|  
 
-### <a name="company-resource-access"></a>Zugriff auf Unternehmensressourcen  
+### <a name="company-resource-access"></a>Accès aux ressources d'entreprise  
 
-|Berichtsname|Beschreibung|  
+|Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Zertifikatausstellung – Verlauf**|Zeigt den Verlauf von Zertifikaten an, die vom Zertifikatregistrierungspunkt für Benutzer und Geräte für den angegebenen Zeitraum ausgestellt wurden.|  
-|**Liste von Beständen nach Zertifikatausstellungsstatus**|Zeigt die Geräte oder Benutzer in einem angegebenen Zertifikatausstellungsstatus nach der Auswertung eines angegebenen Zertifikatprofils an.|  
-|**Liste von Beständen mit Zertifikaten, die demnächst ablaufen**|Zeigt die Geräte oder Benutzer mit Zertifikaten an, die am oder vor dem angegebenen Datum ablaufen.|  
+|**Historique d'émission des certificats**|Affiche l'historique des certificats émis par le point d'enregistrement de certificat pour les utilisateurs et périphériques pendant la plage de dates spécifiée.|  
+|**Liste de biens par état d'émission de certificat**|Affiche les appareils ou utilisateurs qui sont dans un état d'émission de certificat spécifié à la suite de l'évaluation d'un profil de certificat spécifié.|  
+|**Liste de biens dont la date d'expiration des certificats approche**|Affiche les appareils ou utilisateurs qui ont des certificats qui expirent à la date spécifiée ou avant.|  
 
-### <a name="compliance-and-settings-management"></a>Kompatibilitäts- und Einstellungsverwaltung  
+### <a name="compliance-and-settings-management"></a>Gestion de la conformité et des paramètres  
 
-|Berichtsname|Beschreibung|  
+|Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Kompatibilitätsverlauf einer Konfigurationsbaseline**|Zeigt den Kompatibilitätsverlauf einer Konfigurationsbasislinie für den angegebenen Datumsbereich an.|  
-|**Kompatibilitätsverlauf eines Konfigurationselements**|Zeigt den Kompatibilitätsverlauf eines Konfigurationselements für den angegebenen Datumsbereich an.|  
-|**Details zu kompatiblen Regeln von Konfigurationselementen in einer Konfigurationsbaseline für einen Bestand**|Zeigt Informationen zu den Regeln an, die als kompatibel mit einem angegebenen Konfigurationselement für ein angegebenes Gerät oder einen angegebenen Benutzer ausgewertet wurden.|  
-|**Details zu konfliktverursachenden Regeln von Konfigurationselementen in einer Konfigurationsbaseline für einen Bestand**|Zeigt Informationen zu Regeln in einem Konfigurationselement an, die für einen angegebenen Benutzer oder auf einem angegebenen Gerät bereitgestellt wurden, und die mit anderen Regeln im gleichen oder einem anderen bereitgestellten Konfigurationselement in Konflikt stehen.|  
-|**Details zu Fehlern von Konfigurationselementen in einer Konfigurationsbaseline für einen Bestand**|Zeigt Informationen zu Fehlern an, die durch ein angegebenes Konfigurationselement für ein angegebenes Gerät oder einen angegebenen Benutzer generiert wurden.|  
-|**Details zu inkompatiblen Regeln von Konfigurationselementen in einer Konfigurationsbaseline für einen Bestand**|Zeigt Informationen zu Regeln an, die als nicht kompatibel mit einem angegebenen Konfigurationselement, einem angegebenen Gerät oder einem angegebenen Benutzer ausgewertet wurden.|  
-|**Details zu wiederhergestellten Regeln von Konfigurationselementen in einer Konfigurationsbaseline für einen Bestand**|Zeigt Informationen zu Regeln an, die durch ein angegebenes Konfigurationselement für ein angegebenes Gerät oder einen angegebenen Benutzer wiederhergestellt wurden.|  
-|**Liste von Beständen nach Kompatibilitätszustand für ein Konfigurationselement in einer Konfigurationsbaseline**|Zeigt die Geräte oder Benutzer an, die sich nach der Auswertung eines angegebenen Konfigurationselements in einem angegebenen Kompatibilitätszustand befinden.|  
-|**Liste von Beständen nach Kompatibilitätszustand für eine Konfigurationsbaseline**|Zeigt die Geräte oder Benutzer an, die sich nach der Auswertung einer angegebenen Konfigurationsbasislinie in einem angegebenen Kompatibilitätszustand befinden.|  
-|**Liste der Regeln, die mit einer angegebenen Regel für einen Bestand in Konflikt stehen**|Zeigt eine Liste der Regeln an, die mit einer angegebenen Regel für ein auf einem angegebenen Gerät bereitgestelltes Konfigurationselement in Konflikt stehen.|  
-|**Liste unbekannter Bestände für eine Konfigurationsbaseline**|Zeigt eine Liste der Geräte oder Benutzer an, von denen bisher noch keine Kompatibilitätsinformationen für eine angegebene Konfigurationsbasislinie angegeben wurden.|  
-|**Liste unbekannter Bestände für ein Konfigurationselement**|Zeigt eine Liste der Geräte oder Benutzer an, von denen bisher noch keine Kompatibilitätsinformationen für ein angegebenes Konfigurationselement angegeben wurden.|  
-|**Zusammenfassung der Regeln und Fehler von Konfigurationselementen in einer Konfigurationsbaseline für einen Bestand**|Zeigt eine Zusammenfassung der Kompatibilitätszustände der Regeln und jeglicher Einstellungsfehler für ein angegebenes Konfigurationselement eines angegebenen Geräts oder Benutzers an.|  
-|**Zusammenfassung zur Kompatibilität nach Konfigurationsbaseline**|Zeigt eine Zusammenfassung der Gesamtkompatibilität bereitgestellter Konfigurationsbasislinien in der Hierarchie an.|  
-|**Zusammenfassung der Kompatibilität nach Konfigurationselementen für eine Konfigurationsbaseline**|Zeigt eine Zusammenfassung der Kompatibilität der Konfigurationselemente in einer angegebenen Konfigurationsbasislinie an.|  
-|**Zusammenfassung zur Kompatibilität nach Konfigurationsrichtlinien**|Zeigt eine Zusammenfassung der Kompatibilität von Konfigurationsrichtlinien an.|  
-|**Zusammenfassung zur Kompatibilität einer Konfigurationsbaseline für eine Sammlung**|Zeigt eine Zusammenfassung der Gesamtkompatibilität einer angegebenen Konfigurationsbasislinie an, die für eine bestimmte Sammlung bereitgestellt wird.|  
-|**Liste der nicht kompatiblen Apps und Geräte für einen angegebenen Benutzer**|Zeigt Informationen zu Benutzern und Geräten an, die Apps installiert haben, die mit einer von Ihnen angegebenen Richtlinie nicht konform sind.|  
-|**Zusammenfassung der Benutzer mit nicht kompatiblen Apps**|Zeigt Informationen zu Benutzern an, die Apps installiert haben, die mit einer von Ihnen angegebenen Richtlinie nicht konform sind.|  
-|**Akzeptanz von Nutzungsbedingungen**|Zeigt Nutzungsbedingungen und die vom Benutzer akzeptierte Version hat.|  
+|**Historique des compatibilités d'une ligne de base de configuration**|Affiche l'historique des modifications apportées aux compatibilités d'une ligne de base de configuration pendant la plage de dates spécifiée.|  
+|**Historique des compatibilités d'un élément de configuration**|Affiche l'historique des modifications apportées aux compatibilités d'un élément de configuration pendant la plage de dates spécifiée.|  
+|**Détails des règles de compatibilité des éléments de configuration dans la ligne de base de configuration d'un composant**|Affiche des informations sur les règles évaluées comme compatibles pour un élément de configuration spécifié pour un périphérique ou un utilisateur spécifié.|  
+|**Détails des règles en conflit pour les éléments de configuration de la ligne de base de configuration d'un composant**|Affiche des informations sur les règles d'un élément de configuration qui a été déployé vers un utilisateur ou un périphérique spécifié en conflit avec d'autres règles contenues dans le même ou dans un autre élément de configuration déployé.|  
+|**Détails des erreurs des éléments de configuration dans la ligne de base de configuration d'un composant**|Affiche des informations sur les erreurs générées par un élément de configuration spécifié pour un utilisateur ou un périphérique spécifié.|  
+|**Détails des règles de non-compatibilité des éléments de configuration dans la ligne de base de configuration d'un composant**|Affiche des informations sur les règles évaluées comme non compatibles pour un élément de configuration spécifié, pour un périphérique ou un utilisateur spécifié.|  
+|**Détails des règles corrigées des éléments de configuration dans la ligne de base de configuration d'un composant**|Affiche des informations sur les règles corrigées par un élément de configuration spécifié pour un utilisateur ou un périphérique spécifié.|  
+|**Liste des composants par état de compatibilité pour un élément de configuration d'une ligne de base de configuration**|Affiche les périphériques ou utilisateurs d'un état de compatibilité spécifié selon l'évaluation d'un élément de configuration spécifié.|  
+|**Liste des composants par état de compatibilité d'une ligne de base de configuration**|Affiche les périphériques ou utilisateurs d'un état de compatibilité spécifié selon l'évaluation d'une ligne de base de configuration spécifié.|  
+|**Liste des règles en conflit avec la règle spécifique d'un composant**|Affiche la liste des règles qui sont en conflit avec une règle spécifiée pour un élément de configuration déployé sur un périphérique spécifié.|  
+|**Liste des composants inconnus d'une ligne de base de configuration**|Affiche la liste des périphériques ou utilisateurs qui n'ont pas encore renvoyé de données de compatibilité pour une ligne de base de configuration spécifiée.|  
+|**Liste des composants inconnus d'un élément de configuration**|Affiche la liste des périphériques ou utilisateurs qui n'ont pas encore renvoyé de données de compatibilité pour un élément de configuration spécifié.|  
+|**Résumé des règles et des erreurs des éléments de configuration dans une ligne de base de configuration d'un composant**|Affiche la synthèse de l'état de compatibilité des règles et toutes les erreurs de réglage pour un élément de configuration spécifié déployé sur un périphérique ou un utilisateur spécifié.|  
+|**Résumé de conformité par ligne de base de configuration**|Affiche le résumé de la compatibilité générale des lignes de base de configuration déployées dans la hiérarchie.|  
+|**Résumé de compatibilité par élément de configuration pour une ligne de base de configuration**|Affiche le résumé de la compatibilité des éléments de configuration dans une ligne de base de configuration spécifiée.|  
+|**Résumé de la conformité par stratégies de configuration**|Affiche le résumé de la conformité des stratégies de configuration.|  
+|**Résumé de la compatibilité de la ligne de base de configuration d'un regroupement**|Affiche le résumé de la compatibilité générale d'une ligne de base de configuration spécifiée déployée vers un regroupement spécifié.|  
+|**Liste d'applications et de périphériques non conformes pour un utilisateur spécifié**|Affiche des informations sur les utilisateurs et les périphériques qui ont installé des applications non conformes avec une stratégie que vous avez spécifiée.|  
+|**Résumé des utilisateurs ayant des applications non conformes**|Affiche des informations sur les utilisateurs qui ont installé des applications non conformes avec une stratégie que vous avez spécifiée.|  
+|**Acceptation des conditions générales**|Affiche les éléments des conditions générales et la version que chaque utilisateur a acceptés.|  
 
-### <a name="device-management"></a>-Geräteverwaltung  
+### <a name="device-management"></a>Gestion des appareils  
 
-|Berichtsname|Beschreibung|  
+|Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Alle Clients der mobilen Geräte**|Zeigt Informationen zu allen Clients für mobile Geräte an. Geräte, die vom Exchange Server-Connector verwaltet werden, sind nicht eingeschlossen.|  
-|**Zertifikatsprobleme auf nicht fehlerfreien mobilen Geräten, die vom Configuration Manager-Client für Windows CE verwaltet werden**|Zeigt detaillierte Informationen zu Zertifikatsproblemen auf mobilen Geräten an, die vom Configuration Manager-Client für Windows CE verwaltet werden.|  
-|**Client-Bereitstellungsfehler auf mobilen Geräten, die vom Configuration Manager-Client für Windows CE verwaltet werden**|Zeigt detaillierte Informationen zu Bereitstellungsfehlern auf mobilen Geräten an, die vom Configuration Manager-Client für Windows CE verwaltet werden|  
-|**Details zum Status der Client-Bereitstellung auf mobilen Geräten, die vom Configuration Manager-Client für Windows CE verwaltet werden**|Zeigt Informationen zum Status der mobilen Geräte an, die vom Configuration Manager-Client für Windows CE verwaltet werden|  
-|**Erfolgreiche Client-Bereitstellung auf mobilen Geräten, die vom Configuration Manager-Client für Windows CE verwaltet werden**|Zeigt detaillierte Informationen zur erfolgreichen Bereitstellung auf mobilen Geräten an, die vom Configuration Manager-Client für Windows CE verwaltet werden|  
-|**Kommunikationsprobleme auf nicht fehlerfreien mobilen Geräten, die vom Configuration Manager-Client für Windows CE verwaltet werden**|Dieser Bericht enthält detaillierte Informationen zu Kommunikationsproblemen auf mobilen Geräten, die vom Configuration Manager-Client für Windows CE verwaltet werden.|  
-|**Kompatibilitätsstatus für mobile Geräte, die vom Exchange Server-Connector verwaltet werden**|Zeigt eine Zusammenfassung des Kompatibilitätsstatus mit der Standard-Exchange ActiveSync-Postfachrichtlinie für mobile Geräte an, die vom Exchange Server-Connector verwaltet werden.|  
-|**Anzahl von mobilen Geräten nach Anzeigekonfigurationen**|Dieser Bericht enthält die Anzahl der mobilen Geräte nach Anzeigeeinstellungen.|  
-|**Anzahl von mobilen Geräten nach Betriebssystem**|Zeigt die Anzahl der mobilen Geräte nach Betriebssystem an.|  
-|**Anzahl von mobilen Geräten nach Programmspeicher**|Zeigt die Anzahl der mobilen Geräte nach Programmspeicher an.|  
-|**Anzahl von mobilen Geräte nach Konfiguration des Wechselmedienspeichers**|Anzahl der mobilen Geräte nach Konfiguration des Wechselmedienspeichers|  
-|**Integritätsinformationen für mobile Geräte, die vom Configuration Manager-Client für Windows CE verwaltet werden**|Zeigt Integritätsinformationen für mobile Geräte an, die vom Configuration Manager-Client für Windows CE verwaltet werden|  
-|**Integritätszusammenfassung für mobile Geräte, die vom Configuration Manager-Client für Windows CE verwaltet werden**|Zeigt Integritätsinformationen für mobile Geräte an, die vom Configuration Manager-Client für Windows CE verwaltet werden|  
-|**Inaktive mobile Geräte, die vom Exchange Server-Connector verwaltet werden**|Zeigt eine Liste der von Exchange Server-Connector verwalteten mobilen Geräte an, von denen in der angegebenen Anzahl von Tagen keine Verbindung mit Exchange Server hergestellt wurde.|  
-|**Liste der pro Benutzer in Microsoft Intune registrierten Geräte**|Zeigt alle Geräte an, die ein Benutzer mit Microsoft Intune registriert hat|  
-|**Liste der Geräte nach bedingtem Zugriffsstatus**|Zeigt Informationen zum aktuellen Kompatibilitätszustand und bedingten Zugriffsstatus von Geräten an. Sie können diesen Bericht mit Richtlinien für den bedingten Zugriff verwenden. Dieser Bericht steht ab Version 1602 von Configuration Manager zur Verfügung.|  
-|**Kompatibilität mit bedingtem Zugriff für Benutzer**|Stellt detaillierte Kompatibilitätsinformationen zum bedingten Zugriff für einen bestimmten Benutzer bereit, einschließlich Gerätename und Plattform, ob das Gerät kompatibel ist und wann das Gerät zuletzt bewertet wurde. Dieser Bericht steht ab Version 1602 von Configuration Manager zur Verfügung.|  
-|**Probleme lokaler Clients auf nicht fehlerfreien mobilen Geräten, die vom Configuration Manager-Client für Windows CE verwaltet werden**|Dieser Bericht enthält detaillierte Informationen zu Problemen lokaler Clients auf mobilen Geräten, die vom Configuration Manager-Client für Windows CE verwaltet werden.|  
-|**Clientinformationen des mobilen Geräts**|Zeigt Informationen zu mobilen Geräten an, auf denen der Configuration Manager-Client installiert ist Sie können mithilfe dieses Berichts überprüfen, welche mobilen Geräte erfolgreich mit einem Verwaltungspunkt kommunizieren können.|  
-|**Kompatibilitätsdetails der mobilen Geräte für den Exchange Server-Connector**|Zeigt die Kompatibilitätsdetails der mobilen Geräte für eine Standard-Exchange ActiveSync-Postfachrichtlinie an, die mithilfe des Exchange Server-Connectors konfiguriert wurde.|  
-|**Mobile Geräte nach Betriebssystem**|Zeigt die mobilen Geräte nach Betriebssystem an.|  
-|**Mobile Geräte, die ein Jailbreak aufweisen oder ein Stammgerät sind**|Zeigt die mobilen Geräte an, die ein Jailbreak aufweisen oder ein Stammgerät sind.|  
-|**Nicht verwaltete mobile Geräte, die zwar angemeldet sind, aber keinem Standort zugewiesen wurden**|Zeigt die mobilen Geräte an, deren Registrierung bei Configuration Manager abgeschlossen ist und die über ein Zertifikat verfügen, bei deren Standortzuweisung jedoch ein Fehler aufgetreten ist|  
-|**Mobile Geräte, die über den angegebenen freien Programmspeicher verfügen**|Zeigt alle mobilen Geräte mit ihren angegebenem freien Programmspeicher an.|  
-|**Mobile Geräte, die über den angegebenen freien Wechselmedienspeicher verfügen**|Zeigt alle mobilen Geräte mit dem angegebenen freien Wechselmedienspeicher an.|  
-|**Mobile Geräte mit Problemen bei der Zertifikatserneuerung**|Zeigt die Liste angemeldeter mobiler Geräte mit Fehlern bei der Zertifikatserneuerung an. Wenn das Zertifikat nicht vor dem Ablaufdatum erneuert wird, werden die mobilen Geräte nicht verwaltet.|  
-|**Mobile Geräte mit nicht genügend verfügbarem Programmspeicher (weniger freie KB als angegeben)**|Zeigt eine Liste mobiler Geräte an, deren Programmspeicher kleiner als die in KB angegebene Größe ist.|  
-|**Mobile Geräte mit nicht genügend verfügbarem Wechselmedienspeicher (weniger freie KB als angegeben)**|Zeigt eine Liste mobiler Geräte an, deren Wechselmedienspeicher kleiner als die in KB angegebene Größe ist.|  
-|**Anzahl der pro Benutzer in Windows Intune registrierten Geräte**|Dieser Bericht enthält die Benutzer mit Microsoft Intune-Abonnement und die Anzahl der pro Benutzer insgesamt registrierten Geräte.|  
-|**Ausstehende Anforderungen zum Zurücksetzen mobiler Geräte**|Zeigt die Anforderungen zum Zurücksetzen an, die für mobile Geräte ausstehen.|  
-|**Vor Kurzem angemeldete und zugewiesene mobile Geräte**|Zeigt eine Liste mobiler Geräte an, die kürzlich bei Configuration Manager angemeldet und einem Standort erfolgreich zugewiesen wurden|  
-|**Zuletzt zurückgesetzte mobile Geräte**|Zeigt die Liste der mobilen Geräte an, die zuletzt erfolgreich zurückgesetzt wurden.|  
-|**Zusammenfassung der Einstellungen für mobile Geräte, die vom Exchange Server-Connector verwaltet werden**|Zeigt die Anzahl der mobilen Geräte an, von denen die Einstellungen für jede vom Exchange Server-Connector verwaltete Standard-ActiveSync-Postfachrichtlinie angewendet werden.|  
-|**Statusdetails zu Windows RT-Sideload-Schlüsseln**|Zeigt ausführliche Statusinformationen für einen angegebenen Windows RT-Sideload-Schlüssel an.|  
-|**Zusammenfassung zu Windows RT-Sideload-Schlüsseln**|Zeigt den Status von Windows RT-Sideload-Schlüsseln an.|  
+|**Tous les clients de périphériques mobiles**|Affiche des informations sur tous les clients d’appareils mobiles. Les appareils qui sont gérés par le connecteur Exchange Server ne sont pas inclus.|  
+|**Problèmes de certificat sur les périphériques mobiles gérés par le client Configuration Manager pour Windows CE et qui ne sont pas sains**|Affiche des informations détaillées sur les problèmes de certificat sur les appareils mobiles gérés par le client Configuration Manager pour Windows CE.|  
+|**Échecs de déploiement du client pour les périphériques mobiles gérés par le client Configuration Manager pour Windows CE**|Affiche des informations détaillées sur les échecs de déploiement pour les appareils mobiles gérés par le client Configuration Manager pour Windows CE.|  
+|**Détails sur l'état de déploiement du client pour les périphériques mobiles gérés par le client Configuration Manager pour Windows CE**|Affiche des informations sur l’état de déploiement pour les appareils mobiles gérés par le client Configuration Manager pour Windows CE.|  
+|**Déploiements réussis du client pour les périphériques mobiles gérés par le client Configuration Manager pour Windows CE**|Affiche des informations détaillées sur la réussite du déploiement pour les appareils mobiles gérés par le client Configuration Manager pour Windows CE.|  
+|**Problèmes de communication sur les périphériques mobiles gérés par le client Configuration Manager pour Windows CE et qui ne sont pas sains**|Ce rapport contient des informations détaillées sur les problèmes de communication sur les appareils mobiles gérés par le client Configuration Manager pour Windows CE.|  
+|**État de compatibilité pour les périphériques mobiles gérés par le connecteur du serveur Exchange Server**|Affiche une synthèse de l'état de compatibilité avec la stratégie de boîte aux lettres Exchange ActiveSync par défaut pour les appareils mobiles gérés par le connecteur du serveur Exchange Server.|  
+|**Nombre de périphériques mobiles par configurations d'affichage**|Ce rapport affiche le nombre d’appareils mobiles par paramètres d'affichage.|  
+|**Nombre de périphériques mobiles par système d'exploitation**|Affiche le nombre d’appareils mobiles par système d'exploitation.|  
+|**Nombre de périphériques mobiles par mémoire programme**|Affiche le nombre d’appareils mobiles par mémoire programme.|  
+|**Nombre de périphériques mobiles par configurations de mémoire de stockage**|Nombre d’appareils mobiles par configurations de mémoire de stockage|  
+|**Informations d'intégrité détaillées pour les périphériques mobiles gérés par le client Configuration Manager pour Windows CE**|Affiche des informations d'intégrité détaillées pour les appareils mobiles gérés par le client Configuration Manager pour Windows CE.|  
+|**Récapitulatif de l'intégrité pour les périphériques mobiles gérés par le client Configuration Manager pour Windows CE**|Affiche des informations de synthèse de l'intégrité pour les appareils mobiles gérés par le client Configuration Manager pour Windows CE.|  
+|**Périphériques mobiles inactifs qui sont gérés par le connecteur du serveur Exchange Server**|Affiche les appareils mobiles qui sont gérés par le connecteur du serveur Exchange Server et qui ne se sont pas connectés à Exchange Server depuis un nombre de jours spécifié.|  
+|**Liste des périphériques inscrits par utilisateur dans Windows Intune**|Affiche tous les appareils qu’un utilisateur a inscrits dans Microsoft Intune.|  
+|**Liste des appareils par état d'accès conditionnel**|Affiche des informations sur la conformité actuelle et sur l'état d'accès conditionnel des appareils. Vous pouvez utiliser ce rapport avec les stratégies d'accès conditionnel. Ce rapport est disponible depuis la version 1602 de Configuration Manager.|  
+|**Conformité de l’accès conditionnel pour l’utilisateur**|Fournit des informations détaillées sur la compatibilité de l’accès conditionnel pour un utilisateur spécifique, dont le nom et la plateforme du périphérique, sa conformité et la date de sa dernière évaluation. Ce rapport est disponible depuis la version 1602 de Configuration Manager.|  
+|**Problèmes de client local sur les périphériques mobiles gérés par le client Configuration Manager pour Windows CE et qui ne sont pas sains**|Ce rapport contient des informations détaillées sur les problèmes de client local sur les appareils mobiles gérés par le client Configuration Manager pour Windows CE.|  
+|**Informations sur le client de périphérique mobile**|Affiche des informations sur les appareils mobiles sur lesquels le client Gestionnaire de configuration est installé. Vous pouvez utiliser ce rapport pour vérifier quels appareils mobiles peuvent communiquer correctement avec un point de gestion.|  
+|**Détails de la compatibilité des périphériques mobiles pour le connecteur du serveur Exchange Server**|Affiche les détails de compatibilité de l’appareil mobile pour une stratégie de boîte aux lettres Exchange ActiveSync par défaut qui est configurée à l'aide du connecteur du serveur Exchange Server.|  
+|**Périphériques mobiles par système d'exploitation**|Affiche les appareils mobiles par système d'exploitation.|  
+|**Appareils mobiles jailbroken ou rootés**|Affiche les appareils mobiles qui sont jailbreakés ou rootés.|  
+|**Périphériques mobiles non gérés car inscrits mais non affectés à un site**|Affiche les appareils mobiles qui ont été inscrits dans Configuration Manager et qui possèdent un certificat, mais qui n’ont pas terminé l’attribution de site.|  
+|**Périphériques mobiles et quantité spécifique de mémoire programme libre**|Affiche tous les appareils mobiles ainsi que la quantité spécifiée de mémoire programme libre.|  
+|**Périphériques mobiles avec une quantité spécifique de mémoire de stockage amovible libre**|Affiche tous les appareils mobiles ainsi que la quantité spécifiée de mémoire amovible libre.|  
+|**Périphériques mobiles rencontrant des problèmes de renouvellement de certificat**|Affiche les appareils mobiles inscrits qui n'ont pas réussi à renouveler leur certificat. Si le certificat n'est pas renouvelé avant la période d'expiration, les appareils mobiles ne sont pas gérés.|  
+|**Périphériques mobiles avec une mémoire programme faible (inférieure à l'espace libre spécifié en Ko)**|Affiche les appareils mobiles pour lesquels la mémoire programme est inférieure à une taille spécifiée en Ko.|  
+|**Périphériques mobiles avec une mémoire de stockage amovible faible (inférieure à l'espace libre spécifié en Ko)**|Affiche les appareils mobiles pour lesquels la mémoire de stockage amovible est inférieure à une taille spécifiée en Ko.|  
+|**Nombre de périphériques inscrits par utilisateur dans Windows Intune**|Ce rapport affiche les utilisateurs activés pour l'abonnement Microsoft Intune et le nombre total d'appareils inscrits pour chaque utilisateur.|  
+|**Demande de nettoyage en attente pour des périphériques mobiles**|Affiche les demandes de nettoyage en attente pour des appareils mobiles.|  
+|**Périphériques mobiles récemment inscrits et affectés**|Ce rapport affiche les appareils mobiles récemment inscrits dans Configuration Manager et affectés avec succès à un site.|  
+|**Périphériques mobiles récemment nettoyés**|Affiche la liste des appareils mobiles récemment nettoyés avec succès.|  
+|**Synthèse des paramètres pour les périphériques mobiles gérés par le connecteur du serveur Exchange Server**|Affiche le nombre d’appareils mobiles appliquant les paramètres pour chaque stratégie de boîte aux lettres Exchange ActiveSync par défaut gérée par le connecteur du serveur Exchange Server.|  
+|**État détaillé de clés de chargement de version test Windows RT**|Affiche des informations d'état détaillées pour une clé de chargement de version test Windows RT spécifiée.|  
+|**Résumé des clés de chargement de version test Windows RT**|Affiche l'état des clés de chargement de version test Windows RT.|  
 
-### <a name="driver-management"></a>Treiberverwaltung  
+### <a name="driver-management"></a>Gestion des pilotes  
 
-|Berichtsname|Beschreibung|  
+|Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Alle Treiber**|Zeigt eine Liste aller Treiber an.|  
-|**Alle Treiber für eine bestimmte Plattform**|Zeigt alle Treiber für eine bestimmte Plattform an.|  
-|**Alle Treiber in einem bestimmten Startimage**|Zeigt alle Treiber in einem angegebenen Startabbild an.|  
-|**Alle Treiber einer bestimmten Kategorie**|Zeigt alle Treiber in einer angegebenen Kategorie an.|  
-|**Alle Treiber in einem bestimmten Paket**|Zeigt alle Treiber in einem angegebenen Paket an.|  
-|**Kategorien für einen bestimmten Treiber**|Zeigt Kategorien für einen angegebenen Treiber an.|  
-|**Computer, auf denen Treiber für eine bestimmte Sammlung nicht installiert werden konnten**|Zeigt Computer an, auf denen Treiber für eine angegebene Sammlung nicht installiert werden konnten.|  
-|**Bericht über Treiberkatalogabgleich für eine bestimmte Sammlung**|Zeigt den Bericht über Treiberkatalogabgleich für eine angegebene Sammlung an.|  
-|**Bericht über Treiberkatalogabgleich für einen bestimmten Computer**|Zeigt den Bericht über Treiberkatalogabgleich für einen angegebenen Computer an.|  
-|**Bericht über Treiberkatalogabgleich für ein bestimmtes Gerät auf einem bestimmten Computer**|Zeigt den Bericht über Treiberkatalogabgleich für ein angegebenes Gerät auf einem angegebenen Computer an.|  
-|**Bericht über Treiberkatalogabgleich für Computer in einer bestimmten Sammlung mit einem bestimmten Gerät**|Zeigt den Bericht über Treiberkatalogabgleich für Computer in einer angegebenen Sammlung mit einem angegebenen Gerät an.|  
-|**Treiber, die auf einem bestimmten Computer nicht installiert werden konnten**|Zeigt Treiber an, die auf einem angegebenen Computer nicht installiert werden konnten.|  
-|**Unterstützte Plattformen für einen bestimmten Treiber**|Zeigt unterstützte Plattformen für einen angegebenen Treiber an.|  
+|**Tous les pilotes**|Affiche la liste de tous les pilotes.|  
+|**Tous les pilotes pour une plateforme spécifique**|Affiche tous les pilotes pour une plateforme spécifiée.|  
+|**Tous les pilotes d'une image de démarrage spécifique**|Affiche tous les pilotes d'une image de démarrage spécifiée.|  
+|**Tous les pilotes d'une catégorie spécifique**|Affiche tous les pilotes d'une catégorie spécifiée.|  
+|**Tous les pilotes d'un package spécifique**|Affiche tous les pilotes d'un package spécifié.|  
+|**Catégories d'un pilote spécifique**|Affiche les catégories d'un pilote spécifié.|  
+|**Ordinateurs qui n'ont pas pu installer des pilotes pour un regroupement spécifique**|Affiche les ordinateurs qui n'ont pas pu installer des pilotes pour un regroupement spécifique.|  
+|**Rapport de correspondance du catalogue de pilotes pour un regroupement spécifique**|Affiche le rapport de correspondance du catalogue de pilotes pour un regroupement spécifié.|  
+|**Rapport de correspondance du catalogue de pilotes pour un ordinateur spécifique**|Affiche le rapport de correspondance du catalogue de pilotes pour un ordinateur spécifié.|  
+|**Rapport de correspondance du catalogue de pilotes pour un périphérique spécifique sur un ordinateur spécifique**|Affiche le rapport de correspondance du catalogue de pilotes pour un périphérique spécifique sur un ordinateur spécifique.|  
+|**Rapport de correspondance du catalogue de pilotes pour les ordinateurs d'un regroupement spécifique avec un périphérique spécifique**|Affiche le rapport de correspondance du catalogue de pilotes pour les ordinateurs d'un regroupement spécifique avec un périphérique spécifique.|  
+|**Pilotes dont l'installation a échoué sur un ordinateur spécifique**|Affiche les pilotes dont l'installation a échoué sur un ordinateur spécifique.|  
+|**Plateformes prises en charge pour un pilote spécifique**|Affiche les plateformes prises en charge pour un pilote spécifié.|  
 
 ### <a name="endpoint-protection"></a>Endpoint Protection  
 
-|Berichtsname|Beschreibung|  
+|Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Aktivitätsbericht für Antischadsoftware**|Zeigt eine Übersicht über die Antischadsoftware-Aktivität an.|  
-|**Gesamtstatus und Verlauf der Antischadsoftware**|Zeigt den Gesamtstatus und Verlauf der Antischadsoftware an.|  
-|**Details zur Schadsoftware auf dem Computer**|Zeigt Details zu einem angegebenen Computer und die Liste der Schadsoftware an, die darauf gefunden wurde.|  
-|**Infizierte Computer**|Zeigt eine Liste von Computern an, auf denen eine angegebene Bedrohung erkannt wurde.|  
-|**Benutzer nach häufigsten Bedrohungen**|Zeigt die Liste der Benutzer mit der höchsten Anzahl an erkannten Bedrohungen an.|  
-|**Benutzerspezifische Bedrohungsliste**|Zeigt die Liste der erkannten Bedrohungen für ein angegebenes Benutzerkonto an.|  
+|**Rapport d'activité des logiciels anti-programme malveillant**|Affiche une vue d'ensemble de l'activité des logiciels anti-programme malveillant.|  
+|**Historique et état global du logiciel anti-programme malveillant**|Affiche l'historique et l'état global du logiciel anti-programme malveillant.|  
+|**Détails des programmes malveillants de l'ordinateur**|Affiche les détails relatifs à un ordinateur spécifié ainsi que la liste des programmes malveillants détectés sur cet ordinateur.|  
+|**Ordinateurs infectés**|Affiche la liste des ordinateurs sur lesquels une menace spécifiée a été détectée.|  
+|**Utilisateurs récurrents par menace**|Affiche la liste des utilisateurs qui ont le plus grand nombre de menaces détectées.|  
+|**Liste des menaces utilisateur**|Affiche la liste des menaces trouvées pour un compte d'utilisateur spécifique.|  
 
-### <a name="hardware---cd-rom"></a>Hardware – CD-ROM  
+### <a name="hardware---cd-rom"></a>Matériel - CD-ROM  
 
-|Berichtsname|Beschreibung|  
+|Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**CD-ROM-Informationen für einen bestimmten Computer**|Zeigt Informationen zu den CD-ROM-Laufwerken eines angegebenen Computers an.|  
-|**Computer für einen bestimmten CD-ROM-Hersteller**|Zeigt eine Liste der Computer an, die ein CD-ROM-Laufwerk enthalten, das von einem angegebenen Hersteller stammt.|  
-|**Anzahl von CD-ROM-Laufwerken nach Hersteller**|Zeigt die Anzahl der pro Hersteller inventarisierten CD-ROM-Laufwerke an.|  
-|**Verlauf – CD-ROM-Verlauf für einen bestimmten Computer**|Zeigt den Inventarverlauf für CD-ROM-Laufwerke eines angegebenen Computers an.|  
+|**Informations de CD-ROM pour un ordinateur spécifique**|Affiche des informations sur les lecteurs de CD-ROM d'un ordinateur spécifié.|  
+|**Ordinateurs disposant d'un CD-ROM d'un fabricant spécifique**|Affiche la liste des ordinateurs qui contiennent un lecteur de CD-ROM conçu par un fabricant que vous spécifiez.|  
+|**Compter les lecteurs de CD-ROM par fabricant**|Affiche le nombre de lecteurs de CD-ROM inventoriés par fabricant.|  
+|**Historique - Historique CD-ROM pour un ordinateur spécifique**|Affiche l'historique de l'inventaire des lecteurs de CD-ROM sur un ordinateur spécifié.|  
 
-### <a name="hardware---disk"></a>Hardware – Datenträger  
+### <a name="hardware---disk"></a>Matériel - Disque  
 
-|Berichtsname|Beschreibung|  
+|Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Computer mit einer bestimmten Festplattengröße**|Zeigt eine Liste von Computern an, die mit Festplatten mit einer angegebenen Größe ausgestattet sind.|  
-|**Computer mit wenig verfügbarem Speicherplatz (weniger als die angegebenen % frei)**|Zeigt eine Liste der Computer in einer angegebenen Sammlung an, die über weniger als den angegebenen freien Speicherplatz verfügen.|  
-|**Computer mit wenig verfügbarem Speicherplatz (weniger als die angegebenen MB frei)**|Zeigt eine Liste von Computern und Datenträgern an, bei denen wenig freier Datenträgerspeicherplatz vorhanden ist. Die zu überprüfende Größe des verfügbaren Speicherplatzes ist in Prozent der Datenträgerkapazität angegeben.|  
-|**Konfigurationen physischer Datenträger zählen**|Zeigt die Anzahl der inventarisierten Festplatten nach Kapazität an.|  
-|**Datenträgerinformationen für einen bestimmten Computer – logische Datenträger**|Zeigt zusammenfassende Informationen zu den logischen Datenträgern auf einem angegebenen Computer an.|  
-|**Datenträgerinformationen für einen bestimmten Computer – Partitionen**|Zeigt zusammenfassende Informationen zu den Datenträgerpartitionen auf einem angegebenen Computer an.|  
-|**Datenträgerinformationen für einen bestimmten Computer – physische Datenträger**|Zeigt zusammenfassende Informationen zu den physischen Datenträgern auf einem angegebenen Computer an.|  
-|**Verlauf – Verlauf des Speicherplatzes auf logischen Datenträgern für einen bestimmten Computer**|Zeigt den Inventarverlauf für logische Datenträger eines angegebenen Computers an.|  
+|**Ordinateurs avec un disque dur d'une taille spécifique**|Affiche la liste des ordinateurs dont les disques durs sont de la taille spécifiée.|  
+|**Ordinateurs avec un espace disque libre faible (inférieur au pourcentage libre spécifié)**|Affiche la liste des ordinateurs inclus dans un regroupement spécifié dont l'espace disque libre est inférieur à celui spécifié.|  
+|**Ordinateurs avec un espace disque libre faible (inférieur au nombre de Mo libre spécifié)**|Affiche la liste des ordinateurs dont l'espace disque est faible. La quantité d'espace libre à rechercher est spécifiée en Mo.|  
+|**Compter les configurations de disque physique**|Affiche le nombre de disques durs inventoriés par capacité du disque.|  
+|**Informations de disques concernant un ordinateur spécifique - Disques logiques**|Affiche des informations de synthèse sur les disques logiques d'un ordinateur spécifié.|  
+|**Informations de disques concernant un ordinateur spécifique - Partitions**|Affiche des informations de synthèse sur les partitions de disques d'un ordinateur spécifié.|  
+|**Informations de disques concernant un ordinateur spécifique - Disques physiques**|Affiche des informations de synthèse sur les disques physiques d'un ordinateur spécifié.|  
+|**Historique - Historique de l'espace disque logique pour un ordinateur spécifique**|Affiche l'historique de l'inventaire des lecteurs de disques logiques sur un ordinateur spécifié.|  
 
-### <a name="hardware---general"></a>Hardware – Allgemein  
+### <a name="hardware---general"></a>Matériel – Général  
 
-|Berichtsname|Beschreibung|  
+|Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Computerinformationen für einen bestimmten Computer**|Zeigt zusammenfassende Informationen zu einem angegebenen Computer an.|  
-|**Computer in einer bestimmten Arbeitsgruppe oder Domäne**|Zeigt eine Liste der Computer in einer angegebenen Arbeitsgruppe oder Domäne an.|  
-|**Einer bestimmten Sammlung zugewiesene Inventarklassen**|Zeigt die Inventarklassen an, die einer angegebenen Sammlung zugewiesen sind.|  
-|**Für einen bestimmten Computer aktivierte Inventarklassen**|Zeigt die Inventarklassen an, die auf einem angegebenen Computer aktiviert sind.|  
+|**Informations concernant un ordinateur spécifique**|Affiche des informations de synthèse pour un ordinateur spécifié.|  
+|**Ordinateurs dans un groupe de travail ou un domaine spécifique**|Affiche la liste des ordinateurs inclus dans un groupe de travail ou un domaine spécifié.|  
+|**Classes d'inventaire affectées à un regroupement spécifique**|Affiche les classes d'inventaire affectées à un regroupement spécifié.|  
+|**Classes d'inventaire activées sur un ordinateur spécifique**|Affiche les classes d'inventaire activées sur un ordinateur spécifié.|  
 
-### <a name="hardware---memory"></a>Hardware – Arbeitsspeicher  
+### <a name="hardware---memory"></a>Matériel - Mémoire  
 
-|Berichtsname|Beschreibung|  
+|Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Computer, bei denen sich der physische Speicher geändert hat**|Zeigt eine Liste von Computern an, bei denen sich seit dem letzten Inventurzyklus die Größe des Arbeitsspeichers geändert hat.|  
-|**Computer mit einer bestimmten Speichergröße**|Zeigt eine Liste von Computern mit der angegebenen RAM-Größe (gesamter physischer Speicher gerundet auf MB) an.|  
-|**Computer mit wenig Arbeitsspeicher (kleiner oder gleich angegebene MB)**|Zeigt eine Liste von Computern an, die über wenig Arbeitsspeicher verfügen. Die zu überprüfende Größe des Arbeitsspeichers ist in MB angegeben.|  
-|**Arbeitsspeicherkonfigurationen zählen**|Zeigt die Anzahl der inventarisierten Computer nach Größe des Arbeitsspeichers an.|  
-|**Arbeitsspeicherinformationen für einen bestimmten Computer**|Zeigt zusammenfassende Informationen zum Arbeitsspeicher auf einem angegebenen Computer an.|  
+|**Ordinateurs sur lesquels la mémoire physique a changé**|Affiche la liste des ordinateurs dont la quantité de mémoire vive a changé depuis le dernier cycle d'inventaire.|  
+|**Ordinateurs disposant d'une quantité de mémoire spécifique**|Affiche la liste des ordinateurs disposant d'une quantité spécifiée de mémoire vive (mémoire physique totale arrondie au mégaoctet le plus proche).|  
+|**Ordinateurs avec peu de mémoire vive (inférieure ou égale à la quantité de Mo spécifiée)**|Affiche la liste des ordinateurs disposant de peu de mémoire. La quantité de mémoire à rechercher est spécifiée en Mo.|  
+|**Compter les configurations de mémoire**|Affiche le nombre d'ordinateurs inventoriés par quantité de mémoire vive.|  
+|**Informations de mémoire pour un ordinateur spécifique**|Affiche des informations de synthèse sur la mémoire d'un ordinateur spécifié.|  
 
-### <a name="hardware---modem"></a>Hardware – Modem  
+### <a name="hardware---modem"></a>Matériel - Modem  
 
-|Berichtsname|Beschreibung|  
+|Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Computerinformationen für einen bestimmten Modemhersteller**|Zeigt eine Liste von Computern an, die mit einem Modem eines angegebenen Herstellers ausgestattet sind.|  
-|**Modems nach Hersteller zählen**|Zeigt die Anzahl der für jeden Modemhersteller inventarisierten Modems an.|  
-|**Modeminformationen für einen bestimmten Computer**|Zeigt zusammenfassende Informationen zum Modem auf einem angegebenen Computer an.|  
+|**Ordinateurs disposant d'un modem d'un fabricant spécifique**|Affiche la liste des ordinateurs qui disposent d'un modem conçu par un fabricant spécifique.|  
+|**Compter les modems par fabricant**|Affiche le nombre de modems inventoriés pour chaque fabricant.|  
+|**Informations de modem pour un ordinateur spécifique**|Affiche des informations de synthèse sur le modem d'un ordinateur spécifié.|  
 
-### <a name="hardware---network-adapter"></a>Hardware – Netzwerkkarte  
+### <a name="hardware---network-adapter"></a>Matériel - Carte réseau  
 
-|Berichtsname|Beschreibung|  
+|Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Computer mit einer bestimmten Netzwerkkarte**|Zeigt eine Liste von Computern an, die mit einer angegebenen Netzwerkkarte ausgestattet sind.|  
-|**Netzwerkkarten nach Typ zählen**|Zeigt die Anzahl der inventarisierten Netzwerkkarten für die einzelnen Typen an.|  
-|**Netzwerkkarteninformationen für einen bestimmten Computer**|Zeigt Informationen zu den in einem angegebenen Computer installierten Netzwerkkarten an.|  
+|**Ordinateurs équipés d'une carte réseau spécifique**|Affiche la liste des ordinateurs dotés d'une carte réseau spécifiée.|  
+|**Compter les cartes réseau par type**|Affiche le nombre de cartes réseau inventoriées par type.|  
+|**Informations de carte réseau pour un ordinateur spécifique**|Affiche des informations sur les cartes réseau installées sur un ordinateur spécifié.|  
 
-### <a name="hardware---processor"></a>Hardware – Prozessor  
+### <a name="hardware---processor"></a>Matériel - Processeur  
 
-|Berichtsname|Beschreibung|  
+|Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Computer mit einer bestimmten Prozessorgeschwindigkeit**|Zeigt eine Liste von Computern an, die mit einem Prozessor mit der angegebenen Geschwindigkeit ausgestattet sind.|  
-|**Computer mit schnellen Prozessoren (Taktfrequenz größer oder gleich der angegebenen)**|Zeigt eine Liste von Computern an, die mit Prozessoren mit einer Geschwindigkeit ausgestattet sind, die schneller als die angegebene Geschwindigkeit ist.|  
-|**Computer mit langsamen Prozessoren (Taktfrequenz kleiner oder gleich der angegebenen)**|Zeigt eine Liste von Computern an, die mit Prozessoren ausgestattet sind, die mit der angegebenen Taktfrequenz oder langsamer arbeiten.|  
-|**Prozessorgeschwindigkeiten zählen**|Zeigt die Anzahl von inventarisierten Computern nach Prozessorgeschwindigkeit an.|  
-|**Prozessorinformationen für einen bestimmten Computer**|Zeigt Informationen zu den in einem angegebenen Computer installierten Prozessoren an.|  
+|**Ordinateurs ayant une fréquence de processeur spécifique**|Affiche la liste des ordinateurs dont un processeur est cadencé à la fréquence spécifiée.|  
+|**Ordinateurs équipés de processeurs rapides (d'une fréquence supérieure ou égale à la fréquence spécifiée)**|Affiche la liste des ordinateurs dotés de processeurs dont la fréquence est plus rapide que la fréquence spécifiée.|  
+|**Ordinateurs équipés de processeurs lents (d'une fréquence inférieure ou égale à la fréquence spécifiée)**|Affiche la liste des ordinateurs dotés de processeurs cadencés à une fréquence inférieure ou égale à la fréquence d'horloge spécifiée.|  
+|**Compter les vitesses de processeur**|Affiche le nombre d'ordinateurs inventoriés par fréquence de processeur.|  
+|**Informations de processeur pour un ordinateur spécifique**|Affiche des informations sur les processeurs installés sur un ordinateur spécifié.|  
 
-### <a name="hardware---scsi"></a>Hardware – SCSI  
+### <a name="hardware---scsi"></a>Matériel - SCSI  
 
-|Berichtsname|Beschreibung|  
+|Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Computer mit einem bestimmten SCSI-Kartentyp**|Zeigt eine Liste von Computern an, in denen eine angegebene SCSI-Karte installiert ist.|  
-|**SCSI-Kartentypen zählen**|Zeigt die Anzahl der inventarisierten SCSI-Karten nach Kartentyp an.|  
-|**SCSI-Karteninformationen für einen bestimmten Computer**|Zeigt Informationen zu den in einem angegebenen Computer installierten SCSI-Karten an.|  
+|**Ordinateurs équipés d'un type de carte SCSI spécifique**|Affiche la liste des ordinateurs sur lesquels une carte SCSI spécifiée est installée.|  
+|**Compter les types de contrôleurs SCSI**|Affiche le nombre de contrôleurs SCSI inventoriés par type de carte.|  
+|**Informations de cartes SCSI pour un ordinateur spécifique**|Affiche des informations sur les cartes SCSI installées sur un ordinateur spécifié.|  
 
-### <a name="hardware---sound-card"></a>Hardware – Soundkarte  
+### <a name="hardware---sound-card"></a>Matériel - Carte audio  
 
-|Berichtsname|Beschreibung|  
+|Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Computer mit einer bestimmten Soundkarte**|Zeigt eine Liste von Computern an, die mit einer angegebenen Soundkarte ausgestattet sind.|  
-|**Soundkarten zählen**|Zeigt die Anzahl von inventarisierten Computern nach Soundkartentyp an.|  
-|**Soundkarteninformationen für einen bestimmten Computer**|Zeigt zusammenfassende Informationen zur Soundkarte eines angegebenen Computers an.|  
+|**Ordinateurs équipés d'une carte son spécifique**|Affiche la liste des ordinateurs dotés d'une carte son spécifiée.|  
+|**Compter les cartes audio**|Affiche le nombre d'ordinateurs inventoriés par type de carte audio.|  
+|**Informations de cartes son pour un ordinateur spécifique**|Affiche des informations de synthèse sur les cartes son d'un ordinateur spécifié.|  
 
-### <a name="hardware---video-card"></a>Hardware – Grafikkarte  
+### <a name="hardware---video-card"></a>Matériel – Carte vidéo  
 
-|Berichtsname|Beschreibung|  
+|Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Computer mit einer bestimmten Grafikkarte**|Zeigt eine Liste von Computern an, die mit einer angegebenen Grafikkarte ausgestattet sind.|  
-|**Grafikkarten nach Typ zählen**|Zeigt eine Liste aller in Computern installierter Grafikkarten sowie die Anzahl der einzelnen Grafikkartentypen an.|  
-|**Grafikkarteninformationen für einen bestimmten Computer**|Zeigt Informationen zu den in einem angegebenen Computer installierten Grafikkarten an.|  
+|**Ordinateurs équipés d'une carte vidéo spécifique**|Affiche la liste des ordinateurs dotés d'une carte vidéo spécifiée.|  
+|**Compter les cartes vidéo par type**|Affiche la liste de toutes les cartes vidéo installées sur les ordinateurs, ainsi que le nombre de chaque type de carte vidéo.|  
+|**Informations de cartes graphiques pour un ordinateur spécifique**|Affiche des informations de synthèse sur les cartes vidéo installées sur un ordinateur spécifié.|  
 
 ### <a name="migration"></a>Migration  
 
-|Berichtsname|Beschreibung|  
+|Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Clients in der Ausschlussliste**|Zeigt die von der Migration ausgeschlossenen Clients an.|  
-|**Abhängigkeit von einer Configuration Manager-Sammlung**|Zeigt die Objekte an, die von einer Sammlung der Quellhierarchie abhängen.|  
-|**Eigenschaften des Migrationsauftrags**|Dieser Bericht zeigt die Inhalte eines angegebenen Migrationsauftrags an.|  
-|**Migrationsaufträge**|Dieser Bericht zeigt die Liste der Migrationsaufträge an.|  
-|**Objekte mit Fehlern beim Migrieren**|Zeigt die Liste der Objekte an, die beim letzten Versuch nicht migriert werden konnten.|  
+|**Clients dans la liste des exclusions**|Affiche les clients exclus de la migration.|  
+|**Dépendance sur un regroupement Configuration Manager**|Affiche les objets qui dépendent d'un regroupement de la hiérarchie source.|  
+|**Propriétés de la tâche de migration**|Ce rapport affiche le contenu de la tâche de migration spécifiée.|  
+|**Tâches de migration**|Ce rapport affiche la liste des tâches de migration.|  
+|**Objets en échec de migration**|Affiche la liste des objets qui n'a pas pu migrer pendant la dernière tentative.|  
 
-### <a name="network"></a>Netzwerk  
+### <a name="network"></a>Réseau  
 
-|Berichtsname|Beschreibung|  
+|Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**IP-Adressen nach Subnetz zählen**|Zeigt die Anzahl der für die einzelnen IP-Subnetze inventarisierten IP-Adressen an.|  
-|**IP – Alle Subnetze nach Subnetzmaske**|Zeigt eine Liste von IP-Subnetzen und Subnetzmasken an.|  
-|**IP – Computer in einem bestimmten Subnetz**|Zeigt eine Liste von Computern und IP-Informationen für ein angegebenes IP-Subnetz an.|  
-|**IP – Informationen für einen bestimmten Computer**|Zeigt zusammenfassende IP-Informationen zu einem angegebenen Computer an.|  
-|**IP – Informationen für eine bestimmte IP-Adresse**|Zeigt zusammenfassende Informationen zu einer angegebenen IP-Adresse an.|  
-|**MAC – Computer für eine bestimmte MAC-Adresse**|Zeigt den Computernamen und die IP-Adresse der Computer mit der angegebenen MAC-Adresse an.|  
+|**Compter les adresses IP par sous-réseau**|Affiche le nombre d'adresses IP inventoriées pour chaque sous-réseau IP.|  
+|**IP - Tous les sous-réseaux par masque de sous-réseau**|Affiche la liste des sous-réseaux IP et des masques de sous-réseau.|  
+|**IP - Ordinateurs dans un sous-réseau spécifique**|Affiche la liste des ordinateurs et des informations IP pour un sous-réseau IP spécifié.|  
+|**IP - Informations pour un ordinateur spécifique**|Affiche des informations de synthèse sur le protocole Internet d'un ordinateur spécifié.|  
+|**IP - Informations pour une adresse IP spécifique**|Affiche des informations de synthèse sur une adresse IP spécifiée.|  
+|**MAC - Ordinateurs pour une adresse MAC spécifique**|Affiche le nom et l'adresse IP des ordinateurs dont l'adresse MAC est celle spécifiée.|  
 
-### <a name="network-access-protection"></a>Netzwerkzugriffsschutz  
+### <a name="network-access-protection"></a>protection d'accès réseau (NAP),  
 
-|Berichtsname|Beschreibung|  
+|Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Vergleich der installierten Softwareupdates, geordnet nach Softwareupdatebereitstellung und NAP-Wiederherstellung**|Zeigt eine vergleichende Zusammenfassung über die von der Softwareupdatebereitstellung und der NAP-Wiederherstellung installierten Softwareupdates an.|  
-|**Anzahl der an einem Computer durchgeführten Wiederherstellungen innerhalb eines bestimmten Zeitraums**|In diesem Bericht wird angegeben, wie häufig ein Computer in einem angegebenen Zeitraum wiederhergestellt wurde.|  
-|**Liste der Computer, auf denen innerhalb eines bestimmten Zeitraums im Rahmen der Wiederherstellung ein bestimmtes Softwareupdate installiert wurde**|Zeigt die Computer an, auf denen innerhalb eines bestimmten Zeitraums (Tage) im Rahmen der Wiederherstellung ein angegebenes Softwareupdate installiert wurde.|  
-|**Liste der Computer, die basierend auf den ausgewählten Softwareupdates als nicht kompatibel zu betrachten sind**|Zeigt die einzelnen Computer an, die basierend auf den ausgewählten Softwareupdates als nicht kompatibel zu betrachten sind.|  
-|**Liste von Computern, auf denen der NAP-Dienst nicht erkannt wurde**|Zeigt eine Liste von Computern an, auf denen der NAP-Dienst nicht erkannt wurde.|  
-|**Liste von Computern, die NAP unterstützen**|Zeigt eine Liste der Computer an, auf denen der NAP-Dienst nicht ausgeführt wird oder auf denen sein Status unbekannt ist.|  
-|**Liste der NAP-Richtlinien**|Zeigt eine Liste von NAP-Richtlinien mit ihren Gültigkeitsdaten an.|  
-|**Liste der nicht kompatiblen Computer, die seit dem letzten Abrufintervall wiederhergestellt wurden**|Zeigt eine Liste nicht kompatibler, wiederhergestellter Computer mit dem Zeitpunkt der jeweils letzten bekannten Auswertung an.|  
-|**Liste der nicht kompatiblen Computer, die innerhalb eines angegebenen Zeitraums wiederhergestellt wurden**|Zeigt eine Liste von nicht kompatiblen Computern an, die innerhalb eines angegebenen Zeitraums wiederhergestellt wurden.|  
-|**Liste der Fehler bei der Wiederherstellung innerhalb eines bestimmten Zeitraums**|Zeigt eine Liste der Fehler bei der Wiederherstellung für eine angegebene Anzahl von Tagen an.|  
-|**Liste der im Rahmen der Wiederherstellung installierten Softwareupdates**|Zeigt die Softwareupdates an, die im Rahmen der Wiederherstellung für einen angegebenen Zeitraum installiert wurden.|  
-|**Zusammenfassung der nicht kompatiblen Computer, die seit dem letzten Abrufintervall wiederhergestellt wurden**|Zeigt eine Zusammenfassung von nicht kompatiblen Computern an, die seit dem letzten Abrufintervall wiederhergestellt wurden.|  
-|**Zusammenfassung der nicht kompatiblen Computer, die innerhalb eines bestimmten Zeitraums wiederhergestellt wurden**|Zeigt eine Zusammenfassung der nicht kompatiblen Computer an, die innerhalb eines angegebenen Zeitraums wiederhergestellt wurden.|  
+|**Comparaison des mises à jour de logiciels installées par les déploiements de mises à jour et la mise à jour de la protection d'accès réseau (NAP)**|Affiche une synthèse comparative des mises à jour de logiciels installées par les déploiements de mises à jour et la mise à jour de la protection d'accès réseau (NAP).|  
+|**Fréquence à laquelle un ordinateur a fait l'objet d'une mise à jour au cours d'une période donnée**|Ce rapport affiche la fréquence à laquelle un ordinateur a été mis à jour pendant une période spécifiée.|  
+|**Liste des ordinateurs ayant installé une mise à jour spécifique par processus de mise à jour au cours d'une période donnée**|Affiche la liste des ordinateurs sur lesquels une mise à jour de logiciel spécifiée a été installée par le biais d'un processus de mise à jour au cours d'une période donnée (exprimée en jours).|  
+|**Liste des ordinateurs susceptibles de ne pas être conformes d'après les mises à jour logicielles sélectionnées**|Affiche chaque ordinateur susceptible de ne pas être conforme d'après les mises à jour de logiciels sélectionnées.|  
+|**Liste des ordinateurs sur lesquels le service NAP n'a pas pu être détecté**|Affiche la liste des ordinateurs sur lesquels le service NAP n'a pas pu être détecté.|  
+|**Listes des ordinateurs compatibles NAP**|Affiche la liste des ordinateurs sur lesquels le service NAP n'est pas en cours d'exécution ou sur lesquels son état est inconnu.|  
+|**Liste des stratégies de protection d'accès réseau (NAP)**|Affiche les stratégies de protection d'accès réseau (NAP) avec leurs dates d'effet.|  
+|**Liste des ordinateurs non conformes mis à jour depuis le dernier intervalle d'interrogation**|Affiche la liste des ordinateurs non conformes mis à jour au cours de leur dernière période d'évaluation connue.|  
+|**Liste des ordinateurs non conformes mis à jour au cours d'une période donnée**|Affiche la liste des ordinateurs non conformes mis à jour au cours d'une période donnée.|  
+|**Liste des échecs de mise à jour pour une période donnée**|Affiche la liste des échecs de mise à jour pendant un nombre de jours spécifié.|  
+|**Liste des mises à jour de logiciels installées par mise à jour**|Affiche les mises à jour de logiciels installées par mise à jour pendant une période spécifiée.|  
+|**Récapitulatif des ordinateurs non conformes mis à jour depuis le dernier intervalle d'interrogation**|Affiche le récapitulatif des ordinateurs non conformes mis à jour depuis le dernier intervalle d'interrogation.|  
+|**Récapitulatif des ordinateurs non conformes mis à jour au cours d'une période donnée**|Affiche le récapitulatif des ordinateurs non conformes mis à jour au cours d'une période donnée.|  
 
-### <a name="operating-system"></a>Betriebssystem  
+### <a name="operating-system"></a>Système d'exploitation  
 
-|Berichtsname|Beschreibung|  
+|Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Verlauf – Version des Computerbetriebssystems**|Zeigt den Inventurverlauf für das Betriebssystem eines angegebenen Computers an.|  
-|**Computer mit einem bestimmten Betriebssystem**|Zeigt Computer mit einem angegebenen Betriebssystem an.|  
-|**Computer mit einem bestimmten Betriebssystem und Service Pack**|Zeigt Computer mit einem angegebenen Betriebssystem und Service Pack an.|  
-|**Betriebssystemversionen zählen**|Zeigt die Anzahl von inventarisierten Computern nach Betriebssystem an.|  
-|**Betriebssysteme und Service Packs zählen**|Zeigt die Anzahl von inventarisierten Computern nach Kombination von Betriebssystem und Service Pack an.|  
-|**Dienste – Computer, auf denen ein bestimmter Dienst ausführt wird**|Zeigt eine Liste der Computer an, auf denen ein angegebener Dienst ausgeführt wird.|  
-|**Dienste – Computer, auf denen RAS-Server ausgeführt wird**|Zeigt eine Liste der Computer an, auf denen RAS-Server ausführt wird.|  
-|**Dienste – Diensteinformationen für einen bestimmten Computer**|Zeigt zusammenfassende Informationen zu den Diensten auf einem angegebenen Computer an.|  
-|**Windows Server-Computer**|Zeigt eine Liste der Computer an, auf denen Windows Server-Betriebssysteme ausgeführt werden.|  
+|**Historique des versions du système d'exploitation de l'ordinateur**|Affiche l'historique de l'inventaire du système d'exploitation sur un ordinateur spécifié.|  
+|**Ordinateurs équipés d'un système d'exploitation spécifique**|Affiche les ordinateurs équipés d'un système d'exploitation spécifié.|  
+|**Ordinateurs équipés d'un système d'exploitation et d'un Service Pack spécifiques**|Affiche les ordinateurs équipés d'un système d'exploitation et d'un Service Pack spécifiés.|  
+|**Nombre de versions du système d'exploitation**|Affiche le nombre d'ordinateurs inventoriés par système d'exploitation.|  
+|**Compter les systèmes d'exploitation et les Service Packs**|Affiche le nombre d'ordinateurs inventoriés par combinaison de système d'exploitation et de Service Pack.|  
+|**Services - Ordinateurs exécutant un service spécifique**|Affiche la liste des ordinateurs qui exécutent un service spécifié.|  
+|**Services - Ordinateurs exécutant le service d'accès à distance**|Affiche la liste des ordinateurs qui exécutent le serveur d'accès à distance.|  
+|**Services - Informations de services concernant un ordinateur spécifique**|Affiche des informations de synthèse sur les services d'un ordinateur spécifié.|  
+|**Ordinateurs Windows Server**|Affiche la liste des ordinateurs qui exécutent des systèmes d'exploitation Windows Server.|  
 
-### <a name="out-of-band-management"></a>Out-of-Band-Verwaltung  
+### <a name="out-of-band-management"></a>Gestion hors bande  
 
-|Berichtsname|Beschreibung|  
+|Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Computer mit Out-of-Band-Verwaltungscontrollern**|Zeigt eine Liste von Computern an, auf denen sich Out-of-Band-Verwaltungscontroller befinden.|  
-|**Aktivität der Out-of-Band-Verwaltungskonsole**|Zeigt eine Liste von Statusmeldungen für die Aktivität der Out-of-Band-Verwaltungskonsole an.|  
-|**Bereitstellungsstatus zur Out-of-Band-Verwaltung von Clients**|Zeigt eine Liste von Computern an, die für die Out-of-Band-Verwaltung bereitgestellt wurden.|  
+|**Ordinateurs équipés de contrôleurs de gestion hors bande**|Affiche la liste des ordinateurs équipés de contrôleurs de gestion hors bande.|  
+|**Activité de la console de gestion hors bande**|Affiche la liste des messages d'état qui identifient l'activité de la console de gestion hors bande.|  
+|**État de la mise en service de la gestion hors bande des clients**|Affiche la liste des ordinateurs qui ont été configurés pour la gestion hors bande.|  
 
-### <a name="power-management"></a>Energieverwaltung  
+### <a name="power-management"></a>Gestion de l'alimentation  
 
-|Berichtsname|Beschreibung|  
+|Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Energieverwaltung – Computeraktivität**|Zeigt die Monitor-, Computer- und Benutzeraktivität einer angegebenen Sammlung innerhalb eines angegebenen Zeitraums in Diagrammform an.|  
-|**Energieverwaltung – Computeraktivität nach Computer**|Zeigt die Monitor-, Computer und Benutzeraktivität für einen angegebenen Computer an einem angegebenen Datum in Diagrammform an.|  
-|**Energieverwaltung – Computeraktivitätsdetails**|Zeigt eine Liste der Standby- und Aktivierungsfunktionen von Computern einer angegebenen Sammlung zu einem angegebenen Zeitpunkt (Datum und Uhrzeit) an.|  
-|**Energieverwaltung – Computerdetails**|Zeigt detaillierte Informationen zu Energiesparfunktionen, -einstellungen und -plänen eines angegebenen Computers an.|  
-|**Energieverwaltung – Computer meldet keine Details**|Zeigt eine Liste von Computern ohne jegliche Energieaktivität für einen angegebenen Zeitpunkt (Datum und Uhrzeit) an.|  
-|**Energieverwaltung – Ausgeschlossene Computer**|Zeigt eine Liste von Computern an, die vom Energiesparplan ausgeschlossen wurden.|  
-|**Energieverwaltung – Computer mit mehreren Energiesparplänen**|Zeigt eine Liste von Computern an, auf denen mehrere in Konflikt stehende Energieeinstellungen angewendet werden.|  
-|**Energieverwaltung – Stromverbrauch**|Zeigt den monatlichen Gesamtstromverbrauch einer bestimmten Sammlung während eines bestimmten Zeitraums (in kWh) an.|  
-|**Energieverwaltung – Stromverbrauch nach Tag**|Zeigt den monatlichen Gesamtstromverbrauch einer angegebenen Sammlung für die letzten 31 Tage (in kWh) an.|  
-|**Energieverwaltung – Stromkosten**|Zeigt die monatlichen Gesamtstromverbrauchskosten einer bestimmten Sammlung für einen angegebenen Zeitraum an.|  
-|**Energieverwaltung – Stromkosten nach Tag**|Zeigt die Gesamtstromkosten einer angegebenen Sammlung während der letzten 31 Tage an.|  
-|**Energieverwaltung – Umweltbelastung**|Zeigt die durch eine bestimmte Sammlung während eines bestimmten Zeitraums erzeugte Kohlendioxidemission (CO2) in Form eines Diagramms an.|  
-|**Energieverwaltung – Umweltbelastung nach Tag**|Zeigt die durch eine bestimmte Sammlung während der letzten 31 Tage erzeugte Kohlendioxidemission (CO2) in Form eines Diagramms an.|  
-|**Energieverwaltung – Störungsdetails für Computer**|Zeigt detaillierte Informationen zu Computern an, für die während eines bestimmten Zeitraums weder Standbymodus noch Ruhezustand aktiviert wurde.|  
-|**Energieverwaltung – Störungsbericht**|Zeigt eine Liste der häufigsten Ursachen an, deretwegen für Computer weder der Standbymodus noch der Ruhezustand aktiviert werden konnte, sowie die Anzahl von Computern, die für einen angegebenen Zeitraum von den jeweiligen Ursachen betroffen waren.|  
-|**Energieverwaltung – Energiefunktionen**|Zeigt die Energieverwaltungsfunktionen von Computern in der angegebenen Sammlung an.|  
-|**Energieverwaltung – Energieeinstellungen**|Zeigt eine aggregierte Liste aller Energieeinstellungen an, die von Computern in einer angegebenen Sammlung verwendet werden.|  
-|**Energieverwaltung – Energieeinstellungsdetails**|Zeigt weitere Informationen zu Computern an, die im Bericht **Energieverwaltung – Energieeinstellungen** angegeben wurden.|  
+|**Gestion de l'alimentation - Activité de l'ordinateur**|Affiche un graphique illustrant l'activité du moniteur, de l'ordinateur et de l'utilisateur pour un regroupement spécifique au cours d'une période donnée.|  
+|**Gestion de l'alimentation - Activité par ordinateur**|Affiche un graphique illustrant l'activité du moniteur, de l'ordinateur et de l'utilisateur pour un ordinateur spécifié à une date spécifiée.|  
+|**Gestion de l'alimentation - Détails de l'activité de l'ordinateur**|Affiche la liste des fonctions de veille et de sortie de veille pour les ordinateurs d'un regroupement spécifié à une heure et une date données.|  
+|**Gestion de l'alimentation - Détails de l'ordinateur**|Affiche des informations détaillées sur les fonctions de gestion de l'alimentation, les paramètres d'alimentation et les modes de gestion de l'alimentation appliqués à un ordinateur spécifié.|  
+|**Gestion de l'alimentation - Pas de rapport détaillé pour l'ordinateur**|Affiche la liste des ordinateurs ne rendant compte d'aucune activité d'alimentation pour une heure et une date données.|  
+|**Gestion de l'alimentation – Ordinateurs exclus**|Affiche la liste des ordinateurs exclus du mode de gestion de l'alimentation.|  
+|**Gestion de l'alimentation - Ordinateurs avec plusieurs modes de gestion de l'alimentation**|Affiche la liste des ordinateurs auxquels plusieurs paramètres d'alimentation en conflit sont appliqués.|  
+|**Gestion de l'alimentation - Consommation énergétique**|Affiche la consommation énergétique mensuelle totale (en kWh) pour un regroupement donné sur une période de temps précise.|  
+|**Gestion de l'alimentation - Consommation énergétique journalière**|Affiche la consommation énergétique totale (en kWh) au cours des 31 derniers jours pour un regroupement donné.|  
+|**Gestion de l'alimentation - Coût énergétique**|Affiche le coût de la consommation énergétique mensuelle totale pour un regroupement donné sur une période de temps précise.|  
+|**Gestion de l'alimentation - Coût énergétique journalier**|Affiche le coût énergétique total pour un regroupement donné au cours des 31 derniers jours.|  
+|**Gestion de l'alimentation - Incidence sur l'environnement**|Affiche un graphique montrant les émissions de dioxyde de carbone (CO2) générées par un regroupement spécifié sur une période de temps précise.|  
+|**Gestion de l'alimentation - Incidence journalière sur l'environnement**|Affiche un graphique montrant les émissions de CO2 générées par un regroupement spécifié au cours des 31 derniers jours.|  
+|**Gestion de l'alimentation - Détails de l'ordinateur non mis en veille**|Affiche des informations détaillées sur les ordinateurs qui ne se sont pas mis en veille ou veille prolongée sur une période donnée.|  
+|**Gestion de l'alimentation - Rapport sur la non-mise en veille**|Affiche la liste des causes courantes empêchant les ordinateurs de se mettre en veille ou veille prolongée ainsi que le nombre d'ordinateurs affectés par chaque cause sur une période donnée.|  
+|**Gestion de l'alimentation - Fonctions de gestion de l'alimentation**|Affiche les fonctions de gestion de l'alimentation des ordinateurs inclus dans le regroupement spécifié.|  
+|**Gestion de l'alimentation - Paramètres du mode de gestion de l'alimentation**|Affiche la liste globale des paramètres d'alimentation utilisés par les ordinateurs d'un regroupement spécifié.|  
+|**Gestion de l'alimentation - Détails des paramètres du mode de gestion de l'alimentation**|Permet d’afficher d’autres informations sur les ordinateurs qui ont été spécifiés dans le rapport **Gestion de l’alimentation – Paramètres du mode de gestion de l’alimentation**.|  
 
-### <a name="replication-traffic"></a>Replikationsdatenverkehr  
+### <a name="replication-traffic"></a>Trafic de réplication  
 
-|Berichtsname|Beschreibung|  
+|Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Replikationsdatenverkehr für globale Daten je Verbindung (Liniendiagramm)**|Zeigt den gesamten Replikationsdatenverkehr für globale Daten für eine angegebene Verbindung für eine angegebene Anzahl von Tagen an.|  
-|**Replikationsdatenverkehr für globale Daten je Verbindung (Kreisdiagramm)**|Zeigt den gesamten Replikationsdatenverkehr für globale Daten für eine angegebene Verbindung für eine angegebene Anzahl von Tagen an.|  
-|**Replikationsdatenverkehr in der Hierarchie je Verbindung**|Zeigt den gesamten Replikationsdatenverkehr für jede Verbindung in der Hierarchie für eine angegebene Anzahl von Tagen an.|  
-|**Datenverkehr für die zehn wichtigsten Replikationsgruppen in der Hierarchie je Verbindung (Kreisdiagramm)**|Zeigt den Replikationsdatenverkehr für die zehn wichtigsten Replikationsgruppen in der gesamten Hierarchie an, ermittelt nach Verbindung.|  
-|**Replikationsdatenverkehr für Verbindung**|Zeigt den gesamten Replikationsdatenverkehr für alle Daten für eine angegebene Anzahl von Tagen an.|  
-|**Datenverkehr für Replikationsgruppe je Verbindung**|Zeigt den Netzwerkdatenverkehr für Replikationsgruppen über eine angegebene Datenbankreplikationsverbindung für eine angegebene Anzahl von Tagen an.|  
-|**Replikationsdatenverkehr für Standortdaten je Verbindung (Liniendiagramm)**|Zeigt den gesamten Replikationsdatenverkehr für Standortdaten für eine angegebene Verbindung für eine angegebene Anzahl von Tagen an.|  
-|**Replikationsdatenverkehr für Standortdaten je Verbindung (Kuchendiagramm)**|Zeigt den gesamten Replikationsdatenverkehr für Standortdaten für eine angegebene Verbindung für eine angegebene Anzahl von Tagen an.|  
-|**Replikationsdatenverkehr in der Hierarchie gesamt (Liniendiagramm)**|Zeigt die summierte globale und standortbezogene Datenreplikation für jede Richtung und für jede Verbindung in der Hierarchie für eine angegebene Anzahl von Tagen an.|  
-|**Replikationsdatenverkehr in der Hierarchie gesamt (Kreisdiagramm)**|Zeigt die summierte globale und standortbezogene Datenreplikation für jede Richtung und für jede Verbindung in der Hierarchie für eine angegebene Anzahl von Tagen an.|  
+|**Trafic global de réplication des données par lien (courbes)**|Affiche le trafic total global de réplication des données sur un lien spécifié pendant un nombre de jours spécifiés.|  
+|**Trafic global de réplication des données par lien (secteurs)**|Affiche le trafic total global de réplication des données sur un lien spécifié pendant un nombre de jours spécifiés.|  
+|**Trafic de réplication par hiérarchie en fonction du lien**|Affiche le trafic de réplication total pour chaque lien de la hiérarchie pendant un nombre de jours spécifié.|  
+|**Trafic par lien des dix principaux groupes de réplication par hiérarchie (secteurs)**|Affiche le trafic de réplication pour les dix principaux groupes de réplication sur la totalité de la hiérarchie identifiée par un lien.|  
+|**Trafic de réplication des liens**|Affiche la totalité du trafic de réplication pour toutes les données pendant un nombre de jours spécifié.|  
+|**Trafic du groupe de réplication par lien**|Affiche le trafic réseau du groupe de réplication via un lien spécifié de réplication de bases de données pendant un nombre de jours spécifié.|  
+|**Trafic de réplication de données de site par lien (courbes)**|Affiche le trafic total de réplication de données de site sur un lien spécifié pendant un nombre de jours spécifié.|  
+|**Trafic de réplication de données de site par lien (secteurs)**|Affiche le trafic total de réplication de données de site sur un lien spécifié pendant un nombre de jours spécifié.|  
+|**Total du trafic de réplication par hiérarchie (courbes)**|Affiche la réplication de données globales et de site consolidées par hiérarchie pour chaque direction de chaque lien pendant un nombre de jours spécifié.|  
+|**Total du trafic de réplication par hiérarchie (secteurs)**|Affiche la réplication de données globales et de site consolidées par hiérarchie pour chaque direction de chaque lien pendant un nombre de jours spécifié.|  
 
-### <a name="site---client-information"></a>Standort – Clientinformationen  
+### <a name="site---client-information"></a>Site - Informations client  
 
-|Berichtsname|Beschreibung|  
+|Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Detaillierter Statusbericht zur Clientzuweisung**|Zeigt ausführliche Informationen zum Clientzuweisungsstatus an.|  
-|**Details zu Fehlern bei der Clientzuweisung**|Zeigt ausführliche Informationen zu Fehlern bei der Clientzuweisung an.|  
-|**Details zum Clientzuweisungsstatus**|Zeigt eine Übersicht über den Clientzuweisungsstatus an.|  
-|**Details zur erfolgreichen Clientzuweisung**|Zeigt ausführliche Informationen zu erfolgreich zugewiesenen Clients an.|  
-|**Bericht über Fehler bei der Clientbereitstellung**|Zeigt detaillierte Informationen für Clients an, die nicht bereitgestellt werden konnten.|  
-|**Details zum Clientbereitstellungsstatus**|Zeigt zusammenfassende Informationen zum Status von Clientinstallationen an.|  
-|**Bericht zur erfolgreichen Clientbereitstellung**|Zeigt ausführliche Informationen für Clients an, die erfolgreich bereitgestellt wurden.|  
-|**Clients, die die HTTPS-Kommunikation nicht unterstützen**|Zeigt detaillierte Informationen zu jedem Client eines Standorts an, von dem nach dem Ausführen des Programms zur Überprüfung der HTTPS-Kommunikation gemeldet wurde, dass die Kommunikation über HTTPS nicht unterstützt wird.|  
-|**Computer, die einem bestimmten Standort zugeordnet, aber nicht dort installiert sind**|Zeigt eine Liste von Computern an, die einem bestimmten Standort zugewiesen wurden, aber nicht an den Standort berichten.|  
-|**Computer mit einer bestimmten Configuration Manager-Clientversion**|Zeigt eine Liste von Computern an, auf denen eine einzelne angegebene Version der Configuration Manager-Clientsoftware ausgeführt wird.|  
-|**Anzahl der Clients und für die Kommunikation verwendeten Protokolle**|Zeigt eine Zusammenfassung der von Clients verwendeten Kommunikationsmethoden (HTTP oder HTTPS) an.|  
-|**Anzahl der zugeordneten und installierten Clients für jeden Standort**|Zeigt die Anzahl der zugeordneten und installierten Computer für jeden Standort an. Clients mit einem Netzwerkpfad, der mehreren Standorten zugeordnet ist, werden nur als installiert gezählt, wenn von ihnen an den betreffenden Standort Bericht erstattet wird.|  
-|**Anzahl der Clients, die die Kommunikation über HTTPS unterstützen**|Zeigt detaillierte Informationen zu jedem Client eines Standorts an, von dem nach dem Ausführen des Programms zur Überprüfung der HTTPS-Kommunikation gemeldet wurde, ob die Kommunikation über HTTPS unterstützt wird.|  
-|**Anzahl der Clients für jeden Standort**|Zeigt die Anzahl von installierten Configuration Manager-Clients nach Standortcode an|  
-|**Anzahl der Configuration Manager-Clients nach Clientversionen**|Zeigt die Anzahl der ermittelten Computer nach Configuration Manager-Clientversion an|  
-|**Details zu Problemen einer bestimmten Sammlung, die dem Fallbackstatuspunkt gemeldet wurden**|Zeigt detaillierte Informationen über die Probleme an, die von Clients in einer bestimmten Sammlung gemeldet wurden, wenn diese einem Fallbackstatuspunkt zugewiesen wurden.|  
-|**Details zu Problemen eines bestimmten Standorts, die dem Fallbackstatuspunkt gemeldet wurden**|Zeigt detaillierte Informationen über die Probleme an, die von Clients eines bestimmten Standorts gemeldet wurden, wenn diese einem Fallbackstatuspunkt zugewiesen wurden.|  
-|**Zusammenfassung der Probleme, die dem Fallbackstatuspunkt gemeldet wurden**|Zeigt Informationen über alle Probleme an, die von Clients gemeldet wurden, wenn diese einem Fallbackstatuspunkt zugewiesen wurden.|  
-|**Zusammenfassung der Probleme einer bestimmten Sammlung, die dem Fallbackstatuspunkt gemeldet wurden**|Zeigt zusammenfassende Informationen über die Probleme an, die von Clients in einer bestimmten Sammlung gemeldet wurden, wenn diese einem Fallbackstatuspunkt zugewiesen wurden.|  
+|**Rapport détaillé d'état d'attribution des clients**|Affiche des informations détaillées sur l'état d'attribution des clients.|  
+|**Détails sur l'échec de l'attribution des clients**|Affiche des informations détaillées sur les échecs d'attribution de clients.|  
+|**Détails de l'état d'attribution des clients**|Affiche des informations générales sur l'état d'attribution des clients.|  
+|**Détails sur la réussite de l'attribution des clients**|Affiche des informations détaillées sur les clients dont l'attribution a réussi.|  
+|**Rapport d'échec du déploiement des clients**|Affiche des informations détaillées sur les clients dont le déploiement a échoué.|  
+|**Détails de l'état du déploiement des clients**|Affiche des informations de synthèse sur l'état des installations des clients.|  
+|**Rapport de réussite du déploiement des clients**|Affiche des informations détaillées sur les clients dont le déploiement a réussi.|  
+|**Clients non compatibles avec une communication HTTPS**|Affiche des informations détaillées sur chaque client sur site exécutant l'outil HTTPS Communication Readiness et signalé comme étant dans l'impossibilité de communiquer via HTTPS.|  
+|**Ordinateurs attribués mais non installés pour un site précis**|Affiche la liste des ordinateurs attribués à un site précis mais qui ne rendent pas compte à ce site.|  
+|**Ordinateurs avec une version spécifique du client Configuration Manager**|Affiche une liste d'ordinateurs exécutant une version spécifique du logiciel client Configuration Manager.|  
+|**Nombre de clients et protocole utilisé pour la communication**|Affiche le résumé des méthodes de communication utilisées par les clients (HTTP ou HTTPS).|  
+|**Nombre de clients affectés et installés pour chaque site**|Affiche le nombre d'ordinateurs attribués et installés pour chaque site. Les clients possédant un emplacement réseau associé à plusieurs sites ne sont considérés comme installés que s'ils sont sous la supervision de ce site.|  
+|**Nombre de clients compatibles avec une communication HTTPS**|Affiche des informations détaillées sur chaque client sur site exécutant l'outil HTTPS Communication Readiness et signalé comme étant dans la possibilité ou l'impossibilité de communiquer via HTTPS.|  
+|**Nombre de clients pour chaque site**|Affiche le nombre de clients de Configuration Manager installés par code de site.|  
+|**Nombre de clients de Configuration Manager par versions de client**|Affiche le nombre d’ordinateurs découverts par la version de client Configuration Manager.|  
+|**Détail des problèmes signalés jusqu'au point d'état de secours pour un regroupement spécifié**|Affiche des informations détaillées pour les problèmes signalés par les clients dans un regroupement spécifié si un point d'état de secours leur a été attribué.|  
+|**Détails des problèmes signalés jusqu'au point d'état de secours pour un site spécifié**|Affiche des informations détaillées sur les problèmes signalés par les clients dans un site spécifié si un point d'état de secours leur a été attribué.|  
+|**Récapitulatif des problèmes signalés jusqu'au point d'état de secours**|Affiche des informations sur tous les problèmes signalés par les clients si un point d'état de secours leur a été attribué.|  
+|**Récapitulatif des problèmes signalés jusqu'au point d'état de secours pour un regroupement spécifique**|Affiche des informations de synthèse pour les problèmes signalés par les clients dans un regroupement spécifié si un point d'état de secours leur a été attribué.|  
 
-### <a name="site---discovery-and-inventory-information"></a>Standort – Ermittlungs- und Inventarinformationen  
+### <a name="site---discovery-and-inventory-information"></a>Site - Informations de découverte et d'inventaire  
 
-|Berichtsname|Beschreibung|  
+|Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Clients, von denen in letzter Zeit (innerhalb einer angegebenen Anzahl von Tagen) kein Bericht gesendet wurde**|Zeigt eine Liste von Clients an, für die in der angegebenen Anzahl von Tagen keine Ermittlungsdaten oder Hardware- und Softwareinventuren gemeldet wurden.|  
-|**Ermittelte Computer nach bestimmtem Standort**|Zeigt eine Liste aller von einem bestimmten Standort ermittelten Computer und das Datum der letzten Ermittlung an.|  
-|**Computer, die vor Kurzem ermittelt wurden, nach Ermittlungsmethode**|Zeigt eine Liste von Computern an, die in der angegebenen Anzahl von Tagen ermittelt wurden, zusammen mit den Agents, durch die sie ermittelt wurden. Wenn ein Computer von mehreren Agents ermittelt wurde, wird er möglicherweise mehrmals in der Liste angezeigt.|  
-|**Computer, die in letzter Zeit nicht ermittelt wurden (Anzahl von Tagen)**|Zeigt eine Liste von Computern an, die in letzter Zeit nicht ermittelt worden sind, sowie die Anzahl der Tage seit ihrer letzten Ermittlung.|  
-|**Computer, die in letzter Zeit nicht inventarisiert wurden (Anzahl von Tagen)**|Zeigt eine Liste von Computern an, die in letzter Zeit nicht inventarisiert worden sind, sowie die Zeitpunkte ihrer letzten Inventarisierung.|  
-|**Computer, deren eindeutige Configuration Manager-Kennungen möglicherweise übereinstimmen**|Zeigt eine Liste von Computern an, deren Namen geändert wurden. Eine Namensänderung kann z.B. bedeuten, dass die eindeutigen Configuration Manager-Bezeichner für zwei Computer übereinstimmen.|  
-|**Computer mit doppelten MAC-Adressen**|Zeigt Computer an, die sich eine MAC-Adresse teilen.|  
-|**Anzahl von Computern in Ressourcendomänen oder Arbeitsgruppen**|Zeigt die Anzahl der Computer in den einzelnen Ressourcendomänen oder Arbeitsgruppen an.|  
-|**Ermittlungsinformationen für einen bestimmten Computer**|Zeigt eine Liste aller Agents und Standorte an, die einen angegebenen Computer ermittelt haben.|  
-|**Inventurdaten für einen bestimmten Computer**|Zeigt das Datum und die Uhrzeit für die letzte Ausführung einer Inventur auf einem angegebenen Computer an.|  
+|**Clients qui n'ont pas émis de rapports récemment (pendant le nombre de jours spécifié)**|Affiche la liste des clients qui n'ont pas signalé de données de découverte, d'inventaire matériel ou d'inventaire logiciel pendant un nombre de jours spécifié.|  
+|**Ordinateurs découverts par un site spécifique**|Affiche la liste de tous les ordinateurs découverts par un site spécifié et la date de la dernière découverte.|  
+|**Ordinateurs récemment découverts par une méthode de découverte**|Affiche la liste des ordinateurs qui ont été découverts pendant le nombre de jours spécifié et indique les agents qui les ont découverts. Un même ordinateur peut apparaître plusieurs fois dans la liste s'il a été découvert par plusieurs agents.|  
+|**Ordinateurs non découverts récemment (dans un nombre de jours spécifié)**|Affiche la liste des ordinateurs qui n'ont pas été découverts récemment et indique le nombre de jours depuis leur découverte.|  
+|**Ordinateurs non inventoriés récemment (dans un nombre de jours spécifié)**|Affiche la liste des ordinateurs qui n'ont pas été inventoriés récemment et indique les dates de leur dernier inventaire.|  
+|**Ordinateurs susceptibles de partager le même identifiant Configuration Manager unique**|Affiche la liste des ordinateurs qui ont modifié leur nom. Un changement de nom est un symptôme possible d’un ordinateur qui partage un identificateur unique Configuration Manager avec un autre ordinateur.|  
+|**Ordinateurs ayant des adresses MAC en double**|Affiche les ordinateurs qui partagent une adresse MAC.|  
+|**Compter les ordinateurs dans les domaines de ressources ou groupes de travail**|Affiche le nombre d'ordinateurs dans chaque domaine de ressources ou groupe de travail.|  
+|**Informations de découverte pour un ordinateur spécifique**|Affiche la liste des agents et des sites qui ont découvert un ordinateur spécifié.|  
+|**Dates d'inventaire pour un ordinateur spécifique**|Affiche la date et l'heure de la dernière exécution de l'inventaire sur un ordinateur spécifié.|  
 
-### <a name="site---general"></a>Standort – Allgemein  
+### <a name="site---general"></a>Site - Général  
 
-|Berichtsname|Beschreibung|  
+|Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Computer an einem bestimmten Standort**|Zeigt eine Liste der Computer an einem angegebenen Standort an.|  
-|**Standortstatus für die Hierarchie**|Zeigt die Liste der Standorte in der Hierarchie mit Standortversion und Standortstatusinformationen an.|  
-|**Status des Configuration Manager-Updates innerhalb der Hierarchie**|Zeigt Informationen zu Configuration Manager-Standortupdates für die Hierarchie an|  
+|**Ordinateurs dans un site spécifique**|Affiche la liste des ordinateurs clients dans un site spécifié.|  
+|**État du site pour la hiérarchie**|Affiche la liste des sites de la hiérarchie avec leur version et leurs informations d'état.|  
+|**État de la mise à jour Configuration Manager au sein de la hiérarchie**|Affiche des informations sur les mises à jour de sites Configuration Manager pour la hiérarchie.|  
 
-### <a name="site---server-information"></a>Standort – Serverinformationen  
+### <a name="site---server-information"></a>Site - Informations sur le serveur  
 
-|Berichtsname|Beschreibung|  
+|Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Standortsystemrollen und -server für einen bestimmten Standort**|Zeigt eine Liste der Standortsystemserver und ihrer Standortsystemrollen für einen angegebenen Standort an.|  
+|**Rôles de système de site et serveurs de système de site pour un site spécifique**|Affiche la liste des serveurs et rôles de système de site pour un site spécifié.|  
 
-### <a name="software---companies-and-products"></a>Software – Unternehmen und Produkte  
+### <a name="software---companies-and-products"></a>Logiciel - Sociétés et produits  
 
-|Berichtsname|Beschreibung|  
+|Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Alle inventarisierten Produkte für ein bestimmtes Softwareunternehmen**|Zeigt eine Liste der inventarisierten Softwareprodukte und -versionen für ein angegebenes Softwareunternehmen an.|  
-|**Alle Softwareunternehmen**|Zeigt eine Liste aller Herstellerunternehmen der inventarisierten Software an.|  
-|**Alle Windows-Apps**|Zeigt eine Zusammenfassung der installierten Windows-Apps an, geordnet nach der Anzahl von Instanzen, basierend auf Suchkriterien für Anwendungsnamen, Architektur oder Herausgeber.|  
-|**Computer mit einem bestimmten Produkt**|Zeigt eine Liste von Computern an, auf denen ein angegebenes Produkt inventarisiert ist, sowie die Versionen des Produkts.|  
-|**Computer mit bestimmten Produktnamen und bestimmter Produktversion**|Zeigt eine Liste von Computern an, auf denen eine angegebene Version eines Produkts inventarisiert ist.|  
-|**Computer, bei denen eine bestimmte Software unter „Software“ registriert ist**|Zeigt eine Zusammenfassung aller Computer mit der angegebenen Software an, die unter „Software“ oder „Programme und Features“ registriert ist.|  
-|**Alle inventarisierten Produkte und Versionen zählen**|Zeigt eine Liste von inventarisierten Softwareprodukten und -versionen sowie die Anzahl von Computern an, auf denen sie jeweils installiert sind.|  
-|**Inventarisierte Produkte und Versionen für ein bestimmtes Produkt zählen**|Zeigt eine Liste von inventarisierten Versionen eines angegebenen Produkts sowie die Anzahl von Computern an, auf denen sie jeweils installiert sind.|  
-|**Alle Instanzen der Software zählen, die unter „Software“ registriert ist**|Zeigt eine Zusammenfassung aller Instanzen, der mit „Software“ oder „Programme und Features“ installierten und registrierten Software auf Computern in der angegebenen Sammlung an.|  
-|**Instanzen einer bestimmten Software zählen, die unter „Software“ registriert ist**|Zeigt die Anzahl der Instanzen für die angegebenen Softwarepakete an, die über „Software“ oder „Programme und Features“ installiert und registriert wurden.|  
-|**Installationen bestimmter Windows-Apps**|Dieser Bericht listet alle Computer mit einer angegebenen Windows-App auf.|  
-|**Produkte auf einem bestimmten Computer**|Zeigt eine Zusammenfassung der inventarisierten Softwareprodukte und ihrer Hersteller auf einem angegebenen Computer an.|  
-|**Software, die unter „Software“ auf einem bestimmten Computer registriert ist**|Zeigt eine Zusammenfassung der auf einem angegebenen Computer installierten Software an, die über „Software“ oder „Programme und Features“ registriert wurde.|  
-|**Für den angegebenen Benutzer installierte Windows-Apps**|Zeigt alle für den angegebenen Benutzer installierten Windows-Apps an.|  
+|**Tous les produits inventoriés pour un éditeur de logiciels spécifique**|Affiche la liste des produits logiciels inventoriés et de leurs versions pour un éditeur de logiciels spécifié.|  
+|**Tous les éditeurs de logiciels**|Affiche la liste de toutes les entreprises qui éditent les logiciels inventoriés.|  
+|**Toutes les applications Windows**|Affiche le résumé des applications Windows installées, classées par ordre de numéro d’instance selon les critères de recherche entrés pour le nom d’application, l’architecture ou l’éditeur.|  
+|**Ordinateurs sur lesquels existe un produit spécifique**|Affiche la liste des ordinateurs sur lesquels un produit spécifié est inventorié, ainsi que les versions de ce produit.|  
+|**Ordinateurs sur lesquels existe un produit et une version spécifiques**|Affiche la liste des ordinateurs sur lesquels une version spécifiée d'un produit est inventoriée.|  
+|**Ordinateurs équipés d'un logiciel spécifique inscrit dans Ajout/Suppression de programmes**|Affiche le résumé de tous les ordinateurs équipés d'un logiciel spécifié inscrit dans Ajout/Suppression de programmes ou Programmes et fonctionnalités.|  
+|**Nombre de tous les produits et versions inventoriés**|Affiche la liste des produits logiciels et versions inventoriés, ainsi que le nombre d'ordinateurs sur lesquels chacun est installé.|  
+|**Compter les produits et versions inventoriés pour un produit spécifique**|Affiche la liste des versions inventoriées d'un produit spécifié, ainsi que le nombre d'ordinateurs sur lesquels chacune est installée.|  
+|**Décompte de toutes les instances de logiciels inscrits avec Ajout/Suppression de programmes**|Affiche le résumé de toutes les instances de logiciels installées et inscrites avec Ajout/Suppression de programmes ou Programmes et fonctionnalités sur des ordinateurs au sein du regroupement spécifié.|  
+|**Décompte des instances d'un logiciel spécifique inscrit avec Ajout/Suppression de programmes**|Affiche le nombre d'instances des packages logiciels spécifiés installés et inscrits dans Ajout/Suppression de programmes ou Programmes et fonctionnalités.|  
+|**Installations des applications Windows spécifiées**|Ce rapport répertorie tous les ordinateurs dotés d’une application Windows spécifiée.|  
+|**Produits sur un ordinateur spécifique**|Affiche le résumé des produits logiciels inventoriés et de leurs fabricants sur un ordinateur spécifié.|  
+|**Logiciels inscrits dans Ajout/Suppression de programmes sur un ordinateur spécifique**|Affiche le résumé des logiciels installés sur un ordinateur spécifié et inscrits dans Ajout/Suppression de programmes ou Programmes et fonctionnalités.|  
+|**Applications Windows installées pour l’utilisateur spécifié**|Affiche toutes les applications Windows installées pour l’utilisateur spécifié|  
 
-### <a name="software---files"></a>Software – Dateien  
+### <a name="software---files"></a>Fichiers logiciels  
 
-|Berichtsname|Beschreibung|  
+|Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Alle inventarisierten Dateien für ein bestimmtes Produkt**|Zeigt eine Zusammenfassung der inventarisierten Dateien an, die einem angegebenen Softwareprodukt zugeordnet sind.|  
-|**Alle inventarisierten Dateien für einen bestimmten Computer**|Zeigt eine Zusammenfassung aller Dateien an, die auf einem angegebenen Computer inventarisiert sind.|  
-|**Softwareinventar auf zwei Computern vergleichen**|Zeigt die Unterschiede zwischen dem Softwareinventar, das für zwei angegebene Computer gemeldet wurde.|  
-|**Computer mit einer bestimmten Datei**|Zeigt eine Liste von Computern an, die Softwareinventar für einen angegebenen Dateinamen erfasst haben. Wenn ein Computer mehrere Kopien der Datei enthält, wird er möglicherweise mehrmals in der Liste angezeigt.|  
-|**Computer mit einem bestimmten Dateinamen zählen**|Zeigt eine Liste von Computern an, die Softwareinventar für eine angegebene Datei erfasst haben.|  
+|**Tous les fichiers inventoriés pour un produit spécifique**|Affiche le résumé des fichiers inventoriés qui sont associés à un produit logiciel spécifié.|  
+|**Tous les fichiers inventoriés sur un ordinateur spécifique**|Affiche le résumé de tous les fichiers inventoriés sur un ordinateur spécifié.|  
+|**Comparer l'inventaire logiciel de deux ordinateurs**|Affiche les différences entre les inventaires logiciels signalés pour deux ordinateurs spécifiés.|  
+|**Ordinateurs sur lesquels existe un fichier spécifique**|Affiche la liste des ordinateurs qui ont collecté un inventaire logiciel pour un nom de fichier spécifié. Un ordinateur peut apparaître plusieurs fois dans la liste s'il contient plusieurs copies du fichier.|  
+|**Compter les ordinateurs avec un nom de fichier spécifique**|Affiche le nombre d'ordinateurs qui ont collecté un inventaire logiciel pour un fichier spécifié.|  
 
-### <a name="software-distribution---application-monitoring"></a>Softwareverteilung – Anwendungsüberwachung  
+### <a name="software-distribution---application-monitoring"></a>Distribution de logiciels - Surveillance des applications  
 
-|Berichtsname|Beschreibung|  
+|Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Alle Anwendungsbereitstellungen (erweitert)**|Zeigt eine ausführliche Zusammenfassung für alle Anwendungsbereitstellungen an.|  
-|**Alle Anwendungsbereitstellungen (Standard)**|Zeigt eine Zusammenfassung für alle Anwendungsbereitstellungen an.|  
-|**Anwendungskompatibilität**|Zeigt Kompatibilitätsinformationen für die angegebene Anwendung in der angegebenen Sammlung an.|  
-|**Anwendungsbereitstellungen pro Bestand**|Zeigt Anwendungen an, die auf einem angegebenen Gerät oder für einen angegebenen Benutzer bereitgestellt wurden.|  
-|**Anwendungsinfrastrukturfehler**|Zeigt Anwendungsinfrastrukturfehler an.  Diese können interne Infrastrukturfehler sowie Fehler aufgrund ungültiger Anforderungsregeln umfassen.|  
-|**Detaillierter Status der Anwendungsverwendung**|Zeigt Nutzungsdetails zu installierten Anwendungen an.|  
-|**Statusübersicht der Anwendungsverwendung**|Zeigt eine Nutzungszusammenfassung für installierte Anwendungen an.|  
-|**Tasksequenzbereitstellungen mit Anwendung**|Zeigt Tasksequenzbereitstellungen an, die eine angegebene Anwendung installieren.|  
-|**Android-Anwendungsanforderungen durch Benutzer**|Zeigt die Benutzer an, die die Installation einer Android-Anwendung angefordert haben.|  
-|**iOS-Apps mit Bereitstellungsfehlern (App bereits installiert)**|Zeigt Kompatibilitätsinformationen für die ausgewählte iOS-App an, die Sie als "App-Paket für iOS aus dem App-Store" bereitgestellt haben, das mit einer Verwaltungsrichtlinie für mobile Anwendungen verknüpft wurde. In diesem Bericht werden Benutzer und Geräte angezeigt, für die die App nicht installiert werden konnte, weil sie vom Benutzer bereits manuell installiert wurde.|  
+|**Tous les déploiements d'applications (avancé)**|Affiche des informations de synthèse approfondies pour tous les déploiements d'applications.|  
+|**Tous les déploiements d'applications (standard)**|Affiche des informations de synthèse pour tous les déploiements d'applications.|  
+|**Compatibilité de l'application**|Affiche des informations de compatibilité pour l'application spécifiée au sein du regroupement spécifié.|  
+|**Déploiements de l'application par bien**|Affiche les applications déployées sur un appareil ou utilisateur spécifié.|  
+|**Erreurs d'infrastructure de l'application**|Affiche les erreurs d'infrastructure de l'application.  Celles-ci peuvent inclure des erreurs d'infrastructure internes ainsi que des erreurs résultant de règles de configuration requise non valides.|  
+|**État détaillé de l'utilisation de l'application**|Affiche des détails sur l'utilisation des applications installées.|  
+|**État récapitulatif de l'utilisation de l'application**|Affiche le résumé de l'utilisation des applications installées.|  
+|**Déploiements de séquences de tâches contenant l'application**|Affiche les déploiements de séquences de tâches qui installent une application spécifiée.|  
+|**Demandes d'utilisateur pour une application Android**|Affiche les utilisateurs qui ont demandé à installer une application Android.|  
+|**Applications iOS dont le déploiement a échoué (application déjà installée)**|Affiche les informations de conformité pour l’application iOS sélectionnée que vous avez déployée en tant que « Package d’application pour iOS depuis App Store » et qui est associée à la stratégie de gestion des applications mobiles. Ce rapport est utilisé pour afficher les utilisateurs et les appareils pour lesquels l’application n’a pas pu être installée, car elle avait déjà été installée manuellement par l’utilisateur.|  
 
-### <a name="software-distribution---collections"></a>Softwareverteilung – Sammlungen  
+### <a name="software-distribution---collections"></a>Distribution de logiciels - Regroupements  
 
-|Berichtsname|Beschreibung|  
+|Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Alle Sammlungen**|Zeigt alle Sammlungen in der Hierarchie an.|  
-|**Alle Ressourcen in einer bestimmten Sammlung**|Zeigt alle Ressourcen in einer angegebenen Sammlung an.|  
-|**Für einen angegebenen Client verfügbare Wartungsfenster**|Zeigt alle Wartungsfenster an, die für den angegebenen Client gelten.|  
+|**Tous les regroupements**|Affiche tous les regroupements inclus dans la hiérarchie.|  
+|**Toutes les ressources dans un regroupement spécifique**|Affiche toutes les ressources dans un regroupement spécifié.|  
+|**Fenêtres de maintenance disponibles pour un client spécifié**|Affiche toutes les fenêtres de maintenance applicables au client spécifié.|  
 
-### <a name="software-distribution---content"></a>Softwareverteilung – Inhalt  
+### <a name="software-distribution---content"></a>Distribution de logiciels - Contenu  
 
-|Berichtsname|Beschreibung|  
+|Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Alle aktiven Inhaltsverteilungen**|Zeigt alle Verteilungspunkte an, auf denen zurzeit Inhalte installiert oder entfernt werden.|  
-|**Alle Inhalte**|Zeigt alle Anwendungen und Pakete an einem Standort an.|  
-|**Gesamter Inhalt auf einem bestimmten Verteilungspunkt**|Zeigt alle Inhalte an, die zurzeit auf einem angegebenen Verteilungspunkt installiert sind.|  
-|**Alle Verteilungspunkte**|Zeigt Informationen zu den Verteilungspunkten für die einzelnen Standorte an.|  
-|**Alle Statusmeldungen für ein bestimmtes Paket auf einem bestimmten Verteilungspunkt**|Zeigt alle Statusmeldungen für ein angegebenes Paket auf einem angegebenen Verteilungspunkt an.|  
-|**Status der Anwendungsinhaltsverteilung**|Zeigt Informationen zum Verteilungsstatus für Anwendungsinhalte an.|  
-|**Anwendungen, die auf die Verteilungspunktgruppe gerichtet sind**|Zeigt Informationen zum Anwendungsinhalt an, der auf einer angegebenen Verteilungspunktgruppe bereitgestellt wurde.|  
-|**Nicht mit der angegebenen Verteilungspunktgruppe synchronisierte Anwendungen**|Zeigt die Anwendungen an, für die zugehörige Inhaltsdateien auf einer angegebenen Verteilungspunktgruppe nicht mit der neuesten Version aktualisiert wurden.|  
-|**Verteilungspunktgruppe**|Zeigt Informationen zu einer angegebenen Verteilungspunktgruppe an.|  
-|**Zusammenfassung zur Verteilungspunktnutzung**|Zeigt die Zusammenfassung zur Verteilungspunktnutzung für die einzelnen Verteilungspunkte an.|  
-|**Verteilungsstatus des angegebenen Pakets**|Zeigt den Verteilungsstatus des angegebenen Paketinhalts für die einzelnen Verteilungspunkte an.|  
-|**Pakete, die auf die Verteilungspunktgruppe gerichtet sind**|Zeigt Informationen zu Paketen an, die auf eine angegebene Verteilungspunktgruppe ausgerichtet sind.|  
-|**Nicht mit der angegebenen Verteilungspunktgruppe synchronisierte Pakete**|Zeigt Pakete an, für die zugehörige Inhaltsdateien auf einer angegebenen Verteilungspunktgruppe nicht mit der neuesten Version aktualisiert wurden.|  
+|**Toutes les distributions de contenus actifs**|Affiche tous les points de distribution sur lesquels du contenu est en cours d'installation ou de suppression.|  
+|**Tout le contenu**|Affiche toutes les applications et packages d'un site.|  
+|**Tous les contenus dans un point de distribution spécifique**|Affiche tout le contenu actuellement installé sur un point de distribution spécifié.|  
+|**Tous les points de distribution**|Affiche des informations sur les points de distribution de chaque site.|  
+|**Tous les messages d'état pour un package spécifique sur un point de distribution spécifique**|Affiche tous les messages d'état pour un package spécifié sur un point de distribution spécifié.|  
+|**État de distribution du contenu de l'application**|Affiche des informations sur l'état de distribution du contenu de l'application.|  
+|**Applications ciblées pour le groupe de points de distribution**|Affiche des informations sur le contenu de l'application qui a été déployé sur un groupe de points de distribution spécifié.|  
+|**Applications qui ne sont pas synchronisées dans un groupe de points de distribution spécifié**|Affiche les applications pour lesquelles des fichiers de contenu associés n'ont pas été mis à jour avec la version la plus récente sur un groupe de points de distribution spécifié.|  
+|**Groupe de points de distribution**|Affiche des informations sur un groupe de points de distribution spécifié.|  
+|**Résumé de l'utilisation des points de distribution**|Affiche le résumé de l'utilisation de chaque point de distribution.|  
+|**État de distribution d'un package donné**|Affiche l'état de distribution du contenu du package spécifié sur chaque point de distribution.|  
+|**Packages ciblés pour le groupe de points de distribution**|Affiche des informations sur les packages qui ciblent un groupe de points de distribution spécifié.|  
+|**Packages non synchronisés sur un groupe de points de distribution spécifié**|Affiche les packages pour lesquels des fichiers de contenu associés n'ont pas été mis à jour avec la version la plus récente sur un groupe de points de distribution spécifié.|  
 
-### <a name="software-distribution---package-and-program-deployment"></a>Softwareverteilung – Paket- und Programmbereitstellung  
+### <a name="software-distribution---package-and-program-deployment"></a>Distribution de logiciels - Déploiement du package et du programme  
 
-|Berichtsname|Beschreibung|  
+|Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Alle Bereitstellungen für ein angegebenes Paket bzw. Programm**|Zeigt Informationen zu allen Bereitstellungen für ein angegebenes Paket bzw. Programm an.|  
-|**Alle Paket- und Programmbereitstellungen**|Zeigt alle Paket- und Programmbereitstellungen für diesen Standort an.|  
-|**Alle Paket- und Programmbereitstellungen für eine angegebene Sammlung**|Zeigt alle Paket- und Programmbereitstellungen für eine angegebene Sammlung an.|  
-|**Alle Paket- und Programmbereitstellungen für einen angegebenen Computer**|Zeigt alle Paket- und Programmbereitstellungen an, die für einen angegebenen Computer gelten.|  
-|**Alle Paket- und Programmbereitstellungen des angegebenen Benutzers**|Zeigt alle Paket- und Programmbereitstellungen des angegebenen Benutzers an.|  
+|**Tous les déploiements d'un package et d'un programme donnés**|Affiche des informations sur tous les déploiements d'un package et d'un programme spécifiés.|  
+|**Tous les déploiements de packages et de programmes**|Affiche tous les déploiements de packages et de programmes sur ce site.|  
+|**Tous les déploiements de packages et de programmes dans un regroupement donné**|Affiche tous les déploiements de packages et de programmes dans un regroupement spécifié.|  
+|**Tous les déploiements de packages et de programmes sur un ordinateur donné**|Affiche tous les déploiements de packages et de programmes qui s'appliquent à un ordinateur spécifié.|  
+|**Tous les déploiements de programmes et de packages vers un utilisateur spécifique**|Affiche tous les déploiements de packages et de programmes vers un utilisateur spécifié.|  
 
-### <a name="software-distribution---package-and-program-deployment-status"></a>Softwareverteilung – Status der Paket- und Programmbereitstellung  
+### <a name="software-distribution---package-and-program-deployment-status"></a>Distribution de logiciels - État du déploiement du package et du programme  
 
-|Berichtsname|Beschreibung|  
+|Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Alle Paket- und Programmbereitstellungen für Systemressourcen mit Status**|Zeigt alle Paket- und Programmbereitstellungen für den Standort mit einer Statusübersicht für die einzelnen Bereitstellungen an.|  
-|**Alle Systemressourcen für eine angegebene Paket- und Programmbereitstellung in einem angegebenen Zustand**|Zeigt eine Liste von Ressourcen an, die einen angegebenen Zustand für eine angegebene Paket- und Programmbereitstellung aufweisen.|  
-|**Diagramm – Status über abgeschlossene stündliche Paket- und Programmbereitstellungen**|Zeigt den Prozentsatz der Computer an, die das Paket in jeder Stunde seit der Erstellung der Paket- und Programmbereitstellung erfolgreich installiert haben. Dieser kann dazu verwendet werden, die durchschnittliche Zeit für eine Paket- und Programmbereitstellung zu verfolgen.|  
-|**Status der Paket- und Programmbereitstellung für einen angegebenen Client und eine angegebene Bereitstellung**|Zeigt die Statusmeldungen an, die für einen angegebenen Computer und eine angegebene Paket- und Programmbereitstellung gemeldet wurden.|  
-|**Status einer angegebenen Paket- und Programmbereitstellung**|Zeigt die Statusübersicht für eine angegebene Paket- und Programmbereitstellung an.|  
+|**Tous les déploiements de packages et de programmes de ressources système avec leur état**|Affiche tous les déploiements de packages et de programmes pour le site avec l'état récapitulatif de chaque déploiement.|  
+|**Toutes les ressources système pour un déploiement de packages et de programmes spécifié dans un état spécifié**|Affiche la liste des ressources qui sont dans un état spécifié pour un déploiement de packages et de programmes spécifié.|  
+|**Graphique - État d'avancement du déploiement de packages et de programmes chaque heure**|Affiche le pourcentage d'ordinateurs ayant installé avec succès le package toutes les heures depuis la création du déploiement de packages et de programmes. Ce pourcentage sert à suivre le temps moyen nécessaire au déploiement de packages et de programmes.|  
+|**État du déploiement de packages et de programmes pour un client et un déploiement donnés**|Affiche les messages d'état signalés pour un ordinateur et un déploiement de packages et de programmes spécifiés.|  
+|**État du déploiement d'un package et d'un programme spécifiques**|Affiche la synthèse d'état d'un déploiement de packages et de programmes spécifié.|  
 
-### <a name="software-metering"></a>Softwaremessung  
+### <a name="software-metering"></a>Contrôle de logiciel  
 
-|Berichtsname|Beschreibung|  
+|Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Alle auf diesen Standort angewendeten Softwaremessungsregeln**|Zeigt eine Liste aller auf diesen Standort angewendeten Softwaremessungsregeln an.|  
-|**Computer, auf denen ein gemessenes Programm installiert ist, das aber seit dem angegebenen Datum nicht mehr ausgeführt wurde**|Zeigt alle Computer an, auf denen gemäß der Meldung des Softwareinventars eine gemessene Anwendung installiert ist, die aber seit dem angegebenen Datum nicht ausgeführt wurde.|  
-|**Computer, die ein bestimmtes gemessenes Softwareprogramm ausgeführt haben**|Zeigt eine Liste von Computern an, die Programme innerhalb des angegebenen Monats und Jahrs ausgeführt haben, die der angegebenen Softwaremessungsregel entsprechen.|  
-|**Gleichzeitige Verwendung für alle gemessenen Softwareprogramme**|Zeigt die maximale Anzahl von Benutzern an, die während des angegebenen Monats und Jahrs das jeweilige gemessene Softwareprogramm gleichzeitig ausgeführt haben.|  
-|**Trendanalyse der gleichzeitigen Verwendung eines bestimmten gemessenen Softwareprogramms**|Zeigt die maximale Anzahl von Benutzern an, die in jedem Monat des vergangenen Jahres das angegebene gemessene Softwareprogramm gleichzeitig ausgeführt haben.|  
-|**Installationsbasis für alle gemessenen Softwareprogramme**|Zeigt die Anzahl der Computer an, auf denen gemäß des Softwareinventars gemessene Softwareprogramme installiert sind. Dieser Bericht setzt voraus, dass das Softwareinventar auf den gemessenen Computern erfasst wird.|  
-|**Status des Zusammenfassungsvorgangs der Softwaremessung**|Zeigt den Zeitpunkt an, an dem die zuletzt zusammengefassten Messungsdaten auf dem Standortserver verarbeitet wurden.  Nur die vor diesen Datumsangaben verarbeiteten Messungsdaten werden in den Berichten zur Softwaremessung berücksichtigt.|  
-|**Zusammenfassung Tageszeit der Verwendung eines bestimmten gemessenen Softwareprogramms**|Zeigt die durchschnittliche Anzahl von Verwendungen eines bestimmten Programms in den vergangenen 90 Tagen an, aufgeschlüsselt nach Stunde und Tag.|  
-|**Gesamtverwendung für alle gemessenen Softwareprogramme**|Zeigt die Anzahl von Benutzern an, die während des angegebenen Monats und Jahrs Programme lokal oder über Terminaldienste ausgeführt haben, die allen Softwaremessungsregeln entsprechen.|  
-|**Gesamtverwendung für alle gemessenen Softwareprogramme auf Windows-Terminalservern**|Zeigt die Anzahl von Benutzern an, die während des angegebenen Monats und Jahrs Programme über Terminaldienste ausgeführt haben, die allen Softwaremessungsregeln entsprechen.|  
-|**Trendanalyse der Gesamtverwendung eines bestimmten gemessenen Softwareprogramms**|Zeigt die Anzahl von Benutzern an, die jeden Monat während des vergangenen Jahrs Programme lokal oder über Terminaldienste ausgeführt haben, die der angegebenen Softwaremessungsregel entsprechen.|  
-|**Trendanalyse der Gesamtverwendung eines bestimmten gemessenen Softwareprogramms auf Windows-Terminalservern**|Zeigt die Anzahl von Benutzern an, die jeden Monat während des vergangenen Jahrs Programme über Terminaldienste ausgeführt haben, die der angegebenen Softwaremessungsregel entsprechen.|  
-|**Benutzer, die ein bestimmtes gemessenes Softwareprogramm ausgeführt haben**|Zeigt eine Liste von Benutzern an, die Programme innerhalb des angegebenen Monats und Jahrs ausgeführt haben, die der angegebenen Softwaremessungsregel entsprechen.|  
+|**Toutes les règles de contrôle de logiciel appliquées à ce site**|Affiche la liste de toutes les règles de contrôle de logiciel au niveau du site.|  
+|**Ordinateurs disposant d'un programme contrôlé mais qui ne l'ont pas encore exécuté depuis une date donnée**|Affiche tous les ordinateurs qui ont une application contrôlée spécifiée installée, comme indiqué par l'inventaire logiciel, mais qui n'ont pas exécuté ce programme depuis une date spécifiée.|  
+|**Ordinateurs ayant exécuté un programme contrôlé spécifique**|Affiche la liste des ordinateurs qui ont exécuté des programmes correspondant à la règle de contrôle de logiciel spécifiée pendant le mois et l'année spécifiés.|  
+|**Utilisation simultanée de tous les programmes contrôlés**|Affiche le nombre maximal d'utilisateurs qui ont exécuté simultanément chaque logiciel contrôlé pendant le mois et l'année spécifiés.|  
+|**Analyse de la tendance d'utilisation simultanée d'un programme contrôlé spécifique**|Affiche le nombre maximal d'utilisateurs qui ont exécuté simultanément le logiciel contrôlé spécifié au cours de chaque mois de l'année précédente.|  
+|**Base d'installation pour tous les logiciels contrôlés**|Affiche le nombre d'ordinateurs qui ont des logiciels contrôlés installés, comme indiqué par l'inventaire logiciel. Ce rapport requiert la collecte de l'inventaire logiciel sur les ordinateurs contrôlés.|  
+|**Progression du résumé du contrôle de logiciel**|Affiche l'heure à laquelle les données de contrôle synthétisées les plus récentes ont été traitées sur le serveur de site.  Seules les données de contrôle traitées avant ces dates sont utilisées dans les rapports de contrôle de logiciel.|  
+|**Résumé de l'utilisation dans la journée pour un programme de logiciel contrôlé spécifique**|Affiche le nombre moyen d'utilisations d'un programme particulier au cours des 90 derniers jours, par heure et par jour.|  
+|**Utilisation simultanée de tous les programmes de logiciels contrôlés**|Affiche le nombre d'utilisateurs qui ont exécuté des programmes correspondant à chaque règle de contrôle de logiciel localement ou à l'aide des services Terminal Server pendant le mois et l'année spécifiés.|  
+|**Utilisation totale de tous les logiciels contrôlés sur les serveurs Windows Terminal Server**|Affiche le nombre d'utilisateurs qui ont exécuté des programmes correspondant à chaque règle de contrôle de logiciel à l'aide des services Terminal Server pendant le mois et l'année spécifiés.|  
+|**Analyse de la tendance d'utilisation totale pour un programme contrôlé spécifique**|Affiche le nombre d'utilisateurs qui ont exécuté des programmes correspondant à la règle de contrôle de logiciel spécifiée localement ou à l'aide des services Terminal Server pendant chaque mois de l'année précédente.|  
+|**Analyse de la tendance d'utilisation totale pour un logiciel contrôlé spécifique sur les serveurs Windows Terminal Server**|Affiche le nombre d'utilisateurs qui ont exécuté des programmes correspondant à la règle de contrôle de logiciel spécifiée à l'aide des services Terminal Server pendant chaque mois de l'année précédente.|  
+|**Utilisateurs ayant exécuté un programme contrôlé spécifique**|Affiche la liste des utilisateurs qui ont exécuté des programmes correspondant à la règle de contrôle de logiciel spécifiée pendant le mois et l'année spécifiés.|  
 
-### <a name="software-updates---a-compliance"></a>Softwareupdates – A Kompatibilität  
+### <a name="software-updates---a-compliance"></a>Mises à jour logicielles - Compatibilité A  
 
-|Berichtsname|Beschreibung|  
+|Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Kompatibilität 1 – Gesamtkompatibilität**|Zeigt die Gesamtkompatibilitätsinformationen zu einer Softwareupdategruppe an.|  
-|**Kompatibilität 2 – Bestimmtes Softwareupdate**|Zeigt die Kompatibilitätsinformationen bezüglich eines angegebenen Softwareupdates an.|  
-|**Kompatibilität 3 – Updategruppe (pro Update)**|Zeigt die Kompatibilitätsinformationen bezüglich eines in einer Softwareupdategruppe definierten Softwareupdates an.|  
-|**Kompatibilität 4 – Updates geordnet nach Hersteller/Monat/Jahr**|Zeigt die Kompatibilitätsdaten für Softwareupdates an, die von einem Hersteller in einem angegebenen Monat und Jahr veröffentlicht wurden.|  
-|**Kompatibilität 5 – Bestimmter Computer**|In diesem Bericht werden die Kompatibilitätsdaten eines Softwareupdates für einen angegebenen Computer angezeigt.  Wenn Sie die Anzahl der angezeigten Informationen begrenzen möchten, können Sie die Hersteller- und Softwareupdateklassifikation angeben.|  
-|**Kompatibilität 6 – Bestimmte Softwareupdatezustände (sekundär)**|Zeigt die Anzahl und den Prozentsatz aller Computer für die jeweiligen Kompatibilitätszustände für das angegebene Softwareupdate an.|  
-|**Kompatibilität 7 – Computer in einem bestimmten Kompatibilitätszustand für eine Updategruppe (sekundär)**|Zeigt alle Computer in einer Sammlung an, die einen angegebenen Gesamtkompatibilitätszustand für eine Softwareupdategruppe aufweisen.|  
-|**Kompatibilität 8 – Computer in einem bestimmten Kompatibilitätszustand bezüglich eines Updates (sekundär)**|Zeigt alle Computer in einer Sammlung an, die einen angegebenen Kompatibilitätszustand für ein Softwareupdate aufweisen.|  
+|**Compatibilité 1 - Compatibilité globale**|Affiche les données de compatibilité globale d'un groupe de mises à jour logicielles.|  
+|**Conformité 2 - Mise à jour logicielle spécifique**|Affiche les données de compatibilité d'une mise à jour logicielle spécifiée.|  
+|**Compatibilité 3 - Groupe de mises à jour (par mise à jour)**|Affiche les données de compatibilité des mises à jour logicielles définies dans un groupe de mises à jour logicielles.|  
+|**Compatibilité 4 - Mises à jour par fabricant-mois-année**|Affiche les données de compatibilité des mises à jour logicielles publiées par un fournisseur pendant un mois et une année spécifiés.|  
+|**Compatibilité 5 - Ordinateur spécifique**|Ce rapport renvoie les données de compatibilité des mises à jour logicielles pour un ordinateur spécifié.  Pour limiter la quantité d'informations renvoyées, vous pouvez spécifier le fournisseur et la classification des mises à jour logicielles.|  
+|**Compatibilité 6 - États de mises à jour logicielles spécifiques (secondaire)**|Affiche le nombre et le pourcentage d'ordinateurs dans chaque état de compatibilité pour la mise à jour logicielle spécifiée.|  
+|**Compatibilité 7 - Ordinateurs dans un état de compatibilité spécifique pour un groupe de mises à jour (secondaire)**|Affiche tous les ordinateurs d'un regroupement qui sont dans un état de compatibilité globale spécifié par rapport à un groupe de mises à jour logicielles.|  
+|**Compatibilité 8 - Ordinateurs dans un état de compatibilité spécifique pour une mise à jour (secondaire)**|Affiche tous les ordinateurs d'un regroupement qui sont dans un état de compatibilité spécifié pour une mise à jour logicielle.|  
 
-### <a name="software-updates---b-deployment-management"></a>Softwareupdates – B Bereitstellungsverwaltung  
+### <a name="software-updates---b-deployment-management"></a>Mises à jour logicielles - Gestion du déploiement B  
 
-|Berichtsname|Beschreibung|  
+|Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Verwaltung 1 – Bereitstellungen einer Updategruppe**|Zeigt alle Bereitstellungen an, die alle in einer angegebenen Softwareupdategruppe definierten Softwareupdates enthalten.|  
-|**Verwaltung 2 – Erforderliche, aber nicht bereitgestellte Updates**|Zeigt alle herstellerspezifischen Softwareupdates an, die auf Clients als erforderlich ermittelt, jedoch nicht für eine angegebene Sammlung bereitgestellt wurden.|  
-|**Verwaltung 3 – Updates in einer Bereitstellung**|Zeigt die Softwareupdates an, die in einer angegebenen Bereitstellung enthalten sind.|  
-|**Verwaltung 4 – Bereitstellungen für eine Sammlung**|Zeigt alle Softwareupdatebereitstellungen an, die auf eine angegebene Sammlung ausgerichtet sind.|  
-|**Verwaltung 5 – Bereitstellungen für einen Computer**|Zeigt alle Softwareupdatebereitstellungen an, die auf einem angegebenen Computer bereitgestellt werden.|  
-|**Verwaltung 6 – Bereitstellungen mit einem bestimmten Update**|Zeigt alle Bereitstellungen an, die ein angegebenes Softwareupdate und die zugehörige Zielsammlung für die Bereitstellung enthalten.|  
-|**Verwaltung 7 – Updates in einer Bereitstellung mit fehlendem Inhalt**|Zeigt die Softwareupdates in einer angegebenen Bereitstellung an, für die nicht alle erforderlichen Inhalte abgerufen wurden, sodass Clients das Update nicht installieren konnten und somit keine hundertprozentige Kompatibilität für die Bereitstellung erreicht wurde.|  
-|**Verwaltung 8 – Computer mit fehlendem Inhalt (sekundär)**|Zeigt alle Computer an, die ein angegebenes Softwareupdate erfordern, das in einer bestimmten Bereitstellung enthalten ist, die an einem Verteilungspunkt nicht bereitgestellt wurde.|  
+|**Gestion 1 - Déploiements d'un groupe de mises à jour**|Affiche tous les déploiements qui contiennent toutes les mises à jour logicielles définies dans un groupe de mises à jour logicielles spécifié.|  
+|**Gestion 2 - Mises à jour requises mais non déployées**|Affiche toutes les mises à jour logicielles propres à un fournisseur qui ont été détectées comme obligatoires sur les clients, mais qui n'ont pas été déployées sur un regroupement spécifié.|  
+|**Gestion 3 - Mises à jour dans un déploiement**|Affiche les mises à jour logicielles contenues dans un déploiement spécifié.|  
+|**Gestion 4 - Déploiements ciblant un regroupement**|Affiche tous les déploiements de mises à jour logicielles qui ciblent un regroupement spécifié.|  
+|**Gestion 5 - Déploiements ciblant un ordinateur**|Affiche tous les déploiements de mises à jour logicielles sur un ordinateur spécifié.|  
+|**Gestion 6 - Déploiements contenant une mise à jour spécifique**|Affiche tous les déploiements qui contiennent une mise à jour logicielle spécifiée et le regroupement cible associé au déploiement.|  
+|**Gestion 7 - Mises à jour dans un déploiement dont le contenu manque**|Affiche les mises à jour logicielles incluses dans un déploiement spécifié qui n'ont pas récupéré tout le contenu associé, ce qui empêche les clients d'installer ces mises à jour et d'atteindre 100 % de compatibilité pour le déploiement.|  
+|**Gestion 8 - Contenu d'ordinateurs manquant (secondaire)**|Affiche tous les ordinateurs qui requièrent une mise à jour logicielle spécifiée contenue dans un déploiement spécifié, non fourni par un point de distribution.|  
 
-### <a name="software-updates---c-deployment-states"></a>Softwareupdates – C Bereitstellungszustände  
+### <a name="software-updates---c-deployment-states"></a>Mises à jour logicielles - États du déploiement C  
 
-|Berichtsname|Beschreibung|  
+|Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Zustände 1 – Erzwingungszustände für eine Bereitstellung**|Zeigt die Erzwingungszustände für eine angegebene Softwareupdatebereitstellung an, normalerweise die zweite Phase einer Bereitstellungsbewertung.|  
-|**Zustände 2 – Bewertungszustände für eine Bereitstellung**|Zeigt den Bewertungszustand für eine angegebene Softwareupdatebereitstellung an, normalerweise die erste Phase einer Bereitstellungsbewertung.|  
-|**Zustände 3 – Zustände für Bereitstellung und Computer**|Zeigt die Zustände aller Softwareupdates der angegebenen Bereitstellung für einen angegebenen Computer an.|  
-|**Zustände 4 – Computer in einem bestimmten Zustand für eine Bereitstellung (sekundär)**|Zeigt alle Computer in einem bestimmten Zustand für eine Softwareupdatebereitstellung an.|  
-|**Zustände 5 – Zustände für ein Update in einer Bereitstellung (sekundär)**|Zeigt eine Zustandszusammenfassung für ein bestimmtes Softwareupdate an, das für eine angegebene Bereitstellung vorgesehen ist.|  
-|**Zustände 6 – Computer in einem bestimmten Erzwingungszustand für ein Update (sekundär)**|Zeigt alle Computer in einem angegebenen Erzwingungszustand für ein angegebenes Softwareupdate an.|  
+|**États 1 - États d'application pour un déploiement**|Affiche les états d'application du déploiement de mises à jour logicielles spécifié, qui correspond généralement à la deuxième étape de l'évaluation d'un déploiement.|  
+|**États 2 - États d'évaluation pour un déploiement**|Affiche l'état d'évaluation du déploiement de mises à jour logicielles spécifié, qui correspond généralement à la première étape de l'évaluation d'un déploiement.|  
+|**États 3 - États d'un déploiement et d'un ordinateur**|Affiche les états de toutes les mises à jour logicielles incluses dans le déploiement spécifié pour un ordinateur spécifié.|  
+|**États 4 - Ordinateurs présentant l'état spécifique d'un déploiement (secondaire)**|Affiche tous les ordinateurs présentant un état spécifié pour un déploiement de mises à jour logicielles.|  
+|**États 5 - États pour une mise à jour dans un déploiement (secondaire)**|Affiche le résumé des états pour une mise à jour logicielle spécifiée ciblée par un déploiement spécifié.|  
+|**États 6 - Ordinateurs présentant un état d'application spécifique pour une mise à jour (secondaire)**|Affiche tous les ordinateurs dans un état d'application spécifié pour une mise à jour logicielle spécifiée.|  
 
-### <a name="software-updates---d-scan"></a>Softwareupdates – D Überprüfung  
+### <a name="software-updates---d-scan"></a>Mises à jour logicielles - Analyse D  
 
-|Berichtsname|Beschreibung|  
+|Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Überprüfung 1 – Letzte Überprüfungszustände, geordnet nach Sammlung**|Zeigt die Anzahl der Computer für eine angegebene Sammlung in den jeweiligen Kompatibilitätsüberprüfungszuständen an, die von Clients während der letzten Kompatibilitätsüberprüfung zurückgegeben wurden.|  
-|**Überprüfung 2 – Letzte Überprüfungszustände, geordnet nach Standort**|Zeigt die einem Standort zugeordnete Anzahl der Computer in den jeweiligen Kompatibilitätsüberprüfungszuständen an, die von Clients während der letzten Kompatibilitätsüberprüfung zurückgegeben wurden.|  
-|**Überprüfung 3 – Clients einer Sammlung, die einen bestimmten Zustand melden (sekundär)**|Zeigt alle Computer für eine angegebene Sammlung und einen angegebenen Kompatibilitätsüberprüfungszustand während der letzten Kompatibilitätsüberprüfung an.|  
-|**Überprüfung 4 – Clients eines Standorts, die einen bestimmten Zustand melden (sekundär)**|Zeigt alle einem angegebenen Standort zugeordneten Computer mit einem angegebenen Kompatibilitätsüberprüfungszustand während der letzten Kompatibilitätsüberprüfung an.|  
+|**Analyse 1 - Derniers états d'analyse par regroupement**|Affiche le nombre d'ordinateurs d'un regroupement spécifié dans chaque état d'analyse de compatibilité retourné par les clients pendant la dernière analyse de compatibilité.|  
+|**Analyse 2 - Derniers états d'analyse par site**|Affiche le nombre d'ordinateurs attribués à un site spécifié dans chaque état d'analyse de compatibilité retourné par les clients pendant la dernière analyse de compatibilité.|  
+|**Analyse 3 - Clients d'un regroupement signalant un état spécifique (secondaire)**|Affiche tous les ordinateurs d'un regroupement spécifié et dans un état d'analyse de compatibilité spécifié pendant leur dernière analyse de compatibilité.|  
+|**Analyse 4 - Clients d'un site signalant un état spécifique (secondaire)**|Affiche tous les ordinateurs attribués à un site spécifié et dans un état d'analyse de compatibilité spécifié pendant leur dernière analyse de compatibilité.|  
 
-### <a name="software-updates---e-troubleshooting"></a>Softwareupdates – E Problembehandlung  
+### <a name="software-updates---e-troubleshooting"></a>Mises à jour logicielles - Dépannage E  
 
-|Berichtsname|Beschreibung|  
+|Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Problembehandlung 1 – Überprüfungsfehler**|Zeigt die Überprüfungsfehler am Standort sowie die Anzahl der von den einzelnen Fehlern betroffenen Computer an.|  
-|**Problembehandlung 2 – Bereitstellungsfehler**|Zeigt die Bereitstellungsfehler am Standort sowie die Anzahl der von den einzelnen Fehlern betroffenen Computer an.|  
-|**Problembehandlung 3 – Computer mit einem bestimmten Überprüfungsfehler (sekundär)**|Zeigt eine Liste der Computer an, bei denen eine Überprüfung aufgrund eines angegebenen Fehlers nicht erfolgreich ausgeführt werden konnte.|  
-|**Problembehandlung 4 – Computer mit einem bestimmten Bereitstellungsfehler (sekundär)**|Zeigt eine Liste der Computer an, auf denen die Bereitstellung des Updates aufgrund einer angegebenen Fehlers nicht erfolgreich ausgeführt werden konnte.|  
+|**Dépannage 1 - Erreurs d'analyse**|Affiche les erreurs d'analyse au niveau du site et le nombre d'ordinateurs qui rencontrent chaque erreur.|  
+|**Dépannage 2 – Erreurs de déploiement**|Affiche les erreurs de déploiement au niveau du site et le nombre d'ordinateurs qui rencontrent chaque erreur.|  
+|**Dépannage 3 - Échecs d'ordinateurs avec une erreur d'analyse spécifique (secondaire)**|Affiche la liste des ordinateurs qui n'ont pas réussi une analyse en raison d'une erreur spécifiée.|  
+|**Dépannage 4 - Échecs d'ordinateurs avec une erreur de déploiement spécifique (secondaire)**|Affiche la liste des ordinateurs sur lesquels le déploiement de la mise à jour échoue en raison d'une erreur spécifiée.|  
 
-### <a name="state-migration"></a>Zustandsmigration  
+### <a name="state-migration"></a>Migration de l'état  
 
-|Berichtsname|Beschreibung|  
+|Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Zustandsmigrationsinformationen für einen bestimmten Quellcomputer**|Zeigt Zustandsmigrationsinformationen für einen angegebenen Computer an.|  
-|**Zustandsmigrationsinformationen für einen bestimmten Zustandsmigrationspunkt**|Zeigt Zustandsmigrationsinformationen für einen angegebenen Zustandsmigrationspunkt an.|  
-|**Zustandsmigrationspunkte für einen bestimmten Standort**|Zeigt Zustandsmigrationspunkte für einen angegebenen Standort an.|  
+|**Informations sur la migration de l'état d'un ordinateur source spécifique**|Affiche des informations sur la migration de l'état d'un ordinateur spécifié.|  
+|**Informations de migration d'état d'un point de migration d'état spécifique**|Affiche des informations sur la migration de l'état d'un point de migration d'état spécifié.|  
+|**Points de migration d'état d'un site spécifique**|Affiche les points de migration d'état d'un site spécifié.|  
 
-### <a name="status-messages"></a>Statusmeldungen  
+### <a name="status-messages"></a>Messages d'état  
 
-|Berichtsname|Beschreibung|  
+|Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Alle Meldungen mit einer bestimmten Meldungs-ID**|Zeigt eine Liste der Statusmeldungen an, die eine angegebene Meldungs-ID aufweisen.|  
-|**Clients, die in letzten 12 Stunden Fehler für einen bestimmten Standort gemeldet haben**|Zeigt eine Liste von Computern und Komponenten, die in den letzten 12 Stunden Fehler gemeldet haben, und die Anzahl der gemeldeten Fehler an.|  
-|**Komponentenmeldungen der letzten 12 Stunden**|Zeigt eine Liste der Komponentenmeldungen der letzten 12 Stunden für einen angegebenen Standortcode, einen Computer und eine Komponente an.|  
-|**Komponentenmeldungen in der letzten Stunde**|Zeigt eine Liste der Statusmeldungen an, die in der letzten Stunde durch eine angegebene Komponente auf einem angegebenen Computer an einem angegebenen Configuration Manager-Standort erstellt wurden|  
-|**Komponentenmeldungen in der letzten Stunde für einen bestimmten Standort zählen**|Zeigt die Anzahl der in der letzten Stunde an einem angegebenen Standort gemeldeten Komponentenmeldungen nach Komponente sowie den Schweregrad an.|  
-|**Fehler der letzten 12 Stunden zählen**|Zeigt die Anzahl von Fehlerstatusmeldungen für Serverkomponenten in den letzten 12 Stunden an.|  
-|**Schwerwiegende Fehler (nach Komponente)**|Zeigt eine nach Komponenten sortierte Liste von Computern mit schwerwiegenden Fehlern an.|  
-|**Schwerwiegende Fehler (nach Computername)**|Zeigt eine nach Computernamen sortierte Liste von Computern mit schwerwiegenden Fehlern an.|  
-|**Die letzten 1000 Meldungen für einen bestimmten Computer (Fehler und Warnungen)**|Zeigt eine Zusammenfassung der letzten 1000 Komponentenstatusmeldungen (Fehler und Warnungen) für einen angegebenen Computer an.|  
-|**Die letzten 1000 Meldungen für einen bestimmten Computer (Fehler-, Warn- und Informationsmeldungen)**|Zeigt eine Zusammenfassung der letzten 1000 Komponentenstatusmeldungen (Fehler-, Warn- und Informationsmeldungen) für einen angegebenen Computer an.|  
-|**Die letzten 1000 Meldungen für einen bestimmten Computer (Fehler)**|Zeigt eine Zusammenfassung der letzten 1000 Statusmeldungen (Fehler) der Serverkomponente für einen angegebenen Computer an.|  
-|**Die letzten 1000 Meldungen für eine bestimmte Serverkomponente**|Zeigt eine Zusammenfassung der letzten 1000 Statusmeldungen für eine angegebene Serverkomponente an.|  
+|**Tous les messages pour un ID de message spécifique**|Affiche la liste des messages d'état qui ont un ID de message spécifié.|  
+|**Clients signalant des erreurs pendant les 12 dernières heures pour un site spécifique**|Affiche la liste des ordinateurs et des composants qui signalent des erreurs pendant les 12 dernières heures et le nombre d'erreurs signalées.|  
+|**Messages de composants pour les 12 dernières heures**|Affiche la liste des messages de composants pendant les 12 dernières heures pour un code de site, un ordinateur et un composant spécifiés.|  
+|**Messages de composants pendant la dernière heure**|Affiche la liste des messages d’état créés pendant la dernière heure par un composant spécifié sur un ordinateur spécifié dans un site Configuration Manager spécifié.|  
+|**Compter les messages de composants pendant la dernière heure pour un site spécifique**|Affiche le nombre de messages d'état par composant et gravité signalés dans la dernière heure dans un site spécifié.|  
+|**Compter les erreurs survenues dans les 12 dernières heures**|Affiche le nombre de messages d'erreur de composants serveur dans les 12 dernières heures.|  
+|**Erreurs irrécupérables (par composant)**|Affiche la liste des ordinateurs qui signalent des erreurs irrécupérables par composant.|  
+|**Erreurs irrécupérables (par nom d'ordinateur)**|Affiche la liste des ordinateurs qui signalent des erreurs irrécupérables par nom d'ordinateur.|  
+|**Les 1 000 derniers messages pour un ordinateur spécifique (erreurs et avertissements)**|Affiche le résumé des 1000 derniers messages d'état d'erreur et d'avertissement pour un ordinateur spécifié.|  
+|**1 000 derniers messages pour un ordinateur spécifique (avertissements d'erreur et informations)**|Affiche le résumé des 1000 derniers messages d'état d'erreur, d'avertissement et d'information pour un ordinateur spécifié.|  
+|**Les 1 000 derniers messages pour un ordinateur spécifique (erreurs)**|Affiche le résumé des 1000 derniers messages d'état d'erreur du composant serveur pour un ordinateur spécifié.|  
+|**Les 1 000 derniers messages pour un composant serveur spécifique**|Affiche le résumé des 1000 messages d'état les plus récents pour un composant serveur spécifié.|  
 
-### <a name="status-messages---audit"></a>Status Messages – Überwachung  
+### <a name="status-messages---audit"></a>Messages d'état - Audit  
 
-|Berichtsname|Beschreibung|  
+|Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Alle Überwachungsmeldungen für einen bestimmten Benutzer**|Zeigt eine Zusammenfassung aller Überwachungsstatusmeldungen für einen angegebenen Benutzer an. Überwachungsmeldungen beschreiben die Aktionen, die in der Configuration Manager-Konsole ausgeführt werden und Objekte in Configuration Manager hinzufügen, ändern oder löschen.|  
-|**Remotesteuerung – Alle Computer, die von einem bestimmten Benutzer remote gesteuert werden**|Zeigt eine Zusammenfassung der Statusmeldungen an, die eine Remotesteuerung von Clientcomputern durch einen angegebenen Benutzer anzeigen.|  
-|**Remotesteuerung – Alle Remotesteuerungsinformationen**|Zeigt eine Zusammenfassung der Statusmeldungen an, die sich auf die Remotesteuerung von Clientcomputern beziehen.|  
+|**Tous les messages d'audit pour un utilisateur spécifique**|Affiche le résumé de tous les messages d'état d'audit pour un utilisateur spécifié. Les messages d’audit décrivent les opérations effectuées dans la console Configuration Manager pour ajouter, modifier ou supprimer des objets dans Configuration Manager.|  
+|**Contrôle à distance - Tous les ordinateurs contrôlés à distance par un utilisateur spécifique**|Affiche le résumé des messages d'état indiquant un contrôle à distance des ordinateurs clients par un utilisateur spécifié.|  
+|**Contrôle à distance - Toutes les informations de contrôle à distance**|Affiche le résumé des messages d'état associés au contrôle à distance des ordinateurs clients.|  
 
-### <a name="task-sequence---deployment-status"></a>Tasksequenz – Bereitstellungsstatus  
+### <a name="task-sequence---deployment-status"></a>État du déploiement de séquence de tâches  
 
-|Berichtsname|Beschreibung|  
+|Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Alle Systemressourcen für eine Tasksequenzbereitstellung in einem bestimmten Zustand**|Zeigt eine Liste der Zielcomputer für die angegebene Tasksequenzbereitstellung in einem angegebenen Bereitstellungszustand an.|  
-|**Alle Systemressourcen für eine Tasksequenzbereitstellung, die sich in einem bestimmten Zustand befindet und die für unbekannte Computer verfügbar ist**|Zeigt eine Liste der Zielcomputer für die angegebene Tasksequenzbereitstellung an, die sich im angegebenen Bereitstellungszustand befindet.|  
-|**Anzahl der Systemressourcen, denen Tasksequenzbereitstellungen zugewiesen sind, die aber noch nicht ausgeführt wurden**|Zeigt die Anzahl der Computer an, die Tasksequenzen akzeptiert, aber noch nicht ausgeführt haben.|  
-|**Verlauf einer Tasksequenzbereitstellung auf einem Computer**|Zeigt den Status der einzelnen Schritte der angegebenen Tasksequenzbereitstellung auf dem angegebenen Zielcomputer an. Wenn kein Datensatz zurückgegeben wird, wurde die Tasksequenz nicht auf dem Computer gestartet.|  
-|**Liste der Computer, die bei der Ausführung einer Tasksequenzbereitstellung einen bestimmten Zeitraum überschritten haben**|Zeigt die Liste der Zielcomputer an, die die angegebene Zeitdauer zum Ausführen einer Tasksequenz überschritten haben.|  
-|**Laufzeit einer bestimmten Tasksequenzbereitstellung auf einem bestimmten Zielcomputer**|Zeigt die zum erfolgreichen Abschließen einer angegebenen Tasksequenz auf einem angegebenen Computer erforderliche Gesamtzeit an.|  
-|**Laufzeit jedes Schritts einer Tasksequenzbereitstellung auf einem bestimmten Zielcomputer**|Zeigt die zum Abschließen der einzelnen Schritte der angegebenen Tasksequenzbereitstellung auf dem angegebenen Zielcomputer erforderliche Zeit an.|  
-|**Status einer bestimmten Tasksequenzbereitstellung für einen bestimmten Computer**|Zeigt die Statuszusammenfassung für eine angegebene Tasksequenzbereitstellung auf einem angegebenen Computer an.|  
-|**Status einer Tasksequenzbereitstellung auf einem unbekannten Zielcomputer**|Zeigt den Status der angegebenen Tasksequenzbereitstellung auf dem angegebenen unbekannten Zielcomputer an.|  
-|**Statuszusammenfassung für eine bestimmte Tasksequenzbereitstellung**|Zeigt eine Statuszusammenfassung für alle Ressourcen an, die Ziel einer Bereitstellung sind.|  
-|**Statuszusammenfassung einer bestimmten Tasksequenzbereitstellung, die für unbekannte Computer verfügbar ist**|Zeigt die Statuszusammenfassung für alle Ressourcen an, die Ziel einer angegebenen Bereitstellung sind, die für eine Sammlung zur Verfügung steht, die unbekannte Computer enthält.|  
+|**Toutes les ressources système pour un déploiement de séquences de tâches dans un état spécifié**|Affiche la liste des ordinateurs de destination pour le déploiement de séquences de tâches spécifié dans un état de déploiement spécifié.|  
+|**Toutes les ressources système pour un déploiement de séquences de tâches qui est dans un état spécifique et disponible pour les ordinateurs inconnus**|Affiche la liste des ordinateurs de destination pour le déploiement de séquences de tâches spécifié présentant l'état de déploiement spécifié.|  
+|**Nombre de ressources système auxquelles des déploiements de séquences de tâches sont affectés mais pas encore exécutés**|Affiche le nombre d'ordinateurs qui ont accepté des séquences de tâches, mais qui n'en ont pas encore exécuté une.|  
+|**Historique d'un déploiement de séquences de tâches sur un ordinateur**|Affiche l'état de chaque étape du déploiement de séquences de tâches spécifié sur l'ordinateur de destination spécifié. Si aucun rapport n'est créé, la séquence de tâches n'a pas commencé sur l'ordinateur.|  
+|**Liste des ordinateurs ayant dépassé la durée spécifique d'exécution d'un déploiement de séquences de tâches**|Affiche la liste des ordinateurs de destination qui ont dépassé la durée spécifiée d'exécution d'une séquence de tâches.|  
+|**Durée d'exécution d'un déploiement de séquences de tâches spécifique sur un ordinateur de destination spécifique**|Affiche le temps total nécessaire pour réussir une séquence de tâches spécifiée sur un ordinateur spécifié.|  
+|**Durée d'exécution de chaque étape d'un déploiement de séquences de tâches sur un ordinateur de destination spécifique**|Affiche le temps nécessaire pour exécuter chaque chaque étape du déploiement de séquences de tâches spécifié sur l'ordinateur de destination spécifié.|  
+|**État d'un déploiement de séquences de tâches spécifique pour un ordinateur spécifique**|Affiche la synthèse d'état d'un déploiement de séquences de tâches spécifié sur un ordinateur spécifié.|  
+|**État d'un déploiement de séquences de tâches sur un ordinateur de destination inconnu**|Affiche l'état du déploiement de séquences de tâches spécifié sur l'ordinateur de destination inconnu spécifié.|  
+|**Résumé des états d'un déploiement de séquences de tâches spécifique**|Affiche la synthèse d'état de toutes les ressources qui ont été ciblées par un déploiement.|  
+|**Récapitulatif des états d'un déploiement de séquences de tâches disponible pour des ordinateurs inconnus**|Affiche la synthèse d'état de toutes les ressources qui ont été ciblées par un déploiement spécifié et disponible pour un regroupement qui contient des ordinateurs inconnus.|  
 
-### <a name="task-sequence---deployments"></a>Tasksequenz – Bereitstellungen  
+### <a name="task-sequence---deployments"></a>Séquence de tâches - Déploiements  
 
-|Berichtsname|Beschreibung|  
+|Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Alle Systemressourcen, die sich derzeit in einer bestimmten Gruppe oder Phase einer bestimmten Tasksequenzbereitstellung befinden**|Zeigt eine Liste aller Computer an, die aktuell in einer angegebenen Gruppe oder Phase einer angegebenen Tasksequenzbereitstellung ausgeführt werden.|  
-|**Alle Systemressourcen mit Fehlern bei der Tasksequenzbereitstellung in einer bestimmten Gruppe oder Phase**|Zeigt eine Liste der Computer mit Fehlern in einer angegebenen Gruppe/Phase der angegebenen Tasksequenzbereitstellung an.|  
-|**Alle Tasksequenzbereitstellungen**|Zeigt Details zu allen Tasksequenzbereitstellungen an, die vom aktuellen Standort initiiert wurden.|  
-|**Alle für unbekannte Computer verfügbaren Tasksequenzbereitstellungen**|Zeigt Details zu allen Tasksequenzbereitstellungen an, die vom Standort initiiert und in Sammlungen bereitgestellt wurden, die unbekannte Computer enthalten.|  
-|**Anzahl von Fehlern in jeder Phase oder Gruppe einer bestimmten Tasksequenz**|Zeigt die Anzahl von Fehlern in jeder Phase oder Gruppe einer angegebenen Tasksequenz an.|  
-|**Anzahl von Fehlern in jeder Phase oder Gruppe einer bestimmten Tasksequenzbereitstellung**|Zeigt die Anzahl von Fehlern in jeder Phase oder Gruppe der angegebenen Tasksequenzbereitstellung an.|  
-|**Bereitstellungsstatus aller Tasksequenzbereitstellungen**|Zeigt den Gesamtstatus aller Tasksequenzbereitstellungen an.|  
-|**Status einer ausgeführten Tasksequenz**|Zeigt den Status der angegebenen Tasksequenz an.|  
-|**Status einer ausgeführten Tasksequenzbereitstellung**|Zeigt die zusammenfassenden Informationen für die angegebene Tasksequenzbereitstellung an.|  
-|**Status alle Bereitstellungen für eine bestimmte Tasksequenz**|Zeigt den Status aller Bereitstellungen für die angegebene Tasksequenz an.|  
-|**Zusammenfassung zu einer Tasksequenzbereitstellung**|Zeigt die zusammenfassenden Informationen für die angegebene Tasksequenzbereitstellung an.|  
+|**Toutes les ressources système actuellement dans un groupe ou une phase spécifique du déploiement d'une séquence de tâches spécifique**|Affiche la liste des ordinateurs en cours d'exécution dans un groupe spécifié ou dans une étape de déploiement de séquences de tâches spécifiée.|  
+|**Toutes les ressources système pour lesquelles un déploiement d'une séquence de tâches a échoué dans un groupe ou une phase spécifique**|Affiche la liste des ordinateurs en échec au sein d'un groupe spécifié ou pendant une phase spécifiée du déploiement de séquences de tâches spécifié.|  
+|**Tous les déploiements de séquences de tâches**|Affiche les détails de tous les déploiements de séquences de tâches lancés à partir du site actuel.|  
+|**Tous les déploiements de séquences de tâches disponibles pour les ordinateurs inconnus**|Affiche les détails de tous les déploiements de séquences de tâches lancés à partir du site et déployés sur des regroupements qui contiennent des ordinateurs inconnus.|  
+|**Nombre d'échecs dans chaque phase ou groupe d'une séquence de tâches spécifique**|Affiche le nombre d'échecs dans chaque phase ou groupe de la séquence de tâches spécifiée.|  
+|**Nombre d'échecs dans chaque phase ou groupe d'un déploiement de séquences de tâches spécifique**|Affiche le nombre d'échecs dans chaque phase ou groupe du déploiement de séquences de tâches spécifié.|  
+|**État du déploiement de tous les déploiements de séquences de tâches**|Affiche la progression globale de tous les déploiements de séquences de tâches.|  
+|**Progression d'une séquence de tâches en cours d'exécution**|Affiche la progression de la séquence de tâches spécifiée.|  
+|**Progression d'un déploiement de séquences de tâches en cours**|Affiche les informations de synthèse du déploiement de séquences de tâches spécifié.|  
+|**Progression de tous les déploiements d'une séquence de tâches spécifique**|Affiche la progression de tous les déploiements de la séquence de tâches spécifiée.|  
+|**Rapport récapitulatif d'un déploiement de séquences de tâches**|Affiche les informations de synthèse du déploiement de séquences de tâches spécifié.|  
 
-### <a name="task-sequence---progress"></a>Tasksequenz – Status  
+### <a name="task-sequence---progress"></a>Séquence de tâches - Progression  
 
-|Berichtsname|Beschreibung|  
+|Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Diagramm – Wöchentlicher Status einer Tasksequenz**|Zeigt den wöchentlichen Status einer Tasksequenz an, beginnend ab dem Bereitstellungsdatum.|  
-|**Status einer Tasksequenz**|Zeigt den Status der angegebenen Tasksequenz an.|  
-|**Status aller Tasksequenzen**|Zeigt eine Zusammenfassung zum Status aller Tasksequenzen an.|  
-|**Status von Tasksequenzen für Betriebssystembereitstellungen**|Zeigt den Status aller Tasksequenzen an, die Betriebssysteme bereitstellen.|  
-|**Status aller unbekannten Computer**|Zeigt eine Liste der zum Zeitpunkt der Ausführung einer Tasksequenzbereitstellung unbekannten Computer sowie die Information an, ob es sich jetzt um bekannte Computer handelt.|  
+|**Graphique - Progression hebdomadaire d'une séquence de tâches**|Affiche la progression hebdomadaire d'une séquence de tâches à partir de la date de déploiement.|  
+|**Progression d'une séquence de tâches**|Affiche la progression de la séquence de tâches spécifiée.|  
+|**Progression de toutes les séquences de tâches**|Affiche le résumé de la progression de toutes les séquences de tâches.|  
+|**Progression des séquences de tâches pour les déploiements de systèmes d'exploitation**|Affiche la progression de toutes les séquences de tâches qui déploient des systèmes d'exploitation.|  
+|**État de tous les ordinateurs inconnus**|Affiche la liste des ordinateurs qui étaient inconnus au moment où ils ont exécuté un déploiement de séquences de tâches, qu'ils soient désormais connus ou non.|  
 
-### <a name="task-sequences---references"></a>Tasksequenzen – Verweise  
+### <a name="task-sequences---references"></a>Séquences de tâches - Références  
 
-|Berichtsname|Beschreibung|  
+|Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Inhalt, auf den von einer bestimmten Tasksequenz verwiesen wird**|Zeigt Inhalt an, auf den von einer angegebenen Tasksequenz verwiesen wird.|  
+|**Contenu référencé par une séquence de tâches spécifique**|Affiche le contenu qui est référencé par une séquence de tâches spécifiée.|  
 
-### <a name="upgrade-assessment"></a>Upgradebewertung  
+### <a name="upgrade-assessment"></a>Évaluation de la mise à niveau  
 
-|Berichtsname|Beschreibung|  
+|Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Anwendungsstatus für einen bestimmten Computer**|Zeigt die Kompatibilität von Anwendungen, die für ein angegebenes Betriebssystem auf einem Computer installiert werden.|  
-|**Anwendungsstatus für Computer in einer bestimmten Sammlung**|Zeigt den Gesamtstatus für Computer in einer Sammlung an. Hiermit können Sie basierend auf den Anwendungen auf den jeweiligen Computern bewerten, wie für diese Computer ein Upgrade durchgeführt werden soll. Mithilfe des Berichts können Sie ermitteln, auf welchen Computern kompatible Anwendungen vorhanden sind, bevor Sie ein Betriebssystem bereitstellen.|  
-|**Anwendungsstatuszusammenfassung**|Zeigt eine Zusammenfassung des Anwendungsstatus für ein angegebenes Betriebssystem an. Mithilfe dieses Berichts können Sie die Anwendungskompatibilität ermitteln, bevor Sie ein Betriebssystem bereitstellen.|  
-|**Computer, auf denen eine bestimmte Anwendung installiert ist**|Zeigt Computer an, auf denen eine bestimmte Anwendung installiert ist.|  
-|**Computer mit einem bestimmten Hardwaregerät**|Zeigt Computer mit einem angegebenen Hardwaregerät an.|  
-|**Hardwaregerätestatus für einen bestimmten Computer**|Zeigt den Kompatibilitätsstatus von Hardwaregeräten für ein angegebenes Betriebssystem an, die auf einem angegebenen Computer gefunden werden.|  
-|**Hardwaregerätestatus für Computer in einer bestimmten Sammlung**|Zeigt den Gesamtstatus für Hardwaregeräte für ein angegebenes Betriebssystem für Computer in einer angegebenen Sammlung an. Sie können mithilfe dieses Berichts die Hardwarekompatibilität ermitteln, bevor Sie ein Betriebssystem bereitstellen.|  
-|**Statuszusammenfassung für Hardwaregeräte**|Zeigt eine Statuszusammenfassung für Hardwaregeräte für ein angegebenes Betriebssystem an. Sie können mithilfe dieses Berichts die Kompatibilität von Hardwaregeräten ermitteln, bevor Sie ein Betriebssystem bereitstellen.|  
-|**Hardwareanforderungen für Betriebssysteme**|Zeigt die minimalen und empfohlenen Hardwarekriterien für Betriebssysteme an.|  
-|**Status der Betriebssystemanforderungen für Computer in einer bestimmten Sammlung**|Zeigt den Status von Betriebssystemanforderungen für das angegebene Betriebssystem für Computer in einer angegebenen Sammlung an. Sie können mithilfe dieses Berichts ermitteln, ob die Anforderungen des angegebenen Betriebssystems hinsichtlich CPU-Prozessorgeschwindigkeit, Arbeitsspeichergröße und Festplattengröße eines Computers erfüllt werden.|  
-|**Zusammenfassung zur Upgradebewertung**|Zeigt die Zusammenfassung zur Upgradebewertung an. Sie können mithilfe dieses Berichts den Gesamtstatus für die Upgradekompatibilität bewerten.|  
+|**État des applications pour un ordinateur particulier**|Affiche la compatibilité des applications qui sont installées sur un ordinateur pour un système d'exploitation spécifié.|  
+|**État des applications pour des ordinateurs d'un regroupement spécifique**|Affiche l'état global des ordinateurs d'un regroupement pour vous permettre de les évaluer à des fins de mise à niveau vers un système d'exploitation spécifié selon les applications présentes sur chaque ordinateur. Utilisez ce rapport pour déterminer quels ordinateurs ont des applications compatibles avant de déployer un système d'exploitation.|  
+|**Résumé de l'état des applications**|Affiche le résumé de l'état des applications pour un système d'exploitation spécifié. Utilisez ce rapport pour déterminer la compatibilité des applications avant de déployer un système d'exploitation.|  
+|**Ordinateurs ayant une application spécifique installée**|Affiche les ordinateurs sur lesquels une application spécifiée est installée.|  
+|**Ordinateurs ayant un périphérique matériel spécifique**|Affiche les ordinateurs qui ont un périphérique matériel spécifique.|  
+|**État des périphériques matériels pour un ordinateur spécifique**|Affiche l'état de compatibilité des périphériques matériels pour un système d'exploitation spécifié qui se trouvent sur un ordinateur spécifié.|  
+|**État des périphériques matériels pour les ordinateurs d'un regroupement spécifique**|Affiche l'état global des périphériques matériels pour un système d'exploitation spécifié présents sur les ordinateurs d'un regroupement spécifié. Utilisez ce rapport pour déterminer la compatibilité du matériel avant de déployer un système d'exploitation.|  
+|**Résumé de l'état des périphériques matériels**|Affiche le résumé de l'état des périphériques matériels pour un système d'exploitation spécifié. Vous pouvez utiliser ce rapport pour déterminer la compatibilité des périphériques matériels avant de déployer un système d'exploitation.|  
+|**Configuration matérielle requise pour le système d'exploitation**|Affiche les critères matériels minimaux et recommandés pour les systèmes d'exploitation.|  
+|**État de la configuration requise du système d'exploitation pour des ordinateurs d'un regroupement spécifique**|Affiche l'état de la configuration requise du système d'exploitation spécifié pour les ordinateurs d'un regroupement spécifié. Utilisez ce rapport pour déterminer si un ordinateur satisfait à la configuration système requise en termes de fréquence du processeur, de taille de la mémoire et d'espace sur le disque dur.|  
+|**Résumé de l'évaluation de la mise à niveau**|Affiche le résumé de l'évaluation de la mise à niveau. Vous pouvez utiliser ce rapport pour évaluer l'état global de la compatibilité de la mise à niveau.|  
 
-### <a name="user---device-affinity"></a>Affinität zwischen Benutzer und Gerät  
+### <a name="user---device-affinity"></a>Affinité entre appareil et utilisateur  
 
-|Berichtsname|Beschreibung|  
+|Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Ausstehende Affinitätszuordnungen zwischen Benutzer und Gerät nach Sammlung**|Dieser Bericht enthält alle ausstehenden Affinitätszuordnungen zwischen Benutzer und Gerät für Mitglieder einer Sammlung basierend auf den Nutzungsdaten.|  
-|**Affinitätszuordnungen zwischen Benutzer und Gerät pro Sammlung**|Zeigt alle Zuordnungen zwischen Benutzer und Gerät für die angegebene Sammlung an und gruppiert die Ergebnisse nach Sammlungstyp (z. B. Benutzer oder Gerät).|  
+|**Associations d'affinités entre périphérique et utilisateur par regroupement en attente**|Ce rapport affiche toutes les attributions d'affinités entre utilisateur et périphérique en attente, selon les données d'utilisation, pour les membres d'un regroupement.|  
+|**Associations d'affinités entre périphérique et utilisateur par regroupement**|Affiche toutes les associations entre périphérique et utilisateur pour le regroupement spécifié et regroupe les résultats par type de regroupement (par exemple, utilisateur ou périphérique).|  
 
-### <a name="user-data-and-profiles-health"></a>Integrität von Benutzerdaten und Profilen  
+### <a name="user-data-and-profiles-health"></a>Intégrité du profil et des données utilisateur  
 
-|Berichtsname|Beschreibung|  
+|Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Bericht zur Integrität der Ordnerumleitung – Details**|Zeigt die Details des Integritätszustands der Ordnerumleitung für jeden umgeleiteten Ordner eines gegebenen Benutzers an.|  
-|**Bericht zur Integrität servergespeicherter Benutzerprofile – Details**|Zeigt Details zum Integritätszustand für servergespeicherte Benutzerprofile für einen angegebenen Benutzer an.|  
-|**Bericht zur Integrität von Benutzerdaten und Profilen – Details**|Zeigt die Details zu Fehlern oder Warnungen für die Ordnerumleitung oder das servergespeicherte Benutzerprofil an, wenn Detailinformationen zur Anzahl aus dem Zusammenfassungsbericht angezeigt werden.|  
-|**Bericht zur Integrität von Benutzerdaten und Profilen – Zusammenfassung**|Zeigt die Zusammenfassung zu den Integritätszuständen für die Ordnerumleitung und für servergespeicherte Benutzerprofile an.|  
+|**Rapport d'intégrité de la redirection de dossiers - Détails**|Affiche les détails de l'état d'intégrité de la redirection de dossiers pour chacun des dossiers redirigés d'un utilisateur donné.|  
+|**Rapport d'intégrité des profils utilisateur itinérants - Détails**|Affiche les détails de l'état d'intégrité du profil utilisateur itinérant d'un utilisateur spécifié.|  
+|**Rapport d'intégrité des données et profils utilisateur - Détails**|Affiche les détails sur les erreurs ou les avertissements pour la redirection de dossiers ou le profil utilisateur itinérant lors de l'exploration du compte à partir du rapport de synthèse.|  
+|**Rapport d'intégrité des données et profils utilisateur - Résumé**|Affiche le résumé des états d'intégrité pour la redirection de dossiers et les profils utilisateur itinérants.|  
 
-### <a name="users"></a>-Benutzer  
+### <a name="users"></a>Utilisateurs  
 
-|Berichtsname|Beschreibung|  
+|Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Computer für einen bestimmten Benutzernamen**|Zeigt eine Liste von Computern an, die von einem angegebenen Benutzer verwendet wurden.|  
-|**Benutzer pro Domäne zählen**|Zeigt die Anzahl der Benutzer in den einzelnen Domänen an.|  
-|**Benutzer in einer bestimmten Domäne**|Zeigt eine Liste der Benutzer und ihrer Computer in einer angegebenen Domäne an.|  
+|**Ordinateurs pour un nom d'utilisateur spécifique**|Affiche la liste des ordinateurs qui ont été utilisés par un utilisateur spécifié.|  
+|**Compter les utilisateurs par domaine**|Affiche le nombre d'utilisateurs dans chaque domaine.|  
+|**Utilisateurs dans un domaine spécifique**|Affiche la liste des utilisateurs et de leurs ordinateurs dans un domaine spécifié.|  
 
-### <a name="virtual-applications"></a>Virtuelle Anwendungen  
+### <a name="virtual-applications"></a>Applications virtuelles  
 
-|Berichtsname|Beschreibung|  
+|Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Ergebnisse zur virtuellen App-V-Umgebung**|Zeigt Informationen zu einer angegebenen virtuellen Umgebung an, die sich für eine angegebene Sammlung in einem angegebenen Zustand befindet.|  
-|**Ergebnisse zur virtuellen App-V-Umgebung für Bestand**|Zeigt Informationen zu einer angegebenen virtuellen Umgebung für einen angegebenen Bestand sowie sämtliche Bereitstellungstypen für die angegebene virtuelle Umgebung an.|  
-|**Status der virtuellen App-V-Umgebung**|Zeigt Kompatibilitätsinformationen für eine angegebene virtuelle Umgebung für eine angegebene Sammlung an.|  
-|**Computer mit einer bestimmten virtuellen Anwendung**|Zeigt eine Zusammenfassung der Computer mit der angegebenen App-V-Verknüpfung an, die mit dem Application Virtualization Management Sequencer erstellt wurde.|  
-|**Computer mit einem bestimmten virtuellen Anwendungspaket**|Zeigt eine Zusammenfassung der Computer an, auf denen das angegebene App-V-Anwendungspaket installiert ist.|  
-|**Anzahl aller Instanzen von virtuellen Anwendungspaketen**|Zeigt die Anzahl der erkannten App-V-Anwendungspakete an.|  
-|**Anzahl aller Instanzen virtueller Anwendungen**|Zeigt die Anzahl der erkannten App-V-Anwendungen an.|  
+|**Résultats de l'environnement virtuel App-V**|Affiche des informations sur un environnement virtuel spécifié qui se trouve dans un état spécifié pour un regroupement spécifié.|  
+|**Résultats de l'environnement virtuel App-V pour un composant**|Affiche des informations sur un environnement virtuel spécifié pour un composant spécifié et tous les types de déploiements pour l'environnement virtuel spécifié.|  
+|**État de l'environnement virtuel App-V**|Affiche des informations de compatibilité d'un environnement virtuel spécifié pour un regroupement spécifié.|  
+|**Ordinateurs avec une application virtuelle spécifique**|Affiche le résumé des ordinateurs pour lesquels le raccourci de l'application App-V créé est spécifié comme utilisant Application Virtualization Management Sequencer.|  
+|**Ordinateurs avec un package d'application virtuelle spécifique**|Affiche le résumé des ordinateurs qui possèdent le package d'application App-V spécifié.|  
+|**Total des instances de packages d'application virtuelle**|Afficher le nombre de packages d'application App-V détectés.|  
+|**Total des instances d'applications virtuelles**|Affiche le nombre d'applications App-V détectées.|  
 
-### <a name="wake-on-lan"></a>-Wake-On-LAN  
+### <a name="wake-on-lan"></a>Éveil par appel réseau  
 
-|Berichtsname|Beschreibung|  
+|Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Alle für Wake-On-LAN-Aktivitäten vorgesehenen Computer**|Zeigt eine Liste von Computern an, die während der Bereitstellung mit dem von Ihnen angegebenen Typ für eine Wake-On-LAN-Aktivität vorgesehen sind.|  
-|**Alle Objekte, die auf Reaktivierungsaktivitäten warten**|Zeigt Objekte an, die für die Reaktivierung geplant sind.|  
-|**Alle Standorte, die für Wake-On-LAN aktiviert sind**|Zeigt eine Liste aller Standorte in der Hierarchie an, die für Wake-On-LAN aktiviert sind.|  
-|**Fehlermeldungen, die innerhalb eines bestimmten Zeitraums während des Sendens von Reaktivierungspaketen empfangen wurden**|Zeigt Fehlermeldungen an, die innerhalb eines definierten Zeitraums während des Sendens von Reaktivierungspaketen empfangen wurden.|  
-|**Verlauf der Remoteaktivierungs-Aktivität über LAN**|Zeigt einen Verlauf der innerhalb eines bestimmten Zeitraums aufgetretenen Reaktivierungsaktivität an.|  
-|**Details zum Aktivierungsproxy-Bereitstellungszustand**|Zeigt Informationen zum Bereitstellungsstatus des Aktivierungsproxys für jedes Gerät in einer angegebenen Sammlung an.|  
-|**Zusammenfassung des Aktivierungsproxy-Bereitstellungszustands**|Zeigt eine Zusammenfassung zum Bereitstellungsstatus des Reaktivierungsproxys in einer angegebenen Sammlung an.|  
+|**Tous les ordinateurs ciblés pour une activité d'éveil par appel réseau**|Affiche la liste des ordinateurs qui ont été ciblés pour une activité d'éveil par appel réseau pendant un déploiement du type que vous spécifiez.|  
+|**Tous les objets en attente de mise en éveil**|Affiche les objets qui sont programmés pour la mise en éveil.|  
+|**Tous les sites activés pour l'éveil par appel réseau**|Affiche la liste de tous les sites de la hiérarchie qui sont activés pour l'éveil par appel réseau.|  
+|**Erreurs reçues lors de l'envoi des paquets de mise en éveil pour une période donnée**|Affiche les erreurs reçues lors de l'envoi des paquets de mise en éveil aux ordinateurs pendant une période donnée.|  
+|**Historique de l'activité d'éveil par appel réseau**|Affiche l'historique de l'activité d'éveil qui a eu lieu depuis un certain temps.|  
+|**Détails sur l'état du déploiement de proxy de mise en éveil**|Affiche des informations sur l'état du déploiement de proxy de mise en éveil pour chaque appareil d'un regroupement spécifié.|  
+|**Résumé de l'état de déploiement du proxy de mise en éveil**|Affiche le résumé de l'état de déploiement du proxy de mise en éveil pour un regroupement spécifié.|  

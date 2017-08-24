@@ -1,6 +1,6 @@
 ---
-title: Erstellen von PFX-Zertifikatprofilen mit einer Zertifizierungsstelle | Microsoft-Dokumentation
-description: "Erfahren Sie, wie Sie PFX-Dateien in System Center Configuration Manager verwenden, um benutzerspezifische Zertifikate zu generieren, die den verschlüsselten Datenaustausch unterstützen."
+title: "Créer des profils de certificat PFX à l’aide d’une autorité de certification | Microsoft Docs"
+description: "Découvrez comment utiliser des fichiers PFX dans System Center Configuration Manager pour générer des certificats spécifiques à l’utilisateur qui prennent en charge l’échange de données chiffrées."
 ms.custom: na
 ms.date: 04/04/2017
 ms.prod: configuration-manager
@@ -18,167 +18,167 @@ manager: angrobe
 ms.openlocfilehash: 43d8b2217763681be69711fce93c020a65da1cd8
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-create-pfx-certificate-profiles-using-a-certificate-authority"></a>Erstellen von PFX-Zertifikatprofilen mit einer Zertifizierungsstelle
+# <a name="how-to-create-pfx-certificate-profiles-using-a-certificate-authority"></a>Guide pratique pour créer des profils de certificat PFX à l’aide d’une autorité de certification
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Hier erfahren Sie, wie Sie ein Zertifikatprofil mit Anmeldeinformationen einer Zertifizierungsstelle verwenden.
+Ce document vous explique comment créer un profil de certificat qui utilise une autorité de certification pour les informations d’identification.
 
-Unter [Zertifikatprofile](../../protect/deploy-use/introduction-to-certificate-profiles.md) erhalten Sie allgemeine Informationen zum Erstellen und Konfigurieren von Zertifikatprofilen. In diesem Thema erfahren Sie Genaueres über Zertifikatprofile, die mit PFX-Zertifikatprofilen in Verbindung stehen.
+La section sur les [profils de certificat](../../protect/deploy-use/introduction-to-certificate-profiles.md) fournit des informations générales sur la création et la configuration des profils de certificat. Elle met en évidence des informations spécifiques sur les profils de certificat associés aux certificats PFX.
 
-## <a name="pfx-certificate-profiles"></a>PFX-Zertifikatprofile
-Mit System Center Configuration Manager können Sie ein PFX-Zertifikatprofil mit Anmeldeinformationen erstellen, die von einer Zertifizierungsstelle ausgestellt wurden.  Ab Version 1706 können Sie Microsoft oder Entrust als Zertifizierungsstelle auswählen.  Bei der Bereitstellung von PFX-Dateien (Personal Information Exchange) auf Benutzergeräten werden benutzerspezifische Zertifikate zur Unterstützung des verschlüsselten Datenaustausches erstellt.
+## <a name="pfx-certificate-profiles"></a>Profils de certificat PFX
+System Center Configuration Manager vous permet de créer un profil de certificat PFX à l’aide des informations d’identification émises par une autorité de certification.  À partir de la version 1706, vous pouvez choisir Microsoft ou Entrust comme autorité de certification.  Quand ils sont déployés sur les appareils des utilisateurs, les fichiers d’échange d’informations personnelles (.pfx) génèrent des certificats spécifiques à l’utilisateur pour prendre en charge l’échange de données chiffrées.
 
-Informationen zum Import von Zertifikat-Anmeldeinformationen aus vorhandenen Zertifikatdateien finden Sie unter [How to create PFX certificate profiles by importing certificate details (Erstellen von PFX-Zertifikatprofilen durch Importieren von Zertifikatinformationen)](../../mdm/deploy-use/import-pfx-certificate-profiles.md).
+Pour importer les informations d’identification de certificat à partir de fichiers de certificat existants, consultez [Guide pratique pour créer des profils de certificat PFX en important les détails du certificat](../../mdm/deploy-use/import-pfx-certificate-profiles.md).
 
-## <a name="create-and-deploy-a-personal-information-exchange-pfx-certificate-profile"></a>Erstellen und Bereitstellen eines PFX-Zertifikatprofils (Personal Information Exchange)  
+## <a name="create-and-deploy-a-personal-information-exchange-pfx-certificate-profile"></a>Créer et déployer un profil de certificat PFX (Personal Information Exchange)  
 
-### <a name="get-started"></a>Erste Schritte
+### <a name="get-started"></a>Bien démarrer
 
-1.  Wählen Sie in der System Center Configuration Manager-Konsole **Bestand und Kompatibilität** aus.  
-2.  Wählen Sie im Arbeitsbereich **Bestand und Kompatibilität** **Kompatibilitätseinstellungen**, &gt;Zugriff auf Unternehmensressourcen****  &gt; **Zertifikatprofile** aus.  
+1.  Dans la console System Center Configuration Manager, choisissez **Ressources et Conformité**.  
+2.  Dans l’espace de travail **Ressources et Conformité**, choisissez **Paramètres de compatibilité** &gt; **Accès aux ressources de l’entreprise** &gt; **Profils de certificat**.  
 
-3.  Wählen Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** **Zertifikatprofil erstellen** aus.
+3.  Sous l’onglet **Accueil**, dans le groupe **Créer**, choisissez **Créer un profil de certificat**.
 
-4.  Geben Sie auf der Seite **Allgemein** des ****  Assistenten zum Erstellen von Zertifikatprofilen die folgenden Informationen an:  
+4.  Dans la page **Général** de l'Assistant **Créer un profil de certificat** , spécifiez les informations suivantes :  
 
-    -   **Name**: Geben Sie einen eindeutigen Namen für das Zertifikatprofil ein. Sie können maximal 256 Zeichen verwenden.  
+    -   **Nom**: entrez un nom unique pour le profil de certificat. Vous pouvez utiliser jusqu'à 256 caractères.  
 
-    -   **Beschreibung**: Geben Sie eine Beschreibung mit einem Überblick über das Zertifikatprofil sowie weitere relevante Informationen ein, die der Identifikation des Profils in der System Center Configuration Manager-Konsole dienen. Sie können maximal 256 Zeichen verwenden.  
+    -   **Description** : entrez une description qui donne un aperçu du profil de certificat et d’autres informations utiles pour identifier facilement ce profil dans la console System Center Configuration Manager. Vous pouvez utiliser jusqu'à 256 caractères.  
 
-    -   Wählen Sie in **Geben Sie den Typ des Zertifikatprofils an, das Sie erstellen möchten** zuerst **Privater Informationsaustausch - PKCS #12-Einstellungen (PFX) - Erstellen** und anschließend Ihre Zertifikatsstelle aus der Dropdownliste aus.  Ab Version 1706 können Sie **Microsoft** oder **Entrust** auswählen.
+    -   Dans **Spécifiez le type de profil de certificat que vous voulez créer**, choisissez **Échange d’informations personnelles -- Paramètres PKCS #12 (PFX) -- Créer**, puis choisissez votre autorité de certification dans la liste déroulante.  Depuis la version 1706, vous pouvez choisir **Microsoft** ou **Entrust**.
 
-### <a name="select-supported-platforms"></a>Auswählen von unterstützten Plattformen
+### <a name="select-supported-platforms"></a>Sélectionner les plateformes prises en charge
 
-Auf der Seite „Unterstützte Plattformen“ werden die Betriebssysteme und Geräte identifiziert, die das Zertifikatprofil unterstützt.  
+La page Plateformes prises en charge identifie les systèmes d’exploitation et les appareils pris en charge par le profil de certificat.  
 
-Zertifikatprofile können mehrere Betriebssysteme und Geräte unterstützen. Bestimmte Zusammenstellungen von Betriebssystemen oder Geräten erfordern jedoch unter Umständen unterschiedliche Einstellungen.  In diesen Fällen empfiehlt es sich, unterschiedliche Profile für verschiedene Einstellungen zu erstellen.  
+Les profils de certificat peuvent prendre en charge plusieurs systèmes d’exploitation et appareils ; toutefois, certaines combinaisons de systèmes d’exploitation ou d’appareils peuvent nécessiter des paramètres différents.  Dans ces cas, il est préférable de créer des profils distincts pour chaque ensemble unique de paramètres.  
 
-Ab Version 1706 sind die folgenden Optionen verfügbar:
+Depuis la version 1706, les options ci-dessous sont disponibles :
 
 - Windows 10
-    - Windows 10 (64-Bit)
-    - Windows 10 (32-Bit)
-    - Windows 10 Holographic Enterprise und höher
-    - Windows 10 Holographic und höher
-    - Windows 10 Team und höher
-    - Windows 10 Mobile und höher
+    - Tout Windows 10 (64 bits)
+    - Tout Windows 10 (32 bits)
+    - Tout Windows 10 Holographique Entreprise et ultérieur
+    - Tout Windows 10 Holographique et ultérieur
+    - Tout Windows 10 Collaboration et ultérieur
+    - Tout Windows 10 Mobile et ultérieur
 - iPhone
 - iPad
 - Android
 - Android for Work
 
 > [!Note]  
-> MacOS/OSX-Geräte werden derzeit nicht unterstützt.  
+> Les appareils MacOS/OSX ne sont pas pris en charge.  
 
-Wenn keine anderen Optionen ausgewählt sind, können Sie durch Aktivieren des Kontrollkästchens **Alles auswählen** alle verfügbare Optionen auswählen.  Wenn eine oder mehrere Optionen ausgewählt sind, wird durch Aktivieren des Kontrollkästchens **Alles auswählen** die vorhandene Auswahl gelöscht. 
+Quand aucune autre option n’est sélectionnée, la case à cocher **Sélectionner tout** sélectionne toutes les options disponibles.  Quand une ou plusieurs options sont sélectionnées, **Sélectionner tout** efface les sélections existantes. 
 
-1.  Wählen Sie eine oder mehrere Plattformen aus, die vom Zertifikatprofil unterstützt werden.
+1.  Sélectionnez une ou plusieurs plateformes prises en charge par le profil de certificat.
 
-1.  Wählen Sie zum Fortfahren **Weiter** aus.  
-
-
-### <a name="configure-certification-authorities"></a>Konfigurieren von Zertifizierungsstellen
-
-Hier wählen Sie den Zertifikatregistrierungspunkt (CRP) aus, um die PFX-Zertifikate zu verarbeiten.  
-
-1.  Wählen Sie aus der Liste **Primärer Standort** den Server mit der CRP-Rolle für die Zertifizierungsstelle aus.
-1.  Wählen Sie aus der Liste **Zertifizierungsstellen** die relevante Zertifizierungsstelle aus, indem Sie ein Häkchen in der linken Spalte setzen.
-1.  Wählen Sie zum Fortfahren **Weiter** aus.
-
-Weitere Informationen finden Sie unter [Zertifikatinfrastruktur](../../protect/deploy-use/certificate-infrastructure.md).
+1.  Choisissez **Suivant** pour continuer.  
 
 
-### <a name="configure-certificate-settings-for-microsoft-ca"></a>Konfigurieren von Zertifikateinstellungen für Microsoft-Zertifizierungsstelle
+### <a name="configure-certification-authorities"></a>Configurer des autorités de certification
 
-Gehen Sie folgendermaßen vor, wenn Sie Microsoft als Zertifizierungsstelle zur Konfiguration Ihrer Zertifikateinstellungen verwenden:
+Dans cette partie, vous choisissez le point d’enregistrement de certificat (CRP) pour traiter les certificats PFX.  
 
-1.  Wählen Sie die Zertifikatvorlage aus der Dropdownliste **Zertifikatvorlagenname** aus.
+1.  Dans la liste **Site principal**, sélectionnez le serveur qui contient le rôle CRP pour l’autorité de certification.
+1.  Dans la liste **Autorités de certification**, choisissez l’autorité de certification appropriée en plaçant une coche dans la colonne de gauche.
+1.  Quand vous êtes prêt à continuer, choisissez **Suivant**.
 
-1.  Aktivieren Sie das Kontrollkästchen **Verwendung des Zertifikats**, um das Zertifikatprofil zum Signieren oder Verschlüsseln mit S/MIME zu verwenden.
-
-    Wenn Sie diese Option mit Microsoft als Ihrer Zertifizierungsstelle verwenden, werden alle PFX-Zertifikate, die dem Zielbenutzer zugeordnet sind, an alle Geräte übermittelt, die vom Benutzer registriert werden.  Wenn dieses Kontrollkästchen deaktiviert ist, erhält jedes Gerät ein eindeutiges Zertifikat.  
-
-1.  Legen Sie für **Format des Antragstellernamens** entweder die Option **Allgemeiner Name** oder **Vollständiger definierter Name** fest.  Wenn Sie nicht sicher sind, welche Option Sie auswählen sollten, wenden Sie sich an den Administrator der Zertifizierungsstelle.
-
-1.  Wählen Sie für **Alternativer Antragstellername** je nach Zertifizierungsstelle entweder **E-Mail-Adresse** oder **Benutzerprinzipalname (UPN)** aus.
-
-1.  Die Option **Erneuerungsschwellenwert** legt auf der Grundlage der verbleibenden Zeit in Prozent vor Ablauf eines Zertifikats fest, wann Zertifikate automatisch erneuert werden sollen.
-
-1.  Geben Sie mit der Option **Gültigkeitsdauer des Zertifikats** den Zeitraum an, in dem das Zertifikats gültig ist.  Hierzu geben Sie eine Zahl (1-100) und einen Zeitraum (Jahre, Monate oder Tage) an.
-
-1.  Die Option **Active Directory-Veröffentlichung** wird aktiviert, wenn durch den Zertifikatregistrierungspunkt Active Directory-Anmeldeinformationen angegeben werden.  Aktivieren Sie die Option, um das Zertifikatprofil in Active Directory zu veröffentlichen.
-
-1.  Wenn Sie beim Angeben von unterstützten Plattformen eine oder mehrere Windows 10-Plattformen ausgewählt haben, gehen Sie folgendermaßen vor:
-
-    1.  Legen Sie für **Windows-Zertifikatspeicher** die Option **Benutzer** fest.  Da durch die Option **Lokaler Computer** keine Zertifikate bereitgestellt werden, sollte diese nicht ausgewählt werden.
-    1.  Wählen Sie eine der folgenden Optionen aus, um den **Schlüsselspeicheranbieter (KSP)** festzulegen:
-
-        - **In Trusted Platform Module (TPM) installieren (sofern vorhanden)**  
-        - **In Trusted Platform Module (TPM) installieren (andernfalls Fehler)** 
-        - **In Windows Hello for Business installieren (andernfalls Fehler)** 
-        - **In Softwareschlüsselspeicher-Anbieter installieren** 
-
-1.  Wählen Sie abschließend **Weiter** oder **Zusammenfassung** aus.
-
-### <a name="configure-certificate-settings-for-entrust-ca"></a>Konfigurieren von Zertifikateinstellungen für Entrust als Zertifizierungsstelle
-
-Gehen Sie folgendermaßen vor, um Konfigurationseinstellungen mit Entrust als Zertifizierungsstelle vorzunehmen:
-
-1.  Wählen Sie aus der Dropdownliste **Konfiguration der digitalen ID** das Konfigurationsprofil aus.  Die Optionen zur Konfiguration der digitalen ID werden vom Entrust-Administrator erstellt.
-
-1.  Wenn die Option **Zertifikatverwendung** aktiviert wurde, wird das Zertifikatprofil zum Signieren oder Verschlüsseln mit S/MIME verwendet.
-
-    Wenn Sie Entrust als Zertifizierungsstelle verwenden, werden alle PFX-Zertifikate, die dem Zielbenutzer zugeordnet sind, an alle Geräte übermittelt, die vom Benutzer registriert werden.    Wenn diese Option *nicht* aktiviert ist, erhält jedes Gerät ein eindeutiges Zertifikat.  Je nach Zertifizierungsstelle kann dieses Verhalten variieren. Weitere Informationen finden Sie im entsprechenden Abschnitt.
-
-1.  Verwenden Sie die Schaltfläche **Format**, um Entrust-Tokens der Form **Format des Antragstellernamens** ConfigMgr-Feldern zuzuordnen.  
-
-    Im Dialog **Certificate Name Formatting (Zertifikatsnamenformatierung)** werden alle Entrust-Variablen aufgeführt, die mit der Konfiguration der digitalen ID in Verbindung stehen.  Wählen Sie für jede Entrust-Variable die entsprechende LDAP-Variable aus der zugehörigen Dropdownliste.
-
-1.  Klicken Sie auf die Schaltfläche **Format**, um Entrust-Tokens der Form **Alternativer Antragstellername** ConfigMgr-Feldern zuzuordnen.  
-
-    Im Dialog **Certificate Name Formatting (Zertifikatsnamenformatierung)** werden alle Entrust-Variablen aufgeführt, die mit der Konfiguration der digitalen ID in Verbindung stehen.  Wählen Sie für jede Entrust-Variable die entsprechende LDAP-Variable aus der zugehörigen Dropdownliste.
-
-1.  Die Option **Erneuerungsschwellenwert** legt auf der Grundlage der verbleibenden Zeit in Prozent vor Ablauf eines Zertifikats fest, wann Zertifikate automatisch erneuert werden sollen.
-
-1.  Geben Sie mit der Option **Gültigkeitsdauer des Zertifikats** den Zeitraum an, in dem das Zertifikats gültig ist.  Hierzu geben Sie eine Zahl (1-100) und einen Zeitraum (Jahre, Monate oder Tage) an.
-
-1.  Die Option **Active Directory-Veröffentlichung** wird aktiviert, wenn durch den Zertifikatregistrierungspunkt Active Directory-Anmeldeinformationen angegeben werden.  Aktivieren Sie die Option, um das Zertifikatprofil in Active Directory zu veröffentlichen.
-
-1.  Wenn Sie beim Angeben von unterstützten Plattformen eine oder mehrere Windows 10-Plattformen ausgewählt haben, gehen Sie folgendermaßen vor:
-
-    1.  Legen Sie für **Windows-Zertifikatspeicher** die Option **Benutzer** fest.  Da durch die Option **Lokaler Computer** keine Zertifikate bereitgestellt werden, sollte diese nicht ausgewählt werden.
-    1.  Wählen Sie eine der folgenden Optionen aus, um den **Schlüsselspeicheranbieter (KSP)** festzulegen:
-
-        - **In Trusted Platform Module (TPM) installieren (sofern vorhanden)**  
-        - **In Trusted Platform Module (TPM) installieren (andernfalls Fehler)** 
-        - **In Windows Hello for Business installieren (andernfalls Fehler)** 
-        - **In Softwareschlüsselspeicher-Anbieter installieren** 
-
-1.  Wählen Sie abschließend **Weiter** oder **Zusammenfassung** aus.
+Pour en savoir plus, consultez [Infrastructure de certificats](../../protect/deploy-use/certificate-infrastructure.md).
 
 
-### <a name="finish-up"></a>Fertig stellen
+### <a name="configure-certificate-settings-for-microsoft-ca"></a>Configurer les paramètres de certificat pour l’autorité de certification Microsoft
 
-1.  Überprüfen Sie auf der Seite „Zusammenfassung“ Ihre Auswahl.
+Pour configurer les paramètres de certificat si Microsoft est utilisé comme autorité de certification :
 
-1.  Wählen Sie anschließend **Weiter**, um das Profil zu erstellen.  
+1.  Dans la liste déroulante **Nom du modèle de certificat**, choisissez le modèle de certificat.
 
-1.  Das Zertifikatprofil mit der PFX-Datei steht nun im Arbeitsbereich **Zertifikatprofile** bereit. 
+1.  Cochez la case **Utilisation du certificat** pour utiliser le profil de certificat pour le chiffrement ou la signature S/MIME.
 
-1.  Gehen Sie folgendermaßen vor, um das Profil bereitzustellen:
+    Quand vous cochez cette option tout en utilisant Microsoft comme autorité de certification, tous les certificats PFX associés à l’utilisateur cible sont remis à tous les appareils inscrits par l’utilisateur.  Quand cette case est décochée, chaque appareil reçoit un certificat unique.  
 
-    1. Öffnen Sie den Arbeitsbereich **Bestand und Kompatibilität**.
-    1. Wählen Sie **Kompatibilitätseinstellungen** > **Zugriff auf Unternehmensressourcen** > **Zertifikatprofile** aus.
-    1. Klicken Sie mit der rechten Maustaste auf das gewünschte Zertifikatprofil, und wählen Sie anschließend **Bereitstellen** aus. 
+1.  Définissez **Format du nom du sujet** sur **Nom commun** ou **Nom unique**.  En cas de doute sur l’option à utiliser, contactez votre administrateur d’autorité de certification.
+
+1.  Pour **Autre nom de l’objet**, activez **l’Adresse de messagerie** et le **Nom principal de l’utilisateur (UPN)** en fonction de votre autorité de certification.
+
+1.  **Seuil de renouvellement** détermine quand les certificats sont automatiquement renouvelés, en fonction du pourcentage de temps restant avant leur expiration.
+
+1.  Définissez la **Période de validité du certificat** sur la durée de vie du certificat.  Vous spécifiez la période en définissant un nombre (1 à 100) et une période (jours, mois ou années).
+
+1.  La **Publication Active Directory** est activée quand le point d’enregistrement de certificat spécifie les informations d’identification Active Directory.  Activez l’option pour publier le profil de certificat dans Active Directory.
+
+1.  Si vous avez sélectionné une ou plusieurs plateformes Windows 10 quand vous avez spécifié les plateformes prises en charge :
+
+    1.  Définissez **Magasin de certificats Windows** sur **Utilisateur**.  (L’option **Ordinateur local** ne déploie pas de certificats et ne doit pas être choisie.)
+    1.  Sélectionnez le **Fournisseur de stockage de clés** à partir d’une des options suivantes :
+
+        - **Installer dans le module de plateforme sécurisée (TPM) s'il existe**  
+        - **Installer dans le module de plateforme sécurisée (TPM) sinon mettre en échec** 
+        - **Installer dans Windows Hello Entreprise, sinon mettre en échec** 
+        - **Installer dans le fournisseur de stockage de la clé du logiciel** 
+
+1.  Quand vous avez terminé, choisissez **Suivant** ou **Résumé**.
+
+### <a name="configure-certificate-settings-for-entrust-ca"></a>Configurer les paramètres de certificat pour l’autorité de certification Entrust
+
+Pour configurer les paramètres de certificat si Entrust est utilisé comme autorité de certification :
+
+1.  Dans la liste déroulante **Configuration de l’identificateur numérique**, choisissez le profil de configuration.  Les options de configuration de l’identificateur numérique sont créées par l’administrateur Entrust.
+
+1.  Quand la case **Utilisation du certificat** est cochée, le profil de certificat est utilisé pour le chiffrement ou la signature S/MIME.
+
+    Quand vous utilisez Entrust comme autorité de certification, tous les certificats PFX associés à l’utilisateur cible sont remis à tous les appareils inscrits par l’utilisateur.    Quand cette option *n’est pas* cochée, chaque appareil reçoit un certificat unique.  (Le comportement varie d’une autorité de certification à l’autre ; pour plus d’informations, consultez la section correspondante).
+
+1.  Utilisez le bouton **Format** pour mapper les jetons **Format du nom du sujet** Entrust aux champs ConfigMgr.  
+
+    La boîte de dialogue **Mise en forme des noms de certificat** répertorie les variables de configuration de l’identificateur numérique Entrust.  Pour chaque variable Entrust, choisissez la variable LDAP appropriée dans la liste déroulante associée.
+
+1.  Utilisez le bouton **Format** pour mapper les jetons **Autre nom de l’objet** Entrust à des variables LDAP prises en charge.  
+
+    La boîte de dialogue **Mise en forme des noms de certificat** répertorie les variables de configuration de l’identificateur numérique Entrust.  Pour chaque variable Entrust, choisissez la variable LDAP appropriée dans la liste déroulante associée.
+
+1.  **Seuil de renouvellement** détermine quand les certificats sont automatiquement renouvelés, en fonction du pourcentage de temps restant avant leur expiration.
+
+1.  Définissez la **Période de validité du certificat** sur la durée de vie du certificat.  Vous spécifiez la période en définissant un nombre (1 à 100) et une période (jours, mois ou années).
+
+1.  La **Publication Active Directory** est activée quand le point d’enregistrement de certificat spécifie les informations d’identification Active Directory.  Activez l’option pour publier le profil de certificat dans Active Directory.
+
+1.  Si vous avez sélectionné une ou plusieurs plateformes Windows 10 quand vous avez spécifié les plateformes prises en charge :
+
+    1.  Définissez **Magasin de certificats Windows** sur **Utilisateur**.  (L’option **Ordinateur local** ne déploie pas de certificats et ne doit pas être choisie.)
+    1.  Sélectionnez le **Fournisseur de stockage de clés** à partir d’une des options suivantes :
+
+        - **Installer dans le module de plateforme sécurisée (TPM) s'il existe**  
+        - **Installer dans le module de plateforme sécurisée (TPM) sinon mettre en échec** 
+        - **Installer dans Windows Hello Entreprise, sinon mettre en échec** 
+        - **Installer dans le fournisseur de stockage de la clé du logiciel** 
+
+1.  Quand vous avez terminé, choisissez **Suivant** ou **Résumé**.
 
 
-## <a name="see-also"></a>Weitere Informationen:
-[Create a new certificate profile (Erstellen eines neuen Zertifikatprofils)](../../protect/deploy-use/create-certificate-profiles.md) begleitet Sie im Assistenten für das Erstellen eines Zertifikatprofils.
+### <a name="finish-up"></a>Terminer
 
-[How to create PFX certificate profiles by importing certificate details (Erstellen von PFX-Zertifikatprofilen durch Importieren von Zertifikatinformationen)](../../mdm/deploy-use/import-pfx-certificate-profiles.md)
+1.  Dans la page Résumé, passez en revue vos sélections et vérifiez vos choix.
 
-Unter [Deploy Wi-Fi, VPN, email, and certificate profiles (Bereitstellen von WLAN-, VPN-, E-Mail- und Zertifikatprofilen)](../../protect/deploy-use/deploy-wifi-vpn-email-cert-profiles.md) wird beschrieben, wie Sie Zertifikatprofile bereitstellen.
+1.  Quand vous êtes prêt, choisissez **Suivant** pour créer le profil.  
+
+1.  Le profil de certificat contenant le fichier PFX est désormais disponible à partir de l'espace de travail **Profils de certificat** . 
+
+1.  Pour déployer le profil :
+
+    1. Ouvrez l’espace de travail **Ressources et Conformité**.
+    1. Choisissez **Paramètres de compatibilité** > **Accès aux ressources de l’entreprise** > **Profils de certificat**.
+    1. Cliquez avec le bouton droit sur le profil de certificat souhaité, puis choisissez **Déployer**. 
+
+
+## <a name="see-also"></a>Voir aussi
+La section [Créer un profil de certificat](../../protect/deploy-use/create-certificate-profiles.md) vous guide tout au long des étapes de l’Assistant Créer un profil de certificat.
+
+[Guide pratique pour créer des profils de certificat PFX en important les détails du certificat](../../mdm/deploy-use/import-pfx-certificate-profiles.md)
+
+[Déployer des profils de certificat, Wi-Fi, VPN et d’e-mail](../../protect/deploy-use/deploy-wifi-vpn-email-cert-profiles.md) décrit comment déployer des profils de certificat.

@@ -1,6 +1,6 @@
 ---
-title: "Unicode- und ASCII-Unterstützung | Microsoft-Dokumentation"
-description: "Erfahren Sie mehr über die Unterstützung für Unicode- und ASCII-Zeichen in System Center Configuration Manager-Objekten."
+title: Prise en charge Unicode et ASCII | Microsoft Docs
+description: "Découvrez la prise en charge des caractères ASCII et Unicode dans les objets System Center Configuration Manager."
 ms.custom: na
 ms.date: 3/1/2017
 ms.prod: configuration-manager
@@ -18,128 +18,128 @@ manager: angrobe
 ms.openlocfilehash: 18f1c64c1f27001a0fdfbab4236d09a5bc279272
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="unicode-and-ascii-support-in-system-center-configuration-manager"></a>Unicode- und ASCII-Unterstützung in System Center Configuration Manager
+# <a name="unicode-and-ascii-support-in-system-center-configuration-manager"></a>Prise en charge Unicode et ASCII dans System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-System Center Configuration Manager erstellt die meisten Objekte mithilfe von Unicode-Zeichen. Allerdings werden von mehreren Objekten nur ASCII-Zeichen unterstützt, oder sie weisen andere Einschränkungen auf.  
+System Center Configuration Manager crée la plupart des objets à l’aide de caractères Unicode. Cependant, plusieurs objets prennent en charge uniquement des caractères ASCII ou disposent d'autres limitations.  
 
- In den folgenden Abschnitten werden die Objekte aufgelistet, bei denen nur Zeichen aus dem ASCII-Zeichensatz verwendet werden dürfen oder die zusätzliche Einschränkungen aufweisen.  
+ Les sections suivantes répertorient les objets qui ne doivent utiliser que les caractères du jeu de caractères ASCII, ou qui ont des limitations supplémentaires.  
 
--   [Objekte, die ASCII-Zeichen verwenden](#BKMK_ASCIIchar)  
+-   [Objets qui utilisent des caractères ASCII](#BKMK_ASCIIchar)  
 
--   [Zusätzliche Einschränkungen](#BKMK_OtherCharLimitations)  
+-   [Limitations supplémentaires](#BKMK_OtherCharLimitations)  
 
--   [Nicht lokalisierte Configuration Manager-Objekte](#BKMK_LangNonLocalize)  
+-   [Objets Configuration Manager non localisés](#BKMK_LangNonLocalize)  
 
-##  <a name="BKMK_ASCIIchar"></a> Objekte, die ASCII-Zeichen verwenden  
- Von Configuration Manager wird beim Erstellen der folgenden Objekte nur der ASCII-Zeichensatz unterstützt:  
+##  <a name="BKMK_ASCIIchar"></a> Objets qui utilisent des caractères ASCII  
+ Configuration Manager prend en charge le jeu de caractères ASCII uniquement lorsque vous créez les objets suivants :  
 
--   Standortcode  
+-   Code de site  
 
--   Alle Computernamen von Standortsystemservern  
+-   Tous les noms des ordinateurs serveurs du système de site  
 
--   Folgende Configuration Manager-Konten:  
-
-    > [!NOTE]  
-    >  Bei diesen Konten werden an Standorten in russischer Sprache sowohl ASCII-Zeichen als auch kyrillische Zeichen (RUS) unterstützt.  
-
-    -   Clientpushinstallations-Konto  
-
-    -   Konto zum Veröffentlichen der Integritätszustandsreferenz  
-
-    -   Konto zum Abfragen der Integritätszustandsreferenz  
-
-    -   Verbindungskonto für Verwaltungspunktdatenbank  
-
-    -   Netzwerkzugriffskonto  
-
-    -   Paketzugriffskonto  
-
-    -   Standard-Sendekonto  
-
-    -   Standortsystem-Installationskonto  
-
-    -   Verbindungskonto des Softwareupdatepunkts  
-
-    -   Proxyserverkonto für Softwareupdatepunkt  
+-   Les comptes de Configuration Manager suivants :  
 
     > [!NOTE]  
-    >  Bei den Konten, die Sie für die rollenbasierte Verwaltung angeben, wird Unicode unterstützt.  
+    >  Ces comptes prennent en charge les caractères ASCII et RUS sur un site qui s’exécute en russe.  
+
+    -   Compte d’installation Push du client  
+
+    -   Compte de publication de la référence d'état d'intégrité  
+
+    -   Compte d'interrogation de référence d'état d'intégrité  
+
+    -   Compte de connexion à la base de données du point de gestion  
+
+    -   Compte d'accès réseau  
+
+    -   Compte d'accès au package  
+
+    -   Compte expéditeur standard  
+
+    -   Compte d’installation du système de site  
+
+    -   Compte de connexion de point de mise à jour logicielle  
+
+    -   Compte du serveur proxy du point de mise à jour logicielle  
+
+    > [!NOTE]  
+    >  Les comptes que vous spécifiez pour l'administration basée sur des rôles prennent en charge Unicode.  
     >   
-    >  Vom Konto des Reporting Services-Punkts wird Unicode mit Ausnahme kyrillischer Zeichen (RUS) unterstützt.  
+    >  Le compte du point de Reporting Services prend en charge Unicode, à l’exception des caractères RUS.  
 
--   Vollständig qualifizierter Domänenname (FQDN) für Standortserver und Standortsysteme  
+-   Nom de domaine complet (FQDN) pour les serveurs de site et les systèmes de site  
 
--   Installationspfad für Configuration Manager  
+-   Chemin d'installation de Configuration Manager  
 
--   SQL Server-Instanznamen  
+-   Noms d'instance SQL Server  
 
--   Pfadnamen der folgenden Standortsystemrollen:  
+-   Le chemin d'accès pour les rôles de système de site suivants :  
 
-    -   Anwendungskatalog-Webdienstpunkt  
+    -   Point de service Web du catalogue des applications  
 
-    -   Anwendungskatalog-Websitepunkt  
+    -   Point du site web du catalogue des applications  
 
-    -   Anmeldungspunkt  
+    -   Point d'inscription  
 
-    -   Anmeldungsproxypunkt  
+    -   Point proxy d'inscription  
 
-    -   Reporting Services-Punkt  
+    -   Point de Reporting Services  
 
-    -   Zustandsmigrationspunkt  
+    -   Point de migration d'état  
 
--   Pfadnamen der folgenden Ordner:  
+-   Chemin d'accès pour les dossiers suivants :  
 
-    -   Der Ordner, in dem Clientzustandsmigrationsdaten gespeichert werden  
+    -   Le dossier qui stocke les données de migration d'état du client  
 
-    -   Der Ordner mit den Configuration Manager-Berichten  
+    -   Le dossier qui contient les rapports Configuration Manager  
 
-    -   Der Ordner mit der Configuration Manager-Sicherung  
+    -   Le dossier qui stocke la sauvegarde de Configuration Manager  
 
-    -   Der Ordner, in dem die Installationsquelldateien für die Standorteinrichtung gespeichert werden  
+    -   Le dossier qui stocke les fichiers sources d’installation pour la configuration de site  
 
-    -   Der Ordner, in dem die für Setup erforderlichen Downloads gespeichert werden  
+    -   Le dossier qui stocke les téléchargements requis par le programme d’installation  
 
--   Pfadnamen der folgenden Objekte:  
+-   Le chemin d'accès pour les objets suivants :  
 
-    -   IIS-Website  
+    -   Site Web IIS  
 
-    -   Installationspfad der virtuellen Anwendung  
+    -   Chemin d'installation de l'application virtuelle  
 
-    -   Name der virtuellen Anwendung  
+    -   Nom de l'application virtuelle  
 
--   Die folgenden Objekte für AMT und Out-of-Band-Verwaltung:  
+-   Les objets suivants pour AMT et la gestion hors bande :  
 
-    -   Der FQDN des AMT-basierten Computers  
+    -   Le nom de domaine complet de l'ordinateur basé sur AMT  
 
-    -   Der Computername des AMT-basierten Computers  
+    -   Le nom d'ordinateur de l'ordinateur basé sur AMT  
 
-    -   Der NetBIOS-Domänenname  
+    -   Le nom NetBIOS du domaine  
 
-    -   Der Funkprofilname und die SSID  
+    -   Le nom du profil sans fil et SSID  
 
-    -   Name der vertrauenswürdigen Zertifizierungsstelle  
+    -   Le nom de l'autorité de certification racine de confiance  
 
-    -   Der Name der Zertifizierungsstelle (CA) und Vorlagennamen  
+    -   Le nom de l'autorité de certification (CA) et les noms de modèle  
 
-    -   Der Dateiname und -pfad der Bilddatei für die IDE-Umleitung  
+    -   Le nom de fichier et le chemin du fichier image de redirection IDE  
 
-    -   Der Inhalt des AMT-Datenspeichers  
+    -   Le contenu du stockage de données AMT  
 
--   ISO-Dateinamen für Startmedien  
+-   Les noms des fichiers ISO des supports de démarrage  
 
-##  <a name="BKMK_OtherCharLimitations"></a> Zusätzliche Einschränkungen  
- Nachfolgend sind weitere Einschränkungen für unterstützte Zeichensätze und Sprachversionen aufgelistet:  
+##  <a name="BKMK_OtherCharLimitations"></a> Limitations supplémentaires  
+ Voici les limitations supplémentaires pour les versions de langue et les jeux de caractères pris en charge :  
 
--   In Configuration Manager wird eine Änderung des Gebietsschemas für den Standortservercomputer nicht unterstützt.  
+-   Configuration Manager ne prend pas en charge la modification des paramètres régionaux de l’ordinateur serveur de site.  
 
--   Von einer Unternehmenszertifizierungsstelle (CA) werden keine Clientcomputernamen mit Doppelbyte-Zeichensätzen (DBCS) unterstützt. Welche Clientcomputernamen verwendet werden können, ist durch die PKI-Einschränkung des IA5-Zeichensatzes eingeschränkt. Außerdem werden von Configuration Manager keine Zertifizierungsstellennamen oder Werte für Antragstellernamen unterstützt, in denen Doppelbyte-Zeichensätze (DBCS) verwendet werden.  
+-   Une autorité de certification (CA) d'entreprise ne gère pas les noms des ordinateurs clients qui utilisent des jeux de caractères codés sur deux octets (DBCS). Les noms d'ordinateur client que vous pouvez utiliser sont limités par la limitation PKI du jeu de caractères IA5. En outre, Configuration Manager ne prend pas en charge les noms d’autorité de certification ou les valeurs de nom d’objet qui utilisent un jeu de caractères DBCS.  
 
-##  <a name="BKMK_LangNonLocalize"></a> Nicht lokalisierte Configuration Manager-Objekte  
- Bei den meisten in der Configuration Manager-Datenbank gespeicherten Objekten wird Unicode unterstützt. Sofern möglich, werden diese Informationen in der Betriebssystemsprache angezeigt, die dem Gebietsschema eines Computers entspricht. Damit Informationen von der Clientschnittstelle oder der Configuration Manager-Konsole in der Betriebssystemsprache des Computers angezeigt werden, muss das Gebietsschema des Computers mit einer am Standort installierten Client- oder Serversprache übereinstimmen.  
+##  <a name="BKMK_LangNonLocalize"></a> Objets Configuration Manager non localisés  
+ La base de données Configuration Manager prend en charge le format Unicode pour la plupart des objets qu’elle stocke, et lorsque cela est possible, elle affiche ces informations dans la langue du système d’exploitation correspondant aux paramètres régionaux d’un ordinateur. Pour que l’interface client ou la console Configuration Manager affichent des informations dans la langue du système d’exploitation de l’ordinateur, les paramètres régionaux de l’ordinateur doivent correspondre à la langue du client ou du serveur que vous installez sur un site.  
 
- Allerdings wird Unicode nicht von allen Configuration Manager-Objekten unterstützt. Diese Objekte werden in der Datenbank in ASCII gespeichert. Es gibt auch Objekte mit zusätzlichen Einschränkungen hinsichtlich der Sprache. Diese Informationen werden immer im ASCII-Zeichensatz oder in der Sprache, in der das betreffende Objekt ursprünglich erstellt wurde, angezeigt.  
+ Toutefois, plusieurs objets Configuration Manager ne prennent pas en charge le format Unicode et ils sont stockés dans la base de données à l’aide du jeu de caractères ASCII, ou bien les langues supplémentaires sont limitées. Ces informations s'affichent toujours à l'aide du jeu de caractères ASCII défini ou dans la langue utilisée lors de la création de l'objet.  

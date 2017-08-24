@@ -1,6 +1,6 @@
 ---
-title: "Schützen von Daten mit Remotezurücksetzung, Remotesperre oder Zurücksetzen der Kennung mithilfe von System Center Configuration Manager | Microsoft-Dokumentation"
-description: "Schützen von Gerätedaten mit vollständigem Zurücksetzen, selektivem Zurücksetzen, Remotesperre oder Zurücksetzen der Kennung mithilfe von System Center Configuration Manager."
+title: "Protéger les données à l’aide de la réinitialisation à distance, du verrouillage ou de la réinitialisation du code d’accès en utilisant System Center Configuration Manager | Microsoft Docs"
+description: "Protégez les données des appareils à l’aide de la réinitialisation complète, de la réinitialisation sélective, du verrouillage à distance ou de la réinitialisation du code d’accès en utilisant System Center Configuration Manager."
 ms.custom: na
 ms.date: 03/27/2017
 ms.prod: configuration-manager
@@ -18,210 +18,210 @@ manager: angrobe
 ms.openlocfilehash: 351fdc6328dd0859d60e00b128963df738e69f81
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="protect-data-with-remote-wipe-lock-or-passcode-reset-by-using-system-center-configuration-manager"></a>Schützen von Daten mit Remotezurücksetzung, Remotesperre oder Zurücksetzen der Kennung mithilfe von System Center Configuration Manager
+# <a name="protect-data-with-remote-wipe-lock-or-passcode-reset-by-using-system-center-configuration-manager"></a>Protéger les données à l’aide de la réinitialisation à distance, du verrouillage ou de la réinitialisation du code d’accès en utilisant System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-In System Center Configuration Manager sind Funktionen zum selektiven und vollständigen Zurücksetzen, zum Remotesperren und zum Zurücksetzen der Kennung verfügbar. Auf mobilen Geräten können sensible Unternehmensdaten gespeichert sein, mit denen auf zahlreiche Unternehmensressourcen zugegriffen werden kann. Zum Schutz von Geräten können Sie folgende Aktionen ausführen:  
+System Center Configuration Manager propose des fonctionnalités de réinitialisation sélective, de réinitialisation complète, de verrouillage à distance et de réinitialisation du code d’accès. Les appareils mobiles peuvent stocker leurs données sensibles et fournir un accès à de nombreuses ressources d'entreprise. Pour protéger les appareils, vous pouvez émettre :  
 
-- Sie können mit einem vollständigen Zurücksetzen des Geräts die Werkseinstellungen wiederherstellen.  
+- Une réinitialisation complète pour rétablir les paramètres d'usine de l'appareil.  
 
-- Sie können mit einem selektiven Zurücksetzen nur die Firmendaten entfernen.  
+- Une réinitialisation sélective pour supprimer uniquement les données de l'entreprise.  
 
-- Sie können ein Gerät, das möglicherweise verlorengegangen ist, mithilfe einer Remotesperre sichern.  
+- Un verrouillage à distance pour sécuriser un appareil censé être perdu.  
 
-- Eine Rücksetzung der Gerätekennung.  
+- Une réinitialisation du code d’accès de l’appareil.  
 
-## <a name="full-wipe"></a>Vollständiges Zurücksetzen  
-Sie können das Zurücksetzen eines Geräts veranlassen, wenn Sie ein verlorengegangenes Gerät sichern oder ein Gerät von der aktiven Verwendung abkoppeln möchten.  
+## <a name="full-wipe"></a>Réinitialisation complète  
+Vous pouvez émettre une commande de réinitialisation vers un appareil lorsque vous devez sécuriser un appareil perdu ou lorsque vous mettez un appareil hors service.  
 
-Veranlassen Sie ein **vollständiges Zurücksetzen** , um bei einem Gerät die Werkseinstellungen wiederherzustellen. Hierdurch werden alle Firmen- und Benutzerdaten sowie -einstellungen entfernt. Sie können auf Geräten mit Windows Phone, iOS, Android und Windows 10 eine vollständige Zurücksetzung ausführen.  
+Émettez une **réinitialisation complète** sur un appareil pour restaurer l'appareil sur ses paramètres d'usine. Cette opération supprime toutes les données de l'entreprise et tous les paramètres utilisateur. Vous pouvez effectuer une réinitialisation complète sur les appareils Windows Phone, iOS, Android et Windows 10.  
 
 > [!NOTE]
-> Beim Zurücksetzen von Windows 10-Geräten in Versionen vor Version 1511 mit weniger als 4 GB RAM reagiert das Gerät möglicherweise nicht mehr. [Weitere Informationen](https://technet.microsoft.com/library/mt592024.aspx#full-wipe-disables-windows-10-devices-with-less-than-4-gb-ram)
+> Les appareils Windows 10 antérieurs à la version 1511 et qui sont dotés de moins de 4 Go de RAM peuvent rester sans réponse à l’occasion d’une réinitialisation. [En savoir plus](https://technet.microsoft.com/library/mt592024.aspx#full-wipe-disables-windows-10-devices-with-less-than-4-gb-ram).
 
-#### <a name="to-initiate-a-remote-wipe-from-the-configuration-manager-console"></a>So leiten Sie eine Remotezurücksetzung über die Configuration Manager-Konsole ein  
+#### <a name="to-initiate-a-remote-wipe-from-the-configuration-manager-console"></a>Pour exécuter une réinitialisation à distance à partir de la console Configuration Manager  
 
-1. Klicken Sie in der Configuration Manager-Konsole auf **Bestand und Konformität**, und wählen Sie **Geräte** aus. Sie können alternativ die Option **Gerätesammlungen** und eine Sammlung auswählen.  
+1. Dans la console Configuration Manager, choisissez **Ressources et Conformité** et **Appareils**. Vous pouvez également choisir **Regroupements d’appareils** , puis sélectionner un regroupement.  
 
-2. Wählen Sie das Gerät aus, das Sie außer Kraft oder zurücksetzen möchten.  
+2. Sélectionnez l'appareil que vous souhaitez mettre hors service/réinitialiser.  
 
-3. Wählen Sie **Remotegeräteaktionen** unter **Gerätegruppe** und dann **Außerkraftsetzen/Zurücksetzen** aus.  
+3. Choisissez **Actions de l’appareil à distance** dans **Groupe d’appareils**, puis **Mettre hors service/Réinitialiser**.  
 
-## <a name="selective-wipe"></a>Selektives Zurücksetzen  
-Veranlassen Sie ein **selektives Zurücksetzen** , um beim Gerät nur die Firmendaten zu entfernen. In der folgenden Tabelle wird nach Plattform sortiert beschrieben, welche Daten bei einem selektiven Zurücksetzen entfernt werden und mit welchen Auswirkungen auf verbleibende Daten zu rechnen ist.  
+## <a name="selective-wipe"></a>Réinitialisation sélective  
+Émettez une **réinitialisation sélective** sur un appareil pour supprimer uniquement les données de l'entreprise. Le tableau suivant décrit, en fonction de chaque plateforme, les données supprimées et l’effet de cette opération sur les données qui restent sur l’appareil après une réinitialisation sélective.  
 
 **iOS**  
 
-|Beim Abkoppeln eines Geräts entfernte Inhalte|iOS|  
+|Contenu supprimé lors de la mise hors service d’un appareil|iOS|  
 |--------------------------------------------|---------|  
-|Unternehmens-Apps und die entsprechenden Daten, die mit Configuration Manager und Intune installiert wurden|Apps werden deinstalliert. Daten von Unternehmens-Apps werden entfernt.|  
-|VPN- und WLAN-Profile|Entfernt.|  
-|Zertifikate|Entfernt und gesperrt.|  
-|Einstellungen|Entfernt, mit Ausnahme von: **Sprachroaming zulassen**, **Datenroaming zulassen** und **Automatische Synchronisierung beim Roaming zulassen**.|  
-|Verwaltungs-Agent|Das Verwaltungsprofil wird entfernt.|  
-|E-Mail-Profile|Für E-Mail-Profile, die von Intune konfiguriert wurden, werden das E-Mail-Konto und die E-Mails entfernt.|  
+|Applications d’entreprise et données associées installées à l’aide de Configuration Manager et Intune|Les applications sont désinstallées. Les données des applications de l'entreprise sont supprimées.|  
+|Profils VPN et Wi-Fi|Supprimé.|  
+|Certificats|Supprimé et révoqué.|  
+|Paramètres|Supprimé, à l’exception de : **Autoriser l’itinérance vocale**, **Autoriser l’itinérance des données**, et **Autoriser la synchronisation automatique lors de l’itinérance**.|  
+|Agent de gestion|Le profil de gestion est supprimé.|  
+|Profils de messagerie|Pour les profils de messagerie configurés par Intune, le compte de messagerie et l’adresse e-mail sont supprimés.|  
 
-**Android und Android Samsung KNOX Standard**  
+**Android et Android Samsung KNOX Standard**  
 
-|Beim Abkoppeln eines Geräts entfernte Inhalte|Android|Samsung KNOX Standard|  
+|Contenu supprimé lors de la mise hors service d’un appareil|Android|Samsung KNOX Standard|  
 |--------------------------------------------|-------------|------------------|  
-|Unternehmens-Apps und die entsprechenden Daten, die mit Configuration Manager und Intune installiert wurden|Apps und Daten bleiben installiert.|Apps werden deinstalliert.|  
-|VPN- und WLAN-Profile|Entfernt.|Entfernt.|  
-|Zertifikate|Gesperrt.|Gesperrt.|  
-|Einstellung|Anforderungen werden entfernt.|Anforderungen werden entfernt.|  
-|Verwaltungs-Agent|Die Berechtigung „Geräteadministrator“ wird gesperrt.|Die Berechtigung „Geräteadministrator“ wird gesperrt.|  
-|E-Mail-Profile|Nicht zutreffend.|Für E-Mail-Profile, die von Intune konfiguriert wurden, werden das E-Mail-Konto und die E-Mails entfernt.|  
+|Applications d’entreprise et données associées installées à l’aide de Configuration Manager et Intune|Les applications et les données sont toujours installées.|Les applications sont désinstallées.|  
+|Profils VPN et Wi-Fi|Supprimé.|Supprimé.|  
+|Certificats|Révoqué.|Révoqué.|  
+|Paramètres|La configuration requise est supprimée.|La configuration requise est supprimée.|  
+|Agent de gestion|Le privilège d'administrateur d'appareil est révoqué.|Le privilège d'administrateur d'appareil est révoqué.|  
+|Profils de messagerie|Non applicable.|Pour les profils de messagerie configurés par Intune, le compte de messagerie et l’adresse e-mail sont supprimés.|  
 
 **Android for Work**
 
-Durch das selektive Zurücksetzen eines Android for Work-Geräts wird das Arbeitsprofil zusammen mit allen dazugehörigen Daten, Apps und Einstellungen von diesem Gerät entfernt. Dadurch wird das Gerät nicht mehr von Configuration Manager und Intune verwaltet. Das vollständige Zurücksetzen wird von Android for Work nicht unterstützt.
+Sur un appareil Android for Work, la réinitialisation sélective supprime le profil professionnel ainsi que toutes les données, applications et paramètres du profil professionnel de l’appareil. Cette opération met l’appareil hors service vis-à-vis de la gestion avec Configuration Manager et Intune. La réinitialisation complète n’est pas prise en charge pour Android for Work.
 
- **Windows 10, Windows 8.1, Windows RT 8.1 und Windows RT**  
+ **Windows 10, Windows 8.1, Windows RT 8.1 et Windows RT**  
 
-|Beim Abkoppeln eines Geräts entfernte Inhalte|Windows 10, Windows 8.1 und Windows RT 8.1|  
+|Contenu supprimé lors de la mise hors service d’un appareil|Windows 10, Windows 8.1 et Windows RT 8.1|  
 |---------------------------------|-------------|
-|Unternehmens-Apps und die entsprechenden Daten, die mit Configuration Manager und Intune installiert wurden|Anwendungen werden deinstalliert, und Sideload-Schlüssel werden entfernt. Bei Anwendungen, die die selektive Zurücksetzung von Windows verwenden, wird der Verschlüsselungsschlüssel gesperrt, und die Daten sind nicht mehr verfügbar.|  
-|VPN- und WLAN-Profile|Entfernt.|  
-|Zertifikate|Entfernt und gesperrt.|  
-|Einstellung|Anforderungen werden entfernt.|
-|Verwaltungs-Agent|Nicht zutreffend. Der Verwaltungs-Agent ist integriert.|  
-|E-Mail-Profile|EFS-aktivierte E-Mails werden entfernt, darunter die E-Mail-App für Windows-E-Mails und -Anlagen.|  
+|Applications d’entreprise et données associées installées à l’aide de Configuration Manager et Intune|Les applications sont désinstallées et les clés de chargement de version test sont supprimées. Les applications utilisant la réinitialisation sélective de Windows voient la clé de chiffrement révoquée et les données ne sont plus accessibles.|  
+|Profils VPN et Wi-Fi|Supprimé.|  
+|Certificats|Supprimé et révoqué.|  
+|Paramètres|La configuration requise est supprimée.|
+|Agent de gestion|Non applicable. L’agent de gestion est intégré.|  
+|Profils de messagerie|La messagerie électronique compatible avec EFS est supprimée, ce qui inclut l’application de messagerie pour le courrier et les pièces jointes Windows.|  
 
- **Windows 10 Mobile, Windows Phone 8.0 und Windows Phone 8.1**
+ **Windows 10 Mobile, Windows Phone 8.0 et Windows Phone 8.1**
 
-|Beim Abkoppeln eines Geräts entfernte Inhalte|Windows 10 Mobile, Windows Phone 8.0 und Windows Phone 8.1|  
+|Contenu supprimé lors de la mise hors service d’un appareil|Windows 10 Mobile, Windows Phone 8 et Windows Phone 8.1|  
 |-|-|
-|Unternehmens-Apps und die entsprechenden Daten, die mit Configuration Manager und Intune installiert wurden|Apps werden deinstalliert. Daten von Unternehmens-Apps werden entfernt.|  
-|VPN- und WLAN-Profile|Für Windows 10 Mobile und Windows Phone 8.1 entfernt.|  
-|Zertifikate|Für Windows Phone 8.1 entfernt.|  
-|Verwaltungs-Agent|Nicht zutreffend. Der Verwaltungs-Agent ist integriert.|  
-|E-Mail-Profile|Entfernt (mit Ausnahme von Windows Phone 8.0).|  
+|Applications d’entreprise et données associées installées à l’aide de Configuration Manager et Intune|Les applications sont désinstallées. Les données des applications de l'entreprise sont supprimées.|  
+|Profils VPN et Wi-Fi|Supprimé pour Windows 10 Mobile et Windows Phone 8.1.|  
+|Certificats|Supprimé pour Windows Phone 8.1.|  
+|Agent de gestion|Non applicable. L’agent de gestion est intégré.|  
+|Profils de messagerie|Supprimé (à l’exception de Windows Phone 8.0).|  
 
-Die folgenden Einstellungen werden ebenfalls aus Windows 10 Mobile- und Windows Phone 8.1-Geräten entfernt:  
+Les paramètres suivants sont aussi supprimés des appareils Windows 10 Mobile et Windows Phone 8.1 :  
 
-- **Anfordern eines Kennworts zum Entsperren mobiler Geräte**  
-- **Einfache Kennwörter zulassen**  
-- **Minimale Kennwortlänge**  
-- **Erforderlicher Kennworttyp**
-- **Kennwortablauf (Tage)**  
-- **Kennwortverlauf speichern**  
-- **Anzahl der zulässigen wiederholten Anmeldefehler, bevor die Gerätedaten zurückgesetzt werden**  
-- **Minuten Inaktivität vor Anforderung des Kennworts**  
-- **Erforderlicher Kennworttyp – Mindestanzahl von Zeichensätzen**  
-- **Kamera zulassen**
-- **Verschlüsselung auf mobilen Geräten vorschreiben**  
-- **Wechselspeichermedien zulassen**  
-- **Webbrowser zulassen**  
-- **App Store zulassen**  
-- **Bildschirmaufnahme zulassen**  
-- **Geolocation zulassen**  
-- **Microsoft-Konto zulassen**  
-- **Kopieren und Einfügen zulassen**  
-- **WLAN-Tethering zulassen**  
-- **Automatische Verbindung mit freien WLAN-Hotspots zulassen**  
-- **Berichterstellung für WLAN-Hotspots zulassen**  
-- **Zurücksetzen auf Werkseinstellungen zulassen**
-- **Bluetooth zulassen**  
-- **NFC zulassen**
-- **WLAN zulassen**
+- **Exiger un mot de passe pour déverrouiller des appareils mobiles**  
+- **Autoriser les mots de passe simples**  
+- **Longueur minimale du mot de passe**  
+- **Type de mot de passe requis**
+- **Expiration du mot de passe (jours)**  
+- **Mémoriser l’historique des mots de passe**  
+- **Nombre d’échecs de connexion successifs autorisé avant réinitialisation de l’appareil**  
+- **Minutes d’inactivité avant demande du mot de passe**  
+- **Type de mot de passe requis - Nombre minimum de jeux de caractères**  
+- **Autoriser l’appareil photo**
+- **Exiger le chiffrement sur l’appareil mobile**  
+- **Autoriser le stockage amovible**  
+- **Autoriser le navigateur web**  
+- **Autoriser la boutique d’applications**  
+- **Autoriser la capture d’écran**  
+- **Autoriser la géolocalisation**  
+- **Autoriser un compte Microsoft**  
+- **Autoriser la fonction copier-coller**  
+- **Autoriser la connexion Wi-Fi**  
+- **Autoriser la connexion automatique aux points d’accès Wi-Fi gratuits**  
+- **Autoriser l’indication des points d’accès Wi-Fi**  
+- **Autoriser la réinitialisation aux paramètres d’usine**
+- **Autoriser Bluetooth**  
+- **Autoriser NFC**
+- **Autoriser le Wi-Fi**
 
-#### <a name="to-initiate-a-remote-wipe-from-the-configuration-manager-console"></a>So leiten Sie eine Remotezurücksetzung über die Configuration Manager-Konsole ein  
+#### <a name="to-initiate-a-remote-wipe-from-the-configuration-manager-console"></a>Pour exécuter une réinitialisation à distance à partir de la console Configuration Manager  
 
-1. Klicken Sie in der Configuration Manager-Konsole auf **Bestand und Konformität**, und wählen Sie **Geräte** aus. Sie können alternativ die Option **Gerätesammlungen** und eine Sammlung auswählen.  
+1. Dans la console Configuration Manager, choisissez **Ressources et Conformité** et **Appareils**. Vous pouvez également choisir **Regroupements d’appareils** , puis sélectionner un regroupement.  
 
-2. Wählen Sie das Gerät aus, das Sie außer Kraft oder zurücksetzen möchten.  
+2. Sélectionnez l'appareil que vous souhaitez mettre hors service/réinitialiser.  
 
-3. Wählen Sie **Remotegeräteaktionen** unter **Gerätegruppe** und dann **Außerkraftsetzen/Zurücksetzen** aus.  
+3. Choisissez **Actions de l’appareil à distance** dans **Groupe d’appareils**, puis **Mettre hors service/Réinitialiser**.  
 
-## <a name="wiping-efs-enabled-content"></a>Zurücksetzen EFS-aktivierter Inhalte  
-Windows 8.1 und Windows RT 8.1 unterstützen das selektive Zurücksetzen von mit EFS (Encrypting File System) verschlüsselten Inhalten. Folgendes gilt für das selektive Zurücksetzen von EFS-aktivierten Inhalten:  
+## <a name="wiping-efs-enabled-content"></a>Réinitialisation du contenu EFS  
+Windows 8.1 et Windows RT 8.1 prennent en charge la réinitialisation sélective du contenu EFS (Encrypting File System). Les éléments suivants s'appliquent à une réinitialisation sélective du contenu EFS :  
 
-- Nur Apps und Daten, die mit derselben Internetdomäne wie das Intune-Konto durch EFS geschützt werden, werden selektiv zurückgesetzt. Weitere Informationen finden Sie unter [Windows Selective Wipe for Device Data Management](http://technet.microsoft.com/library/dn486874.aspx)(in englischer Sprache).  
+- Seules les applications et les données protégées par EFS utilisant le même domaine Internet que le compte Intune sont réinitialisées de manière sélective. Pour plus d'informations, consultez la page relative à la [réinitialisation sélective de Windows pour la gestion des données d'appareil](http://technet.microsoft.com/library/dn486874.aspx).  
 
-- Wenn Änderungen an der EFS zugeordneten Domäne vorgenommen werden, können die Änderungen bis zu 48 Stunden dauern, bevor Apps und Daten, die die neue Domäne verwenden, selektiv zurückgesetzt werden können.  
+- Si des modifications sont apportées au domaine associé à EFS, 48 heures peuvent être nécessaires avant que les applications et les données qui utilisent le nouveau domaine soient réinitialisées de manière sélective.  
 
-- Jede bei Intune registrierte Domäne wird zurückgesetzt.  
+- Chaque domaine inscrit auprès d’Intune est réinitialisé.  
 
-Folgende Daten und Apps unterstützen derzeit das selektive Zurücksetzen mit EFS:  
+Les données et les applications qui sont actuellement prises en charge par la réinitialisation sélective EFS sont :  
 
-- E-Mail-App für Windows.  
+- Application de messagerie pour Windows.  
 
-- Arbeitsordner.
+- Dossiers de travail.
 
-- Von EFS verschlüsselte Dateien und Ordner Weitere Informationen finden Sie unter [Vorgehensweisen bei Verwendung des verschlüsselnden Dateisystems](http://support.microsoft.com/kb/223316).  
+- Fichiers et dossiers chiffrés par EFS. Pour plus d'informations, consultez [Meilleures pratiques pour le chiffrement des systèmes de fichiers](http://support.microsoft.com/kb/223316).  
 
-### <a name="best-practices-for-selective-wipe"></a>Bewährte Methoden für selektives Zurücksetzen  
+### <a name="best-practices-for-selective-wipe"></a>Meilleures pratiques pour la réinitialisation sélective  
 
-- Zum erfolgreichen Zurücksetzen der E-Mail-Funktion richten Sie E-Mail-Profile auf Geräten mit iOS und Windows Phone 8.1 ein.  
+- Pour que la réinitialisation du courrier électronique réussisse, configurez les profils pour les appareils iOS et Windows Phone 8.1.  
 
-- Zum erfolgreichen Zurücksetzen von Apps stellen Sie sicher, dass die Apps über die App-Verwaltung für mobile Geräte verteilt werden.  
+- Pour que la réinitialisation des applications réussisse, vérifiez que les applications sont distribuées au moyen de la gestion d’applications d’appareil mobile.  
 
-- Legen Sie für iOS die Einstellung **Sicherung auf iCloud zulassen** auf **Nicht zulassen** fest, damit Benutzer Inhalte nicht über die iCloud wiederherstellen können.  
+- Pour iOS, configurez le paramètre **Autoriser la sauvegarde sur iCloud** sur **Désactiver** pour que les utilisateurs ne puissent pas restaurer le contenu à l’aide d’iCloud.  
 
-- Wenn ein Konto deaktiviert wurde, setzt Intune das Konto nach einem Jahr außer Kraft und führt eine selektive Zurücksetzung aus.  
+- Si un compte a été désactivé, au bout d’une année il est supprimé par Intune et une réinitialisation sélective est effectuée.  
 
-##  <a name="passcode-reset"></a>Zurücksetzen der Kennung  
-Wenn ein Benutzer seine Kennung vergisst, können Sie die Kennung von einem Gerät entfernen oder eine neue temporäre Kennung auf einem Gerät erzwingen. In der folgenden Tabelle ist die Funktionsweise des Zurücksetzens der Kennung auf verschiedenen mobilen Plattformen aufgeführt.  
+##  <a name="passcode-reset"></a>Réinitialiser le code secret  
+Si un utilisateur oublie son code d'accès, vous pouvez l'aider à résoudre ce problème en supprimant le code d'accès d'un appareil ou en forçant l'application d'un nouveau code accès temporaire sur un appareil. Le tableau ci-dessous indique la méthode de réinitialisation du code d’accès sur différentes plateformes mobiles.  
 
-|Plattform|Zurücksetzen der Kennung|  
+|Plate-forme|Réinitialiser le code secret|  
 |--------------|--------------------|  
-|iOS|Wird für das Löschen der Kennung von einem Gerät unterstützt. Es wird keine neue temporäre Kennung erstellt.|
-|macOS| Nicht unterstützt.|
-|Android|Wird unterstützt. Zudem wird eine temporäre Kennung erstellt.|
-|Android for Work | Nicht unterstützt.|
-|Windows 10-PCs|Nicht unterstützt.|  
-|Windows 10 Mobile|Wird unterstützt, mit Ausnahme von in Azure AD eingebundenen Geräten.|
-|Windows Phone 8.1|Unterstützt.|  
-|Windows RT 8.1 |Nicht unterstützt.|  
-|Windows 8.1-PCs |Nicht unterstützt.|  
+|iOS|Prise en charge de l'effacement du code d'accès d'un appareil. Ne crée pas un nouveau code d'accès temporaire.|
+|macOS| Non pris en charge.|
+|Android|Prise en charge et création d’un nouveau code d’accès temporaire.|
+|Android for Work | Non pris en charge.|
+|PC Windows 10|Non pris en charge.|  
+|Windows 10 Mobile|Prise en charge, sauf les appareils joints à Azure AD.|
+|Windows Phone 8.1|Pris en charge.|  
+|Windows RT 8.1 |Non pris en charge.|  
+|PC Windows 8.1 |Non pris en charge.|  
 
-#### <a name="to-reset-the-passcode-on-a-mobile-device-remotely-in-configuration-manager"></a>So setzen Sie die Kennung auf einem mobilen Gerät remote in Configuration Manager zurück  
+#### <a name="to-reset-the-passcode-on-a-mobile-device-remotely-in-configuration-manager"></a>Pour réinitialiser le mot de passe sur un appareil mobile à distance dans Configuration Manager  
 
-1. Klicken Sie in der Configuration Manager-Konsole auf **Bestand und Konformität**, und wählen Sie **Geräte** aus. Sie können alternativ die Option **Gerätesammlungen** und eine Sammlung auswählen.  
+1. Dans la console Configuration Manager, choisissez **Ressources et Conformité** et **Appareils**. Vous pouvez également choisir **Regroupements d’appareils** , puis sélectionner un regroupement.  
 
-2. Wählen Sie die Geräte aus, auf denen die Kennung zurückgesetzt werden soll.  
+2. Sélectionnez les appareils sur lesquels vous voulez réinitialiser le code d'accès.  
 
-3. Wählen Sie **Remotegeräteaktionen** unter **Gerätegruppe** und dann **Kennungsrückstellung** aus.  
+3. Choisissez **Actions de l’appareil à distance** dans **Groupe d’appareils**, puis choisissez **Réinitialisation du code d’accès**.  
 
-#### <a name="to-show-the-state-of-the-passcode-reset"></a>So zeigen Sie den Zustand beim Zurücksetzen der Kennung an  
+#### <a name="to-show-the-state-of-the-passcode-reset"></a>Pour afficher l'état de la réinitialisation du code d'accès  
 
-1. Klicken Sie in der Configuration Manager-Konsole auf **Bestand und Konformität**, und wählen Sie **Geräte** aus. Sie können alternativ die Option **Gerätesammlungen** und eine Sammlung auswählen.  
+1. Dans la console Configuration Manager, choisissez **Ressources et Conformité** et **Appareils**. Vous pouvez également choisir **Regroupements d’appareils** , puis sélectionner un regroupement.  
 
-2. Wählen Sie die Geräte aus, auf denen Sie den Zustand beim Zurücksetzen der Kennung anzeigen möchten.  
+2. Sélectionnez les appareils sur lesquels vous voulez réinitialiser le code d'accès.  
 
-3. Wählen Sie **Remotegeräteaktionen** unter **Gerätegruppe** und dann **Status der Kennung anzeigen** aus.  
+3. Choisissez **Actions de l’appareil à distance** dans **Groupe d’appareils**, puis choisissez **Afficher l’état du code secret**.  
 
-## <a name="remote-lock"></a>Remotesperre  
-Wenn ein Benutzer sein Gerät verliert, können Sie es remote sperren. In der folgenden Tabelle ist die Funktionsweise der Remotesperrung auf verschiedenen mobilen Plattformen aufgeführt.  
+## <a name="remote-lock"></a>Verrouillage à distance  
+Si un utilisateur perd son appareil, vous pouvez verrouiller ce dernier à distance. Le tableau ci-dessous illustre le fonctionnement du verrouillage à distance sur différentes plateformes mobiles.  
 
-|Plattform|Remotesperre|  
+|Plate-forme|Verrouillage à distance|  
 |--------------|-----------------|  
-|iOS|Unterstützt.|  
-|Android|Unterstützt.|  
-|Windows 10|Derzeit nicht unterstützt.|  
-|Windows Phone 8 und Windows Phone 8.1|Unterstützt.|  
-|Windows RT 8.1 |Unterstützt, wenn der aktuelle Benutzer des Geräts derjenige ist, der das Gerät registriert hat.|  
-|Windows 8.1|Unterstützt, wenn der aktuelle Benutzer des Geräts derjenige ist, der das Gerät registriert hat.|  
+|iOS|Pris en charge.|  
+|Android|Pris en charge.|  
+|Windows 10|Non pris en charge pour l’instant.|  
+|Windows Phone 8 et Windows Phone 8.1|Pris en charge.|  
+|Windows RT 8.1 |Prise en charge si l'utilisateur actuel de l'appareil est le même utilisateur qui a inscrit l'appareil.|  
+|Windows 8.1|Prise en charge si l'utilisateur actuel de l'appareil est le même utilisateur qui a inscrit l'appareil.|  
 
-#### <a name="to-lock-a-mobile-device-remotely-through-the-configuration-manager-console"></a>So sperren Sie ein mobiles Gerät remote über die Configuration Manager-Konsole  
+#### <a name="to-lock-a-mobile-device-remotely-through-the-configuration-manager-console"></a>Pour verrouiller un appareil mobile à distance via la console Microsoft Intune  
 
-1. Klicken Sie in der Configuration Manager-Konsole auf **Bestand und Konformität**, und wählen Sie **Geräte** aus. Sie können alternativ die Option **Gerätesammlungen** und eine Sammlung auswählen.  
+1. Dans la console Configuration Manager, choisissez **Ressources et Conformité** et **Appareils**. Vous pouvez également choisir **Regroupements d’appareils** , puis sélectionner un regroupement.  
 
-2. Wählen Sie die zu sperrenden Geräte aus.  
+2. Sélectionnez les appareils à verrouiller.  
 
-3. Wählen Sie **Remotegeräteaktionen** unter **Gerätegruppe** und dann **Remotesperre** aus.  
+3. Choisissez **Actions de l’appareil à distance** dans **Groupe d’appareils**, puis choisissez **Verrouillage à distance**.  
 
-#### <a name="to-show-the-state-of-the-remote-lock"></a>So zeigen Sie den Zustand der Remotesperre an  
+#### <a name="to-show-the-state-of-the-remote-lock"></a>Pour afficher l'état du verrouillage à distance  
 
-1. Klicken Sie in der Configuration Manager-Konsole auf **Bestand und Konformität**, und wählen Sie **Geräte** aus. Sie können alternativ die Option **Gerätesammlungen** und eine Sammlung auswählen.  
+1. Dans la console Configuration Manager, choisissez **Ressources et Conformité** et **Appareils**. Vous pouvez également choisir **Regroupements d’appareils** , puis sélectionner un regroupement.  
 
-2. Wählen Sie die Geräte aus, auf denen Sie den Zustand der Remotesperre anzeigen möchten.  
+2. Sélectionnez les appareils sur lesquels vous voulez afficher l'état du verrouillage à distance.  
 
-3. Wählen Sie **Remotegeräteaktionen** unter **Gerätegruppe** und dann **Status der Remotesperre anzeigen** aus.  
+3. Choisissez **Actions de l’appareil à distance** dans **Groupe d’appareils**, puis choisissez **Afficher l’état du verrouillage à distance**.  
 
-### <a name="see-also"></a>Weitere Informationen:  
-[Windows Selective Wipe for Device Data Management (Selektives Zurücksetzen bei der Gerätedatenverwaltung unter Windows)](http://technet.microsoft.com/library/dn486874.aspx)   
+### <a name="see-also"></a>Voir aussi  
+[Réinitialisation sélective de Windows pour la gestion des données d’appareil](http://technet.microsoft.com/library/dn486874.aspx)   

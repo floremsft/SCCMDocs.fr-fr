@@ -1,6 +1,6 @@
 ---
-title: "Sicherheit und Datenschutz für die Berichterstellung | Microsoft-Dokumentation"
-description: "Grundlegendes zu bewährten Methoden für Sicherheit und Datenschutz, wenn Sie die Berichterstellungsfunktionen in Configuration Manager verwenden."
+title: "Sécurité et confidentialité pour les rapports | Microsoft Docs"
+description: "Découvrez les bonnes pratiques de sécurité et de confidentialité lorsque vous utilisez les fonctionnalités de création de rapports dans Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -18,15 +18,15 @@ manager: angrobe
 ms.openlocfilehash: 50ef8b761533bfdd5e8d23abc7791beb4c7d0b11
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="security-and-privacy-for-reporting-in-system-center-configuration-manager"></a>Sicherheit und Datenschutz für die Berichterstellung in System Center Configuration Manager
+# <a name="security-and-privacy-for-reporting-in-system-center-configuration-manager"></a>Sécurité et confidentialité pour les rapports dans System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Dieses Thema enthält bewährte Sicherheitsmethoden und Datenschutzinformationen für die Berichterstellung in System Center Configuration Manager.  
+Cette rubrique contient les bonnes pratiques de sécurité et les informations de confidentialité pour la création de rapports dans System Center Configuration Manager.  
 
- In Configuration Manager-Berichten werden Informationen angezeigt, die bei Standardverwaltungsvorgängen in Configuration Manager gesammelt werden. Sie können beispielsweise einen Bericht mit Informationen anzeigen, die von der Ermittlung oder der Inventur gesammelt wurden. Außerdem können Berichte aktuelle Statusinformationen zu Clientverwaltungsvorgängen wie Softwarebereitstellung und Kompatibilitätsprüfung enthalten.  
+ Les rapports Configuration Manager affichent des informations recueillies lors d’opérations standard de gestion de Configuration Manager. Par exemple, vous pouvez afficher un rapport d'informations ayant été collectées à partir de la découverte ou de l'inventaire. Les rapports peuvent également contenir des informations sur l'état actuel pour les opérations de gestion de client, telles que le déploiement de logiciels et la vérification de la conformité.  
 
- Weitere Informationen zu allen bewährten Sicherheitsmethoden und Datenschutzinformationen für Configuration Manager-Vorgänge, bei denen in Berichten anzeigbare Daten generiert werden, finden Sie unter [Bewährte Sicherheitsmethoden und Datenschutzinformationen für System Center Configuration Manager](../../plan-design/security/security-best-practices-and-privacy-information.md).  
+ Pour plus d’informations sur les bonnes pratiques de sécurité et les informations de confidentialité pour les opérations Configuration Manager susceptibles de générer des données pouvant être affichées dans des rapports, consultez [Bonnes pratiques de sécurité et informations de confidentialité de System Center Configuration Manager](../../plan-design/security/security-best-practices-and-privacy-information.md).  

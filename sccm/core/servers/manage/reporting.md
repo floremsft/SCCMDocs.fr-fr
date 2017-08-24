@@ -1,5 +1,5 @@
 ---
-title: Berichterstellung | Microsoft-Dokumentation
+title: Rapports | Microsoft Docs
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,24 +17,24 @@ manager: angrobe
 ms.openlocfilehash: cebc48180144ae0d711ff09d16be7c37ec237cfa
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="reporting-in-system-center-configuration-manager"></a>Berichterstellung in System Center Configuration Manager
+# <a name="reporting-in-system-center-configuration-manager"></a>Rapports dans System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Die Berichterstellung in System Center Configuration Manager bietet eine Reihe von Tools und Ressourcen, mit deren Hilfe Sie die erweiterten Berichtsfunktionen von Microsoft SQL Server Reporting Services in der Configuration Manager-Konsole nutzen können.  
+Les rapports dans System Center Configuration Manager fournissent un ensemble d'outils et de ressources vous permettant d'utiliser les fonctions de rapport avancées de Microsoft SQL Server Reporting Services dans la console Configuration Manager.  
 
-## <a name="reporting-topics"></a>Themen zur Berichterstellung  
- In den folgenden Themen finden Sie Informationen zum Verwalten der Berichterstellung in Configuration Manager:  
+## <a name="reporting-topics"></a>Rubriques relatives aux rapports  
+ Les rubriques suivantes vous aident à gérer les rapports dans Configuration Manager :  
 
--   [Introduction to reporting (Einführung in die Berichterstellung)](introduction-to-reporting.md)  
+-   [Présentation des rapports](introduction-to-reporting.md)  
 
--   [Planning for reporting (Planen der Berichterstellung)](planning-for-reporting.md)  
+-   [Planification des rapports](planning-for-reporting.md)  
 
--   [Configure reporting (Konfigurieren der Berichterstellung)](configuring-reporting.md)  
+-   [Configurer les rapports](configuring-reporting.md)  
 
--   [Operations and maintenance for reporting (Vorgänge und Wartungstasks für die Berichterstellung)](operations-and-maintenance-for-reporting.md)  
+-   [Opérations et maintenance pour les rapports](operations-and-maintenance-for-reporting.md)  
 
--   [Security and privacy for reporting (Sicherheit und Datenschutz für die Berichterstellung)](security-and-privacy-for-reporting.md)  
+-   [Sécurité et confidentialité pour les rapports](security-and-privacy-for-reporting.md)  

@@ -1,6 +1,6 @@
 ---
-title: Suchen von Standortressourcen | Microsoft-Dokumentation
-description: Erfahren Sie, wie und wann System Center Configuration Manager-Clients Dienstspeicherorte zum Suchen von Standortressourcen verwenden.
+title: Rechercher des ressources de site | Microsoft Docs
+description: "Découvrez comment et quand les clients System Center Configuration Manager utilisent l’emplacement du service pour rechercher des ressources de site."
 ms.custom: na
 ms.date: 2/7/2017
 ms.prod: configuration-manager
@@ -17,234 +17,234 @@ manager: angrobe
 ms.openlocfilehash: 1c9e7ada6a8aa228b30e58865baae0f6e529e6af
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="learn-how-clients-find-site-resources-and-services-for-system-center-configuration-manager"></a>Erfahren Sie, wie Clients Standortressourcen und -dienste für System Center Configuration Manager suchen.
+# <a name="learn-how-clients-find-site-resources-and-services-for-system-center-configuration-manager"></a>Comprendre comment les clients recherchent des services et des ressources de site pour System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-System Center Configuration Manager-Clients verwenden einen als *Dienstidentifizierung* bezeichneten Prozess zum Auffinden von Standortsystemservern, mit denen Sie kommunizieren können und die Dienste bereitstellen, die Clients verwenden sollen. Wenn Sie verstehen, wie und wann Clients die Dienstidentifizierung zum Auffinden von Standortressourcen nutzen, können Sie Ihre Standorte besser für die erfolgreiche Unterstützung von Clientvorgängen konfigurieren. Diese Konfigurationen können erfordern, dass der Standort mit Domänen- und Netzwerkkonfigurationen wie Active Directory-Domänendienste (AD DS) und DNS interagiert. Oder Sie müssen möglicherweise komplexere Alternativen konfigurieren.  
+Les clients System Center Configuration Manager utilisent un processus appelé *emplacement du service* pour trouver les serveurs de système de site avec lesquels ils peuvent communiquer et qui leur fournissent les services dont ils ont besoin. Bien comprendre comment et quand les clients utilisent l’emplacement du service pour rechercher des ressources de site peut vous aider à configurer vos sites de manière appropriée pour prendre en charge les tâches des clients. Ces configurations peuvent nécessiter que le site interagisse avec des configurations de domaine et de réseau telles que AD DS et DNS. Elles peuvent également nécessiter la configuration d’alternatives plus complexes.  
 
- Beispiele für Standortsystemrollen, die Dienste bereitstellen:
+ Exemples de rôles de système de site qui fournissent des services :
 
- - Der zentrale Standortsystemserver für Clients.
- - Der Verwaltungspunkt.
- - Zusätzliche Standortsystemserver, mit denen der Client kommunizieren kann, z. B. Verteilungspunkte und Softwareupdatepunkte.  
+ - Serveur de système de site principal pour les clients.
+ - Point de gestion.
+ - Serveurs de système de site supplémentaires avec lesquels le client peut communiquer, tels que les points de distribution et les points de mises à jour logicielles.  
 
 
 
 ##  <a name="bkmk_fund"></a> Fundamentals of service location  
- Ein Client bewertet seine aktuelle Netzwerkadresse, Kommunikationsprotokolleinstellung und seinen zugewiesenen Standort, wenn die Dienstidentifizierung zum Auffinden eines Verwaltungspunkts genutzt wird, mit dem kommuniziert werden kann.  
+ Quand un client utilise l’emplacement du service pour rechercher un point de gestion avec lequel il peut communiquer, il évalue son emplacement réseau actuel, son protocole de communication préféré et son site attribué.  
 
- **Ein Client kommuniziert zu folgenden Zwecken mit einem Verwaltungspunkt:**  
--   Herunterladen von Informationen zu anderen Verwaltungspunkten für den Standort, damit für künftige Dienstidentifizierungszyklen eine Verwaltungspunktliste (auch als *MP-Liste* bezeichnet) erstellt werden kann.  
--   Hochladen von Konfigurationsdetails wie Inventur und Status.  
--   Herunterladen von Richtlinien zum Festlegen von Konfigurationen auf dem Client, zum Informieren des Clients zu Software, die installiert werden muss oder kann, und zu weiteren dazugehörigen Aufgaben.  
--   Anfordern von Informationen zu zusätzlichen Standortsystemrollen, die Dienste bereitstellen, für deren Verwendung der Client konfiguriert wurde. Beispiele umfassen Verteilungspunkte für Software, die vom Client installiert werden können, oder ein Softwareupdatepunkt, von dem Softwareupdates abgerufen werden können.  
+ **Un client communique avec un point de gestion pour effectuer les opérations suivantes :**  
+-   Télécharger des informations concernant d’autres points de gestion du site, afin de pouvoir générer une liste des points de gestion connus (ou *liste PG*) pour les cycles ultérieurs d’emplacement du service.  
+-   Charger les informations de la configuration, comme l’inventaire et l’état.  
+-   Télécharger une stratégie qui définit des configurations sur le client et peut informer celui-ci sur les logiciels qu’il peut ou doit installer, et d’autres tâches connexes.  
+-   Demander des informations sur les autres rôles de système qui fournissent des services que le client a été configuré pour utiliser. Il peut s’agir des points de distribution des logiciels que le client peut installer ou un point de mise à jour logicielle à partir duquel obtenir les mises à jour.  
 
-**Ein Configuration Manager-Client sendet eine Dienstidentifizierungsanforderung:**  
--   Alle 25 Stunden bei kontinuierlichem Betrieb.  
--   Wenn der Client eine Änderung seiner Netzwerkkonfiguration oder seiner Adresse erkennt.  
--   Wenn der **ccmexec.exe**-Dienst auf dem Computer (der Kern-Clientdienst) gestartet wird.  
--   Wenn der Client eine Standortsystemrolle finden muss, die einen erforderlichen Dienst bereitstellt.  
+**Un client Configuration Manager effectue une demande d’emplacement du service :**  
+-   Toutes les 25 heures de fonctionnement continu.  
+-   Quand il détecte une modification de sa configuration ou de son emplacement réseau.  
+-   Quand le service **ccmexec.exe** de l’ordinateur (service client de base) démarre.  
+-   Quand le client doit localiser un rôle de système de site qui fournit un service requis.  
 
-**Beim Versuch, Server zu suchen, die Standortsystemrollen hosten**, verwendet der Client die Dienstidentifizierung, um nach einer Standortsystemrolle zu suchen, die das Protokoll des Clients (HTTP oder HTTPS) unterstützt. Die Wahl fällt standardmäßig auf die sicherste der verfügbaren Methoden. Beachten Sie Folgendes:  
+**Quand un client essaie de trouver des serveurs qui hébergent des rôles système de site**, il utilise l’emplacement du service pour rechercher un rôle de système de site prenant en charge son protocole (HTTP ou HTTPS). Par défaut, les clients utilisent la méthode la plus sûre à leur disposition. Considérez les points suivants :  
 
--   Zur Verwendung von HTTPS müssen Sie über eine Public Key-Infrastruktur (PKI) verfügen und PKI-Zertifikate auf Clients und Servern installieren. Informationen zum Verwenden von Zertifikaten finden Sie unter [PKI-Zertifikatanforderungen für System Center Configuration Manager](../../../core/plan-design/network/pki-certificate-requirements.md).  
+-   Pour utiliser le protocole HTTPS, vous devez disposer d'une infrastructure à clé publique (PKI) et installer des certificats PKI sur des clients et serveurs. Pour plus d’informations sur la façon d’utiliser des certificats, consultez [Configuration requise des certificats PKI pour System Center Configuration Manager](../../../core/plan-design/network/pki-certificate-requirements.md).  
 
--   Wenn Sie eine Standortsystemrolle bereitstellen, die Internetinformationsdienst (IIS) verwendet und die Kommunikation von Clients unterstützt, müssen Sie angeben, ob Clients eine Verbindung mit dem Standortsystem über HTTP oder HTTPS herstellen. Falls Sie sich für HTTP entscheiden, müssen Sie auch Signierungs- und Verschlüsselungsoptionen erwägen. Weitere Informationen finden Sie unter [Planen von Signierung und Verschlüsselung](../../../core/plan-design/security/plan-for-security.md#BKMK_PlanningForSigningEncryption) im Abschnitt [Planen der Sicherheit in System Center Configuration Manager](../../../core/plan-design/security/plan-for-security.md).  
+-   Quand vous déployez un rôle de système de site qui utilise Internet Information Services (IIS) et prend en charge les communications des clients, vous devez spécifier si les clients se connectent au système de site à l'aide de HTTP ou HTTPS. Si vous utilisez le protocole HTTP, vous devez également envisager les options de signature et de chiffrement. Pour plus d’informations, consultez [Planifier la signature et le chiffrement](../../../core/plan-design/security/plan-for-security.md#BKMK_PlanningForSigningEncryption) dans la rubrique [Planifier la sécurité dans System Center Configuration Manager](../../../core/plan-design/security/plan-for-security.md).  
 
-##  <a name="BKMK_Plan_Service_Location"></a> Dienstidentifizierung und wie Clients den ihnen zugewiesenen Verwaltungspunkt ermitteln  
-Wenn ein Client erstmals einem primären Standort zugewiesen wird, wählt er einen Standardverwaltungspunkt für diesen Standort aus. Primäre Standorte unterstützen mehrere Verwaltungspunkte, und jeder Client identifiziert unabhängig einen Verwaltungspunkt als Standardverwaltungspunkt. Der Standardverwaltungspunkt wird dann der diesem Client zugewiesene Verwaltungspunkt. (Sie können auch bei der Installation eines Clients Befehle zum Festlegen des zugewiesenen Verwaltungspunkts für einen Client festlegen.)  
+##  <a name="BKMK_Plan_Service_Location"></a> Emplacement du service et façon dont les clients déterminent leur point de gestion attribué  
+Quand un client est attribué pour la première fois à un site principal, il sélectionne un point de gestion par défaut pour ce site. Les sites principaux prennent en charge plusieurs points de gestion, et chaque client identifie indépendamment un point de gestion comme son point de gestion par défaut. Ce point de gestion par défaut devient ensuite le point de gestion attribué de ce client. (Vous pouvez également utiliser les commandes d’installation du client pour définir le point de gestion attribué au client lors de l’installation.)  
 
-Ein Client wählt einen Verwaltungspunkt für die Kommunikation basierend auf seiner aktuellen Konfiguration der Netzwerkadresse und Begrenzungsgruppe aus. Auch wenn ein Client einen zugewiesenen Verwaltungspunkt hat, ist dies ggf. nicht der Verwaltungspunkt, den der Client verwendet.  
+Un client sélectionne le point de gestion avec lequel communiquer en fonction de son emplacement réseau et de son groupe de limites configurés. Le point de gestion utilisé par le client n’est pas obligatoirement son point de gestion attribué.  
 
     > [!NOTE]  
     >  A client always uses the assigned management point for registration messages and certain policy messages, even when other communications are sent to a proxy or local management point.  
 
-Sie können bevorzugte Verwaltungspunkte verwenden. Bevorzugte Verwaltungspunkte sind Verwaltungspunkte vom zugewiesenen Standort eines Clients, die einer Begrenzungsgruppe zugeordnet sind, die vom Client verwendet wird, um Standortsystemserver zu finden. Die Zuordnung eines bevorzugten Verwaltungspunkts zu einer Begrenzungsgruppe als Standortsystemserver ist ähnlich der Zuordnung von Verteilungspunkten oder Zustandsmigrationspunkten zu einer Begrenzungsgruppe. Wenn Sie bevorzugte Verwaltungspunkte für die Hierarchie aktivieren, versucht ein Client einen bevorzugten Verwaltungspunkt zu verwenden, wenn er einen Verwaltungspunkt von seinem zugewiesenen Standort verwendet, bevor andere Verwaltungspunkte des zugewiesenen Standorts verwendet werden.  
+Vous pouvez utiliser des points de gestion préférés. Les points de gestion préférés sont ceux du site attribué au client qui sont associés à un groupe de limites que le client utilise pour rechercher des serveurs de système de site. L’association d’un point de gestion préféré à un groupe de limites en tant que serveur de système de site est similaire à l’association de points de distribution ou de points de migration d’état à un groupe de limites. Si vous activez les points de gestion préférés pour la hiérarchie, lorsqu'un client utilise un point de gestion à partir de son site attribué, il va tenter d'utiliser un point de gestion préféré avant d'utiliser d'autres points de gestion à partir de son site attribué.  
 
-Sie können auch die Informationen im Blog zur [Affinität mit einem Verwaltungspunkt](http://blogs.technet.com/b/jchalfant/archive/2014/09/22/management-point-affinity-added-in-configmgr-2012-r2-cu3.aspx) auf TechNet.com befolgen, um die Affinität mit einem Verwaltungspunkt zu konfigurieren. Die Verwaltungspunktsaffinität überschreibt das Standardverhalten für zugewiesene Verwaltungspunkte und ermöglicht dem Client, einen oder mehrere bestimmte Verwaltungspunkte zu verwenden.  
+Vous pouvez également utiliser les informations du blog [Management point affinity (Affinité des points de gestion)](http://blogs.technet.com/b/jchalfant/archive/2014/09/22/management-point-affinity-added-in-configmgr-2012-r2-cu3.aspx) sur TechNet.com pour configurer l’affinité des points de gestion. L’affinité des points de gestion remplace le comportement par défaut des points de gestion attribués et permet au client d’utiliser un ou plusieurs points de gestion spécifiques.  
 
-Jedes Mal, wenn ein Client einen Verwaltungspunkt kontaktieren muss, überprüft er die Verwaltungspunktliste, die lokal in WMI (Windows Management Instrumentation) gespeichert ist. Der Client erstellt bei der Installation eine erste Verwaltungspunktliste. Der Client aktualisiert dann die Liste regelmäßig mit Details zu jedem Verwaltungspunkt in der Hierarchie.  
+Chaque fois qu’un client doit contacter un point de gestion, il consulte la liste PG qu’il stocke localement dans Windows Management Instrumentation (WMI). Le client crée la liste PG lors de son installation. Il met à jour régulièrement cette liste avec des informations sur chaque point de gestion dans la hiérarchie.  
 
-Wenn der Client keinen gültigen Verwaltungspunkt in seiner Verwaltungspunktliste findet, durchsucht er die folgenden Dienstidentifizierungsquellen in der angegebenen Reihenfolge, bis er einen Verwaltungspunkt findet, den er verwenden kann:  
+Quand le client ne trouve pas de point de gestion valide dans sa liste PG, il étend sa recherche aux sources d’emplacement de service suivantes, dans l’ordre et jusqu’à trouver un point de gestion qu’il peut utiliser :  
 
-1.  Verwaltungspunkt  
+1.  Point de gestion  
 2.  AD DS  
 3.  DNS  
 4.  WINS  
 
-Nachdem ein Client Verwaltungspunkt erfolgreich gesucht und kontaktiert hat, lädt er die aktuelle Liste von Verwaltungspunkten herunter, die in der Hierarchie verfügbar sind, und aktualisiert die lokale Verwaltungspunktliste. Dies gilt für alle Clients, unabhängig davon, ob sie einer Domäne angehören oder nicht.  
+Dès qu’un client a localisé et contacté un point de gestion, il télécharge sa liste des points de gestion disponibles dans la hiérarchie et met à jour sa liste locale. Cela s'applique aussi bien aux clients qui appartiennent à un domaine qu'à ceux qui n'y appartiennent pas.  
 
-Wenn beispielsweise ein Configuration Manager-Client, der sich im Internet befindet, eine Verbindung zu einem internetbasierten Verwaltungspunkt herstellt, sendet der Verwaltungspunkt diesem Client eine Liste der verfügbaren internetbasierten Verwaltungspunkte am Standort. Auf ähnliche Weise erhalten auch Clients, die sich in einer Domäne oder in Arbeitsgruppen befinden, die Liste der Verwaltungspunkte, die sie verwenden können.  
+Par exemple, quand un client Configuration Manager sur Internet se connecte à un point de gestion basé sur Internet, ce dernier lui envoie la liste des points de gestion basés sur Internet disponibles sur le site. De même, les clients qui appartiennent à un domaine ou figurent dans des groupes de travail reçoivent également la liste des points de gestion qu'ils peuvent utiliser.  
 
-Einem Client, der nicht für das Internet konfiguriert ist, werden keine Verwaltungspunkte bereitgestellt, die nur auf das Internet ausgerichtet sind. Arbeitsgruppenclients, die für das Internet konfiguriert sind, kommunizieren nur mit Verwaltungspunkten mit Internetzugriff.  
+Un client qui n’est pas configuré pour Internet ne reçoit pas de points de gestion exclusivement accessibles sur Internet. Les clients de groupe de travail configurés pour Internet communiquent uniquement avec des points de gestion accessibles sur Internet.  
 
-##  <a name="BKMK_MPList"></a> MP-Liste  
-Die Verwaltungspunktliste eines Clients ist die bevorzugte Quelle für die Dienstidentifizierung, da sie eine priorisierte Liste von Verwaltungspunkten ist, die der Client zuvor identifiziert hat. Diese Liste wird nach einzelnen Clients basierend auf dem Netzwerkstandort sortiert, wenn der Client die Liste aktualisiert, und dann lokal auf dem Client in WMI gespeichert.  
+##  <a name="BKMK_MPList"></a> La liste PG  
+La liste PG est la source d’emplacements de service préférés du client. Elle hiérarchise les points de gestion précédemment identifiés par le client. Cette liste est triée par chaque client en fonction de son emplacement réseau au moment où il l'a met à jour, puis stockée localement sur le client dans WMI.  
 
-### <a name="building-the-initial-mp-list"></a>Erstellen der anfänglichen MP-Liste  
-Während der Installation des Clients werden die folgenden Regeln zum Erstellen der anfänglichen MP-Liste des Clients verwendet:  
+### <a name="building-the-initial-mp-list"></a>Création de la liste PG initiale  
+Lors de l’installation du client, les règles suivantes sont utilisées pour générer sa liste PG initiale :  
 
--   Die anfängliche Liste enthält Verwaltungspunkte, die während der Clientinstallation angegeben wurden (bei Verwendung von **SMSMP**= oder **/MP**).  
--   Der Client fragt AD DS nach veröffentlichten Verwaltungspunkten ab. Für eine Identifizierung von AD DS muss der Verwaltungspunkt vom zugewiesenen Standort des Clients stammen und der Produktversion des Clients entsprechen.  
--   Wenn kein Verwaltungspunkt während der Clientinstallation angegeben wurde und das Active Directory-Schema nicht erweitert ist, überprüft der Client DNS und WINS auf veröffentlichte Verwaltungspunkte.  
--   Wenn der Client die anfängliche Liste erstellt, sind möglicherweise keine Informationen zu einigen Verwaltungspunkten in der Hierarchie bekannt.  
+-   Cette liste initiale inclut les points de gestion spécifiés lors de l’installation du client (quand vous utilisez l’option **SMSMP**= ou **/MP**).  
+-   Le client recherche les points de gestion publiés, dans AD DS. Pour que le point de gestion soit identifié à partir d’AD DS, il doit provenir du site attribué du client et avoir la même version de produit que celle du client.  
+-   Si aucun point de gestion n’a été spécifié lors de l’installation du client et si le schéma Active Directory n’est pas étendu, le client recherche des points de gestion publiés dans les services DNS et WINS.  
+-   Lorsque le client crée la liste initiale, les informations concernant certains points de gestion de la hiérarchie peuvent ne pas être connues.  
 
-### <a name="organizing-the-mp-list"></a>Organisieren der MP-Liste  
-Clients organisieren ihre Liste mit Verwaltungspunkten mithilfe der folgenden Klassifizierungen:  
+### <a name="organizing-the-mp-list"></a>Organisation de la liste PG  
+Les clients organisent leur liste de points de gestion selon les classifications suivantes :  
 
--   **Proxy**: Ein Verwaltungspunkt an einem sekundären Standort.  
--   **Lokal**: Jeder Verwaltungspunkt, der dem aktuellen Netzwerkstandort des Clients zugeordnet ist (gemäß Definition durch Standortgrenzen). Beachten Sie die folgenden Informationen zu Grenzen:
-    -   Wenn ein Client zu mehreren Grenzgruppen gehört, wird die Liste der lokalen Verwaltungspunkte aus der Vereinigung aller Grenzen bestimmt, die den aktuellen Netzwerkstandort des Clients enthalten.  
-    -   In der Regel sind lokale Verwaltungspunkte eine Teilmenge der zugewiesenen Verwaltungspunkte eines Clients, es sei denn, der Client befindet sich an einem Netzwerkstandort, der mit einem anderen Standort mit Verwaltungspunkten verbunden ist, die Grenzgruppen bereitstellen.   
+-   **Proxy** : un point de gestion proxy sur un site secondaire.  
+-   **Local** : tout point de gestion associé à l’emplacement réseau actuel du client tel qu’il est défini par les limites de site. Gardez à l’esprit les informations suivantes sur les limites :
+    -   Quand un client appartient à plusieurs groupes de limites, la liste des points de gestion locaux est déterminée en réunissant toutes les limites qui incluent l'emplacement réseau actuel du client.  
+    -   En règle générale, les points de gestion locaux sont un sous-ensemble des points de gestion attribués d’un client, sauf si ce dernier se trouve à un emplacement réseau associé à un autre site avec des points de gestion desservant ses groupes de limites.   
 
 
--   **Zugewiesen**: Alle Verwaltungspunkte, die ein Standortsystem für den zugewiesenen Standort des Clients sind  
+-   **Attribué** : tout point de gestion représentant un système de site pour le site attribué du client.  
 
-Sie können bevorzugte Verwaltungspunkte verwenden. Verwaltungspunkte an einem Standort, die keiner Begrenzungsgruppe zugeordnet sind oder sich nicht in einer Begrenzungsgruppe befinden, die dem aktuellen Netzwerkspeicherort des Clients zugeordnet ist, gelten nicht als bevorzugt. Sie werden verwendet, wenn der Client keinen verfügbaren bevorzugten Verwaltungspunkt identifizieren kann.  
+Vous pouvez utiliser des points de gestion préférés. Les points de gestion d’un site qui ne sont pas associés à un groupe de limites ou qui ne figurent pas dans un groupe de limites associé à un emplacement réseau actuel du client ne sont pas considérés comme préférés. Ils seront utilisés si le client ne peut pas identifier un point de gestion par défaut disponible.  
 
-### <a name="selecting-a-management-point-to-use"></a>Auswählen eines zu verwendenden Verwaltungspunkts  
-Für eine typische Kommunikation versucht ein Client, einen Verwaltungspunkt aus den Klassifizierungen in der folgenden Reihenfolge zu verwenden, basierend auf dem Netzwerkstandort des Clients:  
+### <a name="selecting-a-management-point-to-use"></a>Sélection d'un point de gestion à utiliser  
+Pendant une communication classique, un client tente d’utiliser un point de gestion appartenant aux classifications dans l’ordre suivant, en fonction de l’emplacement réseau du client :  
 
 1.  Proxy  
-2.  Lokal  
-3.  zugewiesenen  
+2.  Local  
+3.  Attribués  
 
-Allerdings verwendet der Client immer den zugewiesenen Verwaltungspunkt für Registrierungsmeldungen und bestimmte Richtlinienmeldungen, selbst andere Mitteilungen an einen Proxy oder lokalen Verwaltungspunkt gesendet werden.  
+Toutefois, le client utilise toujours le point de gestion attribué pour les messages d'enregistrement et certains messages de la stratégie, même quand d'autres communications sont envoyées à un point de gestion proxy ou local.  
 
-In jeder Klassifizierung (Proxy, lokal oder zugewiesen) versuchen Clients, einen Verwaltungspunkt auf der Basis von Einstellungen in der folgenden Reihenfolge zu verwenden:  
+Dans chaque classification (proxy, local ou attribué), le client tente d’utiliser un point de gestion en fonction de préférences, dans l’ordre suivant :  
 
-1.  HTTPS-fähig in einer vertrauenswürdigen oder lokalen Gesamtstruktur (wenn der Client für die HTTPS-Kommunikation konfiguriert ist)  
-2.  HTTPS-fähig in einer nicht vertrauenswürdigen oder lokalen Gesamtstruktur (wenn der Client für die HTTPS-Kommunikation konfiguriert ist)  
-3.  HTTP-fähig in einer vertrauenswürdigen oder lokalen Gesamtstruktur  
-4.  HTTP-fähig, nicht in einer vertrauenswürdigen oder lokalen Gesamtstruktur  
+1.  Compatible HTTPS dans une forêt approuvée ou locale (quand le client est configuré pour la communication HTTPS)  
+2.  Compatible HTTPS dans une forêt non approuvée ou non locale (quand le client est configuré pour la communication HTTPS)  
+3.  Compatible HTTP dans une forêt approuvée ou locale  
+4.  Compatible HTTP hors d’une forêt approuvée ou locale  
 
-Clients versuchen, aus dem Satz der nach Einstellungen sortierten Verwaltungspunkten den ersten Verwaltungspunkt in der Liste zu verwenden. Diese sortierte Liste von Verwaltungspunkten ist zufällig und kann nicht sortiert werden. Die Reihenfolge der Liste kann sich jedes Mal ändern, wenn der Client seine Verwaltungspunktliste aktualisiert.  
+Dans l’ensemble des points de gestion triés par préférences, le client tente d’utiliser le premier point de gestion de la liste. Cette liste triée de points de gestion est aléatoire et ne peut pas être ordonnée. L’ordre de la liste peut varier chaque fois que le client met à jour sa liste PG.  
 
-Wenn ein Client keinen Kontakt mit dem ersten Verwaltungspunkt herstellen kann, versucht er es mit jedem nachfolgenden Verwaltungspunkt in der Liste. Er versucht es mit jedem bevorzugten Verwaltungspunkt in der Klassifizierung, bevor es mit nicht bevorzugten Verwaltungspunkten versucht wird. Wenn ein Client keine erfolgreiche Kommunikation mit einem der Verwaltungspunkte in der Klassifizierung herstellen kann, versucht er, einen Kontakt zu einem bevorzugten Verwaltungspunkt aus der nächsten Klassifizierung herzustellen, und setzt diese Vorgehensweise fort, bis er einen Verwaltungspunkt zum Verwenden gefunden hat.  
+Si un client ne parvient pas à contacter le premier point de gestion, il essaie chacun des points de gestion suivants dans sa liste. Il teste chaque point de gestion préféré de la classification avant d’essayer des points de gestion non préférés. Si un client ne parvient pas communiquer avec un point de gestion dans la classification, il tente de contacter un point de gestion préféré de la classification suivante, et ainsi de suite jusqu’à ce qu’il trouve un point de gestion à utiliser.  
 
-Nach dem Einrichten der Kommunikation mit einem Verwaltungspunkt verwendet der Client weiterhin denselben Verwaltungspunkt bis zum folgenden Punkt:  
+Une fois la communication établie avec un point de gestion, le client continue d’utiliser ce même point de gestion jusqu’à ce que :  
 
--   Es sind 25 Stunden vergangen.  
--   Der Client kann bei fünf Versuchen über einen Zeitraum von 10 Minuten keine Kommunikation mit dem Verwaltungspunkt einrichten.
+-   25 heures soient écoulées.  
+-   Le client ne puisse pas communiquer avec le point de gestion à l’issue des cinq tentatives sur une période de 10 minutes.
 
-Der Client wählt nach dem Zufallsprinzip einen neuen Verwaltungspunkt aus.  
+Le client sélectionne de manière aléatoire un nouveau point de gestion à utiliser.  
 
 ##  <a name="bkmk_ad"></a> Active Directory  
-Clients, die der Domäne beigetreten sind, können AD DS für die Dienstidentifizierung verwenden. Dafür müssen Standorte [Daten in Active Directory veröffentlichen](http://technet.microsoft.com/library/hh696543.aspx).  
+Les clients qui appartiennent à un domaine peuvent utiliser les services AD DS pour l'emplacement du service. Pour ce faire, les sites doivent [publier des données dans Active Directory](http://technet.microsoft.com/library/hh696543.aspx).  
 
-Ein Client kann AD DS für die Dienstidentifizierung verwenden, wenn alle folgenden Bedingungen erfüllt sind:  
+Un client peut utiliser AD DS comme emplacement du service quand l’une des conditions suivantes est remplie :  
 
--   Das Active Directory-[Schema wurde erweitert](https://technet.microsoft.com/library/mt345589.aspx) oder für System Center 2012 Configuration Manager erweitert.  
--   Die [Active Directory-Gesamtstruktur ist für die Veröffentlichung konfiguriert](http://technet.microsoft.com/library/hh696542.aspx)und Configuration Manager-Standorte sind für das Veröffentlichen konfiguriert.  
--   Der Clientcomputer ist ein Mitglied einer Active Directory-Domäne, und der Zugriff auf den globalen Katalogserver ist möglich.  
+-   Le [schéma Active Directory est étendu](https://technet.microsoft.com/library/mt345589.aspx) ou a été étendu pour System Center 2012 Configuration Manager.  
+-   La [forêt Active Directory est configurée pour la publication](http://technet.microsoft.com/library/hh696542.aspx), de même que les sites Configuration Manager.  
+-   L'ordinateur client est membre d'un domaine Active Directory et peut accéder à un serveur de catalogue global.  
 
-Wenn ein Client keinen Verwaltungspunkt für die Dienstidentifizierung von AD DS finden kann, versucht er, DNS zu verwenden.  
+Si un client ne peut pas trouver de point de gestion à utiliser comme emplacement du service dans AD DS, il tente d’utiliser DNS.  
 
 ##  <a name="bkmk_dns"></a> DNS  
-Clients im Intranet können DNS für die Dienstidentifizierung verwenden. Dafür ist mindestens einen Standort in einer Hierarchie erforderlich, um Informationen zu Verwaltungspunkten in DNS zu veröffentlichen.  
+Les clients se trouvant sur l'intranet peuvent utiliser DNS pour l'emplacement du service. Pour ce faire, au moins un site d'une hiérarchie doit publier des informations sur les points de gestion dans DNS.  
 
-Ziehen Sie die Verwendung von DNS für die Dienstidentifizierung in Betracht, wenn eine der folgenden Bedingungen erfüllt ist:
--   Das AD DS-Schema wurde nicht für die Unterstützung von Configuration Manager erweitert.
--   Intranetclients befinden sich in einer Gesamtstruktur, die nicht für die Configuration Manager-Veröffentlichung aktiviert ist.  
--   Sie haben Clients auf Arbeitsgruppencomputern, und diese Clients sind nicht für eine rein internetbasierte Clientverwaltung konfiguriert. (Ein für das Internet konfigurierter Arbeitsgruppenclient kommuniziert nur mit Verwaltungspunkten mit Internetzugriff und verwendet nicht DNS für die Dienstidentifizierung.)  
--   Sie können [Clients für die Suche von Verwaltungspunkten von DNS konfigurieren](http://technet.microsoft.com/library/gg682055).  
+Envisagez d'utiliser DNS pour l'emplacement du service quand l'une des conditions suivantes est remplie :
+-   Le schéma AD DS n’est pas étendu pour prendre en charge Configuration Manager.
+-   Les clients sur intranet se trouvent dans une forêt qui n’est pas activée pour la publication Configuration Manager.  
+-   Des clients se trouvent sur des ordinateurs de groupes de travail et ne sont pas configurés pour la gestion des clients uniquement accessibles sur Internet. (Un client de groupe de travail configuré pour Internet communique uniquement avec des points de gestion accessibles sur Internet et n’utilise pas DNS comme emplacement du service.)  
+-   Vous pouvez [configurer les clients pour rechercher les points de gestion dans les services DNS](http://technet.microsoft.com/library/gg682055).  
 
-Wenn ein Standort Dienstidentifizierungseinträge für Verwaltungspunkte an DNS veröffentlicht:  
+Quand un site publie des enregistrements d'emplacement de service pour les points de gestion dans DNS :  
 
--   Die Veröffentlichung gilt nur für Verwaltungspunkte, die Clientverbindungen aus dem Intranet akzeptieren.  
--   Durch die Veröffentlichung wird ein Ressourceneintrag für die Dienstidentifizierung (SRV RR) in der DNS-Zone des Verwaltungspunktcomputers hinzugefügt. In DNS muss ein entsprechender Hosteintrag für diesen Computer vorhanden sein.  
+-   La publication est uniquement applicable aux points de gestion qui acceptent les connexions client à partir de l'intranet.  
+-   La publication ajoute un enregistrement de ressource d'emplacement du service (SRV RR) dans la zone DNS de l'ordinateur du point de gestion. Une entrée hôte correspondante doit se trouver dans DNS pour cet ordinateur.  
 
-Standardmäßig durchsuchen in die Domäne eingebundene Clients DNS nach Verwaltungspunkteinträgen aus der lokalen Domäne des Clients. Sie können eine Clienteigenschaft konfigurieren, die ein Domänensuffix für eine Domäne angibt, in der Verwaltungspunktinformationen in DNS veröffentlicht werden.  
+Par défaut, les clients appartenant à un domaine recherchent des enregistrements de point de gestion dans DNS à partir de leur domaine local. Vous pouvez configurer une propriété de client qui spécifie un suffixe pour un domaine qui publie des informations sur les points de gestion dans DNS.  
 
-Weitere Informationen zum Konfigurieren des DNS-Suffixes in einer Clienteigenschaft finden Sie unter [Konfigurieren von Clientcomputern für die Suche nach Verwaltungspunkten mithilfe der DNS-Veröffentlichung in System Center Configuration Manager](../../../core/clients/deploy/configure-client-computers-to-find-management-points-by-using-dns-publishing.md).  
+Pour plus d’informations sur la configuration de la propriété cliente du suffixe DNS, consultez [Guide pratique pour configurer des ordinateurs clients pour trouver des points de gestion à l’aide de la publication DNS dans System Center Configuration Manager](../../../core/clients/deploy/configure-client-computers-to-find-management-points-by-using-dns-publishing.md).  
 
-Wenn ein Client keinen Verwaltungspunkt für die Dienstidentifizierung von DNS finden kann, versucht er, WINS zu verwenden.  
+Si un client ne trouve pas de point de gestion à utiliser pour l’emplacement du service dans DNS, il tente d’utiliser WINS.  
 
-### <a name="publish-management-points-to-dns"></a>Veröffentlichen von Verwaltungspunkten in DNS  
-Die Veröffentlichung von Verwaltungspunkten in DNS ist nur möglich, wenn die beiden folgenden Bedingungen erfüllt sind:  
+### <a name="publish-management-points-to-dns"></a>Publier des points de gestion dans DNS  
+Pour publier des points de gestion dans DNS, les deux conditions suivantes doivent être vraies :  
 
--   Von den DNS-Servern werden Ressourceneinträge für Dienste unterstützt (durch Verwendung von BIND 8.1.2 oder höher).  
--   Zu den angegebenen Intranet-FQDNs für die Verwaltungspunkte in Configuration Manager müssen Hosteinträge z.B. (A-Datensätze) in DNS vorhanden sein.  
+-   Vos serveurs DNS prennent en charge les enregistrements de ressource d'emplacement de service, à l'aide d'une version de BIND qui est au moins la version 8.1.2.  
+-   Les noms de domaine complets intranet spécifiés pour les points de gestion dans Configuration Manager ont des entrées d’hôte (par exemple, des enregistrements A) dans DNS.  
 
 > [!IMPORTANT]  
->  Bei der DNS-Veröffentlichung über Configuration Manager werden keine separaten Namespaces unterstützt. Liegt ein separater Namespace vor, können Sie Verwaltungspunkte manuell in DNS veröffentlichen oder eine der Dienstidentifizierungsmethoden verwenden, die in diesem Abschnitt beschrieben sind.  
+>  La publication DNS Configuration Manager ne prend pas en charge un espace de noms disjoint. Si votre espace de noms est disjoint, vous pouvez publier manuellement des points de gestion dans DNS ou utiliser l’une des autres méthodes d’emplacement de service décrites dans cette section.  
 
-**Falls von den DNS-Servern automatische Updates unterstützt werden**, können Sie festlegen, dass Verwaltungspunkte von Configuration Manager im Intranet automatisch in DNS veröffentlicht werden. Alternativ können Sie diese Datensätze manuell in DNS veröffentlichen. Bei der Veröffentlichung von Verwaltungspunkten in DNS werden der zugehörige Intranet-FQDN und die Portnummer im SRV-Eintrag veröffentlicht. Sie konfigurieren die DNS-Veröffentlichung an einem Standort über die Eigenschaften für Verwaltungspunktkomponenten am Standort. Weitere Informationen finden Sie unter [Standortkomponenten für System Center Configuration Manager](../../../core/servers/deploy/configure/site-components.md).  
+**Quand vos serveurs DNS prennent en charge les mises à jour automatiques**, vous pouvez configurer Configuration Manager pour qu’il publie automatiquement les points de gestion intranet dans DNS, ou vous pouvez publier manuellement ces enregistrements dans DNS. Lorsque des points de gestion sont publiés dans DNS, leur nom de domaine complet Intranet et leur numéro de port sont publiés dans l'enregistrement d'emplacement de service (SRV). Vous configurez la publication DNS sur un site dans les Propriétés du composant de point de gestion du site. Pour plus d’informations, consultez [Composants de site pour System Center Configuration Manager](../../../core/servers/deploy/configure/site-components.md).  
 
-**Wenn Ihre DNS-Zone für dynamische Updates auf „Secure only“ (Nur sichern) festgelegt ist**, kann nur der erste Verwaltungpunkt, der unter DNS veröffentlicht werden soll, dies ohne Standardberechtigungten ausführen.
+**Quand la zone DNS est réglée sur « Secure only » (Sécurisées uniquement) pour les mises à jour dynamiques**, seul le premier point de gestion pouvant publier dans DNS peut effectuer cette action avec les autorisations par défaut.
 
-Wenn nur ein Verwaltungspunkt erfolgreich seinen DNS-Eintrag veröffentlichen und ändern kann und der Verwaltungspunktserver fehlerfrei arbeitet, können Clients die vollständige MP-Liste von diesem Verwaltungspunkt erhalten und anschließend ihren bevorzugten Verwaltungspunkt finden.
+Si un seul point de gestion peut publier et modifier son enregistrement DNS, et que le serveur de ce point de gestion est fonctionnel, les clients peuvent obtenir la liste complète de leurs points de gestion et trouver leur point de gestion préféré.
 
 
-**Wenn von den DNS-Servern SRV-Einträge unterstützt werden, nicht aber automatische Updates**, können Sie Verwaltungspunkte manuell in DNS veröffentlichen. Dafür müssen Sie den Ressourceneintrag für Dienste (SRV RR) manuell in DNS angeben.  
+**Quand vos serveurs DNS ne prennent pas en charge les mises à jour automatiques, mais prennent en charge les enregistrements d'emplacement de service**, vous pouvez publier manuellement des points de gestion dans DNS. Pour cela, vous devez spécifier manuellement l'enregistrement de la ressource d'emplacement de service (SRV RR) dans DNS.  
 
-Configuration Manager unterstützt RFC 2782 für Dienstidentifizierungseinträge. Diese Einträge haben das folgende Format: *_Dienst._Proto.Name TTL Klasse SRV Priorität Gewichtung Port Ziel*  
+Configuration Manager prend en charge la norme RFC 2782 pour les enregistrements d’emplacement de service. Ces enregistrements présentent le format suivant : *_Service._Proto.Nom TTL Classe SRV Priorité Poids Port Cible*.  
 
-Geben Sie die folgenden Werte an, um einen Verwaltungspunkt in Configuration Manager zu veröffentlichen:  
+Pour publier un point de gestion sur Configuration Manager, spécifiez les valeurs suivantes :  
 
--   **_Service**: Geben Sie **_mssms_mp**_&lt;sitecode\> ein, wobei &lt;sitecode\> der Standortcode des Verwaltungspunkts ist.  
--   **._Proto**: Geben Sie **._tcp**an.  
--   **.Name**: Geben Sie das DNS-Suffix des Verwaltungspunkts an, z. B. **contoso.com**.  
--   **TTL**: Geben Sie **14400**an, was vier Stunden bedeutet.  
--   **Klasse**: Geben Sie **IN** an (in Übereinstimmung mit RFC 1035).  
--   **Priorität**: Dieses Feld wird nicht von Configuration Manager verwendet.
--   **Gewichtung**: Dieses Feld wird nicht von Configuration Manager verwendet.  
--   **Port**: Geben Sie die Portnummer des Verwaltungspunkts ein, beispielsweise **80** für HTTP und **443** für HTTPS.  
+-   **_Service** : entrez **_mssms_mp**_&lt;code_site\>, où &lt;code_site\> est le code du site du point de gestion.  
+-   **._Proto**: spécifiez **._tcp**.  
+-   **.Name**: entrez le suffixe DNS du point de gestion, par exemple **contoso.com**.  
+-   **TTL**: entrez **14400**, ce qui correspond à quatre heures.  
+-   **Class**: spécifiez **IN** (conformément à la norme RFC 1035).  
+-   **Priorité** : Configuration Manager n’utilise pas ce champ.
+-   **Poids** : Configuration Manager n’utilise pas ce champ.  
+-   **Port**: entrez le numéro de port que le point de gestion utilise, par exemple **80** pour HTTP et **443** pour HTTPS.  
 
     > [!NOTE]  
-    >  Der Port für den SRV-Datensatz sollte dem vom Verwaltungspunkt verwendeten Kommunikationsport entsprechen. Standardmäßig ist dies **80** für die HTTP-Kommunikation und **443** für die HTTPS-Kommunikation.  
+    >  Le port de l’enregistrement SRV doit correspondre au port de communication utilisé par le point de gestion. Par défaut, le port **80** est utilisé pour les communications HTTP et le port **443** pour les communications HTTPS.  
 
--   **Ziel**: Geben Sie den Intranet-FQDN des Standortsystems an, das mit der Standortrolle „Verwaltungspunkt“ konfiguriert ist.  
+-   **Cible**: entrez le nom de domaine complet de l'intranet spécifié pour le système de site configuré avec le rôle de site de point de gestion.  
 
-Wenn Sie Windows Server DNS verwenden, können Sie diesen DNS-Eintrag anhand des folgenden Verfahrens für Intranet-Verwaltungspunkte eingeben. Wenn Sie für DNS eine andere Implementierung verwenden, prüfen Sie in der DNS-Dokumentation anhand der Informationen zu den Feldwerten in diesem Abschnitt, wie Sie dieses Verfahren anpassen müssen.  
+Si vous utilisez le DNS Windows Server, vous pouvez utiliser la procédure suivante pour entrer cet enregistrement DNS pour les points de gestion intranet. Si vous utilisez une autre implémentation de DNS, utilisez les informations de cette section sur les valeurs de champ et consultez la documentation de ce DNS pour adapter cette procédure.  
 
-##### <a name="to-configure-automatic-publishing"></a>So konfigurieren Sie die automatische Veröffentlichung:  
+##### <a name="to-configure-automatic-publishing"></a>Pour configurer la publication automatique :  
 
-1.  Erweitern Sie in der Configuration Manager-Konsole **Verwaltung** > **Standortkonfiguration** > **Standorte**.  
+1.  Dans la console Configuration Manager, développez **Administration** > **Configuration du site** > **Sites**.  
 
-2.  Wählen Sie Ihren Standort aus, und wählen Sie dann **Standortkomponenten konfigurieren** aus.  
+2.  Sélectionnez votre site, puis cliquez sur **Configurer les composants de site**.  
 
-3.  Wählen Sie **Verwaltungspunkt** aus.  
+3.  Sélectionnez **Point de gestion**.  
 
-4.  Wählen Sie die Verwaltungspunkte aus, die Sie veröffentlichen möchten. (Diese Option gilt für die Veröffentlichung in AD DS und DNS.)  
+4.  Sélectionnez les points de gestion à publier. (Cette sélection s’applique à la publication dans AD DS et DNS.)  
 
-5.  Aktivieren Sie das Kontrollkästchen für die DNS-Veröffentlichung. Dieses Feld bietet folgende Möglichkeiten:  
+5.  Cochez la case pour publier dans DNS. Cette case :  
 
-    -   Sie können auswählen, welche Verwaltungspunkte in DNS veröffentlicht werden.  
+    -   Permet de sélectionner les points de gestion à publier dans DNS.  
 
-    -   Es wird nicht die Veröffentlichung in AD DS konfiguriert.  
+    -   Ne configure pas la publication dans AD DS.  
 
-##### <a name="to-manually-publish-management-points-to-dns-on-windows-server"></a>So können Sie Verwaltungspunkte unter Windows Server manuell in DNS veröffentlichen  
+##### <a name="to-manually-publish-management-points-to-dns-on-windows-server"></a>Pour publier manuellement des points de gestion dans DNS sur Windows Server  
 
-1.  Geben Sie in der Configuration Manager-Konsole die Intranet-FQDNs der Standortsysteme an.  
+1.  Dans la console Configuration Manager, spécifiez les noms de domaine complets d'intranet des systèmes de site.  
 
-2.  Wählen Sie in der DNS-Verwaltungskonsole die DNS-Zone für den Verwaltungspunktcomputer aus.  
+2.  Dans la console de gestion DNS, sélectionnez la zone DNS de l'ordinateur du point de gestion.  
 
-3.  Überprüfen Sie, ob es einen Hostdatensatz (A oder AAAA) für den Intranet-FQDN des Standortsystems gibt. Ist dieser Datensatz nicht vorhanden, erstellen Sie ihn.  
+3.  Vérifiez qu'il existe un enregistrement d'hôte (A ou AAAA) pour le nom de domaine complet d'intranet du système de site. Si cet enregistrement n'existe pas, créez-le.  
 
-4.  Verwenden Sie die Option **Neue andere Einträge**. Wählen Sie im Dialogfeld **Ressourceneintragstyp** die Option **Dienstidentifizierung (SRV)** aus. Wählen Sie **Eintrag erstellen** aus, geben Sie die folgenden Informationen ein, und wählen Sie dann **Fertig** aus:  
+4.  À l’aide de l’option **New Other Records (Autres nouveaux enregistrements)**, cliquez sur **Emplacement du service (SRV)** dans la boîte de dialogue **Type d’enregistrement de ressource**, cliquez sur **Créer un enregistrement**, entrez les informations suivantes, puis choisissez **Terminé** :  
 
-    -   **Domäne**: Geben Sie bei Bedarf das DNS-Suffix des Verwaltungspunkts an, z. B. **contoso.com**.  
-    -   **Dienst**: Geben Sie **_mssms_mp**_&lt;sitecode\> ein, wobei &lt;sitecode\> der Standortcode des Verwaltungspunkts ist.  
-    -   **Protokoll**: Geben Sie **_tcp**ein.  
-    -   **Priorität**: Dieses Feld wird nicht von Configuration Manager verwendet.  
-    -   **Gewichtung**: Dieses Feld wird nicht von Configuration Manager verwendet.  
-    -   **Port**: Geben Sie die Portnummer des Verwaltungspunkts ein, beispielsweise **80** für HTTP und **443** für HTTPS.  
+    -   **Domain**: si nécessaire, entrez le suffixe DNS du point de gestion, par exemple **contoso.com**.  
+    -   **Service** : tapez **_mssms_mp**_&lt;code_site\>, où &lt;code_site\> est le code de site du point de gestion.  
+    -   **Protocol**: entrez **_tcp**.  
+    -   **Priorité** : Configuration Manager n’utilise pas ce champ.  
+    -   **Poids** : Configuration Manager n’utilise pas ce champ.  
+    -   **Port**: entrez le numéro de port que le point de gestion utilise, par exemple **80** pour HTTP et **443** pour HTTPS.  
 
         > [!NOTE]  
-        >  Der Port für den SRV-Datensatz sollte dem vom Verwaltungspunkt verwendeten Kommunikationsport entsprechen. Standardmäßig ist dies **80** für die HTTP-Kommunikation und **443** für die HTTPS-Kommunikation.  
+        >  Le port de l’enregistrement SRV doit correspondre au port de communication utilisé par le point de gestion. Par défaut, le port **80** est utilisé pour les communications HTTP et le port **443** pour les communications HTTPS.  
 
-    -   **Diesen Dienst anbietender Host**: Geben Sie den Intranet-FQDN des Standortsystems an, das mit der Standortrolle „Verwaltungspunkt“ konfiguriert ist.  
+    -   **Hôte offrant ce service** : entrez le nom de domaine complet de l’intranet, spécifié pour le système de site configuré avec le rôle de site du point de gestion.  
 
-Wiederholen Sie diese Schritte für jeden Verwaltungspunkt im Intranet, der in DNS veröffentlicht werden soll.  
+Répétez ces étapes pour chaque point de gestion de l'intranet que vous souhaitez publier dans DNS.  
 
 ##  <a name="bkmk_wins"></a> WINS  
-Falls andere Dienstidentifizierungsmechanismen erfolglos bleiben, kann durch Überprüfen von WINS ein erster Verwaltungspunkt gefunden werden.  
+En cas d'échec d'autres mécanismes d'emplacement de service, les clients peuvent trouver un point de gestion initial en examinant WINS.  
 
-Standardmäßig veröffentlicht ein primärer Standort in WINS den ersten Verwaltungspunkt am Standort, der für HTTP konfiguriert ist, und den ersten Verwaltungspunkt, der für HTTPS konfiguriert ist.  
+Par défaut, un site principal publie dans WINS le premier point de gestion du site configuré pour le protocole HTTP et le premier point de gestion configuré pour le protocole HTTPS.  
 
-Wenn Sie nicht wünschen, dass ein HTTP-Verwaltungspunkt in WINS gefunden wird, konfigurieren Sie für Clients die Client.msi-Eigenschaft **SMSDIRECTORYLOOKUP=NOWINS**mit CCMSetup.exe.  
+Si vous ne souhaitez pas que les clients trouvent un point de gestion HTTP dans WINS, configurez les clients avec la propriété CCMSetup.exe Client.msi **SMSDIRECTORYLOOKUP=NOWINS**.  

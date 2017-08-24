@@ -1,6 +1,6 @@
 ---
-title: Importieren von Konfigurationsdaten | Microsoft-Dokumentation
-description: "Konfigurationsdaten können importiert werden, wenn sie sich in einer CAB-Datei befinden und dem unterstützten SML-Schema (Service Modeling Language) entsprechen."
+title: "Importer des données de configuration | Microsoft Docs"
+description: "Importez des données de configuration contenues dans un fichier CAB et conformes au schéma SML (Service Modeling Language) pris en charge."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -18,43 +18,43 @@ manager: angrobe
 ms.openlocfilehash: 60d0642618a3074fc50a848f1189f4d6559ca916
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="import-configuration-data-with-system-center-configuration-manager"></a>Importieren von Konfigurationsdaten mit System Center Configuration Manager
+# <a name="import-configuration-data-with-system-center-configuration-manager"></a>Importer des données de configuration avec System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Zusätzlich zur Erstellung von Konfigurationsbaselines und Konfigurationselementen mit der System Center Configuration Manager-Konsole können Sie Konfigurationsdaten importieren, wenn diese im CAB-Dateiformat vorliegen und dem unterstützten SML-Schema (Service Modeling Language) entsprechen. Folgende Konfigurationsdaten können importiert werden:  
+Vous pouvez créer des bases de référence de configuration et des éléments de configuration dans la console System Center Configuration Manager, mais également importer des données de configuration contenues dans un fichier CAB (.cab) et conformes au schéma SML (Service Modeling Language) pris en charge. Vous pouvez importer les données de configuration suivantes :  
 
--   Bewährte Konfigurationsdaten (Konfigurationspakete), die von der Microsoft-Website oder Websites anderer Softwarehersteller heruntergeladen wurden.  
+-   Données de configuration recommandées (packs de configuration) téléchargées à partir de Microsoft ou d’autres sites d’éditeurs de logiciels.  
 
--   Konfigurationsdaten, die aus System Center 2012 Configuration Manager und höher exportiert wurden.  
+-   Données de configuration exportées à partir de System Center 2012 Configuration Manager et versions ultérieures.  
 
--   Konfigurationsdaten, die extern erstellt wurden und dem SML-Schema entsprechen.  
+-   Données de configuration créées en externe et conformes au schéma SML.  
 
- Ein Beispiel für ein Konfigurationspaket, das Sie bei der Verwaltung der Kompatibilität von Standortserverrollen für System Center 2012 Configuration Manager unterstützt, finden Sie unter [Konfigurationspaket für System Center 2012 Configuration Manager](http://www.microsoft.com/en-us/download/details.aspx?id=30710&WT.mc_id=rss_alldownloads_all).  
+ Pour obtenir un exemple de pack de configuration qui vous permet de gérer la compatibilité aux rôles de serveur de site System Center 2012 Configuration Manager, consultez [Pack de configuration de System Center 2012 Configuration Manager](http://www.microsoft.com/en-us/download/details.aspx?id=30710&WT.mc_id=rss_alldownloads_all).  
 
-Wenn Sie eine Konfigurationsbasislinie importieren, können einige oder alle der Konfigurationselemente, auf die in der Konfigurationsbasislinie verwiesen wird, auch in der CAB-Datei enthalten sein. Während des Imports überprüft Configuration Manager, ob alle Konfigurationselemente, auf die in der Konfigurationsbaseline verwiesen wird, in der CAB-Datei enthalten oder bereits am Configuration Manager-Standort vorhanden sind. Der Import kann nicht ausgeführt werden, wenn Sie versuchen, eine Konfigurationsbaseline zu importieren, die auf durch Configuration Manager nicht auffindbare Konfigurationsdaten verweist.  
+Lorsque vous importez une ligne de base de configuration, une partie ou la totalité des éléments de configuration référencés dans la ligne de base peuvent être également inclus dans le fichier CAB. Pendant le processus d’importation, Configuration Manager vérifie que tous les éléments de configuration référencés dans la base de référence de configuration sont également inclus dans le fichier CAB ou qu’ils existent déjà sur le site Configuration Manager. Le processus d’importation échoue si vous tentez d’importer une base de référence de configuration qui fait référence à des données de configuration que Configuration Manager ne trouve pas.  
 
-In den folgenden Szenarien kann der Import ebenfalls nicht ausgeführt werden:  
+L'importation risque d'échouer dans d'autres cas également. Par exemple :  
 
--   Die Konfigurationdaten verweisen auf Konfigurationsdaten, die Configuration Manager weder in seiner Datenbank, noch in der CAB-Datei selbst finden kann.  
+-   Les données de configuration font référence à des données que Configuration Manager ne parvient pas à localiser, soit dans sa base de données, soit dans le fichier CAB lui-même.  
 
--   Die Konfigurationsdaten sind bereits in der Configuration Manager-Datenbank mit demselben Namen und derselben Konfigurationsdatenversion, jedoch mit einer anderen Inhaltsversion vorhanden.  
+-   Les données de configuration sont déjà présentes dans la base de données Configuration Manager avec un nom et une version identiques, mais la version du contenu est différente.  
 
--   Die Konfigurationsdaten sind bereits in der Configuration Manager-Datenbank mit derselben Inhaltsversion vorhanden, doch die Hashberechnung identifiziert sie als unterschiedliche Daten.  
+-   Les données de configuration sont déjà présentes dans la base de données Configuration Manager avec la même version de contenu, mais le calcul du hachage les identifie comme différentes.  
 
--   In der Configuration Manager-Datenbank ist bereits eine neuere Version der Konfigurationsdaten mit demselben Namen vorhanden oder wurde vor kurzem gelöscht.  
+-   Une version plus récente des données de configuration avec le même nom est déjà présente (ou a récemment été supprimée) dans la base de données Configuration Manager.  
 
--   In einer Configuration Manager-Hierarchie mit mehreren Standorten wurden die Konfigurationsdaten ursprünglich von einem übergeordneten Standort importiert. Sie müssen von demselben Standort aus aktualisiert werden und nicht von einem untergeordneten Standort aus.  
+-   Dans une hiérarchie Configuration Manager à plusieurs sites, les données de configuration ont été initialement importées depuis un site parent. Vous devez les mettre à jour à partir du même site et non pas d'un site enfant.  
 
-### <a name="import-configuration-data"></a>Importieren von Konfigurationsdaten  
+### <a name="import-configuration-data"></a>Importer des données de configuration  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Bestand und Kompatibilität** > **Konfigurationselement** oder **Konfigurationsbaselines**
-2.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** auf **Konfigurationsdaten importieren**.  
-3.  Klicken Sie im **Assistenten zum Importieren von Konfigurationsdaten** auf der Seite **Dateien auswählen**auf **Hinzufügen**, und wählen Sie dann im Dialogfeld **Öffnen** die zu importierenden CAB-Dateien aus.  
-4.  Aktivieren Sie das Kontrollkästchen **Kopie der importierten Konfigurationsbaselines und Konfigurationselemente erstellen**, um die Bearbeitung der importierten Konfigurationsdaten in der Configuration Manager-Konsole zu ermöglichen.  
-5.  Überprüfen Sie auf der Seite **Zusammenfassung** des Assistenten die auszuführenden Aktionen, und schließen Sie anschließend den Assistenten ab.  
+1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité** > **Éléments de configuration** ou **Lignes de base de configuration**
+2.  Sous l’onglet **Accueil**, dans le groupe **Créer**, cliquez sur **Importer des données de configuration**.  
+3.  Dans la page **Sélectionner des fichiers** de l’Assistant **Importer des données de configuration**, cliquez sur **Ajouter**, puis, dans la boîte de dialogue **Ouvrir** , sélectionnez les fichiers .cab à importer.  
+4.  Cochez la case **Créer une nouvelle copie des lignes de base de la configuration importée et des éléments de configuration** pour que les données de configuration importées soient modifiables dans la console Configuration Manager.  
+5.  Dans la page **Résumé**, passez en revue les actions qui seront exécutées, puis terminez l’Assistant.  
 
-Die importierten Konfigurationsdaten werden im Arbeitsbereich **Bestand und Kompatibilität** im Knoten **Kompatibilitätseinstellungen** angezeigt.  
+Les données de configuration importées apparaissent dans le nœud **Paramètres de compatibilité** de l’espace de travail **Ressources et Conformité**.  

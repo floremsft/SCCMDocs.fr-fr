@@ -1,6 +1,6 @@
 ---
-title: Planen der Clientbereitstellung auf Macintosh-Computern | Microsoft-Dokumentation
-description: Planen Sie die Clientbereitstellung auf Macintosh-Computern in System Center Configuration Manager.
+title: "Planification du déploiement du client sur des ordinateurs Mac | Microsoft Docs"
+description: "Planifiez le déploiement de clients sur des ordinateurs Mac dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
@@ -18,93 +18,93 @@ manager: angrobe
 ms.openlocfilehash: 75bddb41d4d1cf209fa7595c52b5a6aa831ba3dd
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="planning-for-client-deployment-to-mac-computers-in-system-center-configuration-manager"></a>Planen der Clientbereitstellung auf Macintosh-Computern in System Center Configuration Manager
+# <a name="planning-for-client-deployment-to-mac-computers-in-system-center-configuration-manager"></a>Planification du déploiement du client pour les ordinateurs Mac dans System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Sie können den Configuration Manager-Client auf Macintosh-Computern installieren, auf denen Mac OS X ausgeführt wird, und die folgenden Verwaltungsfunktionen verwenden:  
+Vous pouvez installer le client Configuration Manager sur des ordinateurs Mac qui exécutent le système d’exploitation Mac OS X et utilisent les fonctionnalités de gestion suivantes :  
 
--   **Hardwareinventur**  
+-   **Inventaire matériel**  
 
-     Mit der Configuration Manager-Hardwareinventur können Sie Informationen über die Hardware und die installierten Anwendungen auf Macintosh-Computern sammeln. Diese Informationen können dann in der Configuration Manager-Konsole im Ressourcen-Explorer angezeigt und zum Erstellen von Sammlungen, Abfragen und Berichten verwendet werden. Weitere Informationen finden Sie unter [How to Use Resource Explorer to View Hardware Inventory in Configuration Manager (Verwenden des Ressourcen-Explorers zum Anzeigen von Hardwareinventur in System Center Configuration Manager)](../../../../core/clients/manage/inventory/use-resource-explorer-to-view-hardware-inventory.md).  
+     Vous pouvez utiliser l’inventaire matériel de Configuration Manager pour collecter des informations sur le matériel et les applications installées sur des ordinateurs Mac. Consultez ensuite ces informations dans l’Explorateur de ressources dans la console Configuration Manager et utilisez-les pour créer des regroupements, des requêtes et des rapports. Pour plus d’informations, consultez [Guide pratique pour utiliser l’Explorateur de ressources pour afficher l’inventaire matériel dans System Center Configuration Manager](../../../../core/clients/manage/inventory/use-resource-explorer-to-view-hardware-inventory.md).  
 
-     Die folgenden Hardwareinformationen über Macintosh-Computer werden von Configuration Manager gesammelt:  
+     Configuration Manager collecte les informations matérielles suivantes auprès des ordinateurs Mac :  
 
-    -   Prozessor  
+    -   Processeur  
 
-    -   Computersystem  
+    -   Système informatique  
 
-    -   Laufwerk  
+    -   Lecteur de disque  
 
-    -   Datenträgerpartition  
+    -   Partition de disque  
 
-    -   Netzwerkkarte  
+    -   Carte réseau  
 
-    -   Betriebssystem  
+    -   Système d'exploitation  
 
-    -   Dienst  
+    -   Service  
 
-    -   Prozess  
+    -   Processus  
 
-    -   Installierte Software  
+    -   Logiciel installé  
 
-    -   Computersystemprodukt  
+    -   Produit système informatique  
 
-    -   USB-Controller  
+    -   Contrôleur USB  
 
-    -   USB-Gerät  
+    -   Périphérique USB  
 
-    -   CD-ROM-Laufwerk  
+    -   Lecteur de CD-ROM  
 
-    -   Videocontroller  
+    -   Contrôleur vidéo  
 
-    -   Desktopmonitor  
+    -   Moniteur du Bureau  
 
-    -   Tragbare Batterie  
+    -   Batterie portable  
 
-    -   Physischer Speicher  
+    -   Mémoire physique  
 
-    -   Drucker  
+    -   Imprimante  
 
     > [!IMPORTANT]  
-    >  Die Hardwareinformationen, die bei der Hardwareinventur über Macintosh-Computer gesammelt werden, können nicht erweitert werden.  
+    >  Vous ne pouvez pas étendre les informations matérielles collectées à partir d'ordinateurs Mac pendant un inventaire matériel.  
 
--   **Kompatibilitätseinstellungen**  
+-   **Paramètres de compatibilité**  
 
-     Mit den Configuration Manager-Kompatibilitätseinstellungen können Sie die Kompatibilität von Mac OS X-Einstellungen (PLIST) anzeigen und diese Einstellungen wiederherstellen. Beispielsweise können Sie Einstellungen für die Startseite im Safari-Webbrowser erzwingen oder sicherstellen, dass die Apple-Firewall aktiviert ist. Sie können Einstellungen in Mac OS X auch mit Shellskripts überwachen und wiederherstellen.  
+     Vous pouvez utiliser les paramètres de compatibilité de Configuration Manager pour afficher la compatibilité des paramètres de préférence (.plist) Mac OS X et les corriger. Par exemple, vous pouvez appliquer des paramètres pour la page d'accueil du navigateur web Safari ou veiller à ce que le pare-feu Apple soit activé. Vous pouvez également utiliser des scripts Shell pour surveiller et corriger des paramètres dans MAC OS X.  
 
--   **Anwendungsverwaltung**  
+-   **Gestion des applications**  
 
-     Configuration Manager kann Software für Macintosh-Computer bereitstellen. Sie können die folgenden Softwareformate auf Macintosh-Computern bereitstellen:  
+     Configuration Manager peut déployer des logiciels sur les ordinateurs Mac. Vous pouvez déployer les formats logiciels suivants sur les ordinateurs Mac :  
 
-    -   Apple Disk Image (.DMG)  
+    -   Image disque Apple (.DMG)  
 
-    -   Meta Package-Datei (.MPKG)  
+    -   Fichier métapaquet (.MPKG)  
 
-    -   Mac OS X Installer-Paket (.PKG)  
+    -   Paquet d'installation Mac OS X (.PKG)  
 
-    -   Mac OS X-Anwendung (.APP)  
+    -   Application Mac OS X (.APP)  
 
- Wenn Sie den Configuration Manager-Client auf Macintosh-Computern installieren, können Sie die folgenden Verwaltungsfunktionen nicht verwenden, die vom Configuration Manager-Client auf Windows-basierten Computern unterstützt werden:  
+ Quand vous installez le client Configuration Manager sur des ordinateurs Mac, vous ne pouvez pas utiliser les fonctionnalités de gestion suivantes prises en charge par le client Configuration Manager sur les ordinateurs Windows :  
 
--   Clientpushinstallation  
+-   Installation poussée du client  
 
--   Betriebssystembereitstellung  
+-   Déploiement du système d'exploitation  
 
--   Softwareupdates  
+-   Mises à jour logicielles  
 
     > [!NOTE]  
-    >  Mit der Configuration Manager-Anwendungsverwaltung können Sie erforderliche Mac OS X-Softwareupdates auf Macintosh-Computern bereitstellen. Darüber hinaus können Sie mithilfe von Kompatibilitätseinstellungen sicherstellen, dass auf Computern alle erforderlichen Softwareupdates verfügbar sind.  
+    >  Vous pouvez utiliser la gestion des applications Configuration Manager pour déployer des mises à jour logicielles Mac OS X requises sur les ordinateurs Mac. En outre, vous pouvez utiliser des paramètres de conformité pour vous assurer que les ordinateurs disposent des mises à jour logicielles requises.  
 
--   Wartungsfenster  
+-   Fenêtres de maintenance  
 
--   Remotesteuerung  
+-   Contrôle à distance  
 
--   Energieverwaltung  
+-   Gestion de l'alimentation  
 
--   Clientprüfung des Clientstatus und Wiederherstellung  
+-   Vérification et correction de l'état du client  
 
- Weitere Informationen zum Installieren und Konfigurieren des Configuration Manager-Macintosh-Clients finden Sie unter [How to deploy clients to Macs in System Center Configuration Manager (Bereitstellen von Clients auf Macintosh-Computern in System Center Configuration Manager)](../../../../core/clients/deploy/deploy-clients-to-macs.md).
+ Pour plus d’informations sur la manière d’installer et de configurer le client Mac Configuration Manager, consultez [Guide pratique pour déployer des clients sur des Mac dans System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-macs.md).

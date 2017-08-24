@@ -1,6 +1,6 @@
 ---
-title: Verwalten einer Servergruppe | Microsoft-Dokumentation
-description: "Die System Center Configuration Manager-Konsole stellt Warnungen und Status zum Überwachen von Updates und Kompatibilität bereit."
+title: "Maintenance d’un groupe de serveurs | Documents Microsoft"
+description: "La console System Center Configuration Manager fournit des alertes et des états pour surveiller les mises à jour et la compatibilité."
 keywords: 
 author: dougeby
 ms.author: dougeby
@@ -14,49 +14,49 @@ ms.assetid: 304a83ea-0f72-437d-9688-2e6e0c7526dd
 ms.openlocfilehash: ae09a02dd5d67113b9a7e2ce146c844efa4caf55
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
 >[!IMPORTANT]
->Dies ist ein Vorabfeature, das in den Configuration Manager-Versionen 1606 und 1610 verfügbar ist. Vorab veröffentlichte Features werden in das Produkt aufgenommen, um sie in einem frühen Stadium in einer Produktionsumgebung zu testen. Sie sollten nicht als für den Produktivbetrieb geeignet betrachtet werden. Aktivieren Sie dieses Feature, um es verfügbar zu machen. Weitere Informationen finden Sie unter [Use pre-release features from updates](https://docs.microsoft.com/sccm/core/servers/manage/install-in-console-updates#bkmk_prerelease) (Verwenden von Vorabfeatures aus Updates).
+>Il s’agit d’une fonctionnalité préliminaire disponible dans Configuration Manager version 1606 et version 1610. Des fonctionnalités en préversion sont incluses dans le produit à des fins de test anticipé en environnement de production, mais ne doivent pas être considérées comme prêtes pour une utilisation en production. Vous devez activer cette fonctionnalité pour qu’elle soit disponible. Pour plus d’informations, consultez [Utiliser des fonctionnalités de préversions de mises à jour](https://docs.microsoft.com/sccm/core/servers/manage/install-in-console-updates#bkmk_prerelease).
 
 
-# <a name="service-a-server-group"></a>Bereitstellung einer Servergruppe
+# <a name="service-a-server-group"></a>Maintenance de groupe de serveurs
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-In System Center Configuration Manager können Sie ab Version 1606 Servergruppeneinstellungen für eine Sammlung konfigurieren und so festlegen, auf wie vielen Computern, auf wie viel Prozent der Computer oder in welcher Reihenfolge auf Computern in der Sammlung Softwareupdates installiert werden. Zudem können Sie auch PowerShell-Skripts zum Ausführen von benutzerdefinierten Aktionen vor und nach der Bereitstellung konfigurieren.
+À partir de System Center Configuration Manager version 1606, vous pouvez configurer les paramètres de groupe de serveurs pour un regroupement, afin de définir le nombre, le pourcentage ou l’ordre des ordinateurs du regroupement qui installeront les mises à jour logicielles. Vous pouvez également configurer des scripts PowerShell de prédéploiement et de post-déploiement pour exécuter des actions personnalisées.
 
-Wenn Sie für eine Sammlung, für die Servergruppeneinstellungen konfiguriert wurden, Softwareupdates bereitstellen, wird von Configuration Manager ermittelt, auf wie vielen Computern in der Sammlung die Softwareupdates zu einem bestimmten Zeitpunkt installiert werden können. Zudem wird diese Anzahl von Bereitstellungssperren zur Verfügung gestellt. Nur auf Computern mit Bereitstellungssperre wird die Installation von Softwareupdates gestartet. Wenn eine Bereitstellungssperre verfügbar ist, wird diese einem Computer zugewiesen. Auf diesem werden die Softwareupdates installiert. Nach der erfolgreichen Installation der Softwareupdates wird die Bereitstellungssperre wieder freigegeben. Danach ist die Bereitstellungssperre für andere Computer verfügbar. Wenn auf einem Computer die Bereitstellungssperre nicht freigegeben werden kann, können Sie alle Bereitstellungssperren der Servergruppe in der Sammlung manuell freigeben.
+Lorsque vous déployez des mises à jour logicielles dans un regroupement dont les paramètres de groupe de serveurs sont configurés, Configuration Manager détermine le nombre d’ordinateurs du regroupement qui peuvent installer les mises à jour logicielles à un moment donné quelconque et met à disposition le même nombre de verrous de déploiement. Seuls les ordinateurs qui obtiennent un verrou de déploiement commenceront l’installation des mises à jour logicielles. Lorsqu’un verrou de déploiement est disponible, un ordinateur obtient le verrou de déploiement, installe les mises à jour logicielles, puis libère le verrou de déploiement lorsque l’installation des mises à jour logicielles se termine correctement. Ensuite, le verrou de déploiement devient disponible pour d’autres ordinateurs. Si un ordinateur ne parvient pas à libérer un verrou de déploiement, vous pouvez libérer manuellement tous les verrous de déploiement de groupe de serveurs pour le regroupement.
 
 >[!IMPORTANT]
->Hierzu müssen alle Computer in der Sammlung demselben Standort zugewiesen sein.
+>Tous les ordinateurs du regroupement doivent être affectés au même site.
 
-#### <a name="to-create-a-collection-for-a-server-group"></a>So erstellen Sie eine Sammlung für eine Servergruppe  
-Die Servergruppeneinstellungen werden in den Eigenschaften für eine Gerätesammlung konfiguriert. Damit eine Servergruppe verwaltet werden kann, müssen alle Mitglieder in einer Sammlung demselben Standort zugewiesen sein. Gehen Sie folgendermaßen vor, um eine Sammlung zu erstellen und die Servergruppeneinstellungen zu konfigurieren:
-1.  [Erstellen Sie eine Gerätesammlung](../../core/clients/manage/collections/create-collections.md), die die Computer in der Servergruppe enthält.  
+#### <a name="to-create-a-collection-for-a-server-group"></a>Pour créer un regroupement pour un groupe de serveurs  
+Les paramètres du groupe de serveurs sont configurés dans les propriétés d’un regroupement d’appareils. Pour effectuer la maintenance d’un groupe de serveurs, tous les membres du regroupement doivent être affectés au même site. Utilisez les étapes suivantes pour créer un regroupement et configurer les paramètres du groupe de serveurs :
+1.  [Créez un regroupement d’appareils](../../core/clients/manage/collections/create-collections.md) contenant les ordinateurs du groupe de serveurs.  
 
-2.  Klicken Sie im Arbeitsbereich **Bestand und Kompatibilität** auf **Gerätesammlungen**, klicken Sie mit der rechten Maustaste auf die Sammlung mit den Computern in der Servergruppe, und klicken Sie anschließend auf **Eigenschaften**.  
+2.  Dans l’espace de travail **Ressources et Conformité**, cliquez sur **Regroupements d’appareils**, cliquez avec le bouton droit sur le regroupement qui contient les ordinateurs du groupe de serveurs, puis cliquez sur **Propriétés**.  
 
-3.  Wählen Sie auf der Registerkarte **Allgemein** die Option **Alle Geräte gehören derselben Servergruppe an** aus, und klicken Sie auf **Einstellungen**.  
+3.  Sous l’onglet **Général**, sélectionnez **Tous les appareils font partie du même groupe de serveurs**, puis cliquez sur **Paramètres**.  
 
-4.  Legen Sie auf der Seite **Servergruppeneinstellungen** eine der folgenden Einstellungen fest:  
+4.  Dans la page **Paramètres de groupe de serveurs**, spécifiez l’un des paramètres suivants :  
 
-    -   **Zulassen, dass ein bestimmter Prozentsatz der Computer gleichzeitig aktualisiert wird**: Gibt an, dass nur ein bestimmter Prozentsatz von Clients gleichzeitig aktualisiert wird. Wenn eine Sammlung beispielsweise 10 Clients enthält und für die Sammlung festgelegt wurde, dass 30 % der Clients gleichzeitig aktualisiert werden, werden Softwareupdates immer nur auf 3 Clients gleichzeitig installiert.  
+    -   **Autorisez un pourcentage des machines à être mises à jour en même temps** : Spécifie que seul un certain pourcentage de clients sont mis à jour à un moment quelconque. Si, par exemple, le regroupement compte 10 clients, et qu’il est configuré pour mettre à jour 30 % des clients en même temps, seuls 3 clients installeront les mises à jour logicielles à un moment donné quelconque.  
 
-    -   **Zulassen, dass eine bestimmte Anzahl von Computern gleichzeitig aktualisiert wird**: Gibt an, dass nur eine bestimmte Anzahl von Clients gleichzeitig aktualisiert wird.  
+    -   **Autorisez un nombre de machines à être mises à jour en même temps** : Spécifie que seul un certain nombre de clients sont mis à jour à un moment quelconque.  
 
-    -   **Angeben der Wartungssequenz**: Gibt an, dass die Clients in der Sammlung in der von Ihnen festgelegten Reihenfolge nacheinander aktualisiert werden. Auf einem Client werden Softwareupdates erst installiert, nachdem die Installation von Softwareupdates auf dem Client abgeschlossen ist, der sich in der Liste vor diesem Client befindet.  
+    -   **Spécifier la séquence de maintenance** : Spécifie que les clients du regroupement seront mis à jour l’un après l’autre, dans l’ordre que vous configurez. Un client installe les mises à jour logicielles après seulement que le client qui le précède dans la liste a terminé l’installation de ses mises à jour logicielles.  
 
-5.  Geben Sie an, ob ein Skript vor der Bereitstellung (Knoten sperren) oder ein Skript nach der Bereitstellung (Knoten fortsetzen) verwendet werden soll.  
+5.  Indiquez s’il convient d’utiliser un script de prédéploiement (drainage de nœud) ou un script de post-déploiement (relance de nœud).  
 
     > [!WARNING]
-    > Benutzerdefinierte Skripts werden nicht von Microsoft signiert. Es ist Ihre Aufgabe, die Integrität dieser Skripts zu verwalten.
+    > Les scripts personnalisés ne sont pas signés par Microsoft. Il vous incombe de préserver l’intégrité de ces scripts.
 
     > [!TIP]  
-    > Die folgenden Beispiele können Sie beim Testen für Skripts vor und nach der Bereitstellung verwenden, die die aktuelle Uhrzeit in eine Textdatei schreiben:  
+    > Voici des exemples que vous pouvez utiliser dans des tests de scripts de prédéploiement et de post-déploiement qui enregistrent l’heure actuelle dans un fichier texte :  
     >   
-    >  **Vor der Bereitstellung**  
+    >  **Prédéploiement**  
     >   
     >  `#Start`  
     >   
@@ -66,7 +66,7 @@ Die Servergruppeneinstellungen werden in den Eigenschaften für eine Gerätesamm
     >   
     >  `Out-File C:\temp\start.txt`  
     >   
-    >  **Nach der Bereitstellung**  
+    >  **Post-déploiement**  
     >   
     >  `#End`  
     >   
@@ -76,15 +76,15 @@ Die Servergruppeneinstellungen werden in den Eigenschaften für eine Gerätesamm
     >   
     >  `Out-File C:\temp\end.txt`  
 
-## <a name="deploy-software-updates-to-the-server-group-and-monitor-status"></a>Bereitstellen von Softwareupdates für die Servergruppe und Überwachen des Status  
-Softwareupdates werden für die Servergruppensammlung mit dem üblichen Bereitstellungsprozess bereitgestellt. Nach der Bereitstellung der Softwareupdates können Sie die Softwareupdatebereitstellung in der Configuration Manager-Konsole überwachen.
-1.  [Stellen Sie Softwareupdates](manually-deploy-software-updates.md) für die Servergruppensammlung bereit.   
+## <a name="deploy-software-updates-to-the-server-group-and-monitor-status"></a>Déployer des mises à jour logicielles dans le groupe de serveurs et surveiller leur état  
+Vous déployez des mises à jour logicielles dans le regroupement de groupe de serveurs à l’aide du processus de déploiement standard. Après avoir déployé les mises à jour logicielles, vous pouvez surveiller le déploiement des mises à jour logicielles dans la console Configuration Manager.
+1.  [Déployez les mises à jour logicielles](manually-deploy-software-updates.md) sur le regroupement du groupe de serveurs.   
 
-2.  [Überwachen Sie die Softwareupdatebereitstellung](monitor-software-updates.md). Hierbei wird neben den üblichen Überwachungsansichten für die Bereitstellung von Softwareupdates auch der Status **Auf Sperre wird gewartet** angezeigt, wenn ein Client auf die Installation der Softwareupdates wartet. In der Protokolldatei „UpdatesDeployment.log“ finden Sie weitere Informationen.
+2.  [Surveillez le déploiement des mises à jour logicielles](monitor-software-updates.md). Outre les affichages d’analyse standard pour le déploiement de mises à jour logicielles, l’état **En attente d’un verrou** est affiché lorsqu’un client attend son tour pour installer les mises à jour logicielles. Vous pouvez passer en revue le fichier UpdatesDeployment.log pour obtenir plus d’informations.
 
 
-## <a name="clear-the-deployment-locks-for-computers-in-a-server-group"></a>Löschen der Bereitstellungssperren für Computer in einer Servergruppe  
-Wenn auf einem Computer die Bereitstellungssperre nicht freigegeben werden kann, können Sie alle Bereitstellungssperren der Servergruppe in der Sammlung manuell freigeben. Löschen Sie Sperren nur, wenn bei einer Bereitstellung das Update von Computern in der Sammlung hängen bleibt und noch nicht kompatible Computer vorhanden sind.  
-1.  Klicken Sie zum Löschen von Bereitstellungssperren im Arbeitsbereich **Bestand und Kompatibilität** auf **Gerätesammlungen** und anschließend auf die entsprechende Sammlung.  
+## <a name="clear-the-deployment-locks-for-computers-in-a-server-group"></a>Désactivez les verrous de déploiement pour les ordinateurs d’un groupe de serveurs  
+Quand un ordinateur ne parvient pas à libérer un verrou de déploiement, vous pouvez libérer manuellement tous les verrous de déploiement de groupe de serveurs du regroupement. Désactivez les verrous uniquement lorsqu’un déploiement est bloqué lors de la mise à jour des ordinateurs du regroupement et que des ordinateurs ne sont toujours pas compatibles.  
+1.  Dans l’espace de travail **Ressources et Conformité**, cliquez sur **Regroupements d’appareils**, puis cliquez sur le regroupement pour désactiver les verrous de déploiement.  
 
-2.  Klicken Sie auf der Registerkarte **Start** in der Gruppe **Bereitstellung** auf **Bereitstellungssperren für Servergruppe löschen**. Wenn die Softwareupdates auf einem Client nicht installiert werden konnten und dadurch die Installation der Softwareupdates auf anderen Clients verhindert wird, können die Bereitstellungssperren manuell gelöscht werden.  
+2.  Sous l’onglet **Accueil**, dans le groupe **Déploiement**, cliquez sur **Supprimer les verrous de déploiement du groupe de serveurs**. Quand des clients ne parviennent pas à installer les mises à jour logicielles et empêchent les autres clients d’installer leurs mises à jour logicielles, les verrous de déploiement peuvent être désactivés manuellement.  

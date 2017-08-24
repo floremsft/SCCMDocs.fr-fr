@@ -1,6 +1,6 @@
 ---
-title: Einrichten Ihrer System Center Configuration Manager-Laborumgebung | Microsoft-Dokumentation
-description: "Richten Sie eine Laborumgebung ein, um Configuration Manager mit simulierten realen Aktivitäten zu evaluieren."
+title: Configurer votre laboratoire de System Center Configuration Manager | Microsoft Docs
+description: "Configurez un laboratoire pour évaluer Configuration Manager avec des activités réelles simulées."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -18,270 +18,270 @@ manager: angrobe
 ms.openlocfilehash: 11f5d0c3c61d675a8182e985f82e6af363b34592
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="set-up-your-system-center-configuration-manager-lab"></a>Einrichten Ihrer System Center Configuration Manager-Laborumgebung
+# <a name="set-up-your-system-center-configuration-manager-lab"></a>Configurer votre laboratoire de System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Gemäß der Anleitung in diesem Thema können Sie eine Laborumgebung einrichten, um Configuration Manager mit simulierten realen Aktivitäten zu evaluieren.  
+En suivant les recommandations de cette rubrique, vous pourrez mettre en place un laboratoire pour évaluer Configuration Manager en simulant des activités réelles.  
 
-##  <a name="BKMK_LabCore"></a> Kernkomponenten  
- Das Einrichten der Umgebung für System Center Configuration Manager erfordert einige Kernkomponenten, um die Installation von Configuration Manager zu unterstützen.    
+##  <a name="BKMK_LabCore"></a> Composants principaux  
+ La configuration de votre environnement pour System Center Configuration Manager requiert certains composants principaux pour prendre en charge l’installation de Configuration Manager.    
 
--   **Für die Laborumgebung wird das Betriebssystem Windows Server 2012 R2 verwendet**, unter dem System Center Configuration Manager installiert wird.  
+-   **L’environnement lab utilise Windows Server 2012 R2**, sur lequel nous allons installer System Center Configuration Manager.  
 
-     Sie können eine Evaluierungsversion von Windows Server 2012 R2 aus dem [TechNet Evaluierungscenter](https://www.microsoft.com/evalcenter/evaluate-windows-server-2012) herunterladen.  
+     Vous pouvez télécharger une version d’évaluation de Windows Server 2012 R2 à partir du [Centre d’évaluation TechNet](https://www.microsoft.com/evalcenter/evaluate-windows-server-2012).  
 
-     Ändern oder deaktivieren Sie ggf. „Verstärkte Sicherheitskonfiguration für Internet Explorer“, um einfacher auf einige der Downloads zuzugreifen, auf die in diesen Übungen Bezug genommen wird. Weitere Einblicke in WCF erhalten Sie unter [Internet Explorer: Verstärkte Sicherheitskonfiguration](https://technet.microsoft.com/en-us/library/dd883248\(v=ws.10\).aspx) .  
+     Envisagez de modifier ou de désactiver la configuration de sécurité renforcée d’Internet Explorer pour accéder plus facilement à certains téléchargements référencés tout au long de ces exercices. Consultez [Internet Explorer : Configuration de sécurité renforcée](https://technet.microsoft.com/en-us/library/dd883248\(v=ws.10\).aspx) .  
 
--   **Die Laborumgebung verwendet SQL Server 2012 SP2** für die Standortdatenbank.  
+-   **L’environnement lab utilise SQL Server 2012 SP2** pour la base de données de site.  
 
-     Sie können eine Evaluierungsversion von SQL Server 2012 aus dem [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=29066) herunterladen.  
+     Vous pouvez télécharger une version d’évaluation de SQL Server 2012 à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=29066).  
 
-     SQL Server verfügt über [Unterstützte Versionen von SQL Server](../../core/plan-design/configs/support-for-sql-server-versions.md#bkmk_SQLVersions), denen für die Verwendung mit System Center Configuration Manager Rechnung getragen werden muss.  
+     SQL Server a des [versions prises en charge de SQL Server](../../core/plan-design/configs/support-for-sql-server-versions.md#bkmk_SQLVersions) qui doivent être satisfaites pour pouvoir être utilisées avec System Center Configuration Manager.  
 
-    -   Configuration Manager erfordert eine 64-Bit-Version von SQL Server, um die Standortdatenbank zu hosten.  
+    -   Configuration Manager requiert une version 64 bits de SQL Server pour héberger la base de données de site.  
 
-    -   **SQL_Latin1_General_CP1_CI_AS** als **SQL Collation** -Klasse.  
+    -   **SQL_Latin1_General_CP1_CI_AS** en tant que classe **Classement SQL** .  
 
-    -   **Windows-Authentifizierung** [statt SQL-Authentifizierung](https://technet.microsoft.com/en-us/library/ms144284.aspx) is required.  
+    -   **L’authentification Windows**, [au lieu de l’authentification SQL](https://technet.microsoft.com/en-us/library/ms144284.aspx), est obligatoire.  
 
-    -   Eine dedizierte **SQL Server-Instanz** ist erforderlich.  
+    -   Une **instance SQL Server** dédiée est requise.  
 
-    -   Beschränken Sie nicht den **adressierbaren Systemspeicher** für SQL Server.  
+    -   Ne limitez pas la **mémoire adressable système** pour SQL Server.  
 
-    -   Konfigurieren Sie das **SQL Server-Dienstkonto** so, dass es mit dem Konto **Lokaler Domänenbenutzer** ausgeführt wird.  
+    -   Configurez le **compte de service SQL Server** pour l’exécuter à l’aide du compte d’**utilisateur local de domaine**.  
 
-    -   Sie müssen **SQL Server Reporting Services** installieren.  
+    -   Vous devez installer **SQL Server Reporting Services**.  
 
-    -   **Die Kommunikation zwischen Standorten** verwendet den SQL Server Service Broker auf TCP-Standardport 4022.  
+    -   **communications intersites** utilisent SQL Server Service Broker sur le port par défaut TCP 4022.  
 
-    -   **Die Kommunikation zwischen Standorten** zwischen dem SQL Server-Datenbankmodul und ausgewählten Configuration Manager-Standortsystemrollen verwendet den TCP-Standardport 1433.  
+    -   Les **communications intrasites** entre le moteur de base de données SQL Server et divers rôles de systèmes de site Configuration Manager utilisent par défaut le port TCP 1433.  
 
--   **Der Domänencontroller verwendet Windows Server 2008 R2**, wobei Active Directory Domain Services installiert ist. Der Domänencontroller fungiert auch als Host für den DHCP- und den DNS-Server zur Verwendung mit einem vollqualifzierten Domänennamen.  
+-   **Le contrôleur de domaine utilise Windows Server 2008 R2** avec Active Directory Domain Services. Le contrôleur de domaine fonctionne également en tant qu’hôte pour les serveurs DNS et DHCP à utiliser avec un nom de domaine complet.  
 
-     Weitere Informationen finden Sie in dieser [Übersicht von Active Directory Domain Services](https://technet.microsoft.com/en-us/library/hh831484).  
+     Pour plus d’informations, consultez cette [vue d’ensemble des services de domaine Active Directory](https://technet.microsoft.com/en-us/library/hh831484).  
 
--   **Hyper-V wird mit einigen virtuellen Computern verwendet**, um zu überprüfen, ob die in diesen Übungen ergriffenen Verwaltungsschritte wie erwartet funktionieren. Mindestens drei virtuelle Computer unter Windows 7 (oder höher) werden empfohlen.  
+-   **Hyper-V est utilisé avec quelques machines virtuelles** pour vérifier que les opérations de gestion entreprises dans ces exercices fonctionnent comme prévu. Un minimum de trois machines virtuelles est recommandé quand Windows 7 (ou version ultérieure) est installé.  
 
-     Weitere Informationen finden Sie in dieser [Übersicht über Hyper-V](https://technet.microsoft.com/en-us/library/hh831531.aspx).  
+     Pour plus d’informations, consultez cette [vue d’ensemble d’Hyper-V](https://technet.microsoft.com/en-us/library/hh831531.aspx).  
 
--   **Administratorberechtigungen** sind für all diese Komponenten erforderlich.  
+-   **Les droits d’administrateur** sont obligatoires  pour tous ces composants.  
 
-    -   Configuration Manager erfordert einen Administrator mit lokalen Berechtigungen innerhalb der Windows Server-Umgebung  
+    -   Configuration Manager nécessite un administrateur avec des autorisations locales dans l’environnement Windows Server  
 
-    -   Active Directory erfordert einen Administrator mit Berechtigungen zum Ändern des Schemas.  
+    -   Active Directory nécessite un administrateur avec des autorisations de modification du schéma  
 
-    -   Virtuelle Computer erfordern lokale Berechtigungen auf den Computern selbst.  
+    -   Les machines virtuelles nécessitent des autorisations locales sur les machines elles-mêmes  
 
-Unter [Unterstützte Konfigurationen für System Center Configuration Manager](../../core/plan-design/configs/supported-configurations.md) finden Sie weitere Informationen zu den Anforderungen für die Implementierung von System Center Configuration Manager, die allerdings für diese Laborumgebung nicht erforderlich sind. Lesen Sie die Dokumentation für andere als die hier erwähnten Softwareversionen.  
+Bien qu’elles ne soient pas requises pour ce laboratoire, vous pouvez consulter les [configurations prises en charge pour System Center Configuration Manager](../../core/plan-design/configs/supported-configurations.md) pour plus d’informations sur la configuration requise pour implémenter System Center Configuration Manager. Reportez-vous à la documentation pour les versions logicielles autres que celles référencées ici.  
 
-Nachdem Sie alle Komponenten installiert haben, müssen Sie weitere Schritte durchführen, um Ihre Windows-Umgebung für Configuration Manager zu konfigurieren:  
+Une fois que vous avez installé tous ces composants, des étapes supplémentaires sont à suivre pour configurer votre environnement Windows pour Configuration Manager :  
 
-###  <a name="BKMK_LabADPrep"></a> Vorbereiten von Active Directory-Inhalten für die Laborumgebung  
- Für diese Laborumgebung erstellen Sie eine Sicherheitsgruppe, der Sie anschließend einen Domänenbenutzer hinzufügen.  
+###  <a name="BKMK_LabADPrep"></a> Préparer le contenu d’Active Directory pour le laboratoire  
+ Pour ce laboratoire, vous allez créer un groupe de sécurité, puis lui ajouter un utilisateur de domaine.  
 
--   Sicherheitsgruppe: **Evaluation**  
+-   Groupe de sécurité : **Evaluation**  
 
-    -   Gruppenbereich: **Universal**  
+    -   Étendue du groupe : **Universal**  
 
-    -   Gruppentyp: **Security**  
+    -   Type de groupe : **Security**  
 
--   Domänenbenutzer: **ConfigUser**  
+-   Utilisateur du domaine : **ConfigUser**  
 
-     Unter normalen Umständen würden Sie nicht allen Benutzern in Ihrer Umgebung universellen Zugriff gewähren. Bei diesem Benutzer machen Sie eine Ausnahme, um Ihre Laborumgebung schneller online zu schalten.  
+     Dans des circonstances normales, vous n’accorderiez pas un accès universel à tous les utilisateurs au sein de votre environnement. Vous le faites ici avec cet utilisateur afin de rationaliser la mise en ligne de votre laboratoire.  
 
-Die nächsten Schritte, die erforderlich sind, um Configuration Manager-Clients die Abfrage von Standortressourcen von Active Directory Domain Services zu ermöglichen, werden in den nachfolgenden Verfahren behandelt.  
+Les étapes suivantes requises pour permettre aux clients Configuration Manager d’interroger les services de domaine Active Directory pour localiser les ressources de site sont répertoriées dans les procédures suivantes.  
 
-###  <a name="BKMK_CreateSysMgmtLab"></a> Erstellen des System Management-Containers  
- Der in Active Directory Domain Services erforderliche System Management-Container wird von Configuration Manager nicht automatisch erstellt, wenn das Schema erweitert wird. Daher müssen Sie ihn für diese Laborumgebung erstellen. Dieser Schritt erfordert die [Installation von ADSI Edit](https://technet.microsoft.com/en-us/library/cc773354\(WS.10\).aspx#BKMK_InstallingADSIEdit).  
+###  <a name="BKMK_CreateSysMgmtLab"></a> Créer le conteneur System Management  
+ Configuration Manager ne crée pas automatiquement le conteneur System Management requis dans les services de domaine Active Directory quand le schéma est étendu. Par conséquent, vous allez le créer pour votre laboratoire. Dans cette étape, vous devez [installer l’Éditeur ADSI.](https://technet.microsoft.com/en-us/library/cc773354\(WS.10\).aspx#BKMK_InstallingADSIEdit)  
 
- Stellen Sie sicher, dass Sie mit einem Konto angemeldet sind, das im Container **System** in den Active Directory-Domänendiensten über die Rechte **Alle untergeordneten Objekte erstellen** verfügt.  
+ Veillez à être connecté sous un compte possédant l’autorisation **Créer tous les objets enfants** sur le conteneur **System** dans les services de domaine Active Directory.  
 
-##### <a name="to-create-the-system-management-container"></a>So erstellen Sie den System Management-Container  
+##### <a name="to-create-the-system-management-container"></a>Pour créer le conteneur System Management :  
 
-1.  Führen Sie **ADSI Edit**aus, und stellen Sie eine Verbindung mit der Domäne her, in der sich der Standortserver befindet.  
+1.  Exécutez l' **Éditeur ADSI**et connectez-vous au domaine dans lequel réside le serveur de site.  
 
-2.  Erweitern Sie **Domäne&lt;Vollqualifizierter Domänenname\>** und dann **<Definierter Name\>**, klicken Sie mit der rechten Maustaste auf **CN=System**, und klicken Sie auf **Neu** und dann auf **Objekt**.  
+2.  Développez **Domaine&lt;nom_domaine_complet_ordinateur\>**, développez **<nom_unique\>**, cliquez avec le bouton droit sur **CN=System**, cliquez sur **Nouveau**, puis cliquez sur **Objet**.  
 
-3.  Wählen Sie im Dialogfeld **Objekt erstellen** die Option **Container**aus, und klicken Sie auf **Weiter**.  
+3.  Dans la boîte de dialogue **Créer un objet** , sélectionnez **Conteneur**et cliquez sur **Suivant**.  
 
-4.  Geben Sie in das Feld **Wert** die Zeichenfolge **System Management**ein, und klicken Sie dann auf **Weiter**.  
+4.  Dans le champ **Valeur** , tapez **System Management**, puis cliquez sur **Suivant**.  
 
-5.  Klicken Sie auf **Fertig stellen** , um den Vorgang abzuschließen.  
+5.  Cliquez sur **Terminer** pour terminer la procédure.  
 
-###  <a name="BKMK_SetSecPermLab"></a> Festlegen der Sicherheitsberechtigungen für den System Management-Container  
- Gewähren Sie dem Computerkonto des Standortservers die Berechtigungen, die zum Veröffentlichen von Standortinformationen im Container erforderlich sind. Für diese Aufgabe verwenden Sie ebenfalls ADSI Edit.  
-
-> [!IMPORTANT]  
->  Vergewissern Sie sich, dass Sie mit der Domäne des Standortservers verbunden sind, bevor Sie mit dem folgenden Verfahren beginnen.  
-
-##### <a name="to-set-security-permissions-for-the-system-management-container"></a>So legen Sie Sicherheitsberechtigungen für den System Management-Container fest  
-
-1.  Erweitern Sie im Konsolenfenster die **Domäne des Standortservers**, erweitern Sie **DC=&lt;definierter Name des Servers\>** und anschließend **CN=System**. Klicken Sie mit der rechten Maustaste auf **CN=System Management**, und klicken Sie dann auf **Eigenschaften**.  
-
-2.  Klicken Sie im Dialogfeld **Eigenschaften von CN=System Management** auf die Registerkarte **Sicherheit** und dann auf **Hinzufügen** , um das Computerkonto des Standortservers hinzuzufügen. Erteilen Sie dem Konto die Berechtigung **Vollzugriff** .  
-
-3.  Klicken Sie auf **Erweitert**, wählen Sie das Computerkonto des Standortservers aus, und klicken Sie dann auf **Bearbeiten**.  
-
-4.  Wählen Sie in der Liste **Übernehmen für** den Eintrag **Dieses und alle untergeordneten Objekte**aus.  
-
-5.  Klicken Sie auf **OK** , um die **ADSI Edit** -Konsole zu schließen und den Vorgang abzuschließen.  
-
-     Zusätzliche Einblicke in dieses Verfahren finden Sie unter [Erweitern des Active Directory-Schemas für System Center Configuration Manager](../../core/plan-design/network/extend-the-active-directory-schema.md)  
-
-###  <a name="BKMK_ExtADSchLab"></a> Erweitern des Active Directory-Schemas mithilfe von "extadsch.exe"  
- Für diese Laborumgebung erweitern Sie das Active Directory-Schema, da Sie dadurch alle Configuration Manager-Features und -Funktionen mit geringstem Verwaltungsaufwand verwenden können. Die Erweiterung des Active Directory-Schemas ist eine gesamtstrukturübergreifende Konfiguration, die pro Gesamtstruktur nur einmal ausgeführt werden kann. Durch die Erweiterung des Schemas wird die Gruppe von Klassen und Attributen in der Active Directory-Basiskonfiguration dauerhaft geändert. Diese Aktion kann nicht rückgängig gemacht werden. Durch die Erweiterung des Schemas erhält Configuration Manager Zugriff auf Komponenten, die seine möglichst effiziente Ausführung in der Laborumgebung ermöglichen.  
+###  <a name="BKMK_SetSecPermLab"></a> Définir les autorisations de sécurité pour le conteneur System Management  
+ Accordez au compte d’ordinateur du serveur de site les autorisations nécessaires à la publication des informations de site sur le conteneur. Vous devez utiliser l’Éditeur ADSI pour cette tâche également.  
 
 > [!IMPORTANT]  
->  Stellen Sie sicher, dass Sie auf dem Schemamaster-Domänencontroller über ein Konto angemeldet sind, das Mitglied der Sicherheitsgruppe **Schema-Admins** ist. Die Verwendung alternativer Anmeldeinformationen ist nicht erfolgreich.  
+>  Vérifiez que vous êtes connecté au domaine du serveur de site avant de commencer la procédure suivante.  
 
-##### <a name="to-extend-the-active-directory-schema-using-extadschexe"></a>So erweitern Sie das Active Directory-Schema mithilfe von "extadsch.exe"  
+##### <a name="to-set-security-permissions-for-the-system-management-container"></a>Pour définir les autorisations de sécurité pour le conteneur System Management :  
 
-1.  Erstellen Sie eine Sicherung des Systemzustands für den Schemamaster-Domänencontroller. Weitere Informationen zum Sichern der Masterdomänencontroller finden Sie unter [Windows Server-Sicherung](https://technet.microsoft.com/en-us/library/cc770757.aspx).  
+1.  Dans le volet de la console, développez successivement le **domaine du serveur de site**, **DC=&lt;nom_unique_serveur\>**, puis **CN=System**. Cliquez avec le bouton droit sur **CN=System Management**, puis cliquez sur **Propriétés**.  
 
-2.  Navigieren Sie zu **\SMSSETUP\BIN\X64** auf den Installationsmedien.  
+2.  Dans boîte de dialogue **CN=Propriétés de System Management** , cliquez sur l’onglet **Sécurité** , puis cliquez sur **Ajouter** pour ajouter le compte d’ordinateur du serveur de site. Accordez au compte les autorisations **Contrôle intégral** .  
 
-3.  Führen Sie **extadsch.exe**aus.  
+3.  Cliquez sur **Avancé**, sélectionnez le compte d’ordinateur du serveur de site, puis cliquez sur **Modifier**.  
 
-4.  Überprüfen Sie in **extadsch.log** im Stammordner des Systemlaufwerks, ob die Schemaerweiterung erfolgreich durchgeführt wurde.  
+4.  Dans la liste **Appliquer à** , sélectionnez **Cet objet et tous ceux descendants**.  
 
-     Zusätzliche Einblicke in dieses Verfahren erhalten Sie unter [Erweitern des Active Directory-Schemas für System Center Configuration Manager](../../core/plan-design/network/extend-the-active-directory-schema.md).  
+5.  Cliquez sur **OK** pour fermer la console **Éditeur ADSI** et terminer la procédure.  
 
-###  <a name="BKMK_OtherTasksLab"></a> Weitere erforderliche Aufgaben  
- Vor der Installation müssen Sie folgende Aufgaben abschließen.  
+     Pour obtenir des informations supplémentaires sur cette procédure, consultez [Étendre le schéma Active Directory pour System Center Configuration Manager](../../core/plan-design/network/extend-the-active-directory-schema.md)  
 
- **Erstellen Sie einen Ordner zum Speichern aller Downloads.**  
+###  <a name="BKMK_ExtADSchLab"></a> Étendre le schéma Active Directory avec extadsch.exe  
+ Vous allez étendre le schéma Active Directory pour ce laboratoire, car cela permet d’utiliser toutes les fonctions et fonctionnalités Configuration Manager avec une surcharge administrative minimale. L’extension du schéma Active Directory est une configuration à l’échelle de la forêt, qui ne peut être réalisée qu’une seule fois par forêt. L’extension du schéma modifie définitivement l’ensemble des classes et des attributs dans la configuration Active Directory de base. Cette action est irréversible. L’extension du schéma permet à Configuration Manager d’accéder aux composants qui lui permettront de fonctionner plus efficacement dans votre environnement de laboratoire.  
 
- Während dieser Übung sind mehrere Downloads für die Komponenten auf den Installationsmedien erforderlich. Bevor Sie mit den Installationsschritten beginnen, legen Sie einen Speicherort fest, von dem die Dateien für die Dauer der Laborumgebung nicht verschoben werden müssen. Es wird empfohlen, diese Downloads in einem einzelnen Ordner mit separaten Unterordnern zu speichern.  
+> [!IMPORTANT]  
+>  Vérifiez que vous êtes connecté au contrôleur de domaine principal du schéma via un compte qui appartient au groupe de sécurité **Administrateurs du schéma** . Toute tentative d’utilisation d’autres informations d’identification échouera.  
 
- **Installieren von .NET und Aktivieren von Windows Communication Foundation (WCF)**  
+##### <a name="to-extend-the-active-directory-schema-using-extadschexe"></a>Pour étendre le schéma Active Directory avec extadsch.exe :  
 
- Sie müssen zwei .NET Framework-Versionen installieren: zuerst .NET 3.5.1 und anschließend .NET 4.5.2+. Außerdem müssen Sie Windows Communication Foundation (WCF) aktivieren. WCF bietet einfachen Zugang zu verteilter Datenverarbeitung, umfassender Interoperabilität und direkte Unterstützung für die dienstorientierte Entwicklung. Zudem vereinfacht sie die Entwicklung vernetzter Anwendungen über ein dienstorientiertes Programmiermodell. Weitere Einblicke in WCF erhalten Sie unter [Was ist die Windows Communication Foundation?](https://technet.microsoft.com/en-us/subscriptions/ms731082\(v=vs.90\).aspx)  
+1.  Créez une sauvegarde de l’état système du contrôleur de domaine principal du schéma. Pour plus d’informations sur la sauvegarde d’un contrôleur de domaine principal, consultez [Sauvegarde de Windows Server](https://technet.microsoft.com/en-us/library/cc770757.aspx).  
 
-##### <a name="to-install-net-and-activate-windows-communication-foundation"></a>So installieren Sie .NET und aktivieren Windows Communication Foundation (WCF)  
+2.  Accédez à **\SMSSETUP\BIN\X64** sur le support d’installation.  
 
-1.  Öffnen Sie **Server Manager**, und navigieren Sie zu **Verwalten**. Klicken Sie auf **Rollen und Features hinzufügen** , um den **Rollen und Features hinzufügen Wizard.**zu öffnen.  
+3.  Exécutez **extadsch.exe**.  
 
-2.  Lesen Sie die Informationen im Bereich **Bevor Sie beginnen** , und klicken Sie dann **Weiter**.  
+4.  Pour vérifier que l’extension du schéma a réussi, passez en revue le fichier **extadsch.log** situé dans le dossier racine du lecteur système.  
 
-3.  Wählen Sie **Rollenbasierte oder featurebasierte Installation**aus, und klicken Sie dann auf **Weiter**.  
+     Pour obtenir des informations supplémentaires sur cette procédure, consultez [Étendre le schéma Active Directory pour System Center Configuration Manager](../../core/plan-design/network/extend-the-active-directory-schema.md).  
 
-4.  Wählen Sie Ihren Server aus dem **Serverpool**aus, und klicken Sie dann auf **Weiter**.  
+###  <a name="BKMK_OtherTasksLab"></a> Autres tâches requises  
+ Vous devez également effectuer les tâches suivantes avant l’installation.  
 
-5.  Überprüfen Sie den Bereich **Serverrollen** , und klicken Sie dann **Weiter**.  
+ **Créer un dossier pour stocker tous les téléchargements**  
 
-6.  Fügen Sie die folgenden **Features** hinzu, indem Sie sie aus der Liste auswählen:  
+ Plusieurs téléchargements sont nécessaires pour obtenir les composants du support d’installation tout au long de cet exercice. Avant de commencer les procédures d’installation, déterminez un emplacement qui ne nécessite pas le déplacement de ces fichiers tant que vous souhaitez utiliser votre laboratoire. Il est recommandé d’utiliser un dossier unique avec des sous-dossiers distincts pour stocker ces téléchargements.  
 
-    -   **.NET Framework 3.5-Features**  
+ **Installer .NET et activer Windows Communication Foundation**  
 
-        -   **.NET Framework 3.5 (umfasst .NET 2.0 und 3.0)**  
+ Vous devez installer deux infrastructures .NET : .NET 3.5.1 puis .NET 4.5.2+. Vous devez également activer Windows Communication Foundation (WCF). WCF est conçu pour offrir une approche gérable de l’informatique distribuée, une grande interopérabilité et une prise en charge directe de l’orientation service. Il simplifie le développement d’applications connectées via un modèle de programmation orienté service. Consultez [Qu’est-ce que Windows Communication Foundation ?](https://technet.microsoft.com/en-us/subscriptions/ms731082\(v=vs.90\).aspx) pour obtenir des informations supplémentaires sur WCF.  
 
-    -   **.NET Framework 4.5-Features**  
+##### <a name="to-install-net-and-activate-windows-communication-foundation"></a>Pour installer .NET et activer Windows Communication Foundation :  
+
+1.  Ouvrez **Server Manager**, puis accédez à **Gérer**. Cliquez sur **Ajouter des rôles et fonctionnalités** pour ouvrir l’ **Ajouter des rôles et fonctionnalités Wizard**.  
+
+2.  Passez en revue les informations fournies dans le panneau **Avant de commencer** , puis cliquez sur **Suivant**.  
+
+3.  Sélectionnez **Installation basée sur un rôle ou une fonctionnalité**, puis cliquez sur **Suivant**.  
+
+4.  Sélectionnez votre serveur à partir du **Pool de serveurs**, puis cliquez sur **Suivant**.  
+
+5.  Examinez le panneau **Rôles de serveurs** , puis cliquez sur **Suivant**.  
+
+6.  Ajoutez les **Fonctionnalités** suivantes en les sélectionnant dans la liste :  
+
+    -   **Fonctionnalités de .NET Framework 3.5**  
+
+        -   **.NET Framework 3.5 (inclut .NET 2.0 et 3.0)**  
+
+    -   **Fonctionnalités de .NET Framework 4.5**  
 
         -   **.NET Framework 4.5**  
 
         -   **ASP.NET 4.5**  
 
-        -   **WCF-Dienste**  
+        -   **Services WCF**  
 
-            -   **HTTP-Aktivierung**  
+            -   **Activation HTTP**  
 
-            -   **TCP-Portfreigabe**  
+            -   **Partage de port TCP**  
 
-7.  Überprüfen Sie den Bildschirm **Webserverrolle (IIS)** und **Rollendienste** , und klicken Sie dann **Weiter**.  
+7.  Examinez l’écran **Rôle Serveur Web (IIS)** et **Services de rôle** , puis cliquez sur **Suivant**.  
 
-8.  Überprüfen Sie den Bildschirm **Bestätigung** , und klicken Sie dann **Weiter**.  
+8.  Examinez l’écran **Confirmation** , puis cliquez sur **Suivant**.  
 
-9. Klicken Sie auf **Installieren** , und stellen Sie anhand des Bereichs **Benachrichtigungen** im **Server-Manager**sicher, dass die Installation ordnungsgemäß abgeschlossen wurde.  
+9. Cliquez sur **Installer** et vérifiez que l’installation s’est déroulée correctement dans le volet **Notifications** du **Gestionnaire de serveur**.  
 
-10. Nach Abschluss der .NET-Standardinstallation navigieren Sie zum [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=42643) , um den Webinstaller für .NET Framework 4.5.2 abzurufen. Klicken Sie auf die Schaltfläche **Herunterladen** , und starten Sie das Installationsprogramm mit **Ausführen** . Die erforderlichen Komponenten werden automatisch erkannt und in der ausgewählten Sprache installiert.  
+10. Une fois l’installation de base de .NET terminée, accédez au [Centre de téléchargement Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=42643) pour obtenir le programme d’installation web de .NET Framework 4.5.2. Cliquez sur le bouton **Télécharger** , puis sur **Exécuter** pour lancer le programme d’installation. Il détecte et installe automatiquement les composants nécessaires dans la langue sélectionnée.  
 
-Die folgenden Artikel enthalten weitere Informationen darüber, warum diese .NET Framework-Versionen erforderlich sind:  
+Pour plus d’informations, consultez les articles suivants qui expliquent pourquoi ces composants .NET Framework sont nécessaires :  
 
--   [.NET Framework – Versionen und Abhängigkeiten](https://technet.microsoft.com/en-us/library/bb822049.aspx)  
+-   [Versions et dépendances du .NET Framework](https://technet.microsoft.com/en-us/library/bb822049.aspx)  
 
--   [Exemplarische Vorgehensweise zur .NET Framework 4 RTM-Anwendungskompatibilität](https://technet.microsoft.com/en-us/library/dd889541.aspx)  
+-   [Procédure pas à pas de vérification de la compatibilité des applications avec .NET Framework 4 RTM](https://technet.microsoft.com/en-us/library/dd889541.aspx)  
 
--   [Gewusst wie: Aktualisieren einer ASP.NET-Webanwendung auf ASP.NET 4](https://technet.microsoft.com/en-us/library/dd483478\(VS.100\).aspx)  
+-   [Comment : mettre à niveau une application web ASP.NET vers ASP.NET 4](https://technet.microsoft.com/en-us/library/dd483478\(VS.100\).aspx)  
 
--   [Microsoft .NET Framework Support Lifecycle-Richtlinien – häufig gestellte Fragen](https://support.microsoft.com/en-us/gp/framework_faq?WT.mc_id=azurebg_email_Trans_943_NET452_Update)  
+-   [Forum Aux Questions sur la politique de support - Microsoft .NET Framework](https://support.microsoft.com/en-us/gp/framework_faq?WT.mc_id=azurebg_email_Trans_943_NET452_Update)  
 
--   [CLR Inside Out – In-Process Side-by-Side](https://msdn.microsoft.com/en-us/magazine/ee819091.aspx)  
+-   [Les coulisses du CLR – L’approche « In-Process Side-by-Side »](https://msdn.microsoft.com/en-us/magazine/ee819091.aspx)  
 
-**Aktivieren von BITS, IIS und RDC**  
+**Activer BITS, IIS et RDC**  
 
-Der [Background Intelligent Transfer Service (BITS)](https://technet.microsoft.com/en-us/library/dn282296.aspx) wird für Anwendungen verwendet, die Dateien asynchron zwischen einem Client und einem Server übertragen müssen. Durch Messung des Übertragungsflusses im Vorder- und Hintergrund gewährleistet BITS die Reaktionsfähigkeit anderer Netzwerkanwendungen. Dateiübertragungen werden zudem automatisch fortgesetzt, wenn eine Übertragungssitzung unterbrochen wurde.  
+Le [service de transfert intelligent en arrière-plan (BITS)](https://technet.microsoft.com/en-us/library/dn282296.aspx) est utilisé pour les applications qui ont besoin de transférer de façon asynchrone des fichiers entre un client et un serveur. En contrôlant le flux des transferts au premier plan et en arrière-plan, le service BITS préserve la réactivité des autres applications réseau. Il reprend également automatiquement les transferts de fichiers en cas d’interruption d’une session de transfert.  
 
-Sie installieren BITS für diese Laborumgebung, weil dieser Standortserver zusätzlich als Verwaltungspunkt verwendet wird.  
+Vous devez installer le service BITS pour ce laboratoire, car ce serveur de site fera également office de point de gestion.  
 
-Internetinformationsdienste (Internet Information Services, IIS) ist ein flexibler, skalierbarer Webserver, der zum Hosten verschiedener Komponenten im Web verwendet werden kann. Der Dienst wird von Configuration Manager für eine Reihe von Standortsystemrollen eingesetzt. Weitere Informationen zu IIS finden Sie unter [Websites für Standortsystemserver in System Center Configuration Manager](../../core/plan-design/network/websites-for-site-system-servers.md).  
+Internet Information Services (IIS) est un serveur web flexible et évolutif, qui peut servir à héberger ce que vous voulez sur le web. Il est utilisé par Configuration Manager pour plusieurs rôles de système de site. Pour plus d’informations sur IIS, consultez [Sites web pour les serveurs de système de site dans System Center Configuration Manager](../../core/plan-design/network/websites-for-site-system-servers.md).  
 
-[Remotedifferenzialkomprimierung (Remote Differential Compression, (RDC)](https://technet.microsoft.com/en-us/library/cc754372.aspx) ist eine Sammlung von APIs, über die Clientanwendungen feststellen können, ob ein Satz von Dateien geändert wurde. RDC ermöglicht der Anwendung, nur die geänderten Dateibereiche zu replizieren, und beschränkt den Netzwerkdatenverkehr dadurch auf ein Minimum.  
+La[compression différentielle à distance (RDC)](https://technet.microsoft.com/en-us/library/cc754372.aspx) est un ensemble d’API que les applications peuvent utiliser pour déterminer si des modifications ont été apportées à un ensemble de fichiers. La fonctionnalité RDC permet à l’application de répliquer uniquement les parties modifiées d’un fichier, limitant ainsi au maximum le trafic réseau.  
 
-##### <a name="to-enable-bits-iis-and-rdc-site-server-roles"></a>So aktivieren Sie BITS-, IIS- und RDC-Standortserverrollen  
+##### <a name="to-enable-bits-iis-and-rdc-site-server-roles"></a>Pour activer les rôles de serveur de site BITS, IIS et RDC :  
 
-1.  Öffnen Sie auf dem Standortserver **Server Manager**. Navigieren Sie zu **Verwalten**. Klicken Sie auf **Rollen und Features hinzufügen** , um den **Assistenten zum Hinzufügen von Rollen und Features**zu öffnen.  
+1.  Sur votre serveur de site, ouvrez **Server Manager**. Accédez à **Gérer**. Cliquez sur **Ajouter des rôles et fonctionnalités** pour ouvrir l’ **Assistant Ajout de rôles et de fonctionnalités**.  
 
-2.  Lesen Sie die Informationen im Bereich **Bevor Sie beginnen** , und klicken Sie dann **Weiter**.  
+2.  Passez en revue les informations fournies dans le panneau **Avant de commencer** , puis cliquez sur **Suivant**.  
 
-3.  Wählen Sie **Rollenbasierte oder featurebasierte Installation**aus, und klicken Sie dann auf **Weiter**.  
+3.  Sélectionnez **Installation basée sur un rôle ou une fonctionnalité**, puis cliquez sur **Suivant**.  
 
-4.  Wählen Sie Ihren Server aus dem **Serverpool**aus, und klicken Sie dann auf **Weiter**.  
+4.  Sélectionnez votre serveur à partir du **Pool de serveurs**, puis cliquez sur **Suivant**.  
 
-5.  Fügen Sie die folgenden **Serverrollen** hinzu, indem Sie sie aus der Liste auswählen:  
+5.  Ajoutez les **Rôles de serveur** suivants en les sélectionnant dans la liste :  
 
-    -   **Webserver (IIS)**  
+    -   **Serveur web (IIS)**  
 
-        -   **Allgemeine HTTP-Features**  
+        -   **Fonctionnalités HTTP communes**  
 
-            -   **Standarddokument**  
+            -   **Document par défaut**  
 
-            -   **Verzeichnissuche**  
+            -   **Exploration des répertoires**  
 
-            -   **HTTP-Fehler**  
+            -   **Erreurs HTTP**  
 
-            -   **Statischer Inhalt**  
+            -   **Contenu statique**  
 
-            -   **HTTP-Umleitung**  
+            -   **Redirection HTTP**  
 
-        -   **Integrität und Diagnose**  
+        -   **Intégrité et diagnostics**  
 
-            -   **HTTP-Protokollierung**  
+            -   **Journalisation HTTP**  
 
-            -   **Protokollierungstools**  
+            -   **Outils de journalisation**  
 
-            -   **Anforderungsüberwachung**  
+            -   **Observateur de demandes**  
 
-            -   **Ablaufverfolgung**  
+            -   **Suivi**  
 
-    -   **Leistung**  
+    -   **Performancess**  
 
-        -   **Komprimierung statischer Inhalte**  
+        -   **Compression de contenu statique**  
 
-        -   **Komprimierung dynamischer Inhalte**  
+        -   **Compression de contenu dynamique**  
 
     -   **Security**  
 
-        -   **Anforderungsfilterung**  
+        -   **Filtrage des demandes**  
 
-        -   **Standardauthentifizierung**  
+        -   **Authentification de base**  
 
-        -   **Authentifizierung durch Clientzertifikatszuordnung**  
+        -   **Authentification par mappage de certificat client**  
 
-        -   **IP- und Domäneneinschränkungen**  
+        -   **Restrictions IP et de domaine**  
 
-        -   **URL-Autorisierung**  
+        -   **Autorisation URL**  
 
-        -   **Windows-Autorisierung**  
+        -   **Autorisation Windows**  
 
-    -   **Anwendungsentwicklung**  
+    -   **Développement d’applications**  
 
-        -   **.NET-Erweiterbarkeit 3.5**  
+        -   **Extensibilité .NET 3.5**  
 
-        -   **.NET-Erweiterbarkeit 4.5**  
+        -   **Extensibilité .NET 4.5**  
 
         -   **ASP**  
 
@@ -289,111 +289,111 @@ Internetinformationsdienste (Internet Information Services, IIS) ist ein flexibl
 
         -   **ASP.NET 4.5**  
 
-        -   **ISAPI-Erweiterungen**  
+        -   **Extensions ISAPI**  
 
-        -   **ISAPI-Filter**  
+        -   **Filtres ISAPI**  
 
-        -   **Serverseitige Include-Dateien**  
+        -   **Fichiers Include côté serveur**  
 
-    -   **FTP-Server**  
+    -   **Serveur FTP**  
 
-        -   **FTP-Dienst**  
+        -   **Service FTP**  
 
-    -   **Verwaltungstools**  
+    -   **Outils de gestion**  
 
-        -   **IIS-Verwaltungskonsole**  
+        -   **Console de gestion IIS**  
 
-        -   **IIS 6-Verwaltungskompatibilität**  
+        -   **IIS 6 Management Compatibility**  
 
-            -   **IIS 6-Metabasiskompatibilität**  
+            -   **Compatibilité avec la métabase de données IIS 6**  
 
-            -   **IIS 6-Verwaltungskonsole**  
+            -   **Console de gestion IIS 6**  
 
-            -   **IIS 6-Skripttools**  
+            -   **Outils de script IIS 6**  
 
-            -   **IIS 6-WMI-Kompatibilität**  
+            -   **Compatibilité WMI d'IIS 6**  
 
-        -   **IIS 6-Verwaltungsskripts und -Tools**  
+        -   **Scripts et outils de gestion d’IIS 6**  
 
-        -   **Management Service**  
+        -   **Service d'administration**  
 
-6.  Fügen Sie die folgenden **Features** hinzu, indem Sie sie aus der Liste auswählen:  
+6.  Ajoutez les **Fonctionnalités** suivantes en les sélectionnant dans la liste :  
 
-    -   -   **Background Intelligent Transfer Service (BITS)**  
+    -   -   **service de transfert intelligent en arrière-plan (BITS)**  
 
-            -   **IIS-Servererweiterung**  
+            -   **Extension de serveur IIS**  
 
-        -   **Remoteserver-Verwaltungstools**  
+        -   **Outils d'administration de serveur distant**  
 
-            -   **Featureverwaltungstools**  
+            -   **Outils d’administration de fonctionnalités**  
 
-                -   **Tools für BITS-Servererweiterungen**  
+                -   **Outils d’extensions du serveur BITS**  
 
-7.  Klicken Sie auf **Installieren** , und stellen Sie anhand des Bereichs **Benachrichtigungen** im **Server-Manager**sicher, dass die Installation ordnungsgemäß abgeschlossen wurde.  
+7.  Cliquez sur **Installer** et vérifiez que l’installation s’est déroulée correctement dans le volet **Notifications** du **Gestionnaire de serveur**.  
 
-IIS sperrt standardmäßig mehrere Dateierweiterungen und Speicherorte für den Zugriff durch die HTTP- oder HTTPS-Kommunikation. Um die Verteilung dieser Dateien an Clientsysteme zu ermöglichen, müssen Sie die Anforderungsfilterung für IIS auf dem Verteilungspunkt konfigurieren. Weitere Informationen finden Sie unter [IIS-Anforderungsfilterung für Verteilungspunkte](../../core/plan-design/network/prepare-windows-servers.md#BKMK_IISFiltering).  
+Par défaut, le service IIS bloque l’accès via la communication HTTP ou HTTPS à plusieurs types d’extensions et d’emplacements de fichier. Pour permettre la distribution de ces fichiers sur les systèmes clients, vous devez configurer le filtrage des demandes pour IIS sur votre point de distribution. Pour plus d’informations, consultez [Filtrage des demandes IIS pour les points de distribution](../../core/plan-design/network/prepare-windows-servers.md#BKMK_IISFiltering).  
 
-##### <a name="to-configure-iis-filtering-on-distribution-points"></a>So konfigurieren Sie die IIS-Filterung für Verteilungspunkte  
+##### <a name="to-configure-iis-filtering-on-distribution-points"></a>Pour configurer le filtrage IIS sur les points de distribution :  
 
-1.  Öffnen Sie **IIS Manager** , und wählen Sie den Namen des Servers in der Randleiste aus. Dadurch gelangen Sie zur **Startseite** .  
+1.  Ouvrez **IIS Manager** et sélectionnez le nom de votre serveur dans la barre latérale. Vous accédez à l’écran **Accueil** .  
 
-2.  Überprüfen Sie, ob die **Ansicht "Features"** am unteren Rand der **Startseite** ausgewählt ist. Navigieren Sie zu **IIS** , und öffnen Sie **Anforderungsfilterung**.  
+2.  Vérifiez que l’option **Affichage des fonctionnalités** est sélectionnée au bas de l’écran **Accueil** . Accédez à **IIS** et ouvrez **Filtrage des demandes**.  
 
-3.  Klicken Sie im Bereich **Aktionen** auf **Dateinamenerweiterung zulassen**.  
+3.  Dans le volet **Actions** , cliquez sur **Autoriser une extension de nom de fichier...**  
 
-4.  Geben Sie **.msi** in das Dialogfeld ein, und klicken Sie auf **OK**.  
+4.  Tapez **.msi** dans la boîte de dialogue et cliquez sur **OK**.  
 
-###  <a name="BKMK_InstallCMLab"></a> Installieren von Configuration Manager  
-Sie erstellen [Ermitteln des Zeitpunkts für die Verwendung eines primären Standorts](../../core/plan-design/hierarchy/design-a-hierarchy-of-sites.md#BKMK_ChoosePriimary), um Clients direkt zu verwalten. Dadurch unterstützt Ihre Laborumgebung die Verwaltung für die [Standortsystemskalierung](/sccm/core/plan-design/configs/size-and-scale-numbers) potenzieller Geräte.  
-Während dieses Vorgangs installieren Sie außerdem die Configuration Manager-Konsole, die ab diesem Zeitpunkt zur Verwaltung von Evaluierungsgeräten verwendet wird.  
+###  <a name="BKMK_InstallCMLab"></a> Installation de Configuration Manager  
+Vous allez [déterminer quand utiliser un site principal](../../core/plan-design/hierarchy/design-a-hierarchy-of-sites.md#BKMK_ChoosePriimary) pour gérer directement les clients. Cela permettra à votre environnement lab de prendre en charge la gestion de la [mise à l’échelle du système de site](/sccm/core/plan-design/configs/size-and-scale-numbers) des appareils potentiels.  
+Au cours de ce processus, vous allez également installer la console Configuration Manager qui permettra de gérer vos appareils d’évaluation.  
 
-Bevor Sie mit der Installation beginnen, starten Sie die [Voraussetzungsprüfung](/sccm/core/servers/deploy/install/prerequisite-checker) auf dem unter Windows Server 2012 ausgeführten Server, um zu bestätigen, dass alle Einstellungen ordnungsgemäß aktiviert wurden.  
+Avant de commencer l’installation, lancez l’[outil de vérification des prérequis](/sccm/core/servers/deploy/install/prerequisite-checker) sur le serveur utilisant Windows Server 2012 pour confirmer que tous les paramètres ont été correctement activés.  
 
-##### <a name="to-download-and-install-configuration-manager"></a>So laden Sie Configuration Manager herunter und installieren die Anwendung  
+##### <a name="to-download-and-install-configuration-manager"></a>Pour télécharger et installer Configuration Manager :  
 
-1.  Navigieren Sie zur Seite für [System Center-Evaluierungsversionen](https://www.microsoft.com/evalcenter/evaluate-system-center-2012-configuration-manager-and-endpoint-protection), um die neueste Evaluierungsversion von System Center Configuration Manager herunterzuladen.  
+1.  Accédez à la page [System Center Évaluations](https://www.microsoft.com/evalcenter/evaluate-system-center-2012-configuration-manager-and-endpoint-protection) pour télécharger la dernière version d’évaluation de System Center Configuration Manager.  
 
-2.  Dekomprimieren Sie die Downloadmedien an dem von Ihnen festgelegten Speicherort.  
+2.  Décompressez le média de téléchargement dans votre emplacement prédéfini.  
 
-3.  Führen Sie die unter [Installieren eines Standorts mithilfe des Setup-Assistenten von System Center Configuration Manager](/sccm/core/servers/deploy/install/use-the-setup-wizard-to-install-sites) beschriebenen Installationsschritte aus. Während dieser Prozedur sind folgende Eingaben erforderlich:  
+3.  Suivez la procédure d’installation indiquée dans la rubrique [Installer un site à l’aide de l’Assistant Installation de System Center Configuration Manager](/sccm/core/servers/deploy/install/use-the-setup-wizard-to-install-sites). Dans cette procédure, vous allez entrer les éléments suivants :  
 
-    |Schritt in der Prozedur der Standortinstallation|Auswahl|  
+    |Étape de la procédure d’installation de site|Sélection|  
     |-----------------------------------------|---------------|  
-    |Schritt 4: die Seite **Product Key**|Wählen Sie **Evaluierung**aus.|  
-    |Schritt 7:  **Download der Voraussetzungskomponenten**|Wählen Sie **Erforderliche Dateien herunterladen** aus, und geben Sie den zuvor festgelegten Speicherort an.|  
-    |Schritt 10: **Standort- und Installationseinstellungen**|-   **Standortcode:LAB**<br />-   **Standortname:Evaluation**<br />-   **Installationsordner:** Geben Sie den zuvor festgelegten Speicherort an.|  
-    |Schritt 11: **Installation am primären Standort**|Wählen Sie **Den primären Standort als eigenständigen Standort installieren**aus, klicken Sie dann auf **Weiter**.|  
-    |Schritt 12: **Datenbankinstallation**|-   **SQL Server-Name (FQDN):** Geben Sie hier Ihren FQDN ein.<br />-   **Instanzname:** Dieses Feld bleibt leer, da Sie die zuvor installierte Standardinstanz von SQL verwenden.<br />-   **Port des Service Brokers:** Behalten Sie den Standardport 4022 bei.|  
-    |Schritt 13: **Datenbankinstallation**|Behalten Sie die Standardeinstellungen bei.|  
-    |Schritt 14: **SMS-Anbieter**|Behalten Sie die Standardeinstellungen bei.|  
-    |Schritt 15: **Clientkommunikationseinstellungen**|Überprüfen Sie, ob **Alle Standortsystemrollen lassen ausschließlich die HTTPS-Kommunikation mit Clients zu** deaktiviert ist.|  
-    |Schritt 16: **Standortsystemrollen**|Geben Sie Ihren FQDN ein, und stellen Sie sicher, dass **Alle Standortsystemrollen lassen ausschließlich die HTTPS-Kommunikation mit Clients zu** weiterhin deaktiviert ist.|  
+    |Étape 4 : la page **Clé du produit**|Sélectionnez **Évaluation**.|  
+    |Étape 7 :  **Téléchargements requis**|Sélectionnez **Télécharger les fichiers requis** et spécifier votre emplacement prédéfini.|  
+    |Étape 10 : **Paramètres d’installation et du site**|-   **Code du site :LAB**<br />-   **Nom du site :Evaluation**<br />-   **Dossier d’installation :** spécifiez votre emplacement prédéfini.|  
+    |Étape 11 : **Installation du site principal**|Sélectionnez **Installer le site principal en tant que site autonome**, puis cliquez sur **Suivant**.|  
+    |Étape 12 : **Installation de la base de données**|-   **Nom du serveur SQL Server (nom de domaine complet) :** entrez ici votre nom de domaine complet.<br />-   **Nom de l’instance :** laissez ce champ vide, car vous utiliserez l’instance par défaut de SQL que vous avez installée précédemment.<br />-   **Port Service Broker :** conservez le port par défaut 4022.|  
+    |Étape 13 : **Installation de la base de données**|Conservez ces paramètres par défaut.|  
+    |Étape 14 : **Fournisseur SMS**|Conservez ces paramètres par défaut.|  
+    |Étape 15 : **Paramètres de communication client**|Assurez-vous que l’option **Tous les rôles de système de site acceptent uniquement les communications HTTPS depuis les clients** n’est pas sélectionnée.|  
+    |Étape 16 : **Rôles système de site**|Entrez votre nom de domaine complet et assurez-vous que l’option **Tous les rôles de système de site acceptent uniquement les communications HTTPS depuis les clients** est toujours désactivée.|  
 
-###  <a name="BKMK_EnablePubLab"></a> Aktivieren der Veröffentlichung am Configuration Manager-Standort  
-Jeder Configuration Manager-Standort veröffentlicht standortspezifische Informationen im Systemverwaltungscontainer innerhalb seiner Domänenpartition im Active Directory-Schema. Bidirektionale Kanäle für die Kommunikation zwischen Active Directory und Configuration Manager müssen geöffnet sein, um den Datenverkehr zu verarbeiten. Aktivieren Sie zudem die Gesamtstrukturermittlung, um bestimmte Komponenten Ihrer Active Directory- und Netzwerkinfrastruktur zu ermitteln.  
+###  <a name="BKMK_EnablePubLab"></a> Activer la publication pour le site Configuration Manager  
+Chaque site Configuration Manager publie ses propres informations de site sur le conteneur System Management, au sein de sa partition de domaine dans le schéma Active Directory. Des canaux bidirectionnels pour la communication entre Active Directory et Configuration Manager doivent être ouverts pour gérer ce trafic. Vous devez également activer la fonctionnalité Découverte de forêts pour déterminer certains composants de votre infrastructure réseau et Active Directory.  
 
-##### <a name="to-configure-active-directory-forests-for-publishing"></a>So konfigurieren Sie Active Directory-Gesamtstrukturen für die Veröffentlichung  
+##### <a name="to-configure-active-directory-forests-for-publishing"></a>Pour configurer des forêts Active Directory pour la publication :  
 
-1.  Klicken Sie in der unteren linken Ecke der Configuration Manager-Konsole auf **Verwaltung**.  
+1.  Dans le coin inférieur gauche de la console Configuration Manager, cliquez sur **Administration**.  
 
-2.  Erweitern Sie im Arbeitsbereich **Verwaltung** den Bereich **Hierarchiekonfiguration**, und klicken Sie dann auf **Ermittlungsmethoden**.  
+2.  Dans l’espace de travail **Administration** , développez **Configuration de la hiérarchie**, puis cliquez sur **Méthodes de découverte**.  
 
-3.  Wählen Sie **Active Directory-Gesamtstrukturermittlung** aus, und klicken Sie auf **Eigenschaften**.  
+3.  Sélectionnez **Découverte de forêts Active Directory** et cliquez sur **Propriétés**.  
 
-4.  Wählen Sie im Dialogfeld **Eigenschaften** die Option **Gesamtstrukturermittlung von Active Directory aktivieren**aus. Nachdem die Ermittlung aktiviert wurde, wählen Sie **Active Directory-Standortgrenzen bei der Ermittlung automatisch erstellen**aus. Ein Dialogfeld mit der Frage **Möchten Sie die vollständige Ermittlung so bald wie möglich ausführen?** Klicken Sie auf **Ja**.  
+4.  Dans la boîte de dialogue **Propriétés** , sélectionnez **Activer la découverte de forêts Active Directory**. Une fois cette option activée, sélectionnez **Créer automatiquement les limites de site Active Directory lorsqu’elles sont découvertes**. Une boîte de dialogue s’affiche indiquant **Voulez-vous exécuter la découverte complète dès que possible ?** Cliquez sur **Oui**.  
 
-5.  Klicken Sie in der Gruppe **Ermittlungsmethode** am oberen Bildschirmrand auf **Gesamtstrukturermittlung jetzt ausführen**, und navigieren Sie auf der Randleiste zu **Active Directory-Gesamtstrukturen** . Die Active Directory-Gesamtstruktur sollte in der Liste der ermittelten Gesamtstrukturen angezeigt werden.  
+5.  Dans le groupe **Méthode de découverte** en haut de l’écran, cliquez sur **Exécuter la découverte de forêt maintenant**, puis accédez à **Forêts Active Directory** dans la barre latérale. Votre forêt Active Directory doit figurer dans la liste des forêts découvertes.  
 
-6.  Navigieren Sie zur Registerkarte **Allgemein** am oberen Bildschirmrand.  
+6.  Accédez à la partie supérieure de l’écran, sous l’onglet **Général** .  
 
-7.  Erweitern Sie im Arbeitsbereich **Verwaltung** den Bereich **Hierarchiekonfiguration**, und klicken Sie dann auf **Active Directory-Gesamtstrukturen**.  
+7.  Dans l’espace de travail **Administration** , développez **Configuration de la hiérarchie**, puis cliquez sur **Forêts Active Directory**.  
 
-##### <a name="to-enable-a-configuration-manager-site-to-publish-site-information-to-your-active-directory-forest"></a>So aktivieren Sie einen Configuration Manager-Standort für das Veröffentlichen von Standortinformationen in Active Directory-Gesamtstrukturen:  
+##### <a name="to-enable-a-configuration-manager-site-to-publish-site-information-to-your-active-directory-forest"></a>Pour permettre à un site Configuration Manager de publier des informations de site vers votre forêt Active Directory :  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Verwaltung**.  
+1.  Dans la console Configuration Manager, cliquez sur **Administration**.  
 
-2.  Konfigurieren Sie eine neue Gesamtstruktur, die noch nicht ermittelt wurde.  
+2.  Vous allez configurer une nouvelle forêt qui n’a pas encore été découverte.  
 
-3.  Klicken Sie im Arbeitsbereich **Verwaltung** auf **Active Directory-Gesamtstrukturen**.  
+3.  Dans l'espace de travail **Administration** , cliquez sur **Forêts Active Directory**.  
 
-4.  Wählen Sie auf der Registerkarte **Veröffentlichung** der Standorteigenschaften die verbundene Gesamtstruktur aus, und klicken Sie auf **OK** , um die Konfiguration zu speichern.
+4.  Sous l’onglet **Publication** des propriétés du site, sélectionnez votre forêt connectée, puis cliquez sur **OK** pour enregistrer la configuration.

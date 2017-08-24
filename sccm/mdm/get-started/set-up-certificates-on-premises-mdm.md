@@ -1,6 +1,6 @@
 ---
-title: Einrichten von Zertifikaten | Microsoft-Dokumentation
-description: "Richten Sie in System Center Configuration Manager Zertifikate für vertrauenswürdige Verbindungen für die lokale Verwaltung mobiler Geräte (Mobile Device Management, MDM) ein."
+title: "Configurer des certificats | Microsoft Docs"
+description: "Configurez des certificats pour les communications approuvées pour la gestion des appareils mobiles locale dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -18,155 +18,155 @@ manager: angrobe
 ms.openlocfilehash: 3d695a2a40fd86ad991a26db3dcecbbb9ca186cc
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="set-up-certificates-for-trusted-communications-for-on-premises-mobile-device-management-in-system-center-configuration-manager"></a>Einrichten von Zertifikaten für vertrauenswürdige Verbindungen für die lokale Verwaltung von Mobilgeräten in System Center Configuration Manager
+# <a name="set-up-certificates-for-trusted-communications-for-on-premises-mobile-device-management-in-system-center-configuration-manager"></a>Configurer des certificats pour les communications approuvées pour la gestion des appareils mobiles locale dans System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Für die lokale Verwaltung mobiler Geräte in System Center Configuration Manager müssen für vertrauenswürdige Verbindungen mit verwalteten Geräten die Standortsystemrollen „Registrierungspunkt“, „Registrierungsproxypunkt“, „Verteilungspunkt“ und „Geräteverwaltungspunkt“ eingerichtet werden. Alle Standortsystemserver, die eine oder mehrere dieser Rollen hosten, benötigen ein eindeutiges PKI-Zertifikat, das an den Webserver auf dem jeweiligen System gebunden ist. Ein Zertifikat mit demselben Stamm wie das Zertifikat auf den Servern muss außerdem auf verwalteten Geräten gespeichert sein, damit vertrauenswürdige Verbindungen mit ihnen einrichtet werden können.  
+La gestion des appareils mobiles locale System Center Configuration Manager exige de configurer des rôles de système de site de point d’inscription, de point proxy d’inscription, de point de distribution et de point de gestion d’appareil pour assurer des communications fiables avec les appareils gérés. Tout serveur de système de site hébergeant un ou plusieurs de ces rôles doit avoir un certificat PKI unique lié au serveur web sur ce système. Un certificat avec la même racine que le certificat sur les serveurs doit également être stocké sur les appareils gérés afin d’établir une communication fiable avec ceux-ci.  
 
- Für zu Domänen gehörende Geräten wird von den Active Directory-Zertifikatdiensten das benötigte Zertifikat mit dem vertrauenswürdigen Stamm automatisch auf allen Geräten installiert. Für Geräte, die keiner Domäne angehören, müssen Sie ein gültiges Zertifikat mit einem vertrauenswürdigen Stamm anderweitig beziehen. Wenn Sie die Standortzertifizierungsstelle als Ihren vertrauenswürdigen Stamm nutzen (der auch von Active Directory für zur Domäne gehörende Geräte verwendet wird), benötigen die Standortsystemserver für den Anmeldungspunkt und Anmeldungsproxypunkt ein Zertifikat, das von dieser Zertifizierungsstelle ausgestellt und an sie gebunden wurde.  
+ Pour les appareils joints au domaine, les Services de certificats Active Directory installent le certificat nécessaire avec la racine approuvée automatiquement sur tous les appareils. Pour les appareils non joints au domaine, vous devez obtenir un certificat valide avec une racine approuvée par d’autres moyens. Si vous utilisez l’autorité de certification du site comme racine approuvée (qui est la même que celle qu’Active Directory utilise pour les appareils joints au domaine), les serveurs de système de site pour le point d’inscription et le point proxy d’inscription doivent avoir un certificat lié à eux émis par cette autorité de certification.  
 
- Auf jedem zu verwaltenden Gerät muss außerdem ein Zertifikat mit demselben Stamm installiert werden, um vertrauenswürdige Verbindungen mit Standortsystemrollen zu unterstützen. Für in einem Massenvorgang registrierte Geräte können Sie das Zertifikat dem Registrierungspaket hinzufügen, das dem Gerät für die Registrierung hinzugefügt wird, wenn das Gerät erstmals vom Benutzer gestartet wird. Für von Benutzern registrierte Geräte müssen Sie das Zertifikat per E-Mail, Download aus dem Internet oder anderer Methode hinzufügen.  
+ Chaque appareil à gérer doit également disposer d’un certificat avec la même racine installée pour prendre en charge les communications approuvées avec les rôles système de site. Pour les appareils inscrits en bloc, vous pouvez inclure le certificat dans le package d’inscription ajouté à l’appareil pour l’inscription de celui-ci quand un utilisateur le démarre pour la première fois. Pour les appareils inscrits par l’utilisateur, vous devez ajouter le certificat par e-mail, par téléchargement sur le web ou par une autre méthode.  
 
- Als Alternative für nicht zur Domäne gehörige Geräte können Sie den Stamm einer bekannten öffentlichen Zertifizierungsstelle (wie z. B. Verisign oder GoDaddy) zum Ausstellen des Serverzertifikats verwenden. Dadurch wird vermieden, ein Zertifikat manuell auf dem Gerät installieren zu müssen, da die meisten Geräte nativ Verbindungen mit Servern vertrauen, die den denselben Stamm der öffentlichen Zertifizierungsstelle verwenden. Dies ist eine nützliche Alternative für von Benutzern registrierte Geräte, bei denen es nicht möglich, die Zertifikate, denen von der Stammzertifizierungsstelle vertraut wird, auf allen Geräten zu installieren.  
+ En tant que solution de remplacement pour des appareils non joints au domaine, vous pouvez utiliser la racine d’une autorité de certification publique connue (comme Verisign ou GoDaddy) pour émettre le certificat de serveur, ce qui évite de devoir installer manuellement un certificat sur l’appareil, car la plupart des appareils approuvent en mode natif les connexions à des serveurs utilisant la même racine d’autorité de certification publique. Il s’agit d’une alternative utile pour les appareils inscrits par l’utilisateur, quand il n’est pas possible d’installer les certificats approuvés via l’autorité de certification du site sur chaque appareil.  
 
 > [!IMPORTANT]  
->  Es gibt viele Methoden zum Einrichten der Zertifikate für vertrauenswürdige Verbindungen zwischen Geräten und den Standortsystemservern für die lokale Verwaltung mobiler Geräte. Die Informationen in diesem Artikel dienen als Beispiel einer der Möglichkeiten. Diese Methode erfordert, dass Sie einen Server an Ihrem Standort mit der Rolle „Active Directory-Zertifikatdienste“ ausführen und dass die Rollendienste „Zertifizierungsstelle“ und „Zertifizierungsstellen-Webregistrierung“ installiert sind. Weitere Informationen und eine Anleitung für diese Windows Server-Rolle finden Sie unter [Active Directory-Zertifikatdienste](http://go.microsoft.com/fwlink/p/?LinkId=115018).  
+>  Il existe différentes façons de configurer les certificats pour assurer des communications fiables entre les appareils et les serveurs de système de site à des fins de gestion des appareils mobiles locale. Les informations fournies dans cet article sont destinées à illustrer une manière de procéder. Cette méthode requiert que vous exécutiez un serveur au sein de votre site avec le rôle Services de certificats Active Directory et les services du rôle Autorité de Certification et Inscription de l’autorité de certification via le Web installés. Pour obtenir plus d’informations et des conseils sur ce rôle Windows Server, consultez [Services de certificats Active Directory](http://go.microsoft.com/fwlink/p/?LinkId=115018).  
 
- Führen Sie die folgenden allgemeinen Schritte durch, um den Configuration Manager-Standort für die SSL-Verbindungen vorzubereiten, die für die lokale Verwaltung mobiler Geräte erforderlich sind:  
+ Pour configurer le site Configuration Manager pour les communications SSL nécessaires à la gestion des appareils mobiles locale, exécutez ces étapes générales :  
 
--   [Konfigurieren der Zertifizierungsstelle für die Veröffentlichung der Zertifikatsperrliste](#bkmk_configCa)  
+-   [Configurer l’autorité de certification (AC) pour la publication de listes de révocation de certificats](#bkmk_configCa)  
 
--   [Erstellen der Webserver-Zertifikatvorlage bei der Zertifizierungsstelle](#bkmk_certTempl)  
+-   [Créer le modèle de certificat de serveur web sur l’autorité de certification](#bkmk_certTempl)  
 
--   [Anfordern des Webserverzertifikats für jede Standortsystemrolle](#bkmk_requestCert)  
+-   [Demander le certificat de serveur web pour chaque rôle de système de site](#bkmk_requestCert)  
 
--   [Binden des Zertifikats an den Webserver](#bkmk_bindCert)  
+-   [Lier le certificat au serveur web](#bkmk_bindCert)  
 
--   [Exportieren des Zertifikats mit demselben Stamm wie das Webserverzertifikat](#bkmk_exportCert)  
+-   [Exporter le certificat ayant la même racine que le certificat de serveur web](#bkmk_exportCert)  
 
-##  <a name="bkmk_configCa"></a> Konfigurieren der Zertifizierungsstelle für die Veröffentlichung der Zertifikatsperrliste  
- Standardmäßig verwendet die Zertifizierungsstelle LDAP-basierte Zertifikatssperrlisten, die Verbindungen für zur Domäne gehörige Geräte zulassen. Sie müssen der Zertifizierungsstelle HTTP-basierte Zertifikatsperrlisten hinzufügen, damit nicht zur Domäne gehörenden Geräten mithilfe von Zertifikaten vertraut wird, die von der Zertifizierungsstelle ausgestellt wurden. Diese Zertifikate sind für die SSL-Verbindung zwischen den Servern, auf denen die Configuration Manager-Standortsystemrollen gehostet werden, und den Geräten erforderlich, die für die lokale Verwaltung mobiler Geräte registriert sind.  
+##  <a name="bkmk_configCa"></a> Configurer l’autorité de certification (AC) pour la publication de listes de révocation de certificats  
+ Par défaut, l’autorité de certification (AC) utilise des listes de révocation de certificats (CRL) LDAP qui autorisent les connexions pour des appareils joints au domaine. Vous devez ajouter des listes de révocation de certificats basées sur HTTP à l’autorité de certification pour permettre que des appareils non joints au domaine soient approuvés avec des certificats émis par l’autorité de certification. Ces certificats sont nécessaires aux communications SSL entre les serveurs hébergeant les rôles de système de site Configuration Manager et les appareils inscrits pour la gestion des appareils mobiles locale.  
 
- Führen Sie die nachstehenden Schritte zum Konfigurieren der Zertifizierungsstelle für die automatische Veröffentlichung von Informationen zu Zertifikatsperrlisten und zum Ausstellen von Zertifikaten aus, die vertrauenswürdige Verbindungen für zur Domäne gehörige und nicht zur Domäne gehörige Geräte zulassen:  
+ Procédez de la manière décrite ci-dessous pour configurer l’autorité de certification afin qu’elle publie automatiquement les informations de liste de révocation de certificats pour l’émission de certificats qui autorisent des connexions approuvées pour des appareils joints et non joints au domaine :  
 
-1.  Klicken Sie auf dem Server mit der Zertifizierungsstelle für Ihren Standort auf **Start**  >  **Verwaltung**  >  **Zertifizierungsstelle**.  
+1.  Sur le serveur exécutant l’autorité de certification pour votre site, cliquez sur **Démarrer** > **Outils d’administration** > **Autorité de certification**.  
 
-2.  Klicken Sie in der Zertifizierungsstellenkonsole mit der rechten Maustaste auf **CertificateAuthority** und anschließend auf **Eigenschaften**.  
+2.  Dans la console Autorité de certification, cliquez avec le bouton droit sur **CertificateAuthority**, puis cliquez sur **Propriétés**.  
 
-3.  Klicken Sie in den „CertificateAuthority“-Eigenschaften auf die Registerkarte **Erweiterungen**, stellen Sie sicher, dass **Erweiterung auswählen** auf **Sperrlisten-Verteilungspunkt** festgelegt ist.  
+3.  Dans les propriétés CertificateAuthority, cliquez sur l’onglet **Extensions**, puis vérifiez que l’option **Sélectionner l’extension** a la valeur **Points de distribution de liste de révocation de certificats (CDP)**  
 
-4.  Wählen Sie **http://<DNS-Name des Servers\>/CertEnroll/<Name der Zertifizierungsstelle\><Namenssuffix der Zertifikatsperrliste\><DeltaCRLAllowed\>.crl** aus. Und die folgenden drei Optionen:  
+4.  Sélectionnez **http://<NomDNSServeur\>/CertEnroll/<NomAutoritéCert\><SuffixeNomListeCRL\><ListeCRLDeltaAutorisée\>.crl**. Sélectionnez également les trois options ci-dessous :  
 
-    -   **In Sperrlisten einbeziehen. Wird zur Suche von Deltasperrlisten verwendet.**  
+    -   **Inclure dans les listes de révocation des certificats afin de pouvoir rechercher les listes de révocation des certificats delta.**  
 
-    -   **In CDP-Erweiterung des ausgestellten Zertifikats einbeziehen.**  
+    -   **Inclure dans l’extension CDP des certificats émis.**  
 
-    -   **In IDP-Erweiterung ausgestellter CRLs einbeziehen.**  
+    -   **Inclure dans l’extension IDP des listes de révocation de certificats émises.**  
 
-5.  Klicken Sie auf der Registerkarte **Beendigungsmodul** auf **Eigenschaften...**, und wählen Sie **Veröffentlichen von Zertifikaten im Dateisystem zulassen** aus.  
+5.  Cliquez sur l’onglet **Module de sortie**, sur **Propriétés...**, puis sélectionnez **Autoriser la publication des certificats dans le système de fichier**.  
 
-6.  Klicken Sie auf **OK**, wenn Sie benachrichtigt werden, dass die Active Directory-Zertifikatdienste neu gestartet werden müssen.  
+6.  Cliquez sur **OK** lors de la notification que les Services de certificats Active Directory doivent être redémarrés.  
 
-7.  Klicken Sie mit der rechten Maustaste auf **Gesperrte Zertifikate**, klicken Sie auf **Alle Tasks** und anschließend auf **Veröffentlichen**.  
+7.  Cliquez avec le bouton droit sur **Certificats révoqués**, cliquez sur **Toutes les tâches**, puis sur **Publier**.  
 
-8.  Wählen Sie im Dialogfeld „Zertifikatsperrliste veröffentlichen“ **Nur Deltasperrliste** aus, und klicken Sie anschließend auf **OK**.  
+8.  Dans la boîte de dialogue Publier la liste de révocation de certificats, sélectionnez **Liste de révocation de certificats delta uniquement**, puis cliquez sur **OK**.  
 
-##  <a name="bkmk_certTempl"></a> Erstellen der Webserver-Zertifikatvorlage bei der Zertifizierungsstelle  
- Nach dem Veröffentlichen der neuen Zertifikatsperrliste bei der Zertifizierungsstelle ist der nächste Schritt das Erstellen einer Webserver-Zertifikatvorlage. Diese Vorlage ist erforderlich für das Ausstellen von Zertifikaten für Server, die die Standortsystemrollen „Anmeldungspunkt“, „Anmeldungsproxypunkt“, „Verteilungspunkt“ und „Geräteverwaltungspunkt“ hosten. Diese Server werden SSL-Endpunkte für vertrauenswürdige Verbindungen zwischen Standortsystemrollen und registrierten Geräten.    Gehen Sie folgendermaßen vor, um die Zertifikatvorlage zu erstellen:  
+##  <a name="bkmk_certTempl"></a> Créer le modèle de certificat de serveur web sur l’autorité de certification  
+ Après publication de la nouvelle liste de révocation de certificats sur l’autorité de certification, l’étape suivante consiste à créer un modèle de certificat de serveur web. Ce modèle est requis pour émettre des certificats pour les serveurs hébergeant les rôles système de site point d’inscription, point proxy d’inscription, point de distribution et point de gestion d’appareil. Ces serveurs sont des points de terminaison SSL pour les communications approuvées entre les rôles système de site et les appareils inscrits.    Procédez de la manière décrite ci-dessous pour créer le modèle de certificat :  
 
-1.  Erstellen Sie eine Sicherheitsgruppe namens **ConfigMgr MDM Servers**, die die Server mit den ausgeführten Standortsystemen enthält, die vertrauenswürdige Verbindungen mit registrierten Geräten erfordern.  
+1.  Créez un groupe de sécurité nommé **Serveurs ConfigMgr MDM**, contenant les serveurs exécutant les systèmes de site qui nécessitent des communications approuvées avec les appareils inscrits.  
 
-2.  Klicken Sie in der Zertifizierungsstellenkonsole mit der rechten Maustaste auf **Zertifikatvorlagen**, und klicken Sie anschließend auf **Verwalten**, um die Zertifikatvorlagenkonsole zu laden.  
+2.  Dans la console Autorité de certification, cliquez avec le bouton droit sur **Modèles de certificats**, puis cliquez sur **Gérer** pour charger la console Modèles de certificat.  
 
-3.  Klicken Sie im Ergebnisbereich mit der rechten Maustaste auf den Eintrag, für den in der Spalte **Vorlagenanzeigename** der Name **Webserver**angezeigt wird, und klicken Sie auf **Doppelte Vorlage**.  
+3.  Dans le volet de résultats, cliquez avec le bouton droit sur l'entrée qui affiche **Serveur Web** dans la colonne **Nom complet du modèle**, puis cliquez sur **Dupliquer le modèle**.  
 
-4.  Vergewissern Sie sich, dass im Dialogfeld **Doppelte Vorlage** die Option **Windows 2003 Server Enterprise Edition** ausgewählt ist, und klicken Sie dann auf **OK**.  
+4.  Dans la boîte de dialogue **Dupliquer le modèle** , assurez-vous que l'option **Windows Server 2003, Enterprise Edition** est sélectionnée, puis cliquez sur **OK**.  
 
     > [!IMPORTANT]  
-    >  Wählen Sie nicht **Windows 2008 Server Enterprise Edition**aus. Configuration Manager unterstützt keine Windows Server 2008-Zertifikatvorlagen für vertrauenswürdige Verbindungen über HTTPS.  
+    >  Ne sélectionnez pas **Windows Server 2008, Enterprise Edition**. Configuration Manager ne prend pas en charge les modèles de certificat de Windows Server 2008 pour assurer des communications fiables utilisant le protocole HTTPS.  
 
     > [!NOTE]  
-    >  Wenn die Zertifizierungsstelle, die Sie verwenden, unter Windows Server 2012 ausgeführt wird, werden Sie nicht zur Angabe der Zertifikatvorlagenversion aufgefordert, wenn Sie auf **Vorlage duplizieren** klicken. Geben Sie stattdessen auf der Registerkarte **Kompatibilität** die Vorlageneigenschaften wie folgt ein:  
+    >  Si l’autorité de certification que vous utilisez est sur Windows Server 2012, vous n’êtes pas invité à spécifier la version du modèle de certificat quand vous cliquez sur **Dupliquer le modèle**. Spécifiez-la plutôt sous l'onglet **Compatibilité** des propriétés du modèle, comme suit :  
     >   
-    >  **Zertifizierungsstelle**: **Windows Server 2003**  
+    >  **Autorité de certification**: **Windows Server 2003**  
     >   
-    >  **Zertifikatempfänger**: **Windows XP/Server 2003**  
+    >  **Destinataire du certificat**: **Windows XP / Server 2003**  
 
-5.  Geben Sie im Dialogfeld **Eigenschaften der neuen Vorlage** auf der Registerkarte **Allgemein** einen Vorlagennamen zum Generieren der Webzertifikate ein, die von Configuration Manager-Standortsystemen verwendet werden, beispielsweise **ConfigMgr-MDM-Webserver**.  
+5.  Dans la boîte de dialogue **Propriétés du nouveau modèle**, sous l’onglet **Général**, entrez un nom de modèle pour générer les certificats web à utiliser sur les systèmes de site Configuration Manager, par exemple **Serveur web ConfigMgr MDM**.  
 
-6.  Klicken Sie auf der Registerkarte **Antragstellername** auf **Build from Active Directory information** (Aus diesen Active Directory-Informationen erstellen), und geben Sie als Format für den Namen des Antragstellers **DNS-Name** ein. Deaktivieren Sie das Kontrollkästchen des alternativen Antragstellernamens, wenn **Benutzerprinzipalname (UPN)** ausgewählt ist.  
+6.  Cliquez sur l’onglet **Nom du sujet**, sélectionnez **Construire à partir de ces informations Active Directory** et, pour le format du nom du sujet, spécifiez **Nom DNS**. Décochez la case de l’autre nom du sujet si l’option **Nom d’utilisateur principal (UPN)** est activée.  
 
-7.  Klicken Sie auf die Registerkarte **Sicherheit** , und entfernen Sie aus den Sicherheitsgruppen **Domänen-Admins** und **Organisations-Admins** die Berechtigung **Anmelden**.  
+7.  Sous l'onglet **Sécurité** , supprimez l'autorisation **Inscription** des groupes de sécurité **Administrateurs du domaine** et **Administrateurs de l'entreprise**.  
 
-8.  Klicken Sie auf **Hinzufügen**, geben Sie in das Textfeld **ConfigMgr-MDM-Server** ein, und klicken Sie dann auf **OK**.  
+8.  Cliquez sur **Ajouter**, entrez **Serveurs ConfigMgr MDM** dans la zone de texte, puis cliquez sur **OK**.  
 
-9. Wählen Sie für diese Gruppe die Berechtigung **Anmelden** aus, und lassen Sie die Berechtigung **Lesen** aktiviert.  
+9. Sélectionnez l'autorisation **Inscription** pour ce groupe et ne désactivez pas l'autorisation **Lecture** .  
 
-10. Klicken Sie auf **OK**, und schließen Sie die Zertifikatvorlagenkonsole.  
+10. Cliquez sur **OK**, puis fermez la console Modèles de certificat.  
 
-11. Klicken Sie in der Zertifizierungsstellenkonsole mit der rechten Maustaste auf **Zertifikatvorlagen**, klicken Sie auf **Neu**und dann auf **Auszustellende Zertifikatvorlage**.  
+11. Dans la console Autorité de certification, cliquez avec le bouton droit sur **Modèles de certificats**, cliquez sur **Nouveau**, puis cliquez sur **Modèle de certificat à délivrer**.  
 
-12. Wählen Sie im Dialogfeld **Zertifikatvorlagen aktivieren** die neu erstellte Vorlage **ConfigMgr – Verwaltung mobiler Geräte – Webserver** aus, und klicken Sie dann auf **OK**.  
+12. Dans la boîte de dialogue **Activer les modèles de certificat**, sélectionnez le modèle que vous venez de créer, **Serveur web ConfigMgr MDM**, puis cliquez sur **OK**.  
 
-##  <a name="bkmk_requestCert"></a> Anfordern des Webserverzertifikats für jede Standortsystemrolle  
- Zwischen Geräten, die für die lokale Verwaltung mobiler Geräte registriert wurden, und SSL\-Endpunkten, auf denen der Registrierungspunkt, der Registrierungsproxypunkt, der Verteilungspunkt und der Geräteverwaltungspunkt gehostet werden, muss eine Vertrauensstellung bestehen.  In den folgenden Schritten wird beschrieben, wie Sie das Webserverzertifikat für IIS anfordern. Dies muss für jeden Server (SSL-Endpunkt) erfolgen, der eine der für die lokale Verwaltung mobiler Geräte erforderlichen Standortsystemrollen hostet.  
+##  <a name="bkmk_requestCert"></a> Demander le certificat de serveur web pour chaque rôle de système de site  
+ Les appareils inscrits pour la gestion des appareils mobiles locale doivent approuver les points de terminaison SSL hébergeant le point d’inscription, le point proxy d’inscription, le point de distribution et le point de gestion d’appareil.  Les étapes ci-dessous décrivent comment demander le certificat de serveur web pour IIS. Vous devez faire cela pour chaque serveur (point de terminaison SSL) hébergeant l’un des rôles de système de site nécessaires à la gestion des appareils mobiles locale.  
 
-1.  Öffnen Sie auf dem primären Standortserver eine Eingabeaufforderung mit Administratorberechtigung, geben Sie **MMC** ein, und drücken Sie die **EINGABETASTE**.  
+1.  Sur le serveur de site principal, ouvrez une invite de commandes avec des droits d’administrateur, tapez **MMC** et appuyez sur **Entrée**.  
 
-2.  Klicken Sie in der MMC auf **Datei**  >  **Snap-In hinzufügen/entfernen**.  
+2.  Dans la console MMC, cliquez sur **Fichier** > **Ajouter/supprimer un composant logiciel enfichable**.  
 
-3.  Wählen Sie im Snap-In „Zertifikate“ **Zertifikate** aus. Klicken Sie auf **Hinzufügen**, und wählen Sie **Computerkonto** aus. Klicken Sie auf **Weiter**, anschließend auf **Fertig stellen** und schließlich auf **OK**, um das Fenster „Snap-In hinzufügen/entfernen“ zu schließen.  
+3.  Dans le composant logiciel enfichable Certificats, sélectionnez **Certificats**, cliquez sur **Ajouter**, sélectionnez **Compte d’ordinateur**, cliquez sur **Suivant**, sur **Terminer**, puis sur **OK** pour fermer la fenêtre Ajouter/supprimer un composant logiciel enfichable.  
 
-4.  Klicken Sie mit der rechten Maustaste auf **Persönlich**. Klicken Sie anschließend auf **Alle Tasks**  >  **Neues Zertifikat anfordern**.  
+4.  Cliquez avec le bouton droit sur **Personnel**, puis cliquez sur **Toutes les tâches** > **Demander un nouveau certificat**.  
 
-5.  Klicken Sie im Assistenten für die Zertifikatregistrierung auf **Weiter**, wählen Sie **Active Directory-Registrierungsrichtlinie** aus, und klicken Sie auf **Weiter**.  
+5.  Dans l’Assistant Inscription de certificats, cliquez sur **Suivant**, sélectionnez **Stratégie d’inscription à Active Directory**, puis cliquez sur **Suivant**.  
 
-6.  Aktivieren Sie das Kontrollkästchen neben dem Webserverzertifikat (**ConfigMgr – Verwaltung mobiler Geräte – Webserver**), und klicken Sie anschließend auf **Registrieren**.  
+6.  Cochez la case en regard du certificat de serveur web (**Serveur web ConfigMgr MDM**), puis cliquez sur **Inscrire**.  
 
-7.  Sobald das Zertifikat registriert ist, klicken Sie auf **Fertig stellen**.  
+7.  Une fois que le certificat est inscrit, cliquez sur **Terminer**.  
 
- Da jeder Server ein eindeutiges Webserverzertifikat benötigt, müssen Sie diesen Prozess für jeden Server wiederholen, auf dem eine der für die lokale Verwaltung mobiler Geräte erforderlichen Standortsystemrollen gehostet werden.  Wenn ein Server alle Standortsystemrollen hostet, müssen Sie nur ein Webserverzertifikat anfordern.  
+ Étant donné que chaque serveur a besoin d’un certificat de serveur web unique, vous devez répéter ce processus pour chaque serveur hébergeant l’un des rôles de système de site nécessaire à la gestion des appareils mobiles locale.  Si un serveur héberge tous les rôles système de site, vous ne devez demander qu’un seul certificat de serveur web.  
 
-##  <a name="bkmk_bindCert"></a> Binden des Zertifikats an den Webserver  
- Das neue Zertifikat muss nun an den Webserver aller Standortsystemserver gebunden werden, auf denen die für die lokale Verwaltung mobiler Geräte erforderlichen Standortsystemrollen gehostet werden. Führen Sie die folgenden Schritte für jeden Server aus, der die Standortsystemrollen „Anmeldungspunkt“ und „Anmeldungsproxypunkt“ hostet. Wenn ein Server alle Standortsystemrollen hostet, müssen Sie die folgenden Schritte nur einmal ausführen. Diese Aufgabe muss nicht für die Standortsystemrollen „Verteilungspunkt“ und „Geräteverwaltungspunkt“ erfolgen, da diese während der Registrierung automatisch das benötigte Zertifikat erhalten.  
+##  <a name="bkmk_bindCert"></a> Lier le certificat au serveur web  
+ Le nouveau certificat doit maintenant être lié au serveur web de chaque serveur de système de site hébergeant les rôles de système de site nécessaires à la gestion des appareils mobiles locale. Procédez de la manière décrite ci-dessous pour chaque serveur hébergeant les rôles système de site point d’inscription et point proxy d’inscription. Si un serveur héberge tous les rôles système de site, vous ne devez suivre ces étapes qu’une seule fois. Vous n’avez pas à effectuer cette tâche pour les rôles système de site point de distribution et point de gestion d’appareil, car ils reçoivent automatiquement le certificat requis lors de l’inscription.  
 
-1.  Klicken Sie auf dem Server, der den Anmeldungspunkt, Anmeldungsproxypunkt, Verteilungspunkt oder Geräteverwaltungspunkt hostet, auf **Start**  >  **Verwaltung**  >  **IIS-Manager**.  
+1.  Sur le serveur hébergeant le point d’inscription, le point proxy d’inscription, le point de distribution ou le point de gestion d’appareil, cliquez sur **Démarrer** > **Outils d’administration** > **Gestionnaire des services Internet**.  
 
-2.  Navigieren Sie unter „Verbindungen“ zu **Standardwebsite**. Klicken Sie mit der rechten Maustaste darauf, und klicken Sie anschließend auf **Bindungen bearbeiten...**.  
+2.  Sous Connexions, accédez à l’option **Site web par défaut**, cliquez dessus avec le bouton droit, puis cliquez sur **Modifier les liaisons...**  
 
-3.  Klicken Sie im Dialogfeld „Websitebindungen“ auf **https**, und klicken Sie anschließend auf **Bearbeiten...**.  
+3.  Dans la boîte de dialogue Liaisons de sites, cliquez sur **https**, puis sur **Modifier...**  
 
-4.  Wählen Sie im Dialogfeld „Websitebindung bearbeiten“ das Zertifikat aus, das Sie zuvor für das **SSL-Zertifikat** registriert haben. Klicken Sie auf **OK** und anschließend auf **Schließen**.  
+4.  Dans la boîte de dialogue Modifier la liaison de site, sélectionnez le certificat que vous venez d’inscrire pour le **certificat SSL**, cliquez sur **OK**, puis sur **Fermer**.  
 
-5.  Wählen Sie in der IIS-Manager-Konsole unter „Verbindungen“ den Webserver aus, und klicken Sie anschließend im rechten Aktionsbereich auf **Neu starten**.  
+5.  Dans la console Gestionnaire des services Internet, sous Connexions, sélectionnez le serveur web et, dans le volet Actions à droite, cliquez sur **Redémarrer**.  
 
-##  <a name="bkmk_exportCert"></a> Exportieren des Zertifikats mit demselben Stamm wie das Webserverzertifikat  
- Die Active Directory-Zertifikatdienste installieren in der Regel das von der Zertifizierungsstelle benötigte Zertifikat auf allen zur Domäne gehörenden Geräten. Nicht zur Domäne gehörige Geräte können aber ohne Zertifikat von der Stammzertifizierungsstelle nicht mit den Standortsystemrollen kommunizieren. Zum Abrufen des erforderlichen Zertifikats für Geräte zur Kommunikation mit Standortsystemrollen können Sie es mithilfe des Zertifikats exportieren, das an den Webserver gebunden ist.  
+##  <a name="bkmk_exportCert"></a> Exporter le certificat ayant la même racine que le certificat de serveur web  
+ Les Services de certificats Active Directory installent généralement le certificat requis de l’autorité de certification sur tous les appareils joints au domaine. En revanche, les appareils non joints au domaine ne sont pas en mesure de communiquer avec les rôles système de site sans certificat de l’autorité de certification racine. Pour obtenir le certificat requis pour que les appareils puissent communiquer avec les rôles système de site, vous pouvez l’exporter à partir du certificat lié au serveur web.  
 
- Führen Sie diese Schritte aus, um das Stammzertifikat des Zertifikats des Webservers zu exportieren.  
+ Pour exporter le certificat racine du certificat du serveur web, procédez comme suit.  
 
-1.  Klicken Sie im IIS-Manager auf **Standardwebsite** und anschließend im rechten Aktionsbereich auf **Bindungen...**.  
+1.  Dans le Gestionnaire des services Internet, cliquez sur **Site web par défaut** puis, dans le volet Action situé à droite, cliquez sur **Liaisons...**  
 
-2.  Klicken Sie im Dialogfeld „Websitebindungen“ auf **https** und anschließend auf **Bearbeiten...**.  
+2.  Dans la boîte de dialogue Liaisons de sites, cliquez sur **https**, puis sur **Modifier...**  
 
-3.  Stellen Sie sicher, dass das Webserverzertifikat ausgewählt ist, und klicken Sie auf **Anzeigen...**.  
+3.  Vérifiez que le certificat de serveur web est bien sélectionné, puis cliquez sur **Afficher…**  
 
-4.  Klicken Sie in den Eigenschaften des Webserverzertifikats auf **Zertifizierungspfad**, anschließend auf den Stamm am oberen Rand des Zertifizierungspfads und schließlich auf **Zertifikat anzeigen**.  
+4.  Dans les propriétés du certificat de serveur web, cliquez sur **Chemin d’accès de certification**, sur la racine en haut du chemin d’accès de certification, puis sur **Afficher le certificat**.  
 
-5.  Klicken Sie in den Eigenschaften des Stammzertifikats auf **Details** und anschließend auf **In Datei kopieren...**.  
+5.  Dans les propriétés du certificat racine, cliquez sur **Détails**, puis sur **Copier dans un fichier...**  
 
-6.  Klicken Sie im Assistenten zum Exportieren von Zertifikaten auf **Weiter**.  
+6.  Dans l’Assistant Exportation de certificat, cliquez sur **Suivant**.  
 
-7.  Stellen Sie sicher, dass als Format **DER-codierte binäre X.509-Datei (.CER)** ausgewählt ist, und klicken Sie auf **Weiter**.  
+7.  Vérifiez que l’option **X.509 binaire encodé DER (.cer)** est activée pour le format, puis cliquez sur **Suivant**.  
 
-8.  Klicken Sie für den Dateinamen auf **Durchsuchen...**, wählen Sie einen Speicherort zum Speichern der Zertifikatdatei, geben Sie der Datei einen Namen, und klicken Sie auf **Speichern**.  
+8.  Pour le nom du fichier, cliquez sur **Parcourir...**, choisissez un emplacement pour enregistrer le fichier de certificat, nommez le fichier, puis cliquez sur **Enregistrer**.  
 
-     Zu registrierende Geräte müssen auf diese Datei zugreifen, um das Stammzertifikat zu importieren. Wählen Sie deshalb einen allgemeinen Speicherort, auf den die meisten Computer und Geräte zugreifen können. Sie können die Datei auch erst an einem geeigneten Speicherort speichern (z. B. auf Laufwerk C) und später an einen allgemeinen Speicherort verschieben.  
+     Les appareils à inscrire devant accéder à ce fichier pour importer le certificat racine, vous devez choisir un emplacement commun accessible à la plupart des ordinateurs et appareils, ou enregistrer le fichier provisoirement dans un emplacement pratique (tel que le lecteur C), puis le déplacer ultérieurement vers un emplacement commun.  
 
-     Klicken Sie auf **Weiter**.  
+     Cliquez sur **Suivant**.  
 
-9. Überprüfen Sie die Einstellungen, und klicken Sie auf **Fertig stellen**.  
+9. Vérifiez les paramètres, puis cliquez sur **Terminer**.  

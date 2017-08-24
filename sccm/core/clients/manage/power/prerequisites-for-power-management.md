@@ -1,6 +1,6 @@
 ---
-title: "Voraussetzungen für die Energieverwaltung | Microsoft-Dokumentation"
-description: "Hier erhalten Sie Informationen über die Voraussetzungen für die Energieverwaltung in System Center Configuration Manager."
+title: "Prérequis pour la gestion de l’alimentation | Microsoft Docs"
+description: "Prenez connaissance des prérequis pour la gestion de l’alimentation dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -18,26 +18,26 @@ manager: angrobe
 ms.openlocfilehash: 711ef491899846b86bfed0355ac7fd0f9d509c4f
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="prerequisites-for-power-management-in-system-center-configuration-manager"></a>Voraussetzungen für die Energieverwaltung in System Center Configuration Manager
+# <a name="prerequisites-for-power-management-in-system-center-configuration-manager"></a>Configuration requise pour la gestion de l’alimentation dans System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Die Energieverwaltung in System Center Configuration Manager weist externe Abhängigkeiten sowie Abhängigkeiten innerhalb des Produkts auf.  
+La gestion de l’alimentation dans System Center Configuration Manager comporte des dépendances externes et des dépendances au sein du produit.  
 
-## <a name="dependencies-external-to-configuration-manager"></a>Externe Abhängigkeiten von Configuration Manager  
- In der folgenden Tabelle sind die Abhängigkeiten aufgelistet, die außerhalb von Configuration Manager für die Energieverwaltung bestehen.  
+## <a name="dependencies-external-to-configuration-manager"></a>Dépendances externes à Configuration Manager  
+ Le tableau suivant répertorie les dépendances externes à Configuration Manager pour l’utilisation de la gestion de l’alimentation.  
 
-|Abhängigkeit|Weitere Informationen|  
+|Dépendance|Plus d'informations|  
 |----------------|----------------------|  
-|Clientcomputer müssen die erforderlichen Energiezustände unterstützen.|Um alle Funktionen der Energieverwaltung nutzen zu können, müssen Clientcomputer die Zustände "Standbymodus" und "Ruhezustand" sowie die Aktionen "Aktivierung nach Standbymodus" und "Aktivierung nach Ruhezustand" unterstützen. Klären Sie anhand des Berichts **Energiefunktionen** , ob die Computer diese Modi und Aktionen unterstützen. Weitere Informationen finden Sie unter [Power Capabilities Report (Bericht über Energiefunktionen)](../../../../core/clients/manage/power/monitor-and-plan-for-power-management.md#BKMK_Capabilites) im Thema [How to Monitor and Plan for Power Management in Configuration Manager (Überwachen und Planen der Energieverwaltung in Configuration Manager)](../../../../core/clients/manage/power/monitor-and-plan-for-power-management.md).|  
+|Les ordinateurs client doivent être en mesure de prendre en charge les états requis de l'alimentation|Pour utiliser toutes les fonctionnalités de la gestion de l'alimentation, les ordinateurs client doivent être en mesure de prendre en charge la mise en veille, la mise en veille prolongée, la sortie du mode veille et la sortie du mode veille prolongée. Vous pouvez utiliser le rapport **Fonctions de gestion de l'alimentation** afin de déterminer si les ordinateurs peuvent prendre en charge ces actions. Pour plus d’informations, consultez le rapport [Fonctions de gestion de l’alimentation](../../../../core/clients/manage/power/monitor-and-plan-for-power-management.md#BKMK_Capabilites) dans la rubrique [Guide pratique pour surveiller et planifier la gestion de l’alimentation dans System Center Configuration Manager](../../../../core/clients/manage/power/monitor-and-plan-for-power-management.md).|  
 
-## <a name="configuration-manager-dependencies"></a>Abhängigkeiten in Configuration Manager  
- In der folgenden Tabelle sind die Abhängigkeiten aufgelistet, die innerhalb von Configuration Manager für die Energieverwaltung bestehen.  
+## <a name="configuration-manager-dependencies"></a>Dépendances de Configuration Manager  
+ Le tableau suivant répertorie les dépendances au sein de Configuration Manager pour l’utilisation de la gestion de l’alimentation.  
 
-|Abhängigkeit|Weitere Informationen|  
+|Dépendance|Plus d'informations|  
 |----------------|----------------------|  
-|Die Energieverwaltung muss aktiviert sein, damit Energiesparpläne erstellt und überwacht werden können.|Informationen zum Aktivieren und Konfigurieren der Energieverwaltung finden Sie unter [Configuring power management in System Center Configuration Manager (Konfigurieren der Energieverwaltung in System Center Configuration Manager)](../../../../core/clients/manage/power/configuring-power-management.md).|  
-|Reporting Services-Punkt|Es muss ein Reporting Services-Punkt erstellt werden, bevor Energieverwaltungsberichte angezeigt werden können. Weitere Informationen finden Sie unter [Berichterstellung in System Center Configuration Manager](../../../../core/servers/manage/reporting.md).|  
+|Vous devez activer la gestion de l'alimentation avant de pouvoir créer et surveiller des modes d'alimentation.|Pour plus d’informations sur la façon d’activer et de configurer la gestion de l’alimentation, consultez [Configuration de la gestion de l’alimentation dans System Center Configuration Manager](../../../../core/clients/manage/power/configuring-power-management.md).|  
+|Point de Reporting Services|Vous devez configurer un point de Reporting Services avant de pouvoir afficher des rapports de gestion de l'alimentation. Pour plus d’informations, consultez [Génération de rapports dans System Center Configuration Manager](../../../../core/servers/manage/reporting.md).|  

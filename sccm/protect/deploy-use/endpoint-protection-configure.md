@@ -1,6 +1,6 @@
 ---
-title: Konfigurieren von Endpoint Protection | Microsoft-Dokumentation
-description: "Erfahren Sie, wie Sie Configuration Manager einrichten, sodass Schadsoftwaredefinitionen für Windows Defender aktualisiert und verteilt werden."
+title: Configurer Endpoint Protection | Microsoft Docs
+description: "Découvrez comment configurer Configuration Manager pour mettre à jour et distribuer les définitions de programmes malveillants pour Windows Defender."
 ms.custom: na
 ms.date: 02/14/2017
 ms.prod: configuration-manager
@@ -17,28 +17,28 @@ manager: angrobe
 ms.openlocfilehash: 6917644d6719a1ca636713aa5aebf277927123c8
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="configure-endpoint-protection"></a>Konfigurieren von Endpoint Protection
+# <a name="configure-endpoint-protection"></a>Configurer Endpoint Protection
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Bevor Sie Endpoint Protection zum Verwalten von Sicherheit und Schadsoftware auf Configuration Manager-Clientcomputern verwenden können, müssen Sie die Konfigurationsschritte ausführen, die in diesem Thema erläutert werden.  
+Pour utiliser Endpoint Protection pour gérer la sécurité et les programmes malveillants sur les ordinateurs client Configuration Manager, vous devez au préalable effectuer les étapes de configuration décrites dans cette rubrique.  
 
-## <a name="how-to-configure-endpoint-protection-in-configuration-manager"></a>Konfigurieren von Endpoint Protection in Configuration Manager  
- Endpoint Protection in Configuration Manager hat externe Abhängigkeiten sowie Abhängigkeiten innerhalb des Produkts.  
+## <a name="how-to-configure-endpoint-protection-in-configuration-manager"></a>Comment configurer Endpoint Protection dans Configuration Manager  
+ Endpoint Protection comporte des dépendances externes et des dépendances internes à Configuration Manager.  
 
-### <a name="steps-to-configure-endpoint-protection-in-configuration-manager"></a>Schritte für das Konfigurieren von Endpoint Protection in Configuration Manager  
- In der folgenden Tabelle finden Sie die Schritte, Details und weitere Informationen zum Konfigurieren von Endpoint Protection.  
+### <a name="steps-to-configure-endpoint-protection-in-configuration-manager"></a>Procédure pour configurer Endpoint Protection dans Configuration Manager  
+ Utilisez le tableau suivant pour les étapes, les détails et les informations complémentaires relatifs à la configuration d’Endpoint Protection.  
 
 > [!IMPORTANT]  
->  Wenn Sie Endpoint Protection für Windows 10-Computer verwalten, müssen Sie Configuration Manager so konfigurieren, dass Schadsoftwaredefinitionen für Windows Defender aktualisiert und bereitgestellt werden. Windows Defender ist in Windows 10 enthalten, aber SCEPInstall muss weiterhin installiert werden, und benutzerdefinierte Clienteinstellungen für Endpoint Protection (**Schritt 5** unten) sind weiterhin erforderlich.  
+>  Si vous gérez Endpoint Protection sur des ordinateurs Windows 10, vous devez configurer Configuration Manager pour mettre à jour et distribuer les définitions de programmes malveillants pour Windows Defender. Windows Defender est inclus dans Windows 10, mais vous devez encore installer SCEPInstall et configurer les paramètres client personnalisés pour Endpoint Protection (comme décrit dans l’**étape 5** ci-dessous).  
 
-|Schritte|Details|  
+|Étapes|Détails|  
 |-----------|-------------|  
-|**Schritt 1:** [Erstellen Sie eine Standortsystemrolle für den Endpoint Protection-Punkt](endpoint-protection-site-role.md)|Die Standortsystemrolle für den Endpoint Protection-Punkt muss installiert sein, bevor Sie Endpoint Protection verwenden können. Sie darf nur auf einem einzigen Standortsystemserver installiert sein, und sie muss auf der obersten Hierarchieebene eines zentralen Verwaltungsstandorts oder eines eigenständigen primären Standorts installiert sein. |  
-|**Schritt 2:** [Konfigurieren Sie Warnungen für Endpoint Protection](endpoint-configure-alerts.md)|Von Warnungen wird der Administrator über bestimmte Ereignisse wie Infektionen mit Schadsoftware informiert. Die Warnungen werden im Knoten **Warnungen** des Arbeitsbereichs **Überwachung** angezeigt oder können optional per E-Mail an angegebene Benutzer versendet werden. |  
-|**Schritt 3:** [Konfigurieren Sie Definitionsupdatequellen für Endpoint Protection-Clients](endpoint-definition-updates.md)|Endpoint Protection kann so konfiguriert werden, dass verschiedene Quellen zum Herunterladen von Definitionsupdates verwendet werden. |  
-|**Schritt 4:** [Konfigurieren Sie die Standardrichtlinie für Antischadsoftware, und erstellen Sie benutzerdefinierte Richtlinien für Antischadsoftware](endpoint-antimalware-policies.md)|Bei der Installation des Endpoint Protection-Clients wird die Standardrichtlinie für Antischadsoftware angewendet. Alle benutzerdefinierten Richtlinien für Antischadsoftware, die Sie bereitgestellt haben, werden innerhalb von 60 Minuten nach der Bereitstellung des Clients in der Standardeinstellung angewendet. Vergewissern Sie sich, dass Richtlinien für Antischadsoftware konfiguriert sind, bevor Sie den Endpoint Protection-Client bereitstellen. |  
-|**Schritt 5:** [Konfigurieren Sie benutzerdefinierte Clienteinstellungen für Endpoint Protection](endpoint-protection-configure-client.md)|Verwenden Sie benutzerdefinierte Clienteinstellungen, um Endpoint Protection-Einstellungen für Computersammlungen in Ihrer Hierarchie zu konfigurieren.<br /><br /> Hinweis: Konfigurieren Sie nicht die Standard-Endpoint Protection-Clienteinstellungen, es sei denn, Sie sind sicher, dass diese Einstellungen auf alle Computer in Ihrer Hierarchie angewendet werden sollen. |  
+|**Étape 1** : [Créer un rôle de système de site de point Endpoint Protection](endpoint-protection-site-role.md)|Pour que vous puissiez utiliser Endpoint Protection, le rôle de système de site de point Endpoint Protection doit avoir été installé. Il doit être installé sur un seul serveur de système de site et en haut de la hiérarchie sur un site d'administration centrale ou un site principal autonome. |  
+|**Étape 2** : [Configurer des alertes pour Endpoint Protection](endpoint-configure-alerts.md)|Les alertes signalent à l'administrateur des événements spécifiques qui se produisent, tels qu'une infection par un logiciel malveillant. Les alertes s'affichent dans le nœud **Alertes** de l'espace de travail **Surveillance** ou éventuellement elles peuvent être envoyées par courrier électronique à des utilisateurs donnés. |  
+|**Étape 3** : [Configurer les sources de mise à jour des définitions pour les clients Endpoint Protection](endpoint-definition-updates.md)|Endpoint Protection peut être configuré pour utiliser diverses sources de téléchargement des mises à jour des définitions. |  
+|**Étape 4 :** [Configurer la stratégie de logiciel anti-programme malveillant par défaut et créer des stratégies de logiciel anti-programme malveillant personnalisées](endpoint-antimalware-policies.md)|La stratégie de logiciel anti-programme malveillant par défaut est appliquée au moment de l’installation du client Endpoint Protection. Les stratégies personnalisées que vous avez déployées sont appliquées par défaut dans les 60 minutes consécutives au déploiement du client. Vérifiez que vous avez configuré des stratégies anti-programme malveillant avant de déployer le client Endpoint Protection. |  
+|**Étape 5** : [Configurer des paramètres client personnalisés pour Endpoint Protection](endpoint-protection-configure-client.md)|Utilisez des paramètres client personnalisés pour appliquer les paramètres configurés pour Endpoint Protection à certains regroupements d’ordinateurs dans la hiérarchie.<br /><br /> Remarque : configurez les paramètres client par défaut pour Endpoint Protection uniquement si vous voulez les appliquer à l’ensemble des ordinateurs de la hiérarchie. |  

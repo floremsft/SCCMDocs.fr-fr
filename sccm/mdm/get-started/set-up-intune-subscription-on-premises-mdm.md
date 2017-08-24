@@ -1,6 +1,6 @@
 ---
-title: Einrichten des Intune-Abonnements | Microsoft-Dokumentation
-description: "Richten Sie ein Intune-Abonnement ein, um die Lizenzierung für die lokale Verwaltung mobiler Geräte in System Center Configuration Manager zu verfolgen."
+title: "Configurer un abonnement Intune | Microsoft Docs"
+description: Configurez un abonnement Intune pour assurer le suivi des licences dans le cadre de la gestion des appareils mobiles locale dans System Center Configuration Manager.
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -18,51 +18,51 @@ manager: angrobe
 ms.openlocfilehash: 5a81ec06e16992ae1c41b0fc98ebcd07386c5381
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="set-up-a-microsoft-intune-subscription-for-on-premises-mobile-device-management-in-system-center-configuration-manager"></a>Einrichten eines Microsoft Intune-Abonnements in System Center Configuration Manager
+# <a name="set-up-a-microsoft-intune-subscription-for-on-premises-mobile-device-management-in-system-center-configuration-manager"></a>Configurer un abonnement Microsoft Intune pour la gestion des appareils mobiles locale dans System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Die lokale Verwaltung mobiler Geräte in System Center Configuration Manager setzt ein Microsoft Intune-Abonnement voraus, damit die Lizenzierung verfolgt werden kann. Der Intune-Dienst wird nicht zum Verwalten von Geräten oder zum Speichern von Verwaltungsinformationen verwendet. Für die lokale Verwaltung mobiler Geräte erfolgt die gesamte Geräteverwaltung über die Configuration Manager-Infrastruktur.  
+La gestion des appareils mobiles locale dans System Center Configuration Manager nécessite un abonnement Microsoft Intune pour assurer le suivi des licences. Le service Intune ne permet pas de gérer les appareils ni de stocker des informations de gestion. Pour assurer une gestion locale de tous les appareils mobiles, vous devez vous appuyer sur l’infrastructure Configuration Manager.  
 
 > [!NOTE]  
-> Ab Version 1610 unterstützt Configuration Manager die gleichzeitige Verwendung von Microsoft Intune und der lokalen Configuration Management-Infrastruktur zur gleichzeitigen Verwaltung mobiler Geräte.   
+> À compter de la version 1610, Configuration Manager prend en charge l’utilisation simultanée de Microsoft Intune et de l’infrastructure Configuration Manager locale pour gérer les appareils mobiles.   
 
 > [!TIP]  
->  Es wird empfohlen, dass Sie das Intune-Abonnement für die lokale Verwaltung mobiler Geräte einrichten, bevor Sie die erforderlichen Standortsystemrollen installieren, um die erforderliche Zeit zu minimieren, bis die neu installierten Standortsystemrollen funktionsfähig sind.  
+>  Nous vous recommandons de configurer l’abonnement Intune pour la gestion des appareils mobiles locale avant d’installer les rôles de système de site nécessaires. Ainsi, les rôles de système de site nouvellement installés seront plus vite opérationnels.  
 
-##  <a name="sign-up-for-microsoft-intune"></a>Registrieren für Microsoft Intune  
- Intune ist erforderlich, damit die lokale Verwaltung mobiler Geräte funktionsfähig ist. [Registrieren](http://www.microsoft.com/en-us/server-cloud/products/microsoft-intune/) Sie sich einfach für ein Test- oder ein kostenpflichtiges Abonnement, und wechseln Sie dann zum nächsten Schritt, um das Abonnement Configuration Manager hinzuzufügen.  
+##  <a name="sign-up-for-microsoft-intune"></a>S’inscrire à Microsoft Intune  
+ Intune est nécessaire pour que la gestion des appareils mobiles locale fonctionne. Il vous suffit de [souscrire](http://www.microsoft.com/en-us/server-cloud/products/microsoft-intune/) un abonnement d’évaluation ou payant et de passer à l’étape suivante pour ajouter l’abonnement à Configuration Manager.  
 
-##  <a name="add-the-intune-subscription-to-configuration-manager"></a>Hinzufügen des Intune-Abonnements zu Configuration Manager  
- Damit das Abonnement Configuration Manager hinzugefügt wird, befolgen Sie einfach die gleichen grundlegenden Schritte wie beim Hinzufügen des Abonnements für die Verwaltung mobiler Geräte mit Intune. Lesen Sie die nachfolgenden Hinweise zu bestimmten Unterschieden, und verwenden Sie dann die Anleitungen unter [Konfigurieren Ihres Intune-Abonnements mit System Center Configuration Manager und Microsoft Intune](../deploy-use/configure-intune-subscription.md).  
+##  <a name="add-the-intune-subscription-to-configuration-manager"></a>Ajouter l’abonnement Intune à Configuration Manager  
+ Pour ajouter l’abonnement à Configuration Manager, vous devez suivre les mêmes étapes de base que la procédure d’ajout d’un abonnement pour la gestion des appareils mobiles avec Intune. Lisez les remarques ci-dessous qui décrivent les différences spécifiques, puis suivez les instructions fournies dans [Configurer votre abonnement Intune](../deploy-use/configure-intune-subscription.md).  
 
 > [!NOTE]  
->  Bedenken Sie beim Hinzufügen des Intune-Abonnements Folgendes:  
+>  Au moment d’ajouter l’abonnement Intune, gardez à l’esprit les points suivants :  
 >   
->  -   Die im Assistenten zum Hinzufügen eines Microsoft Intune\-Abonnements angegebene Sammlung wird nicht für die Benutzerrechtdelegierung der lokalen Verwaltung mobiler Geräte verwendet. Sie dient lediglich der Verwaltung mobiler Geräte mit Intune. Allerdings müssen Sie an eine Sammlung angeben, damit der Assistent fortgesetzt werden kann.  
-> -   Die im Assistenten angegebene Standortcodeeinstellung wird für die lokale Verwaltung mobiler Geräte ignoriert. Der verwendete Standortcode ist der Code, den Sie im Registrierungsprofil angeben, das den Benutzern die Berechtigung zum Registrieren von Geräten erteilt.  
-> -   Aktivieren Sie nicht die Multi-Factor Authentication. Sie wird in der lokalen Verwaltung mobiler Geräte nicht unterstützt.  
+>  -   Le regroupement spécifié dans l’Assistant Ajouter un abonnement Microsoft Intune n’est pas utilisé pour la délégation des droits d’utilisateur de la gestion des appareils mobiles locale. Il est utilisé uniquement pour la gestion des appareils mobiles avec Intune. Toutefois, vous devez spécifier un regroupement pour que l’Assistant continue.  
+> -   Le paramètre de code de site spécifié dans l’Assistant est ignoré pour la gestion des appareils mobiles locale. Le code de site utilisé est celui que vous spécifiez dans le profil d’inscription qui autorise les utilisateurs à inscrire des appareils.  
+> -   N’activez pas l’authentification multifacteur. Elle n’est pas activée dans la gestion des appareils mobiles locale.  
 
-##  <a name="configure-the-intune-subscription-for-on-premises-mobile-device-management"></a>Konfigurieren des Intune-Abonnements zur lokalen Verwaltung mobiler Geräte  
+##  <a name="configure-the-intune-subscription-for-on-premises-mobile-device-management"></a>Configurer l’abonnement Intune pour la Gestion locale des appareils mobiles  
 
-1.  Klicken Sie in der Configuration Manager-Konsole mit der rechten Maustaste auf **Microsoft Intune-Abonnement**, und klicken Sie dann auf **Eigenschaften**.  
+1.  Dans la console Configuration Manager, cliquez avec le bouton droit sur **Abonnement à Microsoft Intune**, puis cliquez sur **Propriétés**.  
 
-2.  Wählen Sie im Feld „On Premises Mobile Device Management“ (Lokale Verwaltung mobiler Geräte) eine der folgenden Aktionen aus:
+2.  Dans la zone Gestion des appareils mobiles locale, choisissez l’une des options suivantes :
 
-  - Wenn Sie nur lokal verwaltete Geräte haben möchten, aktivieren Sie das Kontrollkästchen neben **Only manage devices on-premises** (Geräte nur lokal verwalten). Klicken Sie dann auf **OK**.  
+  - Si vous prévoyez d’avoir uniquement des appareils gérés localement, cochez la case en regard de **Gérer uniquement les appareils locaux**, puis cliquez sur **OK**.  
 
       > [!NOTE]  
-      >  Durch Aktivieren dieses Kontrollkästchens konfigurieren Sie das Intune-Abonnement so, dass alle Verwaltungsinformationen lokal vorgehalten und Daten nicht in der Cloud repliziert werden.  
+      >  En cochant cette case, vous configurez l’abonnement Intune de sorte que toutes les informations de gestion soient conservées localement et que les données ne soient pas répliquées dans le cloud.  
 
-    - Wenn Sie Geräte sowohl mit Intune als auch mit Configuration Manager lokal verwalten möchten, aktivieren Sie das Kontrollkästchen nicht.
+    - Si vous prévoyez d’avoir des appareils gérés à la fois par Intune et Configuration Manager au niveau local, ne cochez pas la case.
 
-3.  Wenn Sie beabsichtigen, Geräte mit Windows 10 Mobile zu verwalten, klicken Sie mit der rechten Maustaste auf **Microsoft Intune-Abonnement**, klicken Sie dann auf **Plattformen konfigurieren**, und klicken Sie anschließend auf  **Windows Phone**.  
+3.  Si vous prévoyez de gérer des appareils Windows 10 Mobile, cliquez sur **Abonnement à Microsoft Intune**, sur **Configurer des plateformes**, puis sur  **Windows Phone**.  
 
-4.  Aktivieren Sie das Kontrollkästchen neben **Windows Phone 8.1 und Windows 10 Mobile**, und klicken Sie dann auf **OK**.  
+4.  Cochez la case en regard de **Windows Phone 8.1 et Windows 10 Mobile**, puis cliquez sur **OK**.  
 
-5.  Wenn Sie beabsichtigen, Desktopcomputer mit Windows 10 zu verwalten, klicken Sie mit der rechten Maustaste auf **Microsoft Intune-Abonnement**, klicken Sie dann auf **Plattformen konfigurieren**, und klicken Sie anschließend auf **Windows-Registrierung aktivieren**.  
+5.  Si vous prévoyez de gérer des ordinateurs de bureau Windows 10, cliquez sur **Abonnement à Microsoft Intune**, sur **Configurer des plateformes**, puis sur **Activer l’inscription Windows**.  
 
-6.  Aktivieren Sie das Kontrollkästchen neben **Windows-Registrierung aktivieren**, und klicken Sie dann auf **OK**.  
+6.  Cochez la case en regard de **Activer l’inscription Windows**, puis cliquez sur **OK**.  

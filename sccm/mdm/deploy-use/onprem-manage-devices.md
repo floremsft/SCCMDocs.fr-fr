@@ -1,6 +1,6 @@
 ---
-title: "Verwalten von Geräten für die lokale Verwaltung mobiler Geräte | Microsoft-Dokumentation"
-description: "Verwalten von Geräten für die lokale Verwaltung mobiler Geräte mit Configuration Manager."
+title: "Administrer des appareils dans le cadre la gestion des appareils mobiles locale | Microsoft Docs"
+description: "Administrez des appareils dans le cadre la gestion des appareils mobiles locale avec Configuration Manager."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -18,13 +18,13 @@ manager: angrobe
 ms.openlocfilehash: 92009c96ccc5f4124b300873ff77088ea1712c19
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-devices-for-on-premises-mobile-device-management"></a>Verwalten von Geräten für die lokale Verwaltung mobiler Geräte
+# <a name="manage-devices-for-on-premises-mobile-device-management"></a>Administrer des appareils dans le cadre la gestion des appareils mobiles locale
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Sie können Computer und Geräte mit der lokalen Verwaltung mobiler Geräte (Mobile Device Management, MDM) von System Center Configuration Manager verwalten. Um dies zu tun, [müssen die Geräte registriert werden](enroll-devices-on-premises-mdm.md), damit Configuration Manager mit den Geräten wegen Verwaltungstasks kommunizieren kann.
+Vous pouvez administrer des ordinateurs et des appareils avec la fonction de gestion des appareils mobiles locale de System Center Configuration Manager. Pour ce faire, vous devez [inscrire les appareils](enroll-devices-on-premises-mdm.md), afin que Configuration Manager puisse communiquer avec ces derniers lors de ses tâches de gestion.
 
-Verwalten von Geräten in einer lokalen MDM ist identisch mit dem Verwalten von Geräten in einer hybriden MDM-Umgebung. [Manage devices in hybrid MDM (Verwalten von Geräten in einer hybriden MDM)](wipe-lock-reset-devices.md) enthält ausführliche Informationen zur Geräteverwaltung.
+La procédure d’administration des appareils de la fonction de gestion locale des appareils mobiles est identique à celle qu’applique la gestion hybride des appareils mobiles. La section relative à [l’administration via la gestion hybride des appareils mobiles](wipe-lock-reset-devices.md) fournit des informations détaillées sur la gestion des appareils.

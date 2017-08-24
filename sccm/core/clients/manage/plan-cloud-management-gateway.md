@@ -1,5 +1,5 @@
 ---
-title: Planen von Cloud Management Gateway | Microsoft-Dokumentation
+title: Planifier la passerelle de gestion cloud | Microsoft Docs
 description: 
 ms.date: 06/07/2017
 ms.prod: configuration-manager
@@ -11,187 +11,187 @@ manager: angrobe
 ms.openlocfilehash: a7380ae781447880ffcba0778694ea62e10c4889
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="plan-for-the-cloud-management-gateway-in-configuration-manager"></a>Planen von Cloud Management Gateway in Configuration Manager
+# <a name="plan-for-the-cloud-management-gateway-in-configuration-manager"></a>Planifier la passerelle de gestion cloud dans Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Ab Version 1610 stellt das Cloudverwaltungsgateway eine einfache Methode für die Verwaltung von Configuration Manager-Clients im Internet dar. Der Cloudverwaltungsgateway-Dienst wird für Microsoft Azure bereitgestellt und erfordert ein Azure-Abonnement. Er stellt mithilfe einer neuen Rolle, die als Cloudverwaltungsgateway-Connectorpunkt bezeichnet wird, eine Verbindung mit der lokalen Configuration Manager-Infrastruktur her. Nachdem er bereitgestellt und konfiguriert wurde, können Clients auf lokale Configuration Manager-Standortsystemrollen zugreifen, unabhängig davon, ob sie sich im internen, privaten Netzwerk oder im Internet befinden.
+À compter de la version 1610, la passerelle de gestion cloud fournit un moyen simple de gérer les clients Configuration Manager sur Internet. Le service de passerelle de gestion cloud est déployé sur Microsoft Azure et nécessite un abonnement Azure. Il se connecte à votre infrastructure Configuration Manager locale à l’aide d’un nouveau rôle appelé point de connexion de la passerelle de gestion cloud. Une fois le service déployé et configuré, les clients peuvent accéder aux rôles de système de site Configuration Manager locaux, qu’ils se trouvent sur le réseau privé interne ou sur Internet.
 
 > [!TIP]  
-> In Version 1610 wird das Cloudverwaltungsgateway als vorab veröffentlichtes Feature vorgestellt. Wie Sie es aktivieren, erfahren Sie unter [Use pre-release features from updates (Verwenden von vorab veröffentlichten Features von Updates)](/sccm/core/servers/manage/pre-release-features).
+> Depuis la version 1610, la passerelle de gestion cloud est une fonctionnalité en préversion. Pour savoir comment l’activer, consultez [Utiliser des fonctionnalités de préversion des mises à jour](/sccm/core/servers/manage/pre-release-features).
 
-Verwenden Sie die Configuration Manager-Konsole zum Bereitstellen des Diensts in Azure, zum Hinzufügen der Cloudverwaltungsgateway-Connectorpunktrolle sowie zum Konfigurieren von Standortsystemrollen, um den Cloudverwaltungsgateway-Datenverkehr zuzulassen. Der Cloudverwaltungsgateway unterstützt derzeit nur die Rollen „Verwaltungspunkt“ und „Softwareupdatepunkt“.
+Utilisez la console Configuration Manager pour déployer le service sur Azure, ajouter le rôle de point de connexion de la passerelle de gestion cloud et configurer les rôles de système de site pour autoriser le trafic de la passerelle de gestion cloud. La passerelle de gestion cloud ne prend actuellement en charge que les rôles de point de gestion et de point de mise à jour logicielle.
 
-Client-Zertifikate und Zertifikate für Secure Socket Layer (SSL) sind erforderlich, um Computer zu authentifizieren und die Kommunikation zwischen den verschiedenen Ebenen des Diensts verschlüsseln. In der Regel erhalten die Clientcomputer ein Clientzertifikat über das Durchsetzen von Gruppenrichtlinien. Zum Verschlüsseln des Datenverkehrs zwischen Clients und Standortsystemserver, der die Rollen hostet, müssen Sie ein benutzerdefiniertes SSL-Zertifikat von der Zertifizierungsstelle erstellen. Darüber hinaus müssen Sie auch ein Verwaltungszertifikat in Azure einrichten, mit dem Configuration Manager den Cloudverwaltungsgateway-Dienst bereitstellen kann.
+Les certificats clients et les certificats Secure Socket Layer (SSL) sont requis pour authentifier les ordinateurs et chiffrer les communications entre les différents niveaux du service. En règle générale, les ordinateurs clients reçoivent un certificat client via la mise en œuvre d’une stratégie de groupe. Pour chiffrer le trafic entre les clients et le serveur de système de site hébergeant les rôles, vous devez créer un certificat SSL personnalisé à partir de l’autorité de certification. Vous devez également configurer un certificat de gestion sur Azure pour permettre à Configuration Manager de déployer le service de passerelle de gestion cloud.
 
-## <a name="requirements-for-cloud-management-gateway"></a>Anforderungen für das Cloudverwaltungsgateway
+## <a name="requirements-for-cloud-management-gateway"></a>Exigences pour la passerelle de gestion cloud
 
--   Die Clientcomputer und der Standortsystemserver führen den Cloudverwaltungsgateway-Connectorpunkt aus.
+-   Les ordinateurs clients et le serveur de système de site doivent exécuter le point de connexion de la passerelle de gestion cloud.
 
--   Benutzerdefinierte SSL-Zertifikate der internen Zertifizierungsstelle: Werden zum Verschlüsseln der Kommunikation der Clientcomputer und zum Authentifizieren der Identität des Cloudverwaltungsgateway-Diensts verwendet.
+-   Certificats SSL personnalisés provenant de l’autorité de certification interne : utilisés pour chiffrer la communication en provenance des ordinateurs clients et authentifier l’identité du service de passerelle de gestion cloud.
 
--   Azure-Abonnement für Clouddienste.
+-   Abonnement Azure pour les services cloud.
 
--   Azure-Verwaltungszertifikat ‒ Wird zur Authentifizierung von Configuration Manager mit Azure verwendet.
+-   Certificat de gestion Azure : utilisé pour authentifier Configuration Manager auprès d’Azure.
 
-## <a name="specifications-for-cloud-management-gateway"></a>Spezifikationen für das Cloudverwaltungsgateway
+## <a name="specifications-for-cloud-management-gateway"></a>Spécifications de la passerelle de gestion cloud
 
-- Jede Cloudverwaltungsgateway-Instanz unterstützt 4.000 Clients.
-- Es wird empfohlen, zur Verbesserung der Verfügbarkeit mindestens zwei Cloudverwaltungsgateway-Instanzen zu erstellen.
-- Der Cloudverwaltungsgateway unterstützt nur die Rollen „Verwaltungspunkt“ und „Softwareupdatepunkt“.
--   Die folgenden Funktionen in Configuration Manager werden derzeit für den Cloudverwaltungsgateway nicht unterstützt:
+- Chaque instance de la passerelle de gestion cloud prend en charge 4 000 clients.
+- Nous vous recommandons de créer au moins deux instances de la passerelle de gestion cloud pour améliorer la disponibilité.
+- La passerelle de gestion cloud ne prend en charge que les rôles de point de gestion et de point de mise à jour logicielle.
+-   Les fonctionnalités de Configuration Manager suivantes ne sont pas actuellement prises en charge pour la passerelle de gestion cloud :
 
-    -   Clientbereitstellung
-    -   Automatische Standortzuweisung
-    -   Richtlinien für Benutzer
-    -   Anwendungskatalog (einschließlich Softwaregenehmigungsanforderungen)
-    -   Vollständige Betriebssystembereitstellung (OSD)
-    -   Configuration Manager-Konsole
-    -   Remotetools
-    -   Berichterstellungswebsite
-    -   Wake-On-LAN
-    -   Mac-, Linux- und UNIX-Clients
+    -   Déploiement des clients
+    -   Attribution automatique du site
+    -   Stratégies utilisateur
+    -   Catalogue d’applications (notamment les demandes d’approbation de logiciels)
+    -   Déploiement de système d’exploitation (OSD) complet
+    -   Console Configuration Manager
+    -   outils de contrôle à distance.
+    -   Site web de création de rapports
+    -   Éveil par appel réseau
+    -   Clients Mac, Linux et UNIX
     -   Azure Resource Manager
-    -   Peercache
-    -   Lokale Verwaltung mobiler Geräte
+    -   Cache d’homologue
+    -   Gestion des appareils mobiles (MDM) locale
 
-## <a name="cost-of-cloud-management-gateway"></a>Kosten des Cloudverwaltungsgateways
+## <a name="cost-of-cloud-management-gateway"></a>Coût de la passerelle de gestion cloud
 
 >[!IMPORTANT]
->Die nachfolgenden Kosteninformationen stellen lediglich Schätzwerte dar. Ihre Umgebung weist möglicherweise andere Variablen auf, die sich auf die Gesamtkosten für die Verwendung eines Cloudverwaltungsgateways auswirken.
+>Les informations sur les coûts fournies ci-dessous sont données à titre d’estimation seulement. Votre environnement peut avoir d’autres variables qui affectent le coût total d’utilisation de la passerelle de gestion cloud.
 
-Das Cloudverwaltungsgateway verwendet die folgende Funktionen von Microsoft Azure, die das Azure-Abonnementkonto belasten:
+La passerelle de gestion cloud utilise les fonctionnalités Microsoft Azure suivantes, celles-ci donnant lieu à des frais qui sont imputés au compte d’abonnement Azure :
 
--   Virtuelle Maschine
+-   Machine virtuelle
 
-    -   Das Cloudverwaltungsgateway erfordert derzeit einen virtuellen Computer der Größe Standard\_A2. Beim Erstellen des Diensts können Sie auswählen, wie viele virtuelle Computer der Dienst unterstützen soll (die Standardeinstellung lautet „1“).
+    -   La passerelle de gestion cloud nécessite actuellement une machine virtuelle Standard\_A2. Quand vous créez le service, vous pouvez sélectionner le nombre de machines virtuelles pour assurer la prise en charge du service (une machine virtuelle par défaut).
 
-    -   Beachten Sie für Ihre Schätzung, dass ein einzelner virtueller Azure-Computer der Größe Standard\_A2 ca. 2.000 internetbasierte Clients gleichzeitig unterstützen kann.
+    -   À titre d’estimation seulement, une machine virtuelle Azure Standard\_A2 peut prendre en charge environ 2 000 clients basés sur Internet en même temps.
 
-    -   Der [Azure-Preisrechner](https://azure.microsoft.com/en-us/pricing/calculator/) hilft Ihnen, die potenziellen Kosten zu ermitteln.
+    -   Pour vous aider à déterminer les coûts potentiels, consultez la [calculatrice de prix Azure](https://azure.microsoft.com/en-us/pricing/calculator/).
 
       >[!NOTE]
-      >Die Kosten für virtuelle Computer variieren je nach Region.
+      >Les coûts des machines virtuelles varient selon la région.
 
--   Ausgehende Datenübertragungen
+-   Transfert de données sortantes
 
-    -   Für die von dem Dienst übertragenen Daten fallen Gebühren an. Beachten Sie die [Preisübersicht „Bandbreite“ für Azure](https://azure.microsoft.com/en-us/pricing/details/bandwidth/), um die potenziellen Kosten zu ermitteln.
+    -   Le flux de données sortantes en provenance du service génère des frais. Pour vous aider à déterminer les coûts potentiels, consultez les [détails de la tarification de la bande passante](https://azure.microsoft.com/en-us/pricing/details/bandwidth/).
 
-    -   Rechnen Sie als Schätzwert mit ca. 100 MB pro Client und Monat für internetbasierte Clients, mit denen stündlich Richtlinien aktualisiert werden.
+    -   À titre d’estimation seulement, prévoyez environ 100 Mo par client par mois pour les clients basés sur Internet effectuant des actualisations de la stratégie toutes les heures.
 
     >[!NOTE]
-    > Durch das Ausführen weiterer unterstützter Aktionen über das Cloudverwaltungsgateway (wie z.B. die Bereitstellung von Softwareaktualisierungen oder Anwendungen) erhöht sich die Menge der ausgehenden Datenübertragungen aus Azure.
+    > Si vous réalisez d’autres actions prises en charge par le biais de la passerelle de gestion cloud (comme le déploiement de mises à jour logicielles ou d’applications), la quantité de données sortantes en provenance d’Azure augmente.
 
--   Inhaltsspeicher
+-   Stockage de contenu
 
-    -   Internetbasierte Clients, die mit dem Cloudverwaltungsgateway verwaltet werden, erhalten Softwareaktualisierungsinhalte von Windows Update kostenlos.
+    -   Les clients basés sur Internet qui sont gérés avec la passerelle de gestion cloud reçoivent le contenu des mises à jour logicielles de Windows Update sans frais.
 
-    -   Alle anderen benötigten Inhalte (wie Anwendungen) müssen mit einem cloudbasierten Verteilungspunkt verteilt werden. Cloud Management Gateway unterstützt derzeit nur den Cloudverteilungspunkt für das Senden von Inhalten an Clients.
+    -   Tout autre contenu nécessaire (comme des applications) doit être distribué à un point de distribution cloud. À l’heure actuelle, la passerelle de gestion cloud ne prend en charge que le point de distribution cloud pour l’envoi de contenu aux clients.
 
-    - Im Artikel über die [cloudbasierte Verteilung](/sccm/core/plan-design/hierarchy/use-a-cloud-based-distribution-point#cost-of-using-cloud-based-distribution) finden Sie weitere Informationen zu den Kosten.
+    - Pour plus de détails, consultez le coût d’utilisation d’une [distribution cloud](/sccm/core/plan-design/hierarchy/use-a-cloud-based-distribution-point#cost-of-using-cloud-based-distribution).
 
-## <a name="frequently-asked-questions-about-the-cloud-management-gateway-cmg"></a>Häufig gestellte Fragen zu Cloud Management Gateway (CMG)
+## <a name="frequently-asked-questions-about-the-cloud-management-gateway-cmg"></a>Forum aux questions sur la passerelle de gestion cloud (Cloud Management Gateway ou CMG)
 
-### <a name="why-use-the-cloud-management-gateway"></a>Was spricht für die Verwendung von Cloud Management Gateway?
+### <a name="why-use-the-cloud-management-gateway"></a>Pourquoi utiliser la passerelle de gestion cloud ?
 
-Verwenden Sie diese Rolle, um die Verwaltung internetbasierter Clients zu vereinfachen. Dazu führen Sie in der Configuration Manager-Konsole drei Schritte aus.
+Utilisez ce rôle pour simplifier la gestion des clients basés Internet en trois étapes à partir de la console Configuration Manager.
 
-1. Stellen Sie Cloud Management Gateway mithilfe des Assistenten zum [Erstellen von Cloud Management Gateway](/sccm/core/clients/manage/setup-cloud-management-gateway) in Azure bereit.
-2. Konfigurieren Sie die Standortsystemrolle [Verbindungspunkt für Cloud Management Gateway](/sccm/core/servers/deploy/configure/install-site-system-roles).
-3. [Konfigurieren Sie Rollen für den Datenverkehr von Cloud Management Gateway](/sccm/core/clients/manage/setup-cloud-management-gateway#step-7-configure-roles-for-cloud-management-gateway-traffic) wie den Verwaltungspunkt und den Softwareupdatepunkt.
+1. Déployez la passerelle CMG sur Azure à l’aide de l[’Assistant Créer une passerelle de gestion cloud](/sccm/core/clients/manage/setup-cloud-management-gateway).
+2. Configurez le rôle de système de site du [point de connexion de la passerelle de gestion cloud](/sccm/core/servers/deploy/configure/install-site-system-roles).
+3. [Configurez les rôles pour le trafic de la passerelle de gestion cloud](/sccm/core/clients/manage/setup-cloud-management-gateway#step-7-configure-roles-for-cloud-management-gateway-traffic), notamment le point de gestion et le point de mise à jour logicielle.
 
-### <a name="how-does-the-cloud-management-gateway-work"></a>Wie funktioniert Cloud Management Gateway?
+### <a name="how-does-the-cloud-management-gateway-work"></a>Comment la passerelle de gestion cloud fonctionne-t-elle ?
 
-- Der Verbindungspunkt von Cloud Management Gateway ermöglicht eine konsistente Verbindung mit hoher Leistung zwischen Internet und Cloud Management Gateway.
-- Configuration Manager veröffentlicht Einstellungen in Cloud Management Gateway, einschließlich Verbindungsinformationen und Sicherheitseinstellungen.
-- Cloud Management Gateway authentifiziert Clientanforderungen von Configuration Manager und leitet sie an den Verbindungspunkt von Cloud Management Gateway weiter. Diese Anforderungen werden gemäß URL-Zuordnungen an Rollen im Unternehmensnetzwerk weitergeleitet.
+- Le point de connexion de la passerelle de gestion cloud permet une connexion cohérente et très performante depuis Internet vers la passerelle de gestion cloud.
+- Configuration Manager transmet les paramètres à la passerelle CMG, notamment les informations de connexion et les paramètres de sécurité.
+- La passerelle CMG authentifie et transfère les demandes des clients Configuration Manager au point de connexion de la passerelle de gestion cloud. Ces demandes sont transmises aux rôles dans le réseau d’entreprise selon les mappages d’URL.
 
-### <a name="how-is-the-cloud-management-gateway-deployed"></a>Wie wird Cloud Management Gateway bereitgestellt?
+### <a name="how-is-the-cloud-management-gateway-deployed"></a>Comment la passerelle de gestion cloud est-elle déployée ?
 
-Die Clouddienst-Manager-Komponente im Dienstverbindungspunkt verarbeitet alle Bereitstellungstasks für Cloud Management Gateway. Darüber hinaus überwacht die Komponente alle Informationen von Azure AD zu Dienstintegrität und -protokollierung und erstellt entsprechende Berichte.
+Le composant de gestionnaire de service cloud sur le point de connexion de service gère toutes les tâches de déploiement CMG. En outre, il surveille et transmet les informations d’intégrité du service et de journalisation à partir d’Azure AD.
 
-#### <a name="certificate-requirements"></a>Zertifikatanforderungen
+#### <a name="certificate-requirements"></a>Conditions de certificat
 
-Sie benötigen die folgenden Zertifikate, um Cloud Management Gateway zu sichern:
+Les certificats suivants sont nécessaires pour sécuriser la passerelle CMG :
 
-- **Verwaltungszertifikat**: Hierbei kann es sich um ein beliebiges Zertifikat handeln – einschließlich selbstsignierten Zertifikaten. Sie können ein öffentliches, in Azure AD hochgeladenes Zertifikat oder eine in Configuration Manager importierte [PFX-Datei mit privatem Schlüssel](/sccm/mdm/deploy-use/create-pfx-certificate-profiles) für die Authentifizierung bei Azure AD verwenden.
-- **Webdienstzertifikat**: Es wird empfohlen, ein Zertifikat einer öffentlichen Zertifizierungsstelle zu verwenden, um eine native Vertrauensstellung bei Clients zu erzielen. Der CName-Eintrag muss in der öffentlichen DNS-Registrierungsstelle erstellt werden. Platzhalterzertifikate werden nicht unterstützt.
-- **In Cloud Management Gateway hochgeladene Zertifikate von Stammzertifizierungsstellen bzw. untergeordneten Zertifizierungsstellen**: Cloud Management Gateway muss PKI-Clientzertifikate in der gesamten Zertifikatkette überprüfen. Wenn Sie eine Unternehmenszertifizierungsstelle zum Ausstellen von PKI-Clientzertifikaten verwenden und das Stammzertifikat oder die untergeordnete Zertifizierungsstelle im Internet nicht verfügbar ist, müssen Sie das Zertifikat in Cloud Management Gateway hochladen.
+- **Certificat de gestion** - Vous pouvez utiliser tout type de certificat, y compris des certificats auto-signés. Vous pouvez utiliser un certificat public téléchargé sur Azure AD ou un [fichier PFX avec une clé privée](/sccm/mdm/deploy-use/create-pfx-certificate-profiles) importé dans Configuration Manager pour permettre l’authentification auprès d’Azure AD.
+- **Certificat de service Web** - Nous vous recommandons d’utiliser un certificat public délivré par une autorité de certification afin d’obtenir une approbation native par les clients. L’élément CName doit être créé dans le registre DNS public. Les certificats génériques ne sont pas pris en charge.
+- **Certificats racine/SubCA téléchargés sur la passerelle CMG** - La passerelle CMG doit effectuer une validation complète de la chaîne sur les certificats client PKI. Si vous utilisez une autorité de certification d’entreprise pour émettre des certificats client PKI et que leur autorité de certification racine ou secondaire n’est pas disponible sur Internet, vous devez également télécharger ces certificats sur la passerelle CMG.
 
-#### <a name="deployment-process"></a>Bereitstellungsprozess
+#### <a name="deployment-process"></a>Processus de déploiement
 
-Die Bereitstellung besteht aus zwei Phasen:
+Le déploiement s’effectue en deux phases :
 
-- Bereitstellen des Clouddiensts
-    - Hochladen der Datei mit dem [Azure-Dienstdefinitionsschema](https://msdn.microsoft.com/library/azure/ee758711.aspx) (CSDEF-Datei)
-    - Hochladen der Datei mit dem [Azure-Dienstkonfigurationsschema](https://msdn.microsoft.com/library/azure/ee758710.aspx) (CSCFG-Datei)
-- Einrichten der CMG-Komponente auf dem Azure AD-Server und Konfigurieren von Endpunkten, HTTP-Handlern und Diensten in den Internetinformationsdiensten (Internet Information Services, IIS)
+- Déployer le service cloud
+    - Télécharger votre fichier de [schéma de définition du service Azure](https://msdn.microsoft.com/library/azure/ee758711.aspx) (csdef)
+    - Téléchargez votre fichier de [schéma de configuration du service Azure](https://msdn.microsoft.com/library/azure/ee758710.aspx) (cscfg).
+- Configurer le composant CMG sur votre serveur Azure AD et configurer les points de terminaison, les gestionnaires HTTP et les services dans Internet Information Services (IIS)
 
-Wenn Sie die Konfiguration von Cloud Management Gateway ändern, wird in Cloud Management Gateway eine Konfigurationsbereitstellung initiiert.
+Si vous modifiez la configuration de la passerelle CMG, un déploiement de configuration est lancé sur CMG.
 
-### <a name="how-does-the-cloud-management-gateway-help-ensure-security"></a>Wie sorgt Cloud Management Gateway für mehr Sicherheit?
+### <a name="how-does-the-cloud-management-gateway-help-ensure-security"></a>Comment la passerelle de gestion cloud garantit-elle la sécurité ?
 
-Cloud Management Gateway trägt auf folgende Weise zur Sicherheit bei:
+La passerelle CMG garantit la sécurité de plusieurs façons :
 
-- Verbindungen von CMG-Verbindungspunkten werden akzeptiert und verwaltet, einschließlich gegenseitiger SSL-Authentifizierung mithilfe interner Zertifikate und Verbindungs-IDs.
-- Clientanforderungen werden akzeptiert und weitergeleitet.
-    - Verbindungen werden mithilfe von gegenseitigem SSL im PKI-Clientzertifikat vorab authentifiziert.
-    - Über die Zertifikatsvertrauensliste wird der Stamm des PKI-Clientzertifikats überprüft. Sie können diese Einstellung in den Standorteigenschaften bei den Einstellungen für die Clientkommunikation angeben. Es werden auch die gleichen Überprüfungen ausgeführt wie durch den Verwaltungspunkt für den Client.
-    - Empfangene URLs werden überprüft.
-    - Empfangene URLs werden gefiltert, um zu prüfen, ob ein verbundener CMG-Verbindungspunkt die URL-Anforderung verarbeiten kann.  
-    - Die Inhaltslänge für jeden veröffentlichenden Endpunkt wird überprüft.
-    - Mithilfe eines Roundrobinverfahrens wird für Lastenausgleich zwischen CMG-Verbindungspunkten des gleichen Standorts gesorgt.
+- Accepte et gère les connexions à partir des points de connexion CMG, y compris l’authentification mutuelle SSL à l’aide de certificats internes et d’ID de connexion.
+- Accepte et transfère les demandes des clients
+    - Authentifie au préalable les connexions à l’aide d’un protocole SSL mutuel sur le certificat client PKI.
+    - La liste des certificats de confiance vérifie la racine du certificat client PKI. Vous pouvez spécifier ce paramètre dans les paramètres de communication du client au niveau des propriétés du site. Effectue également la même validation que le point de gestion pour le client.
+    - Valide les URL reçues
+    - Filtre les URL reçues pour vérifier si un point de connexion CMG peut répondre à la demande de l’URL.  
+    - Vérifie la longueur du contenu pour chaque point de terminaison de publication.
+    - Utilise un système de tourniquet (round-robin) pour équilibrer la charge entre les points de connexion CMG du même site.
 
-- Der CMG-Verbindungspunkt wird gesichert.
-    - Es werden konsistente HTTP/TCP-Verbindungen mit allen virtuellen Instanzen der verbundenen CMG-Instanz erstellt. Verbindungen werden minütlich überprüft und verwaltet.
-    - Mithilfe interner Zertifikate wird eine gegenseitige SSL-Authentifizierung mit Cloud Management Gateway durchgeführt.
-    - HTTP-Anforderungen werden basierend auf URL-Zuordnungen weitergeleitet.
-    - Der Verbindungsstatus wird gemeldet, um den Dienstintegritätsstatus anzuzeigen.
-    - Der Datenverkehr auf Endpunkten wird alle 5 Minuten gemeldet.
+- Sécurise le point de connexion CMG
+    - Crée des connexions HTTP/TCP cohérentes pour toutes les instances virtuelles de la passerelle CMG qui se connecte. Vérifie et gère les connexions toutes les minutes.
+    - Authentifie mutuellement la connexion SSL avec CMG à l’aide de certificats internes.
+    - Transfère les requêtes HTTP basées sur des mappages d’URL.
+    - Indique l’état de la connexion pour afficher l’état d’intégrité du service d’administration.
+    - Indique le rapport de trafic du point de terminaison pour chaque point de terminaison toutes les 5 minutes.
 
-- Clientseitige Configuration Manager-Rollen auf dem veröffentlichenden Endpunkt, z.B. der Verwaltungspunkt, werden gesichert, ebenso wie die Hostendpunkte für Softwareupdatepunkte in IIS, die der Verarbeitung von Clientanforderungen dienen. Jeder in Cloud Management Gateway veröffentlichte Endpunkt verfügt über eine URL-Zuordnung.
-Die externe URL ist die URL, über die der Client mit Cloud Management Gateway kommuniziert.
-Die interne URL ist der CMG-Verbindungspunkt, der zum Weiterleiten von Anforderungen an den internen Server verwendet wird.
+- Sécurisez les rôles du côté du client Configuration Manager du point de terminaison de publication, notamment le point de gestion et les points de terminaison hôtes de mise à jour logicielle dans IIS afin de traiter les demandes des clients. Chaque point de terminaison publié sur la passerelle CMG comporte un mappage d’URL.
+L’URL externe est celle que le client utilise pour communiquer avec la passerelle CMG.
+L’URL interne est le point de connexion CMG utilisé pour transférer les demandes vers le serveur interne.
 
-#### <a name="example"></a>Beispiel:
-Wenn Sie CMG-Datenverkehr auf einem Verwaltungspunkt aktivieren, erstellt Configuration Manager intern einen Satz URL-Zuordnungen für jeden Verwaltungspunktserver, z.B. „ccm_system“, „ccm_incoming“ und „sms_mp“.
-Die externe URL für den ccm_system-Endpunkt des Verwaltungspunkts könnte beispielsweise folgendermaßen aussehen: **https://<CMG service name>/CCM_Proxy_MutualAuth/<MP Role ID>/CCM_System**.
-Die URL ist eindeutig für jede Verwaltungspunkt. Der Configuration Manager-Client setzt den für CMG aktivierten Verwaltungspunkt – z.B. **<CMG service name>/CCM_Proxy_MutualAuth/<MP Role ID>** – auf die Liste der Internetverwaltungspunkte.
-Alle veröffentlichten externen URLs werden automatisch in Cloud Management Gateway hochgeladen, sodass CMG die URL-Filterung durchführen kann. Alle URL-Zuordnungen werden auf den CMG-Verbindungspunkt repliziert, sodass dieser Datenverkehr gemäß der externen URL des anfordernden Clients an interne Server weiterleiten kann.
+#### <a name="example"></a>Exemple :
+Lorsque vous activez le trafic CMG sur un point de gestion, Configuration Manager crée un ensemble de mappages d’URL en interne pour chaque serveur de point de gestion, par exemple ccm_system, ccm_incoming et sms_mp.
+L’URL externe du point de terminaison du point de gestion ccm_system se présente sous la forme **https://<CMG service name>/CCM_Proxy_MutualAuth/<MP Role ID>/CCM_System**.
+L’URL est unique pour chaque point de gestion. Le client Configuration Manager ajoute ensuite le nom du point de gestion de la passerelle CMG, par exemple **<CMG service name>/CCM_Proxy_MutualAuth/<MP Role ID>** dans sa liste de points de gestion internet.
+Toutes les URL externes publiées sont téléchargées automatiquement sur la passerelle CMG, qui peut alors filtrer ces URL. Tous les mappages d’URL sont répliqués vers un point de connexion CMG afin de pouvoir transférer ces URL vers des serveurs internes en fonction de l’URL externe demandée par le client.
 
-### <a name="what-ports-are-used-by-the-cloud-management-gateway"></a>Welche Ports werden von Cloud Management Gateway verwendet?
+### <a name="what-ports-are-used-by-the-cloud-management-gateway"></a>Quels sont les ports utilisés par la passerelle de gestion cloud ?
 
-- Im lokalen Netzwerk sind keine eingehenden Ports erforderlich. Bei der Bereitstellung von Cloud Management Gateway wird automatisch eine Reihe von Ports in Cloud Management Gateway erstellt.
-- Der CMG-Verbindungspunkt erfordert zusätzlich zu Port 443 einige ausgehende Ports.
+- Aucun port entrant n’est requis sur le réseau local. Le déploiement de CMG crée automatiquement un ensemble de passerelles CMG.
+- Outre le port 443, certains ports sortants sont requis par le point de connexion CMG.
 
 |||||
 |-|-|-|-|
-|Datenfluss|Server|Serverports|Client|
-|CMG-Bereitstellung|Azure|443|Configuration Manager-Dienstverbindungspunkt|
-|Erstellen des CMG-Kanals|CMG|VM-Instanz: 1 Port: 443<br>VM-Instanz: N (N>=2 und N<= 16) Ports: 10124~N 10140~N|CMG-Verbindungspunkt|
-|Client an CMG|CMG|443|Client|
-|CMG-Connector an Standortrolle (zurzeit Verwaltungspunkte und Softwareupdatepunkte)|Standortrolle|In der Standortrolle konfigurierte Protokolle/Ports|CMG-Verbindungspunkt|
+|Flux de données|Serveur|Ports du serveur|Client|
+|Déploiement CMG|Azure|443|Point de connexion de service Configuration Manager|
+|Générer le canal CMG|CMG|Instance de machine virtuelle : 1 Port : 443<br>Instance de machine virtuelle : N (N>=2 et N<= 16) Ports : 10124~N 10140~N|Point de connexion CMG|
+|Client vers CMG|CMG|443|Client|
+|Connecteur CMG au rôle de site (actuellement les points de gestion et les points de mise à jour logicielle)|Rôle de site|Protocole/ports configurés sur le rôle de site|Point de connexion CMG|
 
-### <a name="how-can-you-improve-performance-of-the-cloud-management-gateway"></a>Wie lässt sich die Leistung von Cloud Management Gateway verbessern?
+### <a name="how-can-you-improve-performance-of-the-cloud-management-gateway"></a>Comment améliorer les performances de la passerelle de gestion cloud ?
 
-- Konfigurieren Sie Cloud Management Gateway, den CMG-Verbindungspunkt und den Configuration Manager-Standortserver nach Möglichkeit in der gleichen Netzwerkregion, um die Latenz zu verringern.
-- Zurzeit wird bei der Verbindung zwischen dem Configuration Manager-Client und Cloud Management Gateway nicht zwischen Regionen unterschieden.
-- Um eine hohe Verfügbarkeit zu erzielen, empfiehlt es sich, mindestens zwei virtuelle Instanzen von Cloud Management Gateway und zwei CMG-Verbindungspunkte pro Standort einzurichten.
-- Sie können Cloud Management Gateway skalieren, um durch Hinzufügen weiterer VM-Instanzen mehr Clients zu unterstützen. Der Lastenausgleich erfolgt über den Azure AD Load Balancer.
-- Erstellen Sie weitere CMG-Verbindungspunkte, um die Last auf diese aufzuteilen. Cloud Management Gateway leitet den Datenverkehr per Roundrobin an die verbundenen CMG-Verbindungspunkte weiter.
-- In Release 1702 werden pro CMG-VM-Instanz 6.000 Clients unterstützt. Wenn der CMG-Kanal stark ausgelastet ist, werden Anforderungen weiterhin verarbeitet, die Ausführung dauert aber möglicherweise länger als normal.
+- Si possible, configurez la passerelle CMG, le point de connexion CMG et le serveur de site Configuration Manager dans la même région pour réduire la latence du réseau.
+- Actuellement, la connexion entre le client Configuration Manager et la passerelle CMG ne tient pas compte de la région.
+- Pour obtenir une disponibilité optimale, nous vous recommandons d’utiliser au moins 2 instances virtuelles de la passerelle CMG et deux points de connexion CMG par site
+- Vous pouvez faire évoluer la passerelle CMG pour prendre en charge davantage de clients en ajoutant d’autres instances de machine virtuelle. Leur charge est équilibrée par l’équilibreur de charge Azure AD.
+- Créez plusieurs points de connexion CMG pour répartir la charge entre ces points. La passerelle CMG acheminera via un système de tourniquet (round-robin) le trafic vers ses points de connexion CMG.
+- Le nombre de clients pris en charge par instance de machine virtuelle CMG est de 6 000 dans la version 1702. Lorsque le canal CMG est soumis à une forte charge, la demande est toujours gérée mais son traitement peut prendre plus longtemps que prévu.
 
-### <a name="how-can-you-monitor-the-cloud-management-gateway"></a>Wie können Sie Cloud Management Gateway überwachen?
+### <a name="how-can-you-monitor-the-cloud-management-gateway"></a>Comment surveiller la passerelle de gestion cloud ?
 
-Verwenden Sie zur Problembehandlung der Bereitstellung **CloudMgr.log** und **CMGSetup.log**.
-Verwenden Sie zur Problembehandlung der Dienstintegrität **CMGService.log** und **SMS_CLOUD_PROXYCONNECTOR.log**.
-Verwenden Sie zur Problembehandlung des Clientdatenverkehrs **CMGHttpHandler.log**, **CMGService.log** und **SMS_CLOUD_PROXYCONNECTOR.log**.
+Pour résoudre les problèmes de déploiement, utilisez **CloudMgr.log** et **CMGSetup.log**.
+Pour la résolution des problèmes d’intégrité du service, utilisez **CMGService.log** et **SMS_CLOUD_PROXYCONNECTOR.log**.
+Pour résoudre les problèmes de trafic client, utilisez **CMGHttpHandler.log**, **CMGService.log** et **SMS_CLOUD_PROXYCONNECTOR.log**.
 
-Eine Liste aller auf Cloud Management Gateway bezogenen Protokolldateien finden Sie unter [Protokolldateien in Configuration Manager](https://docs.microsoft.com/sccm/core/plan-design/hierarchy/log-files#cloud-management-gateway).
+Pour obtenir la liste de tous les fichiers journaux liés à la passerelle CMG, consultez [Fichiers journaux dans Configuration Manager](https://docs.microsoft.com/sccm/core/plan-design/hierarchy/log-files#cloud-management-gateway)
 
-## <a name="next-steps"></a>Nächste Schritte
+## <a name="next-steps"></a>Étapes suivantes
 
-[Einrichten des Cloudverwaltungsgateways](setup-cloud-management-gateway.md)
+[Configurer la passerelle de gestion cloud](setup-cloud-management-gateway.md)

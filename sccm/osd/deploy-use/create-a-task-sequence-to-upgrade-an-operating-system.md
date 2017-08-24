@@ -1,6 +1,6 @@
 ---
-title: "Erstellen einer Tasksequenz zum Durchführen eines Upgrades für ein Betriebssystem | Microsoft-Dokumentation"
-description: "Mit den Tasksequenzen in System Center Configuration Manager kann für ein Betriebssystem automatisch ein Upgrade von Windows 7 oder höher auf Windows 10 durchgeführt werden."
+title: "Créer une séquence de tâches pour mettre à niveau un système d’exploitation | Microsoft Docs"
+description: "Dans System Center Configuration Manager, les séquences de tâches permettent de mettre automatiquement à niveau un système d’exploitation Windows 7 ou version ultérieure vers Windows 10."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,115 +17,115 @@ manager: angrobe
 ms.openlocfilehash: 4a3c69edc85a4ea7501510b6b3f12c72ad3a24ff
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-a-task-sequence-to-upgrade-an-operating-system-in-system-center-configuration-manager"></a>Erstellen einer Tasksequenz zum Durchführen eines Upgrades für ein Betriebssystem in System Center Configuration Manager
+# <a name="create-a-task-sequence-to-upgrade-an-operating-system-in-system-center-configuration-manager"></a>Créer une séquence de tâches pour mettre à niveau un système d’exploitation dans System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Verwenden Sie die Tasksequenzen in System Center Configuration Manager, um auf einem Zielcomputer automatisch ein Betriebssystemupgrade von Windows 7 oder höher auf Windows 10 oder von Windows Server 2012 oder höher auf Windows Server 2016 durchzuführen. Sie erstellen eine Tasksequenz, die auf das Betriebssystemimage, das Sie auf dem Zielcomputer installieren möchten, und auf alle anderen zu installierenden zusätzlichen Inhalte verweist, z. B. Anwendungen oder Softwareupdates. Die Tasksequenz zum Durchführen eines Upgrades für ein Betriebssystem ist Teil des Szenarios [Upgrade von Windows auf die neueste Version](upgrade-windows-to-the-latest-version.md).  
+Dans System Center Configuration Manager, les séquences de tâches permettent de mettre automatiquement à niveau un système d’exploitation Windows 7 ou version ultérieure vers Windows 10, ou Windows Server 2012 ou version ultérieure vers Windows Server 2016, sur un ordinateur de destination. Vous créez une séquence de tâches qui fait référence à l’image de système d’exploitation que vous souhaitez installer sur l’ordinateur de destination et tout autre contenu supplémentaire, tel que des applications ou des mises à jour logicielles que vous souhaitez installer. La séquence de tâches de mise à niveau d’un système d’exploitation fait partie intégrante du scénario [Effectuer une mise à niveau de Windows vers la dernière version](upgrade-windows-to-the-latest-version.md).  
 
-##  <a name="BKMK_UpgradeOS"></a> Erstellen einer Tasksequenz zum Durchführen eines Upgrades für ein Betriebssystem  
- Um ein Upgrade des Betriebssystems auf Computern durchzuführen, können Sie eine Tasksequenz erstellen und im Assistenten zum Erstellen von Tasksequenzen die Option zum **Durchführen eines Upgrades für ein Betriebssystem mit einem Upgradepaket** auswählen. Der Assistent fügt die Schritte zum Durchführen des Upgrades für das Betriebssystem, zum Anwenden von Softwareupdates und zum Installieren von Anwendungen hinzu. Bevor Sie die Tasksequenz erstellen, muss Folgendes verfügbar sein:    
+##  <a name="BKMK_UpgradeOS"></a> Créer une séquence de tâches pour mettre à niveau un système d’exploitation  
+ Pour mettre à niveau le système d’exploitation sur des ordinateurs, vous pouvez créer une séquence de tâches et sélectionner **Mettre à niveau un système d’exploitation à partir du package de mise à niveau** dans l’Assistant Création d’une séquence de tâches. L’Assistant ajoute les étapes permettant de mettre à niveau le système d’exploitation, d’appliquer des mises à jour logicielles et d’installer des applications. Avant de créer la séquence de tâches, vous devez vous assurer que les conditions suivantes sont remplies :    
 
--   **Erforderlich**  
+-   **Obligatoire**  
 
-     - Das [Upgradepaket für das Betriebssystem](../get-started/manage-operating-system-upgrade-packages.md) muss in der Configuration Manager-Konsole verfügbar sein.
-     - Wenn Sie ein Upgrade auf Windows Server 2016 durchführen, müssen Sie im Tasksequenzschritt „Betriebssystem aktualisieren“ die Einstellung **Alle verwerfbaren Konformitätsmeldungen ignorieren** auswählen. Andernfalls tritt beim Upgrade ein Fehler auf.
+     - Le [package de mise à niveau du système d’exploitation](../get-started/manage-operating-system-upgrade-packages.md) doit être disponible dans la console Configuration Manager.
+     - Lorsque vous mettez à niveau vers Windows Server 2016, vous devez sélectionner le paramètre **Ignore any dismissable compatibility messages** (Ignorer les messages de compatibilité révocables) lors de l’étape de la séquence de tâches Mettre à niveau le système d’exploitation ou la mise à niveau échoue.
 
--   **Erforderlich (sofern verwendet)**  
+-   **Obligatoire (si utilisé)**  
 
-    -   [Softwareupdates](../../sum/get-started/synchronize-software-updates.md) müssen in der Configuration Manager-Konsole synchronisiert werden.  
+    -   Les [mises à jour logicielles](../../sum/get-started/synchronize-software-updates.md) doivent être synchronisées dans la console Configuration Manager.  
 
-    -   [Anwendungen](../../apps/deploy-use/create-applications.md) müssen zur Configuration Manager-Konsole hinzugefügt werden.  
+    -   Les [applications](../../apps/deploy-use/create-applications.md) doivent être ajoutées à la console Configuration Manager.  
 
-#### <a name="to-create-a-task-sequence-that-upgrades-an-operating-system"></a>So erstellen Sie eine Tasksequenz zum Durchführen eines Upgrades für ein Betriebssystem  
+#### <a name="to-create-a-task-sequence-that-upgrades-an-operating-system"></a>Pour créer une séquence de tâches qui met à niveau un système d’exploitation  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Softwarebibliothek**.  
+1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
-2.  Erweitern Sie im Arbeitsbereich **Softwarebibliothek** den Bereich **Betriebssysteme**, und klicken Sie dann auf **Tasksequenzen**.  
+2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Séquences de tâches**.  
 
-3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** auf **Tasksequenz erstellen** , um den Tasksequenzerstellungs-Assistenten zu starten.  
+3.  Sous l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer une séquence de tâches** pour démarrer l'Assistant Création d'une séquence de tâches.  
 
-4.  Klicken Sie auf der Seite **Neue Tasksequenz erstellen** auf die Option zum **Durchführen eines Upgrades für ein Betriebssystem mit einem Upgradepaket**, und klicken Sie dann auf **Weiter**.  
+4.  Dans la page **Créer une séquence de tâches** , sélectionnez **Mettre à niveau un système d’exploitation à partir du package de mise à niveau**, puis cliquez sur **Suivant**.  
 
-5.  Geben Sie auf der Seite **Informationen zur Tasksequenz** die folgenden Einstellungen an, und klicken Sie dann auf **Weiter**.  
+5.  Sur la page **Informations sur la séquence de tâches** , spécifiez les paramètres suivants et cliquez sur **Suivant**.  
 
-    -   **Tasksequenzname**: Geben Sie einen Namen zur Identifikation der Tasksequenz an.  
+    -   **Nom de la séquence de tâches**: spécifiez un nom qui identifie la séquence de tâches.  
 
-    -   **Beschreibung**: Geben Sie eine Beschreibung der Aufgabe an, die von der Tasksequenz ausgeführt wird.  
+    -   **Description**: spécifiez une description de la tâche qui est effectuée par la séquence de tâches.  
 
-6.  Geben Sie auf der Seite zum **Durchführen eines Upgrades für das Windows-Betriebssystem** die folgenden Einstellungen an, und klicken Sie dann auf **Weiter**.  
+6.  Dans la page **Mettre à niveau le système d’exploitation Windows** , spécifiez les paramètres suivants et cliquez sur **Suivant**.  
 
-    -   **Upgradepaket**: Geben Sie die Upgradepaket, das die Quelldateien für das Upgrade des Betriebssystems enthält. Sie können überprüfen, ob Sie das richtige Paket ausgewählt haben, indem Sie die Informationen im **Eigenschaften** -Bereich betrachten. Weitere Informationen finden Sie unter [Verwalten von Betriebssystem-Upgradepaketen](../get-started/manage-operating-system-upgrade-packages.md).  
+    -   **Mettre à niveau le package**: spécifiez le package de mise à niveau qui contient les fichiers sources de mise à niveau du système d’exploitation. Vous pouvez vérifier que vous avez sélectionné le bon package de mise à niveau en examinant les informations contenues dans le volet **Propriétés** . Pour plus d’informations, consultez [Gérer les packages de mise à niveau de système d’exploitation](../get-started/manage-operating-system-upgrade-packages.md).  
 
-    -   **Editionsindex**: Wenn mehrere Editionsindizes für das Betriebssystem im Paket verfügbar sind, wählen Sie den gewünschten Editionsindex aus. Standardmäßig wird das erste Element ausgewählt.  
+    -   **Index d’édition**: si plusieurs index d’édition de système d’exploitation sont disponibles dans le package, sélectionnez l’index d’édition souhaité. Par défaut, le premier élément est sélectionné.  
 
-    -   **Product key**: Geben Sie den Product Key für das zu installierende Windows-Betriebssystem an. Sie können codierte Volumenlizenzschlüssel und standardmäßige Product Keys angeben. Wenn Sie einen nicht codierten Product Key verwenden, muss jede Gruppe aus fünf Zeichen durch einen Bindestrich (-) getrennt werden. Beispiel: *XXXXX-XXXXX-XXXXX-XXXXX-XXXXX*. Wenn das Upgrade für eine Volumenlizenzedition vorgesehen ist, ist der Product Key nicht erforderlich. Sie benötigen nur einen Product Key, wenn das Upgrade für eine Verkaufsversion von Windows vorgesehen ist.  
+    -   **Clé du produit**: spécifiez la clé de produit pour le système d’exploitation Windows à installer. Vous pouvez spécifier des clés de licence en volume codées et des clés de produit standard. Si vous utilisez une clé de produit non codée, chaque groupe de cinq caractères doit être séparé par un tiret (-). Par exemple : *XXXXX-XXXXX-XXXXX-XXXXX-XXXXX*. Quand la mise à niveau concerne une édition de licence en volume, la clé de produit n’est pas requise. Vous avez besoin d’une clé de produit seulement quand la mise à niveau concerne une édition commerciale de Windows.  
 
-    -   **Alle verwerfbaren Konformitätsmeldungen ignorieren**: Wählen Sie diese Einstellung aus, wenn Sie ein Upgrade auf Windows Server 2016 durchführen. Wenn Sie diese Einstellung nicht auswählen, kann die Tasksequenz nicht abgeschlossen werden, weil Windows Setup darauf wartet, dass der Benutzer in einem Bestätigungsdialogfeld in einer Windows-App auf **Bestätigen** klickt.   
+    -   **Ignore any dismissable compatibility messages** (Ignorer les messages de compatibilité révocables) : sélectionnez ce paramètre si vous effectuez la mise à niveau vers Windows Server 2016. Si vous ne sélectionnez pas ce paramètre, l’exécution de la séquence de tâches échoue car le programme d’installation de Windows attend que l’utilisateur clique sur **Confirmer** dans la boîte de dialogue de compatibilité d’une application Windows.   
 
-7.  Geben Sie auf der Seite **Updates einschließen** an, ob erforderliche Softwareupdates, alle Softwareupdates oder keine Softwareupdates installiert werden sollen, und klicken Sie dann auf **Weiter**. Wenn Sie angeben, dass Softwareupdates installiert werden sollen, werden von Configuration Manager nur Softwareupdates installiert, die für Sammlungen bestimmt sind, in denen der Zielcomputer Mitglied ist.  
+7.  Sur la page **Inclure les mises à jour** , spécifiez si vous souhaitez installer les mises à jour logicielles requises, toutes les mises à jour logicielles ou aucune mise à jour logicielle, puis cliquez sur **Suivant**. Si vous spécifiez l’installation des mises à jour logicielles, Configuration Manager installe uniquement les mises à jour logicielles ciblant les regroupements auxquels l’ordinateur de destination appartient.  
 
-8.  Geben Sie auf der Seite **Anwendungen installieren** die Anwendungen an, die auf dem Zielcomputer installiert werden sollen, und klicken Sie dann auf **Weiter**. Wenn Sie mehrere Anwendungen angeben, können Sie auch angeben, dass die Tasksequenz fortgesetzt werden soll, wenn bei der Installation einer bestimmten Anwendung ein Fehler auftritt.  
+8.  Sur la page **Installer les applications** , spécifiez les applications à installer sur l'ordinateur de destination, puis cliquez sur **Suivant**. Si vous spécifiez plusieurs applications, vous pouvez également spécifier que la séquence de tâches continue si l'installation d'une application spécifique échoue.  
 
-9. Schließen Sie den Assistenten ab.  
+9. Effectuez toutes les étapes de l'Assistant.  
 
 
 
-## <a name="configure-pre-cache-content"></a>Konfigurieren des zwischengespeicherten Inhalts
-Ab Version 1702 können Sie für verfügbare Bereitstellungen von Tasksequenzen die Zwischenspeicherungsfunktion verwenden, damit Clients nur relevante Inhalte herunterladen, bevor ein Benutzer den Inhalt installiert.
+## <a name="configure-pre-cache-content"></a>Configurer la mise en cache préalable du contenu
+À partir de la version 1702, vous pouvez choisir d’utiliser la fonctionnalité de mise en cache préalable pour les déploiements disponibles des séquences de tâches. Ainsi, les clients téléchargent uniquement le contenu approprié avant toute installation de contenu par l’utilisateur.
 > [!TIP]  
-> Seit der Version 1702 ist das Zwischenspeichern eine vorab veröffentlichtes Funktion. Wie Sie es aktivieren, erfahren Sie unter [Features der Vorabversion in System Center Configuration Manager](/sccm/core/servers/manage/pre-release-features).
+> La mise en cache préalable, introduite avec la version 1702, est en version préliminaire. Pour savoir comment l’activer, consultez [Utiliser des fonctionnalités de préversion des mises à jour](/sccm/core/servers/manage/pre-release-features).
 
-Ein Beispiel: Es soll eine Tasksequenz für ein direktes Upgrade von Windows 10 bereitgestellt werden, es soll nur eine einzige Tasksequenz für alle Benutzer verwendet werden und es sollen mehrere Architekturen und/oder Sprachen verfügbar sein. Wenn Sie in einer Version vor der Version 1702 eine verfügbare Bereitstellung erstellen und der Benutzer anschließend im Software Center auf **Installieren** klickt, wird der Inhalt zu diesem Zeitpunkt heruntergeladen. Dadurch verzögert sich der Installationsstart. Alle Inhalte, auf die in der Tasksequenz verwiesen wird, werden heruntergeladen. Dies schließt das Betriebssystem-Aktualisierungspaket für alle Sprachen und Architekturen mit ein. Wenn jede Sprache/Architektur ungefähr drei GB umfasst, kann das Downloadpaket sehr groß sein.
+Supposons que vous souhaitiez déployer une séquence de tâches de mise à niveau sur place de Windows 10, que vous ne vouliez qu’une seule séquence de tâches pour tous les utilisateurs, et que vous ayez plusieurs architectures et/ou langues. Avant la version 1702, si vous créez un déploiement disponible et que l’utilisateur clique sur **Installer** dans le Centre logiciel, le contenu est téléchargé à ce moment-là. Ceci a pour effet de retarder la disponibilité de l’installation. Par ailleurs, tout le contenu référencé dans la séquence de tâches est téléchargé. (c’est-à-dire tous les packages de mise à niveau du système d’exploitation pour chaque langue et chaque architecture). Si chaque package fait environ 3 Go, le package de téléchargement peut être très volumineux.
 
-Mit der Funktion zum Zwischenspeichern von Inhalten können Sie den Client dahingehend einschränken, dass er nur zutreffenden Inhalt herunterladen darf, wenn er die Bereitstellung empfängt. Wenn der Benutzer dann im Softwarecenter auf **Installieren** klickt, steht der Inhalt bereit, und die Installation startet sofort, da der Inhalt bereits auf der lokalen Festplatte gespeichert ist.
+La mise en cache préalable du contenu permet au client de télécharger uniquement le contenu applicable dès qu’il reçoit le déploiement. Ainsi, quand l’utilisateur clique sur **Installer** dans le Centre logiciel, le contenu est prêt et l’installation démarre rapidement, car le contenu se trouve sur le disque dur local.
 
-### <a name="to-configure-the-pre-cache-feature"></a>So konfigurieren Sie die Zwischenspeicherungsfunktion
+### <a name="to-configure-the-pre-cache-feature"></a>Pour configurer la fonctionnalité de mise en cache préalable
 
-1. Erstellen Sie Betriebssystem-Aktualisierungspakete für bestimmte Architekturen und Sprachen. Geben Sie die Architektur und die Sprache auf der Registerkarte **Datenquelle** des Pakets an. Verwenden Sie für die Sprache die Dezimalkonvertierung (1033 ist beispielsweise der Dezimalwert für Englisch, 0x0409 seine hexadezimale Entsprechung). Weitere Informationen finden Sie unter [Erstellen einer Tasksequenz zum Durchführen eines Upgrades für ein Betriebssystem](/sccm/osd/deploy-use/create-a-task-sequence-to-upgrade-an-operating-system).
+1. Créez des packages de mise à niveau du système d’exploitation pour des architectures et des langues spécifiques. Spécifiez l’architecture et la langue sous l’onglet **Source de données** du package. Pour la langue, utilisez la conversion décimale (par exemple, pour l’anglais, 1033 est l’identifiant décimal et 0x0409 l’identifiant hexadécimal). Pour plus d’informations, consultez [Créer une séquence de tâches pour mettre à niveau un système d’exploitation](/sccm/osd/deploy-use/create-a-task-sequence-to-upgrade-an-operating-system).
 
-    Die Architektur- und Sprachwerte werden verwendet, um Tasksequenz-Schrittbedingungen abzugleichen, die Sie im nächsten Schritt erstellen, um festzulegen, ob das Betriebssystem-Aktualisierungspaket zwischengespeichert werden soll.
-2. Erstellen Sie eine Tasksequenz mit bedingten Schritten für die verschiedenen Sprachen und Architekturen. Für die englische Version könnten Sie z.B. wie folgt einen Schritt erstellen:
+    Les valeurs de l’architecture et de la langue sont mises en correspondance avec les conditions de la séquence de tâches que vous créez à l’étape suivante pour déterminer si le package de mise à niveau du système d’exploitation doit être préalablement mis en cache.
+2. Créez une séquence de tâches avec des étapes conditionnelles pour les différentes langues et architectures. Par exemple, pour la version anglaise, vous pouvez créer une étape comme suit :
 
-    ![Zwischenspeicherungseigenschaften](../media/precacheproperties2.png)
+    ![propriétés de mise en cache préalable](../media/precacheproperties2.png)
 
-    ![Zwischenspeicherungsoptionen](../media/precacheoptions2.png)  
+    ![options de mise en cache préalable](../media/precacheoptions2.png)  
 
-3. Bereitstellen der Tasksequenz Konfigurieren Sie für die Zwischenspeicherungsfunktion Folgendes:
-    - Wählen Sie auf der Registerkarte **Allgemein** die Option **Inhalt für diese Tasksequenz vorab herunterladen** aus.
-    - Konfigurieren Sie auf der Registerkarte **Bereitstellungseinstellungen** die Tasksequenz mit der Einstellung **Verfügbar** für **Zweck**. Bei der Erstellung einer Bereitstellung des Typs **Erforderlich** ist die Zwischenspeicherfunktion nicht verfügbar.
-    - Wählen Sie auf der Registerkarte **Planung** für die Einstellung **Verfügbarkeitsdatum der Bereitstellung festlegen** einen in der Zukunft liegenden Zeitpunkt aus, der Clients genügend Zeit bietet, um den Inhalt zwischenzuspeichern, bevor die Bereitstellung für Benutzer verfügbar gemacht wird. Sie können den Verfügbarkeitszeitpunkt beispielsweise auf drei Stunden später setzen, um ausreichend Zeit für das Zwischenspeichern des Inhalts vorzusehen.  
-    - Konfigurieren Sie auf der Registerkarte **Verteilungspunkte** die Einstellungen der **Bereitstellungsoptionen**. Wenn der Inhalt noch nicht auf einem Client zwischengespeichert ist, wenn ein Benutzer die Installation startet, werden diese Einstellungen verwendet.
-
-
-### <a name="user-experience"></a>Benutzerfreundlichkeit
-- Wenn der Client die Bereitstellungsrichtlinie erhält, startet er mit der Zwischenspeicherung des Inhalts. Dies umfasst alle referenzierten Inhalte (alle anderen Pakettypen) und nur das Betriebssystem-Aktualisierungspaket, das dem Client entspricht, und zwar basierend auf den von Ihnen in der Tasksequenz festgelegten Bedingungen.
-- Wenn die Bereitstellung Benutzern verfügbar gemacht wird (Einstellung auf der Registerkarte **Planung** der Bereitstellung), wird eine Benachrichtigung angezeigt, um Benutzer über die neue Bereitstellung zu informieren. Die Bereitstellung wird dann ferner im Softwarecenter angezeigt. Der Benutzer kann zum Softwarecenter navigieren und auf **Installieren** klicken, um die Installation zu starten.
-- Wenn der Inhalt nicht vollständig zwischengespeichert ist, werden die Einstellungen verwendet, die auf der Registerkarte **Bereitstellungsoptionen** der Bereitstellung angegeben wurden. Es wird empfohlen, genügend Zeit zwischen der Erstellung der Bereitstellung und dem Zeitpunkt der Verfügbarmachung der Bereitstellung für Benutzer vorzusehen, damit Clients ausreichend Zeit haben, um den Inhalt zwischenzuspeichern.
+3. déployer la séquence de tâches. Pour configurer la fonctionnalité de mise en cache préalable, configurez ce qui suit :
+    - Sous l’onglet **Général**, sélectionnez **Prétélécharger le contenu pour cette séquence de tâches**.
+    - Sous l’onglet **Paramètres de déploiement**, configurez la séquence de tâches avec **Disponible** comme **Objectif**. Si vous créez un déploiement **Exigé**, la fonctionnalité de mise en cache préalable ne fonctionne pas.
+    - Sous l’onglet **Planification**, pour le paramètre **Planifier la disponibilité de ce déploiement**, choisissez une heure future qui donne aux clients le temps de mettre préalablement en cache le contenu avant que le déploiement ne soit accessible aux utilisateurs. Par exemple, vous pouvez définir un délai de 3 heures pour allouer suffisamment de temps à la mise en cache préalable du contenu.  
+    - Sous l’onglet **Points de distribution**, configurez les paramètres **Options de déploiement**. Si le contenu n’est pas préalablement mis en cache sur un client avant le démarrage de l’installation, ces paramètres sont utilisés.
 
 
+### <a name="user-experience"></a>Expérience utilisateur
+- Quand le client reçoit la stratégie de déploiement, il commence la mise en cache préalable du contenu. Il s’agit du contenu référencé (tout autre type de package) et du package de mise à niveau du système d’exploitation correspondant au client (en fonction des conditions définies dans la séquence de tâches).
+- Une fois le déploiement accessible aux utilisateurs (paramètre défini sous l’onglet **Planification** du déploiement), une notification s’affiche pour informer les utilisateurs du nouveau déploiement. Le déploiement apparaît alors dans le Centre logiciel. L’utilisateur peut accéder au Centre logiciel et cliquer sur **Installer** pour démarrer l’installation.
+- Si tout le contenu n’est pas préalablement mis en cache, les paramètres spécifiés sous l’onglet **Option de déploiement** du déploiement sont utilisés. Nous vous recommandons de définir un délai suffisant entre la création du déploiement et l’heure à laquelle le déploiement est accessible aux utilisateurs pour que les client aient le temps de mettre préalablement en cache le contenu.
 
-## <a name="download-package-content-task-sequence-step"></a>Paketinhalt herunterladen – Tasksequenzschritt  
- Der Schritt [Paketinhalt herunterladen](../understand/task-sequence-steps.md#BKMK_DownloadPackageContent) kann in den folgenden Szenarios vor dem Schritt **Betriebssystem aktualisieren** ausgeführt werden:  
 
--   Sie verwenden eine einzige Upgradetasksequenz, die sowohl für x86- als auch für x64-Plattformen verwendet werden kann. Um dies zu erreichen, fügen Sie zwei **Paketinhalt herunterladen** -Schritte zur Gruppe **Vorbereitung auf das Upgrade** hinzu, und geben Sie Bedingungen an, um die Clientarchitektur zu ermitteln und nur das entsprechende Betriebssystemupgradepaket herunterzuladen. Konfigurieren Sie jeden **Paketinhalt herunterladen** -Schritt zur Verwendung derselben Variablen, und verwenden Sie die Variable für den Medienpfad im Schritt **Betriebssystem aktualisieren** .  
 
--   Um dynamisch ein passendes Treiberpaket herunterzuladen, verwenden Sie zwei **Paketinhalt herunterladen** -Schritte mit Bedingungen zum Ermitteln des geeigneten Hardwaretyps für jedes Treiberpaket. Konfigurieren Sie jeden **Paketinhalt herunterladen** -Schritt zur Verwendung derselben Variablen, und verwenden Sie die Variable für den **Bereitgestellter Inhalt** -Wert im Bereich „Treiber“ im Schritt **Betriebssystem aktualisieren** .  
+## <a name="download-package-content-task-sequence-step"></a>Étape de séquence de tâches Télécharger le contenu du package  
+ Vous pouvez exécuter l’étape [Télécharger le contenu du package](../understand/task-sequence-steps.md#BKMK_DownloadPackageContent) avant l’étape **Mettre à niveau le système d’exploitation** dans les scénarios suivants :  
+
+-   Vous utilisez une seule séquence de tâches de mise à niveau qui peut fonctionner avec les plateformes x86 et x64. Pour cela, incluez deux étapes **Télécharger le contenu du package** dans le groupe **Préparer pour la mise à niveau** avec des conditions pour détecter l’architecture du client et télécharger uniquement le package de mise à niveau de système d’exploitation approprié. Configurez chaque étape **Télécharger le contenu du package** pour utiliser la même variable et utilisez cette variable pour le chemin du support à l’étape **Mettre à niveau le système d’exploitation** .  
+
+-   Pour télécharger dynamiquement un package de pilotes applicable, utilisez deux étapes **Télécharger le contenu du package** avec des conditions pour détecter le type de matériel approprié pour chaque package de pilotes. Configurez chaque étape **Télécharger le contenu du package** pour utiliser la même variable et utilisez cette variable pour la valeur **Contenu intermédiaire** dans la section des pilotes à l’étape **Mettre à niveau le système d’exploitation** .  
 
    > [!NOTE]
-   > Wenn es mehrere Pakete gibt, fügt Configuration Manager dem Variablennamen ein numerisches Suffix hinzu. Wenn Sie beispielsweise eine Variable %mycontent% als eine benutzerdefinierte Variable angeben, ist dies das Stammverzeichnis, in dem alle referenzierten Inhalte gespeichert werden (dies können mehrere Pakete sein). Wenn Sie in einem Untersequenzschritt auf die Variable verweisen, z. B. „Betriebssystem aktualisieren“, wird sie mit einem numerischen Suffix verwendet. In diesem Beispiel %mycontent01% oder %mycontent02%, wobei die Nummer der Reihenfolge entspricht, in der das Paket in diesem Schritt aufgelistet ist.
+   > Quand il existe plusieurs packages, Configuration Manager ajoute un suffixe numérique au nom de la variable. Par exemple, si vous spécifiez une variable %mon_contenu% en tant que variable personnalisée, il s’agit de la racine de l’emplacement de stockage de l’ensemble du contenu référencé (qui peut correspondre à plusieurs packages). Quand vous faites référence à la variable dans une étape de sous-séquence, comme Mettre à niveau le système d’exploitation, elle est utilisée avec un suffixe numérique. Dans cet exemple, le numéro dans %mon_contenu01% ou %mon_contenu02% correspond à l’ordre d’apparition du package dans cette étape.
 
-## <a name="optional-post-processing-task-sequence-steps"></a>Optionale Nachbearbeitung – Tasksequenzschritte  
- Nachdem Sie die Tasksequenz erstellt haben, können Sie zusätzliche Schritte zum Deinstallieren von Anwendungen mit bekannten Kompatibilitätsproblemen oder Maßnahmen zur Nachbearbeitung hinzufügen, die nach einem Neustart des Computers und der erfolgreichen Durchführung des Upgrades auf Windows 10 ausgeführt werden. Fügen Sie diese zusätzlichen Schritte in der Nachbearbeitungsgruppe der Tasksequenz hinzu.  
+## <a name="optional-post-processing-task-sequence-steps"></a>Étapes de séquence de tâches post-traitement facultatives  
+ Une fois la séquence de tâches créée, vous pouvez ajouter des étapes supplémentaires pour désinstaller des applications présentant des problèmes de compatibilité connus, ou ajouter des actions de post-traitement à exécuter une fois que l’ordinateur a redémarré et que la mise à niveau vers Windows 10 a réussi. Ajoutez ces étapes supplémentaires dans le groupe Post-traitement de la séquence de tâches.  
 
 > [!NOTE]  
->  Da diese Tasksequenz nicht linear verläuft, gibt es Situationen bei den einzelnen Schritten, die sich auf die Ergebnisse der Tasksequenz auswirken können, je nachdem, ob der Clientcomputer erfolgreich aktualisiert wurde oder ob ein Rollback des Clientcomputers auf die ursprüngliche Betriebssystemversion durchgeführt werden muss.  
+>  Cette séquence de tâches n’étant pas linéaire, des conditions applicables à certaines étapes peuvent affecter les résultats de la séquence de tâches, selon que la mise à niveau de l’ordinateur client a réussi ou qu’elle a échoué et que la version initiale du système d’exploitation a été restaurée sur l’ordinateur client.  
 
-## <a name="optional-rollback-task-sequence-steps"></a>Optionales Rollback – Tasksequenzschritte  
- Wenn beim Upgradeprozess nach dem Neustart des Computers ein Fehler auftritt, führt Setup eine Rollback für das Upgrade auf das vorherige Betriebssystem durch und die Tasksequenz wird mit den Schritten in der Rollbackgruppe fortgesetzt. Nach dem Erstellen der Tasksequenz können Sie optionale Schritte zur Rollbackgruppe hinzufügen.  
+## <a name="optional-rollback-task-sequence-steps"></a>Étapes de séquence de tâches de restauration facultatives  
+ En cas de problème durant le processus de mise à niveau après le redémarrage de l’ordinateur, le programme d’installation annule la mise à niveau et restaure le système d’exploitation précédent, et la séquence de tâches se poursuit avec les étapes du groupe Restauration. Après avoir créé la séquence de tâches, vous pouvez ajouter des étapes facultatives au groupe Restauration.  
 
-## <a name="folder-and-files-removed-after-computer-restart"></a>Nach Computerneustart entfernte Ordner und Dateien  
- Wenn die Tasksequenz zum Durchführen eines Upgrades für ein Betriebssystem auf Windows 10 und alle anderen Schritte in der Tasksequenz durchgeführt wurden, werden die Nachbearbeitungs- und Rollback-Skripts erst nach dem Neustart des Computers entfernt.  Diese Skriptdateien enthalten keine vertraulichen Informationen.  
+## <a name="folder-and-files-removed-after-computer-restart"></a>Dossier et fichiers supprimés après le redémarrage de l’ordinateur  
+ À la fin de la séquence de tâches de mise à niveau d’un système d’exploitation vers Windows 10 et toutes les autres étapes de la séquence de tâches, les scripts de post-traitement et de restauration ne sont pas supprimés tant que l’ordinateur n’a pas redémarré.  Ces fichiers de script ne contiennent pas d’informations sensibles.  

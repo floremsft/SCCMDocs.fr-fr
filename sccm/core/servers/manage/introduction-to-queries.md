@@ -1,6 +1,6 @@
 ---
-title: "Einführung in Abfragen | Microsoft-Dokumentation"
-description: "Erstellen Sie Abfragen erstellen, und führen Sie sie aus, um Objekte in einer Configuration Manager-Hierarchie zu suchen, die mit den Abfragekriterien übereinstimmen."
+title: "Présentation des requêtes | Microsoft Docs"
+description: "Créez et exécutez des requêtes pour rechercher les objets dans une hiérarchie System Center Configuration Manager qui correspondent à vos critères de requête."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -18,22 +18,22 @@ manager: angrobe
 ms.openlocfilehash: f84d518670c0ece3c08c890d2293335518f7f8e9
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="introduction-to-queries-in-system-center-configuration-manager"></a>Einführung in Abfragen in System Center Configuration Manager
+# <a name="introduction-to-queries-in-system-center-configuration-manager"></a>Présentation des requêtes dans System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Sie können Abfragen erstellen und ausführen, um Objekte in einer Configuration Manager-Hierarchie zu suchen, die mit den Abfragekriterien übereinstimmen. Zu diesen Objekten gehören Elemente wie beispielsweise bestimmte Typen von Computern oder Benutzergruppen. In Abfragen können die meisten Configuration Manager-Objekttypen zurückgegeben werden, darunter Standorte, Sammlungen, Anwendungen und Inventurdaten.  
+Vous pouvez créer et exécuter des requêtes pour rechercher les objets dans une hiérarchie System Center Configuration Manager qui correspondent à vos critères de requête. Ces objets incluent des éléments tels que des types spécifiques d'ordinateurs ou de groupes d'utilisateurs. Les requêtes peuvent renvoyer la plupart des types d’objets Configuration Manager, à savoir des sites, des regroupements, des applications et des données d’inventaire.  
 
- Wenn Sie eine Abfrage erstellen, müssen Sie mindestens zwei Parameter angeben: wo Sie suchen möchten und was Sie suchen möchten. Wenn Sie beispielsweise den verfügbaren Festplattenspeicherplatz auf allen Computern eines Configuration Manager-Standorts ermitteln möchten, können Sie mit einer Abfrage über das Attribut **Free Space (MB)** der Attributklasse **Logical Disk** den verfügbaren freien Speicherplatz ermitteln.  
+ Quand vous créez une requête, vous devez spécifier au moins deux paramètres : où effectuer la recherche et ce que vous souhaitez rechercher. Par exemple, pour rechercher la quantité d’espace disponible sur le disque dur de tous les ordinateurs dans un site Configuration Manager, vous pouvez créer une requête pour rechercher la classe **Disque logique** et l’attribut **Espace libre (Mo)** pour déterminer l’espace disque disponible.  
 
- Nachdem Sie eine Ausgangsabfrage erstellt haben, können Sie zusätzliche Abfragekriterien angeben. Sie können z. B. festlegen, dass in den Abfrageergebnissen nur Computer eingeschlossen werden sollen, die einem bestimmten Standort zugewiesen sind. Sie können darüber hinaus die Darstellungsweise von Ergebnissen ändern, so dass Sie die Ergebnisse in einer für Sie sinnvollen Reihenfolge angezeigt werden. So können Sie beispielsweise angeben, dass die Ergebnisse in aufsteigender oder absteigender Reihenfolge nach Umfang des freien Festplattenspeicherplatzes sortiert werden sollen.  
+ Après avoir créé une requête initiale, vous pouvez spécifier d'autres critères. Par exemple, vous pouvez spécifier que les résultats de la requête incluent uniquement les ordinateurs affectés à un site spécifié. Vous pouvez aussi modifier l'affichage des résultats pour visualiser les résultats dans un ordre qui est significatif pour vous. Par exemple, vous pouvez spécifier que les résultats doivent être classés par quantité d'espace disponible sur les disques durs en ordre croissant ou décroissant.  
 
- Wenn Sie eine Abfrage erstellen, wird diese von Configuration Manager gespeichert und im Knoten **Abfragen** im Arbeitsbereich **Überwachung** angezeigt. In diesem Bereich können Sie eine neue Abfrage erstellen und dann eine vorhandene Abfrage ausführen, aktualisieren oder verwalten.  
+ Lorsque vous créez une requête, elle est stockée par Configuration Manager et affichée dans le nœud **Requêtes** de l’espace de travail **Surveillance**. Dans cet emplacement, vous pouvez créer une requête et exécuter, mettre à jour ou gérer une requête existante.  
 
- Sie können eine Abfrage auch in eine Abfrageregel einer Configuration Manager-Sammlung importieren. Weitere Informationen finden Sie unter [Erstellen von Sammlungen in System Center Configuration Manager](../../../core/clients/manage/collections/create-collections.md).  
+ Vous pouvez également importer une requête dans une règle de requête dans un regroupement Configuration Manager. Pour plus d’informations, consultez [Guide pratique pour créer des regroupements dans System Center Configuration Manager](../../../core/clients/manage/collections/create-collections.md).  
 
-## <a name="see-also"></a>Siehe auch  
- [Abfragen – Technische Referenz für System Center Configuration Manager](../../../core/servers/manage/queries-technical-reference.md)
+## <a name="see-also"></a>Voir aussi  
+ [Informations techniques de référence sur les requêtes pour System Center Configuration Manager](../../../core/servers/manage/queries-technical-reference.md)

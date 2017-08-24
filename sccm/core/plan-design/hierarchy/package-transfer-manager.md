@@ -1,6 +1,6 @@
 ---
-title: "Paketübertragungs-Manager | Microsoft-Dokumentation"
-description: "Hier finden Sie Informationen dazu, wie mit dem Paketübertragungs-Manager in System Center Configuration Manager Inhalte von einem Standortserver an einen Remoteverteilungspunkt übertragen werden."
+title: Package Transfer Manager | Microsoft Docs
+description: "Découvrez comment le composant Package Transfer Manager de System Center Configuration Manager transfère le contenu d’un serveur de site vers des points de distribution distants."
 ms.custom: na
 ms.date: 2/8/2017
 ms.reviewer: na
@@ -17,73 +17,73 @@ manager: angrobe
 ms.openlocfilehash: 54e54409a1792c7e28620a5e3cea3e8d8695c7d4
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="package-transfer-manager-in-system-center-configuration-manager"></a>Paketübertragungs-Manager in System Center Configuration Manager
+# <a name="package-transfer-manager-in-system-center-configuration-manager"></a>Package Transfer Manager dans System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-An einem System Center Configuration Manager-Standort ist der Paketübertragungs-Manager eine Komponente des SMS_Executive-Diensts, mit der die Übertragung von Inhalt von einem Standortservercomputer zu Remoteverteilungspunkten an einem Standort verwaltet wird. (Ein Remoteverteilungspunkt ist ein Verteilungspunkt, der sich nicht auf dem Standortservercomputer befindet.) Vom Paketübertragungs-Manager werden keine Konfigurationen vom Administrator unterstützt. Wenn Sie wissen, wie der Manager funktioniert, hilft Ihnen das jedoch bei der Planung der Content Management-Infrastruktur sowie beim Beheben von Problemen bei der Inhaltsverteilung.
+Dans un site System Center Configuration Manager, Package Transfer Manager est un composant du service SMS_Executive qui gère le transfert de contenu d’un ordinateur serveur de site sur les points de distribution distants d’un site. (Un point de distribution est dit distant s’il ne se trouve pas sur l’ordinateur serveur de site.) Le composant Package Transfer Manager ne prend pas en charge les configurations effectuées par l’administrateur, mais le fait de comprendre comment il fonctionne peut vous aider à planifier votre infrastructure de gestion de contenu. Il peut également vous aider à résoudre les problèmes de distribution de contenu.
 
 
-Wenn Sie Inhalte an einen oder mehrere Remoteverteilungspunkte an einem Standort verteilen, erstellt der **Verteilungs-Manager** einen Auftrag für die Inhaltsübertragung. Anschließend benachrichtigt er den Paketübertragungs-Manager auf primären und sekundären Standortservern, damit diese die Inhalte an die Remoteverteilungspunkte übertragen.
+Quand vous distribuez du contenu à un ou plusieurs points de distribution distants sur un site, le **gestionnaire de distribution** crée une tâche de transfert de contenu. Il indique ensuite à Package Transfer Manager sur les serveurs de site principal et secondaire de transférer le contenu sur les points de distribution distants.
 
- Die Aktionen des Paketübertragungs-Managers werden in der Datei **pkgxfermgr.log** auf dem Standortserver protokolliert. Die Protokolldatei ist der einzige Ort, an dem Sie die Aktivitäten des Paketübertragungs-Managers anzeigen können.  
+ Package Transfer Manager consigne ses actions dans le fichier **pkgxfermgr.log** sur le serveur de site. Le fichier journal est le seul emplacement où vous pouvez voir les activités du Package Transfer Manager.  
 
 > [!NOTE]  
->  In früheren Versionen von Configuration Manager wird die Übertragung von Inhalt an einen Remoteverteilungspunkt vom Verteilungs-Manager verwaltet. Ebenso wird die Übertragung von Inhalt zwischen Standorten vom Verteilungs-Manager verwaltet. Bei System Center Configuration Manager ist der Verteilungs-Manager weiterhin für die Verwaltung der Inhaltsübertragung zwischen zwei Standorten zuständig. Der Paketübertragungs-Manager verwaltet jedoch jetzt die Übertragung von Inhalten an eine große Anzahl von Verteilungspunkten. Dies führt zu einer Steigerung der Gesamtleistung bei der Inhaltsbereitstellung sowohl zwischen zwei Standorten als auch zwischen Verteilungspunkten innerhalb desselben Standorts.  
+>  Dans les versions précédentes de Configuration Manager, le gestionnaire de distribution gère le transfert de contenu à destination d’un point de distribution distant. Le gestionnaire de distribution gère également le transfert de contenu entre sites. Avec System Center Configuration Manager, le gestionnaire de distribution continue de gérer le transfert de contenu entre deux sites. Cependant, Package Transfer Manager gère désormais le transfert de contenu sur un grand nombre de points de distribution. Cela permet d’améliorer les performances générales de déploiement de contenu à la fois entre les sites et sur les points de distribution au sein d’un site.  
 
-Zur Übertragung von Inhalt an einen Standardverteilungspunkt werden vom Paketübertragungs-Manager die gleichen Vorgänge verwendet wie beim Verteilungs-Manager in früheren Configuration Manager-Versionen. Die Übertragung von Inhalt an den jeweiligen Remoteverteilungspunkt wird aktiv verwaltet. Wenn Sie jedoch Inhalte an einen Pullverteilungspunkt verteilen, wird der Pullverteilungspunkt vom Paketübertragungs-Manager über das Vorhandensein des Inhalts benachrichtigt. Anschließend übernimmt der Pullverteilungspunkt den Übertragungsvorgang.  
+Pour transférer du contenu vers un point de distribution standard, Package Transfer Manager fonctionne de la même façon que le gestionnaire de distribution des versions précédentes de Configuration Manager. En d'autres termes, il gère activement le transfert de fichiers pour chaque point de distribution distant. Cependant, pour distribuer du contenu sur un point de distribution d’extraction, Package Transfer Manager indique au point de distribution d’extraction que du contenu est disponible. Le point de distribution d’extraction se charge ensuite du processus de transfert.  
 
-Im Folgenden wird beschrieben, wie die Übertragung von Inhalten an Standardverteilungspunkte und als Pullverteilungspunkte konfigurierte Verteilungspunkte vom Paketübertragungs-Manager verwaltet wird:
-1.  **Ein Administrator stellt Inhalte an mindestens einem Verteilungspunkt an einem Standort bereit.**  
+Les informations suivantes expliquent comment Package Transfer Manager gère le transfert de contenu sur les points de distribution standard et les points de distribution configurés comme points de distribution d’extraction :
+1.  **L’administrateur déploie le contenu sur un ou plusieurs points de distribution sur un site.**  
 
-    -   **Standardverteilungspunkt:** Ein Auftrag für die Übertragung dieses Inhalts wird vom Verteilungs-Manager erstellt.  
+    -   **Point de distribution standard** : le gestionnaire de distribution crée un travail de transfert de contenu pour ce contenu.  
 
-    -   **Pullverteilungspunkt:** Ein Auftrag für die Übertragung dieses Inhalts wird vom Verteilungs-Manager erstellt.  
+    -   **Point de distribution d’extraction** : le gestionnaire de distribution crée un travail de transfert de contenu pour ce contenu.  
 
-2.  **Der Verteilungs-Manager führt vorläufige Prüfungen aus.**  
+2.  **Le gestionnaire de distribution exécute des vérifications préliminaires.**  
 
-    -   **Standardverteilungspunkt:** Durch den Verteilungs-Manager wird eine einfache Prüfung ausgeführt, ob alle Verteilungspunkte für den Empfang des Inhalts bereit sind. Nach dieser Prüfung wird der Paketübertragungs-Manager vom Verteilungs-Manager benachrichtigt, damit die Übertragung von Inhalt an den Verteilungspunkt gestartet wird.  
+    -   **Point de distribution standard** : le gestionnaire de distribution exécute une vérification de base pour s’assurer que chaque point de distribution est prêt à recevoir le contenu. Après cette vérification, le gestionnaire de distribution instruit Package Transfer Manager de démarrer le transfert de contenu vers le point de distribution.  
 
-    -   **Pullverteilungspunkt:** Der Verteilungs-Manager startet den Paketübertragungs-Manager, der daraufhin den Pullverteilungspunkt darüber informiert, dass ein neuer Auftrag für die Inhaltsübertragung vorhanden ist. Der Status der Remoteverteilungspunkte, bei denen es sich um Pullverteilungspunkte handelt, wird vom Verteilungs-Manager nicht überprüft, weil die Inhaltsübertragungen von den Pullverteilungspunkten jeweils autark verwaltet werden.  
+    -   **Point de distribution d’extraction** : le gestionnaire de distribution démarre Package Transfer Manager, qui informe le point de distribution d’extraction qu’il existe un nouveau travail de transfert de contenu. Le gestionnaire de distribution ne vérifie pas l’état des points de distribution distants qui sont des points de distribution d’extraction, car chaque point de distribution d’extraction gère ses propres transferts de contenu.  
 
-3.  **Der Paketübertragungs-Manager bereitet die Inhaltsübertragung vor.**  
+3.  **Package Transfer Manager prépare le transfert du contenu.**  
 
-    -   **Standardverteilungspunkt:** Die Single Instance Content Stores aller angegebenen Remoteverteilungspunkte werden vom Paketübertragungs-Manager untersucht, um Dateien zu ermitteln, die sich bereits auf dem jeweiligen Verteilungspunkt befinden. Danach werden nur diejenigen Dateien in die Warteschlange für die Übertragung eingereiht, die nicht bereits vorhanden sind.  
-
-        > [!NOTE]  
-        >  Um alle Dateien in der Verteilung auch dann auf den Verteilungspunkt zu kopieren, wenn die Dateien im Single Instance Store des Verteilungspunkts bereits vorhanden sind, verwenden Sie die Aktion **Neu verteilen** für Inhalte.  
-
-    -   **Pullverteilungspunkt:** Für jeden Pullverteilungspunkt in der Verteilung werden die Quellverteilungspunkte durch den Paketübertragungs-Manager darauf überprüft, ob Inhalt vorhanden ist.  
-
-        -   Wenn der Inhalt auf mindestens einem Quellverteilungspunkt zur Verfügung steht, sendet der Paketübertragungs-Manager eine Benachrichtigung an den betreffenden Pullverteilungspunkt. Die Benachrichtigung weist den Verteilungspunkt an, mit der Inhaltsübertragung zu beginnen. Die Benachrichtigung umfasst Dateinamen und -größen, Attribute und Hashwerte.  
-
-        -   Solange der Inhalt noch nicht zur Verfügung steht, wird vom Paketübertragungs-Manager keine Benachrichtigung an den Verteilungspunkt gesendet. Stattdessen wird die Überprüfung alle 20 Minuten wiederholt, bis der Inhalt verfügbar ist. Wenn der Inhalt dann zur Verfügung steht, wird die Benachrichtigung vom Paketübertragungs-Manager an den betreffenden Pullverteilungspunkt gesendet.  
+    -   **Point de distribution standard** : Package Transfer Manager examine le magasin de contenu à instance unique de chaque point de distribution distant spécifié. Cette opération a pour but d’identifier les fichiers qui se trouvent déjà sur ce point de distribution. Ensuite, Package Transfer Manager met en file d'attente le transfert uniquement des fichiers qui ne sont pas déjà présents.  
 
         > [!NOTE]  
-        >  Damit der Pullverteilungspunkt auch dann alle Dateien in der Verteilung auf den Verteilungspunkt kopiert, wenn die Dateien im Single Instance Store des Verteilungspunkts bereits vorhanden sind, verwenden Sie die Aktion **Neu verteilen** für Inhalte.  
+        >  Pour copier chaque fichier dans la distribution sur le point de distribution, même si les fichiers sont déjà présents dans le magasin d’instances uniques du point de distribution, utilisez l’action **Redistribuer** pour le contenu.  
 
-4.  **Die Inhaltsübertragung beginnt.**  
+    -   **Point de distribution d’extraction** : pour chaque point de distribution d’extraction de la distribution, Package Transfer Manager vérifie les points de distribution source des points de distribution d’extraction pour confirmer que le contenu est disponible.  
 
-    -   **Standardverteilungspunkt:** Durch den Paketübertragungs-Manager werden Dateien an den jeweiligen Remoteverteilungspunkt übertragen. Bei der Übertragung an einen Standardverteilungspunkt:  
+        -   Quand le contenu est disponible sur au moins un point de distribution source, Package Transfer Manager envoie une notification à ce point de distribution d’extraction. La notification indique à ce point de distribution de commencer le processus de transfert de contenu. La notification inclut les noms de fichiers et les tailles, les attributs et les valeurs de hachage.  
 
-        -   Standardmäßig können vom Paketübertragungs-Manager gleichzeitig drei eindeutige Pakete verarbeitet und parallel an fünf Verteilungspunkte verteilt werden. Diese werden zusammen als **Einstellungen für gleichzeitige Verteilung** bezeichnet. Um die gleichzeitige Verteilung einzurichten, wechseln Sie in den **Eigenschaften der Softwareverteilungskomponente** für die einzelnen Standorte auf die Registerkarte **Allgemein**.  
-
-        -   Die Konfigurationen von Zeitplanung und Netzwerkbandbreite der einzelnen Verteilungspunkte werden vom Paketübertragungs-Manager bei der Übertragung von Inhalt an den jeweiligen Verteilungspunkt verwendet. Sie konfigurieren diese Einstellungen in den **Eigenschaften** des jeweiligen Remoteverteilungspunkts. Wechseln Sie zu den Registerkarten **Zeitplan** und **Begrenzung der Datenübertragungsrate**. Weitere Informationen finden Sie unter [Manage content and content infrastructure for System Center Configuration Manager (Verwalten von Inhalt und Inhaltsinfrastruktur für System Center Configuration Manager)](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
-
-    -   **Pullverteilungspunkt:** Wenn ein Verteilungspunkt eine Benachrichtigungsdatei empfängt, wird der Vorgang zur Übertragung von Inhalt gestartet. Der Übertragungsvorgang läuft auf jedem Pullverteilungspunkt unabhängig:  
-
-        1.   Die noch nicht im Single Instance Store vorhandenen Dateien in der Inhaltsverteilung werden durch den Pullverteilungspunkt ermittelt, und das Herunterladen des betreffenden Inhalts von einem Quellverteilungspunkt wird vorbereitet.  
-
-        2.   Danach werden vom Pullverteilungspunkt alle Quellverteilungspunkte überprüft, bis ein Quellverteilungspunkt gefunden wird, auf dem der Inhalt verfügbar ist. Wird ein solcher Quellverteilungspunkt mit dem Inhalt erkannt, dann wird mit dem Herunterladen des Inhalts begonnen.  
+        -   Lorsque le contenu n'est pas encore disponible, Package Transfer Manager n'envoie pas de notification au point de distribution. Il répète la vérification toutes les 20 minutes jusqu'à ce que le contenu soit disponible. Puis, lorsque le contenu est disponible, Package Transfer Manager envoie la notification à ce point de distribution d'extraction.  
 
         > [!NOTE]  
-        >  Der Vorgang beim Herunterladen des Inhalts durch den Pullverteilungspunkt ist mit dem von Configuration Manager-Clients verwendeten identisch. Für die Inhaltsübertragung durch den Pullverteilungspunkt werden die Einstellungen für die gleichzeitige Übertragung nicht verwendet. Planungs- und Drosselungsoptionen, die Sie für Standardverteilungspunkte konfigurieren, werden ebenfalls nicht verwendet.  
+        >  Pour que le point de distribution d’extraction copie chaque fichier dans la distribution sur le point de distribution, même si les fichiers sont déjà présents dans le magasin d’instances uniques du point de distribution d’extraction, utilisez l’action **Redistribuer** pour le contenu.  
 
-5.  **Die Inhaltsübertragung wird abgeschlossen.**  
+4.  **Le transfert du contenu commence.**  
 
-    -   **Standardverteilungspunkt:** Nachdem der Paketübertragungs-Manager die Übertragung von Dateien an die angegebenen Remoteverteilungspunkte abgeschlossen hat, überprüft er den Hash des Inhalts auf dem Verteilungspunkt. Anschließend wird der Verteilungs-Manager darüber informiert, dass die Verteilung abgeschlossen ist.  
+    -   **Point de distribution standard** : Package Transfer Manager copie les fichiers sur chaque point de distribution distant. Lors du transfert vers un point de distribution standard :  
 
-    -   **Pullverteilungspunkt:** Sobald das Herunterladen des Inhalts auf den Pullverteilungspunkt abgeschlossen ist, wird der Hash des Inhalts überprüft. Anschließend wird eine Statusmeldung an den Standortverwaltungspunkt übermittelt, um den Erfolg mitzuteilen. Ist dieser Status nach 60 Minuten noch nicht eingegangen, wird der Paketübertragungs-Manager wieder aktiviert. Er überprüft den Pullverteilungspunkt, um zu bestätigen, dass der Inhalt auf den Pullverteilungspunkt heruntergeladen wurde. Ist das Herunterladen des Inhalts noch nicht abgeschlossen, wird der Paketübertragungs-Manager für weitere 60 Minuten in den Ruhemodus versetzt, bis der Pullverteilungspunkt erneut überprüft wird. Dieser Zyklus wird bis zum Abschluss der Inhaltsübertragung an den Pullverteilungspunkt fortgesetzt.  
+        -   Par défaut, Package Transfer Manager peut traiter simultanément trois packages uniques et les distribuer à cinq points de distribution en parallèle. Ceux-ci sont collectivement appelés « **paramètres de distribution simultanée** ». Pour configurer la distribution simultanée, dans les **Propriétés du composant de distribution de logiciels** de chaque site, accédez à l’onglet **Général**.  
+
+        -   Package Transfer Manager utilise les configurations de la bande passante réseau et de la planification de chaque point de distribution lors du transfert de contenu vers ce point de distribution. Pour configurer ces paramètres, dans les **Propriétés** de chaque point de distribution distant, accédez aux onglets **Planification** et **Limites du taux de transfert**. Pour plus d’informations, consultez [Gérer le contenu et l’infrastructure de contenu pour System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+
+    -   **Point de distribution d’extraction** : quand un point de distribution d’extraction reçoit un fichier de notification, le point de distribution commence le processus de transfert du contenu. Le processus de transfert s'exécute indépendamment sur chaque point de distribution d'extraction :  
+
+        1.   La distribution d'extraction identifie les fichiers dans la distribution de contenu qui ne se trouvent pas déjà dans son magasin d'instances uniques et prépare le téléchargement de ce contenu depuis un de ses points de distribution source.  
+
+        2.   Ensuite, le point de distribution d'extraction vérifie chacun de ses points de distribution source, dans l'ordre, jusqu'à ce qu'il trouve un point de distribution source disposant du contenu. Lorsque le point de distribution d'extraction identifie un point de distribution source avec le contenu, il commence le téléchargement de ce contenu.  
+
+        > [!NOTE]  
+        >  Le processus de téléchargement de contenu du point de distribution d’extraction est le même que celui des clients Configuration Manager. Pour le transfert de contenu par le point de distribution d’extraction, les paramètres de transfert simultané ne sont pas utilisés. Les options de planification et de limitation de bande passante que vous configurez pour les points de distribution standard ne sont pas non plus utilisées.  
+
+5.  **Fin du transfert de contenu.**  
+
+    -   **Point de distribution standard** : une fois que Package Transfer Manager a terminé le transfert de fichiers sur chaque point de distribution distant désigné, il vérifie le hachage du contenu sur le point de distribution. Puis il informe le gestionnaire de distribution que la distribution est terminée.  
+
+    -   **Point de distribution d’extraction** : une fois que le point de distribution d’extraction a terminé le téléchargement du contenu, le point de distribution vérifie le hachage du contenu. Puis il envoie un message d’état au point de gestion des sites pour indiquer que l’opération a abouti. Si cet état n’est pas reçu après 60 minutes, Package Transfer Manager ressort du mode veille. Il consulte le point de distribution d’extraction pour déterminer s’il a téléchargé le contenu. Si le téléchargement du contenu est en cours, Package Transfer Manager se remet en veille pendant 60 minutes avant de reconsulter le point de distribution d’extraction. Ce cycle se répète jusqu'à ce que le point de distribution d'extraction termine le transfert du contenu.  

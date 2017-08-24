@@ -1,6 +1,6 @@
 ---
-title: Verwenden einer Tasksequenz zum Verwalten virtueller Festplatten | Microsoft-Dokumentation
-description: "Erstellen Sie eine virtuelle Festplatte, fügen Sie Anwendungen und Softwareupdates hinzu, und veröffentlichen Sie die virtuelle Festplatte über die Configuration Manager-Konsole in System Center Virtual Machine Manager (VMM)."
+title: "Utiliser une séquence de tâches pour gérer des disques durs virtuels | Microsoft Docs"
+description: "Créez et modifiez un disque dur virtuel, ajoutez des applications et des mises à jour logicielles et publiez le disque dur virtuel dans System Center Virtual Machine Manager (VMM) à partir de Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,21 +17,21 @@ manager: angrobe
 ms.openlocfilehash: f77af4b8fcb193ed44511c0e5eea7290f55dbbf8
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="use-a-task-sequence-to-manage-virtual-hard-disks-in-system-center-configuration-manager"></a>Verwenden einer Tasksequenz zum Verwalten virtueller Festplatten in System Center Configuration Manager
+# <a name="use-a-task-sequence-to-manage-virtual-hard-disks-in-system-center-configuration-manager"></a>Utiliser une séquence de tâches pour gérer des disques durs virtuels dans System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-In System Center Configuration Manager können Sie virtuelle Festplatten (Virtual Hard Disks, VHDs) verwalten und die erstellten virtuellen Festplatten über die Configuration Manager-Konsole in Ihr Datencenter integrieren. Die folgenden Aktionen sind möglich: Sie können eine virtuelle Festplatte erstellen und ändern, der virtuellen Festplatte Anwendungen und Softwareupdates hinzufügen und die virtuelle Festplatte über die Configuration Manager-Konsole in System Center Virtual Machine Manager (VMM) veröffentlichen.  
+Dans System Center Configuration Manager, vous pouvez gérer des disques durs virtuels (VHD) et intégrer les disques durs virtuels créés dans votre centre de données à partir de la console Configuration Manager. Plus précisément, vous pouvez créer et modifier un disque dur virtuel, ajouter des applications et des mises à jour logicielles au disque dur virtuel, ainsi que publier le disque dur virtuel dans System Center Virtual Machine Manager (VMM) à partir de la console Configuration Manager.  
 
- In den folgenden Abschnitten erfahren Sie, wie Sie virtuelle Festplatten in Configuration Manager verwalten:
+ Pour gérer les disques durs virtuels dans Configuration Manager, utilisez les sections suivantes :
 
-## <a name="prerequisites"></a>Voraussetzungen  
- Überprüfen Sie die folgenden Voraussetzungen, bevor Sie beginnen:  
+## <a name="prerequisites"></a>Conditions préalables  
+ Vérifiez la configuration requise suivante avant de commencer :  
 
--   Auf dem Computer, auf dem Sie virtuelle Festplatten verwalten, muss eines der folgenden Betriebssysteme ausgeführt werden:  
+-   L'ordinateur à partir duquel vous gérez des disques durs virtuels doit exécuter l'un des systèmes d'exploitation suivants :  
 
     -   Windows 8.1 x64  
 
@@ -41,289 +41,289 @@ In System Center Configuration Manager können Sie virtuelle Festplatten (Virtua
 
     -   Windows Server 2012  
 
-    -   Windows Server 2012 R2  
+    -   Windows Server 2012 R2  
 
--   Virtualisierung muss im BIOS aktiviert sein, und Hyper-V muss auf dem Computer installiert sein, auf dem Sie die Configuration Manager-Konsole für die Verwaltung von virtuellen Festplatten ausführen. Es hat sich zudem bewährt, die Hyper-V-Verwaltungstools zu installieren, um virtuelle Festplatten zu testen und Probleme damit zu behandeln. Beispiel: Die Hyper-V-Verwaltungstools müssen installiert sein, damit Sie die Datei smsts.log überwachen und so den Fortschritt der Tasksequenz in Hyper-V verfolgen können. Weitere Informationen zu Hyper-V-Anforderungen finden Sie unter [Hyper-V Installation Prerequisites (Voraussetzungen für die Hyper-V-Installation)](http://technet.microsoft.com/library/cc731898.aspx).  
+-   La fonction de virtualisation doit être activée dans le BIOS et Hyper-V doit être installé sur l'ordinateur à partir duquel vous exécutez la console Configuration Manager pour gérer les disques durs virtuels. Comme meilleures pratiques, installez également les outils de gestion Hyper-V pour vous aider à tester et résoudre les problèmes liés à vos disques durs virtuels. Par exemple, pour surveiller le fichier smsts.log et suivre la progression de la séquence de tâches dans Hyper-V, les outils de gestion Hyper-V doivent être installés. Pour plus d'informations sur la configuration requise pour Hyper-V, voir [Conditions préalables à l'installation d'Hyper-V](http://technet.microsoft.com/library/cc731898.aspx).  
 
     > [!IMPORTANT]  
-    >  Für den Prozess zum Erstellen einer virtuellen Festplatte werden Prozessorzeit und Arbeitsspeicher genutzt. Daher empfiehlt es sich, virtuelle Festplatten über eine Configuration Manager-Konsole zu verwalten, die nicht auf dem Standortserver installiert ist.  
+    >  Le processus de création d'un disque dur virtuel consomme du temps de processeur et de la mémoire. Par conséquent, il est recommandé de gérer les disques durs virtuels à partir d'une console Configuration Manager qui ne soit pas installée sur le serveur de site.  
 
--   Dem Standortserver muss die Zugriffsberechtigung **Schreiben** für den Ordner erteilt worden sein, der die VHD-Datei enthält, wenn Sie virtuelle Festplatten über einen Computer verwalten, der nicht der Standortserver ist.  
+-   Le serveur de site doit disposer de l'autorisation d'accès **Écriture** sur le dossier devant contenir le fichier VHD lorsque vous gérez les disques durs virtuels à partir d'un ordinateur distant du serveur de site.  
 
--   Stellen Sie sicher, dass Sie auf dem Computer, über den Sie die virtuellen Festplatten verwalten, über ausreichend Speicherplatz verfügen. Die Speicherplatzanforderungen der virtuellen Festplatte hängen vom Betriebssystem und den installierten Anwendungen ab.  
+-   Vérifiez que vous disposez de suffisamment d'espace disque disponible sur l'ordinateur à partir duquel vous gérez les disques durs virtuels. La configuration requise d'espace de disque dur pour le disque dur virtuel varie en fonction du système d'exploitation et des applications que vous installez.  
 
--   Stellen Sie sicher, dass Sie auf dem Computer, über den Sie die virtuellen Festplatten verwalten, über ausreichend Arbeitsspeicher verfügen. Während der Erstellung der virtuellen Festplatte werden vom virtuellen Computer 2 GB Arbeitsspeicher genutzt.  
+-   Vérifiez que vous disposez de suffisamment de mémoire sur l'ordinateur à partir duquel vous gérez les disques durs virtuels. Au cours du processus de création du disque dur virtuel, la machine virtuelle est configurée pour utiliser 2 Go de mémoire.  
 
--   Installieren Sie die System Center Virtual Machine Manager-Konsole (VMM) auf dem Computer, von dem Sie die virtuelle Festplatte in VMM hochladen. Sie können die VMM-Konsole auf einem separaten Computer installieren, über den Sie die virtuellen Festplatten verwalten. Dann muss Hyper-V nicht installiert sein, um die virtuelle Festplatte in VMM zu importieren.  
+-   Installez la console System Center Virtual Machine Manager (VMM) sur l'ordinateur à partir duquel vous téléchargez le disque dur virtuel dans VMM. Vous pouvez installer la console VMM sur un ordinateur distinct à partir duquel vous gérez vos disques durs virtuels, ce qui signifie que vous n'avez pas besoin d'installer Hyper-V pour importer le disque dur virtuel dans VMM.  
 
     > [!NOTE]  
-    >  Wenn Sie die VMM-Konsole installieren, während die Configuration Manager-Konsole geöffnet ist, müssen Sie nach Abschluss der VMM-Konsoleninstallation die Configuration Manager-Konsole neu starten. Andernfalls kann von Configuration Manager keine Verbindung mit dem VMM-Verwaltungsserver hergestellt werden, um eine virtuelle Festplatte hochzuladen.  
+    >  Si vous installez la console VMM alors que la console Configuration Manager est ouverte, vous devez redémarrer la console Configuration Manager une fois que l'installation de la console VMM est terminée. Dans le cas contraire, Configuration Manager ne se connectera pas correctement au serveur de gestion VMM pour télécharger un disque dur virtuel.  
 
-##  <a name="BKMK_CreateVHDSteps"></a> Schritte zum Erstellen einer virtuellen Festplatte  
- Zum Erstellen einer virtuellen Festplatte müssen Sie eine Tasksequenz erstellen, die die Schritte zum Erstellen der virtuellen Festplatte enthält, und diese Tasksequenz dann im Assistenten zum Erstellen virtueller Festplatten verwenden, um die virtuelle Festplatte zu erstellen. In den folgenden Abschnitten sind die Schritte zum Erstellen der virtuellen Festplatte angegeben.  
+##  <a name="BKMK_CreateVHDSteps"></a> Étapes de création d'un disque dur virtuel  
+ Pour créer un disque dur virtuel, vous devez créer une séquence de tâches qui contient les étapes de création du disque dur virtuel, puis utiliser la séquence de tâches dans l'Assistant Création d'un disque dur virtuel pour créer le disque dur virtuel. Les sections suivantes fournissent les étapes nécessaires pour créer le disque dur virtuel.  
 
-###  <a name="BKMK_CreateTS"></a> Erstellen einer Tasksequenz für die virtuelle Festplatte  
- Sie müssen eine Tasksequenz erstellen, die die Schritte zum Erstellen der virtuellen Festplatte enthält. Der Tasksequenzerstellungs-Assistent weist die Option **Bestehendes Abbildpaket auf einer virtuellen Festplatte installieren** auf, mit der die Schritte zur Erstellen der virtuellen Festplatte erstellt werden. Der Assistent fügt z. B. die folgenden erforderlichen Schritte hinzu: Neustarten in Windows PE, Formatieren und Partitionieren des Datenträgers, Anwenden des Betriebssystems und Herunterfahren des Computers. Die virtuelle Festplatte kann unter einem vollständigen Betriebssystems nicht erstellt werden. Zudem muss in Configuration Manager gewartet werden, bis der virtuelle Computer heruntergefahren wurde, bevor das Paket abgeschlossen werden kann. Standardmäßig wird der virtuelle Computer vom Assistenten nach 5 Minuten heruntergefahren. Nach dem Erstellen der Tasksequenz können Sie bei Bedarf zusätzliche Schritte hinzufügen.  
+###  <a name="BKMK_CreateTS"></a> Créer une séquence de tâches pour le disque dur virtuel  
+ Vous devez créer une séquence de tâches contenant les étapes de création du disque dur virtuel. L'option **Installer un package d'images existant sur un disque dur virtuel** de l'Assistant Création d'une séquence de tâches, vous permet de créer les étapes nécessaires à la création du disque dur virtuel. Par exemple, l’Assistant ajoute les étapes obligatoires suivantes : Redémarrer dans Windows PE, Formater et partitionner le disque, Appliquer le système d’exploitation et Arrêter l’ordinateur. Vous ne pouvez pas créer le disque dur virtuel dans le système d'exploitation complet. De plus, Configuration Manager doit attendre l'arrêt de la machine virtuelle pour pouvoir terminer le package. Par défaut, l'Assistant attend 5 minutes avant d'arrêter la machine virtuelle. Après avoir créé la séquence de tâches, vous pouvez ajouter des étapes supplémentaires si nécessaire.  
 
 > [!IMPORTANT]  
->  Im folgenden Verfahren wird die Tasksequenz mit der Option **Bestehendes Abbildpaket auf einer virtuellen Festplatte installieren** erstellt, mit der die erforderlichen Schritte zum erfolgreichen Erstellen der virtuellen Festplatte aufgenommen werden. Wenn Sie eine vorhandene Tasksequenz auswählen oder eine Tasksequenz manuell erstellen, müssen Sie am Ende der Tasksequenz den Schritt zum Herunterfahren des Computers hinzufügen. Ohne diesen Schritt wird der temporäre virtuelle Computer nicht gelöscht, und die Erstellung der virtuellen Festplatte wird nicht abgeschlossen. Allerdings wird vom Assistenten ein erfolgreicher Abschluss angegeben.  
+>  La procédure suivante permet de créer la séquence de tâches à l'aide de l'option **Installer un package d'images existant sur un disque dur virtuel** qui inclut automatiquement les étapes nécessaires à la création correcte du disque dur virtuel. Si vous choisissez d'utiliser une séquence de tâches existante ou d'en créer une manuellement, assurez-vous d'ajouter l'étape Arrêter l'ordinateur à la fin de la séquence. Sans cette étape, la machine virtuelle temporaire n'est pas supprimée, et le processus de création du disque dur virtuel ne se termine pas. Toutefois, l'Assistant se termine et signale une réussite.  
 
- Verwenden Sie das folgende Verfahren, um die Tasksequenz zum Erstellen der virtuellen Festplatte zu erstellen:  
+ Utilisez la procédure suivante pour créer la séquence de tâches nécessaire à la création du disque dur virtuel :  
 
-#### <a name="to-create-the-task-sequence-to-create-the-vhd"></a>So erstellen Sie die Tasksequenz zum Erstellen der virtuellen Festplatte  
+#### <a name="to-create-the-task-sequence-to-create-the-vhd"></a>Pour créer la séquence de tâches nécessaire à la création du disque dur virtuel  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Softwarebibliothek**.  
+1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
-2.  Erweitern Sie im Arbeitsbereich **Softwarebibliothek** den Bereich **Betriebssysteme**, und klicken Sie dann auf **Tasksequenzen**.  
+2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Séquences de tâches**.  
 
-3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** auf **Tasksequenz erstellen** , um den Tasksequenzerstellungs-Assistenten zu starten.  
+3.  Sous l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer une séquence de tâches** pour démarrer l'Assistant Création d'une séquence de tâches.  
 
-4.  Klicken Sie auf der Seite **Neue Tasksequenz erstellen** auf **Bestehendes Abbildpaket auf einer virtuellen Festplatte installieren**und dann auf **Weiter**.  
+4.  Sur la page **Créer une séquence de tâches** , cliquez sur **Installer un package d'images existant sur un disque dur virtuel**, puis cliquez sur **Suivant**.  
 
-5.  Geben Sie auf der Seite **Informationen zur Tasksequenz** die folgenden Einstellungen an, und klicken Sie dann auf **Weiter**.  
+5.  Sur la page **Informations sur la séquence de tâches** , spécifiez les paramètres suivants et cliquez sur **Suivant**.  
 
-    -   **Tasksequenzname**: Geben Sie einen Namen zur Identifikation der Tasksequenz an.  
+    -   **Nom de la séquence de tâches**: spécifiez un nom qui identifie la séquence de tâches.  
 
-    -   **Beschreibung**: Geben Sie eine Beschreibung der Tasksequenz an.  
+    -   **Description**: spécifiez une description de la séquence de tâches.  
 
-    -   **Startabbild**: Geben Sie das Startabbild an, von dem das Betriebssystem auf dem Zielcomputer installiert wird. Weitere Informationen finden Sie unter [Verwalten von Startimages](../get-started/manage-boot-images.md).  
+    -   **Images de démarrage**: spécifiez l'image de démarrage qui installe le système d'exploitation sur l'ordinateur de destination. Pour plus d'informations, voir [Gérer les images de démarrage](../get-started/manage-boot-images.md).  
 
-6.  Geben Sie auf der Seite **Windows installieren** die folgenden Einstellungen an, und klicken Sie dann auf **Weiter**.  
+6.  Sur la page **Installer Windows** , spécifiez les paramètres suivants et cliquez sur **Suivant**.  
 
-    -   **Abbildpaket**: Geben Sie das Paket an, welches das zu installierende Betriebssystemabbild enthält.  
+    -   **Package d’images :**spécifiez le package qui contient l’image du système d’exploitation à installer.  
 
-    -   **Abbild**: Wenn das Betriebssystemabbildpaket mehrere Abbilder enthält, geben Sie den Indes des zu installierenden Betriebssystemabbilds an.  
+    -   **Image**: si le package d’images du système d’exploitation comporte plusieurs images, spécifiez l’index de l’image du système d’exploitation à installer.  
 
-    -   **Product key**: Geben Sie den Product Key für das zu installierende Windows-Betriebssystem an. Sie können codierte Volumenlizenzschlüssel und standardmäßige Product Keys angeben. Wenn Sie einen nicht codierten Product Key verwenden, muss jede Gruppe aus 5 Zeichen mit einen Bindestrich (-) getrennt werden. Beispiel: *XXXXX-XXXXX-XXXXX-XXXXX-XXXXX*  
+    -   **Clé du produit**: spécifiez la clé de produit pour le système d’exploitation Windows à installer. Vous pouvez spécifier des clés de licence en volume codées et des clés de produit standard. Si vous utilisez une clé de produit non codée, chaque groupe de 5 caractères doit être séparé par un tiret (-). Par exemple : *XXXXX-XXXXX-XXXXX-XXXXX-XXXXX*  
 
-    -   **Serverlizenzierungsmodus**: Geben Sie an, ob die Serverlizenz **Pro Arbeitsplatz**oder **Pro Server**bzw. dass keine Lizenz angegeben ist. Wenn die Serverlizenz **Pro Server**gilt, geben Sie auch die maximale Anzahl von Serververbindungen an.  
+    -   **Mode de licence serveur :**spécifiez que la licence serveur est **Par siège**, **Par serveur**ou qu’aucune licence n’est spécifiée. Si la licence serveur est **Par serveur**, spécifiez également le nombre maximal de connexions au serveur.  
 
-    -   Geben Sie an, wie das Administratorkonto verarbeitet werden soll, das bei der Bereitstellung des Betriebssystemabbilds verwendet wird.  
+    -   Spécifiez comment gérer le compte administrateur qui est utilisé lors du déploiement de l'image du système d'exploitation.  
 
-        -   **Lokales Administratorkennwort zufällig erstellen und das Konto auf allen unterstützten Plattformen deaktivieren (empfohlen)**: Verwenden Sie diese Einstellung, damit der Assistent ein zufälliges Kennwort für das lokale Administratorkonto erstellt und das Konto deaktiviert, wenn das Betriebssystemabbild bereitgestellt wurde.  
+        -   **Générer de façon aléatoire le mot de passe de l’administrateur local et désactiver le compte sur toutes les plates-formes prises en charge (recommandé)**: utilisez ce paramètre pour permettre à l’Assistant de créer aléatoirement un mot de passe pour le compte administrateur local et désactiver le compte quand l’image du système d’exploitation est déployée.  
 
-        -   **Konto aktivieren und lokales Administratorkennwort angeben**: Verwenden Sie diese Einstellung, um ein bestimmtes Kennwort für das lokale Administratorkonto auf allen Computern zu verwenden, auf denen das Betriebssystemabbild bereitgestellt wird.  
+        -   **Activer le compte et spécifier le mot de passe de l’administrateur local**: ce paramètre permet d’utiliser un mot de passe spécifique pour le compte d’administrateur local sur tous les ordinateurs où l’image du système d’exploitation est déployée.  
 
-7.  Geben Sie auf der Seite **Netzwerkeinstellungen konfigurieren** die folgenden Einstellungen an, und klicken Sie dann auf **Weiter**.  
+7.  Sur la page **Configurer le réseau** , spécifiez les paramètres suivants et cliquez sur **Suivant**.  
 
-    -   **Einer Arbeitsgruppe beitreten**: Geben Sie an, ob der Zielcomputer einer Arbeitsgruppe hinzugefügt werden soll.  
+    -   **Joindre un groupe de travail**: indiquez si vous souhaitez ajouter l'ordinateur de destination à un groupe de travail.  
 
-    -   **Einer Domäne beitreten**: Geben Sie an, ob der Zielcomputer einer Domäne hinzugefügt werden soll. Geben Sie unter **Domäne**den Namen der Domäne an.  
+    -   **Joindre un domaine**: indiquez si vous souhaitez ajouter l'ordinateur de destination à un domaine. Dans **Domaine**, spécifiez le nom du domaine.  
 
         > [!IMPORTANT]  
-        >  Domänen in der lokalen Gesamtstruktur können Sie suchen, doch bei Domänen in remoten Gesamtstrukturen müssen Sie den Domänennamen angeben.  
+        >  Vous pouvez rechercher des domaines dans la forêt locale, mais vous devez spécifier le nom de domaine d'une forêt distante.  
 
-         Sie können auch eine Organisationseinheit angeben. Dies ist eine optionale Einstellung, mit welcher der LDAP X.500-definierte Name der Organisationseinheit angegeben wird, in der das Computerkonto erstellt werden soll, sofern das Konto noch nicht vorhanden ist.  
+         Vous pouvez également spécifier une unité d'organisation (UO). Il s'agit d'un paramètre facultatif qui spécifie le nom unique LDAP X.500 de l'UO dans laquelle vous créez le compte d'ordinateur s'il n'existe pas déjà.  
 
-    -   **Konto**: Geben Sie Benutzernamen und Kennwort für das Konto an, das die Berechtigungen hat, um der angegebenen Domäne beizutreten. Beispiel: *Domäne\Benutzer* oder *%Variable%*.  
+    -   **Compte**: spécifiez le nom d’utilisateur et le mot de passe du compte qui dispose des autorisations pour joindre le domaine spécifié. Par exemple : *domaine\utilisateur* ou *%variable%*.  
 
-8.  Geben Sie auf der Seite **Configuration Manager installieren** das Configuration Manager-Clientpaket an, das auf dem Zielcomputer installiert werden sollen, und klicken Sie auf **Weiter**.  
+8.  Sur la page **Installer Configuration Manager**, spécifiez le package client Configuration Manager à installer sur l'ordinateur de destination, puis cliquez sur **Suivant**.  
 
-9. Geben Sie auf der Seite **Anwendungen installieren** die Anwendungen an, die auf dem Zielcomputer installiert werden sollen, und klicken Sie dann auf **Weiter**. Wenn Sie mehrere Anwendungen angeben, können Sie auch angeben, dass die Tasksequenz fortgesetzt werden soll, wenn bei der Installation einer bestimmten Anwendung ein Fehler auftritt.  
+9. Sur la page **Installer les applications** , spécifiez les applications à installer sur l'ordinateur de destination, puis cliquez sur **Suivant**. Si vous spécifiez plusieurs applications, vous pouvez également spécifier que la séquence de tâches continue si l'installation d'une application spécifique échoue.  
 
-10. Schließen Sie den Assistenten ab.  
+10. Effectuez toutes les étapes de l'Assistant.  
 
-###  <a name="BKMK_CreateVHD"></a> Erstellen einer virtuellen Festplatte  
- Nachdem Sie eine Tasksequenz für die virtuelle Festplatte erstellt haben, erstellen Sie die virtuelle Festplatte mithilfe des Assistenten zum Erstellen virtueller Festplatten.  
+###  <a name="BKMK_CreateVHD"></a> Créer un disque dur virtuel  
+ Après avoir créé une séquence de tâches pour le disque dur virtuel, utilisez l'Assistant Nouveau disque dur virtuel pour créer le disque dur virtuel.  
 
 > [!IMPORTANT]  
->  Stellen Sie vor der Ausführung dieses Verfahrens sicher, dass Sie die am Anfang dieses Themas aufgeführten Voraussetzungen erfüllen.  
+>  Avant d'exécuter cette procédure, vérifiez que vous respectez la configuration requise indiquée au début de cette rubrique.  
 
- Verwenden Sie das folgende Verfahren, um eine virtuelle Festplatte zu erstellen.  
+ Utilisez la procédure suivante pour créer un disque dur virtuel.  
 
-#### <a name="to-create-a-vhd"></a>So erstellen Sie eine virtuelle Festplatte  
+#### <a name="to-create-a-vhd"></a>Pour créer un disque dur virtuel  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Softwarebibliothek**.  
+1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
-2.  Erweitern Sie im Arbeitsbereich **Softwarebibliothek** den Bereich **Betriebssysteme**, und klicken Sie dann auf **Virtuelle Festplatten**.  
+2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Disques durs virtuels**.  
 
-3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** auf **Virtuelle Festplatte erstellen** , um den Assistenten zum Erstellen virtueller Festplatten zu starten.  
-
-    > [!NOTE]  
-    >  Hyper-V muss auf dem Computer installiert sein, auf dem die Configuration Manager-Konsole ausgeführt wird, über die Sie virtuelle Festplatten verwalten. Andernfalls ist die Option **Virtuelle Festplatte erstellen** nicht aktiviert. Weitere Informationen zu Hyper-V-Anforderungen finden Sie unter [Hyper-V Installation Prerequisites (Voraussetzungen für die Hyper-V-Installation)](http://technet.microsoft.com/library/cc731898.aspx).  
-
-    > [!TIP]  
-    >  Erstellen Sie einen neuen Ordner, oder wählen Sie unter dem Knoten **Virtuelle Festplatten** einen vorhandenen Ordner aus, und klicken Sie in dem Ordner auf **Virtuelle Festplatte erstellen** , um die virtuellen Festplatten zu organisieren.  
-
-4.  Geben Sie auf der Seite **Allgemein** die folgenden Einstellungen an, und klicken Sie dann auf **Weiter**.  
-
-    -   **Name**: Geben Sie einen eindeutigen Namen für die virtuelle Festplatte an.  
-
-    -   **Version**: Geben Sie eine Versionsnummer für die virtuelle Festplatte an. Dies ist eine optionale Einstellung.  
-
-    -   **Kommentar**: Geben Sie eine Beschreibung für die virtuelle Festplatte an.  
-
-    -   **Pfad**: Geben Sie den Pfad und den Dateinamen für die Erstellung der VHD-Datei durch den Assistenten an.  
-
-         Sie müssen einen gültigen Netzwerkpfad im UNC-Format eingeben. Beispiel: **\\\Servername\\<Freigabename\>\\<Dateiname\>.vhd**.  
-
-        > [!WARNING]  
-        >  Configuration Manager muss die Zugriffsberechtigung **Schreiben** für den angegebenen Pfad erteilt worden sein, damit die virtuelle Festplatte erstellt werden kann. Wenn von Configuration Manager nicht auf den Pfad zugegriffen werden kann, wird der entsprechende Fehler in der Datei „distmgr.log“ auf dem Standortserver protokolliert.  
-
-5.  Geben Sie auf der Seite **Tasksequenz** die Tasksequenz aus dem vorherigen Abschnitt an, und klicken Sie dann auf **Weiter**.  
-
-6.  Wählen Sie auf der Seite **Verteilungspunkte** mindestens einen Verteilungspunkt aus, der den für die Tasksequenz erforderlichen Inhalt enthält, und klicken Sie dann auf **Weiter**.  
-
-7.  Klicken Sie auf der Seite **Anpassung** auf **Weiter**. Beim Vorgang zum Erstellen der virtuellen Festplatte werden alle auf diese Seite angegebenen Einstellungen ignoriert.  
-
-8.  Überprüfen Sie die Einstellungen, und klicken Sie anschließend auf **Weiter**. Die virtuelle Festplatte wird vom Assistenten erstellt.  
-
-    > [!TIP]  
-    >  Die Dauer bis zum Abschluss des Prozesses zum Erstellen der virtuellen Festplatte kann variieren. Während der Prozess vom Assistenten bearbeitet wird, können Sie den Fortschritt in den folgenden Protokolldateien überwachen. Standardmäßig befinden sich die Protokolle auf dem Computer mit der Configuration Manager-Konsole unter %*ProgramFiles (x86)*%\Microsoft Configuration Manager\AdminConsole\AdminUILog.  
-    >   
-    >  -   **CreateTSMedia.log**: In dieses Protokoll werden vom Assistenten Informationen geschrieben, während die Tasksequenzmedien erstellt werden. Überprüfen Sie diese Protokolldatei, um den Fortschritt des Assistenten beim Erstellen der eigenständigen Medien zu überwachen.  
-    > -   **DeployToVHD.log**: In dieses Protokoll werden vom Assistenten Informationen geschrieben, während die virtuelle Festplatte erstellt wird. Überprüfen Sie diese Protokolldatei, um den Fortschritt des Assistenten bei allen Schritten nach dem Erstellen der eigenständigen Medien zu überwachen.  
-    >   
-    >  Darüber hinaus können Sie beim Start der Betriebssysteminstallation den Hyper-V-Manager öffnen (sofern Sie die Hyper-V-Verwaltungstools auf dem Computer installiert haben) und eine Verbindung mit dem vom Assistenten erstellten temporären virtuellen Computer herstellen, um die Ausführung der Tasksequenz anzuzeigen. Über den virtuellen Computer können Sie in der Datei smsts.log den Fortschritt der Tasksequenz überwachen. Bei Problemen mit dem Abschluss eines Tasksequenzschritts können Sie diese Protokolldatei zur Problembehandlung verwenden. Vor der Formatierung der Festplatte befindet sich die Datei smsts.log unter X:\windows\temp\smstslog\smsts.log, nach der Formatierung befindet sie sich unter C:\\_SMSTaskSequence\Logs\Smstslog\. Nach Abschluss der Tasksequenzschritte wird der virtuelle Computer (standardmäßig) nach 5 Minuten heruntergefahren und gelöscht.  
-
- Nach dem Erstellen der virtuellen Festplatte in Configuration Manager befindet sich diese im Knoten **Virtuelle Festplatten** in der Configuration Manager-Konsole unter dem Knoten **Betriebssystembereitstellung** im Arbeitsbereich **Softwarebibliothek**.  
-
-> [!NOTE]  
->  Die Größe der virtuellen Festplatte wird von Configuration Manager abgerufen, indem eine Verbindung mit dem Quellspeicherort der virtuellen Festplatte hergestellt wird. Wenn ein Zugriff auf die VHD-Datei durch Configuration Manager nicht möglich ist, wird in der Spalte **Größe (KB)** für die virtuelle Festplatte **0** angezeigt.  
-
-##  <a name="BKMK_ModifyVHDSteps"></a> Schritte zum Ändern einer vorhandenen virtuellen Festplatte  
- Zum Ändern einer virtuellen Festplatte müssen Sie eine Tasksequenz mit den Schritten erstellen, die zum Ändern der virtuellen Festplatte erforderlich sind. Danach wählen Sie die Tasksequenz im Assistenten zum Ändern virtueller Festplatten aus. Die virtuelle Festplatte wird mit der virtuellen Maschine verbunden, die Tasksequenz wird in der virtuellen Festplatte ausgeführt, und die VHD-Datei wird nachfolgend aktualisiert. In den folgenden Abschnitten sind die Schritte zum Ändern der virtuellen Festplatte angegeben.  
-
-###  <a name="BKMK_ModifyTS"></a> Erstellen einer Tasksequenz zum Ändern der virtuellen Festplatte  
- Zum Ändern einer vorhandenen virtuellen Festplatte müssen Sie diese zunächst als Tasksequenz erstellen. Wählen Sie nur die Schritte aus, die zum Ändern der Tasksequenz erforderlich sind. Wenn Sie der virtuellen Festplatte beispielsweise eine Anwendung hinzufügen möchten, erstellen Sie eine benutzerdefinierte Tasksequenz, und fügen Sie dann nur den Schritt zum Installieren der Anwendung hinzu.  
-
- Verwenden Sie das folgende Verfahren, um die Tasksequenz zum Ändern der virtuellen Festplatte zu erstellen:  
-
-#### <a name="to-create-a-custom-task-sequence-to-modify-the-vhd"></a>So erstellen Sie eine benutzerdefinierte Tasksequenz zum Ändern der virtuellen Festplatte  
-
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Softwarebibliothek**.  
-
-2.  Erweitern Sie im Arbeitsbereich **Softwarebibliothek** den Bereich **Betriebssysteme**, und klicken Sie dann auf **Tasksequenzen**.  
-
-3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** auf **Tasksequenz erstellen** , um den Tasksequenzerstellungs-Assistenten zu starten.  
-
-4.  Wählen Sie auf der Seite **Neue Tasksequenz erstellen** die Option **Neue benutzerdefinierte Tasksequenz erstellen**aus, und klicken Sie dann auf **Weiter**.  
-
-5.  Geben Sie auf der Seite **Informationen zur Tasksequenz** die folgenden Einstellungen an, und klicken Sie dann auf **Weiter**.  
-
-    -   **Tasksequenzname**: Geben Sie einen Namen zur Identifikation der Tasksequenz an.  
-
-    -   **Beschreibung**: Geben Sie eine Beschreibung der Tasksequenz an.  
-
-    -   **Startabbild**: Geben Sie das Startabbild an, von dem das Betriebssystem auf dem Zielcomputer installiert wird. Weitere Informationen finden Sie unter [Verwalten von Startimages](../get-started/manage-boot-images.md).  
-
-6.  Schließen Sie den Assistenten ab.  
-
- Gehen Sie wie folgt vor, um der benutzerdefinierten Tasksequenz Tasksequenzschritte hinzuzufügen.  
-
-#### <a name="to-add-task-sequence-steps-to-the-custom-task-sequence"></a>So fügen Sie der benutzerdefinierten Tasksequenz Tasksequenzschritte hinzu  
-
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Softwarebibliothek**.  
-
-2.  Erweitern Sie **Betriebssysteme** im Arbeitsbereich **Softwarebibliothek**, klicken Sie auf **Tasksequenzen**, und wählen Sie dann die benutzerdefinierte Tasksequenz aus, die Sie mit dem vorherigen Verfahren erstellt haben.  
-
-3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Tasksequenz** auf **Bearbeiten** , um den Tasksequenz-Editor zu starten.  
-
-4.  Fügen Sie Tasksequenzschritte hinzu, mit denen die virtuelle Festplatte geändert wird.  
-
-5.  Klicken Sie auf **OK** , um den Tasksequenz-Editor zu beenden.  
-
-###  <a name="BKMK_ModifyVHD"></a> Ändern einer virtuellen Festplatte  
- Nachdem Sie eine Tasksequenz für die virtuelle Festplatte erstellt haben, ändern Sie die virtuelle Festplatte mithilfe des Assistenten zum Ändern virtueller Festplatten.  
-
- Verwenden Sie das folgende Verfahren, um eine virtuelle Festplatte zu ändern.  
-
-#### <a name="to-modify-a-vhd"></a>So ändern Sie eine virtuelle Festplatte  
-
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Softwarebibliothek**.  
-
-2.  Erweitern Sie **Betriebssysteme** im Arbeitsbereich **Softwarebibliothek**, klicken Sie auf **Virtuelle Festplatten**, und wählen Sie dann die zu ändernde Festplatte aus.  
-
-3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Virtuelle Festplatte** auf **Virtuelle Festplatte ändern** , um den Assistenten zum Ändern virtueller Festplatten zu starten.  
+3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer un disque dur virtuel** pour démarrer l'Assistant Nouveau disque dur virtuel.  
 
     > [!NOTE]  
-    >  Hyper-V muss auf dem Computer installiert sein, auf dem die Configuration Manager-Konsole ausgeführt wird, über die Sie virtuelle Festplatten verwalten. Andernfalls ist die Option **Virtuelle Festplatte ändern** nicht aktiviert. Weitere Informationen zu Hyper-V-Anforderungen finden Sie unter [Hyper-V Installation Prerequisites (Voraussetzungen für die Hyper-V-Installation)](http://technet.microsoft.com/library/cc731898.aspx).  
-
-4.  Überprüfen Sie auf der Seite **Allgemein** die folgenden Einstellungen, und klicken Sie dann auf **Weiter**.  
-
-    -   **Name**: Gibt einen eindeutigen Namen für die virtuelle Festplatte an.  
-
-    -   **Version**: Gibt die Versionsnummer für die virtuelle Festplatte an. Dies ist eine optionale Einstellung.  
-
-    -   **Kommentar**: Gibt die Beschreibung für die virtuelle Festplatte an.  
-
-    -   **Pfad**: Gibt den Pfad und den Dateinamen für den Speicherort der VHD-Datei an. Diese Einstellung kann nicht geändert werden.  
-
-        > [!WARNING]  
-        >  Configuration Manager muss die Zugriffsberechtigung **Schreiben** für den angegebenen Pfad erteilt worden sein, damit die virtuelle Festplatte erstellt werden kann. Wenn von Configuration Manager nicht auf den Pfad zugegriffen werden kann, wird der entsprechende Fehler in der Datei „distmgr.log“ auf dem Standortserver protokolliert.  
-
-5.  Geben Sie auf der Seite **Tasksequenz** die im vorherigen Abschnitt erstellte benutzerdefinierte Tasksequenz an, und klicken Sie dann auf **Weiter**.  
-
-6.  Wählen Sie auf der Seite **Verteilungspunkte** mindestens einen Verteilungspunkt aus, der den für die Tasksequenz erforderlichen Inhalt enthält, und klicken Sie dann auf **Weiter**.  
-
-7.  Klicken Sie auf der Seite **Anpassung** auf **Weiter**. Beim Vorgang zum Ändern der virtuellen Festplatte werden alle auf dieser Seite angegebenen Einstellungen ignoriert.  
-
-8.  Überprüfen Sie die Einstellungen, und klicken Sie anschließend auf **Weiter**. Die geänderte virtuelle Festplatte wird vom Assistenten erstellt.  
+    >  Pour activer l'option **Créer un disque dur virtuel** , Hyper-V doit être installé sur l'ordinateur exécutant la console Configuration Manager à partir de laquelle vous gérez les disques durs virtuels. Pour plus d'informations sur la configuration requise pour Hyper-V, voir [Conditions préalables à l'installation d'Hyper-V](http://technet.microsoft.com/library/cc731898.aspx).  
 
     > [!TIP]  
-    >  Die Dauer bis zum Abschluss des Vorgangs zum Ändern der virtuellen Festplatte kann variieren. Während der Prozess vom Assistenten bearbeitet wird, können Sie den Fortschritt in den folgenden Protokolldateien überwachen. Standardmäßig befinden sich die Protokolle auf dem Computer mit der Configuration Manager-Konsole unter %*ProgramFiles (x86)*%\Microsoft Configuration Manager\AdminConsole\AdminUILog.  
+    >  Pour organiser vos disques durs virtuels, créez un dossier ou sélectionnez-en un dans le nœud **Disques durs virtuels** , puis cliquez sur **Créer un disque dur virtuel** dans le dossier.  
+
+4.  Sur la page **Général** , spécifiez les paramètres suivants et cliquez sur **Suivant**.  
+
+    -   **Nom**: spécifiez un nom unique pour le disque dur virtuel.  
+
+    -   **Version**: spécifiez un numéro de version pour le disque dur virtuel. Ce paramètre est facultatif.  
+
+    -   **Commentaire**: spécifiez la description du disque dur virtuel.  
+
+    -   **Chemin d’accès :**spécifiez le chemin et le nom de fichier utilisés par l’Assistant lors de la création du fichier de disque dur virtuel.  
+
+         Vous devez entrer un chemin d'accès réseau valide au format UNC. Par exemple : **\\\nom_serveur\\<nom_partage\>\\<nom_fichier\>.vhd**.  
+
+        > [!WARNING]  
+        >  Configuration Manager doit disposer de l'autorisation d'accès **Écriture** vers le chemin spécifié pour créer le disque dur virtuel. Lorsque Configuration Manager ne parvient pas à accéder au chemin, l'erreur associée est consignée dans le fichier distmgr.log sur le serveur de site.  
+
+5.  Sur la page **Séquence de tâches** , spécifiez la séquence de tâches que vous avez créée dans la section précédente, puis cliquez sur **Suivant**.  
+
+6.  Sur la page **Points de distribution** , sélectionnez un ou plusieurs points de distribution comprenant le contenu requis par la séquence de tâches, puis cliquez sur **Suivant**.  
+
+7.  Sur la page **Personnalisation** , cliquez sur **Suivant**. Le processus de création du disque dur virtuel ignore tous les paramètres que vous spécifiez sur cette page.  
+
+8.  Vérifiez les paramètres, puis cliquez sur **Suivant**. L'Assistant crée le disque dur virtuel.  
+
+    > [!TIP]  
+    >  Le temps requis pour compléter le processus de création du disque dur virtuel peut varier. Pendant que l'Assistant effectue ce processus, vous pouvez surveiller les fichiers journaux suivants pour suivre la progression. Par défaut, les fichiers journaux sont situés sur l'ordinateur qui exécute la console Configuration Manager dans %*ProgramFiles(x86)*%\Microsoft Configuration Manager\AdminConsole\AdminUILog.  
     >   
-    >  -   **CreateTSMedia.log**: In dieses Protokoll werden vom Assistenten Informationen geschrieben, während die Tasksequenzmedien erstellt werden. Überprüfen Sie diese Protokolldatei, um den Fortschritt des Assistenten beim Erstellen der eigenständigen Medien zu überwachen.  
-    > -   **DeployToVHD.log**: In dieses Protokoll werden vom Assistenten Informationen geschrieben, während die virtuelle Festplatte geändert wird. Überprüfen Sie diese Protokolldatei, um den Fortschritt des Assistenten bei allen Schritten nach dem Erstellen der eigenständigen Medien zu überwachen.  
+    >  -   **CreateTSMedia.log**: l’Assistant écrit les informations dans ce fichier journal lors de la création du média de séquence de tâches. Consultez ce fichier journal pour suivre la progression de l'Assistant lors de la création du média autonome.  
+    > -   **DeployToVHD.log**: l’Assistant écrit les informations dans ce fichier journal lors du processus de création du disque dur virtuel. Consultez ce fichier journal pour suivre la progression de l'Assistant sur toutes les étapes après la création du média autonome.  
     >   
-    >  Darüber hinaus können Sie den Hyper-V-Manager öffnen (sofern Sie die Hyper-V-Verwaltungstools auf dem Computer installiert haben) und eine Verbindung mit dem vom Assistenten erstellten temporären virtuellen Computer herstellen, um die Ausführung der Tasksequenz anzuzeigen. Über den virtuellen Computer können Sie in der Datei smsts.log den Fortschritt der Tasksequenz überwachen. Bei Problemen mit dem Abschluss eines Tasksequenzschritts können Sie diese Protokolldatei zur Problembehandlung verwenden. Vor der Formatierung der Festplatte befindet sich die Datei smsts.log unter X:\windows\temp\smstslog\smsts.log, nach der Formatierung befindet sie sich unter C:\\_SMSTaskSequence\Logs\Smstslog\. Nach Abschluss der Tasksequenzschritte wird der virtuelle Computer (standardmäßig) nach 5 Minuten heruntergefahren und gelöscht.  
+    >  Au démarrage de l'installation du système d'exploitation, vous pouvez ouvrir le Gestionnaire Hyper-V (si vous avez installé les outils de gestion Hyper-V sur l'ordinateur) et vous connecter à la machine virtuelle temporaire créé par l'Assistant pour suivre l'exécution de la séquence. À partir de la machine virtuelle, vous pouvez surveiller le fichier smsts.log pour suivre la progression de la séquence de tâches. En cas de problèmes avec de finalisation d'une étape de la séquence de tâches, vous pouvez utiliser ce fichier journal pour résoudre le problème. Le fichier smsts.log se trouve dans x: \windows\temp\smstslog\smsts.log avant le formatage du disque dur et dans c:\\_SMSTaskSequence\Logs\Smstslog\ après le formatage du disque dur. Une fois les étapes de séquence de tâches terminées, la machine virtuelle est arrêtée après 5 minutes (par défaut), puis supprimée.  
 
-##  <a name="BKMK_ApplyUpdates"></a> Anwenden von Softwareupdates auf eine virtuelle Festplatte  
- Es werden regelmäßig neue Softwareupdates veröffentlicht, die für das Betriebssystem Ihrer virtuellen Festplatte gelten. Sie können relevante Softwareupdates nach einem festgelegten Zeitplan auf eine virtuelle Festplatte anwenden. Nach dem festgelegten Zeitplan werden von Configuration Manager die ausgewählten Softwareupdates auf die virtuelle Festplatte angewendet.  
-
- Die Informationen zur virtuellen Festplatte werden in der Standortdatenbank gespeichert. Dazu gehören beispielsweise die Softwareupdates, die während der Erstellung der virtuellen Festplatte angewendet wurden. Softwareupdates, die nach dem ursprünglichen Erstellen auf die virtuelle Festplatte angewendet wurden, werden ebenfalls in der Standortdatenbank gespeichert. Wenn Sie den Assistenten starten, um Softwareupdates auf die virtuelle Festplatte anzuwenden, wird vom Assistenten eine Liste mit den verfügbaren Softwareupdates abgerufen, die noch nicht auf die virtuelle Festplatte angewendet wurden und ausgewählt werden können.  
-
- Sie können die Einstellung **Bei Fehler fortsetzen** für Configuration Manager auswählen. Softwareupdates werden dann auch weiter angewendet, wenn beim Anwenden von einem oder mehreren ausgewählten Softwareupdates ein Fehler auftritt.  
+ Une fois que Configuration Manager a créé le disque dur virtuel, il est situé dans le nœud **Disques durs virtuels** dans la console Configuration Manager sous le nœud **Déploiement du système d'exploitation** de l'espace de travail **Bibliothèque de logiciels**.  
 
 > [!NOTE]  
->  Die Softwareupdates werden aus der Inhaltsbibliothek auf dem Standortserver kopiert.  
+>  Configuration Manager récupère la taille du disque dur virtuel en se connectant à l'emplacement source du disque dur virtuel. Si Configuration Manager ne peut pas accéder au fichier de disque dur virtuel, **0** est affiché dans la colonne **Taille (Ko)** pour le disque dur virtuel.  
 
- Verwenden Sie das folgende Verfahren, um Softwareupdates auf eine virtuellen Festplatte anzuwenden.  
+##  <a name="BKMK_ModifyVHDSteps"></a> Étapes de modification d'un disque dur virtuel existant  
+ Pour modifier un disque dur virtuel, vous devez créer une séquence de tâches avec les étapes requises pour modifier le disque dur virtuel. Ensuite, sélectionnez la séquence de tâches dans l'Assistant Modifier un disque dur virtuel. L'Assistant attache le disque dur virtuel à la machine virtuelle, exécute la séquence de tâches dans le disque dur virtuel, puis met à jour le fichier de disque dur virtuel. Les sections suivantes fournissent les étapes nécessaires pour modifier le disque dur virtuel.  
 
-#### <a name="to-apply-software-updates-to-a-vhd"></a>So wenden Sie Softwareupdates auf eine virtuelle Festplatte an  
+###  <a name="BKMK_ModifyTS"></a> Créer une séquence de tâches pour modifier le disque dur virtuel  
+ Pour modifier un disque dur virtuel existant, vous devez d'abord créer une séquence de tâches. Choisissez uniquement les étapes qui sont requises pour modifier la séquence de tâches. Par exemple, si vous voulez ajouter une application au disque dur virtuel, créez une séquence de tâches personnalisée, puis ajoutez uniquement l'étape d'installation de l'application.  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Softwarebibliothek**.  
+ Utilisez la procédure suivante pour créer la séquence de tâches nécessaire à la modification du disque dur virtuel.  
 
-2.  Erweitern Sie im Arbeitsbereich **Softwarebibliothek** den Bereich **Betriebssysteme**, und klicken Sie dann auf **Virtuelle Festplatten**.  
+#### <a name="to-create-a-custom-task-sequence-to-modify-the-vhd"></a>Pour créer une séquence de tâches personnalisée pour modifier le disque dur virtuel  
 
-3.  Wählen Sie die virtuelle Festplatte aus, auf die Sie Softwareupdates anwenden möchten.  
+1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
-4.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Virtuelle Festplatte** auf **Updates planen** , um den Assistenten zu starten.  
+2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Séquences de tâches**.  
 
-5.  Wählen Sie auf der Seite **Updates auswählen** die Softwareupdates aus, die auf die virtuelle Festplatte angewendet werden sollen, und klicken Sie dann auf **Weiter**.  
+3.  Sous l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer une séquence de tâches** pour démarrer l'Assistant Création d'une séquence de tâches.  
 
-6.  Geben Sie auf der Seite **Zeitplan festlegen** die folgenden Einstellungen an, und klicken Sie dann auf **Weiter**.  
+4.  Sur la page **Créer une nouvelle séquence de tâches** , sélectionnez **Créez une séquence de tâches personnalisée**, puis cliquez sur **Suivant**.  
 
-    1.  **Zeitplan**: Geben Sie den Zeitplan für die Anwendung der Softwareupdates auf die virtuelle Festplatte an.  
+5.  Sur la page **Informations sur la séquence de tâches** , spécifiez les paramètres suivants et cliquez sur **Suivant**.  
 
-    2.  **Bei Fehler fortsetzen**: Aktivieren Sie diese Option, um anzugeben, dass Softwareupdates auch beim Auftreten eines Fehlers auf das Abbild angewendet werden sollen.  
+    -   **Nom de la séquence de tâches**: spécifiez un nom qui identifie la séquence de tâches.  
 
-7.  Überprüfen Sie auf der Seite **Zusammenfassung** die Informationen, und klicken Sie dann auf **Weiter**.  
+    -   **Description**: spécifiez une description de la séquence de tâches.  
 
-8.  Überprüfen Sie auf der Seite **Abschluss des Vorgangs** , ob die Softwareupdates erfolgreich auf das Betriebssystemabbild angewendet wurden.  
+    -   **Images de démarrage**: spécifiez l'image de démarrage qui installe le système d'exploitation sur l'ordinateur de destination. Pour plus d'informations, voir [Gérer les images de démarrage](../get-started/manage-boot-images.md).  
 
-##  <a name="BKMK_ImportToVMM"></a> Importieren der virtuellen Festplatte in System Center Virtual Machine Manager  
- System Center VMM ist eine Verwaltungslösung für virtualisierte Rechenzentren, mit der Sie Virtualisierungshosts, Netzwerk- und Speicherressourcen konfigurieren und verwalten können, um in von Ihnen erstellten privaten Clouds virtuelle Computer und Dienste zu erstellen und bereitzustellen. Nach der Erstellung einer virtuellen Festplatte in Configuration Manager können Sie die virtuelle Festplatte mit VMM importieren und verwalten.  
+6.  Effectuez toutes les étapes de l'Assistant.  
+
+ Utilisez la procédure suivante pour ajouter des étapes de séquence de tâches à la séquence de tâches personnalisée.  
+
+#### <a name="to-add-task-sequence-steps-to-the-custom-task-sequence"></a>Pour ajouter des étapes de séquence de tâches à la séquence de tâches personnalisée  
+
+1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
+
+2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, cliquez sur **Séquences de tâches**, puis sélectionnez la séquence de tâches personnalisée que vous avez créée au cours de la procédure précédente.  
+
+3.  Dans l'onglet **Accueil** , dans le groupe **Séquence de tâches** , cliquez sur **Modifier** pour démarrer l'éditeur de séquence de tâches.  
+
+4.  Ajoutez les étapes de séquence de tâches à utiliser pour modifier le disque dur virtuel.  
+
+5.  Cliquez sur **OK** pour quitter l'éditeur de séquence de tâches.  
+
+###  <a name="BKMK_ModifyVHD"></a> Modifier un disque dur virtuel  
+ Après avoir créé une séquence de tâches pour le disque dur virtuel, utilisez l'Assistant Modifier un disque dur virtuel pour modifier le disque dur virtuel.  
+
+ Utilisez la procédure suivante pour modifier un disque dur virtuel.  
+
+#### <a name="to-modify-a-vhd"></a>Pour modifier un disque dur virtuel  
+
+1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
+
+2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, cliquez sur **Disques durs virtuels**, puis sélectionnez le disque dur virtuel à modifier.  
+
+3.  Dans l'onglet **Accueil** , dans le groupe **Disque dur virtuel** , cliquez sur **Modifier un disque dur virtuel** pour démarrer l'Assistant Modifier un disque dur virtuel.  
+
+    > [!NOTE]  
+    >  Pour activer l'option **Modifier un disque dur virtuel** , Hyper-V doit être installé sur l'ordinateur exécutant la console Configuration Manager à partir de laquelle vous gérez les disques durs virtuels. Pour plus d'informations sur la configuration requise pour Hyper-V, voir [Conditions préalables à l'installation d'Hyper-V](http://technet.microsoft.com/library/cc731898.aspx).  
+
+4.  Sur la page **Général** , confirmez les paramètres suivants, puis cliquez sur **Suivant**.  
+
+    -   **Nom**: spécifie le nom unique du disque dur virtuel.  
+
+    -   **Version**: spécifie le numéro de version du disque dur virtuel. Ce paramètre est facultatif.  
+
+    -   **Commentaire**: spécifie la description du disque dur virtuel.  
+
+    -   **Chemin d’accès**: spécifie le chemin et le nom du fichier dans lequel se trouve le fichier de disque dur virtuel. Vous ne pouvez pas modifier ce paramètre.  
+
+        > [!WARNING]  
+        >  Configuration Manager doit disposer de l'autorisation d'accès **Écriture** vers le chemin spécifié pour créer le disque dur virtuel. Lorsque Configuration Manager ne parvient pas à accéder au chemin, l'erreur associée est consignée dans le fichier distmgr.log sur le serveur de site.  
+
+5.  Sur la page **Séquence de tâches** , spécifiez la séquence de tâches personnalisée que vous avez créée dans la section précédente, puis cliquez sur **Suivant**.  
+
+6.  Sur la page **Points de distribution** , sélectionnez un ou plusieurs points de distribution comprenant le contenu requis par la séquence de tâches, puis cliquez sur **Suivant**.  
+
+7.  Sur la page **Personnalisation** , cliquez sur **Suivant**. Le processus de modification du disque dur virtuel ignore tous les paramètres que vous spécifiez sur cette page.  
+
+8.  Vérifiez les paramètres, puis cliquez sur **Suivant**. L'Assistant crée le disque dur virtuel modifié.  
+
+    > [!TIP]  
+    >  Le temps requis pour effectuer le processus de modification du disque dur virtuel peut varier. Pendant que l'Assistant effectue ce processus, vous pouvez surveiller les fichiers journaux suivants pour suivre la progression. Par défaut, les fichiers journaux sont situés sur l'ordinateur qui exécute la console Configuration Manager dans %*ProgramFiles(x86)*%\Microsoft Configuration Manager\AdminConsole\AdminUILog.  
+    >   
+    >  -   **CreateTSMedia.log**: l’Assistant écrit les informations dans ce fichier journal lors de la création du média de séquence de tâches. Consultez ce fichier journal pour suivre la progression de l'Assistant lors de la création du média autonome.  
+    > -   **DeployToVHD.log**: l’Assistant écrit les informations dans ce fichier journal lors du processus de modification du disque dur virtuel. Consultez ce fichier journal pour suivre la progression de l'Assistant sur toutes les étapes après la création du média autonome.  
+    >   
+    >  Vous pouvez aussi ouvrir le Gestionnaire Hyper-V (si vous avez installé les outils de gestion Hyper-V sur l'ordinateur) et vous connecter à la machine virtuelle temporaire créée par l'Assistant pour suivre l'exécution de la séquence. À partir de la machine virtuelle, vous pouvez surveiller le fichier smsts.log pour suivre la progression de la séquence de tâches. En cas de problèmes avec de finalisation d'une étape de la séquence de tâches, vous pouvez utiliser ce fichier journal pour résoudre le problème. Le fichier smsts.log se trouve dans x: \windows\temp\smstslog\smsts.log avant le formatage du disque dur et dans c:\\_SMSTaskSequence\Logs\Smstslog\ après le formatage du disque dur. Une fois les étapes de séquence de tâches terminées, la machine virtuelle est arrêtée après 5 minutes (par défaut), puis supprimée.  
+
+##  <a name="BKMK_ApplyUpdates"></a> Appliquer des mises à jour logicielles à un disque dur virtuel  
+ De nouvelles mises à jour logicielles applicables au système d'exploitation figurant dans votre disque dur virtuel sont régulièrement publiées. Vous pouvez appliquer ces mises à jour logicielles à un disque dur virtuel selon un calendrier défini. Sur le calendrier spécifié, Configuration Manager applique les mises à jour logicielles que vous sélectionnez au disque dur virtuel.  
+
+ Les informations sur le disque dur virtuel sont stockées dans la base de données du site, y compris les mises à jour logicielles qui ont été appliquées au moment de la création du disque dur virtuel. Les mises à jour logicielles appliquées au disque dur virtuel depuis sa création sont également stockées dans la base de données du site. Lorsque vous ouvrez l'Assistant pour appliquer des mises à jour logicielles au disque dur virtuel, l'Assistant récupère une liste des mises à jour logicielles applicables qui n'ont pas encore été appliquées au disque dur virtuel, pour vous permettre de les sélectionner.  
+
+ Vous pouvez sélectionner le paramètre **Continuer en cas d'erreur** pour que Configuration Manager continue à appliquer les mises à jour logicielles lorsqu'une erreur survient lors de l'application d'une ou plusieurs mises à jour logicielles sélectionnées.  
+
+> [!NOTE]  
+>  Les mises à jour logicielles sont copiées à partir de la bibliothèque de contenu du serveur de site.  
+
+ Pour appliquer des mises à jour logicielles à un disque dur virtuel, suivez la procédure ci-dessous.  
+
+#### <a name="to-apply-software-updates-to-a-vhd"></a>Pour appliquer des mises à jour logicielles à un disque dur virtuel  
+
+1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
+
+2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Disques durs virtuels**.  
+
+3.  Sélectionnez le disque dur virtuel auquel appliquer les mises à jour logicielles.  
+
+4.  Dans l'onglet **Accueil** , dans le groupe **Disque dur virtuel** , cliquez sur **Planifier les mises à jour** pour démarrer l'Assistant.  
+
+5.  Sur la page **Choisir des mises à jour** , sélectionnez les mises à jour logicielles à appliquer au disque dur virtuel, puis cliquez sur **Suivant**.  
+
+6.  Sur la page **Définir le calendrier** , spécifiez les paramètres suivants, puis cliquez sur **Suivant**.  
+
+    1.  **Calendrier**: définissez le calendrier d’application des mises à jour logicielles au disque dur virtuel.  
+
+    2.  **Continuer en cas d’erreur**: sélectionnez cette option pour continuer à appliquer les mises à jour logicielles à l’image même si une erreur survient.  
+
+7.  Vérifiez les informations figurant sur la page **Résumé** , puis cliquez sur **Suivant**.  
+
+8.  Sur la page **Dernière étape** , vérifiez que les mises à jour logicielles ont été correctement appliquées à l'image de système d'exploitation.  
+
+##  <a name="BKMK_ImportToVMM"></a> Importer le disque dur virtuel vers System Center Virtual Machine Manager  
+ System Center VMM est une solution de gestion du centre de données virtualisé, vous permettant de configurer et de gérer vos ordinateurs hôtes de virtualisation, la mise en réseau et les ressources de stockage pour créer et déployer des ordinateurs virtuels et des services vers des clouds privés que vous avez créés. Après avoir créé un disque dur virtuel dans Configuration Manager, vous pouvez importer et gérer votre disque dur virtuel à l'aide de VMM.  
 
 > [!TIP]  
->  Bevor Sie eine virtuelle Festplatte in VMM hochladen, überprüfen Sie, ob von der VMM-Konsole erfolgreich eine Verbindung mit dem VMM-Verwaltungsserver hergestellt werden kann.  
+>  Avant de télécharger un disque dur virtuel dans VMM, vérifiez que la console VMM se connecte correctement au serveur de gestion VMM.  
 
- Verwenden Sie das folgende Verfahren, um eine virtuelle Festplatte in VMM zu importieren.  
+ Utilisez la procédure suivante pour importer un disque dur virtuel dans VMM.  
 
-#### <a name="to-import-a-vhd-to-vmm"></a>So importieren Sie eine virtuelle Festplatte in VMM  
+#### <a name="to-import-a-vhd-to-vmm"></a>Pour importer un disque dur virtuel dans VMM  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Softwarebibliothek**.  
+1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
-2.  Erweitern Sie im Arbeitsbereich **Softwarebibliothek** den Bereich **Betriebssysteme**, und klicken Sie dann auf **Virtuelle Festplatten**.  
+2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Disques durs virtuels**.  
 
-3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Virtuelle Festplatte** auf **Zu Virtual Machine Manager hochladen** , um den Assistenten zu starten.  
+3.  Dans l'onglet **Accueil** , dans le groupe **Disque dur virtuel** , cliquez sur **Télécharger vers Virtual Machine Manager** pour démarrer l'Assistant Téléchargement vers Virtual Machine Manager.  
 
-4.  Konfigurieren Sie auf der Seite **Allgemein** die folgenden Einstellungen, und klicken Sie dann auf **Weiter**.  
+4.  Sur la page **Général** , configurez les paramètres suivants, puis cliquez sur **Suivant**.  
 
-    -   **VMM-Servername**: Geben Sie den FQDN des Computers an, auf dem der VMM-Verwaltungsserver installiert ist. Vom Assistenten wird eine Verbindung mit dem VMM-Verwaltungsserver hergestellt, um die Bibliotheksfreigaben für den Server herunterzuladen.  
+    -   **Nom du serveur VMM :**spécifiez le nom de domaine complet de l’ordinateur sur lequel est installé le serveur de gestion VMM. L'Assistant se connecte au serveur de gestion VMM pour télécharger les partages de bibliothèque pour le serveur.  
 
-    -   **VMM-Bibliotheksfreigabe**: Geben Sie in der Dropdownliste die VMM-Bibliotheksfreigabe an.  
+    -   **Partage de bibliothèque VMM**: spécifiez le partage de bibliothèque VMM dans la liste déroulante.  
 
-    -   **Nicht verschlüsselte Übertragung verwenden**: Wählen Sie diese Einstellung aus, um die VHD-Datei unverschlüsselt an den VMM-Verwaltungsserver zu übertragen.  
+    -   **Utilisez un transfert non chiffré**: sélectionnez ce paramètre pour transférer le fichier de disque dur virtuel sur le serveur de gestion VMM sans utiliser de chiffrement.  
 
-5.  Überprüfen Sie auf der Seite Zusammenfassung die Einstellungen, und schließen Sie dann den Assistenten ab. Abhängig von der Größe der VHD-Datei und der Netzwerkbandbreite für die Verbindung mit dem VMM-Verwaltungsserver kann die Dauer für das Hochladen der virtuellen Festplatte variieren.  
+5.  Sur la page Synthèse, vérifiez les paramètres, puis terminez l'Assistant. Le temps de téléchargement du disque dur virtuel peut varier en fonction de la taille du fichier VHD et de la bande passante réseau vers le serveur de gestion VMM.  

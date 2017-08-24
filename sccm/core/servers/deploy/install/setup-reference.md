@@ -1,6 +1,6 @@
 ---
-title: Einrichten der Referenz | Microsoft-Dokumentation
-description: "Überprüfen Sie diese Referenz zur Vorbereitung der Installation eines Configuration Manager-Standorts oder einer Configuration Manager-Hierarchie."
+title: "Informations de référence sur le programme d’installation | Microsoft Docs"
+description: "Prenez connaissance de ces informations de référence pour mieux préparer l’installation d’un site ou d’une hiérarchie Configuration Manager."
 ms.custom: na
 ms.date: 4/18/2017
 ms.prod: configuration-manager
@@ -17,61 +17,61 @@ manager: angrobe
 ms.openlocfilehash: 739461a6cca0fd67431093524c1e8158afd80d0f
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="reference-for-system-center-configuration-manager-setup"></a>Referenz für System Center Configuration Manager-Setup
+# <a name="reference-for-system-center-configuration-manager-setup"></a>Informations de référence sur le programme d’installation de System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Das System Center Configuration Manager-Setup stellt Links zu verschiedenen Themen bereit, die in den folgenden Abschnitten erläutert werden. Die hier aufgeführten Informationen helfen Ihnen beim Vorbereiten der Installation eines Configuration Manager-Standorts oder einer Hierarchie und bereiten Sie auf einige Entscheidungen vor, die Sie während der Installation treffen müssen.  
+Le programme d’installation de System Center Configuration Manager fournit des liens vers plusieurs rubriques détaillées dans les sections suivantes. Les informations présentées ici peuvent vous aider à préparer l’installation d’un site ou d’une hiérarchie Configuration Manager, et à prendre certaines décisions relatives à l’installation.  
 
 
-##  <a name="bkmk_start"></a> Vorbereitung  
-Stellen Sie vor der Installation neuer Configuration Manager-Standorte sicher, dass Sie die folgenden Informationen gelesen haben, die als Grundlage für den Entwurf einer erfolgreichen Bereitstellung dienen können:  
+##  <a name="bkmk_start"></a> Avant de commencer  
+Avant d’installer de nouveaux sites Configuration Manager, veillez à passer en revue les informations suivantes. Celles-ci peuvent vous aider à mettre en œuvre une conception de déploiement réussie :  
 
--   [Grundlagen von System Center Configuration Manager](../../../../core/understand/fundamentals.md)  
--   [Planen Ihrer System Center Configuration Manager-Infrastruktur](../../../plan-design/network/configure-firewalls-ports-domains.md)  
--   [Prepare to install System Center Configuration Manager sites (Vorbereiten der Installation von System Center Configuration Manager-Standorten)](prepare-to-install-sites.md)  
+-   [Principes de base de System Center Configuration Manager](../../../../core/understand/fundamentals.md)  
+-   [Planifier l’infrastructure System Center Configuration Manager](../../../plan-design/network/configure-firewalls-ports-domains.md)  
+-   [Préparer l’installation de sites System Center Configuration Manager](prepare-to-install-sites.md)  
 
-##  <a name="bkmk_assess"></a> Bewerten der Serverbereitschaft  
-Stellen Sie vor Beginn der Installation eines neuen Standorts sicher, dass der Standortserver und die Remote-Standortsystemserver, die Sie für den Standort verwenden möchten (wie z.B. der Server, der die Standortdatenbank hostet), alle Konfigurationsvoraussetzungen erfüllen. Diese Themen in der Dokumentationsbibliothek können dabei behilflich sein:  
+##  <a name="bkmk_assess"></a> Évaluer la préparation du serveur  
+Avant de commencer l’installation d’un nouveau site, vérifiez que le serveur de site et les serveurs de système de site distant que vous envisagez d’utiliser pour le site (par exemple, le serveur qui héberge la base de données) respectent tous les prérequis. Les rubriques suivantes de la bibliothèque de documentation peuvent vous aider :  
 
--   [Unterstützte Konfigurationen für System Center Configuration Manager](../../../../core/plan-design/configs/supported-configurations.md)  
--   [Voraussetzungsprüfung](prerequisite-checker.md)  
+-   [Configurations prises en charge pour System Center Configuration Manager](../../../../core/plan-design/configs/supported-configurations.md)  
+-   [Outil de vérification de la configuration requise](prerequisite-checker.md)  
 
-##  <a name="bkmk_Addclients"></a> Clients für weitere Betriebssysteme  
-Sie können Clientsoftware für Configuration Manager für die folgenden Betriebssysteme aus dem Microsoft Download Center herunterladen:  
+##  <a name="bkmk_Addclients"></a> Clients pour d’autres systèmes d’exploitation  
+Vous pouvez télécharger le logiciel client pour Configuration Manager à partir du Centre de téléchargement Microsoft pour les systèmes d’exploitation suivants :  
 
 -   Mac (Apple)  
 -   UNIX  
 -   Linux  
 
-Verwenden Sie die folgenden Links zum Herunterladen von Clients für Ihre verwendete Version von Configuration Manager:  
+Utilisez les liens suivants pour télécharger des clients pour la version de Configuration Manager que vous utilisez :  
 
--   Weitere Informationen finden Sie unter [Microsoft System Center Configuration Manager – Clients für weitere Betriebssysteme](http://www.microsoft.com/download/details.aspx?id=47719).  
+-   Consultez [Microsoft System Center Configuration Manager - Clients pour systèmes d’exploitation supplémentaires](http://www.microsoft.com/download/details.aspx?id=47719)  
 
-##  <a name="bkmk_usage"></a> Ebenen und Einstellungen für Nutzungsdaten  
-Bei der Installation des ersten System Center Configuration Manager-Standorts wird von Configuration Manager automatisch eine neue Standortsystemrolle, der **Dienstverbindungspunkt**, auf dem Standortserver installiert und konfiguriert. Der Dienstverbindungspunkt weist die folgenden Standardeinstellungen auf:  
+##  <a name="bkmk_usage"></a> Paramètres et niveaux de données d’utilisation  
+Quand vous installez votre premier site System Center Configuration Manager, Configuration Manager installe et configure automatiquement un nouveau rôle de système de site, appelé **point de connexion de service**, sur le serveur de site. Les paramètres par défaut du point de connexion de service sont les suivants :  
 
--   **Onlinemodus** (ein Offlinemodus ist ebenfalls verfügbar)  
--   **Erweiterte** Datensammlungsebene (zwei weitere Datensammlungsebenen, „Grundlegend“ und „Vollständig“, sind ebenfalls verfügbar)  
+-   Mode **En ligne** (un mode hors connexion est également disponible)  
+-   Niveau **Étendu** de collecte de données (deux autres niveaux de collecte de données, De base et Total, sont disponibles)  
 
-Wenn die Rolle „Dienstverbindungspunkt“ online ist, kann Microsoft automatisch Diagnose- und Nutzungsinformationen über das Internet sammeln. Die gesammelten Informationen geben uns folgende Möglichkeiten:  
+Quand le rôle de système de site du point de connexion de service est en ligne, Microsoft peut collecter automatiquement des informations d’utilisation et de diagnostic sur Internet. Les informations collectées nous aident à effectuer les tâches suivantes :  
 
--   Erkennen und Beheben von Problemen  
--   Verbesserung unserer Produkte und Dienste  
--   Ermitteln von Updates für Configuration Manager, die für die von Ihnen verwendete Configuration Manager-Version gelten  
+-   Identifier et résoudre les problèmes  
+-   Améliorer nos produits et services  
+-   identifier les mises à jour pour Configuration Manager applicables à la version de Configuration Manager que vous utilisez.  
 
-### <a name="levels-of-data-collection"></a>Datensammlungsebenen  
-Die drei Ebenen der Datensammlung:
+### <a name="levels-of-data-collection"></a>Niveaux de collecte de données  
+La collecte de données comprend les trois niveaux suivants :
 
--   **Grundlegend** umfasst Daten zu Setup und Upgrade, wie z.B. die Anzahl der Standorte und welche Configuration Manager-Features aktiviert sind. Es werden keine personenbezogenen Informationen übertragen.  
+-   **De base** : comprend des données sur l’installation et la mise à niveau, comme le nombre de sites et les fonctionnalités de Configuration Manager qui sont activées. Aucune information personnelle n’est transmise.  
 
--   **Erweitert** umfasst die Daten der Ebeneneinstellung „Grundlegend“ und zusätzlich Daten zur Hierarchie, zur Verwendung der einzelnen Funktionen (Häufigkeit und Dauer) sowie erweiterte Diagnoseinformationen, wie z.B. den Speicherzustand des Servers bei einem System- oder Anwendungsabsturz. Es werden keine personenbezogenen Daten übertragen.  
+-   **Étendu** : comprend les données du paramètre de niveau De base et transmet des données relatives à la hiérarchie, à la façon dont chaque fonctionnalité est utilisée (fréquence et durée), ainsi que des informations de diagnostics améliorées telles que l’état de la mémoire de votre serveur quand un blocage du système ou d’une application se produit. Aucune information personnelle n’est transmise.  
 
--   **Vollständig** umfasst die Daten der Ebeneneinstellungen „Grundlegend“ und „Erweitert“ und sendet zusätzlich erweiterte Diagnoseinformationen wie z.B. Systemdateien und Momentaufnahmen des Arbeitsspeichers. Diese Option kann personenbezogene Informationen enthalten, die jedoch nicht dazu verwendet werden, Sie zu identifizieren, Kontakt mit Ihnen aufzunehmen oder Ihnen Werbung zukommen zu lassen.  
+-   **Total** : comprend les données des paramètres De base et Étendu, et envoie également des informations de diagnostics avancées telles que des fichiers système et des instantanés de la mémoire. Cette option peut inclure des informations personnelles, mais nous n’utilisons pas ces informations pour vous identifier, vous contacter ou vous envoyer du contenu publicitaire.  
 
-Weitere Informationen, z.B. bezüglich der Offenlegung der auf den einzelnen Ebenen erfassten Details, finden Sie unter [Diagnose- und Nutzungsdaten für System Center Configuration Manager](../../../../core/plan-design/diagnostics/diagnostics-and-usage-data.md).  
+Pour plus d’informations, notamment sur la divulgation des informations collectées par chaque niveau, consultez [Données d’utilisation et de diagnostic pour System Center Configuration Manager](../../../../core/plan-design/diagnostics/diagnostics-and-usage-data.md).  
 
-Um die Datenschutzbestimmungen für System Center Configuration Manager online anzuzeigen, navigieren Sie zu [http://go.microsoft.com/fwlink/?LinkID=626527](http://go.microsoft.com/fwlink/?LinkID=626527).
+Pour afficher la déclaration de confidentialité System Center Configuration Manager en ligne, accédez à [http://go.microsoft.com/fwlink/?LinkID=626527](http://go.microsoft.com/fwlink/?LinkID=626527).

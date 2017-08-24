@@ -1,6 +1,6 @@
 ---
-title: "Überwachen der Migration | Microsoft-Dokumentation"
-description: "Erfahren Sie, wie Sie die Configuration Manager-Konsole verwenden, um den Fortschritt und Erfolg der Migrationsaufträge zu überwachen."
+title: Surveiller la migration | Microsoft Docs
+description: "Apprenez à surveiller l’avancement et la réussite des tâches de migration à l’aide de la console Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -18,23 +18,23 @@ manager: angrobe
 ms.openlocfilehash: 896807ec2c4be2835094a27add59d4cc09e93add
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="planning-to-monitor-migration-activity-in-system-center-configuration-manager"></a>Planen der Überwachung der Migrationsaktivitäten in System Center Configuration Manager
+# <a name="planning-to-monitor-migration-activity-in-system-center-configuration-manager"></a>Planification de la surveillance de la migration dans System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Mit System Center Configuration Manager können Sie die Migration in der Configuration Manager-Konsole überwachen, die eine Verbindung zur Zielhierarchie herstellt. Verwenden Sie in der Configuration Manager-Konsole im Arbeitsbereich **Verwaltung** den Knoten **Migration**, um Fortschritt und Erfolg der Migrationsaufträge zu überwachen. Sie können für jeden Migrationsauftrag zusammenfassende Informationen darüber anzeigen, welche Objekte migriert wurden, welche Objekte noch nicht migriert wurden und wie viele Objekte vom Migrationsauftrag ausgeschlossen sind. Außerdem finden Sie hier Informationen zu Migrationsproblemen.  
+System Center Configuration Manager vous permet de surveiller la migration dans la console Configuration Manager qui se connecte à la hiérarchie de destination. Dans la console Configuration Manager, dans l’espace de travail **Administration**, vous pouvez utiliser le nœud **Migration** pour surveiller l’avancement et la réussite des tâches de migration. Vous pouvez consulter les informations récapitulatives de chaque tâche de migration qui identifie les objets qui ont été migrés, ceux qui n'ont pas encore été migrés et le nombre d'objets qui ont été exclus de la migration. Elles contiennent également des informations sur les problèmes éventuels de migration.  
 
-## <a name="view-migration-progress"></a>Migrationsfortschritt anzeigen  
- Für die Fortschrittanzeigen in Bezug auf einen Migrationsauftrag führen Sie eine der folgenden Aktionen durch:  
+## <a name="view-migration-progress"></a>Afficher l'avancement de la migration  
+ Pour afficher l'avancement d'une tâche de migration, optez pour l'une des actions suivantes :  
 
--   Erweitern Sie im Arbeitsbereich **Verwaltung** der Configuration Manager-Konsole den Knoten **Migrationsaufträge**, und wählen Sie einen Migrationsauftrag und anschließend die Registerkarte **Objekte in Auftrag** aus.  
+-   Dans l’espace de travail **Administration** de la console Configuration Manager, développez le nœud **Tâches de migration**, sélectionnez une tâche de migration, puis sélectionnez l’onglet **Objets dans la tâche**.  
 
--   Zur Überprüfung des Migrationsfortschritts oder der Identifikation von Problemen können Sie auch die Configuration Manager-Protokolldateien verwenden. Der Migrations-Manager ist der Configuration Manager-Prozess zum Nachverfolgen der Migrationsaktionen und zu deren Aufzeichnung in der Datei „migmctrl.log“ im Ordner **\&lt;InstallationPath\>\\LOGS** auf dem Standortserver.  
+-   Utilisez les fichiers journaux Configuration Manager pour vérifier l’avancement de la migration ou pour identifier les problèmes. Le gestionnaire de migration est le processus de Configuration Manager qui suit les actions de migration et les enregistre dans le fichier migmctrl.log dans le dossier **\&lt;Chemin_Installation\>\\LOGS** sur le serveur de site.  
 
     > [!NOTE]  
-    >  Kann ein Migrationsauftrag nicht ausgeführt werden, überprüfen Sie umgehend die Informationen in der Datei "migmctrl.log". Es werden kontinuierlich Protokolleinträge zur Datei hinzugefügt. Alte Daten werden überschrieben. Wenn Daten überschrieben werden, können Sie möglicherweise nicht mehr herausfinden, ob Probleme mit migrierten Objekten in Zusammenhang mit Migrationsproblemen stehen. Unabhängig davon, mit welchem Standort eine Verbindung Ihrer Configuration Manager-Konsole beim Konfigurieren der Migration hergestellt wird, werden Migrationsaktivitäten auf dem Standort der obersten Ebene der Hierarchie protokolliert.  
+    >  Si une tâche de migration échoue, examinez les informations dans ce fichier dès que possible. Les entrées du journal de migration sont continuellement ajoutées au fichier et remplacent les anciennes. Si les entrées sont remplacées, vous risquez de ne pas pouvoir déterminer si les problèmes qui peuvent apparaître avec les objets migrés sont liés à la migration. L’activité de migration est consignée sur le site de niveau supérieur de la hiérarchie, quel que soit le site auquel la console Configuration Manager se connecte au moment où vous configurez la migration.  
 
--   Verwenden Sie die Berichterstellung in Configuration Manager. In Configuration Manager stehen mehrere integrierte Berichte für Migrationsaufträge zur Verfügung, die Sie bei Bedarf auch an Ihre Anforderungen anpassen können. Weitere Informationen zu Berichten in Configuration Manager finden Sie unter [Berichterstellung in System Center Configuration Manager](../../core/servers/manage/reporting.md).  
+-   Utilisez les rapports Configuration Manager. Configuration Manager propose plusieurs rapports intégrés pour la migration, que vous pouvez aussi modifier en fonction de vos besoins. Pour plus d’informations sur les rapports Configuration Manager, consultez [Génération de rapports dans System Center Configuration Manager](../../core/servers/manage/reporting.md).  

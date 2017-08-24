@@ -1,6 +1,6 @@
 ---
-title: "Funktionen in Technical Preview 1609 für Configuration Manager"
-description: "Erfahren Sie mehr über Funktionen, die in System Center Configuration Manager Technical Preview 1609 zur Verfügung stehen."
+title: "Fonctionnalités de Technical Preview 1609 Configuration Manager"
+description: "Découvrez les fonctionnalités disponibles dans la version d’évaluation technique 1609 pour System Center Configuration Manager."
 ms.custom: na
 ms.date: 01/23/2017
 ms.reviewer: na
@@ -17,440 +17,440 @@ manager: angrobe
 ms.openlocfilehash: 89a41c8a3137d0e54011ddf9a1d9b4894ecb7df8
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="capabilities-in-technical-preview-1609-for-system-center-configuration-manager"></a>Funktionen in System Center Configuration Manager Technical Preview 1609
+# <a name="capabilities-in-technical-preview-1609-for-system-center-configuration-manager"></a>Fonctionnalités de la version d’évaluation technique 1609 pour System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Technical Preview)*
-
-
-
-In diesem Artikel werden die Funktionen erläutert, die in System Center Configuration Manager Technical Preview 1609 verfügbar sind. Sie können diese Version installieren, um neue Funktionen für Ihren Configuration Manager Technical Preview-Standort zu aktualisieren oder hinzuzufügen.      Bevor Sie diese Version der Technical Preview installieren, lesen Sie das einführende Thema [Technical Preview für System Center Configuration Manager](../../core/get-started/technical-preview.md), um sich mit den allgemeinen Anforderungen und Einschränkungen bei der Verwendung einer Technical Preview vertraut zu machen, und zu erfahren, wie Sie Updates für Versionen durchführen und Feedback zu den Features in einer Technical Preview geben können.    
-
-**Bekannte Probleme in dieser Technical Preview:**  
-*  Wenn Sie auf Configuration Manager 1609 Technical Preview aktualisieren, werden alle Editionsaktualisierungsrichtlinien, die Sie bereitgestellt haben, gelöscht. Um diese Richtlinien weiterhin zu verwenden, müssen Sie sie neu erstellen und bereitstellen.
+*S’applique à : System Center Configuration Manager (version d’évaluation technique)*
 
 
-**Im Folgenden werden neue Features aufgelistet, die Sie mit dieser Version ausprobieren können.**  
 
-## <a name="improvements-to-endpoint-protection"></a>Verbesserungen bei Endpoint Protection
-Verbesserung der Einstellungen der Endpoint Protection-Richtlinie für Antischadsoftware: Sie können nun die Ebene angeben, auf der Cloud Protection Service von Endpoint Protection verdächtige Dateien sperrt. Eine neue Einstellung ermöglicht Administratoren das Angeben von „riskanten“ Computern basierend auf den großen Mengen von Malware, die gefunden werden.
+Cet article présente les fonctionnalités qui sont disponibles dans la version d’évaluation technique 1609 pour System Center Configuration Manager. Vous pouvez installer cette version pour mettre à jour et ajouter de nouvelles fonctionnalités à votre site de version d’évaluation technique Configuration Manager.      Avant d’installer cette version d’évaluation technique, passez en revue la rubrique de présentation, [Technical Preview pour System Center Configuration Manager](../../core/get-started/technical-preview.md), pour vous familiariser avec les conditions générales et les limitations d’utilisation d’une version d’évaluation technique, la mise à jour entre les versions et l’envoi de commentaires sur les fonctionnalités dans une version d’évaluation technique.    
 
-## <a name="increased-number-of-enrolled-devices"></a>Erhöhte Anzahl registrierter Geräte
-Administratoren können Benutzern jetzt ermöglichen, bis zu 15 Geräte bei der hybriden Verwaltung mobiler Geräte mit Intune zu registrieren. Der Grenzwert lag zuvor bei 5 Geräten pro Benutzer.
+**Problèmes connus dans cette version d’évaluation technique :**  
+*  Quand vous effectuez la mise à jour vers la version d’évaluation technique 1609 pour Configuration Manager, toutes les stratégies de mise à niveau d’édition que vous avez déployées sont supprimées. Pour continuer à utiliser ces stratégies, vous devez les recréer et les déployer.
 
-## <a name="additional-apple-dep-settings"></a>Zusätzliche Apple-DEP-Einstellungen
 
-Administratoren können jetzt die folgenden Einstellungen für das Apple-Programm zur Geräteregistrierung (Device Enrollment Programm, DEP) im DEP-Profil für iOS- und Mac-Geräte konfigurieren:
+**Vous trouverez ci-dessous les nouvelles fonctionnalités propres à cette version.**  
+
+## <a name="improvements-to-endpoint-protection"></a>Améliorations apportées à Endpoint Protection
+Amélioration apportée aux paramètres de stratégie de logiciel anti-programme malveillant Endpoint Protection : vous pouvez maintenant indiquer le niveau auquel Endpoint Protection Cloud Protection Service bloque les fichiers suspects. Un nouveau paramètre permet aux administrateurs de spécifier les ordinateurs présentant des risques selon les grandes quantités de logiciels malveillants qu’ils rencontrent.
+
+## <a name="increased-number-of-enrolled-devices"></a>Nombre accru d’appareils inscrits
+Les administrateurs peuvent maintenant permettre aux utilisateurs d’inscrire jusqu’à 15 appareils dans la gestion des appareils mobiles hybride avec Intune. La limite était précédemment de 5 appareils par utilisateur.
+
+## <a name="additional-apple-dep-settings"></a>Paramètres supplémentaires du programme DEP d’Apple
+
+Les administrateurs peuvent maintenant configurer les paramètres suivants du programme d’inscription des appareils (DEP) d’Apple dans le profil DEP pour les appareils iOS et Mac :
 - **Touch ID**
 - **Zoom**
 - **Siri**
 
-Wenn dieser Dienst aktiviert ist, zeigt der Setup-Assistent von Apple während der Geräteaktivierung eine Eingabeaufforderung dafür an.
+Si cette option est activée, l’Assistant Installation d’Apple vous invite à spécifier ce service pendant l’activation de l’appareil.
 
-## <a name="integration-with-upgrade-analytics"></a>Integration mit Upgrade Analytics
+## <a name="integration-with-upgrade-analytics"></a>Intégration à Upgrade Analytics
 
-Mit Upgrade Analytics können Sie die Gerätebereitschaft und -kompatibilität mit Windows 10 bewerten und analysieren, um einfachere und reibungslose Upgrades zu ermöglichen. Durch die Integration von Upgrade Analytics in Configuration Manager können Sie auf die Upgradekompatibilitätsdaten in der Administratorkonsole von Configuration Manager zugreifen und anschließend über die Geräteliste Geräte für ein Upgrade oder eine Wiederherstellung auswählen.
+Upgrade Analytics vous permet d’évaluer et d’analyser la disponibilité de l’appareil et la compatibilité avec Windows 10 pour faciliter et améliorer les mises à niveau. Avec l’intégration d’Upgrade Analytics à Configuration Manager, vous pouvez accéder aux données de compatibilité de mise à niveau dans la console d’administration Configuration Manager et cibler ensuite, dans la liste des appareils, ceux qui doivent être mis à niveau ou corrigés.
 
-Erfahren Sie mehr über Upgrade Analytics in [Get started with Upgrade Analytics (Erste Schritte mit Upgrade Analytics)](https://technet.microsoft.com/itpro/windows/deploy/upgrade-analytics-get-started).
+Pour en savoir plus sur Upgrade Analytics, consultez [Bien démarrer avec Upgrade Analytics](https://technet.microsoft.com/itpro/windows/deploy/upgrade-analytics-get-started).
 
-## <a name="native-connection-types-for-windows-10-vpn-hybrid-profiles"></a>Native Verbindungstypen für hybride Windows 10-VPN-Profile
+## <a name="native-connection-types-for-windows-10-vpn-hybrid-profiles"></a>Types de connexion natifs pour les profils hybrides VPN Windows 10
 
-Bei Verwendung von Configuration Manager mit Intune können Sie jetzt Windows 10-VPN-Profile mit Microsoft Automatic-, IKEv2-, PPTP- und L2TP-Verbindungstypen in der Configuration Manager-Konsole erstellen, ohne OMA-URI zu verwenden.
+Quand vous utilisez Configuration Manager avec Intune, vous pouvez maintenant créer des profils VPN Windows 10 avec des types de connexion Microsoft Automatic, IKEv2, PPTP et L2TP dans la console Configuration Manager sans utiliser l’OMA-URI.
 
-## <a name="enhancements-to-windows-store-for-business-integration-with-configuration-manager"></a>Verbesserungen der Integration von Windows Store für Unternehmen in Configuration Manager
+## <a name="enhancements-to-windows-store-for-business-integration-with-configuration-manager"></a>Améliorations de l’intégration du Windows Store pour Entreprises à Configuration Manager
 
-Wir haben in diesem Release die [Integration von Windows Store für Unternehmen](/sccm/apps/deploy-use/manage-apps-from-the-windows-store-for-business) mit diesen neuen Features aktualisiert:
+Dans cette version, nous avons mis à jour [l’intégration du Windows Store pour Entreprises](/sccm/apps/deploy-use/manage-apps-from-the-windows-store-for-business) avec ces nouvelles fonctionnalités :
 
-**Update:** Im aktuellen Technical Preview-Release funktioniert das sofortige Synchronisierungsfeature nicht.
+**Mise à jour :** dans la version d’évaluation technique actuelle, la fonctionnalité de synchronisation immédiate n’est pas fonctionnelle.
 
-- Bisher konnten nur kostenlose Apps aus dem Windows Store für Unternehmen bereitgestellt werden. Configuration Manager unterstützt darüber hinaus jetzt die Bereitstellung von kostenpflichtigen online-lizenzierten Apps (nur für Geräte, die bei Intune registriert sind).
-- Sie können nun eine sofortige Synchronisierung zwischen Windows Store für Unternehmen und Configuration Manager einleiten.
-- Sie können jetzt den geheimen Clientschlüssel ändern, den Sie von Azure Active Directory erhalten haben.
+- Auparavant, vous pouviez uniquement déployer des applications gratuites à partir du Windows Store pour Entreprises. Configuration Manager prend maintenant aussi en charge le déploiement d’applications sous licence en ligne payantes (pour les appareils Intune inscrits uniquement).
+- Vous pouvez désormais lancer une synchronisation immédiate entre le Windows Store pour Entreprises et Configuration Manager.
+- Vous pouvez maintenant modifier la clé secrète du client que vous avez obtenue à partir d’Azure Active Directory
 
-### <a name="try-it-out"></a>Probieren Sie es aus!
+### <a name="try-it-out"></a>Essayez !
 
-#### <a name="purchase-and-sync-a-paid-online-licensed-app"></a>Erwerben und Synchronisieren einer kostenpflichtigen online-lizenzierten App
+#### <a name="purchase-and-sync-a-paid-online-licensed-app"></a>Acheter et synchroniser une application sous licence en ligne payante
 
-1. Kaufen Sie eine kostenpflichtige online-lizenzierte App aus dem Windows Store für Unternehmen.
-2. Klicken Sie im Arbeitsbereich **Verwaltung** der Configuration Manager-Konsole auf **Clouddienste** > **Updates und Wartung** > **Windows Store für Unternehmen**.
-3. Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Synchronisieren** auf **Jetzt synchronisieren**.
-4. Kurz darauf wird die App, die Sie erworben haben, im Knoten **Lizenzinformationen für Store-Apps** des Arbeitsbereichs **Anwendungsverwaltung** angezeigt.
+1. Achetez une application sous licence en ligne payante dans le Windows Store pour Entreprises.
+2. Dans l’espace de travail **Administration** de la console Configuration Manager, cliquez sur **Services cloud** > **Mises à jour et maintenance** > **Windows Store pour Entreprises**.
+3. Sous l’onglet **Accueil**, dans le groupe **Synchroniser**, cliquez sur **Synchroniser maintenant**.
+4. Aussitôt après, l’application que vous avez achetée apparaît dans le nœud **Informations de licence pour les applications du Store** de l’espace de travail **Gestion des applications**.
 
-#### <a name="create-and-deploy-a-configuration-manager-application-from-the-synchronized-app-data"></a>Erstellen und Bereitstellen einer Configuration Manager-Anwendung aus den synchronisierten App-Daten
+#### <a name="create-and-deploy-a-configuration-manager-application-from-the-synchronized-app-data"></a>Créer et déployer une application Configuration Manager à partir des données de l’application synchronisée
 
-Das Verfahren zum Erstellen und Bereitstellen einer Configuration Manager-Anwendung aus einer kostenpflichtigen Store-App ist das gleiche wie das zum Erstellen einer Anwendung aus einer kostenlosen App. Weitere Informationen finden Sie im Abschnitt **Create and deploy a Configuration Manager application from a Windows Store for Business app (Erstellen und Bereitstellen einer Configuration Manager-Anwendung aus einer App von Windows Store für Unternehmen)** in [Manage apps from the Windows Store for Business with System Center Configuration Manager (Verwalten von Apps aus dem Windows Store für Unternehmen mit System Center Configuration Manager)](/sccm/apps/deploy-use/manage-apps-from-the-windows-store-for-business).
+La procédure pour créer et déployer une application Configuration Manager à partir d’une application du Windows Store payante est identique à celle pour créer une application à partir d’une application gratuite. Consultez la section **Créer et déployer une application Configuration Manager à partir d’une application du Windows Store pour Entreprises** dans [Gérer des applications à partir du Windows Store pour Entreprises avec System Center Configuration Manager](/sccm/apps/deploy-use/manage-apps-from-the-windows-store-for-business).
 
 
-#### <a name="modify-the-client-secret-key-from-azure-active-directory"></a>Ändern des geheimen Clientschlüssels aus Azure Active Directory
+#### <a name="modify-the-client-secret-key-from-azure-active-directory"></a>Modifier la clé secrète du client à partir d’Azure Active Directory
 
-1. Klicken Sie im Arbeitsbereich **Verwaltung** der Configuration Manager-Konsole auf **Clouddienste** > **Updates und Wartung** > **Windows Store für Unternehmen**.
-2. Wählen Sie Ihr Windows Store für Unternehmen-Konto aus, und klicken Sie anschließend auf **Eigenschaften**.
-3. Geben Sie im Dialogfeld **Windows Store for Business Account Properties** (Windows Store für Unternehmen-Kontoeigenschaften) einen neuen Schlüssel in das Feld **Geheimer Clientschlüssel** ein, und klicken Sie anschließend auf **Überprüfen**. Sobald die Überprüfung abgeschlossen ist, klicken Sie auf **Übernehmen**, und schließen Sie dann das Dialogfeld.
+1. Dans l’espace de travail **Administration** de la console Configuration Manager, cliquez sur **Services cloud** > **Mises à jour et maintenance** > **Windows Store pour Entreprises**.
+2. Sélectionnez votre compte Windows Store pour Entreprises, puis cliquez sur **Propriétés**.
+3. Dans la boîte de dialogue **Windows Store for Business Account Properties** (Propriétés du compte Windows Store pour Entreprises), entrez une nouvelle clé dans le champ **Clé secrète du client**, puis cliquez sur **Vérifier**. Une fois la vérification effectuée, cliquez sur **Appliquer**, puis fermez la boîte de dialogue.
 
 
-## <a name="new-compliance-settings-for-configuration-items"></a>Neue Kompatibilitätseinstellungen für Konfigurationselemente
+## <a name="new-compliance-settings-for-configuration-items"></a>Nouveaux paramètres de compatibilité pour les éléments de configuration
 
-Wir haben viele neue Einstellungen hinzugefügt, die Sie in Ihren Konfigurationselementen für verschiedene Geräteplattformen verwenden können.
-Dabei handelt es sich um Einstellungen, die zuvor in Microsoft Intune in einer eigenständigen Konfiguration vorhanden waren, und jetzt verfügbar sind, wenn Sie Intune mit Configuration Manager verwenden.
-Wenn Sie Hilfe zu einer dieser Einstellung benötigen, öffnen Sie [Verwalten von Einstellungen und Features auf Ihren Geräten mit Microsoft Intune-Richtlinien](https://docs.microsoft.com/en-us/intune/deploy-use/manage-settings-and-features-on-your-devices-with-microsoft-intune-policies), und wählen Sie dann das untergeordnete Thema zu den Einstellungen für die gewünschte Plattform aus.
+Nous avons ajouté de nombreux nouveaux paramètres que vous pouvez utiliser dans vos éléments de configuration pour diverses plateformes d’appareils.
+Il s’agit de paramètres qui existaient précédemment dans Microsoft Intune dans une configuration autonome et qui sont maintenant disponibles quand vous utilisez Intune avec Configuration Manager.
+Si vous avez besoin d’aide pour utiliser l’un de ces paramètres, ouvrez [Gérer des paramètres et des fonctionnalités sur vos appareils avec des stratégies Microsoft Intune](https://docs.microsoft.com/en-us/intune/deploy-use/manage-settings-and-features-on-your-devices-with-microsoft-intune-policies), puis sélectionnez la sous-rubrique de paramètres pour la plateforme souhaitée.
 
 
-### <a name="new-settings-for-android-devices"></a>Neue Einstellungen für Android-Geräte
+### <a name="new-settings-for-android-devices"></a>Nouveaux paramètres pour les appareils Android
 
-#### <a name="password-settings"></a>Kennworteinstellungen
+#### <a name="password-settings"></a>Paramètres de mot de passe
 
-- **Kennwortverlauf speichern**
-- **Fingerabdruckentsperrung zulassen**
+- **Mémoriser l’historique des mots de passe**
+- **Autoriser le déverrouillage par empreinte digitale**
 
-#### <a name="security-settings"></a>Sicherheitseinstellungen
+#### <a name="security-settings"></a>Paramètres de sécurité
 
-- **Verschlüsselung auf Speicherkarten vorschreiben**
-- **Bildschirmaufnahme zulassen**
-- **Übermitteln von Diagnosedaten zulassen**
+- **Exiger le chiffrement sur les cartes de stockage**
+- **Autoriser la capture d’écran**
+- **Autoriser la soumission des données de diagnostic**
 
-#### <a name="browser-settings"></a>Browsereinstellungen
+#### <a name="browser-settings"></a>Paramètres du navigateur
 
-- **Webbrowser zulassen**
-- **AutoAusfüllen zulassen**
-- **Popupblocker zulassen**
-- **Cookies zulassen**
-- **Active Scripting zulassen**
+- **Autoriser le navigateur web**
+- **Autoriser le remplissage automatique**
+- **Autoriser le bloqueur de fenêtres publicitaires**
+- **Autoriser les cookies**
+- **Autoriser les scripts actifs**
 
-#### <a name="app-settings"></a>App-Einstellungen
+#### <a name="app-settings"></a>Paramètres de l’application
 
-- **Google Play Store zulassen**
+- **Autoriser Google Play Store**
 
-#### <a name="device-capability-settings"></a>Gerätefunktionseinstellungen
+#### <a name="device-capability-settings"></a>Paramètres de capacité des appareils
 
-- **Wechselspeichermedien zulassen**
-- **WLAN-Tethering zulassen**
-- **Geolocation zulassen**
-- **NFC zulassen**
-- **Bluetooth zulassen**
-- **Sprachroaming zulassen**
-- **Datenroaming zulassen**
-- **SMS/MMS-Messaging zulassen**
-- **Sprach-Assistent zulassen**
-- **Sprachwahl zulassen**
-- **Kopieren und Einfügen zulassen**
+- **Autoriser le stockage amovible**
+- **Autoriser la connexion Wi-Fi**
+- **Autoriser la géolocalisation**
+- **Autoriser NFC**
+- **Autoriser Bluetooth**
+- **Autoriser l’itinérance vocale**
+- **Autoriser l’itinérance des données**
+- **Autoriser les messages SMS/MMS**
+- **Autoriser l’assistant vocal**
+- **Autoriser la composition vocale**
+- **Autoriser la fonction copier-coller**
 
 
-### <a name="new-settings-for-ios-devices"></a>Neue Einstellungen für iOS-Geräte
+### <a name="new-settings-for-ios-devices"></a>Nouveaux paramètres pour les appareils iOS
 
-#### <a name="password-settings"></a>Kennworteinstellungen
+#### <a name="password-settings"></a>Paramètres de mot de passe
 
-- **Erforderliche Anzahl komplexer Zeichen im Kennwort**
-- **Einfache Kennwörter zulassen**
-- **Minuten Inaktivität vor Anforderung des Kennworts**
-- **Kennwortverlauf speichern**
+- **Nombre de caractères complexes requis dans le mot de passe**
+- **Autoriser les mots de passe simples**
+- **Minutes d’inactivité avant demande du mot de passe**
+- **Mémoriser l’historique des mots de passe**
 
-### <a name="new-settings-for-mac-os-x-devices"></a>Neue Einstellungen für Mac OS X-Geräte
+### <a name="new-settings-for-mac-os-x-devices"></a>Nouveaux paramètres pour les appareils Mac OS X
 
-#### <a name="password-settings"></a>Kennworteinstellungen
+#### <a name="password-settings"></a>Paramètres de mot de passe
 
-- **Erforderliche Anzahl komplexer Zeichen im Kennwort**
-- **Einfache Kennwörter zulassen**
-- **Kennwortverlauf speichern**
-- **Minuten Inaktivität bis zur Aktivierung des Bildschirmschoners**
+- **Nombre de caractères complexes requis dans le mot de passe**
+- **Autoriser les mots de passe simples**
+- **Mémoriser l’historique des mots de passe**
+- **Minutes d’inactivité avant activation de l’écran de veille**
 
-### <a name="new-settings-for-windows-10-desktop-and-mobile-devices"></a>Neue Einstellungen für Windows 10 Desktop und mobile Geräte
+### <a name="new-settings-for-windows-10-desktop-and-mobile-devices"></a>Nouveaux paramètres pour les appareils Windows 10 Desktop et Mobile
 
-#### <a name="password-settings"></a>Kennworteinstellungen
+#### <a name="password-settings"></a>Paramètres de mot de passe
 
-- **Minimale Anzahl von Zeichensätzen**
-- **Kennwortverlauf speichern**
-- **Kennworteingabe verlangen, wenn das Gerät aus dem Leerlauf zurückkehrt**
+- **Nombre minimum de jeux de caractères**
+- **Mémoriser l’historique des mots de passe**
+- **Exiger un mot de passe quand l’appareil quitte un état inactif**
 
-#### <a name="security-settings"></a>Sicherheitseinstellungen
+#### <a name="security-settings"></a>Paramètres de sécurité
 
-- **Verschlüsselung auf mobilen Geräten vorschreiben**
-- **Manuelle Aufhebung der Registrierung zulassen**
+- **Exiger le chiffrement sur l’appareil mobile**
+- **Autoriser la désinscription manuelle**
 
-#### <a name="device-capability-settings"></a>Gerätefunktionseinstellungen
+#### <a name="device-capability-settings"></a>Paramètres de capacité des appareils
 
-- **VPN über Mobilfunk zulassen**
-- **VPN-Roaming über Mobilfunk zulassen**
-- **Handyzurücksetzung zulassen**
-- **USB-Verbindung zulassen**
-- **Cortana zulassen**
-- **Info-Center-Benachrichtigungen zulassen**
+- **Autoriser une connexion VPN sur un réseau cellulaire**
+- **Autoriser l’itinérance VPN sur un réseau cellulaire**
+- **Autoriser la réinitialisation du téléphone**
+- **Autoriser la connexion USB**
+- **Autoriser Cortana**
+- **Autoriser les notifications du centre de notifications**
 
-### <a name="new-settings-for-windows-10-team-devices"></a>Neue Einstellungen für Windows 10 Team-Geräte
+### <a name="new-settings-for-windows-10-team-devices"></a>Nouveaux paramètres pour les appareils Windows 10 Collaboration
 
-#### <a name="device-settings"></a>Geräteeinstellungen
+#### <a name="device-settings"></a>Paramètres de l’appareil
 
-- **Azure Operational Insights aktivieren**
-- **Miracast-Funkprojektion aktivieren**
-- **Im Willkommensbildschirm angezeigte Besprechungsinformationen auswählen**
-- **URL zum Bild für den Sperrbildschirmhintergrund**
+- **Activer Azure Operational Insights**
+- **Activer la projection sans fil Miracast**
+- **Choisir les informations relatives à la réunion affichées sur l’écran d’accueil**
+- **URL de l’image d’arrière-plan de l’écran de verrouillage**
 
 
-### <a name="new-settings-for-windows-81-devices"></a>Neue Einstellungen für Windows 8.1-Geräte
+### <a name="new-settings-for-windows-81-devices"></a>Nouveaux paramètres pour les appareils Windows 8.1
 
-#### <a name="applicability-settings"></a>Anwendbarkeitseinstellungen
+#### <a name="applicability-settings"></a>Paramètres de mise en application
 
-- **Alle Konfigurationen auf Windows 10 anwenden**
+- **Appliquer toutes les configurations à Windows 10**
 
-#### <a name="password-settings"></a>Kennworteinstellungen
+#### <a name="password-settings"></a>Paramètres de mot de passe
 
-- **Erforderlicher Kennworttyp**
-- **Minimale Anzahl von Zeichensätzen**
-- **Minimale Kennwortlänge**
-- **Anzahl der zulässigen wiederholten Anmeldefehler, bevor die Gerätedaten zurückgesetzt werden**
-- **Inaktivität in Minuten bis zur Abschaltung des Bildschirms**
-- **Kennwortablauf (Tage)**
-- **Kennwortverlauf speichern**
-- **Wiederverwendung vorheriger Kennwörter verhindern**
-- **Bildkennwort und PIN zulassen**
+- **Type de mot de passe requis**
+- **Nombre minimum de jeux de caractères**
+- **Longueur minimale du mot de passe**
+- **Nombre d’échecs de connexion successifs autorisé avant réinitialisation de l’appareil**
+- **Minutes d’inactivité avant arrêt de l’écran**
+- **Expiration du mot de passe (jours)**
+- **Mémoriser l’historique des mots de passe**
+- **Empêcher la réutilisation des mots de passe précédents**
+- **Autoriser un mot de passe image et un code confidentiel**
 
-#### <a name="browser-settings"></a>Browsereinstellungen
+#### <a name="browser-settings"></a>Paramètres du navigateur
 
-- **Automatische Erkennung des Intranets zulassen**
+- **Autoriser la détection automatique des réseaux intranet**
 
 
-### <a name="new-settings-for-windows-phone-81-devices"></a>Neue Einstellungen für Windows Phone 8.1-Geräte
+### <a name="new-settings-for-windows-phone-81-devices"></a>Nouveaux paramètres pour les appareils Windows Phone 8.1
 
-#### <a name="applicability-settings"></a>Anwendbarkeitseinstellungen
+#### <a name="applicability-settings"></a>Paramètres de mise en application
 
-- **Alle Konfigurationen auf Windows 10 anwenden**
+- **Appliquer toutes les configurations à Windows 10**
 
-#### <a name="password-settings"></a>Kennworteinstellungen
+#### <a name="password-settings"></a>Paramètres de mot de passe
 
-- **Minimale Anzahl von Zeichensätzen**
-- **Einfache Kennwörter zulassen**
-- **Kennwortverlauf speichern**
+- **Nombre minimum de jeux de caractères**
+- **Autoriser les mots de passe simples**
+- **Mémoriser l’historique des mots de passe**
 
-#### <a name="device-capability-settings"></a>Gerätefunktionseinstellungen
+#### <a name="device-capability-settings"></a>Paramètres de capacité des appareils
 
-- **Automatische Verbindung mit freien WLAN-Hotspots zulassen**
+- **Autoriser la connexion automatique aux points d’accès Wi-Fi gratuits**
 
 
-## <a name="improvements-for-boundary-groups"></a>Verbesserungen für Begrenzungsgruppen
-Diese Preview umfasst wichtige Änderungen an Begrenzungsgruppen und deren Zusammenarbeit mit Verteilungspunkten. Diese Änderungen helfen bei der Vereinfachung des Entwurfs Ihrer Inhaltsinfrastruktur, wobei Sie mehr Kontrolle darüber erhalten, wie und wann ein Fallback der Clients erfolgt, um zusätzliche Verteilungspunkte als Quellspeicherorte für Inhalt zu suchen. Dies schließt sowohl lokale als auch cloudbasierte Verteilungspunkte ein.
+## <a name="improvements-for-boundary-groups"></a>Améliorations pour les groupes de limites
+Cette préversion apporte des modifications importantes aux groupes de limites et à leur fonctionnement avec les points de distribution. Ces modifications permettent de simplifier la conception de votre infrastructure de contenu tout en vous donnant davantage de contrôle sur quand et comment les clients doivent effectuer des recherches en secours dans d’autres points de distribution comme emplacements sources de contenu. Cela inclut à la fois les points de distribution cloud et locaux.
 
-Diese Verbesserungen ersetzen Konzepte und Verhaltensweisen, mit denen Sie möglicherweise heute vertraut sind (wie das Konfigurieren von Verteilungspunkten, um schnell oder langsam zu sein), durch ein neues Modell, das einfacher einzurichten und zu verwalten sein sollte. Diese Änderungen stellen auch die Grundlage für zukünftige Änderungen dar, die andere Standortsystemrollen verbessern, die Sie Begrenzungsgruppen zuordnen.  
+Ces améliorations remplacent les concepts et les comportements qui peuvent vous être familiers aujourd’hui (comme la configuration des points de distribution pour être rapides ou lents) par un nouveau modèle qui doit être plus facile à configurer et à gérer. Ces modifications sont également un point de départ pour les futurs changements qui vont améliorer les autres rôles de système de site que vous associez à des groupes de limites.  
 
-Während des Upgrades auf 1609 konvertiert das Upgrade Ihre aktuellen Begrenzungsgruppenkonfigurationen so, dass sie an das neue Modell angepasst sind, damit diese Änderungen Ihre Inhaltsverteilungskonfigurationen nicht stören (weitere Informationen finden Sie im Abschnitt [Update existing boundary groups to the new model (Aktualisieren vorhandener Begrenzungsgruppen auf das neue Modell)](/sccm/core/get-started/capabilities-in-technical-preview-1609#bkmk_update)).
+La mise à niveau vers la version 1609 convertit les configurations de vos groupes de limites actuels pour les adapter au nouveau modèle, afin que ces modifications ne perturbent pas les configurations de distribution de contenu (consultez [Mettre à jour des groupes de limites existants vers le nouveau modèle](/sccm/core/get-started/capabilities-in-technical-preview-1609#bkmk_update)).
 
-Die folgenden Abschnitte enthalten eine Beschreibung der Änderungen, die diese Preview umfasst, der Funktionsweise des Modells sowie dessen, was Sie erwarten können, wenn Sie einen Standort upgraden, für den bereits Begrenzungsgruppen konfiguriert wurden.
+Les sections suivantes détaillent les modifications introduites dans cette préversion, le fonctionnement du nouveau modèle et les effets attendus de la mise à niveau d’un site qui a déjà des groupes de limites configurés.
 
 
 
-### <a name="changes-in-ui-and-behavior-for-boundary-groups-and-content-locations"></a>Änderungen an der Benutzeroberfläche und dem Verhalten für Begrenzungsgruppen und Speicherorte für Inhalt
-Beim Folgenden handelt es sich um wichtige Änderungen an Begrenzungsgruppen und daran, wie Clients Inhalt suchen. Viele dieser Änderungen und Konzepte arbeiten zusammen.
--   **Konfigurationen für „schnell“ oder „langsam“ werden entfernt:** Sie konfigurieren einzelne Verteilungspunkte nicht mehr so, dass diese schnell oder langsam sind.  Stattdessen wird jedes Standortsystem, das einer Begrenzungsgruppe zugeordnet ist, auf die gleiche Weise behandelt. Aufgrund dieser Änderung unterstützt die Registerkarte **Referenz** der Begrenzungsgruppeneigenschaften die Konfiguration von „schnell“ und „langsam“ nicht mehr.
--   **Neue Standardbegrenzungsgruppen an jedem Standort:** Jeder primäre Standort verfügt über eine neue Standardbegrenzungsgruppe mit dem Namen ***Default-Site-Boundary-Group\<sitecode>***.  Wenn sich ein Client nicht an einem Netzwerkstandort befindet, der einer Begrenzungsgruppe zugewiesen ist, verwendet dieser Client die Standortsysteme, die der Standardgruppe seines zugewiesenen Standorts zugeordnet sind. Planen Sie, diese Begrenzungsgruppe als Ersatz für das Konzept der Fallbackinhaltsquelle zu verwenden.    
- -  **Allow fallback source locations for content** (Fallbackquellspeicherorte für Inhalt zulassen) wird entfernt: Sie konfigurieren nicht mehr explizit einen Verteilungspunkt, der für das Fallback verwendet wird, und die Optionen, um dies festzulegen, werden von der Benutzeroberfläche entfernt.
+### <a name="changes-in-ui-and-behavior-for-boundary-groups-and-content-locations"></a>Modifications de l’interface utilisateur et du comportement pour les groupes de limites et les emplacements de contenu
+Voici les principales modifications apportées aux groupes de limites et à la manière dont les clients recherchent le contenu. La plupart de ces modifications et concepts fonctionnent ensemble.
+-   **Les configurations rapides ou lentes sont supprimées :** vous ne configurez plus des points de distribution individuels pour être rapides ou lents.  Au lieu de cela, chaque système de site associé à un groupe de limites est traité de la même façon. En raison de cette modification, l’onglet **References** (Références) des propriétés du groupe de limites ne prend plus en charge la configuration rapide ou lente.
+-   **Nouveau groupe de limites par défaut sur chaque site :** chaque site principal possède un nouveau groupe de limites par défaut nommé ***Groupe-limites-site-défaut\<code_site>***.  Quand un client n’est pas à un emplacement réseau qui est affecté à un groupe de limites, ce client utilise les systèmes de site associés au groupe par défaut à partir de son site affecté. Envisagez d’utiliser ce groupe de limites en remplacement de la notion d’emplacement de secours pour le contenu.    
+ -  **Allow fallback source locations for content** (Autoriser les emplacements sources de secours pour le contenu) est supprimé : vous ne configurez plus explicitement un point de distribution de secours à utiliser, et les options associées sont supprimées de l’interface utilisateur.
 
-    Darüber hinaus hat sich das Ergebnis geändert, das auftritt, wenn die Einstellung **Die Verwendung eines Fallbackquellpfads für den Inhalt durch Clients zulassen** auf einem Bereitstellungstyp für Anwendungen festgelegt wird. Diese Einstellung auf einem Bereitstellungstyp ermöglicht es einem Client nun, die Standard-Standortbegrenzungsgruppe als Quellspeicherort für Inhalt zu verwenden.
+    En outre, le résultat de la définition du paramètre **Autoriser les clients à utiliser un emplacement source de secours pour le contenu** sur un type de déploiement pour les applications a changé. Ce paramètre sur un type de déploiement permet maintenant à un client d’utiliser le groupe de limites de site par défaut comme emplacement source de contenu.
 
- -  **Begrenzungsgruppenbeziehungen:** Jede Begrenzungsgruppe kann mit einer oder mehreren zusätzlichen Begrenzungsgruppen verknüpft werden. Diese Links bilden Beziehungen, die auf der neuen Registerkarte der Begrenzungsgruppeneigenschaften mit dem Namen **Beziehungen** konfiguriert sind:
-    -   Jede Begrenzungsgruppe, der ein Client direkt zugewiesen ist, wird **aktuelle** Begrenzungsgruppe genannt.  
-    -   Jede Begrenzungsgruppe, die ein Client aufgrund einer Zuweisung zwischen der *aktuellen* Begrenzungsgruppe des Clients und einer anderen Gruppe verwenden kann, wird **Nachbarbegrenzungsgruppe** genannt.
-    -  Auf der Registerkarte **Beziehungen** können Sie Begrenzungsgruppen hinzufügen, die als *Nachbarbegrenzungsgruppe* verwendet werden können. Sie können auch eine Zeit in Minuten konfigurieren, die bestimmt, wann ein Client, der keinen Inhalt von einem Verteilungspunkt in der *aktuellen* Gruppe findet, beginnt, Speicherorte für Inhalt von diesen *Nachbarbegrenzungsgruppen* zu suchen.
+ -  **Relations de groupes de limites :** chaque groupe de limites peut être lié à un ou plusieurs groupes de limites supplémentaires. Ces liens forment des relations qui sont configurées sous le nouvel onglet des propriétés du groupe de limites nommé **Relations** :
+    -   Chaque groupe de limites auquel un client est directement associé est appelé groupe de limites **actuel**.  
+    -   Tout groupe de limites qu’un client peut utiliser en raison d’une association entre le groupe de limites *actuel* de ce client et un autre groupe est appelé groupe de limites **voisin**.
+    -  Vous ajoutez des groupes de limites qui peuvent être utilisés comme groupe de limites *voisin* sous l’onglet **Relations**. Vous pouvez également configurer une durée en minutes qui détermine quand un client qui ne parvient pas à trouver le contenu à partir d’un point de distribution dans le groupe *actuel* doit commencer à effectuer des recherches dans les emplacements de contenu de ces groupes de limites *voisins*.
 
-        Beim Hinzufügen oder Ändern einer Begrenzungsgruppenkonfiguration verfügen Sie über die Option, das Fallback auf diese bestimmte Begrenzungsgruppe von der aktuellen Gruppe zu blockieren, die Sie konfigurieren.
+        Quand vous ajoutez ou modifiez la configuration d’un groupe de limites, vous avez la possibilité de bloquer le secours sur ce groupe de limites spécifique à partir du groupe actuel que vous configurez.
 
-    Um die neue Konfiguration zu verwenden, definieren Sie explizite Zuordnungen (Links) von einer Begrenzungsgruppe zu einer anderen, und konfigurieren Sie alle Verteilungspunkte in dieser zugeordneten Gruppe mit der gleichen Zeit in Minuten. Die Zeit, die Sie konfigurieren, bestimmt, wann ein Client, der keine Inhaltsquelle von seiner *aktuellen* Begrenzungsgruppe findet, beginnt, Inhaltsquellen von dieser Nachbarbegrenzungsgruppe zu suchen.
+    Pour utiliser la nouvelle configuration, vous définissez des associations explicites (liens) entre un groupe de limites et un autre, et configurez tous les points de distribution de ce groupe associé avec la même durée en minutes. La durée que vous configurez détermine quand un client qui ne parvient pas à trouver une source de contenu dans son groupe de limites *actuel* peut commencer à rechercher des sources de contenu dans ce groupe de limites voisin.
 
-    Zusätzlich zu Begrenzungsgruppen, die Sie explizit konfigurieren, verfügt jede Begrenzungsgruppe über einen implizierten Link zur Standard-Standortbegrenzungsgruppe. Dieser Link wird nach 120 Minuten aktiv, wenn die Standard-Standortbegrenzungsgruppe zu einer Nachbarbegrenzungsgruppe wird, was den Clients ermöglicht, die Verteilungspunkte zu verwenden, die dieser Begrenzungsgruppe als Quellspeicherort für Inhalt zugeordnet sind.
+    En plus des groupes de limites que vous configurez explicitement, chaque groupe de limites a un lien implicite vers le groupe de limites de site par défaut. Ce lien devient actif après 120 minutes, moment auquel le groupe de limites de site par défaut devient un groupe de limites voisin qui permet aux clients d’utiliser les points de distribution associés à ce groupe de limites comme emplacements sources de contenu.
 
-    Dieses Verhalten ersetzt, was zuvor als Fallback für den Inhalt bezeichnet wurde.  Sie können dieses Standardverhalten von 120 Minuten außer Kraft setzen, indem Sie die Standardbegrenzungsgruppe einer *aktuellen* Gruppe zuordnen und eine bestimmte Zeit in Minuten festlegen oder das Fallback vollständig blockieren, um dessen Verwendung zu verhindern.
+    Ce comportement remplace ce qui était précédemment désigné sous le nom de secours pour le contenu.  Vous pouvez remplacer ce comportement par défaut de 120 minutes en associant explicitement le groupe de limites de site par défaut à un groupe *actuel* et en définissant une durée spécifique en minutes ou en bloquant totalement le secours pour empêcher son utilisation.
 
 
--   **Clients versuchen bis zu 2 Minuten lang, Inhalt aus jedem Verteilungspunkt zu erhalten:** Wenn ein Client nach einem Quellspeicherort für Inhalt sucht, versucht er 2 Minuten lang auf jeden Verteilungspunkt zuzugreifen, bevor er anschließend einen anderen Verteilungspunkt versucht. Dabei handelt es sich um eine Änderung gegenüber früheren Versionen, bei denen Clients bis zu 2 Stunden lang versucht haben, eine Verbindung zu einem Verteilungspunkt herzustellen.
+-   **Les clients tentent d’obtenir le contenu à partir de chaque point de distribution pendant 2 minutes au maximum :** quand un client recherche un emplacement source de contenu, il tente d’accéder à chaque point de distribution pendant 2 minutes avant d’essayer ensuite un autre point de distribution. Il s’agit d’un changement par rapport aux versions précédentes où les clients tentaient de se connecter à un point de distribution pendant 2 heures au maximum.
 
-    - Der erste Verteilungspunkt, den ein Client versucht zu verwenden, wird zufällig aus dem Pool verfügbarer Punkte in der *aktuellen* Begrenzungsgruppe (bzw. den aktuellen Begrenzungsgruppen) ausgewählt.
+    - Le premier point de distribution qu’un client tente d’utiliser est sélectionné au hasard dans le pool des points de distribution disponibles du groupe (ou des groupes) de limites *actuel(s)* du client.
 
-    - Wenn der Client den Inhalt nach zwei Minuten nicht gefunden hat, wechselt er zu einem neuen Verteilungspunkt und versucht, Inhalt von diesem Server zu erhalten. Dieser Vorgang wird alle zwei Minuten wiederholt, bis der Client den Inhalt findet oder den letzten Server im Pool erreicht.
+    - Après deux minutes, si le client n’a pas trouvé le contenu, il bascule vers un nouveau point de distribution et tente d’obtenir le contenu de ce serveur. Ce processus se répète toutes les deux minutes jusqu’à ce que le client trouve le contenu ou atteigne le dernier serveur dans son pool.
 
-    - Wenn ein Client in seinem *aktuellen* Pool keinen gültigen Quellspeicherort für Inhalt findet, bevor der Zeitraum für ein Fallback auf eine *Nachbarbegrenzungsgruppe* erreicht ist, fügt der Client die Verteilungspunkte aus dieser *Nachbarbegrenzungsgruppe* zum Ende seiner aktuellen Liste hinzu und durchsucht anschließend die erweiterte Gruppe von Quellspeicherorten, die die Verteilungspunkte aus beiden Begrenzungsgruppen umfasst.
+    - Si un client ne peut pas trouver un emplacement source de contenu valide dans son pool *actuel* avant la période de secours sur un groupe de limites *voisin*, le client ajoute alors les points de distribution de ce groupe *voisin* à la fin de sa liste actuelle, puis effectue des recherches dans le groupe étendu d’emplacements sources qui inclut les points de distribution des deux groupes de limites.
 
         > [!TIP]  
-        > Wenn Sie einen expliziten Link von der aktuellen Begrenzungsgruppe zu der Standard-Standortbegrenzungsgruppe erstellen und eine Fallbackzeit festlegen, die kürzer ist als die Fallbackzeit für einen Link zu einer Nachbarbegrenzungsgruppe, beginnen Clients, Quellspeicherorte aus der Standard-Standortbegrenzungsgruppe zu durchsuchen, bevor sie die Nachbargruppe einschließen.
+        > Quand vous créez un lien explicite entre le groupe de limites actuel et le groupe de limites de site par défaut, puis définissez une durée de secours inférieure à celle d’un lien vers un groupe de limites voisin, les clients commencent à effectuer des recherches dans les emplacements sources du groupe de limites de site par défaut avant d’inclure le groupe voisin.
 
-    - Wenn der Client vom letzten Server im Pool keinen Inhalt abrufen kann, beginnt er den Prozess erneut.
+    - Quand le client ne parvient pas à obtenir le contenu du dernier serveur dans le pool, il recommence le processus.
 
 
-### <a name="how-the-new-model-works"></a>So funktioniert das neue Modell
-Wenn Sie Begrenzungsgruppen konfigurieren, ordnen Sie der Begrenzungsgruppe Grenzen (Netzwerkspeicherorte) und Standortsystemrollen wie Verteilungspunkte zu. Dadurch können Clients mit Standortsystemservern wie Verteilungspunkten verknüpft werden, die sich in der Nähe der Clients auf dem Netzwerk befinden.   
--   Sie können die gleiche Grenze mehreren Begrenzungsgruppen zuweisen.
--   Standortsystemserver wie Verteilungspunkte können mehreren Begrenzungsgruppen zugeordnet und damit für eine größere Anzahl von Netzwerkspeicherorten verfügbar gemacht werden.
--   Wenn ein Verteilungspunkt keiner Begrenzungsgruppe zugeordnet ist, können Clients diesen Verteilungspunkt nicht als Quellspeicherort für Inhalt verwenden.
+### <a name="how-the-new-model-works"></a>Fonctionnement du nouveau modèle
+Quand vous configurez des groupes de limites, vous associez les limites (emplacements réseau) et les rôles de système de site, comme les points de distribution, au groupe de limites. Cela permet de lier les clients aux serveurs de système de site tels que les points de distribution qui se trouvent près des clients sur le réseau.   
+-   Vous pouvez attribuer la même limite à plusieurs groupes de limites
+-   Les serveurs de système de site, tels que les points de distribution, peuvent être associés à plusieurs groupes de limites, ce qui les rend disponibles pour une plus grande plage d’emplacements réseau
+-   Si un point de distribution n’est associé à aucun groupe de limites, les clients ne sont pas en mesure d’utiliser ce point de distribution comme emplacement source de contenu.
 
-Ab dieser Technical Preview definieren Sie die Begrenzungsgruppenbeziehungen, um das Fallbackverhalten für die Quellspeicherorte für Inhalt zu konfigurieren. Dieses neue Verhalten wird auf der neuen Registerkarte **Beziehungen** der Begrenzungsgruppeneigenschaften konfiguriert und ersetzt das Konfigurieren von Standortsystemen, damit diese schnell oder langsam sind, sowie das Konfigurieren einer Begrenzungsgruppe, um das Fallback für den Quellspeicherort für Inhalt zuzulassen.
+À compter de cette version d’évaluation technique, vous définissez les relations de groupes de limites afin de configurer le comportement de secours pour les emplacements sources de contenu. Ce nouveau comportement est configuré sous le nouvel onglet **Relations** des propriétés du groupe de limites et remplace la configuration des systèmes de site (lente ou rapide) ainsi que la configuration d’un groupe de limites pour autoriser l’emplacement source de secours pour le contenu.
 
-Fügen Sie auf der Registerkarte „Beziehungen“ andere Begrenzungsgruppen hinzu, um eine Beziehung zu diesen Gruppen zu konfigurieren. Jede Beziehung ist ein unidirektionaler Link von der **aktuellen** Begrenzungsgruppe zu der Begrenzungsgruppe, die Sie hinzufügen und die als **Nachbar** bezeichnet wird. Für jeden Link, den Sie erstellen, können Sie Verteilungspunkte mit einer Fallbackzeit in Minuten konfigurieren. Dadurch wird bestimmt, nach welcher Zeit Clients in der *aktuellen* Begrenzungsgruppe beginnen können, Verteilungspunkte in der *Nachbarbegrenzungsgruppe* zu verwenden, wenn sie in Ihrer aktuellen Begrenzungsgruppe keinen gültigen Quellspeicherort für Inhalt finden können.
+Sous l’onglet Relations, vous ajoutez d’autres groupes de limites pour configurer une relation à ces groupes. Chaque relation est un lien unidirectionnel entre le groupe de limites **actuel** et le groupe de limites que vous ajoutez, appelé **voisin**. Pour chaque lien créé, vous pouvez configurer des points de distribution avec une durée de secours en minutes. Cette durée permet de déterminer le délai après lequel les clients dans le groupe de limites *actuel* peuvent commencer à utiliser les points de distribution dans le groupe de limites *voisin* s’ils ne peuvent pas trouver un emplacement source de contenu valide dans leur groupe de limites actuel.
 
-Wenn ein Client keinen Inhalt finden kann und beginnt, Speicherorte in Nachbarbegrenzungsgruppen zu durchsuchen, wird der Pool verfügbarer Verteilungspunkte für diesen Client kontrolliert vergrößert.  
+Quand un client ne peut pas trouver le contenu et commence à effectuer des recherches dans des emplacements de groupes de limites voisins, il augmente le pool des points de distribution disponibles pour ce client de manière contrôlée.  
 
--   Eine Begrenzungsgruppe kann mehr als eine Beziehung haben. Dadurch können Sie Fallbacks auf verschiedene Nachbarn konfigurieren, die nach Ablauf verschiedener Zeiten eintreten.
--   Der Fallback der Clients erfolgt nur auf eine Begrenzungsgruppe, die ein direkter Nachbar ihrer aktuellen Begrenzungsgruppe ist.
--   Wenn ein Client Mitglied mehrerer Begrenzungsgruppen ist, wird die aktuelle Begrenzungsgruppe als die Gesamtheit aller Begrenzungsgruppen dieses Clients definiert.  Anschließend kann ein Fallback dieses Clients auf einen Nachbar einer beliebigen dieser ursprünglichen Begrenzungsgruppen erfolgen.
+-   Un groupe de limites peut avoir plusieurs relations. Cela vous permet de configurer le secours sur différents voisins pour qu’il intervienne après différentes périodes de temps.
+-   Les clients vont uniquement utiliser en secours un groupe de limites qui est un voisin direct de leur groupe de limites actuel.
+-   Quand un client est membre de plusieurs groupes de limites, le groupe de limites actuel est défini en tant qu’union de tous les groupes de limites de ce client.  Ce client peut ensuite utiliser en secours un voisin de n’importe lequel de ces groupes de limites d’origine.
 
-Zusätzlich zu den Links, die Sie definieren, wird zwischen den Begrenzungsgruppen, die Sie erstellen, und der Standardbegrenzungsgruppe, die automatisch für jeden Standort erstellt wird, automatisch ein implizierter Link erstellt. Dieser automatische Link:
--   Wird von Clients verwendet, die sich nicht in einer Begrenzungsgruppe befinden, die einer anderen Begrenzungsgruppe in Ihrer Hierarchie zugeordnet ist, und die automatisch die Standardbegrenzungsgruppe des zugewiesenen Standorts verwenden, um gültige Quellspeicherorte für Inhalt zu ermitteln.   
--   Ist eine Standardoption für ein Fallback von der aktuellen Begrenzungsgruppe auf die Standardbegrenzungsgruppe der Standorte, die nach 120 Minuten verwendet wird.
+Outre les liens que vous définissez, il existe un lien implicite qui est créé automatiquement entre les groupes de limites que vous créez et le groupe de limites par défaut qui est automatiquement créé pour chaque site. Ce lien automatique :
+-   est utilisé par les clients qui ne sont pas sur une limite associée à un groupe de limites de votre hiérarchie et qui utilisent automatiquement le groupe de limites par défaut de leur site assigné pour identifier les emplacements sources de contenu valides ;   
+-   est une option de secours par défaut entre le groupe de limites actuel et le groupe de limites de site par défaut qui est utilisé après 120 minutes.
 
-**Beispiel für die Verwendung des neuen Modells:**     
-Sie erstellen drei Begrenzungsgruppen, die keine Grenzen oder Standortsystemserver teilen:
--   Gruppe BG_A mit den Verteilungspunkten DP_A1 und DP_A2, die der Gruppe zugeordnet sind
--   Gruppe BG_B mit den Verteilungspunkten DP_B1 und DP_B2, die der Gruppe zugeordnet sind
--   Gruppe BG_C mit den Verteilungspunkten DP_C1 und DP_C2, die der Gruppe zugeordnet sind
+**Exemple d’utilisation du nouveau modèle :**     
+Vous créez trois groupes de limites qui ne partagent pas de limites ni de serveurs de système de site :
+-   Groupe BG_A avec les points de distribution DP_A1 et DP_A2 associés au groupe
+-   Groupe BG_B avec les points de distribution DP_B1 et DP_B2 associés au groupe
+-   Groupe BG_C avec les points de distribution DP_C1 et DP_C2 associés au groupe
 
-Fügen Sie die Netzwerkspeicherorte Ihres Clients nur der Begrenzungsgruppe BG_A als Grenze hinzu, und konfigurieren Sie anschließend Beziehungen von dieser Begrenzungsgruppe zu den anderen beiden Begrenzungsgruppen:
--   Konfigurieren Sie Verteilungspunkte für die erste *Nachbargruppe* (BG_B), die nach 10 Minuten verwendet wird. Diese Gruppe enthält die Verteilungspunkte DP_B1 und DP_B2. Beide verfügen über eine gute Verbindung mit den Grenzspeicherorten der ersten Gruppe.
--   Konfigurieren Sie die zweite *Nachbargruppe* (BG_C), die nach 20 Minuten verwendet wird. Diese Gruppe enthält die Verteilungspunkte DP_C1 und DP_C2. Beide sind über ein WAN von den anderen Begrenzungsgruppen aus zugänglich.
--   Fügen Sie auch einen zusätzlichen Verteilungspunkt hinzu, der sich auf dem Standortserver der Standard-Standortbegrenzungsgruppe der Standorte befindet. Dies ist der am wenigsten bevorzugte Quellspeicherort für Inhalt, der sich jedoch zu all Ihren Begrenzungsgruppen zentral befindet.
+Vous ajoutez les emplacements réseau de vos clients en tant que limites uniquement au groupe de limites BG_A, puis vous configurez des relations à partir de ce groupe de limites vers les deux autres groupes de limites :
+-   Vous configurez des points de distribution pour le premier groupe *voisin* (BG_B) à utiliser après 10 minutes. Ce groupe contient les points de distribution DP_B1 et DP_B2. Les deux sont correctement connectés aux emplacements des premiers groupes de limites.
+-   Vous configurez le deuxième groupe *voisin* (BG_C) à utiliser après 20 minutes. Ce groupe contient les points de distribution DP_C1 et DP_C2. Les deux se trouvent sur un réseau étendu à distance des deux autres groupes de limites.
+-   Vous ajoutez également un point de distribution supplémentaire qui se trouve sur le serveur de site au groupe de limites de site par défaut du site. Il s’agit de l’emplacement source de contenu que vous préférez le moins, mais il se trouve au milieu de tous les groupes de limites.
 
-    Beispiel für Begrenzungsgruppen und Fallbackzeiten:
+    Exemple de groupes de limites et de durées de secours :
 
      ![BG_Fallback](media/BG_Fallback.png)
 
 
-Mit dieser Konfiguration:
--   Beginnt der Client die Suche nach Inhalt aus Verteilungspunkten in seiner *aktuellen* Begrenzungsgruppe (BG_A), wobei er jeden Verteilungspunkt 2 Minuten lang durchsucht, bevor er zum nächsten Verteilungspunkt in der Begrenzungsgruppe wechselt. Der Pool des Clients mit gültigen Quellspeicherorten für Inhalt umfasst DP_A1 und DP_A2.
--   Wenn der Client 10 Minuten lang keinen Inhalt aus der *aktuellen* Begrenzungsgruppe findet, fügt er die Verteilungspunkte aus der Begrenzungsgruppe BG_B zur Suche hinzu. Anschließend setzt er die Suche nach Inhalt von einem Verteilungspunkt in seinem kombinierten Pool von Verteilungspunkten fort, der nun die Verteilungspunkte der Begrenzungsgruppen BG_A und BG_B enthält. Der Client kontaktiert weiterhin jeden Verteilungspunkt zwei Minuten lang, bevor er zum nächsten Verteilungspunkt seines Pools wechselt. Der Pool des Clients mit gültigen Quellspeicherorten für Inhalt umfasst DP_A1, DP_A2, DP_B1 und DP_B2.
--   Nach weiteren 10 Minuten (insgesamt 20 Minuten), in denen der Client immer noch keinen Verteilungspunkt mit Inhalt gefunden hat, erweitert er seinen Pool mit verfügbaren Verteilungspunkten um die Verteilungspunkte der zweiten *Nachbargruppe*, also der Begrenzungsgruppe BG_C. Der Client verfügt nun über 6 Verteilungspunkte, die er durchsuchen kann (DP_A1, DP_A2, DP_B2, DP_B2, DP_C1 und DP_C2), und wechselt weiterhin alle zwei Minuten zu einem neuen Verteilungspunkt, bis er Inhalt gefunden hat.
--   Wenn der Client nach maximal 120 Minuten keinen Inhalt gefunden hat, greift er darauf zurück, die *Standard-Standortbegrenzungsgruppe* als Teil der kontinuierlichen Suche einzuschließen. In den Pool mit Verteilungspunkten werden nun alle Verteilungspunkte aus den drei konfigurierten Begrenzungsgruppen sowie der letzte Verteilungspunkt eingeschlossen, der sich auf dem Standortservercomputer befindet.  Der Client setzt die Suche nach Inhalt anschließend fort und wechselt alle zwei Minuten den Verteilungspunkt, bis er Inhalt gefunden hat.
+Avec cette configuration :
+-   Le client commence la recherche de contenu dans les points de distribution de son groupe de limites *actuel* (BG_A), en passant deux minutes dans chaque point avant de passer au suivant dans le groupe. Le pool des emplacements sources de contenu valides du client inclut DP_A1 et DP_A2.
+-   Si le client ne parvient pas à trouver le contenu dans son groupe de limites *actuel* après une recherche de 10 minutes, il ajoute alors les points de distribution du groupe de limites BG_B à sa recherche. Il continue ensuite à rechercher le contenu dans un point de distribution de son pool combiné de points de distribution qui inclut maintenant ceux des groupes de limites BG_A et BG_B. Le client continue de contacter chaque point de distribution pendant deux minutes avant de passer au point de distribution suivant de son pool. Le pool des emplacements sources de contenu valides du client inclut DP_A1, DP_A2, DP_B1 et DP_B2.
+-   Après 10 minutes supplémentaires (20 minutes au total), si le client n’a toujours pas trouvé un point de distribution avec du contenu, il étend son pool de points de distribution disponibles pour inclure ceux du deuxième groupe *voisin*, le groupe de limites BG_C. Le client dispose désormais de 6 points de distribution pour sa recherche (DP_A1, DP_A2, DP_B1, DP_B2, DP_C1 et DP_C2) et continue de changer de point de distribution toutes les deux minutes jusqu’à ce qu’il trouve le contenu.
+-   Si le client n’a pas trouvé le contenu après un total de 120 minutes, il revient en arrière pour inclure le *groupe de limites de site par défaut* dans le cadre de sa recherche continue. Le pool des points de distribution inclut désormais tous les points de distribution des trois groupes de limites configurés et le point de distribution final situé sur l’ordinateur serveur de site.  Le client continue alors sa recherche de contenu, en changeant de point de distribution toutes les deux minutes jusqu’à ce qu’il trouve le contenu.
 
-Indem Sie die verschiedenen Nachbargruppen so konfigurieren, dass diese zu verschiedenen Zeiten verfügbar sind, steuern Sie, wann bestimmte Verteilungspunkte als Quellspeicherort für Inhalt hinzugefügt werden, sowie wann bzw. ob der Client ein Fallback auf die Standard-Standortbegrenzungsgruppe als Sicherheitsnetz für Inhalt verwendet, der von einem anderen Speicherort nicht verfügbar ist.
+En configurant les différents groupes voisins pour être disponibles à différents moments, vous contrôlez quand des points de distribution spécifiques sont ajoutés en tant qu’emplacement source de contenu et quand, ou si, le client utilise le secours sur le groupe de limites de site par défaut comme filet de protection pour le contenu qui n’est pas disponible à partir de tout autre emplacement.
 
 
-### <a name="bkmk_update"></a>Aktualisieren vorhandener Begrenzungsgruppen auf das neue Modell
-Wenn Sie die Version 1609 installieren und Ihren Standort aktualisieren, werden die folgenden Konfigurationen automatisch vorgenommen. Diese sollen sicherstellen, dass Ihr aktuelles Fallbackverhalten verfügbar bleibt, bis Sie neue Begrenzungsgruppen und Beziehungen konfigurieren.  
--   Ungeschützte Verteilungspunkte an einem Standort werden zur Begrenzungsgruppe *Default-Site-Boundary-Group\<Standortcode>* dieses Standorts hinzugefügt.
--   Von jeder vorhandenen Begrenzungsgruppe, die einen Standortserver umfasst, der mit einer langsamen Verbindung konfiguriert wurde, wird eine Kopie erstellt. Der Name der neuen Gruppe lautet ***\<ursprünglicher Name der Begrenzungsgruppe>-Slow-Tmp***:  
-    -   Standortsysteme, die über eine schnelle Verbindung verfügen, bleiben in der ursprünglichen Begrenzungsgruppe.
-    -   Eine Kopie der Standortsysteme, die über eine langsame Verbindung verfügen, wird der Kopie der Begrenzungsgruppe hinzugefügt. Die ursprünglichen Standortsysteme, die als langsam konfiguriert wurden, bleiben zur Abwärtskompatibilität in der ursprünglichen Begrenzungsgruppe, werden von dieser Begrenzungsgruppe jedoch nicht verwendet.
-    -   Dieser Begrenzungsgruppenkopie sind keine Grenzen zugeordnet. Jedoch wird ein Fallbacklink zwischen der ursprünglichen Gruppe und der neuen Begrenzungsgruppe erstellt, deren Fallbackzeit auf 0 festgelegt ist.
+### <a name="bkmk_update"></a>Mettre à jour des groupes de limites existants vers le nouveau modèle
+Quand vous installez la version 1609 et mettez à jour votre site, les configurations suivantes sont automatiquement effectuées. Elles sont destinées à vérifier que votre comportement de secours actuel reste disponible jusqu’à ce que vous configuriez de nouvelles relations et de nouveaux groupes de limites.  
+-   Des points de distribution non protégés sur un site sont ajoutés au groupe de limites *Groupe-limites-site-défaut\<code_site>* de ce site.
+-   Une copie de chaque groupe de limites existant qui inclut un serveur de site configuré avec une connexion lente est créée. Le nom du nouveau groupe est ***\<nom du groupe de limites d’origine>-Slow-Tmp*** :  
+    -   Les systèmes de site qui disposent d’une connexion rapide restent dans le groupe de limites d’origine.
+    -   Une copie des systèmes de site qui ont une connexion lente est ajoutée à la copie du groupe de limites. Les systèmes de site d’origine configurés comme lents restent dans le groupe de limites d’origine pour la compatibilité descendante, mais ne sont pas utilisés à partir de ce groupe de limites.
+    -   Cette copie du groupe de limites n’a pas de limites associées. Toutefois, un lien de secours est créé entre le groupe d’origine et la nouvelle copie du groupe de limites dont la durée de secours a la valeur zéro.
 
- Die folgende Tabelle ermittelt das neue Fallbackverhalten, das Sie von der Kombination aus den ursprünglichen Bereitstellungseinstellungen und den Verteilungspunktkonfigurationen erwarten können:
+ Le tableau suivant identifie le nouveau comportement de secours que vous pouvez attendre de la combinaison des configurations des points de distribution et des paramètres de déploiement d’origine :
 
-Ursprüngliche Bereitstellungskonfiguration für „Programm nicht ausführen“ im langsamen Netzwerk  |Ursprüngliche Verteilungspunktkonfiguration für „Allow client to use a fallback source location for content“ (Zulassen, dass der Client einen Fallbackquellspeicherort für Inhalt verwendet)  |Neues Fallbackverhalten  
+Configuration du déploiement d’origine pour « Ne pas exécuter le programme » sur un réseau lent  |Configuration du point de distribution d’origine pour « Allow client to use a fallback source location for content » (Autoriser le client à utiliser un emplacement source de secours pour le contenu)  |Nouveau comportement de secours  
 ---------|---------|---------
-Ausgewählt     |  Ausgewählt    |  **Kein Fallback** – Verwenden Sie nur die Verteilungspunkte in der aktuellen Begrenzungsgruppe.       
-Ausgewählt     |  Nicht ausgewählt|  **Kein Fallback** – Verwenden Sie nur die Verteilungspunkte in der aktuellen Begrenzungsgruppe.       
-Nicht ausgewählt |  Nicht ausgewählt|  **Fallback auf Nachbar** – Verwenden Sie die Verteilungspunkte in der aktuellen Begrenzungsgruppe, und fügen Sie anschließend die Verteilungspunkte aus der Nachbarbegrenzungsgruppe hinzu. Sofern kein expliziter Link zur Standard-Standortbegrenzungsgruppe konfiguriert wurde, erfolgt kein Fallback der Clients auf diese Gruppe.    
-Nicht ausgewählt | Ausgewählt     |   **Normales Fallback** – Verwenden Sie die Verteilungspunkte in der aktuellen Begrenzungsgruppe und anschließend die der Nachbar- und der Standard-Standortbegrenzungsgruppen.
+Sélectionnée     |  Sélectionnée    |  **Pas de secours** : utilisez uniquement les points de distribution dans le groupe de limites actuel       
+Sélectionnée     |  Non sélectionnée|  **Pas de secours** : utilisez uniquement les points de distribution dans le groupe de limites actuel       
+Non sélectionnée |  Non sélectionnée|  **Secours sur le voisin** : utilisez les points de distribution dans le groupe de limites actuel, puis ajoutez les points de distribution du groupe de limites voisin. Sauf si un lien explicite vers le groupe de limites de site par défaut est configuré, les clients ne vont pas utiliser ce groupe en secours.    
+Non sélectionnée | Sélectionnée     |   **Secours normal** : utilisez les points de distribution dans le groupe de limites actuel, puis ceux des groupes de limites de site par défaut et voisin
 
- Alle anderen Bereitstellungskonfigurationen führen zum **Normalen Fallback**.  
+ Toutes les autres configurations de déploiement entraînent un comportement de **secours normal**.  
 
 
 
-## <a name="office-365-client-management-dashboard"></a>Office 365-Clientverwaltungsdashboard  
-Configuration Manager 1609 Technical Preview enthält ein neues Dashboard. Wechseln Sie in der Configuration Manager-Konsole zu **Softwarebibliothek** > **Übersicht** > **Office 365-Clientverwaltung**, um das Dashboard anzuzeigen.
+## <a name="office-365-client-management-dashboard"></a>Tableau de bord Gestion des clients Office 365  
+La version d’évaluation technique 1609 pour Configuration Manager introduit un nouveau tableau de bord. Pour afficher le tableau de bord, dans la console Configuration Manager, accédez à **Bibliothèque de logiciels** > **Vue d’ensemble** > **Gestion des clients Office 365**.
 >[!NOTE]
->Im Arbeitsbereich **Neuigkeiten** in der Configuration Manager-Konsole trägt das Dashboard den falschen Namen **Office 365-Verwaltungsdashboard**.
+>Dans l’espace de travail **What’s New** (Nouveautés) de la console Configuration Manager, le nouveau tableau de bord est nommé de façon incorrecte **Office 365 Servicing dashboard** (Tableau de bord de maintenance Office 365).
 
-Das Dashboard zeigt Diagramme für Folgendes an:
+Le tableau de bord affiche des graphiques pour les éléments suivants :
 
-- Anzahl der Office 365-Clients
-- Office 365-Clientversionen
-- Office 365-Clientsprachen
-- Office 365-Clientkanäle     
-Weitere Informationen finden Sie unter [Übersicht über die Updatekanäle für Office 365 ProPlus](https://technet.microsoft.com/library/mt455210.aspx).
-- Regeln zur automatischen Bereitstellung, die Office 365-Client in der Gruppe verfügbarer Produkte ausgewählt haben.
+- Nombre de clients Office 365
+- Versions du client Office 365
+- Langues du client Office 365
+- Canaux du client Office 365     
+Pour plus d’informations, consultez [Présentation des canaux de mise à jour pour Office 365 ProPlus](https://technet.microsoft.com/library/mt455210.aspx).
+- Règles de déploiement automatique avec Office 365 Client sélectionné dans l’ensemble des produits disponibles.
 
-Über das Dashboard können Sie die folgenden Aktionen ausführen:
-- Verwenden Sie am oberen Rand des Dashboards die Dropdowneinstellung **Sammlung**, um die Dashboarddaten nach Mitgliedern einer bestimmten Sammlung zu filtern.
-- Klicken Sie oben rechts im Dashboard auf **Office 365-Installer**, um den Office 365-Installationsassistenten zu starten, um Office 365-Apps für Clients bereitzustellen. Weitere Informationen finden Sie unter [Bereitstellen von Office 365-Apps für Clients](#deploy-office-365-apps-to-clients).
-- Klicken Sie rechts von der Mitte im Dashboard auf **Create an ADR** (Erstellen einer ADR), um den Assistent zum Erstellen automatischer Bereitstellungsregeln zu öffnen, um eine neue automatische Bereitstellungsregel (automatic deployment rule, ADR) zu erstellen. Wählen Sie zum Erstellen einer ADR für Office 365-Apps bei der Auswahl des Produkts **Office 365-Client** aus. Weitere Informationen finden Sie unter [Automatically deploy software updates (Automatisches Bereitstellen von Softwareupdates)](/sccm/sum/deploy-use/automatically-deploy-software-updates).
-- Klicken Sie auf der unteren rechten Seite des Dashboards auf **Create Client Agent Settings** (Client-Agent-Einstellungen erstellen), um die Client-Agent-Einstellungen zu öffnen. Weitere Informationen finden Sie unter [About client settings (Informationen zu Clienteinstellungen)](/sccm/core/clients/deploy/about-client-settings).
+Vous pouvez effectuer les opérations suivantes dans le tableau de bord :
+- En haut du tableau de bord, utilisez le paramètre de liste déroulante **Regroupement** pour filtrer les données de tableau de bord selon les membres d’un regroupement spécifique.
+- Dans la partie supérieure droite du tableau de bord, cliquez sur **Office 365 Installer** (Programme d’installation d’Office 365) afin de démarrer l’Assistant Installation d’Office 365 Client pour déployer des applications Office 365 sur les clients. Pour plus d’informations, consultez [Déployer des applications Office 365 sur des clients](#deploy-office-365-apps-to-clients).
+- Dans la partie centrale droite du tableau de bord, cliquez sur **Create an ADR** (Créer une ADR) afin d’ouvrir l’Assistant Création d’une règle de déploiement automatique pour créer une règle de déploiement automatique (ADR). Pour créer une ADR pour les applications Office 365, sélectionnez **Office 365 Client** quand vous choisissez le produit. Pour plus d’informations, consultez [Déployer automatiquement des mises à jour logicielles](/sccm/sum/deploy-use/automatically-deploy-software-updates).
+- Dans la partie inférieure droite du tableau de bord, cliquez sur **Create Client Agent Settings** (Créer les paramètres de l’agent du client) pour ouvrir les paramètres de l’agent du client. Pour plus d’informations, consultez [À propos des paramètres client](/sccm/core/clients/deploy/about-client-settings).
 
 
 
-Weitere Informationen zu Office 365 ProPlus-Updates finden Sie unter [Manage Office 365 ProPlus updates with Configuration Manager (Verwalten von Office 365 ProPlus-Updates mit System Center Configuration Manager)](/sccm/sum/deploy-use/manage-office-365-proplus-updates).
+Pour plus d’informations sur les mises à jour d’Office 365 ProPlus, consultez [Gérer les mises à jour d’Office 365 ProPlus avec Configuration Manager](/sccm/sum/deploy-use/manage-office-365-proplus-updates).
 
-## <a name="deploy-office-365-apps-to-clients"></a>Bereitstellen von Office 365-Apps für Clients
-In diesem Release können Sie vom Office 365-Clientverwaltungsdashboard aus den Office 365-Installer starten, mit dem Sie Office 365-Installationseinstellungen konfigurieren, Dateien aus Office Content Delivery Networks (CDNs) herunterladen und die Dateien als Anwendung in Configuration Manager bereitstellen können.
+## <a name="deploy-office-365-apps-to-clients"></a>Déployer des applications Office 365 sur des clients
+Dans cette version, à partir du tableau de bord Gestion des clients Office 365, vous pouvez démarrer le programme d’installation d’Office 365 qui vous permet de configurer les paramètres d’installation Office 365, de télécharger des fichiers à partir de réseaux de distribution de contenu Office et de déployer les fichiers en tant qu’application dans Configuration Manager.
 
-### <a name="limitations-of-office-365-deployment"></a>Einschränkungen der Office 365-Bereitstellung
-- Möglicherweise haben Sie Probleme beim Versuch, vorhandene Clienteinstellungen (XML) in den Office 365-App-Installationsassistenten zu importieren. Sie können die Clienteinstellungen ohne Probleme manuell konfigurieren.
+### <a name="limitations-of-office-365-deployment"></a>Limitations du déploiement Office 365
+- Des problèmes peuvent se poser quand vous essayez d’importer les paramètres client existants (XML) dans l’Assistant d’installation d’application Office 365. Vous pouvez configurer manuellement les paramètres client sans problème.
 
-#### <a name="to-deploy-office-365-apps-to-clients"></a>So stellen Sie Office 365-Apps für Clients bereit
-1. Navigieren Sie in der Configuration Manager-Konsole zu **Softwarebibliothek** > **Übersicht** > **Office 365-Clientverwaltung**.
-2. Klicken Sie im oberen rechten Bereich auf **Office 365-Installer**. Der Office 365-Installations-Assistent wird geöffnet.
-3. Geben Sie auf der Seite **Anwendungseinstellungen** einen Namen und eine Beschreibung für die App an, geben Sie den Downloadpfad für die Dateien ein, und klicken Sie anschließend auf **Weiter**. Beachten Sie, dass der Pfad im folgenden Format angegeben sein muss: &#92;&#92;*Server*&#92;*Freigabe*.
-4. Wählen Sie auf der Seite **Import Client Settings** (Clienteinstellungen importieren) aus, ob Sie die Office 365-Clienteinstellungen von einer vorhandenen XML-Konfigurationsdatei importieren oder die Einstellungen manuell angeben möchten, und klicken Sie anschließend auf **Weiter**.
-Wenn Sie über eine vorhandene Konfigurationsdatei verfügen, geben Sie den Speicherort für die Datei an, und fahren Sie mit Schritt 7 fort. Beachten Sie, dass der Speicherort im folgenden Format angegeben werden muss: &#92;&#92;*Server*&#92;*Freigabe*&#92;*Dateiname*.XML.
+#### <a name="to-deploy-office-365-apps-to-clients"></a>Pour déployer des applications Office 365 sur des clients
+1. Dans la console Configuration Manager, accédez à **Bibliothèque de logiciels** > **Vue d’ensemble** > **Gestion des clients Office 365**.
+2. Cliquez sur **Office 365 Installer** (Programme d’installation d’Office 365) dans le volet supérieur droit. L’Assistant Installation d’Office 365 Client s’ouvre.
+3. Dans la page **Application Settings** (Paramètres de l’application), indiquez le nom et une description de l’application, entrez l’emplacement de téléchargement pour les fichiers, puis cliquez sur **Suivant**. Notez que l’emplacement doit être spécifié sous la forme &#92;&#92;*serveur*&#92;*partage*.
+4. Dans la page **Import Client Settings** (Importer les paramètres client), choisissez s’il convient d’importer les paramètres client Office 365 à partir d’un fichier de configuration XML existant ou de spécifier manuellement les paramètres, puis de cliquer sur **Suivant**.
+Quand vous avez un fichier de configuration, entrez l’emplacement du fichier et passez à l’étape 7. Notez que l’emplacement doit être spécifié sous la forme &#92;&#92;*serveur*&#92;*partage*&#92;*nom_fichier*.XML.
 
     > [!IMPORTANT]
-    >Möglicherweise haben Sie Probleme beim Versuch, vorhandene Clienteinstellungen (XML) in diese Technical Preview zu importieren.
+    >Des problèmes peuvent se poser quand vous essayez d’importer les paramètres client existants (XML) dans cette version d’évaluation technique.
 
-5. Wählen Sie auf der Seite **Client Products** (Clientprodukte) die Office 365-Suite aus, die Sie verwenden, wählen Sie die Anwendungen aus, die Sie einschließen möchten, wählen Sie etwaige zusätzliche Office-Produkte aus, die enthalten sein sollen, und klicken Sie anschließend auf **Weiter**.
-6. Wählen Sie auf der Seite **Clienteinstellungen** die einzuschließenden Einstellungen aus, und klicken Sie anschließend auf **Weiter**.
-7. Wählen Sie auf der Seite **Bereitstellung** aus, ob die Anwendung bereitgestellt werden soll, und klicken Sie anschließend auf **Weiter**.
-Wenn Sie auswählen, das Paket nicht im Assistenten bereitzustellen, fahren Sie mit Schritt 9 fort.
-8. Konfigurieren Sie die restlichen Seiten des Assistenten, wie Sie dies bei einer normalen Anwendungsbereitstellung tun würden. Weitere Informationen finden Sie unter [Create and deploy an application with System Center Configuration Manager (Erstellen und Bereitstellen einer Anwendung mit System Center Configuration Manager)](/sccm/apps/get-started/create-and-deploy-an-application).
-9. Schließen Sie den Assistenten ab.
-10. Sie können die Anwendung über **Softwarebibliothek** > **Übersicht** > **Anwendungsverwaltung** > **Anwendungen** genauso bereitstellen und ändern, wie Sie dies bei jeder anderen Anwendung in Configuration Manager tun würden.
+5. Dans la page **Client Products** (Produits clients), sélectionnez la suite Office 365 que vous utilisez, les applications à inclure, les produits Office supplémentaires qui doivent être ajoutés, puis cliquez sur **Suivant**.
+6. Dans la page **Paramètres client**, choisissez les paramètres à inclure, puis cliquez sur **Suivant**.
+7. Dans la page **Déploiement**, choisissez de déployer ou non l’application, puis cliquez sur **Suivant**.
+Si vous choisissez de ne pas déployer le package dans l’Assistant, passez à l’étape 9.
+8. Configurez le reste des pages de l’Assistant comme vous le feriez pour un déploiement d’application standard. Pour plus d’informations, consultez [Créer et déployer une application](/sccm/apps/get-started/create-and-deploy-an-application).
+9. Effectuez toutes les étapes de l'Assistant.
+10. Vous pouvez déployer ou modifier l’application de la même façon que toute autre application dans Configuration Manager à partir de **Bibliothèque de logiciels** > **Vue d’ensemble** > **Gestion des applications** > **Applications**.
 
 >[!NOTE]
->Nach der Bereitstellung von Office 365-Apps können Sie Regeln zur automatischen Bereitstellung erstellen, um die Apps zu verwalten. Wählen Sie zum Erstellen einer ADR für Office 365-Apps bei der Auswahl des Produkts **Create an ADR** (Erstellen einer ADR) und anschließend **Office 365-Client** aus. Weitere Informationen finden Sie unter [Automatically deploy software updates (Automatisches Bereitstellen von Softwareupdates)](/sccm/sum/deploy-use/automatically-deploy-software-updates).
+>Après avoir déployé des applications Office 365, vous pouvez créer des règles de déploiement automatique pour mettre à jour les applications. Pour créer une ADR pour les applications Office 365, cliquez sur **Create an ADR** (Créer une ADR) et sélectionnez **Office 365 Client** quand vous choisissez le produit. Pour plus d’informations, consultez [Déployer automatiquement des mises à jour logicielles](/sccm/sum/deploy-use/automatically-deploy-software-updates).
 
-## <a name="BKMK_UEFIConversion"></a>Verbesserungen für die Konvertierung von BIOS zu UEFI
-Sie können eine Tasksequenz einer Betriebssystembereitstellung nun mit einer neuen Variable (TSUEFIDrive) so anpassen, dass durch den Schritt „Computer neu starten“ auf der Festplatte eine FAT32-Partition für den Übergang zu UEFI vorbereitet wird. Das folgende Verfahren stellt ein Beispiel dar, wie Sie Tasksequenzschritte erstellen können, um die Festplatte auf die Konvertierung von BIOS zu UEFI vorzubereiten.
+## <a name="BKMK_UEFIConversion"></a>Améliorations apportées à la conversion du BIOS en UEFI
+Vous pouvez maintenant personnaliser une séquence de tâches de déploiement de système d’exploitation avec une nouvelle variable, TSUEFIDrive, afin que l’étape Redémarrer l’ordinateur prépare une partition FAT32 sur le disque dur pour la transition vers UEFI. La procédure suivante fournit un exemple de création des étapes de séquence de tâches pour préparer le disque dur pour la conversion du BIOS en UEFI.
 
-#### <a name="to-prepare-the-fat32-partition-for-the-conversion-to-uefi"></a>So bereiten Sie die FAT32-Partition für die Konvertierung zu UEFI vor:
-Fügen Sie in einer vorhandenen Tasksequenz zum Installieren eines Betriebssystems eine neue Gruppe mit Schritten zum Konvertieren von BIOS zu UEFI hinzu.
+#### <a name="to-prepare-the-fat32-partition-for-the-conversion-to-uefi"></a>Pour préparer la partition FAT32 pour la conversion en UEFI :
+Dans une séquence de tâches existante pour installer un système d’exploitation, vous allez ajouter un nouveau groupe avec les étapes permettant d’effectuer la conversion du BIOS en UEFI.
 
-1. Erstellen Sie eine neue Tasksequenzgruppe nach den Schritten zum Erfassen von Dateien und Einstellungen und vor den Schritten zum Installieren des Betriebssystems. Erstellen Sie z.B. eine Gruppe nach der Gruppe **Dateien und Einstellungen erfassen** namens **BIOS zu UEFI**.
-2. Fügen Sie auf der Registerkarte **Optionen** der neuen Gruppe eine neue Tasksequenzvariable als Bedingung hinzu, wobei **_SMSTSBootUEFI** **ungleich** **TRUE** ist. Dadurch wird verhindert, dass die Schritte in der Gruppe ausgeführt werden, wenn sich ein Computer bereits im UEFI-Modus befindet.
-![Gruppe „BIOS zu UEFI“](media/BIOS-to-UEFI-group.png)
-3. Fügen Sie der neuen Gruppe den Tasksequenzschritt **Computer neu starten** hinzu. Wählen Sie unter **Geben Sie an, was nach dem Neustart ausgeführt werden soll** **The boot image assigned to this task sequence is selected** (Das dieser Tasksequenz zugewiesene Startimage wird ausgewählt) aus, um den Computer in Windows PE zu starten.  
-4. Fügen Sie auf der Registerkarte **Optionen** eine Tasksequenzvariable als Bedingung hinzu, wobei **_SMSTSInWinPE ist gleich FALSE**. Dadurch wird verhindert, dass dieser Schritt ausgeführt, wenn sich der Computer bereits in Windows PE befindet.
+1. Créez un groupe de séquences de tâches après les étapes de capture des fichiers et paramètres, et avant les étapes d’installation du système d’exploitation. Par exemple, créez un groupe après le groupe **Capturer les fichiers et les paramètres** nommé **BIOS-en-UEFI**.
+2. Sous l’onglet **Options** du nouveau groupe, ajoutez une nouvelle variable de séquence de tâches comme condition où **_SMSTSBootUEFI** est **différent** de **true**. Vous empêchez ainsi l’exécution des étapes dans le groupe quand un ordinateur est déjà en mode UEFI.
+![Groupe BIOS-en-UEFI](media/BIOS-to-UEFI-group.png)
+3. Sous le nouveau groupe, ajoutez l’étape de séquence de tâches **Redémarrer l’ordinateur**. Dans **Spécifiez l’élément à exécuter après le redémarrage**, sélectionnez **L’image de démarrage attribuée à cette séquence de tâches** pour démarrer l’ordinateur dans Windows PE.  
+4. Sous l’onglet **Options**, ajoutez une variable de séquence de tâches comme condition où **_SMSTSInWinPE est égal à False**. Vous empêchez ainsi l’exécution de cette étape si l’ordinateur est déjà dans Windows PE.
 
-    ![Schritt „Computer neu starten“](media/Restart-in-Windows-PE.png)
-5. Fügen Sie einen Schritt zum Starten des OEM-Tools hinzu, das die Firmware von BIOS in UEFI konvertiert. Dabei handelt es sich normalerweise um einen Tasksequenzschritt **Befehlszeile ausführen** mit einer Befehlszeile zum Starten des OEM-Tools.
-5.  Fügen Sie den Tasksequenzschritt „Datenträger formatieren und partitionieren“ hinzu, durch den die Festplatte formatiert und partitioniert wird. Führen Sie im Schritt Folgendes aus:
-    1.  Erstellen Sie die FAT32-Partition, die in UEFI konvertiert wird, bevor das Betriebssystem installiert wird. Wählen Sie **GPT** als **Datenträgertyp** aus.
-    ![Schritt „Datenträger formatieren und partitionieren“](media/Format-and-partition-disk.png)
-    2.  Wechseln Sie zu den Eigenschaften für die FAT32-Partition. Geben Sie **TSUEFIDrive** in das Feld **Variable** ein. Wenn diese Variable von der Tasksequenz erkannt wird, wird diese sich vor dem Neustart des Computers auf den Übergang zu UEFI vorbereiten.
-    ![Partitionseigenschaften](media/Partition-properties.png)
-    3. Erstellen Sie eine NTFS-Partition, die vom Tasksequenzmodul verwendet wird, um dessen Zustand sowie Protokolldateien zu speichern.
-6.  Fügen Sie den Tasksequenzschritt **Computer neu starten** hinzu. Wählen Sie unter **Geben Sie an, was nach dem Neustart ausgeführt werden soll** **The boot image assigned to this task sequence is selected** (Das dieser Tasksequenz zugewiesene Startimage wird ausgewählt) aus, um den Computer in Windows PE zu starten.  
-
-
+    ![Étape Redémarrer l’ordinateur](media/Restart-in-Windows-PE.png)
+5. Ajoutez une étape pour démarrer l’outil OEM qui convertira le microprogramme du BIOS en UEFI. Il s’agit en général de l’étape de séquence de tâches **Exécuter la ligne de commande** avec une ligne de commande pour démarrer l’outil OEM.
+5.  Ajoutez l’étape de séquence de tâches Formater et partitionner le disque pour partitionner et formater le disque dur. Dans l’étape, procédez comme suit :
+    1.  Créez la partition FAT32 qui va être convertie en UEFI avant l’installation du système d’exploitation. Choisissez **GPT** pour **Type de disque**.
+    ![Étape Formater et partitionner le disque](media/Format-and-partition-disk.png)
+    2.  Accédez aux propriétés de la partition FAT32. Entrez **TSUEFIDrive** dans le champ **Variable**. Quand la séquence de tâches détecte cette variable, elle prépare la transition vers UEFI avant le redémarrage de l’ordinateur.
+    ![Propriétés de la partition](media/Partition-properties.png)
+    3. Créez une partition NTFS que le moteur de séquence de tâches utilise pour enregistrer son état et pour stocker les fichiers journaux.
+6.  Ajoutez l’étape de séquence de tâches **Redémarrer l’ordinateur**. Dans **Spécifiez l’élément à exécuter après le redémarrage**, sélectionnez **L’image de démarrage attribuée à cette séquence de tâches** pour démarrer l’ordinateur dans Windows PE.  
 
 
-## <a name="intune-compliance-charts"></a>Intune-Kompatibilitätsdiagramme
-In diesem Release erhalten Sie eine schnelle Übersicht der gesamten Kompatibilität für Geräte und die häufigsten Gründe für Nichtkompatibilität, indem neue Diagramme in der Configuration Manager-Konsole im **Arbeitsbereich „Überwachung“** verwendet werden.
 
-#### <a name="to-view-the-intune-compliance-charts"></a>So zeigen Sie Intune-Kompatibilitätsdiagramme an
-1. Wechseln Sie in der Configuration Manager-Konsole zu **Überwachung** > **Übersicht** > **Kompatibilitätseinstellungen**.
-2. Das Diagramm **Gesamtgerätekompatibilität** wird angezeigt.
-3. Klicken Sie auf den Knoten **Kompatibilitätsrichtlinien**, um die Diagramme **Gesamtgerätekompatibilität** und **Häufigste Gründe für Nichtkompatibilität** anzuzeigen.
 
-### <a name="limitations-of-intune-compliance-charts-in-tp-1609"></a>Einschränkungen der Intune-Kompatibilitätsdiagramme in TP 1609
-- Das Anzeigen der Detailinformationen für das Diagramm **Gesamtgerätekompatibilität** erzeugt derzeit einen Fehler.
-- Das Diagramm **Häufigste Gründe für Nichtkompatibilität** listet den Richtliniennamen und nicht die einzelnen Gründe für Nichtkompatibilität auf. Sie können auf die Richtlinie klicken, um einen Drilldown auszuführen und die Geräte anzuzeigen, die mit dieser Richtlinie nicht kompatibel sind.
+## <a name="intune-compliance-charts"></a>Graphiques de conformité Intune
+Dans cette version, vous pouvez obtenir un aperçu rapide de la conformité globale des appareils et les principales raisons de non-conformité à l’aide des nouveaux graphiques sous l’**espace de travail Analyse** dans la console Configuration Manager.
 
-### <a name="try-it-out"></a>Probieren Sie es aus
-Schließen Sie die folgenden Abschnitte der Reihe nach ab:
+#### <a name="to-view-the-intune-compliance-charts"></a>Pour afficher les graphiques de conformité Intune
+1. Dans la console Configuration Manager, accédez à **Analyse** > **Vue d’ensemble** > **Paramètres de compatibilité**.
+2. Le graphique **Overall Device Compliance** (Conformité globale des appareils) est affiché.
+3. Cliquez sur le nœud **Stratégies de conformité** pour afficher les graphiques **Overall Device Compliance** (Conformité globale des appareils) et **Top Non-Compliance Reasons** (Principales raisons de non-conformité).
 
-#### <a name="check-overall-compliance-chart"></a>Überprüfen des Diagramms „Gesamtkompatibilität“
-1. Fügen Sie zwei iOS-Kompatibilitätsrichtlinien in Configuration Manager hinzu. Eine Richtlinie sollte über eine Reihe von Einstellungen für Geräte verfügen (z.B. das Festlegen der PIN-Länge auf 6). Die andere Richtlinie sollte über eine andere Reihe von Einstellungen verfügen (z.B. die Komplexität der PIN). Die Richtlinieneinstellungen sollten sich nicht überlappen oder miteinander in Konflikt stehen.
-2. Stellen Sie die zwei Richtlinien für eine Reihe von Benutzern bereit.
-3. Registrieren Sie zwei iOS-Geräte in Intune mit demselben Benutzerkonto und einem Konto, das die Richtlinien im vorherigen Schritt erhalten hat. Die Geräte sollten nicht den Kriterien der Kompatibilitätsrichtlinie entsprechen.
-4. Überprüfen Sie in Configuration Manager das Diagramm **Gesamtgerätekompatibilität**. Beide Geräte sollten als nicht kompatibel gemeldet werden.
+### <a name="limitations-of-intune-compliance-charts-in-tp-1609"></a>Limitations des graphiques de conformité Intune dans la version d’évaluation technique 1609
+- L’exploration au niveau du détail pour le graphique **Overall Device Compliance** (Conformité globale des appareils) génère une erreur.
+- Le graphique **Top Non-compliance Reasons** (Principales raisons de non-conformité) affiche le nom de la stratégie et non les raisons de non-conformité individuelles. Vous pouvez cliquer sur la stratégie pour accéder à plus d’informations et afficher les appareils qui ne sont pas conformes pour cette stratégie.
+
+### <a name="try-it-out"></a>Essayez
+Complétez les sections suivantes dans l’ordre :
+
+#### <a name="check-overall-compliance-chart"></a>Examiner le graphique Overall Device Compliance (Conformité globale des appareils)
+1. Ajoutez au moins deux stratégies de conformité iOS dans Configuration Manager. Une stratégie doit avoir un ensemble de paramètres pour les appareils (par exemple, affectez la valeur 6 à la longueur du code confidentiel). L’autre stratégie doit avoir un autre ensemble de paramètres (par exemple, la complexité du code confidentiel). Les paramètres des stratégies ne doivent pas se chevaucher ni être en conflit.
+2. Déployez les deux stratégies sur un ensemble d’utilisateurs.
+3. Inscrivez deux appareils iOS dans Intune en utilisant le même compte d’utilisateur, et un compte qui a reçu les stratégies à l’étape précédente. Les appareils ne doivent pas répondre aux critères de la stratégie de conformité.
+4. Dans Configuration Manager, examinez le graphique **Overall Device Compliance** (Conformité globale des appareils). Les deux appareils doivent être signalés comme non conformes.
 <!-- 5. Click the **Non-compliant** section of the chart. Both devices should appear in the filtered view under **Assets and Compliance** > **Overview** > **Device**. -->
 
-#### <a name="check-the-top-non-compliance-reasons-chart"></a>Überprüfen des Diagramms „Häufigste Gründe für Nichtkompatibilität“
-5. Überprüfen Sie das Diagramm **Häufigste Gründe für Nichtkompatibilität**. In diesem Diagramm werden die 5 häufigsten Gründe für Nichtkompatibilität aufgeführt, wenn jedoch richtlinienübergreifend nur zwei Kompatibilitätseinstellungen festgelegt wurden, werden nur die häufigsten 2 Gründe für Nichtkompatibilität angezeigt.
-6. Klicken Sie auf einen der Abschnitte im Diagramm. Beide Geräte sollten in der gefilterten Ansicht unter **Bestand und Kompatibilität** > **Übersicht** > **Gerät** angezeigt werden.
+#### <a name="check-the-top-non-compliance-reasons-chart"></a>Examiner le graphique Top Non-compliance Reasons (Principales raisons de non-conformité)
+5. Examinez le graphique **Top Non-compliance Reasons** (Principales raisons de non-conformité). Ce graphique répertorie les 5 principales raisons de non-conformité mais, quand uniquement deux paramètres de compatibilité ont été définis sur les stratégies, seules les 2 principales raisons de non-conformité sont affichées.
+6. Cliquez sur l’une des sections dans le graphique. Les deux appareils doivent apparaître dans la vue filtrée sous **Ressources et Conformité** > **Vue d’ensemble** > **Appareil**.
 
-#### <a name="make-devices-compliant-and-check-the-charts"></a>Hersteller der Kompatibilität von Geräten und Überprüfen der Diagramme
-7. Stellen Sie für eines der Geräte die Kompatibilität mit einer der Richtlinien her. Überprüfen Sie erneut das Diagramm **Gesamtgerätekompatibilität**. Das Diagramm sollte ein kompatibles und ein nicht kompatibles Gerät anzeigen.
-8. Stellen Sie für das andere Gerät die Kompatibilität mit der gleichen Richtlinie her. Dadurch ist ein Gerät mit beiden Richtlinien und ein Gerät mit nur einer der Richtlinien kompatibel.
-9. Überprüfen Sie das Diagramm **Häufigste Gründe für Nichtkompatibilität**. Es sollte nur ein Grund für Nichtkompatibilität aufgelistet sein.
+#### <a name="make-devices-compliant-and-check-the-charts"></a>Rendre les appareils conformes et examiner les graphiques
+7. Rendez l’un des appareils conforme avec l’une des stratégies. Examinez de nouveau le graphique **Overall Device Compliance** (Conformité globale des appareils). Le graphique doit afficher un appareil conforme et un appareil non conforme.
+8. Rendez l’autre appareil conforme avec la même stratégie. Vous allez ainsi rendre un appareil conforme avec les deux stratégies et un appareil conforme avec uniquement l’une des stratégies.
+9. Examinez le graphique **Top Non-compliance Reasons** (Principales raisons de non-conformité). Une seule raison de non-conformité doit être répertoriée.
 <!--7. Click the **Compliant** section of the chart. Only the compliant device should appear in the filtered view. -->
 
 
 
 
 
-## <a name="see-also"></a>Siehe auch
-[Technical Preview für System Center Configuration Manager](../../core/get-started/technical-preview.md)
+## <a name="see-also"></a>Voir aussi
+[Technical Preview pour System Center Configuration Manager](../../core/get-started/technical-preview.md)

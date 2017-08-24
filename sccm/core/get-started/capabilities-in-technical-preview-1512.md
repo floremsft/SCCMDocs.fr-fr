@@ -1,6 +1,6 @@
 ---
-title: "Funktionen in Technical Preview 1512 für Configuration Manager"
-description: "Erfahren Sie mehr über Funktionen, die in System Center Configuration Manager Technical Preview 1512 zur Verfügung stehen."
+title: "Fonctionnalités de Technical Preview 1512 Configuration Manager"
+description: "Découvrez les fonctionnalités disponibles dans la version d’évaluation technique de System Center Configuration Manager, version 1512."
 ms.custom: na
 ms.date: 01/23/2017
 ms.prod: configuration-manager
@@ -18,76 +18,76 @@ robots: noindex,nofollow
 ms.openlocfilehash: 5cf8d54fbaa98a75ac2a875a23a43b1d3e5be0dd
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="capabilities-in-technical-preview-1512-for-system-center-configuration-manager"></a>Funktionen in System Center Configuration Manager Technical Preview 1512
+# <a name="capabilities-in-technical-preview-1512-for-system-center-configuration-manager"></a>Fonctionnalités dans la version d’évaluation technique 1512 de System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Technical Preview)*
+*S’applique à : System Center Configuration Manager (version d’évaluation technique)*
 
-In diesem Artikel werden die Funktionen erläutert, die in System Center Configuration Manager Technical Preview 1512 verfügbar sind. Sie können diese Version installieren, um neue Funktionen für Ihren Configuration Manager Technical Preview-Standort zu aktualisieren oder hinzuzufügen. Bevor Sie diese Version der Technical Preview installieren, lesen Sie das einführende Thema [Technical Preview für System Center Configuration Manager](technical-preview.md), um sich mit den allgemeinen Anforderungen und Einschränkungen bei der Verwendung einer Technical Preview vertraut zu machen, und zu erfahren, wie Sie Updates zwischen Versionen durchführen und Feedback zu den Features in einer Technical Preview geben können.  
+Cet article présente les fonctionnalités qui sont disponibles dans la version d’évaluation technique de System Center Configuration Manager, version 1512. Vous pouvez installer cette version pour mettre à jour et ajouter de nouvelles fonctionnalités à votre site de version d’évaluation technique de Configuration Manager. Avant d’installer cette version d’évaluation technique, passez en revue la rubrique de présentation, [Technical Preview pour System Center Configuration Manager](technical-preview.md), pour vous familiariser avec les conditions générales et les limitations d’utilisation d’une version d’évaluation technique, la mise à jour entre les versions et l’envoi de commentaires sur les fonctionnalités dans une version d’évaluation technique.  
 
- Im Folgenden werden neue Funktionen aufgelistet, die Sie mit dieser Version ausprobieren können.  
+ Vous trouverez ci-dessous les nouvelles fonctionnalités propres à cette version.  
 
-##  <a name="bkmk_devicehealth"></a> Nachweis der Geräteintegrität  
- Ab Technical Preview 1512 können Administratoren den Status des Windows 10-Nachweises zur Geräteintegrität in der Configuration Manager-Konsole anzeigen.  Diese Funktion steht für Configuration Manager und Configuration Manager mit Microsoft Intune zur Verfügung. Mit dem Nachweis der Geräteintegrität kann der Administrator sicherstellen, dass Clientcomputer über vertrauenswürdige BIOS-, TPM- und Bootsoftwarekonfigurationen verfügen. Damit Sie den Nachweis der Geräteintegration unterstützen, müssen die Clientgeräte Windows 10 mit aktiviertem TPM 2 ausführen. Der Nachweis der Geräteintegrität zeigt die Anzahl der Geräte an, die jeweils für Folgendes aktiviert sind:  
+##  <a name="bkmk_devicehealth"></a> Attestation de l’intégrité des appareils  
+ À partir de la version d’évaluation technique 1512, les administrateurs peuvent afficher l’état de l’attestation de l’intégrité des appareils Windows 10 dans la console Configuration Manager.  Cette fonctionnalité est disponible pour Configuration Manager et Configuration Manager avec Microsoft Intune. L’attestation de l’intégrité des appareils permet à l’administrateur de s’assurer que les ordinateurs clients ont des configurations de BIOS, de Module de plateforme sécurisée (TPM) et de logiciel de démarrage dignes de confiance. Pour prendre en charge l’attestation de l’intégrité des appareils, les appareils clients doivent exécuter Windows 10 avec le Module de plateforme sécurisée (TPM) 2 activé. L’attestation de l’intégrité des appareils affiche le nombre d’appareils activés pour chacun des éléments suivants :  
 
--   Antischadsoftware-Frühstart  
+-   Logiciel anti-programme malveillant à lancement anticipé  
 
 -   BitLocker  
 
--   Sicherer Start  
+-   Démarrage sécurisé  
 
--   Codeintegrität  
+-   Intégrité du code  
 
-Die Konsole zeigt außerdem die wichtigsten fehlenden Einstellungen für den Integrationsnachweis mit der Anzahl der Geräte an.  
+La console affiche également les principaux paramètres d’attestation de l’intégrité manquants avec le nombre d’appareils.  
 
-Wechseln Sie in der Configuration Manager-Konsole zum Arbeitsbereich **Überwachung**, klicken Sie auf den Knoten **Sicherheit** und anschließend auf **Integritätsnachweis**, um eine Vorschau des Nachweises der Geräteintegrität anzuzeigen.  
+Pour afficher l’attestation d’intégrité de l’appareil, dans la console Configuration Manager, accédez à l’espace de travail **Surveillance**, cliquez sur le nœud **Sécurité**, puis cliquez sur **Attestation d’intégrité**.  
 
-##  <a name="bkmk_viewterms"></a> Überwachung in der Konsole hinsichtlich der Geschäftsbedingungen  
-Ab Technical Preview 1512 können Sie beim Integrieren von Configuration Manager in Microsoft Intune die Configuration Manager-Konsole verwenden, um anzuzeigen, welche Benutzer die von der IT-Abteilung konfigurierten Geschäftsbedingungen akzeptiert haben und welche nicht.  
+##  <a name="bkmk_viewterms"></a> Surveillance des conditions générales dans la console  
+À compter de la version d’évaluation technique 1512, quand vous intégrez Configuration Manager avec Microsoft Intune, vous pouvez utiliser la console Configuration Manager pour afficher la liste des utilisateurs qui ont accepté les conditions générales configurées par votre service informatique et la liste de ceux qui ne les ont pas acceptées.  
 
-**So zeigen Sie eine Zusammenfassung an:**  
+**Pour afficher des informations de synthèse :**  
 
--   Wechseln Sie in der Configuration Manager-Konsole zu **Überwachung** > **Übersicht** > **Bereitstellungen**, und wählen Sie die Bereitstellung der Geschäftsbedingungen aus, die Sie anzeigen möchten.  
+-   Dans la console Configuration Manager, accédez à **Surveillance** > **Vue d’ensemble** > **Déploiements** et sélectionnez le déploiement de conditions générales que vous souhaitez afficher.  
 
-**So zeigen Sie ausführliche Informationen an:**  
+**Pour afficher des informations détaillées :**  
 
-1.  Wechseln Sie in der Configuration Manager-Konsole zu **Bestand und Kompatibilität** > **Übersicht** > **Kompatibilitätseinstellungen** > **Geschäftsbedingungen**, und wählen Sie dann die anzuzeigenden Geschäftsbedingungen aus.  
+1.  Dans la console Configuration Manager, accédez à **Ressources et Conformité** > **Vue d’ensemble** > **Paramètres de compatibilité** > **Conditions générales**, puis sélectionnez les conditions générales à afficher.  
 
-2.  Wählen Sie unten in der Konsole die Registerkarte **Bereitstellungen** und dann die Bereitstellung aus, und klicken Sie anschließend auf **Status anzeigen**.  
+2.  En bas de la console, sélectionnez l’onglet **Déploiements**, sélectionnez le déploiement, puis cliquez sur **Afficher l’état**.  
 
-##  <a name="bkmk_EPpolicy"></a> Verbesserungen an den Richtlinieneinstellungen für Endpoint Protection  
-In der Technical Preview 1512 haben wir die folgenden neuen Einstellungen zur Endpoint Protection-Richtlinie für Antischadsoftware hinzugefügt:  
+##  <a name="bkmk_EPpolicy"></a> Améliorations apportées aux paramètres de stratégie Endpoint Protection  
+Dans Technical Preview 1512, nous avons ajouté les nouveaux paramètres de stratégie de logiciel anti-programme malveillant Endpoint Protection suivants :  
 
--   Echtzeitschutz: **Potenziell unerwünschte Programme beim Herunterladen und vor der Installation blockieren**  
+-   Protection en temps réel : **Bloquer les applications potentiellement indésirables au téléchargement et avant l’installation**  
 
-    -   Potenziell unerwünschte Programme (Potential Unwanted Applications, PUA) stellen eine Klassifizierung der Bedrohung auf Basis des Ansehens und der forschungsorientierten Identifizierung dar. In den meisten Fällen handelt es sich um unerwünschte Programmbundler oder um ihre gebündelten Programme.  
+    -   Les applications potentiellement indésirables (PUA, Potential Unwanted Applications) sont une classification de menaces basée sur la réputation et l’identification pilotée par les recherches. En règle générale, il s’agit de programmes d’installation de logiciels indésirables ou de leurs applications groupées.  
 
-    -   Die Einstellung für die Schutzrichtlinie ist standardmäßig aktiviert (auf „Ja“ festgelegt). Wenn sie aktiviert ist, blockiert diese Einstellung das Herunterladen und Installieren von potenziell unerwünschten Programmen. Sie können jedoch bestimmte Dateien oder Ordner auf die spezifischen Anforderungen Ihrer Umgebung ausschließen.  
+    -   Le paramètre de stratégie de protection est activé par défaut (il a la valeur « Oui »). Quand il est activé, ce paramètre bloque les applications potentiellement indésirables au moment du téléchargement et de l’installation. Toutefois, vous pouvez exclure certains fichiers ou dossiers pour répondre aux besoins spécifiques de votre environnement.  
 
--   Überprüfungseinstellungen: **Bei Ausführung einer vollständigen Überprüfung zugeordnete Netzlaufwerke überprüfen**  
+-   Paramètres d’analyse : **Analyser les lecteurs réseau mappés lors d’une analyse complète**  
 
-    -   Diese Einstellung bietet dem Administrator eine höhere Genauigkeit, um bedarfsgesteuerte Überprüfungen von Netzwerkdateien ohne das Risiko zu gestatten, dass während einer vollständigen Überprüfung immer zugeordnete Netzlaufwerke überprüft werden.  
+    -   Ce paramètre offre à l’administrateur une granularité plus élevée et lui permet d’effectuer des analyses à la demande de fichiers réseau sans risquer de toujours analyser des lecteurs réseau mappés lors d’une analyse complète planifiée.  
 
-    -   Die Einstellung **Scannen von Netzwerkdateien** muss zunächst aktiviert werden („Ja“), damit diese Einstellung konfiguriert werden kann.  
+    -   Pour pouvoir configurer le paramètre **Analyser les fichiers réseau**, vous devez d’abord l’activer.  
 
-    -   Standardmäßig ist diese Einstellung auf „Nein“ festgelegt und bedeutet somit, dass bei einer vollständigen Überprüfung nicht auf zugeordnete Netzlaufwerke zugegriffen wird.  
+    -   Par défaut, ce paramètre est désactivé, ce qui signifie que l’analyse complète n’accède pas aux lecteurs réseau mappés.  
 
--   Einstellungen für automatische Übermittlung von Beispieldateien:  
+-   Paramètres d’envoi automatique d’exemples de fichiers :  
 
-     Das Modul für Antischadsoftware kann das Senden von Dateibeispielen an Microsoft anfordern, damit diese eingehender analysiert werden. Standardmäßig erfolgt immer eine Aufforderung, bevor diese Beispiele gesendet werden. Administratoren können jetzt die folgenden Einstellungen verwalten, um dieses Verhalten zu konfigurieren:  
+     Le moteur du logiciel anti-programme malveillant peut demander à ce que des exemples de fichiers soient envoyés à Microsoft pour une analyse plus approfondie. Par défaut, il affiche toujours une invite avant d’envoyer ces exemples. Les administrateurs peuvent désormais gérer les paramètres suivants pour configurer ce comportement :  
 
-    -   Erweitert: **Automatische Beispieldateiübermittlung aktivieren, um Microsoft bei der Ermittlung zu unterstützen, ob bestimmte Elemente schädlich sind**: Ändern Sie diese Einstellung in „Ja“, um die automatische Beispieldateiübermittlung zu aktivieren. Standardmäßig ist diese Einstellung auf „Nein“ festgelegt. Somit ist die automatische Beispieldateiübermittlung deaktiviert und Benutzer werden vor dem Senden von Beispielen entsprechend aufgefordert.   (Diese Einstellung wurde erstmals in System Center 2012 R2 Configuration Manager SP1 eingeführt.)  
+    -   Avancé : **Activer l’envoi automatique de fichier d’exemple pour aider Microsoft à déterminer si certains éléments détectés sont malveillants** : affectez à ce paramètre la valeur « Oui » pour activer l’envoi automatique d’exemple de fichier. Par défaut, ce paramètre a la valeur « Non », ce qui signifie que l’envoi automatique d’exemple de fichier est désactivé et que les utilisateurs sont invités à donner leur accord avant l’envoi des fichiers.   (Ce paramètre a été introduit pour la première fois dans System Center 2012 R2 Configuration Manager SP1.)  
 
-    -   Erweitert: **Änderung der Einstellungen für die automatische Beispieldateiübermittlung durch Benutzer zulassen**: Diese Einstellung bestimmt, ob ein Benutzer mit lokalen Administratorrechten auf einem Gerät die Einstellung für die automatische Beispieldateiübermittlung über die Clientbenutzeroberfläche ändern kann. Diese Einstellung ist standardmäßig auf „Nein“ festgelegt, d.h. die Einstellungen können nur in der Configuration Manager-Konsole geändert werden, und lokale Administratoren auf einem Gerät können diese Konfiguration nicht ändern.  
+    -   Avancé : **Autoriser les utilisateurs à modifier les paramètres d’envoi automatique du fichier d’exemple** : ce paramètre détermine si un utilisateur disposant de droits d’administrateur local sur un appareil peut modifier le paramètre d’envoi automatique du fichier d’exemple dans l’interface du client. Par défaut, ce paramètre a la valeur « Non », ce qui signifie que les paramètres ne peuvent être modifiés que dans la console Configuration Manager, et les administrateurs locaux d’un appareil ne peuvent pas modifier cette configuration.  
 
-         Folgendes zeigt z. B. die vom Administrator festgelegte Windows Defender-Einstellung in Windows 10 als aktiviert an, und dem Benutzer ist es nicht gestattet, diese zu ändern:  
+         L’exemple suivant montre le paramètre Windows Defender dans Windows 10 défini par l’administrateur comme activé, l’utilisateur n’étant pas autorisé à le modifier :  
 
          ![TechRef&#95;WinDefender](../../core/get-started/media/TechRef_WinDefender.png "TechRef_WinDefender")  
 
-    Darüber hinaus wird die vorhandene Einstellung **Dateien und Ordner ausschließen** im Abschnitt „Ausschlusseinstellungen“ der Endpoint Protection-Richtlinie für Antischadsoftware verbessert, um den Ausschluss von Geräten zuzulassen. Sie können jetzt z.B. Folgendes als Ausschluss angeben: **\device\mvfs** (für Dateisysteme mit mehreren Versionen). Die Richtlinie überprüft nicht den Gerätepfad. Die Endpoint Protection-Richtlinie wird dem Antischadsoftware-Modul auf dem Client bereitgestellt, das in der Lage sein muss, die Gerätezeichenfolge zu interpretieren.  
+    En outre, le paramètre **Exclure des fichiers et des dossiers** existant dans la section « Paramètres d’exclusions » de la stratégie de logiciel anti-programme malveillant d’Endpoint Protection a été amélioré pour autoriser les exclusions d’appareils. Par exemple, vous pouvez maintenant spécifier l’exclusion suivante : **\device\mvfs** (pour Multiversion File System). La stratégie ne valide pas le chemin de l’appareil. La stratégie Endpoint Protection est fournie au moteur anti-programme malveillant sur le client qui doit pouvoir interpréter la chaîne de l’appareil.  
 
-**Voraussetzungen für die Verwendung von Endpoint Protection-Richtlinien:**  
+**Configuration requise pour l’utilisation de stratégies Endpoint Protection :**  
 
-Vor der Verwendung von Endpoint Protection-Richtlinien müssen Sie den Endpoint Protection-Client mithilfe der Endpoint Protection-Clienteinstellungen installieren und verwalten. Dies erfolgt mit dem System Center Endpoint Protection-Client für Windows 7, Windows 8, Windows 8.1 oder mit Windows Defender für Windows 10. Weitere Informationen finden Sie unter [Endpoint Protection in System Center Configuration Manager](../../protect/deploy-use/endpoint-protection.md).  
+Pour pouvoir utiliser des stratégies Endpoint Protection, vous devez d’abord installer et gérer le client Endpoint Protection à l’aide des paramètres client Endpoint Protection. Cette opération s’effectue à l’aide du client System Center Endpoint Protection pour Windows 7, Windows 8, Windows 8.1 ou de Windows Defender managé pour Windows 10. Consultez [Endpoint Protection dans System Center Configuration Manager](../../protect/deploy-use/endpoint-protection.md).  

@@ -1,6 +1,6 @@
 ---
-title: Vorbereitung zur Installation von Standorten | Microsoft-Dokumentation
-description: Wenn Sie beabsichtigen, mehrere Configuration Manager-Standorte zu installieren, lesen Sie diese Informationen, um Zeit zu sparen und Fehler zu vermeiden.
+title: "Préparer l’installation de sites | Microsoft Docs"
+description: "Si vous avez l’intention d’installer plusieurs sites Configuration Manager, lisez ces informations pour vous aider à gagner du temps et éviter toute erreur."
 ms.custom: na
 ms.date: 3/1/2017
 ms.prod: configuration-manager
@@ -17,76 +17,76 @@ manager: angrobe
 ms.openlocfilehash: 829f2d44a9b8d203a5b753ebb6d8f759b1a05111
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="prepare-to-install-system-center-configuration-manager-sites"></a>Vorbereiten auf die Installation von System Center Configuration Manager-Standorten
+# <a name="prepare-to-install-system-center-configuration-manager-sites"></a>Préparer l’installation de sites System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Zur Vorbereitung auf eine erfolgreiche Bereitstellung von System Center Configuration Manager-Standorten machen Sie sich mit den Details in diesem Artikel vertraut. Durch diese Schritte können Sie während der Installation von mehreren Standorten Zeit sparen und Fehler vermeiden, nach denen möglicherweise einer oder mehrere Standorte neu installiert werden müssen.
+Pour préparer dans les meilleures conditions le déploiement d’un ou plusieurs sites System Center Configuration Manager, prenez connaissance des informations contenues dans cet article. Ces étapes peuvent vous faire gagner du temps durant l’installation de plusieurs sites et vous éviter des faux pas qui pourraient vous contraindre à réinstaller un ou plusieurs sites.
 
 > [!TIP]
-> Beim Verwalten des System Center Configuration Manager-Standorts und der Hierarchieinfrastruktur werden die Begriffe *Upgrade*, *Update* und *Installation* verwendet, um drei verschiedene Konzepte zu beschreiben. Erfahren Sie mehr über die Verwendung der Begriffe unter [Informationen zu Upgrade, Update und Installation für einen Standort und eine Hierarchieinfrastruktur](/sccm/core/understand/upgrade-update-install).
+> Lors de la gestion de l’infrastructure de site et de hiérarchie de System Center Configuration Manager, les termes *mise à niveau*, *mise à jour* et *installation* sont utilisés pour décrire trois concepts distincts. Pour connaître la signification et l’usage de chaque terme, consultez [À propos de la mise à niveau, de la mise à jour et de l’installation de l’infrastructure de site et de hiérarchie](/sccm/core/understand/upgrade-update-install).
 
-## <a name="bkmk_options"></a> Optionen für die Installation verschiedener Standorttypen
-Wenn Sie einen neuen Configuration Manager-Standort installieren, hängt die Version der Quelldateien, die Sie verwenden können, von der Version der Standorte ab, die sich bereits in der Hierarchie befinden (falls vorhanden). Die verfügbaren Installationsmethoden hängen vom jeweiligen Standorttyp ab, den Sie installieren möchten.  
+## <a name="bkmk_options"></a> Options d’installation de différents types de sites
+Quand vous installez une nouvelle version de Configuration Manager, la version des fichiers sources que vous pouvez utiliser dépend de la version des sites qui se trouvent déjà dans la hiérarchie (le cas échéant). Les méthodes d’installation disponibles dépendent du type de site que vous souhaitez installer.  
 
-Stellen Sie vor der Installation eines Standorts sicher, dass Sie Ihre Hierarchie geplant haben und den Standorttyp kennen, den Sie installieren möchten. Weitere Informationen finden Sie unter [Entwerfen einer Hierarchie von Standorten](../../../../core/plan-design/hierarchy/design-a-hierarchy-of-sites.md).
-
-
-### <a name="first-site"></a>Erster Standort
-Der erste Standort, den Sie in einer Hierarchie installieren, ist entweder ein eigenständiger primärer Standort oder ein Standort der zentralen Verwaltung.
-
-**Installieren von Medien**: Zur Installation eines Standorts der zentralen Verwaltung oder eines eigenständigen primären Standorts als ersten Standort in einer neuen Hierarchie benötigen Sie eine [Baselineversion](../../../../core/servers/manage/updates.md#bkmk_Baselines) von Configuration Manager. Installieren Sie den ersten Standort einer neuen Hierarchie nicht mit aktualisierten Quelldateien aus dem [Ordner CD.Latest](../../../../core/servers/manage/the-cd.latest-folder.md) eines beliebigen Standorts.
-
-**Installationsmethode**: Sie können entweder beide Standorttypen mithilfe des [Configuration Manager-Setup-Assistenten](../../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md) installieren, oder Sie können ein Skript für eine [Installation über die Befehlszeile mithilfe von Skripts](../../../../core/servers/deploy/install/use-a-command-line-to-install-sites.md) konfigurieren.
+Avant d’installer un site, veillez à élaborer le plan de votre hiérarchie et à déterminer le type de site que vous voulez installer. Pour plus d’informations, consultez [Concevoir une hiérarchie de sites](../../../../core/plan-design/hierarchy/design-a-hierarchy-of-sites.md).
 
 
-### <a name="additional-sites"></a>Zusätzliche Standorte
-Nachdem der erste Standort installiert ist, können Sie weitere Standorte zu einem beliebigen Zeitpunkt hinzufügen. Sie haben folgende Optionen, um Standorte hinzuzufügen (bis zu den [unterstützten Höchstgrenzen](../../../../core/plan-design/configs/size-and-scale-numbers.md)):
+### <a name="first-site"></a>Premier site
+Le premier site que vous installez dans une hiérarchie doit être un site principal autonome ou un site d’administration centrale.
 
-|Vorhandener Standort|Zusätzliche Standorttypen, die Sie installieren können|
+**Support d’installation** : pour installer un site d’administration centrale ou un site principal autonome comme premier site d’une nouvelle hiérarchie, vous devez [utiliser une version de base de référence](../../../../core/servers/manage/updates.md#bkmk_Baselines) de Configuration Manager. N’installez pas le premier site d’une nouvelle hiérarchie à l’aide de fichiers sources mis à jour extraits du [dossier CD.Latest](../../../../core/servers/manage/the-cd.latest-folder.md) d’un site.
+
+**Méthode d’installation** : vous pouvez installer l’un ou l’autre type de site en vous aidant de l’[Assistant Installation de Configuration Manager](../../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md). Vous pouvez aussi configurer un script à utiliser avec une [installation scriptée en ligne de commande](../../../../core/servers/deploy/install/use-a-command-line-to-install-sites.md).
+
+
+### <a name="additional-sites"></a>Sites supplémentaires
+Après avoir installé le site initial, vous pouvez à tout moment ajouter d’autres sites. Vous disposez des options suivantes pour ajouter des sites (jusqu’aux [limites autorisées](../../../../core/plan-design/configs/size-and-scale-numbers.md)) :
+
+|Site existant|Type de site supplémentaire que vous pouvez installer|
 |---|---|
-|Standort der zentralen Verwaltung|Untergeordneter primärer Standort|
-|Untergeordneter primärer Standort|Sekundärer Standort|
-|Eigenständiger primärer Standort|Sekundärer Standort (Sie können den primären Standort erweitern, wodurch der eigenständige primäre Standort in einen untergeordneten primären Standort konvertiert wird)|
+|Site d'administration centrale|Site principal enfant|
+|Site principal enfant|Site secondaire|
+|Site principal autonome|Site secondaire (vous pouvez étendre le site principal, ce qui convertit le site principal autonome en site principal enfant)|
 
-**Installieren von Medien**: Wenn Sie einen Standort der zentralen Verwaltung installieren, um einen eigenständigen primären Standort zu erweitern, oder einen neuen untergeordneten primären Standort in einer vorhandenen Hierarchie installieren, benötigen Sie Installationsmedien (die Quelldateien enthalten), die mit der Version der/des vorhandenen Standorte/s übereinstimmen.
+**Support d’installation** : quand vous installez un site d’administration centrale pour étendre un site principal autonome, ou que vous installez un nouveau site principal enfant dans une hiérarchie existante, vous devez utiliser le support d’installation (qui contient les fichiers sources) qui correspond à la version du ou des sites existants.
 
 > [!IMPORTANT]
-> Wenn Sie konsoleninterne Aktualisierungen installiert haben, die die Versionen der zuvor installierten Standorte geändert haben, verwenden Sie nicht die Originalinstallationsmedien. Verwenden Sie in diesem Szenario stattdessen Quelldateien aus dem [Ordner CD.Latest](../../../../core/servers/manage/the-cd.latest-folder.md) eines aktualisierten Standorts. Configuration Manager erfordert die Verwendung von Quelldateien, die mit der Version des bestehenden Standorts übereinstimmen, mit dem der neue Standort eine Verbindung herstellt.
+> Si vous avez installé des mises à jour dans la console qui ont changé la version des sites installés précédemment, n’utilisez pas le support d’installation d’origine. Utilisez plutôt les fichiers sources du [dossier CD.Latest](../../../../core/servers/manage/the-cd.latest-folder.md) d’un site mis à jour. Configuration Manager vous impose d’utiliser des fichiers sources qui correspondent à la version du site existant auquel votre nouveau site doit se connecter.
 
-Ein sekundärer Standort muss mithilfe der Configuration Manager-Konsole installiert werden. Auf diese Weise werden sekundäre Standorte immer mithilfe von Quelldateien aus dem übergeordneten primären Standort installiert.
+Un site secondaire doit être installé à partir de la console Configuration Manager. De cette façon, les sites secondaires sont toujours installés à l’aide des fichiers sources à partir du site principal parent.
 
-**Installationsmethode**: Die Methode, die Sie zum Installieren zusätzlicher Standorte verwenden, hängt vom Typ des Standorts ab, den Sie installieren möchten.
--   **Hinzufügen eines Standorts der zentralen Verwaltung**: Sie können den Configuration Manager-Setup-Assistenten oder eine skriptgesteuerte Befehlszeile verwenden, um den neuen Standort der zentralen Verwaltung als übergeordneten Standort für Ihren vorhandenen eigenständigen primären Standort zu installieren. Weitere Informationen finden Sie unter [Erweitern eines eigenständigen primären Standorts](../../../../core/servers/deploy/install/prerequisites-for-installing-sites.md#bkmk_expand).
--   **Hinzufügen eines untergeordneten primären Standorts**: Sie können den Configuration Manager-Setup-Assistenten oder eine Befehlszeileninstallation verwenden, um einen untergeordneten primären Standort unterhalb eines Standorts der zentralen Verwaltung hinzuzufügen.
--   **Hinzufügen eines sekundären Standorts**: Verwenden Sie die Configuration Manager-Konsole zur Installation eines sekundären Standorts als untergeordneten Standort unter einem primären Standort. Andere Methoden werden für das Hinzufügen sekundärer Standorte nicht unterstützt.
+**Méthode d’installation** : la méthode que vous utilisez pour installer des sites supplémentaires dépend du type de site que vous voulez installer.
+-   **Ajouter un site d’administration centrale** : vous pouvez utiliser l’Assistant Installation de Configuration Manager ou une ligne de commande scriptée pour installer le nouveau site d’administration centrale comme site parent de votre site principal autonome existant. Pour plus d’informations, consultez [Extension d’un site principal autonome](../../../../core/servers/deploy/install/prerequisites-for-installing-sites.md#bkmk_expand).
+-   **Ajouter un site principal enfant** : vous pouvez utiliser l’Assistant Installation de Configuration Manager ou une installation en ligne de commande pour ajouter un site principal enfant sous un site d’administration centrale.
+-   **Ajouter un site secondaire** : utilisez la console Configuration Manager pour installer un site secondaire comme site enfant sous un site principal. Les autres méthodes ne sont pas prises en charge pour l’ajout de sites secondaires.
 
-## <a name="bkmk_tasks"></a> Gängige vor dem Starten einer Installation auszuführende Tasks
--   **Vertrautmachen mit der Topologie der Hierarchie, die Sie für Ihre Bereitstellung verwenden**    
-Weitere Informationen finden Sie unter [Entwerfen einer Hierarchie von Standorten für System Center Configuration Manager](../../../../core/plan-design/hierarchy/design-a-hierarchy-of-sites.md).  
+## <a name="bkmk_tasks"></a>  Tâches courantes à effectuer avant de commencer une installation
+-   **Déterminer la topologie de la hiérarchie que vous allez utiliser pour votre déploiement**    
+Pour plus d’informations, consultez [Concevoir une hiérarchie de sites pour System Center Configuration Manager](../../../../core/plan-design/hierarchy/design-a-hierarchy-of-sites.md).  
 
--   **Vorbereiten und Konfigurieren von einzelnen Servern zum Erfüllen der Voraussetzungen und unterstützte Konfigurationen für die Verwendung mit Configuration Manager**         
-Weitere Informationen finden Sie unter [Site and site system prerequisites for System Center Configuration Manager](../../../../core/plan-design/configs/site-and-site-system-prerequisites.md) (Standort- und Standortsystemanforderungen für System Center Configuration Manager).  
+-   **Préparer et configurer des serveurs individuels pour respecter les prérequis et les configurations prises en charge en vue d’une utilisation avec Configuration Manager**         
+Pour plus d’informations, consultez [Prérequis des sites et systèmes de site](../../../../core/plan-design/configs/site-and-site-system-prerequisites.md).  
 
--   **Installation und Konfiguration von SQL Server zum Hosten der Standortdatenbank**     
-Weitere Informationen finden Sie unter [Unterstützung für SQL Server-Versionen für System Center Configuration Manager](../../../../core/plan-design/configs/support-for-sql-server-versions.md).  
+-   **Installer et configurer SQL Server pour héberger la base de données du site**     
+Pour plus d’informations, consultez [Prise en charge des versions de SQL Server pour System Center Configuration Manager](../../../../core/plan-design/configs/support-for-sql-server-versions.md).  
 
--   **Vorbereiten der Netzwerkumgebung zur Unterstützung von Configuration Manager**      
-Weitere Informationen finden Sie unter [Configure firewalls, ports, and domains to prepare for Configuration Manager (Konfigurieren von Firewalls, Ports und Domänen als Vorbereitung für Configuration Manager)](../../../../core/plan-design/network/configure-firewalls-ports-domains.md).  
+-   **Préparer votre environnement réseau pour prendre en charge Configuration Manager**      
+Pour plus d’informations, consultez [Configurer les pare-feu, les ports et les domaines pour préparer votre infrastructure pour Configuration Manager](../../../../core/plan-design/network/configure-firewalls-ports-domains.md).  
 
-- **Wenn Sie eine Public Key-Infrastruktur (PKI) verwenden möchten, bereiten Sie Ihre Infrastruktur und Zertifikate vor**      
-Weitere Informationen finden Sie unter [PKI-Zertifikatanforderungen für Configuration Manager](../../../../core/plan-design/network/pki-certificate-requirements.md).
+- **Si vous prévoyez d’utiliser une infrastructure à clé publique (PKI), préparer votre infrastructure et vos certificats**      
+Pour plus d’informations, consultez [Configuration requise des certificats PKI pour Configuration Manager](../../../../core/plan-design/network/pki-certificate-requirements.md).
 
--   **Installieren Sie die neuesten Sicherheitsupdates auf Computern, die Sie als Standortserver oder Standortsystemserver verwenden, und starten Sie diese wenn nötig neu**
+-   **Installer les dernières mises à jour de sécurité sur les ordinateurs que vous devez utiliser comme serveurs de site ou serveurs de système de site et les redémarrer si nécessaire**
 
-## <a name="bkmk_sitecodes"></a> Informationen zu Standortnamen und Standortcodes
-Mithilfe von Standortcodes und Standortnamen werden die Standorte einer Configuration Manager-Hierarchie identifiziert und verwaltet. In der Configuration Manager-Konsole werden Standortcode und Standortname im Format &lt;*Standortcode*\> - &lt;*Standortname*\> angezeigt. Jeder in Ihrer Hierarchie verwendete Standortcode muss eindeutig sein. Wenn Active Directory für Configuration Manager erweitert wurde und Daten an Ihren Standorten veröffentlicht werden, müssen die Standortcodes innerhalb der Active Directory-Gesamtstruktur eindeutig sein. Dies gilt auch dann, wenn sie in einer anderen Configuration Manager-Hierarchie verwendet werden oder in früheren Configuration Manager-Installationen verwendet wurden. Planen Sie die Standortcodes und Standortnamen sorgfältig, bevor Sie die Hierarchie bereitstellen.
+## <a name="bkmk_sitecodes"></a>  À propos des noms de site et des codes de site
+Les codes de site et les noms de site permettent d’identifier et de gérer les sites dans une hiérarchie Configuration Manager. Dans la console Configuration Manager, le code de site et le nom de site s’affichent au format &lt;*code_site*\> - &lt;*nom_site*\>. Chaque code de site que vous utilisez dans votre hiérarchie doit être unique. Si le schéma Active Directory est étendu pour Configuration Manager et que vos sites publient des données, les codes de site utilisés dans une forêt Active Directory doivent être uniques, même s’ils sont utilisés dans une autre hiérarchie Configuration Manager ou s’ils ont été utilisés dans des installations précédentes de Configuration Manager. Veillez à planifier correctement vos codes et noms de site avant de déployer votre hiérarchie.
 
-### <a name="specify-a-site-code-and-site-name"></a>Angeben eines Standortcodes und Standortnamens
-Während des Configuration Manager-Setups werden Sie dazu aufgefordert, einen Standortcode und einen Standortnamen für den Standort der zentralen Verwaltung sowie für jede primäre und sekundäre Standortinstallation anzugeben. Ein Standortcode muss jeden Standort in der Hierarchie eindeutig identifizieren. Da der Standortcode in Ordnernamen verwendet wird, dürfen keine der folgenden Namen für den Standortcode verwendet werden. Dazu zählen für Configuration Manager und Windows reservierte Namen wie:
+### <a name="specify-a-site-code-and-site-name"></a>Spécifier un code de site et un nom de site
+Quand vous exécutez le programme d’installation de Configuration Manager, vous êtes invité à fournir un code de site et un nom de site pour le site d’administration centrale, et pour l’installation de chaque site principal et secondaire. Un code de site doit identifier chaque site de façon unique dans la hiérarchie. Le code de site étant utilisé dans les noms de dossiers, n’utilisez jamais les noms suivants comme code de site, notamment les noms réservés à Configuration Manager et à Windows :
   -  AUX
   -  CON
   -  NUL
@@ -94,46 +94,46 @@ Während des Configuration Manager-Setups werden Sie dazu aufgefordert, einen St
   -  SMS
 
 > [!NOTE]
-> Das Configuration Manager-Setup überprüft nicht, ob ein Standortcode bereits verwendet wird.
+> Le programme d’installation de Configuration Manager ne vérifie pas si un code de site est déjà utilisé.
 
-Zum Eingeben des Standortcodes für einen Standort während des Configuration Manager-Setups müssen Sie drei alphanumerische Zeichen eingeben. Nur die Buchstaben *A* bis *Z* und die Ziffern *0* bis *9* sind in beliebiger Kombination in Standortcodes zulässig. Die Reihenfolge der Buchstaben oder Ziffern hat keine Auswirkungen auf die Kommunikation zwischen Standorten. Es ist beispielsweise nicht notwendig, den primären Standort mit *ABC* und den sekundären Standort mit *DEF* zu benennen.
+Pour entrer le code de site pour un site quand vous exécutez le programme d’installation de Configuration Manager, vous devez entrer trois caractères alphanumériques. Seules les lettres de *A* à *Z* et les nombres de *0* à *9*, dans n’importe quelle combinaison, sont autorisés dans les codes de site. La séquence de lettres ou de chiffres n'influe en rien sur la communication entre les sites. Par exemple, il n’est pas nécessaire de nommer un site principal *ABC* et un site secondaire *DEF*.
 
-Der Standortname dient als Anzeigename für den Standort. Sie können in Standortnamen nur die Zeichen *A* bis *Z*, *a* bis *z*, *0* bis *9* und den Bindestrich (*-*) verwenden.
+Le nom du site est un identificateur de nom convivial pour ce site. Vous pouvez utiliser uniquement les caractères de *A* à *Z*, de *a* à *z* et de *0* à *9*, ainsi que le tiret (*-*) dans les noms des sites.
 
 > [!IMPORTANT]
-> Eine Änderung des Standortcodes oder des Standortnamens nach der Installation des Standorts wird nicht unterstützt.
+> La modification du code de site ou du nom de site après l’installation du site n’est pas prise en charge.
 
-### <a name="reuse-a-site-code"></a>Wiederverwenden eines Standortcodes
-Standortcodes können nur einmal in einer Configuration Manager-Hierarchie für einen zentralen Verwaltungsstandort oder einen primären Standort verwendet werden, auch wenn der ursprüngliche Standort und Standortcode deinstalliert wurden. Wenn Sie einen bereits vorhandenen Standortcode verwenden, besteht die Gefahr, dass es in Ihrer Hierarchie zu Konflikten zwischen Objekt-IDs kommt. Sie können den Standortcode für einen sekundären Standort wiederverwenden, wenn diese in Ihrer Configuration Manager-Hierarchie oder in der Active Directory-Gesamtstruktur nicht mehr verwendet werden.
+### <a name="reuse-a-site-code"></a>Réutiliser un code de site
+Les codes de site ne peuvent pas être utilisés plusieurs fois dans une hiérarchie Configuration Manager pour un site d’administration centrale ou un site principal, même si le site et le code de site d’origine ont été désinstallés. Si vous réutilisez un code de site, vous risquez d’avoir des conflits d’ID d’objet dans votre hiérarchie. Vous pouvez réutiliser le code de site d’un site secondaire si ce site secondaire et le code de site ne sont plus utilisés dans votre hiérarchie Configuration Manager ou dans la forêt Active Directory.
 
-## <a name="limits-and-restrictions-for-installed-sites"></a>Limits und Einschränkungen für installierte Standorte
-Beachten Sie vor der Installation eines Standorts unbedingt die für Standorte und Standorthierarchien geltenden folgenden Einschränkungen:
--   Nachdem Setup abgeschlossen ist, können Sie die folgenden Standorteigenschaften nicht ändern, ohne den Standort zu deinstallieren und anschließend mit den neuen Werten erneut zu installieren:  
-  -   Installationsverzeichnis für Programmdateien  
-  -   Standortcode  
-  -   Standortbeschreibung  
--   Falls Ihre Hierarchie einen Standort der zentralen Verwaltung aufweist:  
-  -   Configuration Manager unterstützt nicht das Verschieben eines untergeordneten primären Standorts aus einer Hierarchie zum Erstellen eines eigenständigen primären Standorts oder zum Hinzufügen des Standorts zu einer anderen Hierarchie. Stattdessen müssen Sie den untergeordneten primären Standort deinstallieren und dann erneut als neuen eigenständigen primären Standort oder untergeordneten Standort des Standorts der zentralen Verwaltung von einer anderen Hierarchie installieren.  
+## <a name="limits-and-restrictions-for-installed-sites"></a>Limites et restrictions concernant les sites installés
+Avant d’installer un site, vous devez connaître les limitations suivantes qui s’appliquent aux sites et aux hiérarchies :
+-   Après l’exécution du programme d’installation, vous ne pouvez modifier les propriétés suivantes du site qu’en désinstallant le site et en le réinstallant avec les nouvelles valeurs :  
+  -   Répertoire d’installation des fichiers programmes  
+  -   Code de site  
+  -   Description du site  
+-   Si votre hiérarchie comprend un site d’administration centrale :  
+  -   Configuration Manager ne permet pas de retirer un site principal enfant d’une hiérarchie pour en faire un site principal autonome ou pour le rattacher à une autre hiérarchie. Au lieu de cela, vous devez désinstaller le site principal enfant et le réinstaller comme nouveau site principal autonome ou comme site enfant du site d’administration centrale d’une autre hiérarchie.  
 
 
-## <a name="bkmk_optionalsteps"></a> Optionale Schritte vor dem Ausführen des Setups
-**Führen Sie das [Setup-Downloadprogramm](../../../../core/servers/deploy/install/setup-downloader.md) manuell aus**
+## <a name="bkmk_optionalsteps"></a>  Étapes facultatives avant d’exécuter le programme d’installation
+**Exécuter manuellement le[Téléchargeur d’installation](../../../../core/servers/deploy/install/setup-downloader.md)**
 
-Sie können das Setup-Downloadprogramm ausführen, um die aktualisierten Setupdateien für Configuration Manager herunterzuladen. Wenn der Computer, auf dem Sie Setup ausführen möchten, nicht mit dem Internet verbunden ist oder Sie die Installation mehrerer Standortserver erwarten, erwägen Sie den Einsatz des Setup-Downloadprogramms zum Herunterladen der erforderlichen Updates in Setup. Zusätzliche Informationen:
--  Standardmäßig verbindet sich Setup mit dem Internet, um aktualisierte Setupdateien herunterzuladen.
--  Standardmäßig werden die Dateien im Ordner „Redist“ gespeichert.
--  Sie können Setup an einen Speicherort im Netzwerk verweisen, an dem Sie zuvor eine Kopie dieser Dateien gespeichert haben.
+Pour télécharger les fichiers d’installation mis à jour pour Configuration Manager, vous pouvez exécuter le Téléchargeur d’installation. Si l’ordinateur sur lequel vous voulez exécuter le programme d’installation n’est pas connecté à Internet, ou si vous prévoyez d’installer plusieurs serveurs de site, utilisez le Téléchargeur d’installation pour télécharger les mises à jour requises du programme d’installation. Voici des informations supplémentaires :
+-  Par défaut, le programme d’installation se connecte à Internet pour télécharger les fichiers du programme d’installation mis à jour.
+-  Par défaut, les fichiers sont stockés dans le dossier Redist.
+-  Vous pouvez diriger le programme d’installation vers un emplacement sur votre réseau où vous avez précédemment stocké une copie de ces fichiers.
 
-**Führen Sie die [Voraussetzungsprüfung](../../../../core/servers/deploy/install/prerequisite-checker.md)** manuell aus
+**Exécuter manuellement l’[Outil de vérification des conditions préalables](../../../../core/servers/deploy/install/prerequisite-checker.md)**
 
-Sie können die Voraussetzungsprüfung ausführen, um Probleme zu erkennen und zu beheben, bevor Sie mit dem Setup einen Standort und eine Standortsystemrolle auf einem Server installieren. Die Voraussetzungsprüfung trägt dazu bei, dass der Computer die Voraussetzungen zum Hosten des Standorts oder der Standortsystemrolle erfüllt. Zusätzliche Informationen:
- -  Setup führt die Voraussetzungsprüfung standardmäßig aus.
- -  Bei etwaigen Fehlern wird Setup angehalten, bis das Problem behoben ist.
+Pour identifier et résoudre les problèmes avant d’exécuter le programme d’installation pour installer un site et avant d’installer un rôle de système de site sur un serveur, vous pouvez exécuter l’Outil de vérification des prérequis. Cet outil permet de vérifier que l’ordinateur remplit les conditions requises pour héberger le site ou le rôle de système de site. Voici des informations supplémentaires :
+ -  Par défaut, le programme d’installation exécute l’Outil de vérification des prérequis.
+ -  En cas d’erreur, le programme d’installation s’arrête jusqu’à ce que le problème soit résolu.
 
-**Bestimmen optionaler Ports**
+**Identifier des ports facultatifs**
 
-Sie können optionale Ports bestimmen, die von Standortsystemen und Clients verwendet werden können. Zusätzliche Informationen:
- -  Standardmäßig verwenden Standortsysteme und Clients vordefinierte Ports zur Kommunikation.
- -  Während der Installation können Sie alternative Ports konfigurieren.
+Vous pouvez identifier des ports facultatifs pouvant être utilisés par les clients et les systèmes de site. Voici des informations supplémentaires :
+ -  Par défaut, les systèmes de site et les clients utilisent des ports prédéfinis pour communiquer.
+ -  Pendant l’installation, vous pouvez configurer d’autres ports.
 
- Weitere Informationen finden Sie unter [In System Center Configuration Manager verwendete Ports](../../../../core/plan-design/hierarchy/ports.md).
+ Pour plus d’informations, consultez [Ports utilisés dans System Center Configuration Manager](../../../../core/plan-design/hierarchy/ports.md).

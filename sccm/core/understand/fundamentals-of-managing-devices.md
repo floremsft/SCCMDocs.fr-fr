@@ -1,6 +1,6 @@
 ---
-title: "Grundlagen der Verwaltung von Geräten | Microsoft Docs"
-description: "Erfahren Sie, wie Sie Geräte mit System Center Configuration Manager verwalten."
+title: Notions de base de la gestion des appareils | Documents Microsoft
+description: "Découvrez comment gérer des appareils dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 12/04/2016
 ms.prod: configuration-manager
@@ -17,84 +17,84 @@ manager: angrobe
 ms.openlocfilehash: 45d84122a86da880268c93ecd994250df6b76c8a
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="fundamentals-of-managing-devices-with-system-center-configuration-manager"></a>Grundlagen der Verwaltung von Geräten mit System Center Configuration Manager
+# <a name="fundamentals-of-managing-devices-with-system-center-configuration-manager"></a>Notions de base de la gestion des appareils avec System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-System Center Configuration Manager kann zwei große Gruppen von Geräten verwalten:
+System Center Configuration Manager peut gérer deux grandes catégories d’appareils :
 
--   *Clients* sind Geräte wie Arbeitsstationen, Laptops, Server und mobile Geräte, auf denen die Configuration Manager-Clientsoftware installiert wird. Einige Verwaltungsfunktionen, z.B. Hardwareinventur, erfordern diese Clientsoftware.  
+-   Les *clients* sont des appareils comme les stations de travail, les ordinateurs portables, les serveurs et les appareils mobiles sur lesquels vous installez le logiciel client Configuration Manager. Certaines fonctions de gestion, comme l’inventaire matériel, nécessitent ce logiciel client.  
 
--   Zu *verwalteten Geräten* können *Clients* zählen, aber normalerweise handelt es sich um ein mobiles Gerät, auf dem die Configuration Manager-Clientsoftware nicht installiert ist. Auf dieser Art von Gerät erfolgt die Verwaltung mithilfe von Intune oder der in Configuration Manager integrierten lokalen Verwaltung mobiler Geräte.
+-   Les *appareils gérés* peuvent inclure des *clients*, mais il s’agit généralement d’un appareil mobile sur lequel le logiciel client Configuration Manager n’est pas installé. Sur ce type d’appareil, vous effectuez la gestion en utilisant Intune ou la fonctionnalité de gestion locale des appareils mobiles intégrée de Configuration Manager.
 
-Sie können Geräte außerdem nicht nur anhand des Clienttyps, sondern auch anhand des Benutzers gruppieren und identifizieren.
+Vous pouvez aussi regrouper et identifier des appareils en fonction de l’utilisateur, et pas seulement du type de client.
 
-## <a name="managing-devices-with-the-configuration-manager-client"></a>Verwalten von Geräten mit dem Configuration Manager-Client
+## <a name="managing-devices-with-the-configuration-manager-client"></a>Gestion des appareils avec le client Configuration Manager
 
-Die Configuration Manager-Clientsoftware kann auf zwei Weisen zum Verwalten von Geräten verwendet werden. Bei der ersten wird das Gerät zunächst in Ihrem Netzwerk ermittelt. Anschließend wird die Clientsoftware auf diesem Gerät bereitgestellt. Bei der zweiten wird die Clientsoftware manuell auf einem neuen Computer installiert, der dann Ihrem Standort beitritt, wenn dieser Ihrem Netzwerk beitritt. Um Geräte zu ermitteln, auf denen die Clientsoftware nicht installiert ist, verwenden Sie eine oder mehrere der integrierten Ermittlungsmethoden. Nachdem ein Gerät erkannt wurde, können Sie die Clientsoftware mithilfe einer von mehreren Methoden installieren. Informationen zur Ermittlung finden Sie unter [Ausführen der Ermittlung für System Center Configuration Manager](../../core/servers/deploy/configure/run-discovery.md).  
+Il existe deux façons d’utiliser le logiciel client Configuration Manager pour gérer un appareil. La première consiste à détecter l’appareil sur votre réseau, puis à déployer le logiciel client sur cet appareil. L’autre consiste à installer manuellement le logiciel client sur un nouvel ordinateur, puis à faire en sorte que cet ordinateur rejoigne votre site quand il rejoint votre réseau. Pour détecter les appareils sur lesquels le logiciel client n’est pas installé, exécutez une ou plusieurs des méthodes de découverte intégrées. Après la découverte d’un appareil, vous pouvez utiliser une des différentes méthodes disponibles pour installer le logiciel client. Pour plus d’informations sur l’utilisation de la découverte, consultez [Exécuter la découverte pour System Center Configuration Manager](../../core/servers/deploy/configure/run-discovery.md).  
 
- Nach der Ermittlung der Geräte, die die Ausführung der Configuration Manager-Clientsoftware unterstützen, können Sie die Software mithilfe einer von mehreren Methoden installieren. Nachdem die Software installiert und der Client einem primären Standort zugewiesen wurde, können Sie mit dem Verwalten des Geräts beginnen.  Es folgen gängige Installationsmethoden:
+ Après la découverte des appareils pris en charge pour exécuter le logiciel client Configuration Manager, vous pouvez installer le logiciel avec l’une des différentes méthodes disponibles. Une fois le logiciel installé et le client affecté à un site principal, vous pouvez commencer à gérer l’appareil.  Les méthodes d’installation courantes sont les suivantes :
 
- - Clientpushinstallation
+ - Installation Push du client.
 
- - Auf einem Softwareupdate basierende Installation
+ - Installation basée sur une mise à jour logicielle.
 
- - Gruppenrichtlinie
+ - Stratégie de groupe.
 
- - Manuelle Installation auf einem Computer
- - Hinzufügen des Clients zu einem Betriebssystemimage, das Sie bereitstellen  
-
-
- Nachdem der Client installiert wurde, können Sie die Aufgaben bei der Verwaltung von Geräten mithilfe von Sammlungen vereinfachen. Sammlungen sind Gruppen von Geräten oder Benutzern, die Sie erstellen, damit Sie sie als Gruppe verwalten können. Beispielsweise kann es vorkommen, dass Sie eine mobile Geräteanwendung auf allen mobilen Geräten installieren möchten, die von Configuration Manager registriert wurden. In diesem Fall können Sie die Sammlung „Alle mobilen Geräte“ verwenden.  
-
- Weitere Informationen finden Sie in den folgenden Themen:  
-
--   [Wählen einer Geräteverwaltungslösung für System Center Configuration Manager](../../core/plan-design/choose-a-device-management-solution.md)  
-
--   [Clientinstallationsmethoden in System Center Configuration Manager](../../core/clients/deploy/plan/client-installation-methods.md)  
-
--   [Einführung in Sammlungen in System Center Configuration Manager](../../core/clients/manage/collections/introduction-to-collections.md)  
-
-### <a name="client-settings"></a>Clienteinstellungen  
- Bei der Erstinstallation von Configuration Manager werden alle Clients in der Hierarchie mit den Clientstandardeinstellungen konfiguriert, die Sie ändern können. Die Clienteinstellungen umfassen diese Konfigurationsoptionen:
-
- -  Wie häufig die Geräte mit dem Standort kommunizieren
-
- -  Ob der Client für Softwareupdates und andere Verwaltungsvorgänge eingerichtet ist
-
- -  Ob Benutzer ihre mobilen Geräte so registrieren können, dass sie von Configuration Manager verwaltet werden  
-
-Sie können benutzerdefinierte Clienteinstellungen erstellen und diese dann Sammlungen zuweisen.  Elemente der Sammlung sind so konfiguriert, dass sie die benutzerdefinierten Einstellungen haben. Sie können auch mehrere benutzerdefinierte Clienteinstellungen erstellen, die in der angegebenen (numerischen) Reihenfolge angewendet werden.  Bei Konflikten setzt die Einstellung mit der niedrigsten Reihenfolgennummer die anderen Einstellungen außer Kraft.  
-
-Die folgende Abbildung zeigt ein Beispiel der Erstellung und Anwendung benutzerdefinierter Clienteinstellungen.  
-
- ![Clienteinstellungen](media/ClientSettings.gif)  
-
- Weitere Informationen zu Clienteinstellungen finden Sie unter  
-                [Konfigurieren von Clienteinstellungen in System Center Configuration Manager](../../core/clients/deploy/configure-client-settings.md) und [Informationen zu Clienteinstellungen in System Center Configuration Manager](../../core/clients/deploy/about-client-settings.md).
-
-## <a name="managing-devices-without-the-configuration-manager-client"></a>Verwalten von Geräten ohne Configuration Manager-Client  
- Configuration Manager unterstützt die Verwaltung einiger Geräte, auf denen die Clientsoftware nicht installiert ist und die nicht von Intune verwaltet werden. Weitere Informationen finden Sie unter [Verwalten mobiler Geräte mithilfe lokaler Infrastruktur in System Center Configuration Manager](../../mdm/understand/manage-mobile-devices-with-on-premises-infrastructure.md) und [Verwalten von mobilen Geräten mit System Center Configuration Manager und Exchange](../../mdm/deploy-use/manage-mobile-devices-with-exchange-activesync.md).  
-
-## <a name="user-based-management"></a>Benutzerbasierte Verwaltung  
- Configuration Manager unterstützt Sammlungen von Active Directory Domain Services-Benutzern. Wenn Sie eine Benutzersammlung verwenden, können Sie Software auf allen Computern installieren, die von Mitgliedern der Sammlung verwendet werden. Um sicherzustellen, dass die von Ihnen bereitgestellte Software nur auf den Geräten installiert wird, die als primäres Gerät eines Benutzers angegeben sind, richten Sie die Affinität zwischen Benutzer und Gerät ein. Ein Benutzer kann über ein oder mehrere primäre Geräte verfügen.  
-
- Eine der Möglichkeiten, mit denen Benutzer die Softwarebereitstellung auf ihren Geräten steuern können, ist die Verwendung der Clientbenutzeroberfläche **Softwarecenter**. Das **Softwarecenter** wird automatisch auf Clientcomputern installiert und über das **Startmenü** aufgerufen. Mithilfe des **Softwarecenters** können Benutzer ihre eigene Software verwalten und folgende Aufgaben ausführen:  
-
--   Installieren von Software  
-
--   Planen der automatischen Installation der Software außerhalb der Arbeitszeit  
-
--   Konfigurieren, wann die Installation von Software auf einem Gerät durch Configuration Manager zulässig ist  
-
--   Konfigurieren der Zugriffseinstellungen für die Remotesteuerung, wenn die Remotesteuerung in Configuration Manager eingerichtet ist  
-
--   Konfigurieren von Optionen für die Energieverwaltung, sofern diese von einem Administrator eingerichtet wurde  
+ - Installation manuelle sur un ordinateur.
+ - Client inclus comme partie d’une image de système d’exploitation que vous déployez.  
 
 
- Über einen Link im **Softwarecenter** können Benutzer den **Anwendungskatalog** aufrufen und dort Software durchsuchen, installieren und anfordern. Der **Anwendungskatalog** dient außerdem zum Konfigurieren von Voreinstellungen und Zurücksetzen mobiler Geräte. Sofern eingerichtet, geben Sie ein primäres Gerät für die Affinität zwischen Benutzer und Gerät an.   
+ Une fois le client installé, vous pouvez simplifier les tâches de gestion des appareils en utilisant des regroupements. Les regroupements sont des groupes d’appareils ou d’utilisateurs que vous créez afin de pouvoir les gérer en tant que groupe. Imaginons, par exemple, que vous souhaitez installer une application d’appareil mobile sur tous les appareils mobiles inscrits par Configuration Manager. Dans ce cas, vous pouvez utiliser le regroupement Tous les appareils mobiles.  
 
- Benutzer können auch in einer Intranet- oder Internetsitzung in einem Browser auf den **Anwendungskatalog** zugreifen.  
+ Pour plus d’informations, consultez ces rubriques :  
+
+-   [Choisir une solution de gestion d’appareils pour System Center Configuration Manager](../../core/plan-design/choose-a-device-management-solution.md)  
+
+-   [Méthodes d’installation du client dans System Center Configuration Manager](../../core/clients/deploy/plan/client-installation-methods.md)  
+
+-   [Présentation des regroupements dans System Center Configuration Manager](../../core/clients/manage/collections/introduction-to-collections.md)  
+
+### <a name="client-settings"></a>Paramètres du client  
+ Quand vous installez Configuration Manager pour la première fois, tous les clients de la hiérarchie sont configurés avec les paramètres client par défaut. Vous pouvez ensuite modifier ces paramètres, si vous le souhaitez. Les paramètres client comprennent des options de configuration suivantes :
+
+ -  Fréquence à laquelle les appareils communiquent avec le site.
+
+ -  Configuration éventuelle du client pour les mises à jour logicielles et autres opérations de gestion.
+
+ -  La possibilité, pour les utilisateurs, d’inscrire leurs appareils mobiles afin qu’ils soient gérés par Configuration Manager.  
+
+Vous pouvez créer des paramètres client personnalisés et les affecter ensuite à des regroupements.  Les membres du regroupement sont configurés pour utiliser les paramètres personnalisés, et vous pouvez créer plusieurs paramètres client personnalisés qui s’appliquent dans l’ordre (numérique) que vous spécifiez.  En cas de conflit entre paramètres, le paramètre dont le numéro d’ordre est le plus petit remplace les autres paramètres.  
+
+Le schéma ci-dessous montre comment créer et appliquer des paramètres client personnalisés.  
+
+ ![Paramètres du client](media/ClientSettings.gif)  
+
+ Pour en savoir plus sur les paramètres client, consultez  
+                [Guide pratique pour configurer les paramètres client dans System Center Configuration Manager](../../core/clients/deploy/configure-client-settings.md) et [À propos des paramètres client dans System Center Configuration Manager](../../core/clients/deploy/about-client-settings.md).
+
+## <a name="managing-devices-without-the-configuration-manager-client"></a>Gestion des appareils sans client Configuration Manager  
+ Configuration Manager prend en charge la gestion de certains appareils sur lesquels le logiciel client n’est pas installé et qui ne sont pas gérés par Intune. Pour plus d’informations, consultez [Gérer des appareils mobiles avec une infrastructure locale dans System Center Configuration Manager](../../mdm/understand/manage-mobile-devices-with-on-premises-infrastructure.md) et [Gérer des appareils mobiles à l’aide de System Center Configuration Manager et d’Exchange](../../mdm/deploy-use/manage-mobile-devices-with-exchange-activesync.md).  
+
+## <a name="user-based-management"></a>Gestion basée sur l’utilisateur  
+ Configuration Manager prend en charge les regroupements d’utilisateurs des services de domaine Active Directory. Quand vous utilisez un regroupement d’utilisateurs, vous pouvez installer le logiciel sur tous les ordinateurs utilisés par les membres du regroupement. Pour garantir que les logiciels que vous déployez s’installent uniquement sur les appareils spécifiés en tant qu’appareil principal d’un utilisateur, configurez l’affinité entre appareil et utilisateur. Un utilisateur peut posséder un ou plusieurs appareils principaux.  
+
+ L’une des façons pour les utilisateurs de contrôler leur expérience de déploiement de logiciels consiste à utiliser l’interface client du **Centre logiciel**. Le **Centre logiciel** est automatiquement installé sur les ordinateurs clients, et est exécuté à partir du menu **Démarrer**. Le **Centre logiciel** permet aux utilisateurs de gérer leurs propres logiciels et d’exécuter les tâches suivantes :  
+
+-   Installez le logiciel.  
+
+-   Planifiez l’installation automatique du logiciel en dehors des heures de travail.  
+
+-   Configurez le moment où Configuration Manager peut installer le logiciel sur un appareil.  
+
+-   Configurez les paramètres d’accès pour le contrôle à distance, si ce dernier est configuré dans Configuration Manager.  
+
+-   Configurez les options de gestion de l’alimentation si un administrateur configure cette option.  
+
+
+ Un lien disponible dans le **Centre logiciel** permet aux utilisateurs de se connecter au **catalogue d’applications**, où ils peuvent parcourir, installer et demander des logiciels. Le **catalogue d’applications** est également utilisé pour configurer les paramètres de préférence, pour réinitialiser des appareils mobiles et, quand il est configuré, pour spécifier un appareil principal pour l’affinité entre appareil et utilisateur.   
+
+ Les utilisateurs peuvent également accéder au **catalogue d’applications** par le biais d’un intranet de navigateur ou une session Internet.  

@@ -1,6 +1,6 @@
 ---
-title: "Szenarien für die Bereitstellung von Unternehmensbetriebssystemen | Microsoft-Dokumentation"
-description: "Erfahren Sie mehr über Szenarios zur Bereitstellung von Unternehmensbetriebssystemen mit System Center Configuration Manager."
+title: "Scénarios pour déployer des systèmes d’exploitation d’entreprise | Microsoft Docs"
+description: "En savoir plus sur différents scénarios de déploiement de systèmes d’exploitation d’entreprise avec System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,49 +17,49 @@ manager: angrobe
 ms.openlocfilehash: b1bea8b1b890f7c96a432835d28ad840a9b6873d
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="scenarios-to-deploy-enterprise-operating-systems-with-system-center-configuration-manager"></a>Szenarien zur Bereitstellung von Unternehmensbetriebssystemen mit System Center Configuration Manager
+# <a name="scenarios-to-deploy-enterprise-operating-systems-with-system-center-configuration-manager"></a>Scénarios pour déployer des systèmes d’exploitation d’entreprise avec System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Die folgenden Szenarios für die Betriebssystembereitstellung sind in System Center Configuration Manager verfügbar:  
+Les scénarios de déploiement de système d’exploitation suivants sont disponibles dans System Center Configuration Manager :  
 
--   [Durchführen eines Upgrades von Windows auf die neueste Version](upgrade-windows-to-the-latest-version.md): In diesem Szenario wird das Betriebssystem auf Computern upgegradet, auf denen derzeit Windows 7, Windows 8, Windows 8.1 oder Windows 10 ausgeführt wird. Bei dem Upgradevorgang werden die Anwendungen, Einstellungen und Benutzerdaten auf dem Computer beibehalten. Es liegen keine externen Abhängigkeiten vor, wie z. B. Windows ADK, und dieser Vorgang ist schneller und weniger fehleranfällig als herkömmliche Betriebssystembereitstellungen.  
+-   [Mettre à niveau Windows vers la dernière version](upgrade-windows-to-the-latest-version.md) : ce scénario met à niveau le système d’exploitation sur les ordinateurs qui exécutent actuellement Windows 7, Windows 8, Windows 8.1 ou Windows 10. Le processus de mise à niveau conserve les applications, les paramètres et les données utilisateur sur l’ordinateur. Il n’existe aucune dépendance externe, telle que Windows ADK, et ce processus est plus rapide et plus fiable que les déploiements de système d’exploitation traditionnels.  
 
--   [Aktualisieren eines vorhandenen Computers auf eine neue Windows-Version](refresh-an-existing-computer-with-a-new-version-of-windows.md): In diesem Szenario wird ein vorhandener Computer partitioniert und formatiert (gelöscht) und ein neues Betriebssystem auf dem Computer installiert. Sie können Einstellungen und Benutzerdaten nach der Installation des Betriebssystems migrieren.  
+-   [Actualiser un ordinateur existant avec une nouvelle version de Windows](refresh-an-existing-computer-with-a-new-version-of-windows.md) : ce scénario partitionne et formate (efface) un ordinateur existant, et installe un nouveau système d’exploitation sur l’ordinateur. Vous pouvez migrer les données et paramètres utilisateur une fois le système d’exploitation installé.  
 
--   [Installieren einer neuen Version von Windows auf einem neuen Computer (Bare Metal)](install-new-windows-version-new-computer-bare-metal.md): In diesem Szenario wird ein Betriebssystem auf einem neuen Computer installiert. Dies ist eine Neuinstallation des Betriebssystems ohne Migration von Einstellungen oder Benutzerdaten.  
+-   [Installer une nouvelle version de Windows sur un nouvel ordinateur (nu)](install-new-windows-version-new-computer-bare-metal.md) : ce scénario installe un système d’exploitation sur un nouvel ordinateur. Il s’agit d’une nouvelle installation du système d’exploitation. Elle n’inclut pas de paramètres ou de migration des données utilisateur.  
 
--   [Ersetzen eines vorhandenen Computers und Übertragen der Einstellungen](replace-an-existing-computer-and-transfer-settings.md): In diesem Szenario wird ein Betriebssystem auf einem neuen Computer installiert. Optional können Sie Einstellungen und Benutzerdaten vom alten Computer auf den neuen Computer migrieren.  
+-   [Remplacer un ordinateur existant et transférer les paramètres](replace-an-existing-computer-and-transfer-settings.md) : ce scénario installe un système d’exploitation sur un nouvel ordinateur. Si vous le souhaitez, vous pouvez migrer des données et des paramètres utilisateur de l’ancien ordinateur vers le nouvel ordinateur.  
 
-## <a name="things-to-consider-before-you-deploy-operating-system-images"></a>Zu berücksichtigende Aspekte vor der Bereitstellung von Betriebssystemabbildern  
- Es gibt bestimmte Aspekte, die vor der Bereitstellung eines Betriebssystems zu berücksichtigen sind.  
+## <a name="things-to-consider-before-you-deploy-operating-system-images"></a>Éléments à prendre en compte avant de déployer des images de système d’exploitation  
+ Vous devez prendre en compte certains éléments avant de déployer un système d’exploitation.  
 
-### <a name="operating-system-image-size"></a>Größe des Betriebssystemabbilds  
- Betriebssystemabbilder können sehr groß sein. Beispielsweise beträgt die Abbildgröße für Windows 7 mindestens 3 GB. Die Größe des Abbilds und die Anzahl der Computer, auf denen Sie das Betriebssystem gleichzeitig bereitstellen, haben Einfluss auf die Netzwerkleistung und die verfügbare Bandbreite. Stellen Sie sicher, dass Sie die Netzwerkleistung testen, um die Auswirkung besser einschätzen zu können, die die Abbildbereitstellung möglicherweise hat. Zudem erhalten Sie Informationen zum Zeitaufwand, der für das Abschließen der Bereitstellung erforderlich ist. Configuration Manager-Aktivitäten, die sich auf die Leistung des Netzwerks auswirken, umfassen die Verteilung des Images an einen Verteilungspunkt sowie die Verteilung des Images von einem Standort an einen anderen und das Herunterladen des Images auf den Configuration Manager-Client.  
+### <a name="operating-system-image-size"></a>Taille de l'image du système d'exploitation  
+ La taille de l'image d'un système d'exploitation peut être très grande. Par exemple, la taille de l'image de Windows 7 est de 3 gigaoctets (Go) au minimum. La taille de l'image et le nombre d'ordinateurs sur lesquels vous déployez simultanément le système d'exploitation affecte les performances du réseau et la bande passante disponible. Veillez à tester les performances du réseau pour mieux mesurer les effets du déploiement de l'image et le temps nécessaire pour terminer le déploiement. Les activités Configuration Manager qui affectent les performances du réseau incluent la distribution de l'image à un point de distribution, la distribution de l'image d'un site vers un autre et le téléchargement de l'image sur le client Configuration Manager.  
 
- Sie müssen auch genügend Speicherplatz auf den Verteilungspunkten einplanen, auf denen die Betriebssystemabbilder gehostet werden.  
+ Veillez également à prévoir un espace disque suffisant sur les points de distribution qui hébergent les images du système d'exploitation.  
 
-### <a name="client-cache-size"></a>Cachegröße des Clients  
- Wenn Inhalt von Configuration Manager-Clients heruntergeladen wird, wird automatisch der intelligente Hintergrundübertragungsdienst (Background Intelligent Transfer Service oder BITS) verwendet, sofern dieser verfügbar ist. Wenn Sie eine Tasksequenz bereitstellen, mit der ein Betriebssystem installiert wird, können Sie über eine Bereitstellungsoption festlegen, dass das vollständige Image von den Configuration Manager-Clients vor der Ausführung der Tasksequenz in einen lokalen Cache heruntergeladen wird.  
+### <a name="client-cache-size"></a>Taille de cache du client  
+ Lorsque les clients Configuration Manager téléchargent du contenu, ils utilisent automatiquement le protocole BITS (Background Intelligent Transfer Service), s'il est disponible. Lorsque vous déployez une séquence de tâches qui installe un système d'exploitation, vous pouvez définir une option sur le déploiement pour que les clients Configuration Manager téléchargent l'image complète dans un cache local avant d'exécuter la séquence de tâches.  
 
- Allgemein gilt: Wenn ein Betriebssystemimage (oder ein anderes Paket) von einem Configuration Manager-Client heruntergeladen werden muss und im Cache nicht genügend Platz verfügbar ist, werden die anderen Pakete im Cache vom Client überprüft, um zu bestimmen, ob durch das Löschen einiger oder aller ältesten Pakete genügend Speicherplatz für die Aufnahme des Images freigegeben wird. Wenn durch das Löschen von Paketen nicht genügend Speicherplatz freigegeben wird, wird das Abbild nicht vom Client heruntergeladen, und bei der Bereitstellung tritt ein Fehler auf. Das kann der Fall sein, wenn sich ein großes Paket im Cache befindet, das aufgrund der Konfiguration im Cache verbleiben muss. Falls durch das Löschen von Paketen genügend Speicherplatz im Cache freigegeben werden kann, wird der Löschvorgang vom Client ausgeführt, und das Abbild wird in den Cache heruntergeladen.  
+ En général, quand un client Configuration Manager doit télécharger une image de système d’exploitation (ou tout autre package), mais que l’espace est insuffisant dans le cache, le client vérifie les autres packages du cache pour déterminer si la suppression de tout ou partie des anciens packages permettra de libérer un espace disque suffisant pour placer l’image. Si la suppression des packages ne permet pas de libérer suffisamment d’espace disque, le client ne télécharge pas l’image et le déploiement échoue. Cela peut se produire si le cache comporte un package important configuré pour rester dans le cache. Si la suppression des packages permet de libérer suffisamment d’espace disque dans le cache, le client les supprime, puis télécharge l’image dans le cache.  
 
- Der Standardcache auf Configuration Manager-Clients ist möglicherweise für die meisten Betriebssystemimage-Bereitstellungen nicht groß genug. Wenn Sie das vollständige Image in den Clientcache herunterladen möchten, müssen Sie die Größe des Configuration Manager-Clientcaches auf den Zielcomputern so anpassen, dass das bereitzustellende Image darin aufgenommen werden kann.  
+ La taille du cache par défaut sur les clients Configuration Manager n'est peut-être pas suffisante pour la plupart des déploiements d'image de système d'exploitation. Si vous planifiez de télécharger l'image complète dans le cache du client, vous devez régler la taille du cache du client Configuration Manager sur les ordinateurs de destination pour qu'il puisse héberger la taille de l'image déployée.  
 
- Weitere Informationen finden Sie unter [Configure the Client Cache for Configuration Manager Clients](../../core/clients/manage/manage-clients.md#BKMK_ClientCache).  
+ Pour plus d'informations, voir [Configure the Client Cache for Configuration Manager Clients](../../core/clients/manage/manage-clients.md#BKMK_ClientCache).  
 
-## <a name="task-sequence-deployments"></a>Tasksequenzbereitstellungen  
- Mit der von Ihnen erstellten Tasksequenz kann das Betriebssystemimage auf eine der folgenden Weisen auf einem Configuration Manager-Clientcomputer bereitgestellt werden:  
+## <a name="task-sequence-deployments"></a>Déploiements de séquences de tâches  
+ La séquence de tâches que vous créez peut déployer l'image du système d'exploitation sur un ordinateur client Configuration Manager selon l'une des manières suivantes :  
 
--   Laden Sie das Image und dessen Inhalt zunächst von einem Verteilungspunkt in den Configuration Manager-Clientcache herunter, und installieren Sie dann das Image samt Inhalt.  
+-   Téléchargez d'abord l'image et son contenu dans le cache du client Configuration Manager à partir d'un point de distribution, puis installez-le.  
 
--   Installieren Sie das Abbild und dessen Inhalt unmittelbar vom Verteilungspunkt aus.  
+-   Installez immédiatement l'image et son contenu à partir du point de distribution.  
 
--   Installieren Sie das Abbild und dessen Inhalt im Bedarfsfall vom Verteilungspunkt aus.  
+-   Installer l'image et son contenu comme requis à partir du point de distribution  
 
- Wenn Sie die Bereitstellung für die Tasksequenz erstellen, wird das Image standardmäßig zunächst in den Configuration Manager-Clientcache heruntergeladen und dann installiert. Wenn Sie sich entscheiden, das Image vor dem Ausführen in den Configuration Manager-Clientcache herunterzuladen, und die Tasksequenz einen Schritt zum Neupartitionieren des Festplattenlaufwerks enthält, tritt bei diesem Schritt ein Fehler auf, weil der Inhalt des Configuration Manager-Clientcaches beim Partitionieren der Festplatte gelöscht wird. Wenn die Festplatte von der Tasksequenz neu partitioniert werden muss, müssen Sie die Abbildinstallation vom Verteilungspunkt ausführen. Verwenden Sie dazu bei der Bereitstellung der Tasksequenz die Option **Programm vom Verteilungspunkt ausführen**  .  
+ Par défaut, lorsque vous créez le déploiement pour la séquence de tâches, l'image est d'abord téléchargée dans le cache du client Configuration Manager, puis installée. Si vous choisissez de télécharger l’image dans le cache du client Configuration Manager avant de l’exécuter, et si la séquence de tâches contient une étape de repartitionnement du disque dur, cette étape de repartitionnement échoue car le partitionnement du disque dur efface le contenu du cache du client Configuration Manager. Si la séquence de tâches doit repartitionner le disque dur, vous devez exécuter l'installation de l'image depuis le point de distribution à l'aide de l'option **Exécuter le programme à partir du point de distribution**  quand vous déployez la séquence de tâches.  
 
- Weitere Informationen finden Sie unter [Deploy a task sequence](manage-task-sequences-to-automate-tasks.md#BKMK_DeployTS).  
+ Pour plus d'informations, voir [Déployer une séquence de tâches](manage-task-sequences-to-automate-tasks.md#BKMK_DeployTS).  

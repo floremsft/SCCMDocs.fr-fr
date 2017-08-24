@@ -1,6 +1,6 @@
 ---
-title: "Verwalten von Windows as a Service – Configuration Manager | Microsoft-Dokumentation"
-description: "Lassen Sie sich mit Configuration Manager den Status von Windows as a Service anzeigen, erstellen Sie Wartungspläne, um Bereitstellungsringe zu bilden, und lassen Sie sich Warnungen anzeigen, wenn Windows 10-Clients das Supportende erreichen."
+title: "Gérer Windows as a Service (WaaS) - Configuration Manager | Microsoft Docs"
+description: "Affichez l’état de Windows as a Service à l’aide de Configuration Manager, créez des plans de maintenance pour former des anneaux de déploiement et affichez des alertes lorsque la fin du support est proche pour les clients Windows 10."
 ms.custom: na
 ms.date: 03/26/2017
 ms.prod: configuration-manager
@@ -17,265 +17,265 @@ manager: angrobe
 ms.openlocfilehash: 2c2c0f81736c1b00ea487ae1261803a8105bb5e4
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-windows-as-a-service-using-system-center-configuration-manager"></a>Verwalten von Windows als Dienst mit System Center Configuration Manager
+# <a name="manage-windows-as-a-service-using-system-center-configuration-manager"></a>Gérer Windows as a Service (WaaS) à l’aide de System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
-
-
- In System Center Configuration Manager können Sie den Zustand von Windows as a Service in Ihrer Umgebung anzeigen, Wartungspläne zur Bildung von Bereitstellungsringen erstellen und sicherstellen, dass Windows 10 Current Branch-Systeme auf dem neuesten Stand gehalten werden, wenn neue Builds veröffentlicht werden. Außerdem können Sie Warnungen anzeigen, wenn sich Windows 10-Clients dem Ende des Supports für ihren Build von Current Branch oder von Current Branch for Business (CBB) nähern.  
-
- Weitere Informationen zu den Windows 10-Wartungsoptionen finden Sie unter  [Windows 10-Wartungsoptionen für Updates und Upgrades](https://technet.microsoft.com/library/mt598226\(v=vs.85\).aspx).  
-
- Gehen Sie wie in den folgenden Abschnitten beschrieben vor, um Windows als Dienst zu verwalten.
-
-##  <a name="BKMK_Prerequisites"></a> Voraussetzungen  
- Um Daten im Windows 10-Wartungsdashboard anzuzeigen, gehen Sie wie folgt vor:  
-
--   Auf Windows 10-Computern müssen Configuration Manager-Softwareupdates mit Windows Server Update Services (WSUS) für die Verwaltung von Softwareupdates verwendet werden. Wenn auf Computern Windows Update für Unternehmen (oder Windows-Insider) für die Verwaltung von Softwareupdates verwendet wird, erfolgt in Windows 10-Wartungsplänen keine Auswertung des Computers. Weitere Informationen finden Sie unter [Integration with Windows Update for Business in Windows 10](../../sum/deploy-use/integrate-windows-update-for-business-windows-10.md).  
-
--   Auf den Softwareupdatepunkten und Standortservern muss WSUS 4.0 mit [Hotfix 3095113](https://support.microsoft.com/kb/3095113) installiert sein. Dadurch wird die Softwareupdateklassifizierung **Upgrades** hinzugefügt. Weitere Informationen finden Sie unter [Prerequisites for software updates (Voraussetzungen für Softwareupdates)](../../sum/plan-design/prerequisites-for-software-updates.md).  
-
--   WSUS 4.0 mit dem [Hotfix 3159706](https://support.microsoft.com/kb/3159706) muss auf Ihren Softwareupdatepunkten und Standortservern installiert sein, um ein Upgrade von Computern auf Windows 10 Anniversary Update sowie Unterversionen durchzuführen. Im Support-Artikel werden manuelle Schritte beschrieben, die Sie ausführen müssen, um diesen Hotfix zu installieren. Weitere Informationen finden Sie im Blog [Enterprise Mobility and Security Blog](https://blogs.technet.microsoft.com/enterprisemobility/2016/08/05/update-your-configmgr-1606-sup-servers-to-deploy-the-windows-10-anniversary-update/).
-
--   Aktivieren Sie die Frequenzermittlung. Die im Windows 10-Wartungsdashboard angezeigten Daten werden mithilfe der Ermittlung gesammelt. Weitere Informationen finden Sie unter [Configure Heartbeat Discovery](../../core/servers/deploy/configure/configure-discovery-methods.md#a-namebkmkconfighbdisca-configure-heartbeat-discovery).  
-
-     Die folgenden Branch- und Buildinformationen zu Windows 10 werden ermittelt und in den folgenden Attributen gespeichert:  
-
-    -   **Bereitstellungsoption für Betriebssystem**: Gibt die Betriebssystem-Verzweigung an. Beispiel: **0** = CB (keine Upgrades zum Aufschieben), **1** = CBB (Upgrades aufschieben), **2** = Long Term Servicing Branch (LTSB)
-
-    -   **Betriebssystembuild**: Gibt den Betriebssystembuild an. Beispiel: **10.0.10240** (RTM) oder **10.0.10586** (Version 1511)  
-
--   Der Dienstverbindungspunkt muss installiert und für den Modus **Online, dauerhafte Verbindung** konfiguriert werden, um Daten im Windows 10-Wartungsdashboard anzuzeigen. Wenn Sie im Offlinemodus arbeiten, werden Datenaktualisierungen erst dann im Dashboard angezeigt, wenn Sie Configuration Manager-Wartungsupdates erhalten.   
-     Weitere Informationen finden Sie unter [About the service connection point (Informationen zum Dienstverbindungspunkt)](../../core/servers/deploy/configure/about-the-service-connection-point.md).  
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
--   Auf dem Computer, auf dem die Configuration Manager-Konsole ausgeführt wird, muss Internet Explorer 9 installiert sein.  
+ Dans System Center Configuration Manager, vous pouvez afficher l’état de Windows as a Service dans votre environnement, créer des plans de maintenance pour établir des anneaux de déploiement et vous assurer que vos systèmes Current Branch Windows 10 sont mis à jour avec les nouvelles builds publiées, mais aussi afficher des alertes à l’approche de l’expiration du support des builds de la branche CB (Current Branch) ou CBB (Current Branch for Business) pour les clients Windows 10.  
 
--   Softwareupdates müssen konfiguriert und synchronisiert werden. Windows 10-Featureupgrades sind erst dann in der Configuration Manager-Konsole verfügbar, wenn Sie die Klassifizierung **Upgrades** ausgewählt und Softwareupdates synchronisiert haben. Weitere Informationen finden Sie unter [Prepare for software updates management (Vorbereiten der Softwareudateverwaltung)](../../sum/get-started/prepare-for-software-updates-management.md).  
+ Pour plus d’informations sur les options de maintenance de Windows 10, consultez  [Options de maintenance de Windows 10 pour les mises à jour et les mises à niveau](https://technet.microsoft.com/library/mt598226\(v=vs.85\).aspx).  
 
-##  <a name="BKMK_ServicingDashboard"></a> Windows 10-Wartungsdashboard  
- Das Windows 10-Wartungsdashboard stellt Informationen zu Windows 10-Computern in Ihrer Umgebung, aktive Wartungspläne, Informationen zu Kompatibilität usw. bereit. Damit Daten im Windows 10-Wartungsdashboard angezeigt werden, muss der Dienstverbindungspunkt installiert sein. Das Dashboard verfügt über die folgenden Kacheln:  
+ Aidez-vous des informations des sections suivantes pour gérer Windows as a Service.
 
--   **Kachel „Windows 10-Verwendung“**: Enthält eine Aufschlüsselung der öffentlichen Builds von Windows 10. Windows Insider-Builds sind unter **Sonstige** aufgelistet, genau wie alle Builds, die Ihrem Standort noch nicht bekannt sind. Der Dienstverbindungspunkt lädt die Metadaten herunter, mit denen er über die Windows-Builds informiert wird. Anschließend werden diese Daten mit Ermittlungsdaten verglichen.  
+##  <a name="BKMK_Prerequisites"></a> Conditions préalables  
+ Pour afficher les données dans le tableau de bord de maintenance de Windows 10, vous devez procéder comme suit :  
 
--   **Kachel “Windows 10-Ringe“**: Enthält eine Aufschlüsselung von Windows 10 nach Branch und Bereitschaftsstatus. Das Segment „LTSB“ umfasst alle LTSB-Versionen (während auf der ersten Kachel eine Aufschlüsselung in die verschiedenen Versionen erfolgt. Beispiel: Windows 10 LTSB 2015. Das Segment **Release Ready** entspricht CB, und das Segment **Business Ready** entspricht CBB.  
+-   Les ordinateurs Windows 10 doivent utiliser les mises à jour logicielles de Configuration Manager avec les services WSUS (Windows Server Update Services) pour la gestion des mises à jour logicielles. Quand un ordinateur utilise Windows Update for Business (ou Windows Insiders) pour la gestion des mises à jour logicielles, il n’est pas évalué dans les plans de maintenance de Windows 10. Pour plus d'informations, voir [Intégration avec Windows Update for Business dans Windows 10](../../sum/deploy-use/integrate-windows-update-for-business-windows-10.md).  
 
--   **Kachel „Wartungsplan erstellen“**: Bietet eine schnelle Möglichkeit zum Erstellen eines Wartungsplans. Sie geben den Namen, die Sammlung (angezeigt werden nur die zehn kleinsten Sammlungen), das Bereitstellungspaket (angezeigt werden nur die zehn Pakete, die zuletzt geändert wurden) und den Bereitschaftsstatus an. Für die anderen Einstellungen werden Standardwerte verwendet. Klicken Sie auf **Erweiterte Einstellungen** , um den Assistenten zum Erstellen eines Wartungsplans zu starten, in dem Sie alle Einstellungen für den Wartungsplan konfigurieren können.  
+-   WSUS 4.0 avec le [correctif logiciel 3095113](https://support.microsoft.com/kb/3095113) doit être installé sur les points de mise à jour logicielle et les serveurs de site. Ceci ajoute la classification des mises à jour logicielles **Mises à niveau** . Pour plus d’informations, consultez [Prérequis pour les mises à jour logicielles](../../sum/plan-design/prerequisites-for-software-updates.md).  
 
--   **Kachel „Abgelaufen“**: Zeigt den Prozentsatz der Geräte mit einem abgelaufenen Build von Windows 10 an. Configuration Manager ermittelt den Prozentsatz anhand der Metadaten, die der Dienstverbindungspunkt herunterlädt, und vergleicht ihn mit Ermittlungsdaten. Ein Build, das nach Ablauf seiner Lebensdauer keine monatlichen kumulativen Updates, einschließlich Sicherheitsupdates, erhält. Die Computer in dieser Kategorie sollte auf die nächste Buildversion aktualisiert werden. Configuration Manager rundet auf die nächste ganze Zahl auf. Wenn Sie z. B. über rund 10.000 Computer verfügen, aber nur einen mit einem abgelaufenen Build, zeigt die Kachel 1 % an.  
+-   WSUS 4.0 avec le [correctif logiciel 3159706](https://support.microsoft.com/kb/3159706) doit être installé sur les points de mise à jour logicielle et les serveurs de site pour mettre à niveau les ordinateurs avec la mise à jour anniversaire Windows 10 ou une version ultérieure. Pour installer ce correctif logiciel, vous devez effectuer manuellement certaines étapes, comme décrit dans l’article du support technique. Pour plus d’informations, consultez le [Blog de l’équipe Enterprise Mobility and Security](https://blogs.technet.microsoft.com/enterprisemobility/2016/08/05/update-your-configmgr-1606-sup-servers-to-deploy-the-windows-10-anniversary-update/).
 
--   **Kachel „Bald ablaufend“**: Zeigt, ähnlich wie die Kachel **Abgelaufen** , den Prozentsatz der Computer mit einem Build an, dessen Lebensdauer in Kürze abläuft (innerhalb von ca. vier Monaten). Configuration Manager rundet auf die nächste ganze Zahl auf.  
+-   Activez la découverte par pulsations d’inventaire. Les données affichées dans le tableau de bord de maintenance de Windows 10 sont trouvées à l’aide de la détection. Pour plus d’informations, consultez [Configurer la découverte par pulsations d’inventaire](../../core/servers/deploy/configure/configure-discovery-methods.md#a-namebkmkconfighbdisca-configure-heartbeat-discovery).  
 
--   **Kachel „Warnungen“**: Zeigt aktive Warnungen an.  
+     Les informations de branche et de build Windows 10 suivantes sont découvertes et stockées dans les attributs suivants :  
 
--   **Kachel „Wartungsplanüberwachung“**: Zeigt die Wartungspläne, die Sie erstellt haben, zusammen mit einem entsprechenden Kompatibilitätsdiagramm an. Dadurch erhalten Sie einen schnellen Überblick über den aktuellen Zustand der Wartungsplanbereitstellungen. Wenn ein früherer Bereitstellungsring Ihre Erwartungen hinsichtlich der Kompatibilität erfüllt hat, können Sie einen späteren Wartungsplan (Bereitstellungsring) auswählen und auf **Jetzt bereitstellen** klicken, anstatt zu warten, bis die Wartungsplanregeln automatisch ausgelöst werden.  
+    -   **Branche de disponibilité du système d’exploitation** : spécifie la branche du système d’exploitation. Par exemple, **0** = branche CB (ne pas différer les mises à niveau), **1** = branche CBB (différer les mises à niveau), **2** = branche LTSB (Long Term Servicing Branch)
 
--   **Kachel „Windows 10-Builds“**: Die Anzeige ist eine feste Imagezeitachse mit einer Übersicht der bisher veröffentlichten Windows 10-Builds. Sie bietet Ihnen einen allgemeinen Überblick darüber, wann Builds in die verschiedenen Zustände übergehen.  
+    -   **Build du système d’exploitation** : spécifie le numéro de build du système d’exploitation. Par exemple, **10.0.10240** (RTM) ou **10.0.10586** (version 1511)  
+
+-   Le point de connexion de service doit être installé et configuré pour le mode **En ligne, connexion permanente** pour afficher des données dans le tableau de bord de maintenance de Windows 10. En mode hors connexion, vous ne voyez pas les mises à jour des données dans le tableau de bord tant que vous n’avez pas obtenu les mises à jour de maintenance pour Configuration Manager.   
+     Pour plus d’informations, consultez [À propos du point de connexion de service](../../core/servers/deploy/configure/about-the-service-connection-point.md).  
+
+
+-   Internet Explorer 9 ou version ultérieure doit être installé sur l’ordinateur qui exécute la console Configuration Manager.  
+
+-   Les mises à jour logicielles doivent être configurées et synchronisées. Vous devez sélectionner la classification **Mises à niveau** et synchroniser les mises à jour logicielles pour que les mises à niveau de fonctionnalités Windows 10 soient disponibles dans la console Configuration Manager. Pour plus d’informations, consultez [Préparer la gestion des mises à jour logicielles](../../sum/get-started/prepare-for-software-updates-management.md).  
+
+##  <a name="BKMK_ServicingDashboard"></a> Tableau de bord de maintenance de Windows 10  
+ Le tableau de bord de maintenance de Windows 10 fournit des informations sur les ordinateurs Windows 10 de votre environnement, les plans de maintenance actifs, les informations de conformité et ainsi de suite. Les données du tableau de bord de maintenance de Windows 10 dépendent de l’installation du point de connexion de service. Le tableau de bord comporte les vignettes suivantes :  
+
+-   **Vignette Utilisation Windows 10**: fournit des informations détaillées sur les builds publiques de Windows 10. Les builds Windows Insiders sont répertoriées comme **autres** , de même que celles qui ne sont pas encore connues de votre site. Le point de connexion de service télécharge les métadonnées qui l’informent quant aux builds Windows, puis ces données sont comparées aux données de découverte.  
+
+-   **Vignette Boucles Windows 10**: fournit une vue détaillée de Windows 10 par branche et état de préparation. Le segment LTSB correspond à toutes les versions LTSB (tandis que la première vignette répartit les informations d’après les versions spécifiques. Par exemple, Windows 10 LTSB 2015. Le segment **Release Ready** correspond à CB et le segment **Business Ready** correspond à CBB.  
+
+-   **Vignette Créer un plan de maintenance**: permet de créer rapidement un plan de maintenance. Vous spécifiez le nom, le regroupement (seuls les 10 principaux regroupements sont affichés par taille, le plus petit en premier), le package de déploiement (seuls les 10 derniers packages modifiés sont affichés) et l’état de préparation. Des valeurs par défaut sont utilisées pour les autres paramètres. Cliquez sur **Paramètres avancés** pour démarrer l’Assistant Créer un plan de maintenance, dans lequel vous pouvez configurer tous les paramètres du plan de maintenance.  
+
+-   **Vignette Expiré**: affiche le pourcentage d’appareils qui utilisent une build de Windows 10 qui est au-delà de sa fin de vie. Configuration Manager détermine ce pourcentage à partir des métadonnées téléchargées par le point de connexion de service et le compare aux données de découverte. Une build qui est au-delà de sa fin de vie ne reçoit plus de mises à jour cumulatives mensuelles, qui comprennent des mises à jour de sécurité. Vous devez mettre à niveau les ordinateurs de cette catégorie vers la version de build suivante. Configuration Manager arrondit au nombre entier supérieur. Par exemple, si vous avez 10 000 ordinateurs et qu’un seul d’entre eux utilise une build qui a expiré, la vignette affiche 1 %.  
+
+-   **Vignette Expiration proche**: affiche le pourcentage d’ordinateurs qui utilisent une build qui est proche de sa fin de vie (dans les quatre mois qui précèdent, environ), de manière analogue à la vignette **Expiré** . Configuration Manager arrondit au nombre entier supérieur.  
+
+-   **Vignette Alertes**: affiche les alertes actives.  
+
+-   **Vignette Surveillance du plan de maintenance**: affiche les plans de maintenance que vous avez créés et un graphique de conformité pour chacun. Cela donne un aperçu rapide de l’état actuel des déploiements de plan de maintenance. Si une boucle de déploiement précédente répond à vos attentes en matière de conformité, vous pouvez sélectionner un plan de maintenance (boucle de déploiement) ultérieur et cliquer sur **Déployer maintenant** au lieu d’attendre que les règles du plan de maintenance soient déclenchées automatiquement.  
+
+-   **Vignette Builds Windows 10**: affiche une chronologie fixe qui fournit une vue d’ensemble des builds Windows 10 actuellement publiées, et donne une idée générale du moment où les builds passeront à différents états.  
 
 > [!IMPORTANT]  
->  Die im Windows 10-Wartungsdashboard angezeigten Informationen (z. B. der Supportlebenszyklus für Windows 10-Versionen) dienen lediglich der Arbeitserleichterung und sind nur für die Verwendung innerhalb Ihres Unternehmens bestimmt. Sie sollten sich im Hinblick auf die Updatekompatibilität nicht ausschließlich auf diese Informationen verlassen. Überprüfen Sie stets die Richtigkeit der bereitgestellten Informationen.  
+>  Les informations affichées dans le tableau de bord de maintenance de Windows 10 (telles que le cycle de vie de prise en charge des versions de Windows 10) sont fournies à des fins de commodité et destinées uniquement à une utilisation en interne dans votre société. Vous ne devez pas vous fier uniquement à ces informations pour confirmer la conformité des mises à jour. Veillez à vérifier l’exactitude des informations qui vous sont fournies.  
 
-## <a name="servicing-plan-workflow"></a>Wartungsplanworkflow  
- Windows 10-Wartungspläne in Configuration Manager ähneln Regeln zur automatischen Bereitstellung von Softwareupdates. Sie erstellen einen Wartungsplan mit den folgenden Kriterien, die von Configuration Manager ausgewertet werden:  
+## <a name="servicing-plan-workflow"></a>Flux de travail de plan de maintenance  
+ Les plans de maintenance de Windows 10 dans Configuration Manager s’apparentent à des règles de déploiement automatique pour les mises à jour logicielles. Vous créez un plan de maintenance avec les critères suivants évalués par Configuration Manager :  
 
--   **Klassifizierung „Upgrades“:**Nur Updates, die zur Klassifizierung **Upgrades** gehören, werden ausgewertet.  
+-   **Classification Mises à niveau**: seules les mises à jour figurant dans la classification **Mises à niveau** sont évaluées.  
 
--   **Bereitschaftsstatus**: Der im Wartungsplan definierte Bereitschaftsstatus wird mit dem Bereitschaftsstatus für das Upgrade verglichen. Die Metadaten für das Upgrade werden abgerufen, wenn der Dienstverbindungspunkt nach Updates sucht.  
+-   **État de disponibilité**: l’état de disponibilité défini dans le plan de maintenance est comparé à celui pour la mise à niveau. Les métadonnées pour la mise à niveau sont récupérées quand le point de connexion de service recherche des mises à jour.  
 
--   **Zeitverzögerung**: Die Anzahl der Tage, die Sie im Wartungsplan für **Wie viele Tage möchten Sie nach der Veröffentlichung eines neuen Upgrades durch Microsoft warten, bevor Sie es in Ihrer Umgebung bereitstellen?** angegeben haben. Configuration Manager wird ausgewertet, ob ein Upgrade in die Bereitstellung eingeschlossen werden soll, und zwar, wenn das aktuelle Datum nach dem Veröffentlichungsdatum plus der konfigurierten Anzahl von Tagen liegt.  
+-   **Report**: nombre de jours que vous spécifiez en réponse à la question **Combien de jours après la publication par Microsoft d’une nouvelle mise à niveau voulez-vous attendre avant un déploiement dans votre environnement ?** dans le plan de maintenance. Configuration Manager évalue s’il faut inclure une mise à niveau dans le déploiement si la date actuelle est postérieure à la date de publication plus le nombre de jours configuré.  
 
- Wenn ein Upgrade die Kriterien erfüllt, fügt der Wartungsplan das Upgrade zum Bereitstellungspaket hinzu, verteilt das Paket an Verteilungspunkte und stellt der Sammlung das Upgrade basierend auf den im Wartungsplan konfigurierten Einstellungen bereit.  Sie können die Bereitstellungen über die Kachel „Wartungsplanüberwachung“ im Windows 10-Wartungsdashboard überwachen. Weitere Informationen finden Sie unter [Monitor software updates (Überwachen von Softwareupdates)](../../sum/deploy-use/monitor-software-updates.md).  
+ Quand une mise à niveau répond aux critères, le plan de maintenance l’ajoute au package de déploiement, distribue le package aux points de distribution et déploie la mise à niveau vers le regroupement en fonction des paramètres que vous configurez dans le plan de maintenance.  Vous pouvez surveiller les déploiements dans la vignette Surveillance du plan de maintenance du tableau de bord Maintenance de Windows 10. Pour plus d’informations, consultez [Surveiller les mises à jour logicielles](../../sum/deploy-use/monitor-software-updates.md).  
 
-##  <a name="BKMK_ServicingPlan"></a> Windows 10-Wartungsplan  
- Bei der Bereitstellung von Windows 10 CB können Sie einen oder mehrere Wartungspläne erstellen, um die Bereitstellungsringe für Ihre Umgebung zu definieren, und sie dann im Windows 10-Wartungsdashboard überwachen.   
-Wartungspläne verwenden nur die Softwareupdateklassifizierung **Upgrades** und keine kumulativen Updates für Windows 10. Für diese Updates müssen Sie Bereitstellungen weiterhin mit dem Softwareupdateworkflow vornehmen.  Die Endbenutzerumgebung mit einem Wartungsplan entspricht derjenigen mit Softwareupdates, einschließlich der Einstellungen, die Sie im Wartungsplan konfigurieren.  
-
-> [!NOTE]  
->  Sie können eine Tasksequenz zum Bereitstellen eines Upgrades für jeden Windows 10-Build verwenden, dazu ist jedoch mehr manuelle Arbeit erforderlich. Sie müssten die aktualisierten Quelldateien als Upgradepaket für Betriebssysteme importieren, die Tasksequenz erstellen und dann in der entsprechenden Gruppe von Computern bereitstellen. Eine Tasksequenz bietet jedoch zusätzliche benutzerdefinierte Optionen, wie z. B. die Aktionen vor und nach der Bereitstellung.  
-
- Sie können einen grundlegenden Wartungsplan über das Windows 10-Wartungsdashboard erstellen. Nachdem Sie den Namen, die Sammlung (angezeigt werden nur die zehn kleinsten Sammlungen), das Bereitstellungspaket (angezeigt werden nur die zehn Pakete, die zuletzt geändert wurden) und den Bereitschaftsstatus an gegeben haben, erstellt Configuration Manager den Wartungsplan mit Standardwerten für die übrigen Einstellungen. Sie können auch den Assistenten zum Erstellen eines Wartungsplans starten, um alle Einstellungen zu konfigurieren. Verwenden Sie das folgende Verfahren zum Erstellen eines Wartungsplans mit dem Assistenten zum Erstellen eines Wartungsplans.  
+##  <a name="BKMK_ServicingPlan"></a> Plan de maintenance de Windows 10  
+ Quand vous déployez Windows 10 CB, vous pouvez créer un ou plusieurs plans de maintenance pour définir les boucles de déploiement que vous souhaitez dans votre environnement, puis les surveiller dans le tableau de bord de maintenance de Windows 10.   
+Les plans de maintenance utilisent seulement la classification des mises à jour logicielles **Mises à niveau** et non pas les mises à jour cumulatives pour Windows 10. Pour ces mises à jour, vous devez toujours effectuer le déploiement à l’aide du flux de travail des mises à jour logicielles.  L’expérience de l’utilisateur final avec un plan de maintenance est la même qu’avec les mises à jour logicielles, y compris les paramètres que vous configurez dans le plan de maintenance.  
 
 > [!NOTE]  
->  Ab Version 1602 von Configuration Manager können Sie das Verhalten für Bereitstellungen mit hohem Risiko verwalten. Bei einer Bereitstellung mit hohem Risiko handelt es sich um eine Bereitstellung, die automatisch installiert wird und zu unerwünschten Ergebnissen führen kann. Beispielsweise wird eine Tasksequenz, die als Zweck **Erforderlich** aufweist und Windows 10 bereitstellt, als eine Bereitstellung mit hohem Risiko betrachtet. Weitere Informationen finden Sie unter [Settings to manage high-risk deployments (Einstellungen zum Verwalten risikoreicher Bereitstellungen)](../../protect/understand/settings-to-manage-high-risk-deployments.md).  
+>  Vous pouvez utiliser une séquence de tâches pour déployer une mise à niveau pour chaque build de Windows 10, mais cela nécessite davantage d’opérations manuelles. Il vous faudrait importer les fichiers sources mis à jour en tant que package de mise à niveau du système d’exploitation, puis créer et déployer la séquence de tâches sur l’ensemble d’ordinateurs approprié. Toutefois, une séquence de tâches fournit des options personnalisées supplémentaires, telles que les actions de prédéploiement et de post-déploiement.  
 
-#### <a name="to-create-a-windows-10-servicing-plan"></a>So erstellen Sie einen Windows 10-Wartungsplan  
+ Vous pouvez créer un plan de maintenance de base à partir du tableau de bord de maintenance de Windows 10. Une fois que vous avez spécifié le nom, le regroupement (seuls les 10 principaux regroupements sont affichés par taille, le plus petit en premier), le package de déploiement (seuls les 10 derniers packages modifiés sont affichés) et l’état de préparation, Configuration Manager crée le plan de maintenance avec des valeurs par défaut pour les autres paramètres. Vous pouvez également démarrer l’Assistant Créer un plan de maintenance pour configurer tous les paramètres. Pour créer un plan de maintenance à l’aide de l’Assistant Créer un plan de maintenance, appliquez la procédure suivante.  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Softwarebibliothek**.  
+> [!NOTE]  
+>  À partir de Configuration Manager version 1602, vous pouvez gérer le comportement pour les déploiements à haut risque. Un déploiement à haut risque est un déploiement qui est installé automatiquement et qui est susceptible d'entraîner des résultats indésirables. Par exemple, une séquence de tâches ayant comme objectif **Obligatoire** qui déploie Windows 10 est considérée comme un déploiement à haut risque. Pour plus d’informations, consultez [Paramètres de gestion des déploiements à haut risque](../../protect/understand/settings-to-manage-high-risk-deployments.md).  
 
-2.  Erweitern Sie **Windows 10-Wartung**im Arbeitsbereich „Softwarebibliothek“, und klicken Sie dann auf **Wartungspläne**.  
+#### <a name="to-create-a-windows-10-servicing-plan"></a>Pour créer un plan de maintenance de Windows 10  
 
-3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** auf **Wartungsplan erstellen**. Der Assistent zum Erstellen eines Wartungsplans wird geöffnet.  
+1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
-4.  Konfigurieren Sie auf der Seite **Allgemein** die folgenden Einstellungen:  
+2.  Dans l’espace de travail Bibliothèque de logiciels, développez **Maintenance de Windows 10**, puis cliquez sur **Plans de maintenance**.  
 
-    -   **Name**: Geben Sie den Namen für den Wartungsplan an. Der Name muss eindeutig sein, das Ziel der Regel angeben und sich am Configuration Manager-Standort leicht von anderen Namen unterscheiden lassen.  
+3.  Sous l’onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer un plan de maintenance**. L’Assistant Créer un plan de maintenance s’ouvre.  
 
-    -   **Beschreibung**: Geben Sie eine Beschreibung für den Wartungsplan an. Die Beschreibung muss einen Überblick über den Wartungsplan und alle anderen relevanten Informationen umfassen, die die Identifizierung und Unterscheidung des Plans am Configuration Manager-Standort erleichtern. Das Feld „Beschreibung“ ist optional, hat eine Begrenzung auf 256 Zeichen und ist standardmäßig leer.  
+4.  Sur la page **Général** , configurez les paramètres suivants :  
 
-5.  Konfigurieren Sie auf der Seite „Wartungsplan“ die folgenden Einstellungen:  
+    -   **Nom**: spécifiez le nom du plan de maintenance. Le nom doit être unique, décrire clairement l’objectif de la règle et être identifiable parmi d’autres dans le site Configuration Manager.  
 
-    -   **Zielsammlung**: Gibt den für die Bereitstellung zu verwendenden Wartungsplan an. Mitglieder dieser Sammlung erhalten die im Wartungsplan definierten Windows 10-Upgrades.  
+    -   **Description**: spécifiez la description du plan de maintenance. La description doit fournir une vue d’ensemble du plan de maintenance et toute autre information pertinente permettant de l’identifier et de le différencier des autres plans dans le site Configuration Manager. Le champ de description facultatif est limité à 256 caractères et est vierge par défaut.  
+
+5.  Dans la page Plan de maintenance, configurez les paramètres suivants :  
+
+    -   **Regroupement cible**: spécifie le regroupement cible à utiliser pour le plan de maintenance. Les membres du regroupement reçoivent les mises à niveau de Windows 10 qui sont définies dans le plan de maintenance.  
 
         > [!NOTE]  
-        >  Ab Version 1602 von Configuration Manager werden bei einer Bereitstellung mit hohem Risiko, wie z.B. einem Wartungsplan, im Fenster **Sammlung auswählen** nur die benutzerdefinierten Sammlungen angezeigt, die den in den Eigenschaften des Standorts konfigurierten Einstellungen zur Bereitstellungsüberprüfung entsprechen.
+        >  À partir de Configuration Manager version 1602, quand vous effectuez un déploiement à haut risque, comme un plan de maintenance, la fenêtre **Sélectionner un regroupement** affiche seulement les regroupements personnalisés qui satisfont aux paramètres de vérification de déploiement configurés dans les propriétés du site.
         >    
-        > Bereitstellungen mit hohem Risiko sind immer auf benutzerdefinierte Sammlungen, von Ihnen erstellte Sammlungen und die integrierte Sammlung **Unbekannte Computer** beschränkt. Beim Erstellen einer Bereitstellung mit hohem Risiko können Sie keine integrierte Sammlung auswählen, wie z. B. **Alle Systeme**. Deaktivieren Sie die Einstellung **Hide collections with a member count greater than the site's minimum size configuration** (Sammlungen mit einer Anzahl der Mitglieder ausblenden, die größer als die minimale Größenkonfiguration des Standorts ist), um alle benutzerdefinierten Sammlungen anzuzeigen, die weniger Clients als die konfigurierte maximale Größe enthalten. Weitere Informationen finden Sie unter [Einstellungen für die Verwaltung hochriskanter Bereitstellungen](../../protect/understand/settings-to-manage-high-risk-deployments.md).  
+        > Les déploiements à haut risque sont toujours limités aux regroupements personnalisés, aux regroupements que vous créez et au regroupement **Ordinateurs inconnus** intégré. Quand vous créez un déploiement à haut risque, vous ne pouvez pas sélectionner un regroupement intégré tel que **Tous les systèmes**. Désactivez le paramètre **Masquer les regroupements avec un nombre de membres supérieur à la configuration de la taille minimale du site** pour afficher tous les regroupements personnalisés qui contiennent moins de clients que la taille maximale configurée. Pour plus d’informations, consultez [Paramètres de gestion des déploiements à haut risque](../../protect/understand/settings-to-manage-high-risk-deployments.md).  
         >  
-        > Die Einstellungen zur Bereitstellungsüberprüfung basieren auf der aktuellen Mitgliedschaft der Sammlung. Nach der Bereitstellung des Wartungsplans wird die Sammlungsmitgliedschaft für die Einstellungen für eine Bereitstellung mit hohem Risiko nicht erneut bewertet.  
+        > Les paramètres de vérification de déploiement sont basés sur l'appartenance actuelle du regroupement. Une fois le plan de maintenance déployé, l’appartenance du regroupement n’est pas réévaluée pour les paramètres de déploiement à haut risque.  
         >  
-        > Angenommen, Sie legen **Standardgröße** auf 100 und **Maximale Größe** auf 1000 fest. Wenn Sie eine Bereitstellung mit hohem Risiko erstellen, werden im Fenster **Sammlung auswählen** nur die Sammlungen angezeigt, die weniger als 100 Clients enthalten. Wenn Sie die Einstellung **Hide collections with a member count greater than the site's minimum size configuration** (Sammlungen mit einer Anzahl der Mitglieder ausblenden, die größer als die minimale Größenkonfiguration des Standorts ist) deaktivieren, werden im Fenster Sammlungen angezeigt, die weniger als 1.000 Clients enthalten.  
+        > Supposons que vous affectez la valeur 100 à **Taille par défaut** et la valeur 1000 à **Taille maximale**. Quand vous créez un déploiement à haut risque, la fenêtre **Sélectionner un regroupement** affiche uniquement les regroupements qui contiennent moins de 100 clients. Si vous désactivez le paramètre **Masquer les regroupements avec un nombre de membres supérieur à la configuration de la taille minimale du site**, la fenêtre affiche les regroupements qui contiennent moins de 1 000 clients.  
         >
-        > Wenn Sie eine Sammlung auswählen, die eine Standortrolle enthält, gilt Folgendes:    
+        > Quand vous sélectionnez un regroupement qui contient un rôle de site, ce qui suit s'applique :    
         >   
-        >    - Wenn die Sammlung einen Standortsystemserver enthält und Sie die Einstellungen zur Bereitstellungsüberprüfung so konfigurieren, dass Sammlungen mit Standortsystemservern blockiert werden, tritt ein Fehler auf, und Sie können nicht fortfahren.    
-        >    - Wenn die Sammlung einen Standortsystemserver enthält und Sie die Einstellungen zur Bereitstellungsüberprüfung so konfigurieren, dass Sie im Fall von Sammlungen mit Standortsystemservern gewarnt werden, wird im Assistenten zum Bereitstellen von Software eine Warnung über ein hohes Risiko angezeigt, falls die Sammlung den Standardwert für die Größe überschreitet oder falls die Sammlung einen Server enthält. Sie müssen der Erstellung einer Bereitstellung mit hohem Risiko zustimmen, und eine Überwachungsstatusmeldung wird erstellt.  
+        >    - Si le regroupement contient un serveur de système de site et que dans les paramètres de vérification de déploiement vous choisissez de bloquer les regroupements contenant des serveurs de système de site, une erreur se produit et vous ne pouvez pas continuer.    
+        >    - Si le regroupement contient un serveur de système de site et que dans les paramètres de vérification de déploiement vous choisissez d'afficher un avertissement dans le cas où des regroupements contiennent des serveurs de système de site, si  le regroupement dépasse la valeur de taille par défaut, ou si le regroupement contient un serveur, l'Assistant Déploiement logiciel affiche un avertissement de risque élevé. Vous devez accepter de créer un déploiement à risque élevé et un message d'état d'audit est créé.  
 
-6.  Konfigurieren Sie auf der Seite „Bereitstellungsring“ die folgenden Einstellungen:  
+6.  Dans la page Boucle de déploiement, configurez les paramètres suivants :  
 
-    -   **Geben Sie den Windows-Bereitschaftsstatus an, für den dieser Wartungsplan gelten soll**: Wählen Sie eine der folgenden Optionen aus:  
+    -   **Spécifiez l’état de disponibilité Windows auquel ce plan de maintenance doit s’appliquer**: sélectionnez l’une des options suivantes :  
 
-        -   **Sofortige Bereitstellung (Current Branch):** Beim CB Servicing-Modell sind Funktionsupdates verfügbar, sobald sie von Microsoft veröffentlicht werden.
+        -   **Release Ready (Current Branch)** : dans le modèle de maintenance CB, les mises à jour des fonctionnalités sont disponibles dès leur publication par Microsoft.
 
-        -   **Bereitstellung zum Testen (Current Branch for Business):** Der CBB Servicing Branch wird normalerweise für die umfassende Bereitstellung verwendet. Windows 10-Clients im CBB Servicing Branch erhalten denselben Build von Windows 10 wie Clients im CB Servicing Branch, allerdings zu einem späteren Zeitpunkt.
+        -   **Business Ready (Current Branch for Business)** : la branche de maintenance CBB est généralement utilisée pour les déploiements à grande échelle. Les clients Windows 10 dans la branche de maintenance CBB reçoivent la même version de Windows 10 que ceux de la branche de maintenance CB, mais à un moment ultérieur.
 
-        Weitere Informationen zu Servicing Branches und die für Sie am besten geeignete Option finden Sie unter [Servicing Branches](https://technet.microsoft.com/itpro/windows/manage/waas-overview#servicing-branches).
+        Pour plus d’informations sur les branches de maintenance et les options qui vous conviennent le mieux, consultez [Branches de maintenance](https://technet.microsoft.com/itpro/windows/manage/waas-overview#servicing-branches).
 
-    -   **Anzahl der Tage nach der Veröffentlichung eines neuen Updates durch Microsoft, nach der Sie die Bereitstellung in Ihrer Umgebung vornehmen möchten:** In Configuration Manager wird ausgewertet, ob ein Upgrade in die Bereitstellung eingeschlossen werden soll, und zwar, wenn das aktuelle Datum nach dem Veröffentlichungsdatum plus der Anzahl der für diese Einstellung konfigurierten Tage liegt.
+    -   **Combien de jours après la publication par Microsoft d’une nouvelle mise à niveau voulez-vous attendre avant un déploiement dans votre environnement** : Configuration Manager détermine s’il faut inclure une mise à niveau du déploiement si la date du jour est postérieure à la date de publication plus le nombre de jours que vous configurez pour ce paramètre.
 
-    -   Klicken Sie in Configuration Manager vor Version 1602 auf **Vorschau**, um die Windows 10-Updates anzuzeigen, die dem Bereitschaftsstatus zugeordnet sind.  
+    -   Avec une version de Configuration Manager antérieure à la version 1602, cliquez sur **Aperçu** pour afficher les mises à jour de Windows 10 associées à l’état de disponibilité.  
 
-    Weitere Informationen finden Sie unter [Servicing Branches](https://technet.microsoft.com/itpro/windows/manage/waas-overview#servicing-branches).
-7.  Konfigurieren Sie ab Version 1602 von Configuration Manager auf der Seite „Upgrades“ die Suchkriterien zum Filtern der Upgrades, die dem Wartungsplan hinzugefügt werden. Nur Upgrades, die die angegebenen Kriterien erfüllen, werden der entsprechenden Bereitstellung hinzugefügt.  
+    Pour plus d’informations, consultez [Branches de maintenance](https://technet.microsoft.com/itpro/windows/manage/waas-overview#servicing-branches).
+7.  À partir de la version 1602 de Configuration Manager, dans la page Mises à niveau, configurez les critères de recherche pour filtrer les mises à niveau qui seront ajoutées au plan de maintenance. Seules les mises à jour qui remplissent les critères spécifiés sont ajoutées au déploiement associé.  
 
-     Klicken Sie auf **Vorschau** , um die Upgrades anzeigen, die die angegebenen Kriterien erfüllen.  
+     Cliquez sur **Aperçu** pour afficher les mises à niveau qui répondent aux critères spécifiés.  
 
-8.  Konfigurieren Sie auf der Seite Bereitstellungszeitplan die folgenden Einstellungen:  
+8.  Sur la page Calendrier de déploiement, configurez les paramètres suivants :  
 
-    -   **Auswertung planen**: Geben Sie an, ob die verfügbare Zeit und die Installationsstichtage von Configuration Manager mit UTC oder der lokalen Zeit des Computers, auf dem die Configuration Manager-Konsole ausgeführt wird, ausgewertet werden sollen.  
+    -   **Calendrier d’évaluation** : indiquez si Configuration Manager évalue la durée disponible et la date d’échéance de l’installation à l’heure UTC ou à l’heure locale de l’ordinateur exécutant la console Configuration Manager.  
 
         > [!NOTE]  
-        >  Wenn Sie die Ortszeit auswählen und dann **So bald wie möglich** für **Zeitpunkt der Verfügbarkeit der Software** oder **Installationsstichtag** auswählen, wird die aktuelle Uhrzeit auf dem Computer mit der Configuration Manager-Konsole verwendet, um zu bestimmen, wann Updates verfügbar sind, oder auf einem Client installiert werden. Wenn sich der Client in einer anderen Zeitzone befindet, erfolgen diese Aktionen, sobald die Evaluierungszeit des Clients erreicht ist.  
+        >  Si vous sélectionnez l’heure locale, puis **Dès que possible** pour le **Temps disponible du logiciel** ou **Échéance d’installation**, l’heure actuelle sur l’ordinateur exécutant la console Configuration Manager est utilisée pour évaluer quand les mises à jour sont disponibles ou quand elles sont installées sur un client. Si le client est dans un autre fuseau horaire, ces actions se produisent quand l’heure du client atteint l’heure de l’évaluation.  
 
-    -   **Zeitpunkt der Verfügbarkeit der Software**: Wählen Sie eine der folgenden Einstellungen aus, um anzugeben, wann die Softwareupdates den Clients zur Verfügung stehen:  
+    -   **Temps disponible du logiciel**: sélectionnez l’un des paramètres suivants pour spécifier le moment où les mises à jour logicielles sont disponibles pour les clients :  
 
-        -   **So bald wie möglich**: Wählen Sie diese Einstellung aus, damit die Softwareupdates in der Bereitstellung den Clientcomputern so bald wie möglich zur Verfügung gestellt werden. Wenn diese Einstellung beim Erstellen der Bereitstellung ausgewählt ist, wird die Clientrichtlinie von Configuration Manager aktualisiert. Clients werden beim nächsten Abfragezyklus der Clientrichtlinie von der Bereitstellung benachrichtigt. Die zur Installation verfügbaren Updates können dann abgerufen werden.  
+        -   **Dès que possible**: sélectionnez ce paramètre pour permettre aux ordinateurs clients d’accéder dès que possible aux mises à jour logicielles incluses dans le déploiement. Quand vous créez le déploiement avec ce paramètre sélectionné, Configuration Manager met à jour la stratégie client. Ensuite, au prochain cycle d'interrogation de la stratégie client, les clients prennent connaissance du déploiement et peuvent obtenir les mises à jour disponibles à l'installation.  
 
-        -   **Bestimmte Zeit**: Wählen Sie diese Einstellung aus, damit die Softwareupdates in der Bereitstellung den Clientcomputern zu einem bestimmten Termin (Datum und Uhrzeit) zur Verfügung gestellt werden. Wenn diese Einstellung beim Erstellen der Bereitstellung aktiviert ist, wird die Clientrichtlinie von Configuration Manager aktualisiert. Clients werden beim nächsten Abfragezyklus der Clientrichtlinie von der Bereitstellung benachrichtigt. Allerdings stehen die Softwareupdates in der Bereitstellung erst nach dem konfigurierten Termin (Datum und Uhrzeit) für die Installation zur Verfügung.  
+        -   **Heure spécifique**: sélectionnez ce paramètre pour permettre aux ordinateurs clients d’accéder aux mises à jour logicielles incluses dans le déploiement à une date et heure précises. Quand vous créez le déploiement avec ce paramètre activé, Configuration Manager met à jour la stratégie client. Ensuite, au prochain cycle d'interrogation de la stratégie client, les clients prennent connaissance du déploiement. Toutefois, les mises à jour logicielles incluses dans le déploiement ne sont pas disponibles à l'installation avant la date et l'heure configurées.  
 
-    -   **Installationsstichtag**: Wählen Sie eine der folgenden Einstellungen aus, um den Installationsstichtag für die Softwareupdates in der Bereitstellung anzugeben:  
+    -   **Échéance d’installation**: sélectionnez l’un des paramètres suivants pour spécifier l’échéance d’installation des mises à jour logicielles incluses dans le déploiement :  
 
-        -   **So bald wie möglich**: Wählen Sie diese Einstellung aus, damit die Softwareupdates in der Bereitstellung so bald wie möglich automatisch installiert werden.  
+        -   **Dès que possible**: sélectionnez ce paramètre pour installer automatiquement les mises à jour logicielles incluses dans le déploiement dès que possible.  
 
-        -   **Bestimmte Zeit**: Wählen Sie diese Einstellung aus, damit die Softwareupdates in der Bereitstellung zu einem bestimmten Termin (Datum und Uhrzeit) automatisch installiert werden. Configuration Manager bestimmt den Stichtag zum Installieren von Softwareupdates durch Hinzufügen der konfigurierten Intervalle **Bestimmte Zeit** zu **Zeitpunkt der Verfügbarkeit der Software**.  
+        -   **Heure spécifique**: sélectionnez ce paramètre pour installer automatiquement les mises à jour logicielles incluses dans le déploiement à une date et une heure spécifiques. Configuration Manager détermine l’échéance d’installation des mises à jour logicielles en ajoutant l’intervalle **Heure spécifique** configuré au **Temps disponible du logiciel**.  
 
             > [!NOTE]  
-            >  Der tatsächliche Installationsstichtag ergibt sich aus der Addition des angezeigten Stichtags und eines willkürlichen Zeitraums von bis zu 2 Stunden. Dadurch werden die potenziellen Auswirkungen reduziert, die mit der gleichzeitigen Installation der Updates in der Bereitstellung durch alle Clientcomputer in der Zielsammlung einhergehen.  
+            >  L'heure d'échéance de l'installation réelle est l'heure d'échéance affichée plus un laps de temps aléatoire pouvant atteindre 2 heures. Elle permet de réduire l’impact lié à l’installation simultanée, par tous les ordinateurs clients du regroupement de destination, des mises à jour incluses dans le déploiement.  
             >   
-            >  Sie können die Clienteinstellung **Zufällige Stichtaganordnung deaktivieren** für **Computer-Agent** konfigurieren, um die zufällige Verzögerung der Installation für erforderliche Updates zu deaktivieren. Weitere Informationen finden Sie unter [Computer Agent](../../core/clients/deploy/about-client-settings.md#computer-agent).  
+            >  Vous pouvez configurer le paramètre client **Agent ordinateur** , **Désactiver la randomisation des échéances** , pour désactiver le délai de randomisation de l’installation des mises à jour requises. Pour plus d’informations, voir [Computer Agent](../../core/clients/deploy/about-client-settings.md#computer-agent).  
 
-9. Konfigurieren Sie auf der Seite Benutzerfreundlichkeit die folgenden Einstellungen:  
+9. Sur la page Expérience utilisateur, configurez les paramètres suivants :  
 
-    -   **Benutzerbenachrichtigungen**: Geben Sie an, ob zum vorgegebenen **Zeitpunkt der Verfügbarkeit der Software** auf dem Clientcomputer eine Benachrichtigung zu den Updates im Softwarecenter angezeigt werden soll. Geben Sie auch an, ob Benutzerbenachrichtigungen auf den Clientcomputern angezeigt werden sollen.  
+    -   **Notifications à l’utilisateur**: indiquez si vous souhaitez afficher les notifications des mises à jour dans le Centre logiciel sur l’ordinateur client d’après la valeur **Temps disponible du logiciel** configurée et si des notifications doivent s’afficher sur les ordinateurs clients.  
 
-    -   **Verhalten am Stichtag**: Geben Sie das gewünschte Verhalten am Stichtag der Updatebereitstellung an. Geben Sie an, ob die Updates in der Bereitstellung installiert werden sollen. Geben Sie auch, ob nach einer Updateinstallation unabhängig von einem konfigurierten Wartungsfenster ein Systemneustart ausgeführt werden soll. Weitere Informationen zu Wartungsfenstern finden Sie unter [Verwenden von Wartungsfenstern](../../core/clients/manage/collections/use-maintenance-windows.md).  
+    -   **Comportement à l’échéance**: spécifiez le comportement qui doit se produire quand l’échéance est atteinte pour le déploiement des mises à jour. Indiquez si vous souhaitez installer les mises à jour incluses dans le déploiement. Spécifiez également si un redémarrage du système doit être effectué après l’installation des mises à jour, quelle que soit la fenêtre de maintenance configurée. Pour plus d’informations sur les fenêtres de maintenance, consultez [Guide pratique pour utiliser les fenêtres de maintenance](../../core/clients/manage/collections/use-maintenance-windows.md).  
 
-    -   **Verhalten beim Geräteneustart**: Geben Sie an, ob nach der Installation der Updates ein Systemneustart auf den Servern und Arbeitsstationen unterdrückt werden soll, wenn der Systemneustart zum Abschließen der Installation erforderlich ist.  
+    -   **Comportement de redémarrage du périphérique**: indiquez si le redémarrage du système sur les serveurs et stations de travail doit être supprimé une fois les mises à jour installées, et si un redémarrage du système est nécessaire pour terminer l’installation.  
 
-    -   **Schreibfilterverarbeitung für Windows Embedded-Geräte**: Beim Bereitstellen von Updates für Windows Embedded-Geräte mit aktiviertem Schreibfilter können Sie angeben, dass das Update auf dem temporären Overlay installiert wird und die Änderungen entweder später, am Installationsstichtag oder während eines Wartungsfensters ausgeführt werden sollen. Falls die Änderungen am Installationsstichtag oder während eines Wartungsfensters ausgeführt werden, ist ein Neustart erforderlich, und die Änderungen werden auf dem Gerät beibehalten.  
-
-        > [!NOTE]  
-        >  Stellen Sie beim Bereitstellen eines Updates auf einem Windows Embedded-Gerät sicher, dass das Gerät Mitglied einer Sammlung ist, für die ein Wartungsfenster konfiguriert ist.  
-
-10. Wählen Sie auf der Seite Bereitstellungspaket ein vorhandenes Bereitstellungspaket aus, oder erstellen Sie anhand der nachfolgenden Einstellungen ein neues Bereitstellungspaket:  
-
-    1.  **Name**: Geben Sie den Namen des Bereitstellungspakets an. Dies muss ein eindeutiger Name sein, der den Paketinhalt beschreibt. Er ist auf 50 Zeichen begrenzt.  
-
-    2.  **Beschreibung**: Geben Sie eine Beschreibung mit Informationen zum Bereitstellungspaket an. Die Beschreibung ist auf 127 Zeichen begrenzt.  
-
-    3.  **Paketquelle**: Gibt den Speicherort der Quelldateien der Softwareupdates an.  Geben Sie für den Quellspeicherort einen Netzwerkpfad wie **\\\Server\Freigabename\Pfad**ein. Alternativ können Sie auf **Durchsuchen** klicken, um den Netzwerkpfad zu suchen. Sie müssen den freigegebenen Ordner für die Quelldateien des Bereitstellungspakets erstellen, bevor Sie mit der nächsten Seite fortfahren.  
+    -   **Traitement des filtres d’écriture pour les appareils Windows Embedded**: quand vous déployez des mises à jour sur des appareils Windows Embedded pour lesquels le filtre d’écriture est activé, vous pouvez choisir d’installer la mise à jour sur le segment de recouvrement temporaire et valider les modifications ultérieurement ou à l’échéance de l’installation ou bien pendant une fenêtre de maintenance. Lorsque vous validez des modifications à l'échéance de l'installation ou au cours d'une fenêtre de maintenance, un redémarrage est requis et les modifications sont conservées sur l'appareil.  
 
         > [!NOTE]  
-        >  Der von Ihnen angegebene Quellspeicherort des Bereitstellungspakets kann von keinem anderen Softwarebereitstellungspaket verwendet werden.  
+        >  Quand vous déployez une mise à jour sur un appareil Windows Embedded, assurez-vous que l’appareil fait partie des membres d’un regroupement pour lequel une fenêtre de maintenance a été configurée.  
+
+10. Sur la page Package de déploiement, sélectionnez un package de déploiement existant ou configurez les paramètres suivants pour créer un package de déploiement :  
+
+    1.  **Nom**: spécifiez le nom du package de déploiement. Celui-ci doit être un nom unique qui décrit le contenu du package. Il est limité à 50 caractères.  
+
+    2.  **Description**: spécifiez une description qui fournit des informations sur le package de déploiement. La description est limitée à 127 caractères.  
+
+    3.  **Source du package**: spécifie l’emplacement des fichiers sources des mises à jour logicielles.  Tapez un chemin réseau pour l’emplacement source, par exemple **\\\serveur\nom_partage\chemin**ou cliquez sur **Parcourir** pour rechercher l’emplacement réseau. Vous devez créer le dossier partagé pour les fichiers sources du package de déploiement avant de passer à la page suivante.  
+
+        > [!NOTE]  
+        >  L'emplacement source du package de déploiement que vous spécifiez ne peut pas être utilisé par un autre package de déploiement de logiciel.  
 
         > [!IMPORTANT]  
-        >  Das Computerkonto für den SMS-Anbieter und der Benutzer, der den Assistenten zum Herunterladen der Softwareupdates ausführt, müssen über die NTFS-Berechtigung **Schreiben** für den Downloadort verfügen. Sie müssen den Zugriff auf den Downloadort beschränken, um das Risiko zu verringern, dass Angreifer die Quelldateien der Softwareupdates manipulieren.  
+        >  Le compte d'ordinateur du fournisseur SMS et l'utilisateur qui exécute l'Assistant Téléchargement des mises à jour logicielles nécessitent des autorisations NTFS en **Écriture** sur l'emplacement de téléchargement. Vous devez soigneusement limiter l'accès à l'emplacement de téléchargement pour éviter que des personnes malintentionnées ne falsifient les fichiers sources des mises à jour logicielles.  
 
         > [!IMPORTANT]  
-        >  Sie können den Paketquellspeicherort in den Eigenschaften des Bereitstellungspakets ändern, nachdem das Bereitstellungspaket von Configuration Manager erstellt wurde. In diesem Fall müssen Sie jedoch zuerst den Inhalt von der ursprünglichen Paketquelle an den neuen Paketquellspeicherort kopieren.  
+        >  Une fois que le package de déploiement a été créé par Configuration Manager, vous pouvez modifier l’emplacement source du package de déploiement dans les propriétés du package. Mais le cas échéant, vous devez d'abord copier le contenu à partir de la source du package d'origine vers le nouvel emplacement source du package.  
 
-    4.  **Sendepriorität**: Geben Sie die Sendepriorität für das Bereitstellungspaket an. Configuration Manager verwendet Sendepriorität für das Bereitstellungspaket beim Senden des Pakets an Verteilungspunkte. Bereitstellungspakete werden in der Reihenfolge ihrer Priorität gesendet: „Hoch“, „Mittel“ oder „Niedrig“. Pakete mit identischer Priorität werden in der Reihenfolge ihrer Erstellung gesendet. Wenn es keinen Rückstand gibt, wird das Paket unabhängig von seiner Priorität sofort verarbeitet.  
+    4.  **Priorité d’expédition**: spécifiez la priorité d’envoi pour le package de déploiement. Configuration Manager utilise la priorité d’expédition du package de déploiement quand il envoie le package aux points de distribution. Les packages de déploiement sont envoyés par ordre de priorité : Haute, Moyenne ou Faible. Les packages disposant de priorités identiques sont transmis dans l'ordre dans lequel ils ont été créés. En l'absence de backlog, le package est immédiatement traité quelle que soit sa priorité.  
 
-11. Geben Sie auf der Seite „Verteilungspunkte“ die Verteilungspunkte oder Verteilungspunktgruppen an, auf denen die Updatedateien gehostet werden sollen. Weitere Informationen zu Verteilungspunkten finden Sie unter [Konfigurieren eines Verteilungspunkts](/sccm/core/servers/deploy/configure/install-and-configure-distribution-points#bkmk_configs).
+11. Dans la page Points de distribution, spécifiez les points de distribution ou les groupes de points de distribution qui vont héberger les fichiers de mise à jour. Pour plus d’informations sur les points de distribution, consultez [Configurer un point de distribution](/sccm/core/servers/deploy/configure/install-and-configure-distribution-points#bkmk_configs).
 
     > [!NOTE]  
-    >  Diese Seite ist nur verfügbar, wenn Sie ein neues Softwareupdate-Bereitstellungspaket erstellen.  
+    >  Cette page est disponible uniquement lorsque vous créez un nouveau package de déploiement de mise à jour logicielle.  
 
-12. Geben Sie auf der Seite „Downloadpfad“ an, ob die Updatedateien vom Internet oder aus dem lokalen Netzwerk heruntergeladen werden sollen. Konfigurieren Sie die folgenden Einstellungen:  
+12. Dans la page Emplacement de téléchargement, indiquez si les fichiers de mise à jour doivent être téléchargés à partir d’Internet ou de votre réseau local. Configurez les paramètres suivants :  
 
-    -   **Softwareupdates aus dem Internet herunterladen**: Wählen Sie diese Einstellung aus, um die Updates von einem bestimmten Speicherort im Internet herunterzuladen. Diese Einstellung ist standardmäßig aktiviert.  
+    -   **Télécharger les mises à jour logicielles depuis Internet**: sélectionnez ce paramètre pour télécharger les mises à jour à partir d’un emplacement spécifié sur Internet. Ce paramètre est activé par défaut.  
 
-    -   **Softwareupdates von einem Pfad im lokalen Netzwerk herunterladen**: Wählen Sie diese Einstellung aus, um die Updates aus einem lokalen Verzeichnis oder aus einem freigegebenen Ordner herunterzuladen. Diese Einstellung ist nützlich, wenn der Computer, auf dem der Assistent ausgeführt wird, keine Internetverbindung aufweist. Die Updates können von jedem Computer mit Internetzugriff vorläufig heruntergeladen und im lokalen Netzwerk an einem Speicherort abgelegt werden, der von dem Computer aus zugänglich ist, auf dem der Assistent ausgeführt wird.  
+    -   **Télécharger les mises à jour logicielles à partir d’un emplacement sur le réseau local**: sélectionnez ce paramètre pour télécharger les mises à jour à partir d’un répertoire local ou d’un dossier partagé. Ce paramètre s'avère utile lorsque l'ordinateur exécutant l'Assistant ne dispose d'aucun accès à Internet. N’importe quel ordinateur connecté à Internet peut préalablement télécharger les mises à jour et les stocker à un emplacement sur le réseau local qui est accessible à partir de l’ordinateur qui exécute l’Assistant.  
 
-13. Wählen Sie auf der Seite „Sprachauswahl“ die Sprachen aus, für die die ausgewählten Updates heruntergeladen werden. Die Updates werden nur dann heruntergeladen, wenn sie in den ausgewählten Sprachen verfügbar sind. Updates, die nicht sprachspezifisch sind, werden immer heruntergeladen. Standardmäßig werden vom Assistenten die Sprachen ausgewählt, die Sie in den Eigenschaften des Softwareupdatepunkts konfiguriert haben. Es muss mindestens eine Sprache ausgewählt werden, bevor die nächste Seite angezeigt werden kann. Wenn Sie nur Sprachen auswählen, die von einem Update nicht unterstützt werden, kann das Update nicht heruntergeladen werden.  
+13. Dans la page Sélection de la langue, sélectionnez les langues pour lesquelles les mises à jour sélectionnées sont téléchargées. Les mises à jour sont téléchargées uniquement si elles sont disponibles dans les langues sélectionnées. Les mises à jour qui ne sont propres à aucune langue sont toujours téléchargées. Par défaut, l'Assistant sélectionne les langues que vous avez configurées dans les propriétés du point de mise à jour logicielle. Au moins une langue doit être sélectionnée avant de passer à la page suivante. Quand vous sélectionnez uniquement des langues qui ne sont pas prises en charge par une mise à jour, le téléchargement échoue pour cette mise à jour.  
 
-14. Überprüfen Sie auf der Seite „Zusammenfassung“ die Einstellungen, und klicken Sie auf **Weiter** , um den Wartungsplan zu erstellen.  
+14. Dans la page Résumé, examinez les paramètres et cliquez sur **Suivant** pour créer le plan de maintenance.  
 
- Nachdem Sie den Assistenten abgeschlossen haben, wird der Wartungs plan ausgeführt. Dabei werden die Updates, die die angegebenen Kriterien erfüllen, einer Softwareupdategruppe hinzugefügt. Dann werden die Updates in die Inhaltsbibliothek auf dem Standortserver heruntergeladen und an die konfigurierten Verteilungspunkte verteilt. Die Softwareupdategruppe wird schließlich den Clients in der Zielsammlung bereitgestellt.  
+ Une fois l’Assistant terminé, le plan de maintenance est exécuté. Il ajoute les mises à jour qui correspondent aux critères spécifiés à un groupe de mises à jour logicielles, télécharge les mises à jour dans la bibliothèque de contenu sur le serveur de site, distribue les mises à jour aux points de distribution configurés, puis déploie le groupe de mises à jour logicielles sur les clients du regroupement cible.  
 
-##  <a name="BKMK_ModifyServicingPlan"></a> Ändern eines Wartungsplans  
-Nachdem Sie einen grundlegenden Wartungsplan über das Windows 10-Wartungsdashboard erstellt haben, oder wenn Sie die Einstellungen für einen vorhandenen Wartungsplan ändern müssen, können Sie zu den Eigenschaften für den Wartungsplan navigieren.
+##  <a name="BKMK_ModifyServicingPlan"></a> Modifier un plan de maintenance  
+Après avoir créé un plan de maintenance de base à partir du tableau de bord de maintenance de Windows 10, ou si vous devez modifier les paramètres d’un plan de maintenance existant, vous pouvez accéder à ses propriétés.
 
 > [!NOTE]
-> Sie können die Einstellungen in den Eigenschaften für den Wartungsplan konfigurieren, die bei der Erstellung des Wartungsplans im Assistenten nicht verfügbar sind. Im Assistenten werden für Downloadeinstellungen, Bereitstellungseinstellungen und Warnungen jeweils die Standardeinstellungen verwendet.  
+> Vous pouvez configurer des paramètres dans les propriétés du plan de maintenance qui ne sont pas disponibles dans l’Assistant quand vous créez le plan. L’Assistant utilise les valeurs par défaut pour les paramètres des éléments suivants : paramètres de téléchargement, paramètres de déploiement et alertes.  
 
-Wenden Sie das folgende Verfahren an, um die Eigenschaften eines Wartungsplans zu ändern.  
+Pour modifier les propriétés d’un plan de maintenance, appliquez la procédure suivante.  
 
-#### <a name="to-modify-the-properties-of-a-servicing-plan"></a>So ändern Sie die Eigenschaften eines Wartungsplans  
+#### <a name="to-modify-the-properties-of-a-servicing-plan"></a>Pour modifier les propriétés d’un plan de maintenance  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Softwarebibliothek**.  
+1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
-2.  Erweitern Sie **Windows 10-Wartung**in der Softwarebibliothek, klicken Sie auf **Wartungspläne**, und wählen Sie dann den Wartungsplan aus, den Sie ändern möchten.  
+2.  Dans l’espace de travail Bibliothèque de logiciels, développez **Maintenance de Windows 10**, cliquez sur **Plans de maintenance**, puis sélectionnez le plan de maintenance que vous souhaitez modifier.  
 
-3.  Klicken Sie auf der Registerkarte **Startseite** auf **Eigenschaften** , um Eigenschaften für den ausgewählten Wartungsplan zu öffnen.
+3.  Sous l’onglet **Accueil** cliquez sur **Propriétés** pour ouvrir les propriétés du plan de maintenance sélectionné.
 
-    In den Eigenschaften für den Wartungsplan sind folgende Einstellungen verfügbar, die im Assistenten nicht konfiguriert wurden:
+    Les paramètres suivants sont disponibles dans les propriétés du plan de maintenance qui n’ont pas été configurées dans l’Assistant :
 
-    **Bereitstellungseinstellungen**: Konfigurieren Sie auf der Registerkarte „Bereitstellungseinstellungen“ die folgenden Einstellungen:  
+    **Paramètres de déploiement** : dans la page Paramètres de déploiement, configurez les paramètres suivants :  
 
-    -   **Bereitstellungstyp**: Geben Sie für die Softwareupdatebereitstellung den Bereitstellungstyp an. Wählen Sie **Erforderlich** aus, um eine obligatorische Softwareupdatebereitstellung zu erstellen, bei der Softwareupdates automatisch bis zu einem vorgegebenen Installationsstichtag auf Clients installiert werden. Wählen Sie **Verfügbar** aus, um eine optionale Softwareupdatebereitstellung zu erstellen, die im Softwarecenter zur Verfügung gestellt wird und von Benutzern installiert werden kann.  
+    -   **Type de déploiement**: indique le type de déploiement pour le déploiement des mises à jour logicielles. Sélectionnez **Obligatoire** pour créer un déploiement de mises à jour logicielles obligatoire où les mises à jour logicielles sont installées automatiquement sur les clients selon une échéance d'installation configurée. Sélectionnez **Disponible** pour créer un déploiement de mises à jour logicielles facultatives que les utilisateurs peuvent installer à partir du Centre logiciel.  
 
         > [!IMPORTANT]  
-        >  Nachdem Sie die Softwareupdatebereitstellung einmal erstellt haben, können Sie den Bereitstellungstyp nicht mehr ändern.  
+        >  Après avoir créé le déploiement de mises à jour logicielles, vous ne pourrez pas modifier ultérieurement le type de déploiement.  
 
         > [!NOTE]  
-        >  Eine als **Erforderlich** bereitgestellte Softwareupdategruppe wird im Hintergrund heruntergeladen und berücksichtigt BITS-Einstellungen (sofern konfiguriert).  
-        > Als **Verfügbar** bereitgestellte Softwareupdategruppen werden jedoch im Vordergrund heruntergeladen und ignorieren BITS-Einstellungen.  
+        >  Un groupe de mises à jour logicielles déployé avec l’option **Obligatoire** est téléchargé en arrière-plan et respecte les paramètres BITS, s’ils sont configurés.  
+        > Toutefois, les groupes de mises à jour logicielles déployés avec l’option **Disponible** sont téléchargés au premier plan et ignore les paramètres BITS.  
 
-    -   **Wake-on-LAN verwenden, um Clients für erforderliche Bereitstellungen zu aktivieren**: Geben Sie an, ob Wake-On-LAN am Stichtag aktiviert werden soll, damit Aktivierungspakete an Computer gesendet werden, für die mindestens eines der in der Bereitstellung enthaltenen Softwareupdates erforderlich ist. Alle Computer, die sich am Installationsstichtag im Energiesparmodus befinden, werden aktiviert, damit die Softwareupdateinstallation initiiert werden kann. Clients, die sich im Energiesparmodus befinden und für die keine der in der Bereitstellung enthaltenen Softwareupdates erforderlich sind, werden nicht gestartet. Diese Einstellung ist standardmäßig deaktiviert und nur verfügbar, wenn unter **Bereitstellungstyp** die Einstellung **Erforderlich**ausgewählt wurde.  
+    -   **Utiliser Wake-on-LAN pour réveiller les clients pour les déploiements requis**: indiquez si l’éveil par appel réseau (Wake On LAN) doit être activé à l’échéance pour envoyer des paquets de mise en éveil aux ordinateurs qui nécessitent une ou plusieurs mises à jour logicielles du déploiement. Tous les ordinateurs en mode veille à l'échéance de l'installation sont mis en éveil afin que l'installation des mises à jour logicielles puisse démarrer. Les clients en mode veille qui ne nécessitent pas les mises à jour logicielles incluses dans le déploiement ne sont pas démarrés. Par défaut, ce paramètre n'est pas activé et il est disponible uniquement lorsque le **Type de déploiement** est défini sur **Obligatoire**.  
 
         > [!WARNING]  
-        >  Sie können diese Option nur verwenden, wenn Computer und Netzwerke für Wake-On-LAN konfiguriert sind.  
+        >  Pour que vous puissiez utiliser cette option, les ordinateurs et les réseaux doivent être configurés pour utiliser l'éveil par appel réseau.  
 
-    -   **Detailstufe**: Geben Sie die Detailstufe für die von den Clientcomputern zurückgegebenen Zustandsmeldungen an.  
+    -   **Niveau de détail**: indiquez le niveau de détail pour les messages d’état qui sont signalés par les ordinateurs clients.  
 
-    **Downloadeinstellungen**: Konfigurieren Sie auf der Registerkarte „Downloadeinstellungen“ die folgenden Einstellungen:  
+    **Paramètres de téléchargement** : sous l’onglet Paramètres de téléchargement, configurez les paramètres suivants :  
 
-    - Geben Sie an, ob die Softwareupdates vom Client heruntergeladen und installiert werden, wenn ein Client mit einer langsamen Netzwerkverbindung oder einer Fallbackinhaltsquelle vorliegt.  
+    - Indiquez si le client va télécharger et installer les mises à jour logicielles quand il est connecté à un réseau lent ou utilise un emplacement de secours pour le contenu.  
 
-    - Geben Sie an, ob die Softwareupdates vom Client von einem Fallbackverteilungspunkt heruntergeladen und installiert werden sollen, wenn der Inhalt für die Softwareupdates an einem bevorzugten Verteilungspunkt nicht verfügbar ist.  
+    - Indiquez si le client doit télécharger et installer les mises à jour logicielles à partir d'un point de distribution de secours quand le contenu pour les mises à jour logicielles n'est pas disponible sur un point de distribution préféré.  
 
-    -   **Freigeben von Inhalten für andere Clients im gleichen Subnetz zulassen**: Geben Sie an, ob BranchCache beim Herunterladen von Inhalten verwendet werden soll. Weitere Informationen zu BranchCache finden Sie unter [Grundlegende Konzepte für die Inhaltsverwaltung](../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md#branchcache).  
+    -   **Autoriser les clients à partager du contenu avec d’autres clients sur le même sous-réseau**: indiquez si vous souhaitez activer l’utilisation de BranchCache pour les téléchargements du contenu. Pour plus d’informations sur BranchCache, consultez [Concepts fondamentaux de la gestion de contenu](../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md#branchcache).  
 
-    -   Geben Sie an, ob von Clients Softwareupdates von Microsoft Update heruntergeladen werden sollen, wenn keine Softwareupdates an Verteilungspunkten verfügbar sind.
+    -   Indiquez si les clients doivent télécharger les mises à jour logicielles à partir de Microsoft Update si elles ne sont pas disponibles sur des points de distribution.
         > [!IMPORTANT]
-        > Verwenden Sie diese Einstellung nicht für Windows 10-Wartungsupdates. Configuration Manager kann (zumindest bis Version 1610) keine Windows 10-Wartungsupdates von Microsoft Update herunterladen.
+        > N’utilisez pas ce paramètre pour les mises à jour de maintenance de Windows 10. Configuration Manager (au moins jusqu’à la version 1610) ne parviendra pas à télécharger les mises à jour de maintenance de Windows 10 à partir de Microsoft Update.
 
-    -   Geben Sie an, ob es Clients mit einer getakteten Internetverbindung möglich sein soll, Inhalt nach dem Installationsstichtag herunterzuladen. Bei getakteten Internetverbindungen berechnen einige Internetanbieter die anfallenden Gebühren anhand der Datenmenge, die Sie senden und empfangen.   
+    -   Indiquez si les clients peuvent procéder au téléchargement une fois l’échéance de l’installation dépassée dans le cas où ils utilisent des connexions Internet facturées à l’usage. Les fournisseurs Internet facturent parfois en fonction de la quantité de données que vous envoyez et recevez lorsque vous utilisez une connexion Internet facturée à l'usage.   
 
-    **Warnungen**: Geben Sie auf der Seite „Warnungen“ an, wie Configuration Manager und System Center Operations Manager Warnungen für diese Bereitstellung generieren sollen. Warnungen können nur konfiguriert werden, wenn auf der Seite „Bereitstellungseinstellungen“ unter **Bereitstellungstyp** die Option **Erforderlich** ausgewählt wurde.  
+    **Alertes** : dans la page Alertes, configurez la manière dont Configuration Manager et System Center Operations Manager génèrent des alertes pour ce déploiement. Vous pouvez configurer des alertes uniquement lorsque **Type de déploiement** est défini sur **Obligatoire** sur la page Paramètres de déploiement.  
 
     > [!NOTE]  
-    >  Sie können die letzten Warnungen zu Softwareupdates im Arbeitsbereich **Softwarebibliothek** im Knoten **Softwareupdates** prüfen.  
+    >  Vous pouvez consulter les récentes alertes de mises à jour logicielles à partir du nœud **Mises à jour logicielles** dans l'espace de travail **Bibliothèque de logiciels** .  

@@ -1,6 +1,6 @@
 ---
-title: Features und Funktionen | Microsoft-Dokumentation
-description: "Erfahren Sie mehr über die primären Verwaltungsfunktionen von System Center Configuration Manager."
+title: "Fonctions et fonctionnalités | Microsoft Docs"
+description: "Découvrez les principales fonctionnalités de gestion de System Center Configuration Manager."
 ms.custom: na
 ms.date: 12/29/2016
 ms.prod: configuration-manager
@@ -18,85 +18,85 @@ manager: angrobe
 ms.openlocfilehash: 4691f43dccdf73936107f4635321897b9779bead
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="features-and-capabilities-of-system-center-configuration-manager"></a>Features und Funktionen von System Center Configuration Manager
+# <a name="features-and-capabilities-of-system-center-configuration-manager"></a>Fonctions et fonctionnalités de System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Im Folgenden finden Sie die primären Verwaltungsfunktionen von System Center Configuration Manager. Für jede Funktion gelten individuelle Voraussetzungen, und die von Ihnen gewünschten Funktionen können sich auf den Entwurf und die Implementierung Ihrer Configuration Manager-Hierarchie auswirken. Wenn Sie beispielsweise Software auf Geräten in Ihrer Hierarchie bereitstellen möchten, müssen Sie die Standortsystemrolle „Verteilungspunkt“ installieren.  
+Les principales fonctionnalités de gestion de System Center Configuration Manager sont exposées ci-après. Chaque fonctionnalité possède ses propres prérequis, et les fonctionnalités que vous souhaitez utiliser peuvent influencer la conception et l’implémentation de votre hiérarchie Configuration Manager. Par exemple, si vous souhaitez déployer des logiciels sur des appareils de votre hiérarchie, vous devez installer le rôle de système de site du point de distribution.  
 
- Weitere Informationen zum Planen und Installieren von Configuration Manager zur Unterstützung dieser Verwaltungsfunktionen in Ihrer Umgebung finden Sie unter [Vorbereiten auf System Center Configuration Manager](../../../core/plan-design/get-ready.md).  
+ Pour plus d’informations sur la planification et l’installation de Configuration Manager pour prendre en charge ces fonctionnalités de gestion dans votre environnement, consultez [Se préparer pour System Center Configuration Manager](../../../core/plan-design/get-ready.md).  
 
- **Anwendungsverwaltung**  
+ **Gestion des applications**  
 
- Zu dieser Funktion gehören mehrere Tools und Ressourcen, mit denen Sie Anwendungen auf vielen verschiedenen von Ihnen verwalteten Geräten erstellen, verwalten, bereitstellen und überwachen können. Darüber hinaus bietet Configuration Manager Tools, mit denen Sie Ihre Unternehmensdaten in den Apps der Benutzer schützen können. Informationen hierzu finden Sie unter [Einführung in die Anwendungsverwaltung](/sccm/apps/understand/introduction-to-application-management).
+ Fournit un ensemble d’outils et de ressources qui peuvent vous aider à créer, gérer, déployer et surveiller les applications sur les différents types d’appareils que vous gérez. Par ailleurs, Configuration Manager met à votre disposition des outils qui vous aident à protéger les données de votre entreprise contenues dans les applications des utilisateurs. Consultez [Introduction à la gestion des applications](/sccm/apps/understand/introduction-to-application-management).
 
- **Zugriff auf Unternehmensressourcen**  
+ **Accès aux ressources d’entreprise**  
 
- Zu dieser Funktion gehört eine Reihe von Tools und Ressourcen, mit deren Hilfe Sie Benutzern in Ihrer Organisation Zugriff auf Daten und Anwendungen über Remotestandorte gewähren können. Diese Tools umfassen WLAN-Profile, VPN-Profile, Zertifikatprofile und den bedingten Zugriff auf Exchange und SharePoint Online. Informationen hierzu finden Sie unter [Schützen von Daten und Standortinfrastruktur mit System Center Configuration Manager](../../../protect/understand/protect-data-and-site-infrastructure.md) und [Verwalten des Zugriffs auf Dienste in System Center Configuration Manager](../../../protect/deploy-use/manage-access-to-services.md).  
+ Fournit un ensemble d'outils et de ressources qui permettent aux utilisateurs de votre organisation d'accéder à des données et des applications à partir d'emplacements distants. Ces outils incluent les profils Wi-Fi, les profils VPN, les profils de certificat et l’accès conditionnel à Exchange et SharePoint Online. Consultez [Protéger les données et l’infrastructure des sites avec System Center Configuration Manager](../../../protect/understand/protect-data-and-site-infrastructure.md) et [Gérer l’accès aux services dans System Center Configuration Manager](../../../protect/deploy-use/manage-access-to-services.md).  
 
- **Kompatibilitätseinstellungen**  
+ **Paramètres de compatibilité**  
 
- Zu dieser Funktion gehören mehrere Tools und Ressourcen, mit deren Hilfe Sie die Konfigurationskompatibilität von Clientgeräten im Unternehmen bewerten, verfolgen und korrigieren können. Darüber hinaus können Sie Kompatibilitätseinstellungen verwenden, um eine Reihe von Features und Sicherheitseinstellungen auf Geräten zu konfigurieren, die Sie verwalten. Informationen hierzu finden Sie unter [Sicherstellen der Gerätekompatibilität mit System Center Configuration Manager](../../../compliance/understand/ensure-device-compliance.md).  
+ Fournit un ensemble d'outils et de ressources susceptibles de vous aider à évaluer, suivre et corriger la compatibilité de la configuration des appareils clients de l'entreprise. De plus, vous pouvez utiliser les paramètres de compatibilité pour configurer tout un éventail de fonctionnalités et de paramètres de sécurité sur les appareils que vous gérez. Consultez [Garantir la conformité des appareils avec System Center Configuration Manager](../../../compliance/understand/ensure-device-compliance.md).  
 
  **Endpoint Protection**  
 
- Zu dieser Funktion gehören Verwaltungsfunktionen für Sicherheit, Antischadsoftware und Windows-Firewall für Computer in Ihrem Unternehmen. Informationen hierzu finden Sie unter [Endpoint Protection in System Center Configuration Manager](../../../protect/deploy-use/endpoint-protection.md).  
+ Propose une gestion de la sécurité, des logiciels anti-programme malveillant et du Pare-feu Windows pour les ordinateurs de votre entreprise. Consultez [Endpoint Protection dans System Center Configuration Manager](../../../protect/deploy-use/endpoint-protection.md).  
 
- **Inventur**  
+ **Inventaire**  
 
- Zu dieser Funktion gehören mehrere Tools zum Identifizieren und Überwachen von Beständen:  
+ Fournit un ensemble d'outils pour aider à identifier et surveiller les actifs :  
 
--   **Hardwareinventur**: Mit dieser Funktion werden detaillierte Informationen zur Hardware der Geräte in Ihrem Unternehmen gesammelt. Informationen hierzu finden Sie unter [Einführung in die Hardwareinventur in System Center Configuration Manager](../../../core/clients/manage/inventory/introduction-to-hardware-inventory.md).  
+-   **Inventaire matériel**: collecte des informations détaillées sur le matériel des appareils de votre entreprise. Consultez [Présentation de l’inventaire matériel dans System Center Configuration Manager](../../../core/clients/manage/inventory/introduction-to-hardware-inventory.md).  
 
--   **Softwareinventur**: Mit dieser Funktion werden Informationen zu den auf Clientcomputern Ihres Unternehmens gespeicherten Dateien gesammelt und entsprechende Berichte erstellt. Informationen hierzu finden Sie unter [Einführung in die Softwareinventur in System Center Configuration Manager](../../../core/clients/manage/inventory/introduction-to-software-inventory.md).  
+-   **Inventaire logiciel**: collecte et rapporte des informations sur les fichiers qui sont stockés sur des ordinateurs clients de votre organisation. Consultez [Présentation de l’inventaire logiciel dans System Center Configuration Manager](../../../core/clients/manage/inventory/introduction-to-software-inventory.md).  
 
--   **Asset Intelligence**: Zu dieser Funktion gehören Tools zum Sammeln von Inventurdaten und zur Überwachung von Softwarelizenzen in Ihrem Unternehmen. Informationen hierzu finden Sie unter [Einführung in Asset Intelligence in System Center Configuration Manager](../../../core/clients/manage/asset-intelligence/introduction-to-asset-intelligence.md).  
+-   **Asset Intelligence**: fournit des outils pour collecter les données d'inventaire et surveiller l'utilisation des licences de logiciels dans votre entreprise. Consultez [Présentation d’Asset Intelligence dans System Center Configuration Manager](../../../core/clients/manage/asset-intelligence/introduction-to-asset-intelligence.md).  
 
-**Verwaltung mobiler Geräte mit Microsoft Intune**  
+**Gestion des appareils mobiles avec Microsoft Intune**  
 
- Mit Configuration Manager können Sie iOS-, Android- (einschließlich Samsung KNOX Standard), Windows Phone- und Windows-Geräte mithilfe des Microsoft Intune-Diensts über das Internet verwalten.
+ Vous pouvez utiliser Configuration Manager pour gérer des appareils iOS, Android (dont Samsung KNOX Standard), Windows Phone et Windows à l’aide du service Microsoft Intune sur Internet.
 
- Obwohl Sie den Intune-Dienst verwenden, werden Verwaltungstasks mithilfe der Standortsystemrolle „Dienstverbindungspunkt“ ausgeführt, die über die Configuration Manager-Konsole verfügbar ist. Informationen hierzu finden Sie unter [Hybride Verwaltung mobiler Geräte (MDM) mit System Center Configuration Manager und Microsoft Intune](../../../mdm/understand/hybrid-mobile-device-management.md).  
+ Même si vous utilisez le service Intune, les tâches de gestion s’effectuent à l’aide du rôle de système de site de point de connexion de service, disponible via la console Configuration Manager. Consultez [Gestion des appareils mobiles (MDM) hybride avec System Center Configuration Manager et Microsoft Intune](../../../mdm/understand/hybrid-mobile-device-management.md).  
 
- **Lokale Verwaltung mobiler Geräte**  
+ **Gestion des appareils mobiles locale**  
 
- Registriert und verwaltet PCs und mobile Geräte mithilfe der lokalen Configuration Manager-Infrastruktur und -Verwaltungsfunktionalität, die in die Geräteplattformen integriert ist (anstatt mit einem getrennt installierten Configuration Manager-Client zu arbeiten). Derzeit unterstützt wird die Verwaltung von Windows 10 Enterprise- und Windows 10 Mobile-Geräten. Informationen hierzu finden Sie unter [Verwalten mobiler Geräte mit lokaler Infrastruktur in System Center Configuration Manager](../../../mdm/understand/manage-mobile-devices-with-on-premises-infrastructure.md).  
+ Inscrit et gère les PC et les appareils mobiles en utilisant l’infrastructure Configuration Manager locale et les fonctionnalités de gestion intégrées aux plateformes d’appareils (au lieu d’utiliser un client Configuration Manager installé séparément). Prend actuellement en charge la gestion des appareils Windows 10 Entreprise et Windows 10 Mobile. Consultez [Gérer des appareils mobiles avec une infrastructure locale dans System Center Configuration Manager](../../../mdm/understand/manage-mobile-devices-with-on-premises-infrastructure.md).  
 
- **Betriebssystembereitstellung**  
+ **Déploiement de systèmes d’exploitation**  
 
- Zu dieser Funktion gehört ein Tool zum Erstellen von Betriebssystemabbildern. Sie können diese Images verwenden, um die Betriebssysteme mittels PXE-Start oder mithilfe von startfähigen Medien wie CD-Sets, DVDs oder USB-Speichersticks auf Computern bereitzustellen. Beachten Sie, dass dies auch für Computer, die durch Configuration Manager verwaltet werden, sowie für nicht verwaltete Computer gilt. Informationen hierzu finden Sie unter [Einführung in die Bereitstellung von Betriebssystemen in System Center Configuration Manager](../../../osd/understand/introduction-to-operating-system-deployment.md).  
+ Fournit un outil pour créer des images de système d'exploitation. Vous pouvez ensuite utiliser ces images pour déployer les systèmes d’exploitation sur des ordinateurs, à l’aide du démarrage PXE ou d’un média de démarrage, tel qu’un jeu de CD, un DVD ou des lecteurs flash USB. Notez que cela s’applique aux ordinateurs qui sont gérés par Configuration Manager ainsi qu’aux ordinateurs non gérés. Consultez [Introduction au déploiement de système d’exploitation dans System Center Configuration Manager](../../../osd/understand/introduction-to-operating-system-deployment.md).  
 
- **Energieverwaltung**  
+ **Gestion de l’alimentation**  
 
- Zu dieser Funktion gehören mehrere Tools und Ressourcen, mit denen Sie den Stromverbrauch von Clientcomputern im Unternehmen verwalten und überwachen können. Informationen hierzu finden Sie unter [Einführung in die Energieverwaltung in System Center Configuration Manager](../../../core/clients/manage/power/introduction-to-power-management.md).  
+ Fournit un ensemble d'outils et de ressources que vous pouvez utiliser pour gérer et surveiller la consommation d'énergie des ordinateurs clients dans l'entreprise. Consultez [Présentation de la gestion de l’alimentation dans System Center Configuration Manager](../../../core/clients/manage/power/introduction-to-power-management.md).  
 
- **Abfragen**  
+ **Requêtes**  
 
- Zu dieser Funktion gehört ein Tool, mit dessen Hilfe Sie Informationen zu Ressourcen in Ihrer Hierarchie sowie zu Inventurdaten und Statusmeldungen abrufen können. Anschließend können Sie diese Informationen verwenden, um Berichte zu erstellen, oder Sammlungen von Geräten oder Benutzern für Softwarebereitstellungs- und Konfigurationseinstellungen zu definieren. Informationen hierzu finden Sie unter [Einführung in Abfragen in System Center Configuration Manager](../../../core/servers/manage/introduction-to-queries.md).  
+ Fournit un outil pour récupérer des informations sur les ressources de votre hiérarchie et des informations sur les données d'inventaire et les messages d'état. Vous pouvez ensuite utiliser ces informations pour établir des rapports ou pour définir des regroupements d’appareils ou d’utilisateurs pour les paramètres de déploiement et de configuration de logiciels. Consultez [Présentation des requêtes dans System Center Configuration Manager](../../../core/servers/manage/introduction-to-queries.md).  
 
- **Remoteverbindungsprofile**  
+ **Profils de connexion à distance**  
 
- Zu dieser Funktion gehört eine Reihe von Tools und Ressourcen, mit deren Hilfe Sie Remoteverbindungeinstellungen für Geräte in Ihrer Organisation erstellen, bereitstellen und überwachen können. Durch Bereitstellen dieser Einstellungen erleichtern Sie den Benutzern das Herstellen einer Verbindung zu ihren Computern über das Unternehmensnetzwerk. Informationen hierzu finden Sie unter [Arbeiten mit Remoteverbindungsprofile in System Center Configuration Manager](/sccm/compliance/deploy-use/create-remote-connection-profiles).  
+ Fournit un ensemble d’outils et de ressources pour vous aider à créer, déployer et surveiller les paramètres de connexion à distance vers des appareils de votre organisation. En déployant ces paramètres, vous réduisez l’effort fourni par les utilisateurs pour se connecter à leurs ordinateurs sur le réseau d’entreprise. Consultez [Utilisation de profils de connexion à distance dans System Center Configuration Manager](/sccm/compliance/deploy-use/create-remote-connection-profiles).  
 
- **Konfigurationselemente für Benutzerdaten und -profile**  
+ **Éléments de configuration des données et profils utilisateur**  
 
- Konfigurationselemente für Benutzerdaten und -profile in Configuration Manager enthalten Einstellungen, mit denen die Ordnerumleitung, Offlinedateien und Roamingprofile auf Computern mit Windows 8 und höher für Benutzer in Ihrer Hierarchie verwaltet werden können. Informationen hierzu finden Sie unter [Arbeiten mit Konfigurationselementen für Benutzerdaten und -profile in System Center Configuration Manager](/sccm/compliance/deploy-use/create-user-data-and-profiles-configuration-items).  
+ Les éléments de configuration des données et profils utilisateur dans Configuration Manager contiennent des paramètres permettant de gérer la redirection de dossiers, les fichiers hors connexion et les profils itinérants sur des ordinateurs qui exécutent Windows 8 et versions ultérieures pour les utilisateurs de votre hiérarchie. Consultez [Utilisation d’éléments de configuration des données et profils utilisateur dans System Center Configuration Manager](/sccm/compliance/deploy-use/create-user-data-and-profiles-configuration-items).  
 
- **Remotesteuerung**  
+ **Contrôle à distance**  
 
- Stellt Tools zur Remoteverwaltung von Clientcomputern über die Configuration Manager-Konsole bereit. Informationen hierzu finden Sie unter [Einführung in die Remotesteuerung in System Center Configuration Manager](../../../core/clients/manage/remote-control/introduction-to-remote-control.md).  
+ Fournit des outils pour administrer des ordinateurs clients à distance, à partir de la console Configuration Manager. Consultez [Présentation du contrôle à distance dans System Center Configuration Manager](../../../core/clients/manage/remote-control/introduction-to-remote-control.md).  
 
- **Berichterstellung**  
+ **Rapports**  
 
- Stellt mehrere Tools und Ressourcen bereit, mit denen Sie die erweiterten Berichterstellungsfunktionen von SQL Server Reporting Services über die Configuration Manager-Konsole nutzen können. Informationen hierzu finden Sie unter [Einführung in die Berichterstellung in System Center Configuration Manager](../../../core/servers/manage/introduction-to-reporting.md).  
+ Fournissent un ensemble d’outils et de ressources vous permettant d’utiliser les fonctionnalités de création de rapport avancées de SQL Server Reporting Services à partir de la console Configuration Manager. Consultez [Présentation des rapports dans System Center Configuration Manager](../../../core/servers/manage/introduction-to-reporting.md).  
 
- **Softwaremessung**  
+ **Contrôle de logiciel**  
 
- Stellt Tools zum Überwachen und Sammeln von Softwarenutzungsdaten von Configuration Manager-Clients bereit. Informationen finden Sie unter [Überwachen der App-Nutzung mit der Softwaremessung in System Center Configuration Manager](../../../apps/deploy-use/monitor-app-usage-with-software-metering.md).  
+ Fournit des outils pour surveiller et collecter les données d’utilisation des logiciels à partir de clients Configuration Manager. Consultez [Surveiller l’utilisation des applications avec le contrôle de logiciel dans System Center Configuration Manager](../../../apps/deploy-use/monitor-app-usage-with-software-metering.md).  
 
- **Softwareupdates**  
+ **Mises à jour logicielles**  
 
- Zu dieser Funktion gehören mehrere Tools und Ressourcen, mit denen Sie Softwareupdates im Unternehmen verwalten, bereitstellen und überwachen können. Informationen hierzu finden Sie unter [Einführung zu Softwareupdates in System Center Configuration Manager](/sccm/sum/understand/software-updates-introduction).  
+ Fournit un ensemble d'outils et de ressources qui peuvent vous aider à gérer, déployer et surveiller les mises à jour logicielles dans l'entreprise. Consultez [Présentation des mises à jour logicielles dans System Center Configuration Manager](/sccm/sum/understand/software-updates-introduction).  

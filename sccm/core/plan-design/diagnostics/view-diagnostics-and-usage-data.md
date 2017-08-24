@@ -1,6 +1,6 @@
 ---
-title: Anzeigen von Diagnosedaten | Microsoft-Dokumentation
-description: "Zeigen Sie Diagnose- und Nutzungsdaten an, um zu bestätigen, dass die System Center Configuration Manager-Hierarchie keine vertraulichen Informationen enthält."
+title: "Afficher les données de diagnostic | Microsoft Docs"
+description: "Affichez les données d’utilisation et de diagnostic pour vérifier que votre hiérarchie System Center Configuration Manager ne contient aucune information sensible."
 ms.custom: na
 ms.date: 3/27/2017
 ms.prod: configuration-manager
@@ -17,34 +17,34 @@ manager: angrobe
 ms.openlocfilehash: 0932e2b2a4f3e13c35d6b7b0446083f1c233ce03
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-view-diagnostics-and-usage-data-for-system-center-configuration-manager"></a>Informationen zum Anzeigen von Diagnose- und Verwendungsdaten für System Center Configuration Manager
+# <a name="how-to-view-diagnostics-and-usage-data-for-system-center-configuration-manager"></a>Comment afficher les données d’utilisation et de diagnostic pour System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Sie können in Ihrer System Center Configuration Manager-Hierarchie Diagnose- und Nutzungsdaten anzeigen und überprüfen, um sicherzustellen, dass keine sensiblen oder identifizierbaren Informationen enthalten sind. Telemetriedaten werden zusammengefasst, in der Tabelle **TEL_TelemetryResults** der Standortdatenbank gespeichert und so formatiert, dass sie programmgesteuert und effizient zu verwenden sind. Obwohl Ihnen die folgenden Optionen einen Überblick über die genauen Daten verschaffen, die an Microsoft gesendet werden, sollen diese nicht für andere Zwecke (z.B. zur Datenanalyse) verwendet werden.  
+Vous pouvez afficher les données d’utilisation et de diagnostic de votre hiérarchie System Center Configuration Manager pour vérifier qu’elle ne contient aucune information sensible ni identifiable. Les données de télémétrie sont résumées et stockées dans la table **TEL_TelemetryResults** de la base de données du site et mises en forme de manière à être utilisables et efficaces en programmation. Bien que les options suivantes vous offrent une vue des données exactes envoyées à Microsoft, celles-ci ne sont pas destinées à être utilisées à d’autres fins, comme l’analyse des données.  
 
-Verwenden Sie den folgenden SQL-Befehl, um den Inhalt dieser Tabelle und die Daten anzuzeigen, die gesendet werden. (Sie können diese Daten auch in eine Textdatei exportieren):  
+Utilisez la commande SQL suivante pour voir le contenu de cette table et afficher les données exactes qui sont envoyées. (Vous pouvez également exporter ces données dans un fichier texte.) :  
 
 -   **SELECT \* FROM TEL_TelemetryResults**  
 
 > [!NOTE]  
->  Bevor Sie Version 1602 installieren, sind die Telemetriedaten in der Tabelle **TelemetryResults** gespeichert.  
+>  Avant d’installer la version 1602, la table qui stocke les données de télémétrie est **TelemetryResults**.  
 
-Wenn sich der Dienstverbindungspunkt im Offlinemodus befindet, können Sie die aktuellen Diagnose- und Verwendungsdaten mit dem Dienstverbindungstool in eine Datei mit kommagetrennten Werten (CSV) exportieren. Führen Sie das Dienstverbindungstool auf dem Dienstverbindungspunkt mithilfe des Parameters **-Export** aus.  
+Quand le point de connexion de service est en mode hors connexion, vous pouvez utiliser l’outil de connexion de service pour exporter les données d’utilisation et de diagnostic actives dans un fichier de valeurs séparées par des virgules (CSV). Exécutez l’outil de connexion de service sur le point de connexion de service en utilisant le paramètre **-Export**.  
 
-##  <a name="bkmk_hashes"></a> Unidirektionale Hashes  
-Einige Daten bestehen aus Zeichenfolgen aus zufälligen alphanumerischen Zeichen. Configuration Manager verwendet den SHA-256-Algorithmus, der mit unidirektionalen Hashes sicherstellt, dass keine potentiell sensiblen Daten gesammelt werden. Der Algorithmus belässt Daten in einem Zustand, in dem sie dennoch für Korrelations- und Vergleichszwecke verwendet werden können. Anstatt z. B. die Namen von Tabellen in der Standortdatenbank zu erfassen, wird für jeden Tabellennamen ein unidirektionaler Hash erfasst. Dadurch wird sichergestellt, dass benutzerdefinierte Tabellennamen, die Sie erstellt haben, oder Produkt-Add-Ons von Dritten nicht sichtbar sind. Anschließend können Sie denselben unidirektionalen Hash der standardmäßig im Produkt enthaltenen SQL-Tabellennamen ausführen und die Ergebnisse der beiden Abfragen vergleichen, um die Abweichung Ihres Datenbankschemas von der Standardeinstellung des Produkts zu bestimmen. Das Ergebnis wird anschließend verwendet, um Updates zu verbessern, die Änderungen des SQL-Schemas erforderlich machen.  
+##  <a name="bkmk_hashes"></a> Hachages unidirectionnels  
+Certaines données se composent de chaînes de caractères alphanumériques aléatoires. Configuration Manager utilise l’algorithme SHA-256, qui utilise le hachage à sens unique, pour garantir que nous ne collectons pas de données potentiellement sensibles. L’algorithme laisse les données dans un état où elles peuvent encore être utilisées à des fins de comparaison et de corrélation. Par exemple, au lieu de collecter les noms des tables dans la base de données de site, un hachage unidirectionnel est capturé pour chaque nom de table. Ceci garantit que les noms de tables personnalisés que vous avez créés ou que des modules complémentaires d’un produit ont créés ne sont pas visibles. Nous pouvons ensuite effectuer le même hachage à sens unique des noms des tables SQL fournis par défaut dans le produit et comparer les résultats de deux requêtes pour déterminer l’écart de votre schéma de base de données par rapport aux paramètres par défaut du produit. Cet écart est ensuite utilisé pour améliorer les mises à jour qui nécessitent des modifications du schéma SQL.  
 
-Beim Anzeigen der Rohdaten enthält jede Datenzeile einen allgemeinen Hashwert. Dies ist die Hierarchie-ID. Mit diesem Hashwert wird dann sichergestellt, dass die Daten mit der gleichen Hierarchie korreliert werden, ohne den Kunden oder die Quelle zu identifizieren.  
+Lorsque vous affichez les données brutes, une valeur hachée apparaît dans chaque ligne de données. Il s’agit de l’ID de hiérarchie. Cette valeur hachée est utilisée pour garantir que les données sont corrélées avec la même hiérarchie, sans identification du client ou de la source.  
 
-#### <a name="to-see-how-the-one-way-hash-works"></a>Funktionsweise eines unidirektionale Hashs  
+#### <a name="to-see-how-the-one-way-hash-works"></a>Pour voir comment fonctionne le hachage unidirectionnel  
 
-1.  Sie rufen Ihre Hierarchie-ID ab, indem Sie die folgende SQL-Anweisung in SQL Management Studio auf die Configuration Manager-Datenbank anwenden: **select [dbo].[fnGetHierarchyID]\(\)**  
+1.  Obtenez l’ID de votre hiérarchie en exécutant l’instruction SQL suivante dans SQL Management Studio sur la base de données Configuration Manager : **select [dbo].[fnGetHierarchyID]\(\)**  
 
-2.  Verwenden Sie das folgende Windows PowerShell-Skript zum Anwenden des unidirektionalen Hashs auf die GUID, die aus der Datenbank abgerufen wurde. Sie können dann diesen Wert mit der Hierarchie-ID in den Rohdaten vergleichen, um zu prüfen, wie wir diese Daten maskiert haben.  
+2.  Utilisez le script Windows PowerShell suivant pour réaliser le hachage en sens unique du GUID obtenu de la base de données. Vous pouvez alors le comparer à l’ID de hiérarchie dans les données brutes pour voir comment nous masquons ces données.  
 
     ```  
     Param( [Parameter(Mandatory=$True)] [string]$value )  

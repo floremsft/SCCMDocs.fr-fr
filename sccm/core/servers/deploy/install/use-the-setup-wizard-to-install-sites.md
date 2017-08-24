@@ -1,5 +1,5 @@
 ---
-title: Setup-Assistent | Microsoft-Dokumentation
+title: Assistant Installation | Microsoft Docs
 ms.custom: na
 ms.date: 7/24/2017
 ms.prod: configuration-manager
@@ -16,93 +16,93 @@ manager: angrobe
 ms.openlocfilehash: 678f1b35fe6f7649dacb766f7c671f4ec8ea1435
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="use-the-setup-wizard-to-install-system-center-configuration-manager-sites"></a>Verwenden des Setup-Assistenten zum Installieren von System Center Configuration Manager-Standorten
+# <a name="use-the-setup-wizard-to-install-system-center-configuration-manager-sites"></a>Utilisez l’Assistant Installation pour installer des sites System Center Configuration Manager.
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
-Verwenden Sie zum Installieren eines neuen System Center Configuration Manager-Standorts mit einer Benutzeroberfläche den Configuration Manager-Setup-Assistenten (setup.exe). Der Assistent unterstützt die Installation eines primären Standorts oder eines Standorts der zentralen Verwaltung. Verwenden Sie auch den Assistenten zum [Ausführen eines Upgrades für eine Evaluierungsinstallation](../../../../core/servers/deploy/install/upgrade-an-evaluation-install-to-a-full-install.md) von Configuration Manager auf eine vollständig lizenzierte Installation. Wenn Sie den Assistenten nicht verwenden möchten, können Sie stattdessen ein [Installationsskript](../../../../core/servers/deploy/install/use-a-command-line-to-install-sites.md) verwenden und eine unbeaufsichtigte Befehlszeileninstallation ausführen.
+Pour installer un nouveau site System Center Configuration Manager en utilisant une interface utilisateur guidée, vous utilisez l’Assistant Installation de Configuration Manager (setup.exe). Cet Assistant prend en charge l’installation d’un site principal ou d’un site d’administration centrale. Vous utilisez également cet Assistant pour [mettre à niveau une installation d’évaluation](../../../../core/servers/deploy/install/upgrade-an-evaluation-install-to-a-full-install.md) de Configuration Manager vers une installation sous licence. Si vous ne voulez pas utiliser l’Assistant, vous pouvez utiliser à la place un [script d’installation](../../../../core/servers/deploy/install/use-a-command-line-to-install-sites.md) et exécuter une installation en ligne de commande sans assistance.
 
-Installieren Sie einen sekundären Standort über die Configuration Manager-Konsole. Sekundäre Standorte unterstützen keine Installation per Skript über die Befehlszeile.
+Pour installer un site secondaire, vous devez installer le site à partir de la console Configuration Manager. Les sites secondaires ne prennent pas en charge une installation en ligne de commande scriptée.
 
-## <a name="bkmk_primary"></a> Installieren eines primären Standorts oder eines Standorts der zentralen Verwaltung
-Verwenden Sie das folgende Verfahren,um einen Standort der zentralen Verwaltung oder einen primären Standort zu installieren oder ein Upgrade eines Evaluierungsstandorts auf einen vollständig lizenzierten Configuration Manager-Standort durchzuführen.   
+## <a name="bkmk_primary"></a> Installer un site d’administration centrale ou un site principal
+Utilisez la procédure suivante pour installer un site d’administration centrale ou un site principal, ou encore pour mettre à niveau un site d’évaluation vers un site Configuration Manager sous licence.   
 
-Machen Sie sich vor der Installation des Standorts mit den Details in den folgenden Artikeln vertraut:
- -  [Vorbereitung zur Installation von Standorten ](../../../../core/servers/deploy/install/prepare-to-install-sites.md)
- -  [Voraussetzungen für die Installation von Standorten](../../../../core/servers/deploy/install/prerequisites-for-installing-sites.md)
+Avant de commencer l’installation du site, vous devez être familiarisé avec le contenu des articles suivants :
+ -  [Préparer l’installation des sites](../../../../core/servers/deploy/install/prepare-to-install-sites.md)
+ -  [Prérequis à l’installation des sites](../../../../core/servers/deploy/install/prerequisites-for-installing-sites.md)
 
-Wenn Sie einen Standort der zentralen Verwaltung als Teil eines Standorterweiterungsszenarios installieren, lesen Sie den Abschnitt [Erweitern eines eigenständigen primären Standorts](../../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md#bkmk_expand) dieses Themas, bevor Sie das folgende Verfahren anwenden.
+Si vous installez un site d’administration centrale dans le cadre d’un scénario de développement de site, lisez la section [Développer un site principal autonome](../../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md#bkmk_expand) de cette rubrique avant d’utiliser la procédure suivante.
 
-### <a name="bkmk_installpri"></a> So installieren Sie einen primären Standort oder einen Standort der zentralen Verwaltung
+### <a name="bkmk_installpri"></a> Pour installer un site principal ou un site d’administration centrale
 
-1.  Führen Sie auf dem Computer, auf dem der Standort installiert werden soll, **&lt;InstallationMedia\>\SMSSETUP\BIN\X64\Setup.exe** aus, um den **Setup-Assistenten von System Center Configuration Manager** zu starten.  
+1.  Sur l’ordinateur sur lequel vous voulez installer le site, exécutez **&lt;InstallationMedia\>\SMSSETUP\BIN\X64\Setup.exe** pour démarrer l’**Assistant Installation de System Center Configuration Manager**.  
 
     > [!NOTE]  
-    > Wenn Sie einen Standort der zentralen Verwaltung installieren, um auf einem eigenständigen primären Standort zu erweitern, oder einen neuen untergeordneten primären Standort in einer vorhandenen Hierarchie installieren, benötigen Sie Installationsmedien (Quelldateien), die mit der Version des oder der vorhandenen Standorte übereinstimmen. Wenn Sie konsoleninterne Aktualisierungen installiert haben, die die Versionen der zuvor installierten Standorte geändert haben, verwenden Sie nicht die Originalinstallationsmedien. Verwenden Sie stattdessen Quelldateien aus dem [Ordner CD.Latest](../../../../core/servers/manage/the-cd.latest-folder.md) eines aktualisierten Standorts. Configuration Manager erfordert die Verwendung von Quelldateien, die mit der Version des bestehenden Standorts übereinstimmen, mit dem der neue Standort eine Verbindung herstellt.  
+    > Quand vous installez un site d’administration centrale pour développer un site principal autonome, ou que vous installez un nouveau site principal enfant dans une hiérarchie existante, vous devez utiliser le média d’installation (fichiers sources) qui correspondent à la version du ou des sites existants. Si vous avez installé des mises à jour dans la console qui ont changé la version des sites installés précédemment, n’utilisez pas le support d’installation d’origine. Utilisez plutôt les fichiers sources du [dossier CD.Latest](../../../../core/servers/manage/the-cd.latest-folder.md) d’un site mis à jour. Configuration Manager vous impose d’utiliser des fichiers sources qui correspondent à la version du site existant auquel votre nouveau site doit se connecter.  
 
-2.  Wählen Sie auf der Seite **Vorbereitung** die Option **Weiter** aus.  
+2.  Dans la page **Avant de commencer**, choisissez **Suivant**.  
 
-3.  Wählen Sie auf der Seite **Erste Schritte** den Typ des Standorts aus, den Sie installieren möchten:  
+3.  Dans la page **Prise en main**, sélectionnez le type de site à installer :  
 
-    -   **Standort der zentralen Verwaltung** als ersten Standort einer neuen Hierarchie oder beim Erweitern eines eigenständigen primären Standorts:  
+    -   **Site d’administration centrale** comme premier site d’une nouvelle hiérarchie, ou lors du développement d’un site principal autonome :  
 
-        Wählen Sie **Standort der zentralen Verwaltung für Configuration Manager installieren** aus.  
+        Sélectionnez **Installer un site d’administration centrale Configuration Manager**.  
 
-         Bei einem späteren Schritt dieses Verfahrens haben Sie die Möglichkeit, einen Standort der zentralen Verwaltung als ersten Standort einer neuen Hierarchie oder zum Erweitern eines eigenständigen primären Standorts zu installieren.  
+         À une étape ultérieure de cette procédure, vous aurez le choix entre installer un site d’administration centrale en tant que premier site d’une nouvelle hiérarchie ou installer un site d’administration centrale par extension d’un site principal autonome.  
 
-    -    **Primärer Standort** als eigenständiger primärer Standort, der der erste Standort einer neuen Hierarchie ist, oder als untergeordneter primärer Standort:  
+    -    **Site principal**, comme site principal autonome constituant le premier site d’une nouvelle hiérarchie, comme site principal enfant :  
 
-        Wählen Sie **Primären Configuration Manager-Standort installieren** aus.  
+        Sélectionnez **Installer un site principal Configuration Manager**.  
 
         > [!TIP]  
-        > Normalerweise wählen Sie nur die Option **Typische Installationsoptionen für einen eigenständigen primären Standort verwenden** aus, wenn Sie einen eigenständigen primären Standort in einer Testumgebung installieren möchten. Wenn Sie diese Option auswählen:  
+        > En règle générale, vous devez sélectionner l’option **Utiliser les options d’installation par défaut pour un site principal autonome** uniquement pour installer un site principal autonome dans un environnement de test. Quand vous sélectionnez cette option, le programme d’installation :  
 
-        > -   konfiguriert Setup den Standort automatisch als eigenständigen primären Standort.  
-        > -   wird ein Standardinstallationspfad verwendet.  
-        > -   wird eine lokale Installation der Standardinstanz von SQL Server für die Standortdatenbank verwendet.  
-        > -   werden ein Verwaltungspunkt und ein Verteilungspunkt auf dem Standortservercomputer installiert.  
-        > -   Konfiguriert den Standort mit Englisch und der Anzeigesprache des Betriebssystems auf dem primären Standortserver, wenn diese einer der Sprachen entspricht, die Configuration Manager unterstützt.  
+        > -   configure automatiquement le site comme site principal autonome ;  
+        > -   utilise un chemin d’installation par défaut ;  
+        > -   utilise une installation locale de l’instance par défaut de SQL Server pour la base de données du site ;  
+        > -   installe un point de gestion et un point de distribution sur l’ordinateur serveur de site ;  
+        > -   configure le site en anglais et dans la langue d’affichage du système d’exploitation sur le serveur de site principal si elle correspond à l’une des langues prises en charge par Configuration Manager.  
 
-4.  Auf der Seite **Product Key**:
-    - Wählen Sie, ob Configuration Manager als Evaluierungsversion oder als lizenzierte Version installiert werden soll.  
+4.  Sur la page **Clé du produit** :
+    - Choisissez d’installer Configuration Manager en tant que version d’évaluation ou version sous licence.  
 
-      -   Wenn Sie eine lizenzierte Version auswählen, geben Sie den Product Key ein und klicken Sie auf **Weiter**.  
+      -   Si vous sélectionnez une version sous licence, entrez votre clé de produit, puis choisissez **Suivant**.  
 
-      -   Wenn Sie eine Evaluierungsversion auswählen, klicken Sie auf **Weiter**. (Sie können später ein Upgrade einer Evaluierungsversion auf eine Vollversion durchführen.)  
-    - Seit der Veröffentlichung von Version 1606 des Baselinemediums für System Center Configuration Manager im Oktober 2016 können Sie das Ablaufdatum Ihres Software Assurance-Vertrags angeben. Auf dieser Seite haben Sie die Möglichkeit, das **Ablaufdatum der Software Assurance** Ihres Lizenzvertrags als praktische Erinnerung an dieses Datum anzugeben. Wenn Sie das Datum nicht während des Setups eingeben, können Sie es später in der Configuration Manager-Konsole angeben.
+      -   Si vous sélectionnez une édition d’évaluation, choisissez **Suivant**. (Vous pouvez mettre à niveau une installation d’évaluation vers une installation complète ultérieurement.)  
+    - À compter de la version Release d’octobre 2016 du support de base de référence de la version 1606 de System Center Configuration Manager, vous pouvez spécifier la date d’expiration de votre contrat Software Assurance. Dans cette page, vous avez la possibilité de spécifier la **date d’expiration de la Software Assurance** de votre contrat de licence en guise de rappel pratique pour vous. Si vous n’entrez pas cette date pendant l’installation, vous pouvez la spécifier ultérieurement dans la console Configuration Manager.
 
       > [!NOTE]   
-      > Microsoft überprüft das angegebene Ablaufdatum nicht und verwendet es auch nicht, um die Lizenz zu überprüfen. Stattdessen können Sie das Ablaufdatum angeben, um daran erinnert zu werden. Dies ist hilfreich, da Configuration Manager regelmäßig überprüft, ob neue Softwareupdates online angeboten werden, und Ihr Software Assurance-Lizenzstatus sollte aktuell sein, damit Sie von diesen zusätzlichen Updates profitieren können.    
+      > Microsoft ne valide pas la date d’expiration que vous entrez et ne l’utilise pas pour la validation de la licence. Vous pouvez ainsi l’utiliser en guise de rappel de votre date d’expiration. Ce rappel est pratique, car Configuration Manager vérifie régulièrement les nouvelles mises à jour logicielles proposées en ligne, et l’état de votre licence Software Assurance doit être actualisé pour que vous soyez autorisé à utiliser ces mises à jour supplémentaires.    
 
-      Weitere Informationen finden Sie unter [Lizenzierung und Branches für System Center Configuration Manager](/sccm/core/understand/learn-more-editions).
+      Pour plus d’informations, voir [Licences et branches pour System Center Configuration Manager](/sccm/core/understand/learn-more-editions).
 
-5.  Lesen und akzeptieren Sie auf der Seite **Microsoft-Software-Lizenzbedingungen** die Lizenzbedingungen.  
+5.  Dans la page **Termes du contrat de licence logiciel Microsoft** , lisez et acceptez les termes du contrat de licence.  
 
-6.  Lesen und akzeptieren Sie auf der Seite **Lizenzen für erforderliche Komponenten** die Lizenzbedingungen für die erforderliche Software. Die Software wird gegebenenfalls heruntergeladen und automatisch auf Standortsystemen oder Clients installiert. Die nächste Seite wird erst angezeigt, nachdem Sie alle Kontrollkästchen aktiviert haben.  
+6.  Dans la page **Licences requises** , lisez et acceptez les termes du contrat de licence pour les logiciels requis. Le programme d’installation télécharge et installe automatiquement les logiciels sur les systèmes ou les clients du site, si nécessaire. Vous devez cocher toutes les cases pour pouvoir passer à la page suivante.  
 
-7.  Geben Sie auf der Seite **Download der Voraussetzungskomponenten** an, ob Setup die neuesten vorausgesetzten verteilbaren Dateien aus dem Internet herunterladen oder zuvor heruntergeladene Dateien verwenden muss:  
+7.  Dans la page **Téléchargements requis** , spécifiez si le programme d’installation doit télécharger les tout derniers fichiers redistribuables requis à partir d’Internet ou utiliser des fichiers téléchargés précédemment :  
 
-    -   Wenn Setup die Dateien zu diesem Zeitpunkt herunterladen soll, wählen Sie **Erforderliche Dateien herunterladen** aus, und geben Sie einen Speicherort für die Dateien an.  
+    -   Si vous souhaitez que le programme d’installation télécharge les fichiers à ce stade, sélectionnez **Télécharger les fichiers requis** , puis spécifiez l’emplacement où stocker les fichiers.  
 
-    -   Falls Sie bereits Dateien mit dem [Setup-Downloadprogramm](../../../../core/servers/deploy/install/setup-downloader.md) heruntergeladen haben, wählen Sie **Bereits heruntergeladene Dateien verwenden** aus, und geben Sie den Downloadordner an.  
+    -   Si vous avez précédemment téléchargé les fichiers à l'aide du [téléchargeur d'installation](../../../../core/servers/deploy/install/setup-downloader.md), sélectionnez **Utiliser des fichiers précédemment téléchargés**, puis spécifiez le dossier de téléchargement.  
 
         > [!TIP]  
-        > Wenn Sie bereits heruntergeladene Dateien verwenden, überprüfen Sie, ob der Downloadordner die neuesten Dateiversionen enthält.  
+        > Si vous utilisez des fichiers téléchargés précédemment, vérifiez que le dossier de téléchargement indiqué contient la version la plus récente des fichiers.  
 
-8.  Wählen Sie auf der Seite **Serversprachauswahl** die Sprachen aus, die für die Configuration Manager-Konsole sowie für Berichte verfügbar sind. (Englisch ist standardmäßig aktiviert und kann nicht entfernt werden.)  
+8.  Dans la page **Sélection de la langue du serveur**, sélectionnez les langues disponibles pour la console Configuration Manager et les rapports. (L’anglais est sélectionné par défaut et ne peut pas être supprimé.)  
 
-9. Wählen Sie auf der Seite **Clientsprachauswahl** die Sprachen aus, die für Clientcomputer verfügbar sind. Geben Sie außerdem an, ob alle Clientsprachen für Clients für mobile Geräte aktiviert werden sollen. (Englisch ist standardmäßig aktiviert und kann nicht entfernt werden.)  
+9. Dans la page **Sélection de la langue client**, sélectionnez les langues disponibles pour les ordinateurs clients, puis spécifiez si vous voulez activer toutes les langues du client pour les clients d’appareils mobiles. (L’anglais est sélectionné par défaut et ne peut pas être supprimé.)  
 
     > [!IMPORTANT]  
-    > Wenn Sie einen Standort der zentralen Verwaltung verwenden, stellen Sie sicher, dass die Clientsprachen, die Sie am Standort der zentralen Verwaltung konfigurieren, alle Clientsprachen umfassen, die Sie an den einzelnen untergeordneten primären Standorten konfigurieren. Dies liegt daran, dass Clients, die über einen Verteilungspunkt installieren, Zugriff auf die Clientsprachen am Standort der obersten Ebene haben, während Clients, die über einen Verwaltungspunkt installieren, Zugriff auf die Clientsprachen von ihrem zugewiesenen primären Standort haben.  
+    > Quand vous utilisez un site d’administration centrale, vérifiez que les langues du client que vous configurez sur ce site incluent toutes les langues du client que vous configurez au niveau de chaque site principal enfant. En effet, les clients qui effectuent l’installation à partir d’un point de distribution ont accès aux langues du client à partir du site de niveau supérieur, tandis que les clients qui effectuent l’installation à partir d’un point de gestion ont accès aux langues du client à partir de leur site principal attribué.  
 
-10. Geben Sie auf der Seite **Standort- und Installationseinstellungen** für den neuen Standort, den Sie installieren, Folgendes an:  
+10. Dans la page **Paramètres d’installation et du site**, spécifiez les éléments suivants pour le nouveau site que vous installez :  
 
-    -   **Standortcode:** [Jeder Standortcode in einer Hierarchie muss eindeutig sein](../../../../core/servers/deploy/install/prepare-to-install-sites.md#bkmk_sitecodes) und drei alphanumerische Zeichen (A bis Z und 0 bis 9) umfassen. Da der Standortcode in Ordnernamen verwendet wird, dürfen keine für Windows reservierten Namen wie die folgenden für den Standort verwendet werden:    
+    -   **Code de site** [: dans une hiérarchie, le code de chaque site doit être unique](../../../../core/servers/deploy/install/prepare-to-install-sites.md#bkmk_sitecodes) et constitué de trois caractères alphanumériques (A à Z et 0 à 9). Étant donné que le code de site est utilisé dans les noms de dossier, n’utilisez pas de noms réservés à Windows pour le site, à savoir :    
         -   AUX  
         -   CON    
         -   NUL    
@@ -110,161 +110,161 @@ Wenn Sie einen Standort der zentralen Verwaltung als Teil eines Standorterweiter
         -   SMS  
 
         > [!NOTE]  
-        > Setup überprüft nicht, ob der angegebene Standortcode bereits verwendet wird oder ein reservierter Name ist.  
+        > Le programme d’installation ne vérifie pas si le code de site que vous spécifiez est déjà utilisé ou s’il s’agit d’un nom réservé.  
 
-    -   **Standortname:** Jeder Standort benötigt diesen Anzeigenamen, mit dem Sie den Standort bestimmen können.  
+    -   **Nom du site** : chaque site doit posséder un nom convivial pour faciliter son identification.  
 
-    -   **Installationsordner**: Dies ist der Ordnerpfad zur Configuration Manager-Installation. Sie können den Speicherort nach der Installation des Standorts nicht mehr ändern. Der Pfad darf auch keine Unicode-Zeichen oder Leerzeichen enthalten.  
+    -   **Dossier d’installation** : chemin du dossier de l’installation de Configuration Manager. Vous ne pouvez pas modifier cet emplacement après l’installation du site. De plus, ce chemin ne doit pas contenir de caractères Unicode, ni d’espaces en fin de chaîne.  
 
-11. Verwenden Sie auf der Seite **Standortinstallation** die folgende Option entsprechend Ihrem Szenario:  
+11. Dans la page **Installation de site**, utilisez l’option suivante correspondant à votre scénario :  
 
-    -   **Ich installiere einen Standort der zentralen Verwaltung:**  
+    -   **J’installe un site d’administration centrale :**  
 
-         Wählen Sie auf der Seite **Installation des Standorts der zentralen Verwaltung** die Option **Als ersten Standort in einer neuen Hierarchie installieren** aus, und klicken Sie auf **Weiter**, um fortzufahren.  
+         Dans la page **Installation du site d’administration centrale**, sélectionnez **Installer en tant que premier site d’une nouvelle hiérarchie**, puis choisissez sur **Suivant** pour continuer.  
 
-    -   **Ich erweitere einen eigenständigen primären Standort in eine Hierarchie mit einem Standort der zentralen Verwaltung:**  
+    -   **J’étends un site principal autonome en une hiérarchie comportant un site d’administration centrale :**  
 
-         Wählen Sie auf der Seite **Installation des Standorts der zentralen Verwaltung** die Option **Vorhandenen eigenständigen primären Standort in eine Hierarchie erweitern** aus, geben Sie den FQDN des eigenständigen primären Standortservers an, und klicken Sie dann auf **Weiter**, um fortzufahren.  
+         Dans la page **Installation du site d’administration centrale**, sélectionnez **Étendre un site principal autonome existant dans une hiérarchie**, spécifiez le nom de domaine complet (FQDN) du serveur de site principal autonome, puis choisissez **Suivant** pour continuer.  
 
-         Die Medien, die Sie verwenden, um den neuen Standort der zentralen Verwaltung zu installieren, müssen mit der Version des primären Standorts übereinstimmen.  
+         Le support que vous utilisez pour installer le nouveau site d’administration centrale doit correspondre à la version du site principal.  
 
-    -   **Ich installiere einen eigenständigen primären Standort:**  
+    -   **J’installe un site principal autonome :**  
 
-         Wählen Sie auf der Seite **Installation am primären Standort** die Option **Den primären Standort als eigenständigen Standort installieren** aus. Klicken Sie dann auf **Weiter**.  
+         Dans la page **Installation du site principal**, sélectionnez**Installer le site principal en tant que site autonome**, puis choisissez **Suivant**.  
 
-    -   **Ich installiere einen untergeordneten primären Standort:**  
+    -   **J’installe un site principal enfant :**  
 
-         Wählen Sie auf der Seite **Installation am primären Standort** die Option **Den primären Standort einer vorhandenen Hierarchie hinzufügen** aus, geben Sie den FQDN des Standorts der zentralen Verwaltung an, und klicken Sie dann auf **Weiter**.  
+         Dans la page **Installation du site principal**, sélectionnez **Joindre le site principal à une hiérarchie existante**, spécifiez le nom de domaine complet (FQDN) pour le site d’administration centrale, puis choisissez **Suivant**.  
 
-12. Geben Sie auf der Seite **Datenbankinformationen** die folgenden Informationen an:  
+12. Dans la page **Informations sur la base de données**, spécifiez les informations suivantes :  
 
-    -   **SQL Server-Name (FQDN):** Dieser Wert wird standardmäßig auf den Standortservercomputer festgelegt.
+    -   **Nom du SQL Server (FQDN)** : par défaut, il s’agit de l’ordinateur serveur de site.
 
-     Wenn Sie einen benutzerdefinierten Port verwenden, fügen Sie diesen Port zum FQDN des SQL Servers hinzu. Stellen Sie hierzu dem FQDN des Sequel Servers ein Komma nach gefolgt von der Portnummer.   Beispiel: Verwenden Sie für den Server *SQLServer1.fabrikam.com* Folgendes, um den Port *1551* anzugeben: **SQLServer1.fabrikam.com,1551**
+     Si vous utilisez un port personnalisé, ajoutez ce port au nom FQDN du serveur SQL Server. Pour ce faire, faites suivre le nom FQDN du serveur d’une virgule, puis du numéro de port.   Par exemple, pour le serveur *SQLServer1.fabrikam.com*, procédez ainsi pour spécifier le port *1551* : **SQLServer1.fabrikam.com,1551**
 
-    -   **Instanzname:** Ist standardmäßig leer. Verwendet die Standardinstanz von SQL auf dem Standortservercomputer.  
+    -   **Nom de l’instance** : par défaut, cette valeur est vide. L’instance par défaut de SQL est utilisée sur l’ordinateur serveur de site.  
 
-    -   **Datenbankname:** Dieser Wert ist standardmäßig auf CM_&lt;Standortcode\> festgelegt. Sie können einen anderen Namen angeben.  
+    -   **Nom de base de données** : par défaut, la valeur définie est CM_&lt;codeSite\>. Vous êtes libre de spécifier un autre nom de votre choix.  
 
-    -   **Service Broker-Port:** Ist standardmäßig auf die Verwendung des standardmäßigen SQL Server Service Broker-Ports (SSB) 4022 festgelegt. SQL kommuniziert damit direkt mit der Standortdatenbank an anderen Standorten.  
+    -   **Port Service Broker** : la valeur prédéfinie indique d’utiliser le port SQL Server Service Broker (SSB) par défaut (4022). SQL l’utilise communiquer directement avec des bases de données d’autres sites.  
 
-13. Auf der zweiten Seite **Datenbankinformationen** können Sie vom Standard abweichende Speicherorte für die SQL Server-Datendatei und die SQL Server-Protokolldatei für die Standortdatenbank angeben:  
+13. Dans la deuxième page **Informations sur la base de données**, vous pouvez spécifier des emplacements autres que ceux par défaut pour le fichier de données SQL Server et le fichier journal SQL Server pour la base de données du site :  
 
-    -   Standardmäßige Dateispeicherorte für SQL Server werden bereitgestellt.  
+    -   Les emplacements de fichier par défaut pour SQL Server sont indiqués.  
 
-    -   Die Option zur Angabe der vom Standard abweichenden Speicherorte ist nicht verfügbar, wenn Sie einen SQL Server-Cluster verwenden.  
+    -   Cette possibilité de spécifier des emplacements de fichiers autres que les emplacements par défaut n’est pas disponible quand vous utilisez un cluster SQL Server.  
 
-    -   Von der Voraussetzungsprüfung wird nicht überprüft, ob für die vom Standard abweichenden Dateispeicherorte genügend Speicherplatz vorhanden ist.  
+    -   L’Outil de vérification des prérequis ne vérifie pas l’espace disque disponible aux emplacements de fichiers autres que les emplacements par défaut.  
 
-14. Geben Sie auf der Seite **SMS-Anbietereinstellungen** den vollqualifizierten Domänennamen (FQDN) des Servers an, auf dem der SMS-Anbieter installiert werden soll.  
+14. Dans la page **Paramètres du fournisseur SMS** , spécifiez le nom de domaine complet (FQDN) du serveur sur lequel vous souhaitez installer le fournisseur SMS.  
 
-    -   Standardmäßig wird der Standortserver angegeben.  
+    -   Le serveur de site est spécifié par défaut.  
 
-    -   Nach der Standortinstallation können Sie zusätzliche SMS-Anbieter konfigurieren.  
+    -   Une fois le site installé, vous pouvez configurer d’autres fournisseurs SMS.  
 
-15. Geben Sie auf der Seite **Kommunikationseinstellungen für Clientcomputer** an, ob von allen Standortsystemen ausschließlich die HTTPS-Kommunikation mit Clients zugelassen werden soll oder ob die Kommunikationsmethode für jede Standortsystemrolle konfiguriert werden muss.  
+15. Dans la page **Paramètres de communication du client** , choisissez de configurer tous les systèmes de site pour accepter uniquement les communications HTTPS en provenance de clients ou de configurer la méthode de communication pour chaque rôle de système de site.  
 
-    Wenn Sie die Option **Alle Standortsystemrollen lassen ausschließlich die HTTPS-Kommunikation mit Clients zu** auswählen, ist für den Clientcomputer ein gültiges PKI-Zertifikat zur Clientauthentifizierung erforderlich. Weitere Informationen zu den PKI-Zertifikatanforderungen finden Sie unter [PKI-Zertifikatanforderungen für Configuration Manager](https://technet.microsoft.com/library/gg699362.aspx).  
-
-    > [!NOTE]  
-    > Dieser Schritt ist nur nötig, wenn Sie einen primären Standort installieren. Wenn sie einen Standort der zentralen Verwaltung installieren, überspringen Sie diesen Schritt.  
-
-16. Geben Sie auf der Seite **Standortsystemrollen** an, ob ein Verwaltungspunkt oder ein Verteilungspunkt installiert werden soll. Für jede gewählte Rolle, die von Setup installiert werden soll, gelten diese Voraussetzungen:  
-
-    -   Sie müssen den **FQDN** des Computers eingeben, der die Rolle hostet, und die Clientverbindungsmethode wählen, die der Server unterstützt (HTTP oder HTTPS).  
-
-    -   Falls Sie auf der vorherigen Seite die Option **Alle Standortsystemrollen lassen ausschließlich die HTTPS-Kommunikation mit Clients zu** ausgewählt haben, werden die Clientverbindungseinstellungen automatisch für HTTPS konfiguriert und können nur geändert werden, wenn Sie zur vorherigen Seite zurückkehren und die Einstellung ändern.  
+    Quand vous sélectionnez **Tous les rôles de système de site acceptent uniquement les communications HTTPS depuis les clients**, l’ordinateur client doit avoir un certificat PKI valide pour l’authentification du client. Pour plus d’informations sur la configuration requise des certificats PKI, consultez [Configuration requise des certificats PKI pour Configuration Manager](https://technet.microsoft.com/library/gg699362.aspx).  
 
     > [!NOTE]  
-    > Dieser Schritt ist nur nötig, wenn Sie einen primären Standort installieren. Wenn sie einen Standort der zentralen Verwaltung installieren, überspringen Sie diesen Schritt.  
+    > Effectuez cette étape uniquement si vous installez un site principal. Si vous installez un site d’administration centrale, ignorez cette étape.  
+
+16. Sur la page **Rôles système de site** , choisissez d'installer un point de gestion ou un point de distribution. Pour chaque rôle de votre choisissez de faire installer par le programme d’installation :  
+
+    -   Vous devez entrer le **nom de domaine complet (FQDN)** de l’ordinateur qui hébergera le rôle et choisir la méthode de connexion client que le serveur prendra en charge (HTTP ou HTTPS).  
+
+    -   Si vous avez sélectionné **Tous les rôles de système de site acceptent uniquement les communications HTTPS depuis les clients** dans la page précédente, les paramètres de connexion client sont configurés automatiquement pour HTTPS et vous ne pouvez pas les modifier sans revenir en arrière et changer le paramètre.  
 
     > [!NOTE]  
-    > Zum Installieren der Standortsystemrollen wird von Setup das **Standortsystem-Installationskonto**verwendet. Standardmäßig wird das Computerkonto des primären Standorts verwendet. Dieses Konto muss einem lokalen Administrator auf einem Remotecomputer gehören, um die Standortsystemrolle zu installieren. Wenn dieses Konto nicht über die erforderlichen Berechtigungen verfügt, deaktivieren Sie die Standortsystemrollen, und installieren Sie sie später über die Configuration Manager-Konsole, nachdem weitere Konten für die Verwendung als Standortsystem-Installationskonten konfiguriert wurden.  
-
-17. Überprüfen Sie auf der Seite **Nutzungsdaten** die Informationen zu Daten, die von Microsoft gesammelt werden, und klicken Sie dann auf **Weiter**.  
-
-18. Die Seite **Dienstverbindungspunkt einrichten** ist während des Setups nur in den folgenden Fällen verfügbar:  
-
-    -   Wenn Sie einen eigenständigen primären Standort installieren.  
-
-    -   Wenn Sie einen Standort der zentralen Verwaltung installieren.  
+    > Effectuez cette étape uniquement si vous installez un site principal. Si vous installez un site d’administration centrale, ignorez cette étape.  
 
     > [!NOTE]  
-    > Wenn Sie einen untergeordneten primären Standort installieren, überspringen Sie diesen Schritt (die Seite ist nicht verfügbar).  
+    > Pour installer des rôles de système de site, le programme d’installation utilise le **compte d’installation du système de site**. Par défaut, il utilise le compte d’ordinateur du site principal. Ce compte doit avoir des autorisations d’administrateur local sur un ordinateur distant pour installer le rôle de système de site. Si ce compte ne possède pas les autorisations requises, désélectionnez les rôles de système de site et installez-les ultérieurement à partir de la console Configuration Manager, après avoir configuré des comptes supplémentaires à utiliser en tant que comptes d’installation du système de site.  
 
-     Wenn Sie einen Standort der zentralen Verwaltung als Teil eines Standorterweiterungsszenarios installieren und diese Rolle bereits an dem eigenständigen primären Standort installiert ist, müssen Sie diese Rolle am eigenständigen primären Standort deinstallieren. In einer Hierarchie ist nur eine Instanz dieser Rolle zulässig, und zwar nur für den obersten Standort der Hierarchie.  
+17. Dans la page **Données d’utilisation**, consultez les informations relatives aux données que Microsoft collecte, puis choisissez **Suivant**.  
 
-     Nach Auswahl einer Konfiguration für den **Dienstverbindungspunkt** klicken Sie auf **Weiter**. (Nach Abschluss von Setup können Sie diese Konfiguration in der Configuration Manager-Konsole ändern.)  
+18. La page **Configuration du point de connexion de service** s’affiche pendant l’installation uniquement dans les cas suivants :  
 
-19. Überprüfen Sie auf der Seite **Zusammenfassung der Einstellungen** die Einstellung, die Sie ausgewählt haben. Wenn Sie bereit sind, wählen Sie **Weiter** aus, um die Voraussetzungsprüfung zu starten.  
+    -   quand vous installez un site principal autonome ;  
 
-20. Auf der Seite **Voraussetzungsprüfung** werden etwaige Probleme aufgelistet.  
+    -   quand vous installez un site d’administration centrale.  
 
-    -   Wenn bei der Voraussetzungsprüfung ein Problem festgestellt wird, klicken Sie in der Liste auf einen Eintrag, um Details zur Behebung des Problems anzuzeigen.  
+    > [!NOTE]  
+    > Si vous installez un site principal enfant, ignorez cette étape (cette page n’est pas disponible).  
 
-    -   Sie müssen alle Elemente mit dem Status **Fehler** korrigieren, ehe Sie die Installation des Standorts fortsetzen können. Elemente mit dem Status **Warnung** sollten korrigiert werden, blockieren aber nicht die Installation des Standorts.  
+     Si vous installez un site d’administration centrale dans le cadre d’un scénario de développement de site et que ce rôle est déjà installé sur le site principal autonome, vous devez désinstaller ce rôle du site principal autonome. Une seule instance de ce rôle est autorisée dans une hiérarchie, et uniquement sur le site de niveau supérieur de la hiérarchie.  
 
-    -   Nach dem Beheben von Problemen klicken Sie auf **Prüfung ausführen**, um die Voraussetzungsprüfung erneut auszuführen.  
+     Après avoir sélectionné une configuration pour le **point de connexion de service**, choisissez **Suivant**. (Une fois l’installation terminée, vous pouvez modifier cette configuration à partir de la console Configuration Manager.)  
 
-     Wenn die Voraussetzungsprüfung ausgeführt wird und nicht der Status **Fehler** gemeldet wird, können Sie auf **Installation starten** klicken, um die Installation des Standorts zu starten.  
+19. Dans la page **Résumé des paramètres**, vérifiez le paramètre que vous avez sélectionné. Quand vous êtes prêt, choisissez **Suivant** pour démarrer l’Outil de vérification des prérequis.  
+
+20. La page **Vérification de la configuration requise pour l’installation** répertorie tous les problèmes détectés.  
+
+    -   Quand l’outil de vérification de la configuration requise détecte un problème, choisissez un élément affiché dans la liste pour obtenir des détails sur la façon de résoudre le problème.  
+
+    -   Avant de poursuivre l’installation du site, vous devez résoudre chaque élément présentant l’état **Échec**. Les éléments présentant l’état **Avertissement** doivent être résolus, mais ils ne bloquent pas l’installation du site.  
+
+    -   Après avoir résolu les problèmes, choisissez **Vérifier** pour réexécuter l’Outil de vérification des prérequis.  
+
+     Quand l’Outil de vérification des prérequis ne rencontre plus aucun état **Échec**, vous pouvez choisir **Commencer l’installation** pour démarrer l’installation du site.  
 
     > [!TIP]  
-    > Zusätzlich zu dem im Assistenten aufgeführten Feedback finden Sie weitere Informationen zu Problemen mit den Voraussetzungen in der Datei **ConfigMgrPrereq.log**. Sie befindet sich auf dem Computer, auf dem die Installation erfolgt, im Stammverzeichnis des Systemlaufwerks. Eine Liste der Regeln und Beschreibungen zu den Installationsvoraussetzungen finden Sie unter [Liste der Voraussetzungsprüfungen für System Center Configuration Manager](../../../../core/servers/deploy/install/list-of-prerequisite-checks.md).  
+    > Outre les commentaires formulés dans l’Assistant, vous pouvez trouver des informations supplémentaires sur les problèmes liés aux prérequis dans le fichier **ConfigMgrPrereq.log**, situé à la racine du lecteur système de l’ordinateur sur lequel vous effectuez l’installation. Pour obtenir une liste complète des règles et des descriptions des prérequis à l’installation, voir [Liste des vérifications des prérequis pour System Center Configuration Manager](../../../../core/servers/deploy/install/list-of-prerequisite-checks.md).  
 
-21. Auf der Seite **Installation** wird der Installationsstatus von Setup angezeigt. Nach Abschluss der Installation des Hauptstandortservers können Sie den Installationsassistenten mit der Option **Schließen** beenden. Nachdem Sie den Assistenten geschlossen haben, werden die Installation und Erstkonfiguration des Standorts im Hintergrund fortgesetzt.  
+21. Dans la page **Installation** , le programme d’installation affiche l’état de l’installation. Une fois l’installation du serveur de site principal terminée, vous avez la possibilité de **Fermer** l’Assistant Installation. Quand vous fermez l’Assistant, l’installation et les configurations de site initiales continuent en arrière-plan.  
 
-    -   Bevor das Setup abgeschlossen ist, können Sie eine Configuration Manager-Konsole mit dem Standort verbinden. Diese Konsole stellt eine schreibgeschützte Verbindung her und ermöglicht Ihnen das Anzeigen, jedoch nicht das Bearbeiten von Objekten und Einstellungen.  
+    -   Vous pouvez connecter une console Configuration Manager au site avant la fin de l’installation. Dans ce cas, cette console est connectée en lecture seule, ce qui signifie qu’elle permet l’affichage des objets et des paramètres, mais pas leur modification.  
 
-    -   Nach dem Abschluss von Setup können Sie eine Verbindung mit einer Konsole herstellen, über die Sie Objekte und Einstellungen bearbeiten können.  
-
-
-## <a name="bkmk_expand"></a> Erweitern eines eigenständigen primären Standorts
-Wenn Sie einen eigenständigen primären Standort als ersten Standort installiert haben, können Sie diesen Standort zu einem späteren Zeitpunkt in eine größere Hierarchie erweitern, indem Sie einen Standort der zentralen Verwaltung installieren.   
-
-Wenn Sie einen eigenständigen primären Standort erweitern, installieren Sie einen neuen Standort der zentralen Verwaltung, der die Datenbank des vorhandenen eigenständigen primären Standorts als Referenz verwendet. Nach Installation des neuen Standorts der zentralen Verwaltung fungiert der eigenständige primäre Standort als untergeordneter primärer Standort.
-
--   Nur ein eigenständiger primärer Standort kann in eine neue Hierarchie erweitert werden.  
-
--   Nur ein einziger eigenständiger primärer Standort kann in eine bestimmte Hierarchie erweitert werden. Sie können über diese Option nicht zusätzliche eigenständige primäre Standorte derselben Hierarchie hinzufügen. Verwenden Sie stattdessen die Migration, um Daten aus einer Hierarchie in eine andere zu migrieren.  
-
--   Nachdem Sie einen eigenständigen Standort in eine Hierarchie mit einem Standort der zentralen Verwaltung erweitert haben, können Sie weitere untergeordnete primäre Standorte hinzufügen.  
-
--   Zum Entfernen eines primären Standorts aus einer Hierarchie mit einem Standort der zentralen Verwaltung müssen Sie den primären Standort deinstallieren.  
-
-Um den Standort zu erweitern, verwenden Sie den Setup-Assistenten für System Center Configuration Manager, um einen neuen Standort der zentralen Verwaltung mit folgenden Einschränkungen zu installieren:  
-
--   Der Standort der zentralen Verwaltung muss mit derselben Version von Configuration Manager wie der eigenständige primäre Standort installiert werden.  
-
--   Wählen Sie auf der Seite **Erste Schritte** des Setup-Assistenten die Option zum Installieren eines Standorts der zentralen Verwaltung aus. In einer späteren Phase von Setup wählen Sie eine Option zum Erweitern eines vorhandenen eigenständigen primären Standorts aus.  
-
--   Wenn Sie die Seite **Clientsprachauswahl** für den neuen Standort der zentralen Verwaltung konfigurieren, müssen Sie dieselben Clientsprachen auswählen, die für den eigenständigen primären Standort konfiguriert sind, den Sie erweitern.  
-
--   Auf der Seite **Standortinstallation** wählen Sie die Option zum Erweitern des eigenständigen primären Standorts aus.  
-
-Um einen eigenständigen primären Standort zu erweitern, sehen Sie sich zuerst die [Voraussetzungen zum erweitern eines Standorts](/sccm/core/servers/deploy/install/prerequisites-for-installing-sites#bkmk_expand) an, und verwenden Sie dann das Verfahren *[So installieren Sie einen primären Standort oder einen Standort der zentralen Verwaltung](../../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md#bkmk_installpri)* weiter oben in diesem Artikel.
+    -   Vous devez attendre la fin de l’installation pour pouvoir connecter une console permettant de modifier les objets et paramètres.  
 
 
-## <a name="bkmk_secondary"></a> Installieren eines sekundären Standorts
- Sie installieren einen sekundären Standort mithilfe der Configuration Manager-Konsole.  
+## <a name="bkmk_expand"></a> Développer un site principal autonome
+Après avoir installé un site principal autonome comme premier site, vous pouvez développer ce site ultérieurement dans une plus grande hiérarchie en installant un site d’administration centrale.   
 
--   Wenn die verwendete Konsole nicht mit dem primären Standort verbunden ist, welcher der übergeordnete Standort des neuen sekundären Standorts sein wird, wird der Befehl zum Installieren des Standorts an den ordnungsgemäßen primären Standort repliziert.  
+Quand vous développez un site principal autonome, vous installez un nouveau site d’administration centrale qui utilise la base de données du site principal autonome existant comme référence. Après l’installation du nouveau site d’administration centrale, le site principal autonome est utilisé comme site principal enfant.
 
--   Stellen Sie vor dem Starten der Installation des Standorts sicher, dass Ihr Benutzerkonto über die erforderlichen Berechtigungen verfügt und dass der Computer, der den neuen sekundären Standort hostet, alle Voraussetzungen für sekundäre Standortserver erfüllt.  
+-   Seul un site principal autonome peut être étendu dans une nouvelle hiérarchie.  
 
--   Wenn Sie den sekundären Standort installieren, konfiguriert Configuration Manager den neuen Standort für das Verwenden der Clientkommunikationsports, die am übergeordneten primären Standort konfiguriert sind.  
+-   Un seul site principal autonome peut être étendu dans une hiérarchie spécifique. Vous ne pouvez pas utiliser cette option pour joindre d’autres sites principaux autonomes dans la même hiérarchie. À la place, utilisez une migration pour migrer des données d’une hiérarchie vers une autre.  
 
-### <a name="bkmk_installsecondary"></a> So installieren Sie einen sekundären Standort  
+-   Après avoir étendu un site autonome dans une hiérarchie comportant un site d’administration centrale, vous pouvez ajouter des sites principaux enfants.  
+
+-   Pour supprimer un site principal d’une hiérarchie ayant un site d’administration centrale, vous devez le désinstaller.  
+
+Pour étendre le site, utilisez l’Assistant Installation de System Center Configuration Manager pour installer un nouveau site d’administration centrale, en prenant les précautions suivantes :  
+
+-   Vous devez installer le site d’administration centrale en utilisant la même version de Configuration Manager que celle utilisée pour le site principal autonome.  
+
+-   Dans la page **Prise en main** de l’Assistant Installation, sélectionnez l’option d’installation d’un site d’administration centrale. À un stade ultérieur, le programme d’installation vous permettra de choisir l’option de développement d’un site principal autonome existant.  
+
+-   Quand vous configurez la page **Sélection de la langue client** pour le nouveau site d’administration centrale, sélectionnez les mêmes langues client que celles configurées pour le site principal autonome que vous développez.  
+
+-   Dans la page **Installation de site**, sélectionnez l’option de développement du site principal autonome.  
+
+Pour développer un site principal autonome, consultez tout d’abord la [configuration requise pour développer un site](/sccm/core/servers/deploy/install/prerequisites-for-installing-sites#bkmk_expand), puis utilisez la procédure *[Pour installer un site principal ou un site d’administration centrale](../../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md#bkmk_installpri)*, décrite précédemment dans cet article.
 
 
-1.  Wechseln Sie in der Configuration Manager-Konsole zu **Verwaltung** > **Standortkonfiguration** > **Standorte**. Wählen Sie den Standort aus, der der übergeordnete primäre Standort des neuen sekundären Standorts sein wird.  
+## <a name="bkmk_secondary"></a> Installer un site secondaire
+ Vous pouvez utiliser la console Configuration Manager pour installer un site secondaire.  
 
-2.  Klicken Sie zum Starten des **Assistenten zum Erstellen sekundärer Standorte** auf **Sekundären Standort erstellen**.  
+-   Si la console que vous utilisez n’est pas connectée au site principal qui sera le site parent du nouveau site secondaire, la commande d’installation du site sera répliquée sur le site principal approprié.  
 
-3.  Überprüfen Sie auf der Seite **Bevor Sie beginnen**, ob der aufgeführte primäre Standort der Standort ist, der dem neuen sekundären Standort übergeordnet sein soll. Wählen Sie anschließend **Weiter** aus.  
+-   Avant de commencer l’installation du site, vérifiez que votre compte d’utilisateur dispose des autorisations requises et que l’ordinateur qui va héberger le nouveau site secondaire remplit toutes les conditions préalables à une utilisation comme serveur de site secondaire.  
 
-4.  Geben Sie auf der Seite **Allgemein** Folgendes an:  
+-   Quand vous installez le site secondaire, Configuration Manager configure le nouveau site pour utiliser les ports de communication client configurés sur le site principal parent.  
 
-    -   **Standortcode:** Jeder Standortcode in einer Hierarchie muss eindeutig sein und drei alphanumerische Zeichen (A bis Z und 0 bis 9) umfassen. Da der Standortcode in Ordnernamen verwendet wird, dürfen keine für Windows reservierten Namen wie die folgenden für den Standort verwendet werden:  
+### <a name="bkmk_installsecondary"></a> Pour installer un site secondaire  
+
+
+1.  Dans la console Configuration Manager, accédez à **Administration** > **Configuration du site** > **Sites**. Sélectionnez le site qui sera le site principal parent du nouveau site secondaire.  
+
+2.  Choisissez **Créer un site secondaire** pour démarrer l’**Assistant Création de site secondaire**.  
+
+3.  Dans la page **Avant de commencer**, vérifiez que le site principal répertorié est le site à utiliser comme parent du nouveau site secondaire. Ensuite, choisissez **Suivant**.  
+
+4.  Dans la page **Général** , indiquez les informations suivantes :  
+
+    -   **Code de site** : dans une hiérarchie, le code de chaque site doit être unique et constitué de trois caractères alphanumériques (A à Z et 0 à 9). Étant donné que le code de site est utilisé dans les noms de dossier, n’utilisez pas de noms réservés à Windows pour le site, à savoir :  
 
         -   AUX    
         -   CON    
@@ -273,119 +273,119 @@ Um einen eigenständigen primären Standort zu erweitern, sehen Sie sich zuerst 
         -   SMS  
 
        > [!NOTE]  
-       > Setup überprüft nicht, ob der angegebene Standortcode bereits verwendet wird oder ein reservierter Name ist.  
+       > Le programme d’installation ne vérifie pas si le code de site que vous spécifiez est déjà utilisé ou s’il s’agit d’un nom réservé.  
 
-    -   **Standortservername**: Dies ist der FQDN des Servers, auf dem neue sekundäre Standort installiert wird.  
+    -   **Nom du serveur de site** : nom de domaine complet du serveur sur lequel le nouveau site secondaire sera installé.  
 
-    -   **Standortname:** Jeder Standort benötigt diesen Anzeigenamen, mit dem Sie den Standort bestimmen können.  
+    -   **Nom du site** : chaque site doit posséder un nom convivial pour faciliter son identification.  
 
-    -   **Installationsordner**: Dies ist der Ordnerpfad zur Configuration Manager-Installation. Sie können den Speicherort nach der Installation des Standorts nicht mehr ändern. Der Pfad darf keine Unicode-Zeichen oder Leerzeichen enthalten.  
+    -   **Dossier d’installation** : chemin du dossier de l’installation de Configuration Manager. Vous ne pouvez pas modifier cet emplacement après l’installation du site. Ce chemin ne doit pas contenir de caractères Unicode, ni d’espaces en fin de chaîne.  
 
     > [!IMPORTANT]  
-    > Nachdem Sie die Details auf dieser Seite angeben haben, können Sie auf **Zusammenfassung** klicken, um für die übrigen Optionen für den sekundären Standort die Standardeinstellungen zu verwenden und direkt zur Seite **Zusammenfassung** des Assistenten zu gelangen.  
+    > Après avoir spécifié les détails dans cette page, vous pouvez choisir **Résumé** pour utiliser les paramètres par défaut pour le reste des options de site secondaire et accéder directement à la page **Résumé** de l’Assistant.  
 
-    > -   Verwenden Sie diese Option nur, wenn Sie mit den Standardeinstellungen des Assistenten vertraut und dies die Einstellungen sind, die Sie verwenden möchten.  
-    > -   Wenn Sie die Standardeinstellungen verwenden, werden Begrenzungsgruppen nicht dem Verteilungspunkt zugeordnet. Bis Sie Begrenzungsgruppen konfigurieren, die den sekundären Standortserver enthalten, werden Clients nicht den Verteilungspunkt, der auf diesem sekundären Standort installiert ist, als Quellspeicherort für Inhalt verwenden.  
+    > -   Utilisez cette option uniquement si vous êtes familiarisé avec les paramètres par défaut de cet Assistant et s’il s’agit des paramètres que vous souhaitez utiliser.  
+    > -   Les groupes de limites ne sont pas associés au point de distribution quand vous utilisez les paramètres par défaut. Par conséquent, tant que vous n’avez pas configuré de groupes de limites incluant le serveur de site secondaire, les clients n’utilisent pas le point de distribution installé sur ce site secondaire comme emplacement source du contenu.  
 
-5.  Wählen Sie auf der Seite **Installationsquelldateien** aus, wie der Computer des sekundären Standorts Quelldateien für die Installation des Standorts erhält.  
+5.  Dans la page **Fichiers sources d’installation** , choisissez la façon dont l’ordinateur du site secondaire obtient les fichiers sources pour l’installation du site.  
 
-     Wenn Sie im Netzwerk oder auf einem Computer des sekundären Standorts gespeicherte Dateien verwenden:  
+     Si vous utilisez des fichiers sources stockés sur le réseau ou sur l’ordinateur du site secondaire :  
 
-    -   Der Speicherort der Quelldateien muss einen Ordner namens **Redist** enthalten, der alle Dateien enthält, die zuvor mithilfe des Setup-Downloadprogramms heruntergeladen wurden.  
+    -   L’emplacement des fichiers sources doit inclure un dossier nommé **Redist** contenant tous les fichiers précédemment téléchargés à l’aide du Téléchargeur d’installation.  
 
-    -   Wenn Dateien aus **Redist** nicht verfügbar sind, kann Setup den sekundären Standort nicht installieren.  
+    -   Si des fichiers du dossier **Redist** ne sont pas disponibles, le programme d’installation ne peut pas installer le site secondaire.  
 
-    -   Das Computerkonto des Computers des sekundären Standorts muss über die Berechtigung **Lesen** für den Quelldateiordner und die Freigabe verfügen.  
+    -   Le compte de l’ordinateur du site secondaire doit disposer d’autorisations de **lecture** sur le dossier et le partage des fichiers sources.  
 
-6.  Geben Sie auf der Seite **SQL Server-Einstellungen** die zu verwendende Version von SQL Server an, und konfigurieren Sie dann die entsprechenden Einstellungen.  
+6.  Dans la page **Paramètres SQL Server** , spécifiez la version de SQL Server à utiliser, puis configurez les paramètres associés.  
 
     > [!NOTE]  
-    > Die von Ihnen auf dieser Seite eingegebenen Informationen werden von Setup erst zu Beginn der Installation überprüft. Überprüfen Sie diese Einstellungen, und setzen Sie dann den Vorgang fort.  
+    > Le programme d’installation ne valide pas les informations que vous entrez dans cette page avant de démarrer l’installation. Avant de continuer, vérifiez ces paramètres.  
 
-     **Lokale Kopie von SQL Server Express auf dem Computer des sekundären Standorts installieren und konfigurieren**  
+     **Installer et configurer une copie locale de SQL Express sur l'ordinateur de site secondaire**  
 
-    -   **Port des SQL Server-Diensts**: Geben Sie den SQL Server-Dienstport an, der von SQL Server Express verwendet werden soll. Der Dienstport ist in der Regel zur Verwendung von TCP-Port 1433 konfiguriert, aber Sie können auch einen anderen Port konfigurieren.  
+    -   **Port de service de SQL Server**: spécifiez le port de service de SQL Server que SQL Server Express doit utiliser. Le port de service est généralement configuré pour utiliser le port TCP 1433, mais vous pouvez configurer un autre port.  
 
-    -   **SQL Server Broker-Port**: Geben Sie den SSB-Port (SQL Server Service Broker) an, der von SQL Server Express verwendet werden soll. Der Service Broker ist in der Regel zur Verwendung von TCP-Port 4022 konfiguriert, aber Sie können auch einen anderen Port konfigurieren. Sie müssen einen gültigen Port angeben, der von keinem anderen Standort oder Dienst verwendet wird und nicht durch Firewalleinschränkungen blockiert ist.  
+    -   **Port SQL Server Broker**: spécifiez le port SQL Server Service Broker (SSB) que SQL Server Express doit utiliser. Le Service Broker est généralement configuré pour utiliser le port TCP 4022, mais vous pouvez configurer un port différent. Vous devez spécifier un port valide qu’aucun autre site ou service n’utilise, et qu’aucune restriction de pare-feu ne bloque.  
 
     > [!IMPORTANT]  
-    > Wenn SQL Server Express von Configuration Manager installiert wird, erfolgt die Installation von SQL Server Express 2012 ohne Service Pack:  
+    > Quand Configuration Manager installe SQL Server Express, il installe SQL Server Express 2012 sans Service Pack :  
 
-    > -   Damit der sekundäre Standort unterstützt wird, müssen Sie nach der Installation für SQL Server Express 2012 ein Upgrade auf eine [unterstützte Version](/sccm/core/plan-design/configs/support-for-sql-server-versions#bkmk_SQLVersions) durchführen.
-    > -   Wenn außerdem die Installation des neuen sekundären Standorts nicht abgeschlossen wird, sondern erst die Installation von SQL Server Express 2012 beendet wird, müssen Sie die SQL Server Express-Instanz aktualisieren, bevor die Installation des sekundären Standorts von Configuration Manager erfolgreich wiederholt werden kann.  
+    > -   Pour permettre la prise en charge du site secondaire, après son installation, vous devez mettre à niveau SQL Server Express 2012 avec [une version prise en charge](/sccm/core/plan-design/configs/support-for-sql-server-versions#bkmk_SQLVersions).
+    > -   De plus, si l’installation du nouveau site secondaire échoue avant de se terminer, mais achève l’installation de SQL Server Express 2012, vous devez mettre à jour cette instance de SQL Server Express pour que Configuration Manager puisse réessayer d’installer correctement le site secondaire.  
 
-     **Vorhandene SQL Server-Instanz verwenden**  
+     **Utiliser une instance SQL Server existante**  
 
-    -   **SQL Server-FQDN**: Prüfen Sie den FQDN des Computers, der SQL Server ausführt. Zum Hosten der sekundären Standortdatenbank müssen Sie einen lokalen Server verwenden, der SQL Server ausführt. Diese Einstellung kann nicht geändert werden.  
+    -   **Nom de domaine complet de SQL Server** : vérifiez le nom de domaine complet de l’ordinateur exécutant SQL Server. Vous devez utiliser un serveur local exécutant SQL Server pour héberger la base de données de site secondaire, et vous ne pouvez pas modifier ce paramètre.  
 
-    -   **SQL Server-Instanz**: Geben Sie die SQL Server-Instanz an, die als sekundäre Standortdatenbank verwendet werden soll. Lassen Sie diese Option leer, wenn Sie die Standardinstanz verwenden möchten.  
+    -   **Instance SQL Server**: spécifiez l’instance SQL Server à utiliser en tant que base de données du site secondaire. Laissez cette option vide pour utiliser l'instance par défaut.  
 
-    -   **Name der ConfigMgr-Standortdatenbank**: Geben Sie den Namen der sekundären Standortdatenbank an.  
+    -   **Nom de base de données de site ConfigMgr**: spécifiez le nom à utiliser pour la base de données du site secondaire.  
 
-    -   **SQL Server Broker-Port**: Geben Sie den SSB-Port (SQL Server Service Broker) an, der von SQL Server verwendet werden soll. Sie müssen einen gültigen Port angeben, der von keinem anderen Standort oder Dienst verwendet wird und nicht durch Firewalleinschränkungen blockiert ist.  
+    -   **Port SQL Server Broker**: spécifiez le port SQL Server Service Broker (SSB) que SQL Server doit utiliser. Vous devez spécifier un port valide qu'aucun autre site ou service n'utilise, et qu'aucune restriction de pare-feu ne bloque.  
 
     > [!TIP]  
-    > Eine Liste der SQL Server-Versionen, die von System Center Configuration Manager unterstützt werden, finden Sie unter [Unterstützte Versionen von SQL Server](../../../../core/plan-design/configs/support-for-sql-server-versions.md).  
+    > Pour obtenir la liste des versions de SQL Server prises en charge par System Center Configuration Manager, consultez [Versions SQL Server prises en charge](../../../../core/plan-design/configs/support-for-sql-server-versions.md).  
 
-7.  Auf der Seite **Verteilungspunkt** konfigurieren Sie Einstellungen für den Verteilungspunkt, der auf dem sekundären Standortserver installiert wird.  
+7.  Dans la page **Point de distribution** , configurez les paramètres du point de distribution à installer sur le serveur de site secondaire.  
 
-     **Erforderliche Einstellungen:**  
+     **Paramètres obligatoires :**  
 
-    -   **Legen Sie die Art der Kommunikation zwischen Clientgeräten und Verteilungspunkt fest**: Wählen Sie HTTP oder HTTPS.  
+    -   **Spécifiez la façon dont les appareils clients communiquent avec le point de distribution** : choisissez HTTP ou HTTPS.  
 
-    -   **Erstellen Sie ein selbstsigniertes Zertifikat, oder importieren Sie ein PKI-Clientzertifikat**: Wählen Sie entweder ein selbstsigniertes Zertifikat (das auch anonyme Verbindungen von Configuration Manager-Clients mit der Inhaltsbibliothek zulässt), oder importieren Sie ein Zertifikat aus Ihrer PKI.  
+    -   **Créez un certificat auto-signé ou importez un certificat client PKI** : choisissez entre l’utilisation d’un certificat auto-signé (qui permet également d’autoriser les connexions anonymes de clients Configuration Manager à la bibliothèque de contenu) et l’importation d’un certificat à partir de votre infrastructure à clé publique (PKI).  
 
-         Das Zertifikat wird zum Authentifizieren des Verteilungspunkts bei einem Verwaltungspunkt verwendet, bevor Statusmeldungen vom Verteilungspunkt gesendet werden.  
+         Ce certificat sert à authentifier le point de distribution auprès d’un point de gestion avant que ce point de distribution envoie des messages d’état.  
 
-         Informationen zu den Zertifikatanforderungen finden Sie unter [PKI-Zertifikatanforderungen für Configuration Manager](https://technet.microsoft.com/library/gg699362.aspx).  
+         Pour plus d’informations sur la configuration requise des certificats, consultez [Configuration requise des certificats PKI pour Configuration Manager](https://technet.microsoft.com/library/gg699362.aspx).  
 
-    **Optionale Einstellungen:**  
+    **Paramètres facultatifs :**  
 
-    -   **IIS installieren und konfigurieren, sofern dies für Configuration Manager erforderlich ist**: Wählen Sie diese Einstellung, damit Configuration Manager die Internetinformationsdienste (IIS) auf dem Server installiert und konfiguriert, sofern noch nicht erfolgt. IIS müssen auf allen Verteilungspunkten installiert werden.  
+    -   **Installer et configurer IIS si requis par Configuration Manager** : sélectionnez ce paramètre pour permettre à Configuration Manager d’installer et de configurer Internet Information Services (IIS) sur le serveur si IIS n’est pas déjà installé. Les services Internet doivent être installés sur tous les points de distribution.  
 
         > [!NOTE]  
-        > Wenngleich diese Einstellung optional ist, muss IIS auf dem Server installiert sein, bevor ein Verteilungspunkt erfolgreich installiert werden kann.  
+        > Bien que ce paramètre soit facultatif, IIS doit être installé sur le serveur pour qu’un point de distribution puisse être correctement installé.  
 
-    -   **Aktivieren und Konfigurieren von BranchCache für diesen Verteilungspunkt**.  
+    -   **Activer et configurer BranchCache pour ce point de distribution**.  
 
-    -   **Beschreibung**. Dies ist eine benutzerfreundliche Beschreibung des Verteilungspunkts, um ihn leichter zu erkennen.  
+    -   **Description**. Description conviviale du point de distribution pour faciliter son identification.  
 
-    -   **Diesen Verteilungspunkt für vorab bereitgestellten Inhalt aktivieren**.  
+    -   **Activer ce point de distribution pour le contenu préparé**.  
 
-8.  Legen Sie auf der Seite **Laufwerkseinstellungen** die Laufwerkseinstellungen für den Verteilungspunkt des sekundären Standorts fest.  
+8.  Dans la page **Paramètres du lecteur** , spécifiez les paramètres du lecteur pour le point de distribution du site secondaire.  
 
-     Sie können bis zu zwei Laufwerke für die Inhaltsbibliothek und zwei Laufwerke für die Paketfreigabe konfigurieren. Configuration Manager kann jedoch zusätzliche Laufwerke verwenden, wenn die ersten beiden die konfigurierte Laufwerksspeicherreserve erreichen. Auf der Seite **Laufwerkseinstellungen** werden die Priorität der Laufwerke und der freie Speicherplatz, der auf jedem Laufwerk verbleiben muss, festgelegt.  
+     Vous pouvez configurer jusqu’à deux lecteurs de disque pour la bibliothèque de contenu et deux lecteurs de disque pour le partage de package. Toutefois, Configuration Manager peut utiliser des lecteurs supplémentaires quand les deux premiers atteignent la réserve d’espace disque configurée. La page **Paramètres du lecteur** permet de configurer la priorité des lecteurs de disque et la quantité d’espace disque libre restant sur chaque lecteur de disque.  
 
-    -   **Laufwerksspeicherreserve (MB):** Hiermit geben Sie an, wie viel freier Speicher auf einem Laufwerk verbleiben muss. Wird der Wert erreicht, wählt Configuration Manager ein anderes Laufwerk aus, auf dem der Kopiervorgang fortgesetzt wird. Inhaltsdateien können sich über mehrere Laufwerke erstrecken.  
+    -   **Réserve d’espace libre sur le lecteur (Mo)** : la valeur que vous configurez pour ce paramètre détermine la quantité d’espace libre sur un lecteur avant que Configuration Manager choisisse un autre lecteur et poursuive le processus de copie sur ce lecteur. Les fichiers de contenu peuvent s'étendre sur plusieurs lecteurs.  
 
-    -   **Inhaltsorte**: Geben Sie die Inhaltsorte für die Inhaltsbibliothek und die Paketfreigabe an. Configuration Manager kopiert solange Inhalte zum primären Inhaltsort, bis die Menge des freien Speicherplatzes den unter **Laufwerksspeicherreserve (MB)** angegebenen Wert erreicht.
+    -   **Emplacements du contenu**: Spécifiez les emplacements de contenu pour le partage de bibliothèque et de package de contenu. Configuration Manager copie le contenu à l’emplacement de contenu principal jusqu’à ce que la quantité d’espace libre atteigne la valeur spécifiée dans **Réserve d’espace libre sur le lecteur (Mo)**.
 
-     Die Inhaltsorte sind standardmäßig auf **Automatisch**festgelegt. Der primäre Inhaltsort wird auf das Laufwerk festgelegt, das bei der Installation über den meisten Speicherplatz verfügt. Der sekundäre Inhaltsort wird auf das Laufwerk festgelegt, das nach dem primären Laufwerk über den meisten freien Speicherplatz verfügt. Wenn vom primären und sekundären Laufwerk die Laufwerksspeicherreserve erreicht wird, wählt Configuration Manager ein anderes verfügbares Laufwerk mit dem meisten freien Speicherplatz aus und setzt den Kopiervorgang dort fort.  
+     Par défaut, les emplacements du contenu sont définis sur **Automatique**. L’emplacement de contenu principal est défini sur le lecteur de disque disposant le plus d’espace lors de l’installation. L’emplacement secondaire, quant à lui, est attribué au deuxième lecteur de disque disposant le plus d’espace. Quand le lecteur principal et le lecteur secondaire atteignent la réserve d’espace libre sur le lecteur, Configuration Manager sélectionne un autre lecteur disponible ayant le plus d’espace disque libre et poursuit le processus de copie.  
 
-9. Geben Sie auf der Seite **Inhaltsprüfung** an, ob die Integrität der Inhaltsdateien am Verteilungspunkt geprüft werden soll.  
+9. Sur la page **Validation du contenu** , indiquez si vous souhaitez valider l'intégrité des fichiers de contenu sur le point de distribution.  
 
-    -   Wenn Sie die Inhaltsprüfung nach einem Zeitplan aktivieren, initiiert Configuration Manager den Vorgang zum festgesetzten Zeitpunkt, und am Verteilungspunkt werden alle Inhalte geprüft.  
+    -   Quand vous activez la validation de contenu selon un calendrier, Configuration Manager démarre le processus à l’heure planifiée, et tout le contenu est vérifié sur le point de distribution.  
 
-    -   Sie können auch die **Priorität der Inhaltsprüfung**konfigurieren.  
+    -   Vous pouvez également configurer le paramètre **Priorité de la validation du contenu**.  
 
-    -   Zum Anzeigen der Ergebnisse der Inhaltsprüfung navigieren Sie in Configuration Manager zu **Überwachung** > **Verteilungsstatus** > **Inhaltsstatus**. Der Inhalt jedes Pakettyps (z. B. Anwendung, Softwareupdatepaket und Startabbild) wird angezeigt.  
+    -   Pour afficher les résultats du processus de validation du contenu, dans la console Configuration Manager, accédez à **Analyse** > **État de distribution** > **État du contenu**. Le contenu de chaque type de package (par exemple, application, package de mises à jour logicielles et image de démarrage) s'affiche.  
 
-10. Auf der Seite **Begrenzungsgruppen** können Sie die Begrenzungsgruppen verwalten, denen dieser Verteilungspunkt zugewiesen ist:  
+10. Dans la page **Groupes de limites**, gérez les groupes de limites auxquels ce point de distribution est affecté :  
 
-    -   Bei der Inhaltsbereitstellung müssen sich die Clients in einer dem Verteilungspunkt zugeordneten Begrenzungsgruppe befinden, damit der Verteilungspunkt als Quellort für Inhalt verwendet werden kann.  
+    -   Lors d'un déploiement de contenu, les clients doivent se trouver dans un groupe de limites associé au point de distribution pour l'utiliser comme emplacement source pour le contenu.  
 
-    -   Sie können das Kontrollkästchen **Fallbackquellpfad für Inhalt zulassen** aktivieren, um Clients außerhalb solcher Begrenzungsgruppen ein Ausweichen auf den Verteilungspunkt als Quellort für den Inhalt zu ermöglichen, wenn keine bevorzugten Verteilungspunkte verfügbar sind.  
+    -   Vous pouvez sélectionner l'option **Autoriser l'emplacement source de secours pour le contenu** afin de permettre aux clients situés en-dehors de ces groupes de limites de revenir et d'utiliser le point de distribution comme emplacement source pour le contenu lorsque aucun point de distribution préféré n'est disponible.  
 
-     Weitere Informationen zu bevorzugten Verteilungspunkten finden Sie unter [Grundlegende Konzepte für die Inhaltsverwaltung](../../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md).  
+     Pour plus d’informations sur les points de distribution préférés, consultez la rubrique [Concepts fondamentaux de la gestion de contenu](../../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md).  
 
-11. Überprüfen Sie auf der Seite **Zusammenfassung** die Einstellungen. Klicken Sie dann auf **Weiter**, um den sekundären Standort zu installieren. Wenn der Assistent die Seite **Abschluss** anzeigt, können Sie den Assistenten schließen. Die Installation des sekundären Standorts wird im Hintergrund fortgesetzt.  
+11. Dans la page **Résumé**, vérifiez les paramètres, puis choisissez **Suivant** pour installer le site secondaire. Quand l’Assistant affiche la page **Dernière étape**, vous pouvez fermer l’Assistant. L’installation du site secondaire se poursuit en arrière-plan.  
 
 
-### <a name="bkmk_verify"></a> So überprüfen Sie den Installationsstatus des sekundären Standorts  
+### <a name="bkmk_verify"></a> Pour vérifier l’état d’installation du site secondaire  
 
-1.  Wechseln Sie in der Configuration Manager-Konsole zu **Verwaltung** > **Standortkonfiguration** > **Standorte**.  
+1.  Dans la console Configuration Manager, accédez à **Administration** > **Configuration du site** > **Sites**.  
 
-2.  Wählen Sie den sekundären Standortserver aus, den Sie installieren, und klicken Sie dann auf **Installationsstatus anzeigen**.  
+2.  Sélectionnez le serveur de site secondaire que vous installez, puis choisissez **Afficher l’état d’installation**.  
 
     > [!TIP]  
-    > Wenn Sie mehrere sekundäre Standorte gleichzeitig installieren, wird die Voraussetzungsprüfung immer nur für einen Standort ausgeführt. Erst wenn diese abgeschlossen ist, wird der nächste Standort geprüft.  
+    > Quand vous installez plusieurs sites secondaires à la fois, l’Outil de vérification des prérequis s’exécute sur un seul site à la fois ; il doit terminer de vérifier un site avant de pouvoir passer au site suivant.  

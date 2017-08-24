@@ -1,6 +1,6 @@
 ---
-title: Asset Intelligence Sicherheit und Datenschutz | Microsoft-Dokumentation
-description: "Abrufen von Sicherheits- und Datenschutzinformationen für Asset Intelligence in System Center Configuration Manager."
+title: "Sécurité et confidentialité d’Asset Intelligence | Microsoft Docs"
+description: "Obtenez des informations sur la sécurité et la confidentialité pour Asset Intelligence dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 2/22/2017
 ms.prod: configuration-manager
@@ -18,42 +18,42 @@ manager: angrobe
 ms.openlocfilehash: b12054cce52e2b83715a083d78a62e06b5127a2f
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="security-and-privacy-for-asset-intelligence-in-system-center-configuration-manager"></a>Sicherheit und Datenschutz für Asset Intelligence in System Center Configuration Manager
+# <a name="security-and-privacy-for-asset-intelligence-in-system-center-configuration-manager"></a>Sécurité et confidentialité pour Asset Intelligence dans System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Dieses Thema enthält Sicherheits- und Datenschutzinformationen für Asset Intelligence in System Center Configuration Manager.  
+Cette rubrique contient des informations sur la sécurité et la confidentialité pour Asset Intelligence dans System Center Configuration Manager.  
 
-##  <a name="BKMK_Security_AI"></a> Bewährte Sicherheitsmethoden für Asset Intelligence  
- Wenden Sie die folgenden bewährten Sicherheitsmethoden beim Verwenden von Asset Intelligence an.  
+##  <a name="BKMK_Security_AI"></a> Meilleures pratiques de sécurité pour Asset Intelligence  
+ Utilisez les meilleures pratiques de sécurité suivantes dans l'optique d'utiliser Asset Intelligence.  
 
-|Bewährte Sicherheitsmethode|Weitere Informationen|  
+|Meilleure pratique de sécurité|Plus d'informations|  
 |----------------------------|----------------------|  
-|Sichern Sie beim Importieren einer Lizenzdatei die Datei und den Kommunikationskanal (Microsoft-Volumenlizenzierungsdatei oder allgemeine Lizenzübersichtsdatei).|Verwenden Sie NTFS-Dateisystemberechtigungen, um sicherzustellen, dass nur berechtigte Benutzer auf die Lizenzdateien zugreifen können. Verwenden Sie außerdem SMB-Signaturen (Server Message Block), um die Integrität der Daten bei der Übertragung an den Standortserver während des Importvorgangs sicherzustellen.|  
-|Wenden Sie beim Importieren der Lizenzdateien das Prinzip der geringsten Berechtigungen an.|Wählen Sie eine rollenbasierte Verwaltung, um die Berechtigung "Asset Intelligence verwalten" dem Administrator zu gewähren, der die Lizenzdateien importiert. Die integrierte Rolle "Asset-Manager" umfasst diese Berechtigung.|  
+|Lorsque vous importez un fichier de licence (fichier de licence en volume Microsoft ou fichier de déclaration générale de licence), sécurisez le fichier et le canal de communication.|Utilisez les autorisations du système de fichier pour vous assurer que seuls les utilisateurs autorisés peuvent accéder aux fichiers de licence et utilisez la signature SMB pour garantir l'intégrité des données lors de leur transfert au serveur de site pendant le processus d'importation.|  
+|Utilisez le principe des autorisations minimales pour importer les fichiers de licence.|Utilisez l'administration basée sur les rôles pour accorder l'autorisation Gérer Asset Intelligence à l'utilisateur administratif qui importe des fichiers de licence. Le rôle intégré d'Asset Manager inclut cette autorisation.|  
 
-##  <a name="BKMK_Privacy_HardwareInventory"></a> Datenschutzinformationen für Asset Intelligence  
- Asset Intelligence erweitert die Inventurfähigkeiten von Configuration Manager und ermöglicht eine höhere Sichtbarkeit der Anlagewerte im Unternehmen. Die Sammlung von Asset Intelligence-Informationen ist nicht automatisch aktiviert. Sie können die Art der gesammelten Informationen ändern, indem Sie Hardwareinventur-Berichtsklassen aktivieren. Weitere Informationen finden Sie unter [Konfigurieren von Asset Intelligence in System Center Configuration Manager](../../../../core/clients/manage/asset-intelligence/configuring-asset-intelligence.md).  
+##  <a name="BKMK_Privacy_HardwareInventory"></a> Informations confidentielles pour Asset Intelligence  
+ Asset Intelligence étend les fonctions d’inventaire de Configuration Manager afin de permettre une meilleure visibilité des ressources au sein de l’entreprise. La collecte d'informations Asset Intelligence n'est pas activée automatiquement. Vous pouvez modifier le type d'informations collectées en activant les classes de rapport d'inventaire matériel. Pour plus d’informations, consultez [Configuration d’Asset Intelligence dans System Center Configuration Manager](../../../../core/clients/manage/asset-intelligence/configuring-asset-intelligence.md).  
 
- Die Asset Intelligence-Informationen werden in der Configuration Manager-Datenbank auf die gleiche Weise gespeichert wie Inventurinformationen. Wenn von Clients per HTTPS eine Verbindung zu Verwaltungspunkten hergestellt wird, sind die Daten während des Transfers zum Verwaltungspunkt jederzeit verschlüsselt. Wenn von Clients per HTTP eine Verbindung hergestellt wird, können Sie die Inventurdatenübertragung so konfigurieren, dass sie signiert und verschlüsselt wird. Die Inventurdaten werden in der Datenbank nicht in einem verschlüsselten Format gespeichert. Die Informationen werden in der Datenbank gespeichert, bis sie vom Standortwartungstask **Veralteten Inventurverlauf löschen** in Intervallen von 90 Tagen gelöscht werden. Sie können das Löschintervall konfigurieren.  
+ Comme les informations d’inventaire, les informations Asset Intelligence sont stockées dans la base de données Configuration Manager. Lorsque les clients se connectent aux points de gestion à l'aide de HTTPS, les données sont toujours chiffrées lors du transfert vers le point de gestion. Lorsque les clients se connectent à l'aide de HTTP, vous pouvez configurer le transfert de données d'inventaire pour qu'il soit signé et chiffré. Les données d'inventaire ne sont pas stockées au format chiffré dans la base de données. Les informations sont conservées dans la base de données jusqu'à ce que la tâche de maintenance de site **Supprimer les historiques d'inventaire anciens** les supprime par intervalle de 90 jours. Vous pouvez configurer l'intervalle de suppression.  
 
- Von Asset Intelligence werden keine Benutzer-, Computer oder Lizenzverwendungsinformationen an Microsoft gesendet. Sie können System Center Online-Kategorisierungsanforderungen senden. Das bedeutet, dass Sie einen oder mehrere nicht kategorisierte Softwaretitel kennzeichnen und zur Recherche und Kategorisierung an System Center Online senden können. Nachdem ein Softwaretitel hochgeladen wurde, können die Recherchemitarbeiter bei Microsoft diesen identifizieren und kategorisieren und danach dieses Wissen für alle Kunden verfügbar machen, die den Onlinedienst nutzen. Sie sollten sich bei der Übermittlung von Informationen an System Center Online immer der Implikationen im Hinblick auf den Datenschutz bewusst sein:  
+ Asset Intelligence n'envoie pas d'informations sur les utilisateurs, les ordinateurs ou l'utilisation des licences à Microsoft. Vous pouvez choisir d'envoyer des requêtes System Center Online en vue d'une catégorisation. Ainsi, vous pouvez inventorier un ou plusieurs noms de logiciel sans catégorie et les envoyer dans System Center Online afin de les rechercher, puis de les classer. Une fois un nom de logiciel téléchargé, les fonctions de recherche de Microsoft l'identifient, le classent, puis le mettent à la disposition de tous les clients qui utilisent le service en ligne. Vous devez être conscient des conséquences de la soumission d'informations via System Center Online en termes de confidentialité :  
 
--   Der Upload gilt nur für generische Softwaretitelinformationen (Name, Herausgeber usw.), die Sie an System Center Online senden. Beim Upload werden keine Inventurinformationen gesendet.  
+-   Le téléchargement s'applique uniquement aux informations génériques relatives au nom du logiciel (nom, éditeur, etc.) que vous choisissez d'envoyer au System Center Online. Les informations d'inventaire ne peuvent faire l'objet d'un téléchargement.  
 
--   Dateien werden nie automatisch hochgeladen. Im System kann dieser Task auch nicht automatisiert werden. Sie müssen den Upload jedes Softwaretitels manuell auswählen und genehmigen.  
+-   Le téléchargement ne se produit jamais automatiquement et le système n'est pas conçu pour que cette tâche soit automatisée. Vous devez sélectionner et approuver manuellement le téléchargement de chaque nom de logiciel.  
 
--   Über ein Dialogfeld wird vor dem Start des Uploadvorgangs genau angezeigt, welche Daten hochgeladen werden.  
+-   Une boîte de dialogue vous indique exactement quelles données seront téléchargées, avant le démarrage du processus de téléchargement.  
 
--   Die Lizenzinformationen werden nicht an Microsoft gesendet. Die Lizenzinformationen werden in einem separaten Bereich der Configuration Manager-Datenbank gespeichert. Es gibt keine Möglichkeit, diese an Microsoft zu senden.  
+-   Les informations de licence ne sont pas envoyées à Microsoft. Les informations de licence sont stockées dans une zone séparée de la base de données Configuration Manager et elles ne peuvent pas être envoyées à Microsoft.  
 
--   Jeder Softwaretitel, der hochgeladen wird, wird öffentlich in dem Sinn, dass die Kenntnis dieser gegebenen Anwendung und ihre Kategorisierung Teil des System Center Online Asset Intelligence-Katalogs werden und dann für andere Kunden des Katalogs heruntergeladen werden.  
+-   Tous les noms de logiciel téléchargés deviennent dès lors publiques, car l'application correspondante ainsi que sa classification sont intégrées au catalogue System Center Online Asset Intelligence, puis seront téléchargées par d'autres utilisateurs du catalogue.  
 
--   Die Quelle des Softwaretitels wird im Asset Intelligence-Katalog nicht aufgezeichnet und anderen Kunden nicht zur Verfügung gestellt. Sie müssen jedoch trotzdem sicherstellen, dass Sie keine Anwendungstitel laden, die private Informationen enthalten.  
+-   La source du nom du logiciel n'est pas enregistrée dans le catalogue Asset Intelligence. Elle n'est donc pas disponible pour les autres utilisateurs. Vous devez toutefois toujours veiller à ne pas charger de noms d'application contenant des informations confidentielles.  
 
--   Hochgeladene Daten können nicht zurückgerufen werden.  
+-   Les données téléchargées ne peuvent pas être rappelées.  
 
- Berücksichtigen Sie die Datenschutzanforderungen Ihrer Organisation, bevor Sie die Asset Intelligence-Datensammlung konfigurieren und entscheiden, ob Sie Informationen an System Center Online übermitteln möchten.  
+ Avant de configurer le regroupement de données Asset Intelligence et de décider de soumettre des informations à System Center Online, pensez aux besoins de votre organisation en matière de confidentialité.  

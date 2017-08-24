@@ -1,6 +1,6 @@
 ---
-title: "Diagnosedaten für 1610 | System Center Configuration Manager"
-description: "Erfahren Sie mehr über die Ebenen der Diagnose- und Nutzungsdaten, die System Center Configuration Manager-Version 1610 sammelt."
+title: "Données de diagnostic pour 1610 | System Center Configuration Manager"
+description: "En savoir plus sur les niveaux des données de diagnostic et d’utilisation collectées par System Center Configuration Manager version 1610."
 ms.custom: na
 ms.date: 12/29/2016
 ms.prod: configuration-manager
@@ -35,404 +35,404 @@ translation.priority.ht:
 ms.openlocfilehash: ba1e53fdc895690bb958c12d59f82a26067ecad3
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="levels-of-diagnostic-usage-data-collection-for-version-1610-of-system-center-configuration-manager"></a>Ebenen der Sammlung von Nutzungsdaten zu Diagnosezwecken für System Center Configuration Manager-Version 1610
+# <a name="levels-of-diagnostic-usage-data-collection-for-version-1610-of-system-center-configuration-manager"></a>Niveaux de collecte des données de diagnostic et d’utilisation pour la version 1610 de System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Die Version 1610 von System Center Configuration Manager sammelt drei Ebenen von Diagnose- und Nutzungsdaten: **Basic** (Basis), **Enhanced** (Erweitert) und **Full** (Vollständig). Standardmäßig ist dieses Feature auf die Ebene „Erweitert“ festgelegt. Die folgenden Abschnitte enthalten zusätzliche Details zu den auf den einzelnen Ebenen gesammelten Daten.
+System Center Configuration Manager version 1610 collecte trois niveaux de données d’utilisation et de diagnostic : **De base**, **Étendu** et **Complet**. Par défaut, cette fonctionnalité est définie sur le niveau Étendu. Les sections suivantes fournissent des détails supplémentaires sur les données collectées par chaque niveau.
 
-Änderungen gegenüber früheren Versionen sind mit ***[Neu]***, ***[Aktualisiert]***, ***[Entfernt]*** oder ***[Verschoben]*** gekennzeichnet.
+Les modifications par rapport aux versions précédentes sont indiquées par ***[Nouveau]***, ***[Mis à jour]***, ***[Supprimé]*** ou ***[Déplacé]***.
 
 
 > [!IMPORTANT]
->  Configuration Manager sammelt auf den Ebenen „Basis“ und „Erweitert“ keine Standortcodes, Standortnamen, IP-Adressen, Benutzer- oder Computernamen, physischen Adressen oder E-Mail-Adressen. Die auf der Ebene „Vollständig“ erfassten Daten (möglicherweise in erweiterten Diagnoseinformationen wie Protokolldateien oder Arbeitsspeicher-Momentaufnahmen enthaltene Daten) werden nicht zielgerichtet gesammelt. Sie werden von Microsoft auch nicht zu Werbezwecken oder dazu verwendet, Sie zu identifizieren oder sich mit Ihnen in Verbindung zu setzen.
+>  Configuration Manager ne collecte pas les codes des sites, les noms des sites, les adresses IP, les noms d’utilisateur ou d’ordinateur, les adresses physiques ni les adresses e-mail aux niveaux De base et Étendu. Toute collecte de ces informations au niveau Complet n’est pas intentionnelle : elles peuvent être incluses dans des informations de diagnostic avancées comme des fichiers journaux ou des instantanés de la mémoire. Microsoft n’utilisera pas ces informations pour vous identifier ou vous contacter, ni à des fins publicitaires.
 
-##  <a name="bkmk_change"></a> Ändern der Ebene
- Administratoren mit einem rollenbasierten Verwaltungsbereich, der **Ändern**-Berechtigungen für die **Standort**-Objektklasse umfasst, können in den Einstellungen der Configuration Manager-Konsole unter „Diagnose- und Nutzungsdaten“ die Ebene der erfassten Daten ändern.
+##  <a name="bkmk_change"></a> Modification du niveau
+ Les administrateurs qui ont une étendue d’administration basée sur des rôles incluant les autorisations **Modifier** sur la classe d’objets **Site** peuvent changer le niveau des données collectées dans les paramètres des données de diagnostic et d’utilisation de la console Configuration Manager.
 
-Ab Version 1610 können Sie die Datensammlungsebene innerhalb der Konsole ändern, indem Sie zu **Verwaltung** > **Überblick** > **Standortkonfiguration** > **Standorte** navigieren. Öffnen Sie die **Hierarchieeinstellungen**, und wählen Sie die Datenebene aus, die Sie verwenden möchten.  
+Depuis la version 1610, vous pouvez changer le niveau de collecte des données à partir de la console en accédant à **Administration** > **Vue d’ensemble** > **Configuration du site** > **Sites**. Ouvrez **Paramètres de hiérarchie**, puis sélectionnez le niveau de données que vous voulez utiliser.  
 
-##  <a name="bkmk_level1"></a> Ebene 1: Basis
- Die Ebene „Basis“ umfasst Daten über Ihre Hierarchie, Daten, die für die Verbesserung Ihrer Installations- oder Upgradeerfahrung nötig sind, sowie Daten, die zur Ermittlung der für Ihre Hierarchie infrage kommenden Configuration Manager-Updates benötigt werden.
+##  <a name="bkmk_level1"></a> Niveau 1 - De base
+ Le niveau De base comprend les données relatives à votre hiérarchie, qui sont nécessaires pour améliorer votre expérience d’installation ou de mise à niveau, ainsi que des données pour identifier les mises à jour Configuration Manager qui s’appliquent à votre hiérarchie.
 
- Bei System Center Configuration Manager-Version 1610 enthält diese Ebene Folgendes:
+ Pour System Center Configuration Manager version 1610, ce niveau inclut les éléments suivants :
 
 
--   Setupinformationen:
-      - Build, Installationstyp, Sprachpakete, Funktionen, die Sie aktiviert haben  
+-   Informations d’installation :
+      - Build, type d’installation, modules linguistiques, fonctionnalités que vous avez activées  
 
-      - Aktualisieren des Paketbereitstellungsstatus und der Fehler, des Downloadstatus und der Voraussetzungsfehler    
+      - État et erreurs du déploiement du package de mise à jour, progression du téléchargement, et erreurs liées aux prérequis    
 
-      - Skriptversion nach dem Upgrade
+      - Version du script après mise à niveau
 
-      - Updateverwendung (Fast Ring)
+      - Utilisation de l’anneau rapide de mise à jour
 
-    - ***[Neu]*** Verwendung der Vorabversion, Setup Medientyp, Verzweigungstyp
+    - ***[Nouveau]*** Utilisation en préversion, type de support de configuration, type de branche
 
-    - ***[Neu]*** Ablaufdatum der Software Assurance
+    - ***[Nouveau]*** Date d’expiration de Software Assurance
 
-- Metriken zur Datenbankleistung (Informationen zur Replikationsverarbeitung, die wichtigsten gespeicherten SQL Server-Prozeduren nach Prozessor und Datenträgerverwendung)
+- Métriques de performances de base de données (informations sur le traitement de la réplication, procédures stockées SQL Server les plus utilisées par processeur et utilisation des disques)
 
-- Grundlegende Informationen zur Datenbankkonfiguration (Prozessoren, Clusterkonfiguration und Konfiguration verteilter Ansichten)
+- Configuration de base de données simple (processeurs, configuration du cluster et configuration des vues distribuées)
 
-- Configuration Manager-Datenbankschema (Hash aller Objektdefinitionen)
+- Schéma de base de données Configuration Manager (hachage de toutes les définitions d’objet)
 
-- Anzahl der Configuration Manager-Client- und -Betriebssystemversionen
+- Nombre de versions du client Configuration Manager et de versions du système d’exploitation
 
-- Anzahl der Betriebssysteme für verwaltete Geräte und der von Exchange Connector festgelegten Richtlinien
+- Nombre de systèmes d’exploitation des appareils gérés et stratégies définies par le connecteur Exchange
 
-- Anzahl der Sprachen und Gebietsschemas der Clients
+- Nombre de paramètres régionaux et de langues du client
 
-- Anzahl von Windows 10-Geräten nach Branch und Build
+- Nombre d’appareils Windows 10 par branche et build
 
-- Grundlegende Daten zur Configuration Manager-Standorthierarchie (Standortliste, Typ, Version, Status, Anzahl von Clients und Zeitzone)
+- Données de la hiérarchie des sites Configuration Manager de base (liste des sites, type, version, état, nombre de clients et fuseau horaire)
 
-- Grundlegende Informationen zum Standortsystemserver (verwendete Standortsystemrollen, Internet- und SSL-Status, Betriebssystem, Prozessoren sowie physischer oder virtueller Computer)
+- Informations de serveur de système de site de base (rôles de système de site utilisés, état SSL et Internet, système d’exploitation, processeurs, ordinateur physique ou machine virtuelle)
 
-- Grundlegende Statistiken zur Benutzerermittlung (Benutzerermittlungsanzahl und minimale/maximale/durchschnittliche Gruppengröße)
+- Statistiques de découverte d’utilisateurs de base (nombre de découvertes d’utilisateurs et tailles minimale/maximale/moyenne des groupes)
 
-- Grundlegende Informationen zu Endpoint Protection (Antischadsoftware-Clientversionen)
+- Informations Endpoint Protection de base (versions du client de logiciel anti-programme malveillant)
 
-- Anzahl der grundlegenden Anwendungs- und Bereitstellungstypen (Gesamtzahl der Apps, Gesamtzahl der Apps mit mehreren Bereitstellungstypen, Gesamtzahl der Apps mit Abhängigkeiten, Gesamtzahl der ersetzten Apps und Anzahl der verwendeten Bereitstellungstechnologien)
+- Nombres de types d’application et de déploiement de base (nombre total d’applications, nombre total d’applications avec plusieurs types de déploiement, nombre total d’applications avec des dépendances, nombre total d’applications remplacées, nombre de technologies de déploiement utilisées)
 
-- Anzahl der grundlegenden Betriebssystembereitstellungen (OSDs) (Images)
+- Nombre de déploiements de systèmes d’exploitation de base (images)
 
-- Informationen zu Verteilungspunkt- und Verwaltungspunkttypen sowie zur grundlegenden Konfiguration (geschützt, vorab bereitgestellt, PXE, Multicast, SSL-Status, Pull-/Peerverteilungspunkte, MDM-aktiviert, SSL-fähig usw.)
+- Types de point de distribution et de point de gestion, et informations de configuration de base (protégés, préparés, PXE, de multidiffusion, d’état SSL, points de distribution pairs/d’extraction, compatibles MDM, compatibles SSL, etc.)
 
-- Telemetriestatistiken (Ausführungszeit, Laufzeit, Fehler)
+- Statistiques de télémétrie (à l’exécution, runtime, erreurs)
 
-- Konfigurierte Telemetrieebene, Modus (online oder offline) und schnelle Updatekonfiguration
+- Niveau de télémétrie configuré, mode (en ligne ou hors connexion) et configuration de la mise à jour rapide
 
-- Verwenden der Netzwerkermittlung (aktiviert oder deaktiviert)
-- Verwaltungskonsole:
+- Utilisation de la découverte du réseau (activée ou désactivée)
+- Console d'administration :
 
-     - Statistiken zu den Konsolenverbindungen (Betriebssystemversion, Sprache, SKU und Architektur, Systemspeicher, Anzahl der logischen Prozessoren, Connect-Website-ID, installierte .NET-Versionen und Konsolensprachpakete)    
+     - Statistiques sur les connexions de la console (version, langue, référence (SKU) et architecture du système d’exploitation, mémoire système, nombre de processeurs logiques, ID du site de connexion, versions .NET installées et modules linguistiques de la console)    
 
-- SQL-Version, Service Pack-Ebene, Edition, Sortierungs-ID und Zeichensatz
+- Version SQL, niveau de Service Pack, édition, ID de classement et jeu de caractères
 
 
-##  <a name="bkmk_level2"></a> Ebene 2: Erweitert
-Die Ebene „Erweitert“ ist die Standardeinstellung nach dem Setup. Diese Ebene enthält die auf der Ebene „Basis“ erfassten Daten und featurespezifische Daten (Häufigkeit und Dauer der Verwendung), Configuration Manager-Clienteinstellungen (Name der Komponente, Status und bestimmte Einstellungen wie Abrufintervalle) sowie grundlegende Informationen zu Softwareupdates.
+##  <a name="bkmk_level2"></a> Niveau 2 – Étendu
+Le niveau Étendu est configuré par défaut après l’installation. Ce niveau comprend les données collectées au niveau De base, ainsi que les données spécifiques aux fonctionnalités (fréquence et durée d’utilisation), les paramètres du client Configuration Manager (nom du composant, état et paramètres, comme les intervalles d’interrogation) et les informations de base sur les mises à jour logicielles.
 
-Diese Ebene wird empfohlen, weil sie Microsoft die Daten bereitstellt, die mindestens erforderlich sind, um in künftigen Versionen der Produkte und Dienste nützliche Verbesserungen vorzunehmen. Diese Ebene erfasst keine Objektnamen (Websites, Benutzer, Computer oder Objekte) und keine Details zu sicherheitsrelevanten Objekten oder Sicherheitsrisiken, wie etwa die Anzahl der Systeme, die Softwareupdates erfordern.
+Ce niveau est recommandé, car il fournit à Microsoft les données minimales nécessaires pour apporter des améliorations utiles dans les futures versions des produits et services. Ce niveau ne collecte pas les noms des objets (sites, utilisateurs, ordinateur ou objets), les informations sur les objets relatifs à la sécurité ni les vulnérabilités, comme le nombre de systèmes qui nécessitent des mises à jour logicielles.
 
-Bei System Center Configuration Manager-Version 1610 enthält diese Ebene Folgendes:
+Pour System Center Configuration Manager version 1610, ce niveau inclut les éléments suivants :
 
--   **Anwendungsverwaltung:**  
+-   **Gestion des applications :**  
 
-    -    Grundlegende Informationen zu Verwendung/Zielgruppenadressierung für innerhalb der Organisation verwendete Bereitstellungstypen (adressierter Benutzer/adressiertes Gerät, erforderlich/verfügbar und universelle Apps)  
+    -    Informations de base d’utilisation/de ciblage pour les types de déploiement utilisés au sein de l’organisation (ciblé utilisateur ou appareil, nécessaire ou disponible, et applications universelles)  
 
-    -   Informationen zur Anwendungsbereitstellung (Installieren/Deinstallieren, Genehmigung erforderlich, Benutzerinteraktion aktiviert/deaktiviert, Abhängigkeit und Ablösung)  
+    -   Informations sur le déploiement d’application (installation/désinstallation, approbation requise, interaction utilisateur activée/désactivée, dépendance et remplacement)  
 
-    -   Statistiken zur Anforderung verfügbarer Anwendungen  
+    -   Statistiques de demande d’application disponibles  
 
-    -   Anzahl der Pakete nach Typ  
+    -   Nombre de packages par type  
 
-    -   Anzahl der Anwendungsanwendbarkeit nach Betriebssystem  
+    -   Nombre d’applicabilités de l’application par système d’exploitation  
 
-    -   Anzahl der Paket-/Programmbereitstellungen  
+    -   Nombre de déploiements de package/programme  
 
-    -   Anzahl von App-V-Umgebungen und Bereitstellungseigenschaften  
+    -   Nombre d’environnements App-V et propriétés de déploiement  
 
-    -   Anzahl von Windows 10-lizenzierten Anwendungslizenzen  
+    -   Nombre de licences d’application Windows 10 concédées  
 
-    -   Minimale/maximale/durchschnittliche Anzahl von Anwendungsbereitstellungen pro Benutzer/Gerät in einem bestimmten Zeitraum
+    -   Nombre minimal/maximal/moyen de déploiements d’applications par utilisateur/appareil par période
 
-    -   Wartungsfenstertyp und -dauer  
+    -   Type et durée de fenêtre de maintenance  
 
-    -  Größe der Anwendungsrichtlinie und Komplexitätsstatistiken
+    -  Statistiques de taille et de complexité des stratégies d’applications
 
-    - ***[Aktualisiert]*** Anzahl der Apps im Windows Store für Unternehmen und Synchronisierungsstatistiken (einschließlich zusammengefasste App-Typen, Status lizenzierter Apps und Anzahl der Online- und Offline-lizenzierten Apps)  
+    - ***[Mis à jour]*** Nombre d’applications Windows Store pour Entreprises et statistiques de synchronisation (notamment un résumé des types d’applications, l’état des applications sous licence ainsi que le nombre d’applications sous licence en ligne et hors connexion)  
 
-    - Statistiken für Begrenzungsgruppen (wie viele schnelle, wie viele langsame sowie Anzahl pro Gruppe)
+    - Statistiques des groupes de limites (nombre de rapides, nombre de lents, nombre par groupe)
 
-    - Konfigurationsoptionen für und Anzahl von MSI
+    - Options de configuration MSI et nombres
 
-    - App-Anforderungen (Anzahl der integrierten Bedingungen wird von der Bereitstellungstechnologie referenziert)
+    - Exigences pour les applications (le nombre de conditions prédéfinies est référencé par la technologie de déploiement)
 
-    - App-Ablösung, maximale Kettentiefe
+    - Remplacement des applications, profondeur de chaîne maximale
 
-    - Nutzung des Universal Data Access (UDA), Art der Erstellung
+    - Utilisation et mode de création d’Universal Data Access (UDA)
 
-    - ***[Neu] *** Statistiken über Genehmigungen für Anwendungen und Häufigkeit der Nutzung
+    - ***[Nouveau]*** Statistiques d’approbation de l’application et fréquence d’utilisation
 
 
 
--   **Client:**  
+-   **Client :**  
 
-    -   Liste/Anzahl der aktivierten Client-Agents  
+    -   Liste/nombre d’agents clients activés  
 
-    -   Anzahl der Clientinstallationen von jedem Quellspeicherorttyp  
+    -   Nombre d’installations de client à partir de chaque type d’emplacement source  
 
-    -   Anzahl der Fehler bei der Clientinstallation  
+    -   Nombre d’échecs d’installation de client  
 
-    -  ***[Aktualisiert]*** Automatisches Clientupgrade: Konfigurierung der Bereitstellung einschließlich Pilottests von Clients und Verwendung des Ausschlusses (erweiterter Interoperabilitätsclient)
+    -  ***[Mis à jour]*** Mise à niveau automatique du client : configuration du déploiement, notamment le test du client et l’utilisation de l’exclusion (client d’interopérabilité étendue)
 
-    -  Clientintegritätsstatistiken und Zusammenfassung wichtiger Probleme
+    -  Statistiques d’intégrité du client et récapitulatif des problèmes principaux
 
-    - BIOS-Alter in Jahren
+    - Âge du BIOS en années
 
-    - Alter des Betriebssystems in Monaten
+    - Ancienneté du système d’exploitation en mois
 
-    - Anzahl der Softwarecenteraktionen
+    - Nombre d’actions du Centre logiciel
 
-    - Clientversion von Active Management Technology (AMT)
+    - Version du client AMT (Active Management Technology)
 
-    - Downloadfehler in der Clientbereitstellung
+    - Erreurs de téléchargement de déploiement des clients
 
-    - Status der Clientbenachrichtigungsaktion (wie oft jede Aktion ausgeführt wird, max. Anzahl von Zielclients und durchschnittliche Erfolgsrate)
+    - État des actions de notification du client (nombre d’exécutions de chaque action, nombre maximal de clients ciblés et taux de réussite moyen)
 
-    - Bereitstellungsmethoden für Clients und Anzahl der Clients pro Bereitstellungsmethode
+    - Méthodes de déploiement utilisées pour le client et nombre de clients par méthode de déploiement
 
-    - Konfigurieren der Cachegrößen des Clients
+    - Configuration de la taille du cache du client
 
-    - ***[Neu] *** Anzahl der Hardwareinventurklassen, Softwareinventurregeln und Dateisammlungsregeln
+    - ***[Nouveau]*** Nombre de classes d’inventaire matériel, règles d’inventaire logiciel et règles de regroupement de fichiers
 
 
 
 
-- **Cloud Services:**
+- **Services cloud :**
 
-  - Anzahl der Sammlungen, die mit Operations Management Suite synchronisiert werden
+  - Nombre de regroupements qui sont synchronisés avec Operations Management Suite
 
-  -  Angabe, ob der Operations Management Suite-Cloud-Connector aktiviert ist
+  -  Activation ou non du connecteur cloud Operations Management Suite
 
-  - ***[Neu] *** Statistiken zur Konfigurierung und Verwendung des Cloudverwaltungsgateways
+  - ***[Nouveau]*** Configuration et statistiques d’utilisation de la passerelle de gestion cloud
 
-  - ***[Neu] *** Anzahl von Upgrade Analytics-Connectors
+  - ***[Nouveau]*** Nombre de connecteurs Upgrade Analytics
 
 
 
 
-- **Sammlungen:**
+- **Regroupements :**
 
-    -  Statistiken zur Sammlungsauswertung (Abfragezeit, zugewiesene/nicht zugewiesene Anzahl, Anzahl nach Typ, ID-Rollover und Verwendung von Regeln)
+    -  Statistiques d’évaluation des regroupements (durée des requêtes, nombre de regroupements affectés et non affectés, nombres par type, substitution d’ID et utilisation des règles)
 
-    - Sammlungen ohne eine Bereitstellung
+    - Regroupements sans déploiement
 
-    - Verwendung der Sammlungs-ID (nicht genügend IDs)
+    - Utilisation des ID de regroupement (ne pas manquer d’ID)
 
 
 
--   **Kompatibilitätseinstellungen:**  
+-   **Paramètres de compatibilité :**  
 
-    -   Anzahl der Konfigurationselemente nach Typ  
+    -   Nombre d’éléments de configuration par type  
 
-    -   Grundlegende Informationen zur Konfigurationsbaseline (Zählerwert, Anzahl von Bereitstellungen und Anzahl der Verweise)  
+    -   Informations de la ligne de base de configuration de base (nombre, nombre de déploiements et nombre de références)  
 
-    -   Anzahl von Bereitstellungen, die auf integrierte Einstellungen verweisen (wiederhergestellte Einstellungen werden jetzt erfasst)  
+    -   Nombre de déploiements qui référencent des paramètres prédéfinis (avec capture du paramètre de correction)  
 
-    -   Anzahl von Regeln und Bereitstellungen, die für benutzerdefinierte Einstellungen erstellt wurden (wiederhergestellte Einstellungen werden jetzt erfasst)  
-    -   Anzahl der bereitgestellten Simple Certificate Enrollment-Protokollvorlagen (SCEP) und der VPN-, WLAN-, Zertifikat- (.PFX) und Konformitätsrichtlinienvorlagen
+    -   Nombre de règles et de déploiements créés pour les paramètres personnalisés (avec capture du paramètre de correction)  
+    -   Nombre de modèles SCEP (Simple Certificate Enrollment Protocol), VPN, Wi-Fi, de certificat (.pfx) et de stratégie de conformité déployés
 
-    -  Anzahl der SCEP-Zertifikat-, VPN-, WLAN-, Zertifikat- (.PFX) und Konformitätsrichtlinienbereitstellungen je Plattform
+    -  Nombre de déploiements de certificat SCEP, VPN, Wi-Fi, certificat (.pfx) et stratégie de conformité par plateforme
 
-    - Passport for Work-Richtlinie (erstellt, bereitgestellt)
+    - Stratégie Passport for Work (créée, déployée)
 
 
 
--   **Inhalt:**  
+-   **Contenu :**  
 
-    -   Anzahl der Grenzen nach Typ  
+    -   Nombre de limites par type  
 
-    -   Informationen zur Begrenzungsgruppe (Anzahl der jeder Begrenzungsgruppe zugewiesenen Grenzen und Standortsysteme)  
+    -   Informations sur les groupes de limites (nombre de limites et de systèmes de site qui sont affectés à chaque groupe de limites)  
 
-    - ***[Neu] *** Begrenzungsgruppenbeziehungen und Fallbackkonfiguration
+    - ***[Nouveau]*** Relations de groupes de limites et configuration de secours
 
-    -   Informationen zur Verteilungspunktgruppe (Anzahl der jeder Verteilungspunktgruppe zugewiesenen Pakete und Verteilungspunkte)  
+    -   Informations sur les groupes de points de distribution (nombre de packages et de points de distribution qui sont affectés à chaque groupe de points de distribution)  
 
-    -   Informationen zur Verteilungspunktkonfiguration (Verwenden von Branch-Cache und Verteilungspunktüberwachung)  
+    -   Informations sur la configuration des points de distribution (utilisation de BranchCache et surveillance des points de distribution)  
 
-    -   Informationen zur Verteilungs-Manager-Konfiguration (Threads, Wiederholungsverzögerung, Anzahl der Wiederholungsversuche und Einstellungen für Pullverteilungspunkte)  
+    -   Informations sur la configuration du gestionnaire de distribution (threads, délai de nouvelle tentative, nombre de nouvelles tentatives et paramètres de point de distribution d’extraction)  
 
-    - ***[Neu] *** Anzahl von Peercacheclients und Nutzungsstatistiken
+    - ***[Nouveau]*** Nombre de clients du cache de pairs et statistiques d’utilisation
 
-    - ***[Neu] *** Statistiken über Downloads von Clients
+    - ***[Nouveau]*** Statistiques de téléchargement du contenu client
 
 
--   **Endpoint Protection:**  
+-   **Endpoint Protection :**  
 
-    -   Endpoint Protection-Antischadsoftware und Windows-Firewall-Richtliniennutzung (Anzahl der eindeutigen der Gruppe zugewiesenen Richtlinien)<br /><br /> Dies umfasst keine Informationen über in der Richtlinie enthaltene Einstellungen.  
+    -   Utilisation des stratégies du Pare-feu Windows et de logiciel anti-programme malveillant Endpoint Protection (nombre de stratégies uniques affectées au groupe)<br /><br /> Ceci ne comprend pas d’informations sur les paramètres inclus dans la stratégie.  
 
-    -   Fehler bei der Endpoint Protection-Bereitstellung (Anzahl der Endpoint Protection-Richtlinien-Bereitstellungsfehlercodes)  
+    -   Erreurs de déploiement Endpoint protection (nombre de codes d’erreur de déploiement de stratégie Endpoint Protection)  
 
-    -   Anzahl der ausgewählten Sammlungen, die im Endpoint Protection-Dashboard angezeigt werden sollen  
+    -   Nombre de regroupements sélectionnés pour être affichés dans le tableau de bord Endpoint Protection  
 
-    -   Anzahl der Warnungen, die für das Endpoint Protection-Feature konfiguriert sind  
+    -   Nombre d’alertes configurées pour la fonctionnalité Endpoint Protection  
 
-    -   Advanced Threat Protection-Richtlinien (ATP) (Anzahl der Richtlinien und Angabe, ob Richtlinien bereitgestellt werden)
+    -   Nombre de stratégies ATP (Advanced Threat Protection) (nombre de stratégies et si elles sont ou non déployées)
 
 
-- **Migration:**
+- **Migration :**
 
-  -   Anzahl der migrierten Objekte (Migrations-Assistent verwenden)
+  -   Nombre d’objets migrés (utilisation de l’Assistant Migration)
 
 
 
--   **Verwaltung mobiler Geräte (MDM):**  
+-   **Gestion des appareils mobiles (MDM) :**  
 
-    -   ***[Aktualisiert]*** Anzahl der ausgegebenen Aktionen für mobile Geräte: Befehle Sperren, PIN zurücksetzen, Zurücksetzen, Außerkraftsetzen und Jetzt synchronisieren  
+    -   ***[Mis à jour]*** Nombre d’actions d’appareil mobile émises : commandes de verrouillage, de réinitialisation, de mise hors service et Synchroniser maintenant  
 
-    -   Anzahl der von Configuration Manager und Microsoft Intune verwalteten mobilen Geräte und Art ihrer Registrierung (Massenregistrierung, benutzerbasierte Registrierung)  
+    -   Nombre d’appareils mobiles gérés par Configuration Manager et Microsoft Intune, et méthode d’inscription (en bloc ou basée sur l’utilisateur)  
 
-    -   Zeitplan zu Abrufvorgängen für mobile Geräte und Statistiken zur Eincheckdauer mobiler Geräte  
+    -   Statistiques et calendrier d’interrogation des appareils mobiles pour la durée d’inscription des appareils mobiles  
 
-    -   Anzahl der Richtlinien für mobile Geräte  
+    -   Nombre de stratégies d’appareil mobile  
 
-    -   Anzahl der Benutzer mit mehreren registrierten mobilen Geräten  
+    -   Nombre d’utilisateurs qui ont plusieurs appareils mobiles inscrits  
 
--   **Problembehandlung für Microsoft Intune:**
+-   **Dépannage de Microsoft Intune :**
 
-    -   Anzahl und Größe der von Microsoft Intune heruntergeladenen Meldungen zum Zustand, Status und Mandantenzustand, zur Inventur und Konformität und zu RDR, DDR, UDX, POL, LOG, Cert, CRP, Resync, CFD, RDO, BEX und ISM
+    -   Nombre et taille des messages d’état, de statut, d’inventaire, RDR, DDR, UDX, d’état de locataire, POL, LOG, de certificat, CRP, de resynchronisation, CFD, RDO, BEX, ISM et de conformité qui sont téléchargés à partir de Microsoft Intune
 
-    -   Anzahl und Größe von Geräteaktionen (Zurücksetzen, Außerkraftsetzen, Sperren), Telemetrie und Datenmeldungen, die auf Microsoft Intune repliziert wurden
+    -   Nombre et taille des messages d’actions d’appareil (réinitialiser, mettre hors service, verrouiller), de télémétrie et de données qui sont répliqués vers Microsoft Intune
 
-    -   Statistiken zur vollständigen und Deltabenutzersynchronisierung für Microsoft Intune
+    -   Statistiques de synchronisation utilisateur complète et différentielle pour Microsoft Intune
 
 
--   **Lokale Verwaltung mobiler Geräte (MDM):**  
+-   **Gestion des appareils mobiles (MDM) locale :**  
 
-    -   Statistiken zu erfolgreichen und fehlerhaften lokalen MDM-Anwendungsbereitstellungen  
+    -   Statistiques de réussite/échec de déploiement pour les déploiements d’applications de gestion MDM locale  
 
-    -   Anzahl von Windows 10-Massenregistrierungspaketen und -profilen  
+    -   Nombre de profils et de packages d’inscription en bloc Windows 10  
 
 
 
--   **Betriebssystembereitstellung:**  
+-   **Déploiement du système d’exploitation :**  
 
-    -   Anzahl der Startimages, Treiber, Treiberpakete, multicastfähigen Verteilungspunkte, PXE-fähigen Verteilungspunkte und Tasksequenzen  
+    -   Nombre d’images de démarrage, de pilotes, de packages de pilotes, de points de distribution en multidiffusion, de points de distribution compatibles PXE et de séquences de tâches  
 
-    -   Anzahl der Tasksequenzschrittnutzung
+    -   Nombre d’utilisations des étapes de séquence de tâches
 
-    - ***[Neu] *** Anzahl der Editionsaktualisierungsrichtlinien
+    - ***[Nouveau]*** Nombre de stratégies de mise à niveau d’édition
 
 
 
--   **Standortupdates:**
+-   **Mises à jour du site :**
 
-    - Versionen installierter Configuration Manager-Hotfixes
+    - Versions des correctifs logiciels de Configuration Manager installés
 
 
 
 
--   **Softwareupdates:**  
+-   **Mises à jour logicielles :**  
 
-    -   Gesamtzahl bzw. durchschnittliche Anzahl von Sammlungen mit Softwareupdatebereitstellungen sowie maximale/durchschnittliche Anzahl der bereitgestellten Updates  
+    -   Nombre total/moyen de regroupements comportant des déploiements de mises à jour logicielles et nombre maximal/moyen de mises à jour déployées  
 
-    -   Anzahl der an die Synchronisierung gebundenen Regeln zur automatischen Bereitstellung  
+    -   Nombre de règles de déploiement automatique qui sont liées à la synchronisation  
 
-    -   Anzahl der Regeln zur automatischen Bereitstellung, die neue Updates erstellen oder Updates zu einer vorhandenen Gruppe hinzufügen  
+    -   Nombre de règles de déploiement automatique qui créent de nouvelles mises à jour ou ajoutent des mises à jour à un groupe existant  
 
-    -   Verfügbare und Stichtagdeltawerte, die in Regeln zur automatischen Bereitstellung verwendet werden  
+    -   Différentiels de disponibilité et d’échéance qui sont utilisés dans les règles de déploiement automatique  
 
-    -   Durchschnittliche und maximale Anzahl von Zuweisungen pro Update  
+    -   Nombre moyen et maximal d’attributions par mise à jour  
 
-    -   Anzahl der mit System Center Updates Publisher erstellten und bereitgestellten Updates  
+    -   Nombre de mises à jour créées et déployées avec System Center Update Publisher  
 
-    -   Anzahl der Updategruppen und -zuweisungen  
+    -   Nombre de groupes et d’attributions de mises à jour  
 
-    -   Anzahl der Updatepakete und maximale/minimale/durchschnittliche Anzahl der von den Paketen angesprochenen Verteilungspunkte  
+    -   Nombre de packages de mises à jour et nombre maximal/minimal/moyen de points de distribution qui sont ciblés par les packages  
 
-    -   Anzahl der Updategruppen und minimale/maximale/durchschnittliche Anzahl der Updates pro Gruppe  
+    -   Nombre de groupes de mises à jour et nombre minimal/maximal/moyen de mises à jour par groupe  
 
-    -   Anzahl von Updates und Prozentsatz der bereitgestellten, abgelaufenen, ersetzten und heruntergeladenen Updates sowie der Updates mit EULAs  
+    -   Nombre de mises à jour et pourcentage de mises à jour qui sont déployées, expirées, remplacées, téléchargées et qui contiennent des CLUF  
 
-    -   Updateüberprüfungs-Fehlercodes und Anzahl der Computer  
+    -   Codes d’erreur d’analyse des mises à jour et nombre d’ordinateurs  
 
-    -   Clientupdateauswertung und Überprüfungszeitpläne  
+    -   Calendriers d’analyse et d’évaluation des mises à jour client  
 
-    -   Softwareupdatepunkt-Synchronisierungszeitplan  
+    -   Planification de la synchronisation du point de mise à jour logicielle  
 
-    -   Anzahl der Regeln zur automatischen Bereitstellung mit mehreren Bereitstellungen  
+    -   Nombre de règles de déploiement automatique avec plusieurs déploiements  
 
-    -   Konfigurationen, die für aktive Windows 10-Wartungspläne verwendet werden  
+    -   Configurations qui sont utilisées pour les plans de maintenance actifs de Windows 10  
 
-    -   Windows 10-Dashboardinhaltsversionen  
+    -   Versions de contenu du tableau de bord Windows 10  
 
-    -   Anzahl von Windows 10-Clients, die Windows Update für Unternehmen verwenden  
+    -   Nombre de clients Windows 10 qui utilisent Windows Update for Business  
 
-    -   Statistiken zu Clusterpatches  
+    -   Statistiques d’application de correctifs logiciels au cluster  
 
-    -   Anzahl der bereitgestellten Office 365-Updates  
+    -   Nombre de mises à jour Office 365 déployées  
 
-    -   Vom Softwareupdatepunkt synchronisierte Klassifikationen
+    -   Classifications qui sont synchronisées par le point de mise à jour logicielle
 
-    -   Statistiken für den Lastenausgleich des Softwareupdatepunkts
+    -   Statistiques d’équilibrage de charge du point de mise à jour logicielle
 
-    -  ***[Neu] *** Konfiguration von Windows 10-Express-Updates
+    -  ***[Nouveau]*** Configuration des mises à jour rapides de Windows 10
 
 
 
 
--   **SQL-/Leistungsdaten:**  
+-   **Données de performances/SQL :**  
 
-    -   Anzahl der größten Datenbanktabellen  
+    -   Nombre des plus grandes tables de base de données  
 
-    -   ***[Aktualisiert] *** Informationen zu SQL Always On-Replikat, Nutzung und Integrationsstatus
+    -   ***[Mis à jour]*** Informations sur les réplicas SQL AlwaysOn, utilisation et état d’intégrité
 
-    -  Beibehaltungsdauer der verfolgten SQL-Änderungen
+    -  Période de rétention du suivi des modifications SQL
 
-    - Ermittlungstypen, aktiviert und Zeitplan (vollständig, inkrementell)
+    - Types de découverte, activés et planifiés (complète, incrémentielle)
 
-    - Operative Ermittlungsstatistik (Anzahl der gefundenen Objekte)
+    - Statistiques opérationnelles de découverte (nombre d’objets trouvés)
 
-    - Leistungsprobleme der verfolgten SQL-Änderungen, Beibehaltungsdauer und Status der automatischen Bereinigung
+    - Problèmes de performances du suivi des modifications SQL, période de rétention et état de nettoyage automatique
 
 
 
-- **Verschiedenes**
+- **Divers**
 
-    - Anzahl der Wake-On-LAN-Standorte (WOL)
+    - Nombre de sites avec Wake On Lan (WOL)
 
-    - ***[Neu] *** Berichte von Nutzungs- und Leistungsstatistiken  
+    - ***[Nouveau]*** Statistiques de performances et d’utilisation des rapports  
 
 
 
-##  <a name="bkmk_level3"></a> Ebene 3: Vollständig
-Die Ebene „Vollständig“ umfasst alle Daten der Ebenen „Basis“ und „Erweitert“. Darüber hinaus werden zusätzliche Informationen zu Endpoint Protection, die Prozentsätze zur Updatekompatibilität sowie Informationen zu Softwareupdates erfasst.  Diese Ebene kann auch erweiterte Diagnoseinformationen wie Systemdateien und Momentaufnahmen des Arbeitsspeichers einschließen. Darin können wiederum personenbezogene Informationen enthalten sein, die zum Zeitpunkt der Erfassung im Arbeitsspeicher oder in Protokolldateien vorhanden waren.
+##  <a name="bkmk_level3"></a> Niveau 3 – Complet
+Le niveau Complet inclut toutes les données des niveaux De base et Étendu. Il inclut également des informations supplémentaires sur Endpoint Protection, les pourcentages de compatibilité des mises à jour et les informations de mise à jour logicielle.  Ce niveau peut également inclure des informations de diagnostic avancées, comme des fichiers système et des instantanés de la mémoire, qui peuvent inclure des informations personnelles qui existaient dans la mémoire ou les fichiers journaux au moment de la capture.
 
-Bei System Center Configuration Manager-Version 1610 enthält diese Ebene Folgendes:
+Pour System Center Configuration Manager version 1610, ce niveau inclut les éléments suivants :
 
--   Statistiken zur Sammlungsauswertung und -aktualisierung
+-   Statistiques d’évaluation et d’actualisation des regroupements
 
--   Zusammenfassung zur Endpoint Protection-Integrität (einschließlich Anzahl der geschützten, gefährdeten, unbekannten und nicht unterstützten Clients)
+-   Récapitulatif de l’intégrité Endpoint Protection (y compris le nombre de clients protégés, présentant un risque, inconnus et non pris en charge)
 
--   Endpoint Protection-Richtlinienkonfiguration
+-   Configuration de la stratégie Endpoint Protection
 
--   Informationen zur Softwareupdatebereitstellung (Prozentsatz der Zielbereitstellungen mit Client- bzw. UTC-Zeit, erforderlich bzw. optional bzw. automatisch und Neustartunterdrückung)
+-   Informations de déploiement de mise à jour logicielle (pourcentage de déploiements ciblés avec le client ou l’heure UTC, obligatoire/facultatif/en mode silencieux, et suppression du redémarrage)
 
--   Gesamtkompatibilität der Softwareupdatebereitstellungen
+-   Compatibilité globale des déploiements de mise à jour logicielle
 
--   Informationen zum Zeitplan für die Auswertung der automatischen Bereitstellungsregel
+-   Informations sur le calendrier d’évaluation de règle de déploiement automatique
 
--   Codes und Anzahl der Fehler bei der Softwareupdatebereitstellung
+-   Nombres et codes d’erreur de déploiement de mise à jour logicielle
 
--   Minimale/maximale/durchschnittliche Anzahl der inaktiven Clients in Softwareupdate-Bereitstellungssammlungen
+-   Nombre minimal/maximal/moyen de clients inactifs dans les regroupements de déploiements de mise à jour logicielle
 
--   Anzahl der Gruppen mit abgelaufenen Softwareupdates
+-   Nombre de groupes avec des mises à jour logicielles expirées
 
--   Minimale/maximale/durchschnittliche Anzahl von Softwareupdates pro Paket
+-   Nombre minimal/maximal/moyen de mises à jour logicielles par package
 
--   Prozentsätze der erfolgreichen Überprüfungen auf Softwareupdates
+-   Pourcentages de réussite d’analyse des mises à jour logicielles
 
--   Minimale/maximale/durchschnittliche Anzahl von Stunden seit der letzten Überprüfung auf Softwareupdates
+-   Nombre minimal/maximal/moyen d’heures depuis la dernière analyse des mises à jour logicielles
 
--    Vom Softwareupdatepunkt synchronisierte Softwareupdateprodukte
--    Konformitätseinstellungen: Konfigurationsdetails zu SCEP-, VPN-, WLAN- und Konformitätsrichtlinienvorlagen
+-    Produits des mises à jour logicielles synchronisés par le point de mise à jour logicielle
+-    Paramètres de conformité : détails de configuration des modèles SCEP, VPN, Wi-Fi et stratégie de conformité
 
--    Typ der EAS-Richtlinien für den bedingten Zugriff (blockiert oder in Quarantäne) für mit Intune verwaltete Geräte
+-    Type de stratégies d’accès conditionnel EAS (bloquer ou mettre en quarantaine) pour les appareils gérés par Intune
 
--   Die besten 50 CPUs in der Umgebung
+-   50 premières unités centrales dans l’environnement
 
--   DCM-Konfigurationspaket für die System Center Configuration Manager-Nutzung
+-   Pack de configuration DCM pour l’utilisation de System Center Configuration Manager
 
--   MSI-Produktcode (gängige Apps, die Kunden bereitstellen)
+-   Code de produit MSI (applications courantes que les clients déploient)
 
--   Zusammenfassung zur ATP-Integrität
+-   Récapitulatif d’intégrité ATP
 
--   Detaillierte Installationsfehler der Client-Bereitstellung
+-   Détails des erreurs d’installation du déploiement des clients
 
-- ***[Neu]*** Anwendungsdetails zu Windows Store für Unternehmen (nicht-aggregierte Liste synchronisierter Anwendungen, darunter App-ID, Status – Online oder Offline, und die Gesamtzahl erworbener Lizenzen)
+- ***[Nouveau]*** Détails des applications du Windows Store pour Entreprises (liste de non-agrégation des applications synchronisées, notamment l’ID de l’application, l’état (en ligne ou hors connexion) et le nombre total de licences achetées)

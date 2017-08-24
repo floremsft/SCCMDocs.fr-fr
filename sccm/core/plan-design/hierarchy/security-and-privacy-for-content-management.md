@@ -1,6 +1,6 @@
 ---
-title: "Sicherheit und Datenschutz für Content Management | Microsoft-Dokumentation"
-description: "Optimieren von Sicherheit und Datenschutz für Content Management in System Center Configuration Manager."
+title: "Sécurité et confidentialité de la gestion du contenu | Microsoft Docs"
+description: "Optimisez la sécurité et la confidentialité pour la gestion du contenu dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 3/1/2017
 ms.prod: configuration-manager
@@ -17,49 +17,49 @@ manager: angrobe
 ms.openlocfilehash: c4b9d13079c313879c6d43b10867c616fa962668
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="security-and-privacy-for-content-management-for-system-center-configuration-manager"></a>Sicherheit und Datenschutz für die Inhaltsverwaltung für System Center Configuration Manager
+# <a name="security-and-privacy-for-content-management-for-system-center-configuration-manager"></a>Sécurité et confidentialité pour la gestion du contenu dans System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Dieses Thema enthält Sicherheits- und Datenschutzinformationen für Content Management in System Center Configuration Manager. Lesen Sie es in Verbindung mit den folgenden Themen:  
+Cette rubrique contient des informations de sécurité et de confidentialité pour la gestion du contenu dans System Center Configuration Manager. Lisez-le conjointement aux rubriques suivantes :  
 
--   [Sicherheit und Datenschutz für die Anwendungsverwaltung in System Center Configuration Manager](../../../apps/plan-design/security-and-privacy-for-application-management.md)  
+-   [Sécurité et confidentialité pour la gestion des applications dans System Center Configuration Manager](../../../apps/plan-design/security-and-privacy-for-application-management.md)  
 
--   [Security and privacy for software updates in System Center Configuration Manager (Sicherheit und Datenschutz für Softwareupdates in System Center Configuration Manager)](/sccm/sum/plan-design/security-and-privacy-for-software-updates)  
+-   [Sécurité et confidentialité pour les mises à jour logicielles dans System Center Configuration Manager](/sccm/sum/plan-design/security-and-privacy-for-software-updates)  
 
--   [Security and privacy for operating system deployment in System Center Configuration Manager (Sicherheit und Datenschutz für die Betriebssystembereitstellung in System Center Configuration Manager)](../../../osd/plan-design/security-and-privacy-for-operating-system-deployment.md)  
+-   [Sécurité et confidentialité du déploiement de systèmes d’exploitation dans System Center Configuration Manager](../../../osd/plan-design/security-and-privacy-for-operating-system-deployment.md)  
 
-##  <a name="BKMK_Security_ContentManagement"></a> Bewährte Sicherheitsmethoden für die Inhaltsverwaltung  
- Wenden Sie die folgenden bewährten Sicherheitsmethoden bei der Inhaltsverwaltung an:  
+##  <a name="BKMK_Security_ContentManagement"></a> Meilleures pratiques de sécurité pour la gestion de contenu  
+ Utilisez les meilleures pratiques de sécurité suivantes pour la gestion de contenu :  
 
- **Ziehen Sie für Verteilungspunkte im Intranet die Vor- und Nachteile von HTTPS und HTTP in Betracht**: In den meisten Szenarios bietet die Verwendung von HTTP und Paketzugriffskonten für die Autorisierung mehr Sicherheit als die Verwendung von HTTPS mit Verschlüsselung, aber ohne Autorisierung. Wenn die Inhalte allerdings vertrauliche Daten umfassen, die bei der Übertragung verschlüsselt werden sollen, verwenden Sie HTTPS.  
+ **Pour les points de distribution sur l’intranet, prenez en considération les avantages et les inconvénients liés à l’utilisation de HTTP et de HTTPS** : dans la plupart des cas, l’utilisation du protocole HTTP et des comptes d’accès aux packages pour l’autorisation est plus sécurisée que l’utilisation du protocole HTTPS avec chiffrement mais sans autorisation. Toutefois, si des données sensibles se trouvent dans votre contenu que vous souhaitez chiffrer lors du transfert, utilisez le protocole HTTPS.  
 
--   **Wenn Sie für einen Verteilungspunkt HTTPS verwenden**, werden in Configuration Manager keine Paketzugriffskonten verwendet, um den Zugriff auf die Inhalte zu autorisieren. Stattdessen werden die Inhalte bei der Übermittlung über das Netzwerk verschlüsselt.  
+-   **Quand vous utilisez HTTPS pour un point de distribution**, Configuration Manager n’utilise pas les comptes d’accès aux packages pour autoriser l’accès au contenu, mais le contenu est chiffré pendant son transfert sur le réseau.  
 
--   **Wenn Sie für einen Verteilungspunkt HTTP verwenden**, können Sie Paketzugriffskonten zur Autorisierung verwenden. Allerdings werden die Inhalte bei der Übermittlung über das Netzwerk nicht verschlüsselt.  
-
-
-**Wenn Sie für den Verteilungspunkt ein PKI-Clientauthentifizierungszertifikat anstelle eines selbstsignierten Zertifikats verwenden, sollten Sie die Zertifikatdatei (.pfx) mit einem sicheren Kennwort schützen. Wenn Sie die Datei im Netzwerk speichern, sollten Sie den Netzwerkkanal beim Importieren der Datei in Configuration Manager sichern**: Wenn für das Importieren des Clientauthentifizierungszertifikats, das der Verteilungspunkt für die Kommunikation mit Verwaltungspunkten verwenden, ein Kennwort erforderlich ist, ist das Zertifikat vor Angriffen geschützt. Verwenden Sie Server Message Block (SMB)-Signaturen oder IPsec zwischen Netzwerkspeicherort und Standortserver, um einen Angreifer an der Manipulation der Zertifikatdatei zu hindern.  
-
-**Die Verteilungspunktrolle vom Server entfernen**: Ein Verteilungspunkt wird standardmäßig auf demselben Server wie der Standortserver installiert. Für Clients ist die direkte Kommunikation mit dem Standortserver nicht erforderlich. Daher empfiehlt es sich zur Verringerung des Angriffsrisikos, die Verteilungspunktrolle anderen Standortsystemen zuzuweisen und vom Standortserver zu entfernen.  
-
-**Inhalte auf Paketzugriffsebene sichern**: Die Verteilungspunktfreigabe erteilt allen Benutzern Lesezugriff. Verwenden Sie Paketzugriffskonten, wenn der Verteilungspunkt für HTTP konfiguriert ist, um festzulegen, welche Benutzer auf den Inhalt zugreifen können. Dies gilt nicht für cloudbasierte Verteilungspunkte, von denen Paketzugriffskonten nicht unterstützt werden. Weitere Informationen zu Paketzugriffskonten finden Sie unter [Verwalten von Konten für den Zugriff auf Inhalt](../../../core/plan-design/hierarchy/manage-accounts-to-access-content.md).
+-   **Quand vous utilisez HTTP pour un point de distribution**, vous pouvez utiliser des comptes d’accès aux packages pour l’autorisation, mais le contenu n’est pas chiffré pendant son transfert sur le réseau.  
 
 
-**Wenn Configuration Manager beim Hinzufügen der Standortsystemrolle „Verteilungspunkt“ IIS installiert, sollten Sie die HTTP-Umleitung und die IIS-Verwaltungsskripts und -tools entfernen, sobald die Installation des Verteilungspunkts abgeschlossen ist**: Der Verteilungspunkt erfordert weder die HTTP-Umleitung noch IIS-Verwaltungsskripts und -tools. Entfernen Sie diese Rollendienste für die Webserverrolle (IIS), um das Angriffsrisiko zu verringern.  Weitere Informationen zu den Rollendiensten für die Webserverrolle (IIS) für Verteilungspunkte finden Sie unter [Voraussetzungen für Standorte und Standortsysteme](/sccm/core/plan-design/configs/site-and-site-system-prerequisites).  
+**Si vous utilisez un certificat d’authentification de client PKI plutôt qu’un certificat auto-signé pour le point de distribution, protégez le fichier de certificat (.pfx) avec un mot de passe fort. Si vous stockez le fichier sur le réseau, sécurisez le canal de réseau quand vous importez le fichier dans Configuration Manager** : Quand vous avez besoin d’un mot de passe pour importer le certificat d’authentification du client permettant au point de distribution de communiquer avec les points de gestion, vous pouvez ainsi protéger le certificat contre les utilisateurs malveillants. Utilisez la signature SMB (Server Message Block) ou IPsec entre l’emplacement réseau et le serveur de site pour empêcher une personne malveillante de falsifier le fichier de certificat.  
 
-**Paketzugriffsberechtigungen beim Erstellen von Pakten festlegen**: Änderungen der Zugriffskonten für die Paketdateien treten erst nach dem erneuten Bereitstellen des Pakets in Kraft. Legen Sie die Paketzugriffsberechtigungen daher beim Neuerstellen eines Pakets sorgfältig fest. Dies ist besonders wichtig, wenn das Paket groß ist oder an viele Verteilungspunkte verteilt wird und wenn die Netzwerkbandbreite zur Verteilung von Inhalten beschränkt ist.  
+**Supprimez le rôle de point de distribution du serveur de site** : Par défaut, un point de distribution est installé sur le même serveur que le serveur de site. Les clients n'ont pas besoin de communiquer directement avec le serveur de site, ainsi, pour réduire la surface d'attaque, attribuez le rôle de point de distribution à d'autres systèmes de site et retirez-le du serveur de site.  
 
-**Zugriffskontrollen zum Schützen von Medien mit vorab bereitgestelltem Inhalt implementieren**: Vorab bereitgestellter Inhalt wird komprimiert, aber nicht verschlüsselt. Ein Angreifer könnte die Dateien lesen und ändern, bevor sie auf Geräte heruntergeladen werden. Manipulierte Inhalte werden von Configuration Manager-Clients abgelehnt, aber dennoch heruntergeladen.  
+**Sécurisez le contenu au niveau de l’accès aux packages** : Le partage de point de distribution permet un accès en lecture pour tous les utilisateurs. Pour restreindre les utilisateurs pouvant accéder au contenu, utilisez les comptes d'accès aux packages lorsque le point de distribution est configuré pour le protocole HTTP. Cette consigne ne s’applique pas aux points de distribution cloud, qui ne prennent pas en charge les comptes d’accès aux packages. Pour plus d’informations sur le compte d’accès aux packages, consultez [Gérer les comptes pour accéder au contenu](../../../core/plan-design/hierarchy/manage-accounts-to-access-content.md).
 
-**Importieren Sie vorab bereitgestellten Inhalt ausschließlich mithilfe des ExtractContent-Befehlszeilentools (ExtractContent.exe), das in Configuration Manager enthalten ist, und stellen Sie sicher, dass es von Microsoft signiert ist**: Verwenden Sie zum Vermeiden von Manipulation und Rechteerweiterungen ausschließlich das autorisierte Befehlszeilentool, das im Lieferumfang von Configuration Manager enthalten ist.  
 
-**Den Kommunikationskanal zwischen dem Standortserver und dem Paketquellspeicherort sichern**: Verwenden Sie für die Kommunikation zwischen dem Standortserver und dem Paketquellspeicherort IPsec- oder SMB-Signaturen für die Erstellung von Anwendungen und Paketen. Dadurch verhindern Sie die Manipulation der Quelldateien durch einen Angreifer.  
+**Si Configuration Manager installe IIS au moment où vous ajoutez un rôle de système de site de point de distribution, désactivez la redirection HTTP ou les scripts et outils de gestion IIS une fois l’installation du point de distribution terminée** : Le point de distribution n’a pas besoin de la redirection HTTP ni des scripts et outils de gestion IIS. Pour réduire la surface d'attaque, supprimez ces services de rôle pour le rôle de serveur Web (IIS).  Pour plus d'informations sur les services de rôle pour le rôle de serveur web (IIS) pour les points de distribution, voir [Prérequis des sites et systèmes de site](/sccm/core/plan-design/configs/site-and-site-system-prerequisites).  
 
-**Wenn Sie nach der Installation von Verteilungspunktrollen die Standortkonfigurationsoption ändern, sodass sie statt einer Standardwebsite eine benutzerdefinierte verwendet, sollten Sie die virtuellen Standardverzeichnisse entfernen**: Configuration Manager entfernt die alten virtuellen Standardverzeichnisse nicht, wenn Sie anstelle der Standardwebsite eine benutzerdefinierte Website verwenden. Entfernen Sie die virtuellen Verzeichnisse, die ursprünglich von Configuration Manager unter der Standardwebsite erstellt wurden:  
+**Définissez les autorisations d’accès au package au moment de la création du package** : Comme les modifications apportées aux comptes d’accès sur les fichiers de package ne sont mises en place qu’une fois le package redistribué, définissez les autorisations d’accès au package avec précaution quand vous créez le package pour la première fois. Cela est particulièrement important lorsque le package est volumineux ou distribués à de nombreux points de distribution, et lorsque la capacité de la bande passante réseau pour la distribution de contenu est limitée.  
+
+**Implémentez des contrôles d’accès pour protéger les supports qui contiennent le contenu préparé** : Le contenu préparé est compressé mais pas chiffré. Une personne malveillante pourrait alors lire et modifier les fichiers qui sont téléchargés vers des appareils. Les clients Configuration Manager rejettent le contenu qui a été falsifié, mais ils le téléchargent malgré tout.  
+
+**Importez le contenu préparé en utilisant uniquement l’outil en ligne de commande ExtractContent (ExtractContent.exe) qui est fourni avec Configuration Manager, et vérifiez qu’il est signé par Microsoft** : Pour éviter toute falsification et une élévation de privilèges, utilisez uniquement l’outil en ligne de commande autorisé fourni avec Configuration Manager.  
+
+**Sécurisez le canal de communication entre le serveur de site et l’emplacement source du package** : Utilisez une signature SMB ou IPsec entre le serveur de site et l’emplacement source du package quand vous créez des applications et des packages. Cela permet d'empêcher un individu mal intentionné de falsifier les fichiers sources.  
+
+**Si vous modifiez l’option de configuration du site pour utiliser un site web personnalisé plutôt que le site web par défaut après l’installation de rôles de point de distribution, supprimez les répertoires virtuels par défaut** : Quand vous passez du site web par défaut à un site web personnalisé, Configuration Manager ne supprime pas les anciens répertoires virtuels. Supprimez les répertoires virtuels que Configuration Manager a créés initialement sous le site web par défaut :  
 
 -   SMS_DP_SMSPKG$  
 
@@ -69,26 +69,26 @@ Dieses Thema enthält Sicherheits- und Datenschutzinformationen für Content Man
 
 -   NOCERT_SMS_DP_SMSSIG$  
 
-**Ihre Abonnementdetails und -zertifikate für cloudbasierte Verteilungspunkte schützen**: Wenn Sie cloudbasierte Verteilungspunkte verwenden, müssen Sie die wertvollen Elemente wie den Benutzernamen und das Kennwort für Ihr Azure-Abonnement, das Azure-Verwaltungszertifikat und das Dienstzertifikat für cloudbasierte Verteilungspunkte schützen. Speichern Sie die Zertifikate an einem sicheren Ort. Verwenden Sie IPsec oder SMB-Signaturen zwischen dem Standortsystemserver und dem Quellspeicherort, wenn Sie beim Konfigurieren des cloudbasierten Verteilungspunkts über das Netzwerk auf die Zertifikate zugreifen.  
+**Pour les points de distribution cloud, protégez vos informations d’abonnement et vos certificats** : Quand vous utilisez des points de distribution cloud, protégez les éléments importants, notamment le nom d’utilisateur et le mot de passe de votre abonnement Azure, le certificat de gestion Azure et le certificat de service de point de distribution cloud. Stockez les certificats en lieu sûr. Si vous y accédez via le réseau lors de la configuration du point de distribution cloud, utilisez une authentification IPsec ou SMB entre le serveur de système de site et l'emplacement source.  
 
-**Für cloudbasierte Verteilungspunkte: Überwachen Sie im Hinblick auf die Dienstkontinuität das Ablaufdatum der Zertifikate**: Configuration Manager warnt Sie nicht, wenn die importierten Zertifikate für die Verwaltung cloudbasierter Verteilungspunkte kurz vor dem Ablaufen sind. Sie müssen die Ablaufdaten unabhängig von Configuration Manager überwachen und sicherstellen, dass Sie die Zertifikate erneuern und die neuen Zertifikate vor dem Ablaufdatum importieren. Dies ist besonders wichtig, wenn Sie für Configuration Manager ein cloudbasiertes Verteilungspunkt-Dienstzertifikat von einer externen Zertifizierungsstelle erwerben, weil Sie möglicherweise mehr Zeit zum Beschaffen eines erneuerten Zertifikats benötigen.  
+**Pour assurer la continuité de service des points de distribution cloud, surveillez la date d’expiration des certificats** : Configuration Manager ne vous avertit pas quand les certificats importés pour la gestion des services de point de distribution cloud sont sur le point d’expirer. Vous devez donc surveiller les dates d’expiration indépendamment de Configuration Manager et penser à renouveler, puis à importer les nouveaux certificats avant la date d’expiration. Cette opération est particulièrement importante si vous faites l'acquisition d'un certificat de service de point de distribution cloud Configuration Manager auprès d'une autorité de certification externe, car l'obtention d'un certificat renouvelé peut prendre plus de temps.  
 
- Wenn eines der Zertifikate abläuft, wird vom Clouddienste-Manager die Statusmeldung mit der ID **9425** generiert, und die Datei CloudMgr.log enthält den Eintrag, dass das Zertifikat abgelaufen ist (**is in expired state**). Das Ablaufdatum wird im UTC-Format (Coordinated Universal Time) angegeben.  
+ En cas d’expiration d’un certificat, le gestionnaire de services cloud génère l’ID de message d’état **9425**. Une entrée contenant la date d’expiration exprimée au format UTC est alors ajoutée au fichier CloudMgr.log pour indiquer que le certificat **a expiré**.  
 
-## <a name="security-considerations-for-content-management"></a>Sicherheitsüberlegungen für Content Management  
-Bei der Planung von Content Management sollten Sie Folgendes berücksichtigen:  
+## <a name="security-considerations-for-content-management"></a>Considérations de sécurité pour la gestion de contenu  
+Tenez compte des points suivants au moment de planifier la gestion de contenu :  
 
--   Clients überprüfen Inhalte erst nach dem Herunterladen.  
+-   Les clients ne valident pas le contenu jusqu’au téléchargement de celui-ci.  
 
-     Configuration Manager-Clients überprüfen den Hashwert von Inhalten erst nach dem Herunterladen in ihren Clientcache. Wenn ein Angreifer die Liste der herunterzuladenden Dateien oder die Inhalte selbst manipuliert, kann für das Herunterladen auf den Client eine erhebliche Netzwerkbandbreite erforderlich sein, jedoch müssen die Inhalte dann aufgrund des ungültigen Hashwerts verworfen werden.  
+     Les clients Configuration Manager ne valident le hachage du contenu qu'après le téléchargement de celui-ci dans leur cache client. Si un individu mal intentionné falsifie la liste des fichiers à télécharger ou le contenu lui-même, le processus de téléchargement peut consommer une quantité importante de bande passante réseau pour que le client supprime ensuite le contenu quand il rencontre le hachage non valide.  
 
--   Wenn Sie cloudbasierte Verteilungspunkte verwenden, wird der Zugriff auf den Inhalt automatisch auf Ihr Unternehmen beschränkt, und Sie können diese Beschränkung nicht auf Benutzer oder Gruppen erweitern.  
+-   Quand vous utilisez des points de distribution cloud, l’accès au contenu est automatiquement limité à votre entreprise, et vous ne pouvez pas le limiter de façon plus précise en sélectionnant des utilisateurs ou des groupes.  
 
--   Wenn Sie cloudbasierte Verteilungspunkte verwenden, werden Clients vom Verwaltungspunkt authentifiziert. Anschließend wird über ein Configuration Manager-Token auf cloudbasierte Verteilungspunkte zugegriffen. Das Token ist acht Stunden lang gültig. Wenn Sie einen Client sperren, weil er nicht mehr vertrauenswürdig ist, kann dieser also noch so lange Inhalte von einem cloudbasierten Verteilungspunkt herunterladen, bis der Gültigkeitszeitraum des Tokens abgelaufen ist. Vom Verwaltungspunkt wird dann kein weiteres Token für den Client ausgegeben, weil der Client gesperrt ist.  
+-   Quand vous utilisez des points de distribution cloud, les clients sont authentifiés par le point de gestion, puis ils utilisent un jeton Configuration Manager pour accéder aux points de distribution cloud. Le jeton reste valide pendant huit heures. Par conséquent, si vous bloquez un client parce qu’il n’est plus approuvé, il peut continuer à télécharger du contenu à partir d’un point de distribution cloud, jusqu’à la fin de la période de validité de ce jeton. À ce stade, le point de gestion n’émettra pas d’autre jeton pour le client, puisque celui-ci aura été bloqué.  
 
-     Wenn Sie verhindern möchten, dass ein gesperrter Client innerhalb dieses Zeitfensters von acht Stunden Inhalte herunterlädt, können Sie den Clouddienst beenden. Verwenden Sie dazu in der Configuration Manager-Konsole im Arbeitsbereich **Verwaltung** unter **Hierarchiekonfiguration** den Knoten **Cloud**.  
+     Pour empêcher un client bloqué de télécharger du contenu pendant cette période de huit heures, vous pouvez arrêter le service cloud à partir du nœud **Cloud**, **Configuration de la hiérarchie**, dans l’espace de travail **Administration** de la console Configuration Manager.  
 
-##  <a name="BKMK_Privacy_ContentManagement"></a> Datenschutzinformationen zur Inhaltsverwaltung  
- Configuration Manager speichert keine Benutzerdaten in Inhaltsdateien, obwohl ein Administrator die Möglichkeit hätte, dies zu tun.  
+##  <a name="BKMK_Privacy_ContentManagement"></a> Informations de confidentialité pour la gestion de contenu  
+ Configuration Manager n'inclut pas de données utilisateur dans les fichiers de contenu, même si un utilisateur administratif peut choisir d'en ajouter.  
 
- Berücksichtigen Sie beim Konfigurieren der Inhaltsverwaltung Ihre Datenschutzanforderungen.  
+ Avant de configurer la gestion de contenu, pensez à vos besoins en matière de confidentialité.  

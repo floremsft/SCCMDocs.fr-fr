@@ -1,6 +1,6 @@
 ---
-title: Konfigurieren der Berichterstellung | Microsoft-Dokumentation
-description: "Erfahren Sie mehr über das Einrichten der Berichterstellung in der Configuration Manager-Hierarchie, einschließlich Informationen zu SQL Server Reporting Services."
+title: Configurer des rapports | Microsoft Docs
+description: "Découvrez comment configurer la génération de rapports dans votre hiérarchie Configuration Manager, y compris des informations sur SQL Server Reporting Services."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,283 +17,283 @@ manager: angrobe
 ms.openlocfilehash: 7ae6bac23e585d6f61aff0f3155d050f1b537620
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="configuring-reporting-in-system-center-configuration-manager"></a>Konfigurieren der Berichterstellung in System Center Configuration Manager
+# <a name="configuring-reporting-in-system-center-configuration-manager"></a>Configuration des rapports dans System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Sie können in der System Center Configuration Manager-Konsole nur dann Berichte erstellen, ändern und ausführen, nachdem Sie einige Konfigurationstasks erledigt haben. In den folgenden Abschnitten wird erläutert, wie Sie die Berichterstellung in der Configuration Manager-Hierarchie konfigurieren:  
+Avant de créer, modifier et exécuter des rapports dans la console System Center Configuration Manager, vous devez effectuer certaines tâches de configuration. Aidez-vous des sections de cette rubrique pour configurer la génération de rapports dans votre hiérarchie Configuration Manager :  
 
- Lesen Sie zunächst die folgenden Themen zur Berichterstellung in Configuration Manager, bevor Sie Reporting Services in der Hierarchie installieren und konfigurieren:  
+ Avant de procéder à l’installation et à la configuration de Reporting Services dans votre hiérarchie, passez en revue les rubriques suivantes sur la génération de rapports Configuration Manager :  
 
--   [Einführung in die Berichterstellung in System Center Configuration Manager](../../../core/servers/manage/introduction-to-reporting.md)  
+-   [Présentation des rapports dans System Center Configuration Manager](../../../core/servers/manage/introduction-to-reporting.md)  
 
--   [Planen der Berichterstellung in System Center Configuration Manager](../../../core/servers/manage/planning-for-reporting.md)  
+-   [Planification de la création de rapports dans System Center Configuration Manager](../../../core/servers/manage/planning-for-reporting.md)  
 
 ##  <a name="BKMK_SQLReportingServices"></a> SQL Server Reporting Services  
- SQL Server Reporting Services ist eine serverbasierte Berichterstattungsplattform, von der umfassende Berichterstattungsfunktionen für zahlreiche Datenquellen bereitgestellt werden. Die Kommunikation mit SQL Server Reporting Services erfolgt über den Reporting Services-Punkt in Configuration Manager. Im Rahmen dieser Kommunikation werden Configuration Manager-Berichte in einen bestimmten Berichtsordner kopiert und Einstellungen und Sicherheitseinstellungen für Reporting Services konfiguriert. Von Reporting Services wird eine Verbindung mit der Configuration Manager-Standortdatenbank hergestellt, um Daten abzurufen, die bei der Berichtausführung zurückgegeben werden.  
+ SQL Server Reporting Services est une plate-forme d'édition de rapport basée sur un serveur qui fournit des fonctionnalités complètes de création de rapports pour une variété de sources de données. Le point de Reporting Services dans Configuration Manager communique avec SQL Server Reporting Services pour copier les rapports Configuration Manager dans un dossier de rapports spécifié, configurer les paramètres de Reporting Services et configurer les paramètres de sécurité de Reporting Services. Reporting Services se connecte à la base de données de site Configuration Manager pour récupérer les données qui sont renvoyées quand vous exécutez des rapports.  
 
- Die Installation des Reporting Services-Punkts an einem Configuration Manager-Standort ist erst möglich, nachdem Sie SQL Server Reporting Services auf dem Standortsystem, von dem die Standortsystemrolle „Reporting Services-Punkt“ gehostet wird, installiert und konfiguriert haben. Informationen zum Installieren von Reporting Services finden Sie in der [TechNet-Bibliothek zu SQL Server](http://go.microsoft.com/fwlink/p/?LinkId=266389).  
+ Avant d’installer le point de Reporting Services dans un site Configuration Manager, vous devez installer et configurer SQL Server Reporting Services sur le système de site qui héberge le rôle de système de site du point de Reporting Services. Pour plus d'informations sur l'installation de Reporting Services, consultez la [bibliothèque TechNet de SQL Server](http://go.microsoft.com/fwlink/p/?LinkId=266389).  
 
- Gehen Sie wie folgt vor, um zu überprüfen, ob SQL Server Reporting Services ordnungsgemäß installiert ist und ausgeführt wird.  
+ Utilisez la procédure suivante pour vérifier que SQL Server Reporting Services est installé et fonctionne correctement.  
 
-#### <a name="to-verify-that-sql-server-reporting-services-is-installed-and-running"></a>So überprüfen Sie, ob SQL Server Reporting Services installiert ist und ausgeführt wird  
+#### <a name="to-verify-that-sql-server-reporting-services-is-installed-and-running"></a>Pour vérifier que SQL Server Reporting Services est installé et en cours d'exécution  
 
-1.  Klicken Sie auf dem Desktop nacheinander auf **Start**, **Alle Programme**, **Microsoft SQL Server 2008 R2**, **Konfigurationstools**und dann auf **Konfigurations-Manager für Reporting Services**.  
+1.  Sur le Bureau, cliquez sur **Démarrer**, **Tous les programmes**, **Microsoft SQL Server 2008 R2**, **Outils de configuration**, puis sur **Gestionnaire de configuration de Reporting Services**.  
 
-2.  Geben Sie im Dialogfeld **Konfigurationsverbindung für Reporting Services** den Namen des Servers an, auf dem SQL Server Reporting Services gehostet wird. Wählen Sie im Menü die SQL Server-Instanz aus, auf der Sie SQL Reporting Services installiert haben. Klicken Sie dann auf **Verbinden**. Der Konfigurations-Manager für Reporting Services wird geöffnet.  
+2.  Dans la boîte de dialogue **Connexion relative à la configuration de Reporting Services** , spécifiez le nom du serveur hôte de SQL Server Reporting Services. Dans le menu déroulant, sélectionnez l'instance de SQL Server sur laquelle vous avez installé SQL Reporting Services, puis cliquez sur **Se connecter**. Le Gestionnaire de Configuration de Reporting Services s'ouvre.  
 
-3.  Überprüfen Sie auf der Seite **Berichtsserverstatus** , ob für **Berichtsdienststatus** die Einstellung **Gestartet**festgelegt wurde. Ist dies nicht der Fall, klicken Sie auf **Starten**.  
+3.  Sur la page **État du service de rapport** , vérifiez que l'option **État de Report Server** est définie sur **Démarré**. Sinon, cliquez sur **Démarrer**.  
 
-4.  Klicken Sie auf der Seite **Webdienst-URL** auf die URL unter **URLs für Berichtsserver-Webdienst** , um die Verbindung mit dem Berichtsordner zu testen. Gegebenenfalls wird das Dialogfeld **Windows-Sicherheit** angezeigt, und Sie werden zur Eingabe Ihrer Sicherheitsanmeldeinformationen aufgefordert. Standardmäßig wird Ihr Benutzerkonto angezeigt. Geben Sie Ihr Kennwort ein, und klicken Sie auf **OK**. Überprüfen Sie, ob die Webseite erfolgreich geöffnet wird. Schließen Sie das Browserfenster.  
+4.  Sur la page **URL du service Web** , cliquez sur l'URL dans **URL du service Web de service e rapport** pour tester la connexion au dossier de rapport. La boîte de dialogue **Sécurité de Windows** peut s'ouvrir et vous demander vos informations d'identification de sécurité. Par défaut, votre compte d'utilisateur s'affiche. Entrez votre mot de passe, puis cliquez sur **OK**. Vérifiez que la page Web s'ouvre correctement. Fermez la fenêtre du navigateur.  
 
-5.  Überprüfen Sie auf der Seite **Datenbank** , ob für **Berichtsservermodus** die Einstellung **Systemeigen**festgelegt ist.  
+5.  Sur la page **Base de données** , vérifiez que le paramètre **Mode du serveur de rapports** est configuré sur **Natif**.  
 
-6.  Klicken Sie auf der Seite **Berichts-Manager-URL** auf die URL unter **Identifikation der Berichts-Manager-Site** , um die Verbindung mit dem virtuellen Verzeichnis für den Berichts-Manager zu testen. Gegebenenfalls wird das Dialogfeld **Windows-Sicherheit** angezeigt, und Sie werden zur Eingabe Ihrer Sicherheitsanmeldeinformationen aufgefordert. Standardmäßig wird Ihr Benutzerkonto angezeigt. Geben Sie Ihr Kennwort ein, und klicken Sie auf **OK**. Überprüfen Sie, ob die Webseite erfolgreich geöffnet wird. Schließen Sie das Browserfenster.  
+6.  Sur la page **URL du Gestionnaire de rapports** , cliquez sur l'URL dans **Identification du site du Gestionnaire de rapports** pour tester la connexion au répertoire virtuel du Gestionnaire de rapports. La boîte de dialogue **Sécurité de Windows** peut s'ouvrir et vous demander vos informations d'identification de sécurité. Par défaut, votre compte d'utilisateur s'affiche. Entrez votre mot de passe, puis cliquez sur **OK**. Vérifiez que la page Web s'ouvre correctement. Fermez la fenêtre du navigateur.  
 
     > [!NOTE]  
-    >  Der Reporting Services-Berichts-Manager ist für die Berichterstellung in Configuration Manager nicht erforderlich. Er ist jedoch erforderlich, wenn Sie mit dem Berichts-Manager Berichte in einem Internetbrowser ausführen oder Berichte verwalten möchten.  
+    >  Le Gestionnaire de rapports de Reporting Services n’est pas nécessaire à la génération de rapports dans Configuration Manager, mais il l’est si vous voulez exécuter des rapports sur un navigateur Internet ou gérer des rapports à l’aide du Gestionnaire de rapports.  
 
-7.  Klicken Sie auf **Beenden**, um Configuration Manager für Reporting Services zu schließen.  
+7.  Cliquez sur **Quitter** pour fermer le Gestionnaire de configuration de Reporting Services.  
 
-##  <a name="BKMK_ReportBuilder3"></a> Konfigurieren der Berichterstellung zur Verwendung von Report Builder 3.0  
+##  <a name="BKMK_ReportBuilder3"></a> Configuration de Reporting pour utiliser le Générateur de rapports 3.0  
 
-#### <a name="to-change-the-report-builder-manifest-name-to-report-builder-30"></a>So ändern Sie den Manifestnamen von Report Builder in Report Builder 3.0  
+#### <a name="to-change-the-report-builder-manifest-name-to-report-builder-30"></a>Pour modifier le nom de manifeste Générateur de rapports en Générateur de rapports 3.0  
 
-1.  Öffnen Sie auf dem Computer, auf dem die Configuration Manager-Konsole ausgeführt wird, den Windows-Registrierungs-Editor.  
+1.  Sur l’ordinateur exécutant la console Configuration Manager, ouvrez l’Éditeur de Registre Windows.  
 
-2.  Suchen Sie **HKEY_LOCAL_MACHINE/SOFTWARE/Wow6432Node/Microsoft/ConfigMgr10/AdminUI/Reporting**.  
+2.  Accédez à **HKEY_LOCAL_MACHINE/SOFTWARE/Wow6432Node/Microsoft/ConfigMgr10/AdminUI/Reporting**.  
 
-3.  Doppelklicken Sie auf den Schlüssel **ReportBuilderApplicationManifestName** , um den Wert zu bearbeiten.  
+3.  Cliquez deux fois sur la clé **ReportBuilderApplicationManifestName** pour modifier les données de valeur.  
 
-4.  Ändern Sie **ReportBuilder_2_0_0_0.application** in **ReportBuilder_3_0_0_0.application**. Klicken Sie dann auf **OK**.  
+4.  Modifiez **ReportBuilder_2_0_0_0.application** en **ReportBuilder_3_0_0_0.application**, puis cliquez sur **OK**.  
 
-5.  Schließen Sie den Windows Registrierungs-Editor.  
+5.  Fermez l'Éditeur de Registre Windows.  
 
-##  <a name="BKMK_InstallReportingServicesPoint"></a> Installieren eines Reporting Services-Punkts  
- Damit an einem Standort Berichte verwaltet werden können, muss der Reporting Services-Punkt an diesem Standort installiert sein. Vom Reporting Services-Punkt werden Berichtsordner und Berichte nach SQL Server Reporting Services kopiert, die Sicherheitsrichtlinie für die Berichte und Ordner angewendet und Konfigurationseinstellungen in Reporting Services festgelegt. Sie müssen einen Reporting Services-Punkt konfigurieren, damit Berichte in der Configuration Manager-Konsole angezeigt werden und Sie die Berichte in Configuration Manager verwalten können. Der Reporting Services-Punkt ist eine Standortsystemrolle. Diese muss auf einem Server konfiguriert sein, auf dem Microsoft SQL Server Reporting Services installiert ist und ausgeführt wird. Weitere Informationen zu Voraussetzungen finden Sie unter [Voraussetzungen für die Berichterstellung in Configuration Manager](prerequisites-for-reporting.md).  
+##  <a name="BKMK_InstallReportingServicesPoint"></a> Installation d’un point de Reporting Services  
+ Le point de Reporting Services doit être installé sur un site pour gérer les rapports sur le site. Le point de Reporting Services copie les dossiers de rapports et les rapports vers SQL Server Reporting Services, applique la stratégie de sécurité des rapports et des dossiers, et définit des paramètres de configuration dans Reporting Services. L’affichage des rapports dans la console Configuration Manager et leur gestion dans Configuration Manager passent par la configuration préalable d’un point de Reporting Services. Le point de Reporting Services est un rôle de système de site qui doit être configuré sur un serveur sur lequel Microsoft SQL Server Reporting Services est installé et en cours d'exécution. Pour plus d’informations sur la configuration requise, consultez [Configuration requise pour la création de rapports](prerequisites-for-reporting.md).  
 
 > [!IMPORTANT]  
->  Bedenken Sie bei der Auswahl eines Reporting Services-Punkts, dass die Benutzer, die auf Berichte zugreifen werden, sich im selben Sicherheitsbereich wie der Standort befinden müssen, an dem der Reporting Services-Punkt installiert ist.  
+>  Lors de la sélection d'un site pour installer le point de Reporting Services, n'oubliez pas que les utilisateurs qui accèderont aux rapports devront se trouver dans la même étendue de sécurité que le site où le point de Reporting Services est installé.  
 
 > [!NOTE]  
->  Lassen Sie die URL des Berichtsservers unverändert, nachdem Sie einen Reporting Services-Punkts in einem Standortsystem installiert haben. Angenommen, Sie erstellen den Reporting Services-Punkt und ändern dann im Configuration Manager für Reporting Services die URL des Berichtsservers. Da die alte URL weiterhin von Configuration Manager verwendet wird, ist es nicht möglich, Berichte über die Konsole auszuführen, zu bearbeiten oder zu erstellen. Falls Sie den URL-Berichtsserver ändern müssen, entfernen Sie zuerst den Reporting Services-Punkt. Ändern Sie dann die URL, und installieren Sie den Reporting Services-Punkt neu.  
+>  Après avoir installé un point de Reporting Services sur un système de site, ne modifiez pas l'URL du serveur de rapports. Par exemple, si vous créez le point de Reporting Services, puis que vous modifiez l’URL du serveur de rapports dans le Gestionnaire de configuration de Reporting Services, la console Configuration Manager continuera d’utiliser l’ancienne URL, et vous ne pourrez pas exécuter, modifier ou créer de rapports à partir de la console. Lorsque vous devez modifier une URL du serveur de rapports, supprimez le point de Reporting Services, modifiez l'URL, puis réinstallez le point de Reporting Services.  
 
 > [!IMPORTANT]    
-> Wenn Sie einen Reporting Services-Punkt installieren, müssen Sie das Konto eines Reporting Services-Punkts angeben. Wenn Benutzer aus einer anderen Domäne dann versuchen, einen Bericht auszuführen, kann der Bericht nur ausgeführt werden, sofern eine bidirektionale Vertrauensstellung zwischen den Domänen eingerichtet ist.
+> Lorsque vous installez un point de Reporting Services, vous devez spécifier un compte du point de Reporting Services. Plus tard, lorsque les utilisateurs d’un autre domaine tenteront d’exécuter un rapport, le rapport ne pourra pas s’exécuter, sauf s’il existe une relation d’approbation bidirectionnelle entre les domaines.
 
- Gehen Sie wie folgt vor, um den Reporting Services-Punkt zu installieren.  
+ Utilisez la procédure suivante pour installer le point de Reporting Services.  
 
-#### <a name="to-install-the-reporting-services-point-on-a-site-system"></a>So installieren Sie den Reporting Services-Punkt in einem Standortsystem  
+#### <a name="to-install-the-reporting-services-point-on-a-site-system"></a>Pour installer le point de Reporting Services sur un système de site  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Verwaltung**.  
+1.  Dans la console Configuration Manager, cliquez sur **Administration**.  
 
-2.  Erweitern Sie im Arbeitsbereich **Verwaltung** den Bereich **Standortkonfiguration**, und klicken Sie dann auf **Server und Standortsystemrollen**.  
+2.  Dans l'espace de travail **Administration** , développez **Configuration du site**, puis cliquez sur **Serveurs et rôles de système de site**.  
 
     > [!TIP]  
-    >  Sollen nur die Standortsysteme aufgeführt werden, auf denen die Standortsystemrolle „Reporting Services-Punkt“ gehostet wird, klicken Sie mit der rechten Maustaste auf **Server und Standortsystemrollen** , und wählen Sie **Reporting Services-Punkt**aus.  
+    >  Pour répertorier uniquement les systèmes de site hébergeant le rôle de site du point de Reporting Services, cliquez avec le bouton droit sur **Serveurs et rôles de système de site** pour sélectionner **Point de Reporting Services**.  
 
-3.  Fügen Sie die Standortsystemrolle „Reporting Services-Punkt“ einem neuen oder vorhandenen Standortsystemserver wie folgt hinzu:  
-
-    > [!NOTE]  
-    >  Weitere Informationen zum Konfigurieren von Standortsystemen finden Sie unter [Hinzufügen von Standortsystemrollen für System Center Configuration Manager](../deploy/configure/add-site-system-roles.md).  
-
-    -   **Neues Standortsystem**: Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** auf **Standortsystemserver erstellen**. Der ****  Assistent zum Erstellen von Standortsystemservern wird geöffnet.  
-
-    -   **Vorhandenes Standortsystem**: Klicken Sie auf den Server, auf dem die Standortsystemrolle „Reporting Services-Punkt“ installiert werden soll. Wenn Sie auf einen Server klicken, wird im Ergebnisbereich eine Liste der Standortsystemrollen angezeigt, die bereits auf dem Server installiert sind.  
-
-         Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Server** auf **Standortsystemrollen hinzufügen**. Der ****  Assistent zum Hinzufügen von Standortsystemrollen wird geöffnet.  
-
-4.  Geben Sie auf der Seite **Allgemein** die allgemeinen Einstellungen für den Standortsystemserver an. Soll die Standortsystemrolle „Reporting Services-Punkt“ einem vorhandenen Standortsystemserver hinzugefügt werden, überprüfen Sie die Werte, die Sie zuvor konfiguriert haben.  
-
-5.  Wählen Sie auf der Seite **Systemrollenauswahl** in der Liste der verfügbaren Rollen den Eintrag **Reporting Services-Punkt** aus. Klicken Sie dann auf **Weiter**.  
-
-6.  Konfigurieren Sie auf der Seite **Reporting Services-Punkt** die folgenden Einstellungen:  
-
-    -   **Name des Standortdatenbankservers**: Geben Sie den Namen des Servers an, auf dem die Configuration Manager-Standortdatenbank gehostet wird. Der vollqualifizierte Domänenname (FQDN) für den Server wird vom Assistenten in der Regel automatisch abgerufen. Zur Angabe einer Datenbankinstanz verwenden Sie das Format &lt;*Servername*>\&lt;*Instanzname*>.  
-
-    -   **Datenbankname**: Geben Sie den Namen der Configuration Manager-Standortdatenbank an. Klicken Sie dann auf **Überprüfen**, um zu bestätigen, dass der Assistent auf die Standortdatenbank zugreifen kann.  
-
-        > [!IMPORTANT]  
-        >  Das Benutzerkonto, von dem der Reporting Services-Punkt erstellt wird, muss für die Standortdatenbank die Berechtigung **Lesen** haben. Wenn beim Verbindungstest ein Fehler auftritt, wird ein rotes Warnsymbol angezeigt. Bewegen Sie den Cursor auf dieses Symbol, um die Details zum Fehler zu lesen. Korrigieren Sie den Fehler, und klicken Sie dann erneut auf **Test** .  
-
-    -   **Ordnername**: Geben Sie den Namen des Ordners an, der erstellt wird und in dem die Configuration Manager-Berichte von Reporting Services abgelegt werden.  
-
-    -   **Reporting Services-Serverinstanz**: Wählen Sie in der Liste die SQL Server-Instanz für Reporting Services aus. Wird nur eine Instanz gefunden, so wird diese standardmäßig aufgeführt und ausgewählt. Werden keine Instanzen gefunden, überprüfen Sie, ob SQL Server Reporting Services installiert und konfiguriert ist. Überprüfen Sie ferner, ob der Dienst „SQL Server Reporting Services“ im Standortsystem gestartet wurde.  
-
-        > [!IMPORTANT]  
-        >  Von Configuration Manager wird im Kontext des aktuellen Benutzers eine Verbindung mit Windows Management Instrumentation (WMI) im ausgewählten Standortsystem hergestellt, um die SQL Server-Instanz für Reporting Services abzurufen. Der aktuelle Benutzer muss über die Berechtigung **Lesen** für WMI auf dem Standortsystem verfügen. Andernfalls können die Reporting Services-Instanzen nicht abgerufen werden.  
-
-    -   **Konto des Reporting Services-Punkts**: Klicken Sie auf **Festlegen**. Wählen Sie dann ein Konto aus, über das von SQL Server Reporting Services auf dem Reporting Services-Punkt eine Verbindung mit der Configuration Manager-Standortdatenbank hergestellt wird, um die in einem Bericht angezeigten Daten abzurufen. Wählen Sie **Vorhandenes Konto** aus, um ein Windows-Benutzerkonto anzugeben, das zuvor als Configuration Manager-Konto konfiguriert wurde. Wählen Sie **Neues Konto** aus, um ein Windows-Benutzerkonto anzugeben, das derzeit nicht als Configuration Manager-Konto konfiguriert ist. Dem angegebenen Benutzer wird von Configuration Manager automatisch Zugriff auf die Standortdatenbank erteilt. Der Benutzer wird im Arbeitsbereich **Verwaltung** im Knoten **Sicherheit** mit dem Kontonamen **ConfigMgr Reporting Services-Punkt** im Unterordner **Konten** angezeigt.  
-
-         Das Konto, über das Reporting Services ausgeführt werden, muss zur lokalen Sicherheitsgruppe **Windows-Autorisierungszugriffsgruppe**der Domäne gehören, und die Berechtigung **„tokenGroupsGlobalAndUniversal“ lesen** des Kontos muss auf **Zulassen**festgelegt sein. Es muss eine bidirektionale Vertrauensstellung für Benutzer eingerichtet werden, die zu einer anderen Domäne als das Konto des Reporting Services-Punkts gehören, um erfolgreich Berichte auszuführen.
-
-         Das angegebene Windows-Benutzerkonto und das zugehörige Kennwort werden verschlüsselt und in der Reporting Services-Datenbank gespeichert. Die Daten werden von Reporting Services über dieses Konto und Kennwort aus der Standortdatenbank abgerufen und für Berichte verwendet.  
-
-        > [!IMPORTANT]  
-        >  Das angegebene Konto muss auf dem Computer, auf dem die Reporting Services-Datenbank gehostet wird, über die Berechtigung zur **Lokalen Anmeldung** verfügen.  
-
-7.  Klicken Sie auf der Seite **Reporting Services-Punkt** auf **Weiter**.  
-
-8.  Überprüfen Sie auf der Seite **Zusammenfassung** die Einstellungen. Klicken Sie dann auf **Weiter** , um den Reporting Services-Punkt zu installieren.  
-
-     Wenn der Assistent abgeschlossen wurde, werden Berichtsordner erstellt, und die Configuration Manager-Berichte werden in die angegebenen Berichtsordner kopiert.  
+3.  Ajoutez le rôle de système de site du point de Reporting Services à un serveur de système de site nouveau ou existant en utilisant l'étape correspondante :  
 
     > [!NOTE]  
-    >  Wenn Berichtsordner erstellt und Berichte auf den Berichtsserver kopiert werden, wird von Configuration Manager die geeignete Sprache für die Objekte ermittelt. Wenn das zugeordnete Sprachpaket an dem Standort installiert ist, werden die Objekte von Configuration Manager in der Sprache des Betriebssystems erstellt, das am Standort auf dem Berichtsserver ausgeführt wird. Falls die Sprache nicht verfügbar ist, werden die Berichte in Englisch erstellt und angezeigt. Die Berichte werden auch in Englisch installiert, wenn Sie einen Reporting Services-Punkt an einem Standort ohne Sprachpakete installieren. Wenn Sie ein Sprachpaket nach der Installation des Reporting Services-Punkts installieren, müssen Sie den Reporting Services-Punkt deinstallieren und neu installieren, damit die Berichte in der Sprache des gewünschten Sprachpakets verfügbar sind. Weitere Informationen zu Sprachpaketen finden Sie unter [Sprachpakete in System Center Configuration Manager](../deploy/install/language-packs.md).  
+    >  Pour plus d’informations sur la configuration de systèmes de site, consultez [Ajouter des rôles de système de site pour System Center Configuration Manager](../deploy/configure/add-site-system-roles.md).  
 
-###  <a name="BKMK_FileInstallationAndSecurity"></a> Dateiinstallation und Sicherheitsrechte für Berichtsordner  
- Zur Installation des Reporting Services-Punkts und zur Konfiguration von Reporting Services werden von Configuration Manager die folgenden Aktionen ausgeführt:  
+    -   **Nouveau système de site**: sous l’onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer un serveur de système de site**. L'Assistant **Création d'un serveur de système de site** s'ouvre.  
+
+    -   **Système de site existant**: cliquez sur le serveur sur lequel vous souhaitez installer le rôle de système de site du point de Reporting Services. Lorsque vous cliquez sur un serveur, la liste des rôles de système de site déjà installés sur le serveur s'affiche dans le panneau des résultats.  
+
+         Sur l'onglet **Accueil** , dans le groupe **Serveur** , cliquez sur **Ajouter des rôles de système de site**. L'Assistant **Ajout des rôles de système de site** s'ouvre.  
+
+4.  Sur la page **Général** , spécifiez les paramètres généraux du serveur de système de site. Lorsque vous ajoutez le point de Reporting Services à un serveur de système de site existant, vérifiez les valeurs qui ont été précédemment configurées.  
+
+5.  Sur la page **Sélection du rôle système** , sélectionnez **Point Reporting Services** dans la liste des rôles disponibles, puis cliquez sur **Suivant**.  
+
+6.  Sur la page **Point de Reporting Services** , configurez les paramètres suivants :  
+
+    -   **Nom du serveur de base de données de site** : spécifiez le nom du serveur qui héberge la base de données de site Configuration Manager. En règle générale, l'Assistant récupère automatiquement le nom de domaine complet (FQDN) du serveur. Pour spécifier une instance de base de données, utilisez le format &lt;*nom_serveur*>\&lt;*nom_instance*>.  
+
+    -   **Nom de la base de données** : spécifiez le nom de la base de données de site Configuration Manager, puis cliquez sur **Vérifier** pour confirmer que l’Assistant a accès à la base de données de site.  
+
+        > [!IMPORTANT]  
+        >  Le compte d'utilisateur qui crée le point de Reporting Services doit avoir accès **en lecture** à la base de données de site. Si le test de connexion échoue, une icône d'avertissement rouge s'affiche. Déplacez le curseur sur cette icône afin de lire les informations relatives à la défaillance. Corrigez la défaillance, puis cliquez à nouveau sur **Tester** .  
+
+    -   **Nom du dossier** : spécifiez le nom de dossier qui est créé et utilisé pour héberger les rapports Configuration Manager dans Reporting Services.  
+
+    -   **Instance du serveur reporting Services**: sélectionnez dans la liste l’instance de SQL Server Reporting Services. Lorsqu'une seule instance est trouvée, par défaut, elle est répertoriée et sélectionnée. Lorsqu'aucune instance n'est trouvée, vérifiez que SQL Server Reporting Services est installé et configuré, et que le service SQL Server Reporting Services est démarré sur le système de site.  
+
+        > [!IMPORTANT]  
+        >  Configuration Manager établit une connexion dans le contexte de l’utilisateur actif avec Windows Management Instrumentation (WMI) sur le système de site sélectionné pour récupérer l’instance de SQL Server pour Reporting Services. L'utilisateur actuel doit disposer d'un accès **Lecture** à WMI sur le système de site, sans quoi, les instances de Reporting Services ne peuvent pas être récupérées.  
+
+    -   **Compte du point de Reporting Services** : cliquez sur **Définir**, puis sélectionnez le compte à utiliser quand SQL Server Reporting Services sur le point de Reporting Services se connecte à la base de données de site Configuration Manager pour récupérer les données qui s’affichent dans un rapport. Sélectionnez **Compte existant** pour spécifier un compte d’utilisateur Windows déjà configuré en tant que compte Configuration Manager ou sélectionnez **Nouveau compte** pour spécifier un compte d’utilisateur Windows qui n’est pas actuellement configuré en tant que compte Configuration Manager. Configuration Manager accorde automatiquement l’accès à la base de données du site pour l’utilisateur spécifié. L'utilisateur est affiché dans le sous-dossier **Comptes** du nœud **Sécurité** dans l'espace de travail **Administration** avec le nom de compte **Point Reporting Services ConfigMgr** .  
+
+         Le compte qui exécute Reporting Services doit appartenir au groupe de sécurité de domaine local **Groupe d'accès d'autorisation Windows**et l'autorisation **Read tokenGroupsGlobalAndUniversal** doit être définie sur **Autoriser**. Il doit y avoir une relation d’approbation bidirectionnelle pour les utilisateurs d’un domaine différent de celui du compte du Point de Reporting Servicies pour pouvoir exécuter des rapports.
+
+         Le compte d'utilisateur Windows et le mot de passe spécifiés sont chiffrés et stockés dans la base de données Reporting Services. Reporting Services récupère les données de rapports à partir de la base de données de site à l'aide de ce compte et de ce mot de passe.  
+
+        > [!IMPORTANT]  
+        >  Le compte que vous spécifiez doit disposer d'une autorisation **Connexion locale** sur l'ordinateur hébergeant la base de données Reporting Services.  
+
+7.  Sur la page **Point Reporting Services** , cliquez sur **Suivant**.  
+
+8.  Sur la page **Résumé** , vérifiez les paramètres, puis cliquez sur **Suivant** pour installer le point de Reporting Services.  
+
+     Une fois l’Assistant complété, des dossiers de rapports sont créés, et les rapports Configuration Manager sont copiés dans les dossiers de rapports spécifiés.  
+
+    > [!NOTE]  
+    >  Quand les dossiers de rapports sont créés et que les rapports sont copiés sur le serveur de rapports, Configuration détermine la langue adéquate pour les objets. Si le module linguistique correspondant est installé sur le site, Configuration Manager crée les objets dans la langue du système d’exploitation s’exécutant sur le serveur de rapports du site. Si la langue n'est pas disponible, les rapports sont créés et affichés en anglais. Lorsque vous installez un point de Reporting Services sur un site sans module linguistique, les rapports sont installés en anglais. Si vous installez un module linguistique après avoir installé le point de Reporting Services, vous devez désinstaller et réinstaller ce dernier pour que les rapports soient disponibles dans la langue du module linguistique adéquat. Pour plus d’informations sur les modules linguistiques, consultez [Modules linguistiques dans System Center Configuration Manager](../deploy/install/language-packs.md).  
+
+###  <a name="BKMK_FileInstallationAndSecurity"></a> Installation de fichier et droits de sécurité du dossier de rapport  
+ Configuration Manager effectue les actions suivantes pour installer le point de Reporting Services et configurer Reporting Services :  
 
 > [!IMPORTANT]  
->  Die in der folgenden Listen genannten Aktionen werden mithilfe der Anmeldeinformationen des für den SMS_Executive-Dienst konfigurierten Kontos ausgeführt. Bei diesem Konto handelt es sich in der Regel um das lokale Systemkonto des Standortservers.  
+>  Les actions dans la liste suivante sont effectuées en utilisant les informations d'identification du compte configuré pour le service SMS_Executive, qui correspond généralement au compte système local du serveur de site.  
 
--   Installation der Standortsystemrolle „Reporting Services-Punkt“  
+-   Installe le rôle de site de point de Reporting Services.  
 
--   Erstellen der Datenquelle in Reporting Services mithilfe der gespeicherten Anmeldeinformationen, die Sie im Assistenten festgelegt haben. Dabei handelt es sich um das Windows-Benutzerkonto und das dazugehörende Kennwort, über die von Reporting Services eine Verbindung mit der Standortdatenbank hergestellt wird, wenn Sie Berichte ausführen.  
+-   Crée la source de données dans Reporting Services avec les informations d'identification stockées que vous avez spécifiées dans l'Assistant. Il s'agit du compte d'utilisateur Windows et du mot de passe que Reporting Services utilise pour se connecter à la base de données de site lorsque vous exécutez des rapports.  
 
--   Erstellen des Configuration Manager-Stammordners in Reporting Services  
+-   Crée le dossier racine de Configuration Manager dans Reporting Services.  
 
--   Hinzufügen der Sicherheitsrollen **ConfigMgr-Berichtbenutzer** und **ConfigMgr-Berichtadministratoren** in Reporting Services  
+-   Ajoute les rôles de sécurité **Utilisateurs de rapports ConfigMgr** et **Administrateurs de rapport ConfigMgr** dans Reporting Services.  
 
--   Erstellen von Unterordnern und Bereitstellen von Configuration Manager-Berichten aus „%ProgramFiles%\SMS _SRSRP“ für Reporting Services  
+-   Crée des sous-dossiers et déploie les rapports Configuration Manager de %ProgramFiles%\SMS_SRSRP vers Reporting Services.  
 
--   Hinzufügen der Rolle **ConfigMgr-Berichtbenutzer** in Reporting Services zu den Stammordnern für alle Benutzerkonten in Configuration Manager, die über **Leseberechtigungen für den Standort** verfügen  
+-   Ajoute le rôle **Utilisateurs de rapports ConfigMgr** de Reporting Services aux dossiers racine pour tous les comptes d’utilisateurs de Configuration Manager qui disposent de droits de **lecture de site**.  
 
--   Hinzufügen der Rolle **ConfigMgr-Berichtadministratoren** in Reporting Services zu den Stammordnern für alle Benutzerkonten in Configuration Manager, die über **Berechtigungen zum Ändern des Standorts** verfügen  
+-   Ajoute le rôle **Administrateurs de rapport ConfigMgr** de Reporting Services aux dossiers racine pour tous les comptes d’utilisateurs de Configuration Manager qui disposent de droits de **modification de site**.  
 
--   Abrufen der Zuordnung zwischen Berichtordnern und den von Configuration Manager gesicherten Objekttypen (aus der Configuration Manager-Standortdatenbank)  
+-   Récupère le mappage entre les dossiers de rapports et les types d’objets sécurisés Configuration Manager (conservés dans la base de données de site Configuration Manager).  
 
--   Konfigurieren der folgenden Rechte für bestimmte Berichtordner in Reporting Services für Administratoren in Configuration Manager:  
+-   Configure les droits suivants pour les utilisateurs administratifs de Configuration Manager sur des dossiers de rapports spécifiques de Reporting Services :  
 
-    -   Hinzufügen von Benutzern und Zuweisen der Rolle **ConfigMgr-Berichtbenutzer** zum zugeordneten Berichtordner für Administratoren, die über die Berechtigung **Bericht ausführen** für das Configuration Manager-Objekt verfügen  
+    -   Ajoute les utilisateurs et attribue le rôle **Utilisateurs de rapports ConfigMgr** au dossier de rapports associé pour les utilisateurs administratifs qui disposent d’autorisations **Exécuter le rapport** pour l’objet Configuration Manager.  
 
-    -   Hinzufügen von Benutzern und Zuweisen der Rolle **ConfigMgr-Berichtadministratoren** zum zugeordneten Berichtordner für Administratoren, die über die Berechtigung **Bericht ändern** für das Configuration Manager-Objekt verfügen  
+    -   Ajoute les utilisateurs et attribue le rôle **Administrateurs de rapport ConfigMgr** au dossier de rapports associé pour les utilisateurs administratifs qui disposent d’autorisations **Modifier le rapport** pour l’objet Configuration Manager.  
 
-     Von Configuration Manager wird eine Verbindung mit Reporting Services hergestellt. Dann werden die Berechtigungen der Benutzer für die Configuration Manager- und Reporting Services-Stammordner sowie für bestimmte Berichtordner festgelegt. Nach der Erstinstallation des Reporting Services-Punkts wird von Configuration Manager alle 10 Minuten eine Verbindung mit Reporting Services hergestellt, um zu überprüfen, ob es sich bei den für die Berichtsordner konfigurierten Benutzerrechten um die entsprechenden Rechte handelt, die für Configuration Manager-Benutzer festgelegt wurden. Wenn mit dem Reporting Services Berichts-Manager Benutzer hinzugefügt bzw. Benutzerrechte für den Berichtordner geändert werden, werden diese Änderungen mithilfe der in der Standortdatenbank gespeicherten rollenbasierten Zuweisungen von Configuration Manager überschrieben. Configuration Manager entfernt auch Benutzer, die nicht zur Berichterstellung in Configuration Manager berechtigt sind.  
+     Configuration Manager se connecte à Reporting Services et définit les autorisations pour les utilisateurs sur les dossiers racine de Configuration Manager et Reporting Services, et sur des dossiers de rapports spécifiques. Après l’installation initiale du point de Reporting Services, Configuration Manager se connecte à Reporting Services dans un intervalle de 10 minutes pour vérifier que les droits d’utilisateur configurés sur les dossiers de rapports sont les droits associés définis pour les utilisateurs de Configuration Manager. Quand des utilisateurs sont ajoutés ou que des droits d’utilisateur sont modifiés sur le dossier de rapports via le Gestionnaire de rapports de Reporting Services, Configuration Manager remplace ces modifications en utilisant les attributions basées sur les rôles qui sont stockées dans la base de données de site. De même, Configuration Manager supprime les utilisateurs qui n’ont pas de droits de génération de rapports dans Configuration Manager.  
 
-##  <a name="BKMK_SecurityRoles"></a> Reporting Services-Sicherheitsrollen für Configuration Manager  
- Wenn von Configuration Manager der Reporting Services-Punkt installiert wird, werden in Reporting Services die folgenden Sicherheitsrollen hinzugefügt:  
+##  <a name="BKMK_SecurityRoles"></a> Rôles de sécurité de Reporting Services pour Configuration Manager  
+ Quand Configuration Manager installe le point de Reporting Services, les rôles de sécurité suivants sont ajoutés dans Reporting Services :  
 
--   **ConfigMgr-Berichtsbenutzer**: Benutzer, denen diese Sicherheitsrolle zugewiesen ist, können nur Configuration Manager-Berichte ausführen.  
+-   **Utilisateurs de rapports ConfigMgr** : les utilisateurs auxquels ce rôle de sécurité est attribué peuvent seulement exécuter des rapports Configuration Manager.  
 
--   **ConfigMgr-Berichtsadministratoren**: Benutzer, denen diese Sicherheitsrolle zugewiesen ist, können in Configuration Manager alle auf die Berichterstellung bezogenen Tasks ausführen.  
+-   **Administrateurs de rapport ConfigMgr** : les utilisateurs auxquels ce rôle de sécurité est attribué peuvent exécuter toutes les tâches liées à la génération de rapports dans Configuration Manager.  
 
-##  <a name="BKMK_VerifyReportingServicesPointInstallation"></a> Überprüfen der Installation des Reporting Services-Punkts  
- Nachdem Sie die Standortsystemrolle „Reporting Services-Punkt“ hinzugefügt haben, können Sie die Installation anhand bestimmter Statusmeldungen und Protokolldateieinträge überprüfen. Gehen Sie wie folgt vor, um zu überprüfen, ob der Reporting Services-Punkt erfolgreich installiert wurde.  
+##  <a name="BKMK_VerifyReportingServicesPointInstallation"></a> Vérifier l’installation du point de Reporting Services  
+ Après avoir ajouté le rôle de site de point de Reporting Services, vous pouvez vérifier l'installation en consultant les messages d'état spécifiques et les entrées de fichiers journaux. Utilisez la procédure suivante pour vérifier que l'installation du point de Reporting Services a réussi.  
 
 > [!WARNING]  
->  Sie können dieses Verfahren überspringen, wenn im Arbeitsbereich **Überwachung** der Configuration Manager-Konsole im Unterordner **Berichte** des Knotens **Berichterstellung** Berichte angezeigt werden.  
+>  Vous pouvez ignorer cette procédure si des rapports sont affichés dans le sous-dossier **Rapports** du nœud **Rapport** dans l’espace de travail **Surveillance** de la console Configuration Manager.  
 
-#### <a name="to-verify-the-reporting-services-point-installation"></a>So überprüfen Sie die Installation des Reporting Services-Punkts  
+#### <a name="to-verify-the-reporting-services-point-installation"></a>Pour vérifier l'installation du point de Reporting Services  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Überwachung**.  
+1.  Dans la console Configuration Manager, cliquez sur **Surveillance**.  
 
-2.  Erweitern Sie im Arbeitsbereich **Überwachung** den Eintrag **Systemstatus**, und klicken Sie dann auf **Komponentenstatus**.  
+2.  Dans l'espace de travail **Surveillance** , développez **État du système**, puis cliquez sur **État du composant**.  
 
-3.  Klicken Sie in der Komponentenliste auf **SMS_SRS_REPORTING_POINT** .  
+3.  Cliquez sur **SMS_SRS_REPORTING_POINT** dans la liste des composants.  
 
-4.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Komponente** auf **Meldungen anzeigen**und dann auf **Alle**.  
+4.  Dans l'onglet **Accueil** , dans le groupe **Composant** , cliquez sur **Afficher les messages**, puis cliquez sur **Tous**.  
 
-5.  Geben Sie ein Datum und eine Uhrzeit für einen Zeitraum vor der Installation des Reporting Services-Punkts an, und klicken Sie dann auf **OK**.  
+5.  Spécifiez une date et une heure pour une période avant d'installer le point de Reporting Services, puis cliquez sur **OK**.  
 
-6.  Überprüfen Sie, ob Statusmeldungs-ID 1015 aufgelistet ist, die darauf hinweist, dass der Reporting Services-Punkt erfolgreich installiert wurde. Sie können auch die Datei „Srsrp.log“ öffnen, die sich unter &lt;*ConfigMgr-Installationspfad*>\Logs befindet, und nach **Die Installation war erfolgreich** suchen.  
+6.  Vérifiez que le message d'état avec l'ID 1015 est répertorié, ce qui indique que le point de Reporting Services a été installé avec succès. Vous pouvez aussi ouvrir le fichier Srsrp.log situé dans le dossier &lt;*Chemin_Installation_ConfigMgr*>\Logs et attendre le message **L’installation a réussi**.  
 
-     Navigieren Sie in Windows-Explorer zu &lt;*ConfigMgr-Installationspfad*>\Logs.  
+     Dans l’Explorateur Windows, accédez à &lt;*Chemin_Installation_ConfigMgr*>\Logs.  
 
-7.  Öffnen Sie Srsrp.log, und sehen Sie die Protokolldatei ab dem Zeitpunkt der erfolgreichen Installation des Reporting Services-Punkts schrittweise durch. Überprüfen Sie, ob die Berichtsordner erstellt, die Berichte bereitgestellt und die Sicherheitsrichtlinie für jeden Ordner bestätigt wurden. Suchen Sie nach der letzten Zeile der Bestätigungen für die Sicherheitsrichtlinie nach dem Text **Integrität des SRS-Webdiensts erfolgreich überprüft auf Server** .  
+7.  Ouvrez Srsrp.log et parcourez le fichier journal à partir de l'heure à laquelle le point de Reporting Services a été installé avec succès. Vérifiez que les dossiers de rapport ont été créés, que les rapports ont été déployés et que la stratégie de sécurité de chaque dossier a été confirmée. Recherchez la mention **La vérification que le service Web SRS est intègre sur le serveur a réussi** après la dernière ligne des confirmations des stratégies de sécurité.  
 
-##  <a name="BKMK_Certificate"></a> Konfigurieren eines selbstsignierten Zertifikats für Configuration Manager-Konsolencomputer  
- Es gibt zahlreiche Möglichkeiten, Berichte für SQL Server Reporting Services zu erstellen. Beim Erstellen oder Bearbeiten von Berichten in der Configuration Manager-Konsole wird der Berichts-Generator von Configuration Manager als Erstellungsumgebung geöffnet. Unabhängig von der Erstellungsmethode für Configuration Manager-Berichte ist ein selbstsigniertes Zertifikat für die Serverauthentifizierung beim Standortdatenbankserver erforderlich. Von Configuration Manager wird das Zertifikat automatisch auf dem Standortserver und auf den Computern mit dem SMS-Anbieter installiert. Daher können Sie Berichte mithilfe der Configuration Manager-Konsole erstellen und bearbeiten, wenn sie auf einem dieser Computer ausgeführt wird. Wenn Sie dagegen Berichte mithilfe einer Configuration Manager-Konsole erstellen oder ändern, die auf einem anderen Computer installiert ist, müssen Sie das Zertifikat vom Standortserver exportieren und anschließend dem Zertifikatspeicher **Vertrauenswürdige Personen** auf dem Computer hinzufügen, auf dem die Configuration Manager-Konsole ausgeführt wird.  
+##  <a name="BKMK_Certificate"></a> Configurer un certificat auto-signé pour les ordinateurs de la console Configuration Manager  
+ Il existe de nombreuses options vous permettant de créer des rapports pour SQL Server Reporting Services. Quand vous créez ou modifiez des rapports dans la console Configuration Manager, Configuration Manager ouvre le générateur de rapports pour l’utiliser comme environnement de création. Quelle que soit la façon dont vous créez vos rapports Configuration Manager, un certificat auto-signé est nécessaire à l’authentification sur le serveur de base de données de site. Configuration Manager installe automatiquement le certificat sur le serveur de site et sur les ordinateurs sur lesquels le fournisseur SMS est installé. Par conséquent, vous pouvez créer ou modifier des rapports à partir de la console Configuration Manager quand elle est exécutée sur l’un de ces ordinateurs. En revanche, quand vous créez ou modifiez des rapports à partir d’une console Configuration Manager qui installée sur un autre ordinateur, vous devez exporter le certificat à partir du serveur de site, puis l’ajouter au magasin de certificats **Personnes autorisées** sur l’ordinateur qui exécute la console Configuration Manager.  
 
 > [!NOTE]  
->  Weitere Informationen zu anderen Berichterstellungsumgebungen für SQL Server Reporting Services finden Sie unter [Vergleichen von Berichterstellungsumgebungen](http://go.microsoft.com/fwlink/p/?LinkId=242805) in der Onlinedokumentation zu SQL Server 2008.  
+>  Pour plus d'informations sur les autres environnements de création de rapports pour SQL Server Reporting Services, voir [Comparaison d'environnements de création de rapport](http://go.microsoft.com/fwlink/p/?LinkId=242805) dans la documentation en ligne de SQL Server 2008.  
 
- Verwenden Sie das folgende Verfahren als Beispiel für das Übertragen einer Kopie des selbstsignierten Zertifikats vom Standortserver auf einen anderen Computer, auf dem die Configuration Manager-Konsole ausgeführt wird, wenn auf beiden Computern Windows Server 2008 R2 ausgeführt wird. Wenn Sie dieses Verfahren nicht anwenden können, weil Sie über eine andere Betriebssystemversion verfügen, führen Sie das entsprechende Verfahren in der Dokumentation Ihres Betriebssystems aus.  
+ Prenez pour exemple les procédures suivantes pour transférer une copie du certificat auto-signé du serveur de site vers un autre ordinateur exécutant la console Configuration Manager quand les deux ordinateurs exécutent Windows Server 2008 R2. Si vous ne pouvez pas suivre cette procédure car vous avez une version différente du système d'exploitation, consultez la documentation de votre système d'exploitation pour voir la procédure équivalente.  
 
-#### <a name="to-transfer-a-copy-of-self-signed-certificate-from-the-site-server-to-another-computer"></a>So übertragen Sie eine Kopie eines selbstsignierten Zertifikats vom Standortserver auf einen anderen Computer  
+#### <a name="to-transfer-a-copy-of-self-signed-certificate-from-the-site-server-to-another-computer"></a>Pour transférer une copie du certificat auto-signé du serveur de site vers un autre ordinateur  
 
-1.  Führen Sie die folgenden Schritte auf dem Standortserver aus, um das selbstsignierte Zertifikat zu exportieren:  
+1.  Effectuez les étapes suivantes sur le serveur de site pour exporter le certificat auto-signé :  
 
-    1.  Klicken Sie auf **Start**, dann auf **Ausführen**, und geben Sie **mmc.exe**ein. Klicken Sie in der leeren Konsole auf **Datei**und anschließend auf **Snap-In hinzufügen/entfernen**.  
+    1.  Cliquez sur **Démarrer**, sur **Exécuter**, puis tapez **mmc.exe**. Dans la console vide, cliquez sur **Fichier**, puis sur **Ajouter/Supprimer un composant logiciel enfichable**.  
 
-    2.  Wählen Sie im Dialogfeld **Snap-In hinzufügen/entfernen** aus der Liste **Verfügbare Snap-Ins** die Option **Zertifikate**aus, und klicken Sie dann auf **Hinzufügen**.  
+    2.  Dans la boîte de dialogue **Ajouter ou supprimer des composants logiciels enfichables** , sélectionnez **Certificats** dans la liste **Composants logiciels enfichables disponibles**, puis cliquez sur **Ajouter**.  
 
-    3.  Wählen Sie im Dialogfeld **Zertifikat-Snap-In** die Option **Computerkonto**aus, und klicken Sie auf **Weiter**.  
+    3.  Dans la boîte de dialogue **Composant logiciel enfichable des certificats** , cliquez sur **Compte d'ordinateur**, puis sur **Suivant**.  
 
-    4.  Vergewissern Sie sich, dass im Dialogfeld **Computer auswählen** die Option **Lokaler Computer: (der Computer, auf dem diese Konsole ausgeführt wird)** ausgewählt ist. Klicken Sie anschließend auf **Fertig stellen**.  
+    4.  Dans la boîte de dialogue **Sélectionner un ordinateur** , vérifiez que **L'ordinateur local (l'ordinateur sur lequel cette console s'exécute)** est sélectionné, puis cliquez sur **Terminer**.  
 
-    5.  Klicken Sie im Dialogfeld **Snap-Ins hinzufügen/entfernen** auf **OK**.  
+    5.  Dans la boîte de dialogue **Ajouter ou supprimer des composants logiciels enfichables** , cliquez sur **OK**.  
 
-    6.  Erweitern Sie in der Konsole den Bereich **Zertifikate (Lokaler Computer)**, dann den Bereich **Vertrauenswürdige Personen**, und wählen Sie **Zertifikate**aus.  
+    6.  Dans la console, développez **Certificats (ordinateur local)**, développez **Personnes autorisées**et sélectionnez **Certificats**.  
 
-    7.  Klicken Sie mit der rechten Maustaste auf das Zertifikat mit dem Anzeigenamen &lt;*FQDN des Standortservers*>, klicken Sie auf **Alle Tasks**, und wählen Sie anschließend **Exportieren** aus.  
+    7.  Cliquez avec le bouton droit sur le certificat portant le nom convivial &lt;*nom de domaine complet du serveur de site*>, cliquez sur **Toutes les tâches**, puis sélectionnez **Exporter**.  
 
-    8.  Schließen Sie den ****  Assistenten zum Exportieren von Zertifikaten mit den Standardoptionen ab, und speichern Sie das Zertifikat mit der Dateinamenerweiterung **.cer** .  
+    8.  Effectuez toutes les étapes de l' **Assistant Exportation de certificat** à l'aide des options par défaut et enregistrez le certificat avec l'extension de nom de fichier **.cer** .  
 
-2.  Führen Sie die folgenden Schritte auf dem Computer aus, auf dem die Configuration Manager-Konsole ausgeführt wird, um das selbstsignierte Zertifikat dem Zertifikatspeicher „Vertrauenswürdige Personen“ hinzuzufügen:  
+2.  Effectuez les étapes suivantes sur l’ordinateur qui exécute la console Configuration Manager pour ajouter le certificat auto-signé au magasin de certificats Personnes autorisées :  
 
-    1.  Wiederholen Sie die Schritte 1.a bis 1.e um das MMC-Snap-In **Zertifikat** auf dem Verwaltungspunktcomputer zu konfigurieren.  
+    1.  Répétez les étapes précédentes de 1.a à 1.e pour configurer le composant logiciel enfichable MMC **Certificat** sur l’ordinateur du point de gestion.  
 
-    2.  Erweitern Sie in der Konsole den Bereich **Zertifikate (Lokaler Computer)**, dann den Bereich **Vertrauenswürdige Personen**, klicken Sie mit der rechten Maustaste auf **Zertifikate**, wählen Sie **Alle Tasks**aus, und wählen Sie dann **Importieren** aus, um den **** Zertifikatimport-Assistenten zu starten.  
+    2.  Dans la console, développez **Certificats (ordinateur local)**et **Personnes autorisées**, cliquez avec le bouton droit sur **Certificats**, sélectionnez **Toutes les tâches**, puis sélectionnez **Importer** pour lancer l' **Assistant Importation de certificat**.  
 
-    3.  Wählen Sie auf der Seite **Importdatei** das in Schritt 1.h gespeicherte Zertifikat aus, und klicken Sie dann auf **Weiter**.  
+    3.  Sur la page **Fichier à importer** , cliquez sur le certificat sauvegardé à l'étape 1.h, puis cliquez sur **Suivant**.  
 
-    4.  Wählen Sie auf der Seite **Zertifikatspeicher** die Option **Alle Zertifikate in folgendem Speicher speichern**aus, legen Sie **Zertifikatspeicher** auf **Vertrauenswürdige Personen**fest, und klicken Sie dann auf **Weiter**.  
+    4.  Sur la page **Magasin de certificats** , sélectionnez **Placer tous les certificats dans le magasin suivant**, lorsque le **Magasin de certificats** est paramétré sur **Personnes autorisées**, puis cliquez sur **Suivant**.  
 
-    5.  Klicken Sie auf **Fertig stellen** , um den Assistenten zu schließen und die Zertifikatkonfiguration für den Computer abzuschließen.  
+    5.  Cliquez sur **Terminer** pour fermer l'Assistant et terminer la configuration des certificats sur l'ordinateur.  
 
-##  <a name="BKMK_ModifyReportingServicesPoint"></a> Ändern der Einstellungen des Reporting Services-Punkts  
- Nach der Installation des Reporting Services-Punkts können Sie die Einstellungen für Standortdatenbankverbindung und Authentifizierung in den Eigenschaften des Reporting Services-Punkts konfigurieren. Gehen Sie wie folgt vor, um die Einstellungen des Reporting Services-Punkts zu ändern.  
+##  <a name="BKMK_ModifyReportingServicesPoint"></a> Modifier les paramètres du point de Reporting Services  
+ Une fois le point de Reporting Services installé, vous pouvez modifier les paramètres de connexion de base de données de site et d'authentification dans les propriétés du point de Reporting Services. Utilisez la procédure suivante pour modifier les paramètres du point de Reporting Services.  
 
-#### <a name="to-modify-reporting-services-point-settings"></a>So ändern Sie die Einstellungen des Reporting Services-Punkts  
+#### <a name="to-modify-reporting-services-point-settings"></a>Pour modifier les paramètres du point de Reporting Services  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Verwaltung**.  
+1.  Dans la console Configuration Manager, cliquez sur **Administration**.  
 
-2.  Erweitern Sie im Arbeitsbereich **Verwaltung** den Bereich **Standortkonfiguration**, und klicken Sie dann auf **Server und Standortsystemrollen** , um die Standortsysteme aufzulisten.  
+2.  Dans l'espace de travail **Administration** , développez **Configuration du site**, puis cliquez sur **Serveurs et rôles de système de site** pour afficher la liste des systèmes de site.  
 
     > [!TIP]  
-    >  Sollen nur die Standortsysteme aufgeführt werden, auf denen die Standortsystemrolle „Reporting Services-Punkt“ gehostet wird, klicken Sie mit der rechten Maustaste auf **Server und Standortsystemrollen** , und wählen Sie **Reporting Services-Punkt**aus.  
+    >  Pour répertorier uniquement les systèmes de site hébergeant le rôle de site du point de Reporting Services, cliquez avec le bouton droit sur **Serveurs et rôles de système de site** pour sélectionner **Point de Reporting Services**.  
 
-3.  Wählen Sie das Standortsystem aus, auf dem der Reporting Services-Punkt gehostet wird, dessen Einstellungen Sie ändern möchten, und wählen Sie dann in **Standortsystemrollen** die Option **Reporting Services-Punkt**aus.  
+3.  Sélectionnez le système de site qui héberge le point de Reporting Services sur lequel vous souhaitez modifier les paramètres et sélectionnez **Point de Reporting Services** dans **Rôles de système de site**.  
 
-4.  Klicken Sie auf der Registerkarte **Standortrolle** in der Gruppe **Eigenschaften** auf **Eigenschaften**.  
+4.  Dans l'onglet **Rôle du site** , dans le groupe **Propriétés** , cliquez sur **Propriétés**.  
 
-5.  Im Dialogfeld **Eigenschaften des Reporting Services-Punkts** können Sie die folgenden Einstellungen ändern:  
+5.  Dans la boîte de dialogue **Propriétés du point de Reporting Services** , vous pouvez modifier les paramètres suivants :  
 
-    -   **Name des Standortdatenbankservers**: Geben Sie den Namen des Servers an, auf dem die Configuration Manager-Standortdatenbank gehostet wird. Der vollqualifizierte Domänenname (FQDN) für den Server wird vom Assistenten in der Regel automatisch abgerufen. Zur Angabe einer Datenbankinstanz verwenden Sie das Format &lt;*Servername*>\&lt;*Instanzname*>.  
+    -   **Nom du serveur de base de données de site** : spécifiez le nom du serveur qui héberge la base de données de site Configuration Manager. En règle générale, l'Assistant récupère automatiquement le nom de domaine complet (FQDN) du serveur. Pour spécifier une instance de base de données, utilisez le format &lt;*nom_serveur*>\&lt;*nom_instance*>.  
 
-    -   **Datenbankname**: Geben Sie den Namen der System Center 2012 Configuration Manager-Standortdatenbank an. Klicken Sie anschließend auf **Überprüfen**, um zu bestätigen, dass der Assistent auf die Standortdatenbank zugreifen kann.  
-
-        > [!IMPORTANT]  
-        >  Für das Benutzerkonto, von dem der Reporting Services-Punkt erstellt wird, muss die Berechtigung Lesen für die Standortdatenbank vorliegen. Wenn beim Verbindungstest ein Fehler auftritt, wird ein rotes Warnsymbol angezeigt. Bewegen Sie den Cursor auf dieses Symbol, um die Details zum Fehler zu lesen. Korrigieren Sie den Fehler, und klicken Sie dann erneut auf **Test** .  
-
-    -   **Benutzerkonto**: Klicken Sie auf **Festlegen**. Wählen Sie anschließend ein Konto aus, über das von SQL Server Reporting Services auf dem Reporting Services-Punkt eine Verbindung mit der Configuration Manager-Standortdatenbank hergestellt wird, um die in einem Bericht angezeigten Daten abzurufen. Wählen Sie **Vorhandenes Konto** aus, um ein Windows-Benutzerkonto mit vorhandenen Configuration Manager-Rechten anzugeben. Wählen Sie **Neues Konto** aus, um ein Windows-Benutzerkonto anzugeben, für das derzeit keine Rechte in Configuration Manager vorhanden sind. Dem angegebenen Benutzerkonto wird von Configuration Manager automatisch Zugriff auf die Standortdatenbank erteilt. Das Konto wird im Arbeitsbereich **Verwaltung** im Knoten **Sicherheit** im Unterordner **Konten** als **ConfigMgr SRS-Berichterstattungspunkt** -Konto angezeigt.  
-
-         Das angegebene Windows-Benutzerkonto und das zugehörige Kennwort werden verschlüsselt und in der Reporting Services-Datenbank gespeichert. Die Daten werden von Reporting Services über dieses Konto und Kennwort aus der Standortdatenbank abgerufen und für Berichte verwendet.  
+    -   **Nom de la base de données** : spécifiez le nom de la base de données de site System Center 2012 Configuration Manager, puis cliquez sur **Vérifier** pour confirmer que l’Assistant a accès à la base de données de site.  
 
         > [!IMPORTANT]  
-        >  Befindet sich die Standortdatenbank auf einem Remotestandortsystem, muss das angegebene Konto auf dem Computer zur lokalen Anmeldung ****  berechtigt sein.  
+        >  Le compte d'utilisateur qui crée le point de Reporting Services doit avoir accès en lecture à la base de données de site. Si le test de connexion échoue, une icône d'avertissement rouge s'affiche. Déplacez le curseur sur cette icône afin de lire les informations relatives à la défaillance. Corrigez la défaillance, puis cliquez à nouveau sur **Tester** .  
 
-6.  Klicken Sie auf **OK** , um die Änderungen zu speichern und das Dialogfeld zu schließen.  
+    -   **Compte d’utilisateur**: cliquez sur **Définir**, puis sélectionnez le compte à utiliser quand SQL Server Reporting Services sur le point de Reporting Services se connecte à la base de données de site Configuration Manager pour récupérer les données affichées dans un rapport. Sélectionnez **Compte existant** pour spécifier un compte d’utilisateur Windows possédant des droits Configuration Manager existants ou sélectionnez **Nouveau compte** pour spécifier un compte d’utilisateur Windows ne possédant pas de droits dans Configuration Manager. Configuration Manager accorde automatiquement au compte d’utilisateur spécifié l’accès à la base de données du site. Le compte est affiché en tant que compte **Point de rapport SRS ConfigMgr** dans le sous-dossier **Comptes** du nœud **Sécurité** dans l'espace de travail **Administration** .  
 
-## <a name="upgrading-sql-server"></a>Ausführen eines Upgrades von SQL Server  
- Nach dem Ausführen eines Upgrades von SQL Server und der SQL Server Reporting Services-Anwendung, die als Datenquelle für einen Reporting Services-Punkt dient, treten möglicherweise Fehler auf, wenn Sie Berichte über die Configuration Manager-Konsole ausführen oder bearbeiten. Damit die Berichterstellung über die Configuration Manager-Konsole richtig funktioniert, müssen Sie die Standortsystemrolle des Reporting Services-Punkts für den Standort entfernen und neu installieren. Nach Abschluss des Upgrades können Sie Berichte jedoch weiterhin mit einem Internetbrowser ausführen und bearbeiten.  
+         Le compte d'utilisateur Windows et le mot de passe spécifiés sont chiffrés et stockés dans la base de données Reporting Services. Reporting Services récupère les données de rapports à partir de la base de données de site à l'aide de ce compte et de ce mot de passe.  
 
-##  <a name="BKMK_ConfigureReportOptions"></a> Konfigurieren von Berichtsoptionen  
- Verwenden Sie die Berichtsoptionen für einen Configuration Manager-Standort, um den Reporting Services-Punkt auszuwählen, der standardmäßig zur Verwaltung Ihrer Berichte verwendet wird. Zwar können auf einem Standort mehrere Reporting Services-Punkte vorhanden sein, die Verwaltung von Berichten kann jedoch nur über den Standardberichtsserver erfolgen, der in den Berichtsoptionen ausgewählt wurde. Gehen Sie wie folgt vor, um Berichtoptionen für Ihren Standort zu konfigurieren.  
+        > [!IMPORTANT]  
+        >  Lorsque la base de données de site se trouve sur un système de site distant, le compte que vous spécifiez doit disposer des autorisations **Ouvrir une session localement** sur l'ordinateur.  
 
-#### <a name="to-configure-report-options"></a>So konfigurieren Sie Berichtsoptionen  
+6.  Cliquez sur **OK** pour enregistrer les modifications et quitter la boîte de dialogue.  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Überwachung**.  
+## <a name="upgrading-sql-server"></a>Mise à niveau de SQL Server  
+ Après la mise à niveau de SQL Server et de l’instance SQL Server Reporting Services utilisée comme source de données pour un point de Reporting Services, des erreurs peuvent se produire au moment où vous exécutez ou modifiez des rapports à partir de la console Configuration Manager. Pour que la génération de rapports fonctionne correctement à partir de la console Configuration Manager, vous devez supprimer le rôle de système de site du point de Reporting Services du site, puis le réinstaller. Toutefois, après la mise à niveau, vous pouvez continuer à exécuter et à modifier des rapports à partir d'un navigateur Internet.  
 
-2.  Erweitern Sie im Arbeitsbereich **Überwachung** die Option **Berichterstattung**, und klicken Sie dann auf **Berichte**.  
+##  <a name="BKMK_ConfigureReportOptions"></a> Configurer les options de rapport  
+ Utilisez les options de rapport d’un site Configuration Manager pour sélectionner le point de Reporting Services par défaut à utiliser pour gérer vos rapports. Même si vous pouvez posséder plusieurs points de Reporting Services sur un site, seul le serveur de rapports par défaut sélectionné dans les options de rapport est utilisé pour gérer les rapports. Pour configurer les options de rapport de votre un site, procédez comme suit.  
 
-3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Einstellungen** auf **Berichtsoptionen**.  
+#### <a name="to-configure-report-options"></a>Pour configurer des options de rapport  
 
-4.  Wählen Sie in der Liste den Standardberichtsserver aus, und klicken Sie dann auf **OK**. Wenn keine Reporting Services-Punkte aufgelistet sind, vergewissern Sie sich, dass der Reporting Services-Punkt auf dem Standort erfolgreich installiert und konfiguriert wurde.  
+1.  Dans la console Configuration Manager, cliquez sur **Surveillance**.  
 
-## <a name="next-steps"></a>Nächste Schritte
-[Vorgänge und Wartungstasks für die Berichterstellung](operations-and-maintenance-for-reporting.md)
+2.  Dans l'espace de travail **Surveillance** , développez **Rapports**, puis cliquez sur **Rapports**.  
+
+3.  Dans l'onglet **Accueil** , dans le groupe **Paramètres** , cliquez sur **Options du rapport**.  
+
+4.  Sélectionnez le serveur de rapports par défaut dans la liste, puis cliquez sur **OK**. Si aucun point de Reporting Services n'est répertorié dans la liste, vérifiez que vous disposez d'un point de Reporting Services correctement installé et configuré sur le site.  
+
+## <a name="next-steps"></a>Étapes suivantes
+[Opérations et maintenance pour les rapports](operations-and-maintenance-for-reporting.md)

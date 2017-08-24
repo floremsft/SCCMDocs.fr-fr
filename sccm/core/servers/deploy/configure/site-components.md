@@ -1,6 +1,6 @@
 ---
-title: "Standortkomponenten für Configuration Manager | Microsoft-Dokumentation"
-description: "Erfahren Sie, wie Standortkomponenten so konfiguriert werden, dass sich das Verhalten von Standortsystemrollen und die Statusberichterstellung des Standorts ändert."
+title: Composants de site pour Configuration Manager | Microsoft Docs
+description: "Apprenez à configurer des composants de site pour modifier le comportement des rôles système de site et la création des rapports d’état de site."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,106 +17,106 @@ manager: angrobe
 ms.openlocfilehash: 83550fbf0ef1f9adb0bb2c51a4f3c26a7500d352
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="site-components-for-system-center-configuration-manager"></a>Standortkomponenten für System Center Configuration Manager
+# <a name="site-components-for-system-center-configuration-manager"></a>Composants de site pour System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-An jedem System Center Configuration Manager-Standort können Sie Standortkomponenten konfigurieren, um das Verhalten von Standortsystemrollen und die Statusberichterstellung des Standorts zu ändern. Konfigurationen von Standortkomponenten gelten für einen Standort sowie für jede Instanz einer anwendbaren Standortsystemrolle am Standort.  
+Sur chaque site System Center Configuration Manager, vous pouvez configurer des composants de site pour modifier le comportement des rôles système de site et la création des rapports d’état de site. Les configurations de composants de site s’appliquent à un site donné et à chaque instance d’un rôle de système de site applicable au niveau de ce site.  
 
-## <a name="about-site-components"></a>Informationen zu Standortkomponenten  
- Die meisten Optionen für die verschiedenen Standortkomponenten sind bei Anzeige in der Configuration Manager-Konsole selbsterklärend. Allerdings können die folgenden Details Ihnen bei der Erläuterung einiger komplexerer Konfigurationen helfen oder Sie auf zusätzliche Inhalte mit Erklärungen verweisen.  
+## <a name="about-site-components"></a>À propos des composants de site  
+ La plupart des options des différents composants de site sont suffisamment explicites quand elles apparaissent dans la console Configuration Manager. Toutefois, les informations suivantes peuvent être utiles pour mieux comprendre certaines configurations plus complexes ou vous diriger vers du contenu supplémentaire qui les explique.  
 
-### <a name="software-distribution"></a>Softwareverteilung  
+### <a name="software-distribution"></a>Distribution de logiciels  
 
--   **Inhaltsverteilungseinstellungen:** Sie können Einstellungen eingeben, die ändern, wie der Standortserver Inhalte an seine Verteilungspunkte überträgt. Wenn Sie die Werte der Einstellungen für die gleichzeitige Verteilung erhöhen, kann die Inhaltsverteilung mehr Netzwerkbandbreite nutzen.  
+-   **Paramètres de distribution de contenu :** vous pouvez spécifier des paramètres qui modifient la façon dont le serveur de site transfère du contenu vers ses points de distribution. Si vous augmentez les valeurs des paramètres de distribution simultanée, la distribution de contenu risque d’utiliser davantage de bande passante réseau.  
 
--   **Netzwerkzugriffskonto:** Informationen zum Einrichten und Verwenden des Netzwerkzugriffskontos finden Sie unter [Netzwerkzugriffskonto](../../../../core/plan-design/hierarchy/manage-accounts-to-access-content.md#bkmk_NAA).  
+-   **Compte d’accès réseau :** pour plus d’informations sur la configuration et l’utilisation du compte d’accès réseau, consultez [Compte d’accès réseau](../../../../core/plan-design/hierarchy/manage-accounts-to-access-content.md#bkmk_NAA).  
 
-### <a name="software-update-point"></a>Softwareupdatepunkt  
+### <a name="software-update-point"></a>Point de mise à jour logicielle  
 
--   Informationen zu den Konfigurationsoptionen für die Softwareupdatepunkt-Komponente finden Sie unter [Installieren eines Softwareupdatepunkts](../../../../sum/get-started/install-a-software-update-point.md).  
+-   Pour plus d’informations sur les options de configuration du composant de point de mise à jour logicielle, consultez [Installer un point de mise à jour logicielle](../../../../sum/get-started/install-a-software-update-point.md).  
 
-### <a name="management-point"></a>Verwaltungspunkt  
+### <a name="management-point"></a>Point de gestion  
 
--   **Verwaltungspunkte:** Sie können den Standort so einrichten, dass Informationen zu seinen Verwaltungspunkten in Active Directory-Domänendiensten veröffentlicht werden.  
+-   **Points de gestion :** vous pouvez configurer le site pour publier des informations sur ses points de gestion dans les services de domaine Active Directory.  
 
-     Verwaltungspunkte werden von Configuration Manager-Clients verwendet, um Dienste zu suchen und Standortinformationen wie Zugehörigkeit zu Begrenzungsgruppen und PKI-Zertifikat-Auswahloptionen zu finden. Clients verwenden auch Verwaltungspunkte, um nach anderen Verwaltungspunkten am Standort sowie nach Verteilungspunkte zu suchen, von denen Software heruntergeladen werden kann. Bei Clients werden Verwaltungspunkte darüber hinaus verwendet, um Standortzuweisungen abzuschließen, Clientrichtlinien herunterzuladen und ihre Clientinformationen hochzuladen.  
+     Les clients Configuration Manager utilisent des points de gestion pour localiser les services et pour rechercher des informations sur le site, telles que les options de sélection de certificats PKI et d’appartenance à des groupes de limites. Les clients utilisent également des points de gestion pour rechercher d’autres points de gestion du site, ainsi que des points de distribution d’où ils peuvent télécharger des logiciels. Les points de gestion aident également les clients à terminer l’attribution de site et à télécharger la stratégie client et leurs informations client.  
 
-     Die sicherste Methode zum Suchen von Verwaltungspunkten besteht für Clients darin, sie in den Active Directory-Domänendiensten zu veröffentlichen. Daher wählen Sie in der Regel alle funktionsfähigen Verwaltungspunkte für die Veröffentlichung in den Active Directory-Domänendiensten aus. Für diese Dienstidentifizierungsmethode muss jedoch Folgendes erfüllt sein:
+     Comme la plus sûre des méthodes pour que les clients trouvent des points de gestion est de publier ceux-ci dans les services de domaines Active Directory, vous aurez généralement toujours besoin de sélectionner tous les points de gestion en fonctionnement pour publier dans les services de domaine Active Directory. Toutefois, pour pouvoir utiliser cette méthode de localisation de service, les éléments suivants doivent être vrais :
 
-     - Das Schema wird für Configuration Manager erweitert.
-     - Es gibt einen **System Management**-Container mit entsprechenden Sicherheitsberechtigungen für den Standortserver zum Veröffentlichen in diesen Container.
-     - Der Configuration Manager-Standort ist zur Veröffentlichung in Active Directory-Domänendiensten eingerichtet.
-     - Clients gehören derselben Active Directory-Gesamtstruktur an wie die Gesamtstruktur des Standortservers.  
+     - Le schéma est étendu pour Configuration Manager.
+     - Il existe un conteneur **Gestion du système** disposant des autorisations de sécurité appropriées pour que le serveur de site puisse publier dans ce conteneur.
+     - Le site Configuration Manager est configuré pour publier dans les services de domaine Active Directory.
+     - Les clients appartiennent à la même forêt Active Directory que le serveur de site.  
 
-     Wenn es für Clients im Intranet nicht möglich ist, Verwaltungspunkte mithilfe von Active Directory-Domänendiensten zu suchen, verwenden Sie stattdessen die [DNS](../../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md#bkmk_dns)-Veröffentlichung.  
+     Quand les clients sur l’intranet ne peuvent pas utiliser les services de domaine Active Directory pour rechercher des points de gestion, utilisez la publication [DNS](../../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md#bkmk_dns) à la place.  
 
- Allgemeine Informationen zur Dienstidentifizierung durch Clients finden Sie unter [Understand how clients find site resources and services for System Center Configuration Manager (Informationen dazu, wie Clients nach Standortressourcen und -diensten für System Center Configuration Manager suchen)](../../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md).  
+ Pour obtenir des informations générales sur l’emplacement du service, consultez [Comprendre comment les clients recherchent des services et des ressources de site pour System Center Configuration Manager](../../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md).  
 
--   **Ausgewählte Intranetverwaltungspunkte in DNS veröffentlichen:** Geben Sie diese Option an, wenn Clients im Intranet Verwaltungspunkte aus Active Directory-Domänendiensten nicht finden können. Stattdessen können sie einen DNS-Ressourceneintrag zur Dienstidentifizierung (SRV RR) verwenden, um einen Verwaltungspunkt am ihnen zugewiesenen Standort zu finden.  
+-   **Publier les points de gestion intranet sélectionnés dans DNS :** spécifiez cette option quand des clients sur l’intranet ne trouvent pas de points de gestion à partir des services de domaine Active Directory. Au lieu de cela, ils peuvent utiliser un enregistrement de ressource d’emplacement de service DNS (SRV RR) pour trouver un point de gestion dans leur site attribué.  
 
-    Damit in Configuration Manager Intranetverwaltungspunkte in DNS veröffentlicht werden können, müssen die beiden folgenden Bedingungen erfüllt sein:  
+    Pour que Configuration Manager puisse publier des points de gestion intranet dans DNS, toutes les conditions suivantes doivent être remplies :  
 
-    -   Ihre DNS-Server verfügen mindestens über die BIND-Version 8.1.2.  
+    -   Vos serveurs DNS ont une version de BIND 8.1.2 ou ultérieure.  
 
-    -   Ihre DNS-Server sind für automatische Updates eingerichtet und unterstützen Ressourceneinträge zur Dienstidentifizierung.  
+    -   Vos serveurs DNS sont configurés pour les mises à jour automatiques et prennent en charge les enregistrements de ressource d’emplacement de service.  
 
-    -   Zu den angegebenen vollständig qualifizierte Domänennamen (FQDNs) für die Verwaltungspunkte in Configuration Manager müssen Hosteinträge (A- oder AAA-Datensätze) in DNS vorhanden sein.  
+    -   Les noms de domaine complets spécifiés pour les points de gestion dans Configuration Manager ont des entrées d’hôte (enregistrements A ou AAA) dans DNS.  
 
     > [!WARNING]  
-    >  Damit von Clients in DNS veröffentlichte Verwaltungspunkte gefunden werden können, müssen Sie die Clients einem bestimmten Standort zuweisen, anstatt die automatische Standortzuweisung zu verwenden. Richten Sie diese Clients so aus, dass sie den Standortcode mit dem Domänensuffix ihres Verwaltungspunkts verwenden. Weitere Informationen finden Sie im Abschnitt [Suchen von Verwaltungspunkten](/sccm/core/clients/deploy/assign-clients-to-a-site#locating-management-points) unter [Zuweisen von Clients zu einem Standort in System Center Configuration Manager](/sccm/core/clients/deploy/assign-clients-to-a-site).  
+    >  Pour que les clients trouvent des points de gestion publiés dans DNS, vous devez affecter les clients à un site spécifique (plutôt qu’utiliser l’attribution automatique de site). Configurez ces clients pour qu’ils utilisent le code de site avec le suffixe du domaine de leur point de gestion. Pour plus d’informations, consultez [Localisation de points de gestion](/sccm/core/clients/deploy/assign-clients-to-a-site#locating-management-points) dans [Guide pratique pour affecter des clients à un site dans System Center Configuration Manager](/sccm/core/clients/deploy/assign-clients-to-a-site).  
 
-     Wenn es für Configuration Manager-Clients nicht möglich ist, Verwaltungspunkte mithilfe von Active Directory-Domänendiensten oder DNS im Intranet zu finden, wird [WINS](../../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md#bkmk_wins) verwendet. Der erste für einen Standort installierte Verwaltungspunkt wird automatisch in WINS veröffentlicht, wenn er für das Zulassen von HTTP-Clientverbindungen im Intranet eingerichtet wird.  
+     Si les clients Configuration Manager ne peuvent pas utiliser les services de domaine Active Directory ou DNS pour rechercher des points de gestion sur l’intranet, ils peuvent utiliser [WINS](../../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md#bkmk_wins). Le premier point de gestion installé pour le site est automatiquement publié dans WINS lorsqu’il est configuré pour accepter les connexions client HTTP sur l’intranet.  
 
-### <a name="status-reporting"></a>Statusberichterstattung  
+### <a name="status-reporting"></a>édition de rapports d’état ;  
 
--   Diese Einstellungen dienen zum direkten Einrichten der Detailebene, die in Statusberichte von Standorten und Clients einbezogen wird.  
+-   Ces paramètres configurent directement le niveau de détail qui est fourni dans les rapports d’état à partir de sites et de clients.  
 
-### <a name="email-notification"></a>E-Mail-Benachrichtigung  
+### <a name="email-notification"></a>Notification par courrier électronique  
 
--   Geben Sie Konto- und E-Mail-Serverdetails an, um Configuration Manager das Senden von E-Mail-Benachrichtigungen zu Warnungen zu ermöglichen.  
+-   Spécifiez les détails de compte ou de serveur de messagerie pour que Configuration Manager envoie des notifications par e-mail en cas d’alertes.  
 
-### <a name="collection-membership-evaluation"></a>Auswertung der Sammlungsmitgliedschaft  
+### <a name="collection-membership-evaluation"></a>Évaluation de l’appartenance au regroupement  
 
--   Verwenden Sie diesen Task, um die Häufigkeit der inkrementellen Auswertung der Sammlungsmitgliedschaft festzulegen. Bei der inkrementellen Auswertung wird eine Sammlungsmitgliedschaft nur mit neuen oder geänderten Ressourcen aktualisiert.  
+-   Cette tâche permet de définir la fréquence à laquelle l’appartenance à un regroupement est évaluée de façon incrémentielle. L'évaluation incrémentielle met à jour une appartenance à un regroupement uniquement avec de nouvelles ressources ou des ressources modifiées.  
 
-### <a name="edit-the-site-components-at-a-site"></a>So bearbeiten Sie die Standortkomponenten auf einem Standort  
+### <a name="edit-the-site-components-at-a-site"></a>Modifier les composants de site sur un site  
 
-Gehen Sie folgendermaßen vor, um Standortkomponenten zu bearbeiten:
+Utilisez la procédure suivante pour modifier les composants de site :
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Verwaltung** > **Standortkonfiguration** > **Standorte**, und wählen Sie den Standort mit den Standortkomponenten aus, die Sie konfigurieren möchten.  
+1.  Dans la console Configuration Manager, cliquez sur **Administration** > **Configuration du site** > **Sites**, puis sélectionnez le site comportant les composants de site que vous voulez configurer.  
 
-2.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Einstellungen** auf **Standortkomponenten konfigurieren**. Wählen Sie dann die Standortkomponente aus, die sie konfigurieren möchten.  
+2.  Sous l’onglet **Accueil**, dans le groupe **Paramètres**, cliquez sur **Configurer les composants de site**. Sélectionnez ensuite le composant de site que vous souhaitez configurer.  
 
-##  <a name="BKMK_ServiceMgr"></a> Verwalten von Standortkomponenten mit dem Dienst-Manager für Configuration Manager  
-Mit dem Dienst-Manager für Configuration Manager können Sie Configuration Manager-Dienste steuern und den Status von Configuration Manager-Diensten oder -Arbeitsthreads (zusammen als Configuration Manager-Komponenten bezeichnet) anzeigen. Grundlegendes zu Configuration Manager-Komponenten:  
+##  <a name="BKMK_ServiceMgr"></a> Utiliser Configuration Manager Service Manager pour gérer les composants de site  
+Vous pouvez utiliser Configuration Manager Service Manager pour contrôler les services Configuration Manager et afficher l’état de tout service ou thread de travail Configuration Manager (collectivement appelés composants Configuration Manager). Retenez les points suivants concernant les composant Configuration Manager :  
 
--   Komponenten können auf beliebigen Standortsystemen ausgeführt werden.  
+-   Les composants peuvent s’exécuter sur n’importe quel système de site.  
 
--   Komponenten werden auf dieselbe Weise verwaltet wie Dienste in Windows. Sie können die Configuration Manager-Komponenten starten, beenden, anhalten, fortsetzen oder abfragen.  
+-   Ils sont gérés de la même façon que les services dans Windows. Vous pouvez les démarrer, les arrêter, les suspendre, les reprendre et les interroger.  
 
-Ein Configuration Manager-Dienst wird bei von ihm angeforderten Aktionen ausgeführt (üblicherweise, wenn eine Konfigurationsdatei in die Eingangsbox einer Komponente geschrieben wird). Wenn Sie die an einem Vorgang beteiligte Komponente identifizieren müssen, können Sie mithilfe des Dienst-Managers für Configuration Manager verschiedene Dienste und Threads bearbeiten. Dann können Sie die sich daraus im Verhalten von Configuration Manager ergebende Änderung sehen. Sie können beispielsweise Configuration Manager-Dienste einzeln beenden, bis eine bestimmte Reaktion beseitigt ist. So können Sie bestimmen, welcher Dienst das Verhalten verursacht.  
+Un service Configuration Manager s’exécute dès qu’il a une tâche à effectuer (quand un fichier de configuration est enregistré dans la boîte de réception d’un composant, par exemple). Si vous devez identifier le composant impliqué dans une opération, vous pouvez utiliser Configuration Manager Service Manager pour agir sur plusieurs services et threads. Vous pouvez ensuite afficher les effets sur le comportement de Configuration Manager. Vous pouvez par exemple arrêter les services Configuration Manager un par un, jusqu’à ce qu’une réponse spécifique disparaisse. Vous pourrez ainsi déterminer le service qui provoque ce comportement.  
 
 > [!TIP]  
->  Mithilfe des folgenden Verfahrens können Sie das Verhalten von Configuration Manager-Komponenten bearbeiten.  
+>  La procédure suivante peut servir à manipuler des opérations de composants Configuration Manager.  
 
-### <a name="use-the-configuration-manager-service-manager"></a>So verwenden Sie den Dienst-Manager für Configuration Manager  
+### <a name="use-the-configuration-manager-service-manager"></a>Utiliser le Gestionnaire de service de Configuration Manager  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Überwachung** >  **Systemstatus** und anschließend auf **Komponentenstatus**.  
+1.  Dans la console Configuration Manager, cliquez sur **Surveillance** >  **État du système**, puis cliquez sur **État du composant**.  
 
-2.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Komponente** auf **Starten**. Wählen Sie dann **Dienst-Manager für Configuration Manager** aus.  
+2.  Sous l’onglet **Accueil**, dans le groupe **Composant**, cliquez sur **Démarrer**. Sélectionnez ensuite **Gestionnaire de service de Configuration Manager**.  
 
-3.  Wenn der Dienst-Manager für Configuration Manager geöffnet wird, stellen Sie eine Verbindung mit dem zu verwaltenden Standort her.  
+3.  Lorsque le Gestionnaire de service de Configuration Manager s'ouvre, connectez-vous au site que vous souhaitez gérer.  
 
-     Wenn der zu verwaltende Standort nicht angezeigt wird, klicken Sie auf **Standort**, klicken Sie auf **Verbinden**, und geben Sie dann den Namen des Standortservers für den gewünschten Standort ein.  
+     Si vous ne voyez pas le site que vous souhaitez gérer, cliquez sur **Site**, puis sur **Connecter**, et entrez le nom du serveur de site du site correct.  
 
-4.  Erweitern Sie den Standort, und wechseln Sie zu **Komponenten** oder **Server**, je nachdem, wo die zu verwaltenden Komponenten sich befinden.  
+4.  Développez le site et accédez à **Composants** ou à **Serveurs**selon l'emplacement où se trouvent les composants que vous souhaitez gérer.  
 
-5.  Wählen Sie im rechten Fensterbereich eine oder mehrere Komponenten aus. Klicken Sie dann im Menü **Komponente** auf **Abfrage**, um den Status Ihrer Auswahl zu aktualisieren.  
+5.  Dans le volet de droite, sélectionnez un ou plusieurs composants. Puis, dans le menu **Composant**, cliquez sur **Requête** pour mettre à jour l’état de votre sélection.  
 
-6.  Nachdem der Status der Komponente aktualisiert wurde, verwenden Sie eine der vier aktionsbasierten Optionen im Menü **Komponente**, um das Verhalten der Komponente zu ändern. Nachdem eine Aktion angefordert wurde, müssen Sie die Komponente abfragen, um den neuen Status der Komponente anzuzeigen.  
+6.  Après la mise à jour de l’état du composant, utilisez l’une des quatre actions en option dans le menu **Composant** pour modifier le fonctionnement du composant. Après avoir demandé une action, vous devez demander au composant d'afficher son nouvel état.  
 
-7.  Schließen Sie den Dienst-Manager für Configuration Manager, wenn Sie das Bearbeiten des Betriebsstatus der Komponenten abgeschlossen haben.  
+7.  Fermez Configuration Manager Service Manager quand vous avez fini de modifier l’état opérationnel des composants.  

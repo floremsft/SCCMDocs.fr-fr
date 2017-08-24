@@ -1,6 +1,6 @@
 ---
-title: Verwenden von Wartungsfenstern | Microsoft-Dokumentation
-description: Verwenden Sie Sammlungen und Wartungsfenster in System Center Configuration Manager, um Clients effektiv zu verwalten.
+title: "Utiliser des fenêtres de maintenance | Microsoft Docs"
+description: "Utilisez les regroupements et les fenêtres de maintenance pour gérer efficacement les clients dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 02/22/2017
 ms.prod: configuration-manager
@@ -18,54 +18,54 @@ manager: angrobe
 ms.openlocfilehash: fa67cf597c73bab47209c9b98539f97e174ae70b
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-use-maintenance-windows-in-system-center-configuration-manager"></a>Verwenden von Wartungsfenstern in System Center Configuration Manager
+# <a name="how-to-use-maintenance-windows-in-system-center-configuration-manager"></a>Comment utiliser les fenêtres de maintenance dans System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Mithilfe von Wartungsfenstern können Sie einen Zeitpunkt definieren, an dem Configuration Manager-Vorgänge auf einer Gerätesammlung durchgeführt werden können. Sie können die Wartungsfenster verwenden, um Konfigurationsänderungen bei den Clients dann vorzunehmen, wenn sie die Produktivität nicht beeinträchtigen.  
+Les fenêtres de maintenance vous permettent de définir une période de temps pendant laquelle des opérations Configuration Manager peuvent être effectuées sur un regroupement d’appareils. Vous pouvez utiliser les fenêtres de maintenance afin de vous assurer que les modifications apportées à la configuration client seront effectuées pendant des périodes qui n’affectent pas la productivité.  
 
- Die folgenden Vorgänge unterstützen Wartungsfenster:  
+ Les opérations suivantes prennent en charge les fenêtres de maintenance :  
 
--   Softwarebereitstellungen  
+-   Déploiements de logiciels  
 
--   Softwareupdatebereitstellungen  
+-   Déploiements de mises à jour logicielles  
 
--   Bereitstellen und Bewerten von Kompatibilitätseinstellungen  
+-   Déploiement et évaluation des paramètres de compatibilité  
 
--   Betriebssystembereitstellungen  
+-   Déploiements de système d'exploitation  
 
--   Tasksequenzbereitstellungen  
+-   Déploiements de séquences de tâches  
 
- Konfigurieren Sie Wartungsfenster mit einem Startdatum, einer Start- und Endzeit sowie einem Wiederholungsmuster. Die maximale Dauer eines Fensters muss weniger als 24 Stunden betragen. In der Standardeinstellung sind Computerneustarts durch Bereitstellungen außerhalb von Wartungsfenstern nicht zulässig. Sie können die Standardeinstellung jedoch außer Kraft setzen. Wartungsfenster beziehen sich nur auf den Zeitraum, in dem das Bereitstellungsprogramm ausgeführt wird. Von Anwendungen, die für den lokalen Download und die lokale Ausführung konfiguriert sind, können auch außerhalb des Fensters Inhalte heruntergeladen werden.  
+ Configurez des fenêtres de maintenance avec une date de début, une heure de début et de fin, ainsi qu’une périodicité. La durée maximale d’une fenêtre doit être inférieure à 24 heures. Par défaut, les redémarrages de l’ordinateur dus à un déploiement ne sont pas autorisés à l’extérieur d’une fenêtre de maintenance, mais vous pouvez remplacer la valeur par défaut. Les fenêtres de maintenance affectent uniquement l’heure d’exécution du programme de déploiement ; les applications configurées pour un téléchargement et une exécution en local peuvent télécharger du contenu en dehors de la fenêtre.  
 
- Wenn ein Clientcomputer Mitglied einer Gerätesammlung mit Wartungsfenster ist, wird ein Bereitstellungsprogramm nur dann ausgeführt, wenn die maximal zulässige Laufzeit nicht die Dauer überschreitet, die für das Fenster konfiguriert ist. Kann das Programm nicht ausgeführt werden, wird eine Warnung ausgegeben, und die Bereitstellung wird während des nächsten geplanten Wartungsfensters ausgeführt, das Zeitkapazitäten hat.  
+ Quand un ordinateur client est membre d’un regroupement d’appareils avec une fenêtre de maintenance, un programme de déploiement est exécuté uniquement si la durée d’exécution maximale autorisée ne dépasse pas la durée configurée pour la fenêtre. Si le programme ne peut pas être exécuté, une alerte est générée et le déploiement est de nouveau exécuté lors de la fenêtre de maintenance planifiée suivante qui dispose de suffisamment de temps.  
 
-## <a name="using-multiple-maintenance-windows"></a>Verwenden mehrerer Wartungsfenster  
- Wenn ein Clientcomputer Mitglied mehrerer Gerätesammlungen mit Wartungsfenstern ist, gelten die folgenden Regeln:  
+## <a name="using-multiple-maintenance-windows"></a>Utilisation de fenêtres de maintenance multiples  
+ Quand un ordinateur client est membre de plusieurs regroupements d’appareils avec des fenêtres de maintenance, les règles suivantes s’appliquent :  
 
--   Wenn sich die Wartungsfenster nicht überschneiden, werden sie als zwei unabhängige Wartungsfenster behandelt.  
+-   Si les fenêtres de maintenance ne se chevauchent pas, elles sont traitées comme deux fenêtres de maintenance indépendantes.  
 
--   Wenn sich die Wartungsfenster überschneiden, werden sie als ein einziges Wartungsfenster behandelt, das den Zeitraum beider Wartungsfenster umfasst. Beispiel: Bei zwei Fenstern von jeweils einer Stunde Dauer, die sich um 30 Minuten überschneiden, beträgt die effektive Dauer des Wartungsfensters 90 Minuten.  
+-   Si les fenêtres de maintenance se chevauchent, elles sont traitées comme une seule fenêtre de maintenance englobant la période couverte par les deux fenêtres de maintenance. Par exemple, si deux fenêtres d’une heure chacune se chevauchent de 30 minutes, la durée effective de la fenêtre de maintenance est de 90 minutes.  
 
- Wenn ein Benutzer im Softwarecenter eine Anwendungsinstallation initiiert, wird die Anwendung unabhängig von Wartungsfenstern sofort installiert.  
+ Quand un utilisateur lance l’installation d’une application à partir du Centre logiciel, l’application est installée immédiatement, indépendamment de toute fenêtre de maintenance.  
 
- Wenn die Installationsfrist einer als **erforderlich** eingestuften Anwendungsbereitstellung außerhalb der Geschäftszeiten abläuft, die von einem Benutzer im Softwarecenter konfiguriert wurden, wird die Anwendung installiert.  
+ Si le déploiement d’une application avec un objectif **Obligatoire** atteint son échéance d’installation pendant les heures creuses configurées par un utilisateur dans le Centre logiciel, l’application est installée.  
 
-### <a name="how-to-configure-maintenance-windows"></a>Konfigurieren von Wartungsfenstern  
+### <a name="how-to-configure-maintenance-windows"></a>Comment configurer les fenêtres de maintenance  
 
-1.  Wählen Sie in der Configuration Manager-Konsole **Bestand und Konformität**>  **Gerätesammlungen** aus.  
+1.  Dans la console Configuration Manager, choisissez **Ressources et Conformité**>  **Regroupements d’appareils**.  
 
-3.  Wählen Sie in der Liste **Gerätesammlungen** eine Sammlung aus. Es können keine Wartungsfenster für die Sammlung **Alle Systeme** erstellt werden.  
+3.  Dans la liste **Regroupements d’appareils**, sélectionnez un regroupement. Vous ne pouvez pas créer de fenêtres de maintenance pour le regroupement **Tous les systèmes** .  
 
-4.  Wählen Sie auf der Registerkarte **Startseite** in der Gruppe **Eigenschaften** die Option **Eigenschaften** aus.  
+4.  Sous l’onglet **Accueil**, dans le groupe **Propriétés**, choisissez **Propriétés**.  
 
-5.  Wählen Sie auf der Registerkarte **Wartungsfenster** des Dialogfelds **&lt;Sammlungsname\> Eigenschaften** das Symbol **Neu** aus.  
+5.  Dans l’onglet **Fenêtres de maintenance** de la boîte de dialogue **Propriétés de &lt;nom_regroupement\>**, choisissez l’icône **Nouveau**.  
 
-6.  Füllen Sie das Dialogfeld **&lt;neu\> Zeitplan** aus.  
+6.  Renseignez la boîte de dialogue **&lt;nouveau\> Calendrier**.  
 
-7.  Wählen Sie einen Wert in der Dropdownliste **Diesen Zeitplan anwenden auf** aus.  
+7.  Effectuez une sélection à partir de la liste déroulante **Appliquer cette planification à**.  
 
-8.  Wählen Sie **OK** aus, und schließen Sie dann das Dialogfeld **&lt;Sammlungsname\> Eigenschaften**.  
+8.  Choisissez **OK**, puis fermez la boîte de dialogue **Propriétés de &lt;nom_regroupement\>**.  

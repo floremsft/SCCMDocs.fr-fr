@@ -1,6 +1,6 @@
 ---
-title: "Testen von Clientupgrades in einer Präproduktionssammlung | Microsoft-Dokumentation"
-description: "Testen Sie Clientupgrades in einer Präproduktionssammlung in System Center Configuration Manager."
+title: "Tester les mises à niveau du client dans un regroupement de préproduction | Microsoft Docs"
+description: "Testez les mises à niveau du client dans un regroupement de préproduction dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 05/04/2017
 ms.prod: configuration-manager
@@ -18,70 +18,70 @@ manager: angrobe
 ms.openlocfilehash: 572ef13883f7930e69ec1f1f53c9bfe029898c81
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-test-client-upgrades-in-a-pre-production-collection-in-system-center-configuration-manager"></a>Testen von Clientupgrades in einer Präproduktionssammlung in System Center Configuration Manager
+# <a name="how-to-test-client-upgrades-in-a-pre-production-collection-in-system-center-configuration-manager"></a>Comment tester les mises à niveau du client dans un regroupement de préproduction dans System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Sie können eine neue Configuration Manager-Clientversion in einer Präproduktionssammlung testen, bevor Sie die neue Version mit einem Upgrade auf den restlichen Standort anwenden.  Dabei werden nur Geräte aktualisiert, die Teil der Testsammlung sind. Nachdem Sie den Client testen konnten, können Sie ihn höherstufen. Auf diese Weise machen Sie die neue Version der Clientsoftware für den übrigen Standort verfügbar.
+Vous pouvez tester une nouvelle version du client Configuration Manager dans un regroupement de préproduction avant de mettre à niveau le reste du site vers cette version.  Quand vous procédez ainsi, seuls les appareils qui font partie du regroupement de test sont mis à niveau. Une fois que vous avez pu tester le client, vous pouvez le promouvoir, ce qui rend la nouvelle version du logiciel client disponible pour le reste du site.
 
 > [!NOTE]
-> Um einen Testclient auf die Produktionsphase höherzustufen, müssen Sie als Benutzer mit der Sicherheitsrolle **Hauptadministrator** und dem Sicherheitsbereich **Alle** angemeldet sein. Weitere Informationen finden Sie unter [Grundlagen der rollenbasierten Verwaltung](/sccm/core/understand/fundamentals-of-role-based-administration). Sie müssen zudem an einem Server angemeldet sein, der mit dem Standort der zentralen Verwaltung oder einem eigenständigen primären Standort auf oberster Ebene verbunden ist.
+> Pour promouvoir un client de test en production, vous devez être connecté tant qu’utilisateur avec le rôle de sécurité **Administrateur complet** et une étendue de sécurité de **Tout**. Pour plus d’informations, consultez [Principes de base de l’administration basée sur des rôles](/sccm/core/understand/fundamentals-of-role-based-administration). Vous devez également être connecté à un serveur connecté au site d’administration centrale ou à un site principal autonome du plus haut niveau.
 
- Es gibt 3 grundlegende Schritte zum Testen von Clients in der Präproduktionsphase.  
+ Il existe 3 étapes de base pour tester des clients en préproduction.  
 
-1.  Konfigurieren Sie automatische Clientupgrades für die Verwendung einer Präproduktionssammlung.  
+1.  Configurez les mises à jour automatiques du client pour utiliser un regroupement de préproduction.  
 
-2.  Installieren Sie ein Configuration Manager-Update, das eine neue Version des Clients enthält.  
+2.  Installez une mise à jour de Configuration Manager qui inclut une nouvelle version du client.  
 
-3.  Stufen Sie den neuen Client auf die Produktionsphase höher.  
+3.  Promouvez le nouveau client en production.  
 
-##  <a name="to-configure-automatic-client-upgrades-to-use-a-pre-production-collection"></a>So konfigurieren Sie automatische Clientupgrades für die Verwendung einer Präproduktionssammlung  
+##  <a name="to-configure-automatic-client-upgrades-to-use-a-pre-production-collection"></a>Pour configurer les mises à jour automatiques du client pour utiliser un regroupement de préproduction  
 
-1. [Richten Sie eine Sammlung mit den Computern ein](..\collections\create-collections.md), für die der Präproduktionsclient bereitgestellt werden soll. Schließen Sie Arbeitsgruppencomputer nicht in Präproduktionssammlungen ein. Arbeitsgruppencomputer können die für den Verteilungspunkt zum Zugreifen auf das Präproduktionsclientpaket erforderliche Authentifizierung nicht verwenden.   
+1. [Configurez un regroupement](..\collections\create-collections.md) contenant les ordinateurs sur lesquels vous voulez déployer le client de préproduction. N’incluez pas d’ordinateurs de groupe de travail dans les regroupements de préproduction. Ils ne peuvent pas utiliser l’authentification nécessaire pour permettre au point de distribution d’accéder au package du client de préproduction.   
 
-1.  Öffnen Sie in der Configuration Manager-Konsole **Verwaltung** > **Standortkonfiguration** > **Standorte**, und wählen Sie **Hierarchieeinstellungen** aus.  
+1.  Dans la console Configuration Manager, ouvrez **Administration** > **Configuration du site** > **Sites**, puis choisissez **Paramètres de hiérarchie**.  
 
-     Führen Sie auf der Registerkarte **Clientupgrade** der Seite **Eigenschaften von Hierarchie-Einstellungen**folgende Aktionen aus:  
+     Sous l’onglet **Mise à niveau des clients** des **Propriétés des paramètres de hiérarchie**:  
 
-    -   Aktivieren Sie **Alle Clients in der Präproduktionssammlung automatisch mithilfe des Präproduktionsclients aktualisieren**  
+    -   Sélectionnez **Mettre à niveau automatiquement tous les clients du regroupement de préproduction en utilisant un client de préproduction**.  
 
-    -   Geben Sie den Namen einer Sammlung ein, die als Präproduktionssammlung verwendet werden soll  
+    -   Entrez le nom d’un regroupement à utiliser comme regroupement de préproduction.  
 
-![Testen von Clientupgrades](media/test-client-upgrades.png)
+![Tester les mises à niveau du client](media/test-client-upgrades.png)
 
 >[!NOTE]
->Um diese Einstellungen zu ändern, muss Ihr Konto Mitglied der Sicherheitsrolle **Hauptadministrator** und des Sicherheitsbereichs **Alle** sein.
+>Pour modifier ces paramètres, votre compte doit être un membre du rôle de sécurité **Administrateur complet** et de l’étendue de sécurité **Tous**.
 
 
-##  <a name="to-install-a-configuration-manager-update-that-includes-a-new-version-of-the-client"></a>So installieren Sie ein Configuration Manager-Update, das eine neue Version des Clients enthält  
+##  <a name="to-install-a-configuration-manager-update-that-includes-a-new-version-of-the-client"></a>Pour installer une mise à jour de Configuration Manager qui inclut une nouvelle version du client  
 
-1.  Öffnen Sie in der Configuration Manager-Konsole **Verwaltung** > **Updates und Wartung**, wählen Sie ein Update mit dem Status **Verfügbar** aus, und wählen Sie dann **Updatepaket installieren** aus. (Vor Version 1702 befand sich „Updates und Wartung“ unter **Verwaltung** > **Clouddienste**.)
+1.  Dans la console Configuration Manager, ouvrez **Administration** > **Mises à jour et services**, sélectionnez une mise à jour avec l’indication **Disponible**, puis choisissez **Installer le pack de mise à jour**. (Avant la version 1702, les mises à jour et la maintenance s’effectuaient via le menu **Administration** > **Services cloud**.)
 
-     Weitere Informationen zum Installieren von Updates finden Sie unter [Updates für System Center Configuration Manager](../../../../core/servers/manage/updates.md).  
+     Pour plus d’informations sur l’installation des mises à jour, consultez [Mises à jour pour System Center Configuration Manager](../../../../core/servers/manage/updates.md)  
 
-2.  Wählen Sie während der Installation des Updates auf der Seite **Clientoptionen** des Assistenten die Option **In der Präproduktionssammlung testen** aus.  
+2.  Lors de l’installation de la mise à jour, dans la page **Options du client** de l’Assistant, sélectionnez **Tester dans le regroupement de préproduction**.  
 
-3.  Schließen Sie den Assistenten ab, und installieren Sie das Updatepaket.  
+3.  Déroulez le reste de l’Assistant et installez le pack de mise à jour.  
 
-     Nachdem der Assistent abgeschlossen wurde, beginnen die Clients in der Präproduktionssammlung mit der Bereitstellung des aktualisierten Clients. Sie können die Bereitstellung der aktualisierten Clients überwachen, indem Sie auf **Überwachung** > **Clientstatus** > **Präproduktionsclientbereitstellung**gehen. Weitere Informationen finden Sie unter [Überwachen des Status der Clientbereitstellung in System Center Configuration Manager](../../../../core/clients/deploy/monitor-client-deployment-status.md).
+     Une fois l’Assistant terminé, les clients inclus dans le regroupement de préproduction commencent à déployer le client mis à jour. Vous pouvez surveiller le déploiement de clients mis à niveau en accédant à **Surveillance** > **État du client** > **Déploiement des clients en préproduction**. Pour plus d’informations, consultez [Comment surveiller l’état du déploiement des clients dans System Center Configuration Manager](../../../../core/clients/deploy/monitor-client-deployment-status.md).
 
     > [!NOTE]
-    > Der Bereitstellungsstatus auf den Computern, auf denen Standortsystemrollen in einer Präproduktionssammlung gehostet werden, kann eventuell als **Nicht kompatibel** gemeldet werden, selbst wenn der Client erfolgreich bereitgestellt wurde. Wenn Sie den Client in den Produktivbetrieb versetzen, wird der Bereitstellungsstatus ordnungsgemäß gemeldet.
+    > L’état du déploiement sur les ordinateurs hébergeant des rôles de système de site dans un regroupement de préproduction peut être signalé comme **Non conforme**, même quand le client a été correctement déployé. Lors de la promotion du client en production, l’état du déploiement est correctement signalé.
 
-##  <a name="to-promote-the-new-client-to-production"></a>So stufen Sie den neuen Client auf die Produktionsphase höher  
+##  <a name="to-promote-the-new-client-to-production"></a>Pour promouvoir le nouveau client en production  
 
-1.  Öffnen Sie in der Configuration Manager-Konsole **Verwaltung** > **Updates und Wartung**, und wählen Sie **Präproduktionsclient höher stufen** aus. (Vor Version 1702 befand sich „Updates und Wartung“ unter **Verwaltung** > **Clouddienste**.)
+1.  Dans la console Configuration Manager, ouvrez **Administration** > **Mises à jour et maintenance**, puis choisissez **Promouvoir le client de préproduction**. (Avant la version 1702, les mises à jour et la maintenance s’effectuaient via le menu **Administration** > **Services cloud**.)
 
     > [!TIP]
-    > Die Schaltfläche **Präproduktionsclient** ist ebenso bei der Überwachung von Clientbereitstellungen in der Konsole unter **Überwachung** > **Clientstatus** > **Präproduktionsclientbereitstellung**verfügbar.
+    > Le bouton **Promouvoir le client de préproduction** est également disponible quand vous surveillez les déploiements de clients dans la console en utilisant **Surveillance** > **État du client** > **Déploiement des clients en préproduction**.
 
-2.  Überprüfen Sie die Clientversionen in Produktion und Präproduktion, und stellen Sie sicher, dass die richtige Präproduktionssammlung angegeben ist. Klicken Sie anschließend erst auf **Höher stufen** und dann auf **Ja**.  
+2.  Examinez les versions du client en production et préproduction, vérifiez que le regroupement de préproduction approprié est spécifié, et cliquez sur **Promouvoir**, puis sur **Oui**.  
 
-3.  Nach Schließen des Dialogfelds wird die Clientversion in Ihrer Hierarchie durch die aktualisierte Clientversion ersetzt. Anschließend können Sie die Clients für den gesamten Standort aktualisieren. Informationen finden Sie unter [Aktualisieren von Clients für Windows-Computer in System Center Configuration Manager](../../../../core/clients/manage/upgrade/upgrade-clients-for-windows-computers.md).  
+3.  Une fois la boîte de dialogue fermée, la version du client mise à jour remplace la version du client en cours d’utilisation dans votre hiérarchie. Vous pouvez ensuite mettre à niveau les clients pour l’ensemble du site. Pour plus d’informations, consultez [Comment mettre à niveau les clients pour les ordinateurs Windows dans System Center Configuration Manager](../../../../core/clients/manage/upgrade/upgrade-clients-for-windows-computers.md).  
 
 >[!NOTE]
->Um den Präproduktionsclient zu aktivieren oder einen Präproduktionsclient zum Produktionsclient heraufzustufen, muss Ihr Konto Mitglied einer Sicherheitsrolle mit den Berechtigungen **Lesen** und **Ändern** für das **Updatepakete**-Objekt sein.
->Bei Clientupgrades werden Configuration Manager-Wartungsfenster berücksichtigt, die Sie konfiguriert haben.
+>Pour activer le client de pré-production ou promouvoir un client de pré-production en client de production, votre compte doit être membre du rôle de sécurité avec les autorisations de **lecture** et de **modification** pour l’objet **Packages de mise à jour**.
+>Les mises à niveau des clients respectent les fenêtres de maintenance Configuration Manager que vous avez configurées.

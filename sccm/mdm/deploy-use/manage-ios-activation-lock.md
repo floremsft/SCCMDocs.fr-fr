@@ -1,6 +1,6 @@
 ---
-title: Verwalten der iOS-Aktivierungssperre | Microsoft-Dokumentation
-description: Die iOS-Aktivierungssperre kann mit System Center Configuration Manager verwaltet werden.
+title: "Gérer le verrou d’activation iOS | Microsoft Docs"
+description: "Découvrez comment gérer le verrou d’activation iOS avec System Center Configuration Manager."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -17,89 +17,89 @@ manager: angrobe
 ms.openlocfilehash: 88bef04a52f716ae13afc21c25d33dea06a3fc9c
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-ios-activation-lock-with-system-center-configuration-manager"></a>Verwalten der iOS-Aktivierungssperre mit System Center Configuration Manager
+# <a name="manage-ios-activation-lock-with-system-center-configuration-manager"></a>Gérer le verrou d’activation iOS avec System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
-System Center Configuration Manager kann Sie beim Verwalten der iOS-Aktivierungssperre unterstützen, einem Feature der App „Mein iPhone suchen“ für iOS 7.1 und höher. Wenn die Aktivierungssperre aktiviert ist, müssen die Apple-ID und das Kennwort des Benutzers eingegeben werden, bevor folgende Vorgänge möglich sind:
+System Center Configuration Manager peut vous aider à gérer le verrou d’activation iOS, fonctionnalité de l’application Rechercher mon iPhone pour les appareils iOS 7.1 et versions ultérieures. Quand le verrou d’activation est activé, l’ID et le mot de passe Apple de l’utilisateur doivent être entrés pour permettre à quiconque de :
 
-- Deaktivieren von „Mein iPhone suchen“
-- Löschen des Geräts
-- Reaktivieren des Geräts
+- désactiver Rechercher mon iPhone ;
+- Effacer l'appareil
+- réactiver l'appareil.
 
-Auf **nicht überwachten** Geräten wird die Aktivierungssperre automatisch aktiviert, wenn die App „Mein iPhone suchen“ verwendet wird.
+Sur les appareils **non supervisés** , le verrou d’activation est activé automatiquement dès lors que l’application Rechercher mon iPhone est utilisée.
 
-Auf **überwachten** Geräten müssen Sie die Aktivierungssperre aktivieren, indem Sie die Kompatibilitätseinstellungen von Configuration Manager verwenden.
+Sur les appareils **supervisés** , vous devez activer le verrou d’activation à l’aide des paramètres de compatibilité de Configuration Manager.
 
 > [!TIP]
-> Im überwachten Modus für iOS-Geräte können Sie mit dem Apple Configurator Tool ein Gerät sperren, um die Funktionen auf bestimmte geschäftliche Zwecke einzuschränken. Der überwachte Modus ist in der Regel nur für firmeneigene Geräte vorgesehen.
+> Le mode supervisé pour les appareils iOS vous permet d'utiliser l'outil de configuration Apple pour verrouiller un appareil et limiter ainsi la fonctionnalité à des usages professionnels spécifiques. Le mode surveillé est généralement destiné uniquement aux appareils appartenant à l'entreprise.
 
-Obwohl die Aktivierungssperre zum Schutz von iOS-Geräten beiträgt und die Chancen einer Wiederherstellung bei Verlust oder Diebstahl erhöht, kann diese Funktion Sie als IT-Administrator vor eine Reihe von Herausforderungen stellen. Beispiel:
+Bien que le verrou d’activation permette de sécuriser les appareils iOS et améliore les chances de récupération en cas de perte ou de vol, cette fonctionnalité peut présenter quelques défis pour les administrateurs informatiques. Exemple :
 
-- Einer Ihrer Benutzer richtet die Aktivierungssperre auf einem Gerät ein. Anschließend verlässt der Benutzer das Unternehmen und gibt das Gerät zurück. Ohne die Apple-ID und das Kennwort des Benutzers gibt es keine Möglichkeit, das Gerät zu reaktivieren, auch wenn Sie es zurücksetzen.
-- Sie benötigen einen Bericht über alle Geräte, bei denen die Aktivierungssperre aktiviert ist.
-- Während einer Geräteaktualisierung in Ihrem Unternehmen möchten Sie einige Geräte einer anderen Abteilung zuweisen. Es können nur Geräte neu zugewiesen werden, bei denen die Aktivierungssperre nicht aktiviert ist.
-
-
-Apple hat zur Behebung dieser Probleme eine Umgehung der Aktivierungssperre in iOS 7.1 eingeführt. Auf diese Weise können Sie die Aktivierungssperre von überwachten Geräten ohne Apple-ID und Kennwort des Benutzers entfernen. Überwachte Geräte können einen gerätespezifischen Umgehungscode für die Aktivierungssperre generieren, der auf dem Aktivierungsserver von Apple gespeichert wird.
-
-Sie können [hier](https://support.apple.com/HT201365)mehr zur Aktivierungssperre erfahren.
-
-## <a name="how-configuration-manager-helps-you-manage-activation-lock"></a>Hilfe von Configuration Manager zur Verwaltung der Aktivierungssperre
-
-Configuration Manager hilft Ihnen dabei, die Aktivierungssperre zu verwalten. Dazu gibt es zwei Möglichkeiten:
-
-1. Aktivieren der Aktivierungssperre auf überwachten Geräten.
-2. Umgehen der Aktivierungssperre auf überwachten Geräten.
-
-> [!IMPORTANT]
-> Sie können die Aktivierungssperre auf nicht überwachten Geräten nicht umgehen.
-
-Die Geschäftsvorteile für firmeneigene Geräte sind:
+- L'un de vos utilisateurs configure le verrou d'activation sur un appareil. L'utilisateur quitte ensuite l'entreprise et rend l'appareil. Sans l’ID et le mot de passe Apple de l’utilisateur, il n’existe aucun moyen de réactiver l’appareil, même si vous le réinitialisez.
+- Vous avez besoin d’un rapport répertoriant tous les appareils sur lesquels le verrou d’activation est activé.
+- Lors d'une actualisation des appareils de votre organisation, vous souhaitez réaffecter certains appareils à un autre service. Vous ne pouvez réaffecter que les appareils sur lesquels le verrou d’activation n’est pas activé.
 
 
+Pour résoudre ces problèmes, Apple a introduit le contournement du verrou d'activation dans iOS 7.1. Il vous permet de supprimer le verrou d'activation des appareils supervisés sans avoir l'ID Apple et le mot de passe de l'utilisateur. Les appareils supervisés peuvent générer un code de contournement du verrou d'activation spécifique à l'appareil, qui est stocké sur le serveur d'activation d'Apple.
 
-- Der Benutzer erhält die Sicherheitsvorteile der App „Mein iPhone suchen“.
-- Sie können es dem Benutzer ermöglichen, seine Arbeit zu erledigen, in dem Wissen, dass Sie das Gerät außer Kraft setzen oder entsperren können, wenn es einem neuen Zweck zugewiesen werden soll.
+Vous trouverez un complément d’information sur le verrou d’activation [ici](https://support.apple.com/HT201365).
 
+## <a name="how-configuration-manager-helps-you-manage-activation-lock"></a>Comment Configuration Manager aide à gérer le verrou d’activation
 
-## <a name="enable-activation-lock-on-supervised-devices"></a>Aktivieren der Aktivierungssperre auf überwachten Geräten
+Configuration Manager peuvent vous aider à gérer le verrou d’activation de deux façons :
 
-Sie verwenden die Kompatibilitätseinstellungen von Configuration Manager, um ein Konfigurationselement des Typs **iOS und Mac OS X** zu erstellen und bereitzustellen, um die Aktivierungssperre auf überwachten Geräten zu aktivieren:
-
-1. Verwenden Sie die Informationen im Thema [Erstellen von Konfigurationselementen für iOS- und Mac OS X-Geräte, die ohne den System Center Configuration Manager-Client verwaltet werden](/sccm/compliance/deploy-use/create-configuration-items-for-ios-and-mac-os-x-devices-managed-without-the-client) zum Erstellen eines Konfigurationselements vom Typ **iOS und Mac OS X**.
-2. Konfigurieren Sie auf der Seite **System Security** (Systemsicherheit) des Assistenten zum Erstellen von Konfigurationselementen die Einstellung **Allow Activation Lock (supervised mode only)** (Aktivieren der Aktivierungssperre (ausschließlich überwachter Modus)) auf **Allowed**(Zulässig).
-3. [Erstellen von Konfigurationsbasislinien in System Center Configuration Manager](/sccm/compliance/deploy-use/create-configuration-baselines)
-4. [Bereitstellen von Konfigurationsbasislinien in System Center Configuration Manager](/sccm/compliance/deploy-use/deploy-configuration-baselines) an eine Sammlung, die die iOS-Geräte enthält, die für die Aktivierungssperre aktiviert werden soll.
+1. en activant le verrou d’activation sur les appareils supervisés ;
+2. en contournant le verrou d’activation sur les appareils supervisés.
 
 > [!IMPORTANT]
-> Stellen Sie sicher, dass das Gerät physisch verfügbar ist, bevor Sie dieses Verfahren ausführen. Falls dies nicht der Fall ist, wird die Aktivierungssperre umgangen. Derjenige, der im Besitz des Geräts ist, verfügt dann über Vollzugriff und kann so „Mein iPhone suchen“ ausschalten, das Gerät auf Werkseinstellung zurücksetzen oder es reaktivieren.
+> Vous ne pouvez pas contourner le verrou d’activation sur les appareils non supervisés.
 
-Sie können die Aktivierungssperre nur umgehen oder den Umgehungscode der Aktivierungssperre auf überwachten Geräten abrufen. Wenn Sie versuchen, die Aktivierungssperre auf einem nicht überwachten Gerät zu umgehen oder die Ergebnisse des Umgehungscodes anzuzeigen, tritt ein Fehler auf.
+Les avantages pour les appareils de l’entreprise sont les suivants :
 
 
 
-## <a name="view-the-activation-lock-bypass-code"></a>Anzeigen des Codes für die Umgehung der Aktivierungssperre
+- L'utilisateur bénéficie des avantages de sécurité offerts par l'application Rechercher mon iPhone.
+- Vous pouvez laisser l’utilisateur effectuer son travail en sachant que lorsque vous devrez réaffecter l’appareil, vous pourrez le mettre hors service ou le déverrouiller.
 
-1. Klicken Sie in der Configuration Manager-Konsole auf **Bestand und Kompatibilität**.
-2. Klicken Sie im Arbeitsbereich **Bestand und Kompatibilität** auf **Geräte**.
-3. Wählen Sie ein registriertes Gerät aus, das sich im überwachten Modus befindet und eine aktive Aktivierungssperre besitzt.
-4. Klicken Sie auf der Registerkarte **Start** in der **Gerätegruppe** auf **Remotegeräteaktionen** > **Umgehungscode für Aktivierungssperre anzeigen**.
-5. Im Dialogfeld **Umgehungscode für die Aktivierungssperre** wird der Umgehungscode für das ausgewählte Gerät angezeigt.
 
-## <a name="bypass-activation-lock"></a>Umgehen der Aktivierungssperre
+## <a name="enable-activation-lock-on-supervised-devices"></a>Activer le verrou d’activation sur les appareils supervisés
 
-1. Klicken Sie in der Configuration Manager-Konsole auf **Bestand und Kompatibilität**.
-2. Klicken Sie im Arbeitsbereich **Bestand und Kompatibilität** auf **Geräte**.
-3. Wählen Sie ein registriertes Gerät aus, das sich im überwachten Modus befindet und eine aktive Aktivierungssperre besitzt.
-3. Klicken Sie auf der Registerkarte **Start** in der **Gerätegruppe** auf **Remotegeräteaktionen** > **Aktivierungssperre umgehen**.
-5. Lesen Sie die Meldungen im Warnungsdialogfeld, und klicken Sie auf **Ja** , wenn Sie bereit sind, fortzufahren.
-6. Sie können den Status der Entsperranforderung überprüfen:
+Vous pouvez utiliser les paramètres de compatibilité de Configuration Manager pour créer et déployer un élément de configuration de type **iOS et Mac OS X** pour activer le verrou d’activation sur les appareils supervisés :
 
-    - In den Ermittlungsdaten für das Gerät im Dialogfeld mit den Geräteeigenschaften.
-    - In der Spalte **Umgehungsstatus für Aktivierungssperre** in der Ansicht **Geräte** (diese Spalte ist standardmäßig ausgeblendet).
-    - Im Abschnitt **Remote Device Actions Information** (Informationen über Remotegeräteaktionen) auf der Registerkarte **Summary** (Zusammenfassung) im Detailbereich (wenn ein Gerät ausgewählt wurde).
+1. Aidez-vous des informations contenues dans la rubrique [Comment créer des éléments de configuration pour des appareils iOS et Mac OS X gérés sans le client System Center Configuration Manager](/sccm/compliance/deploy-use/create-configuration-items-for-ios-and-mac-os-x-devices-managed-without-the-client) pour créer un élément de configuration de type **iOS et Mac OS X**.
+2. Dans la page **Sécurité système** de l’Assistant Création d’élément de configuration, configurez le paramètre **Autoriser le verrou d’activation (mode supervisé uniquement)** sur **Autorisé**.
+3. [Ajoutez l’élément de configuration à une base de référence de configuration](/sccm/compliance/deploy-use/create-configuration-baselines).
+4. [Déployez cette base de référence de configuration](/sccm/compliance/deploy-use/deploy-configuration-baselines) sur le regroupement contenant les appareils iOS pour lesquels vous voulez activer le verrou d’activation.
+
+> [!IMPORTANT]
+> Assurez-vous d’être en possession de l’appareil avant de suivre cette procédure. Si ce n’est pas le cas, le verrou d’activation sera contourné et toute personne en possession de l’appareil aura un accès total à celui-ci et aura ainsi tout loisir de désactiver l’application Rechercher mon iPhone, d’effacer le contenu du périphérique ou de le réactiver.
+
+Vous ne pouvez contourner le verrou d’activation ou récupérer le code de contournement du verrou d’activation que sur des appareils supervisés ; toute tentative de contournement du verrou d’activation sur un appareil non supervisé ou d’affichage du code de contournement générera une erreur.
+
+
+
+## <a name="view-the-activation-lock-bypass-code"></a>Afficher le code de contournement du verrou d’activation
+
+1. Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.
+2. Dans l'espace de travail **Ressources et Conformité** , cliquez sur **Périphériques**.
+3. Sélectionnez un appareil inscrit et en mode supervisé pour lequel le verrou d’activation est activé.
+4. Sous l’onglet **Accueil** , dans le groupe **Appareil** , cliquez sur **Actions de l’appareil à distance** > **Afficher le code de contournement du verrou d’activation**.
+5. La boîte de dialogue **Code de contournement du verrou d’activation** affiche le code de contournement de l’appareil sélectionné.
+
+## <a name="bypass-activation-lock"></a>Contourner le verrou d’activation
+
+1. Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.
+2. Dans l'espace de travail **Ressources et Conformité** , cliquez sur **Périphériques**.
+3. Sélectionnez un appareil inscrit et en mode supervisé pour lequel le verrou d’activation est activé.
+3. Sous l’onglet **Accueil** , dans le groupe **Appareils** , cliquez sur **Actions de l’appareil à distance** > **Contourner le verrou d’activation**.
+5. Lisez les messages d’avertissement s’affichant dans la boîte de dialogue, puis cliquez sur **Oui** dès que vous êtes prêt à continuer.
+6. Vous pouvez examiner l’état de la demande de déverrouillage via :
+
+    - les données de découverte de l’appareil dans la boîte de dialogue des propriétés de l’appareil ;
+    - la colonne **État de contournement du verrou d’activation** dans la vue **Appareils** (cette colonne est masquée par défaut) ;
+    - la section d’ **informations sur les actions de l’appareil à distance** sous l’onglet **Résumé** du volet d’informations (quand un appareil est sélectionné).

@@ -1,6 +1,6 @@
 ---
-title: "Veröffentlichen von Standortdaten | Microsoft-Dokumentation"
-description: "Hier erfahren Sie, wie Configuration Manager-Standorte in Active Directory Domain Services veröffentlicht werden."
+title: "Publier des données de site | Microsoft Docs"
+description: "Découvrez comment publier des sites Configuration Manager dans les services de domaine Active Directory."
 ms.custom: na
 ms.date: 2/7/2017
 ms.prod: configuration-manager
@@ -17,56 +17,56 @@ manager: angrobe
 ms.openlocfilehash: bcfb002c503485f03ba27d7346acb61d0d3c6087
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="publish-site-data-for-system-center-configuration-manager"></a>Veröffentlichen von Standortdaten für System Center Configuration Manager
+# <a name="publish-site-data-for-system-center-configuration-manager"></a>Publication de données de site pour System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Nachdem Sie das Active Directory-Schema für System Center Configuration Manager erweitert haben, können Sie die Configuration Manager-Standorte in Active Directory Domain Services (AD DS) veröffentlichen. Dadurch können Active Directory-Computer Standortinformationen gesichert aus einer vertrauenswürdigen Quelle abrufen. Das Veröffentlichen von Standortinformationen in AD DS ist für die Basisfunktionen von Configuration Manager zwar nicht erforderlich, aber Sie können hierdurch den Verwaltungsaufwand reduzieren.  
+Après avoir développé le schéma Active Directory pour System Center Configuration Manager, vous pouvez publier des sites Configuration Manager sur Active Directory Domain Services (AD DS). Les ordinateurs Active Directory peuvent ainsi récupérer en toute sécurité des informations de site à partir d’une source approuvée. La publication des informations de site sur AD DS n’est pas obligatoire pour les fonctionnalités de base de Configuration Manager, mais elle peut réduire la surcharge administrative.  
 
--   **Wenn ein Standort für das Veröffentlichen in AD DS konfiguriert ist**, können Configuration Manager-Clients über die Active Directory-Veröffentlichung gefunden werden. Hierzu wird eine LDAP-Abfrage an einen globalen Katalogserver gestellt.  
+-   **Quand un site est configuré pour publier dans AD DS**, les clients Configuration Manager peuvent trouver automatiquement des points de gestion par le biais de la publication Active Directory. Ils utilisent une requête LDAP à un serveur de catalogue global.  
 
--   **Wenn ein Standort keine Daten in AD DS veröffentlicht**, benötigen Clients einen alternativen Mechanismus zum Auffinden ihres Standardverwaltungspunkts.  
+-   **Quand un site ne publie pas dans AD DS**, les clients doivent utiliser une autre méthode pour rechercher leur point de gestion par défaut.  
 
-Weitere Informationen dazu, wie Clients nach einem Verwaltungspunkt suchen, finden Sie unter [Verstehen, wie Clients Standortressourcen und -dienste für System Center Configuration Manager suchen](../../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md).  
+Pour plus d’informations sur la façon dont les clients trouvent un point de gestion, consultez [Comprendre comment les clients recherchent des services et des ressources de site pour System Center Configuration Manager](../../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md).  
 
-## <a name="configure-sites-to-publish-to-ad-ds"></a>Konfigurieren von Standorten für die Veröffentlichung in AD DS  
- Es folgen die allgemeinen Schritte:  
+## <a name="configure-sites-to-publish-to-ad-ds"></a>Configuration des sites à publier dans AD DS  
+ Les étapes principales sont les suivantes :  
 
--   Sie müssen [das Active Directory-Schema für System Center Configuration Manager](../../../../core/plan-design/network/extend-the-active-directory-schema.md) in allen Gesamtstrukturen erweitern, in denen Sie Standortdaten veröffentlichen möchten. Zudem müssen Sie sicherstellen, dass der Container **Systemverwaltung** vorhanden ist.  
+-   Vous devez [étendre le schéma Active Directory pour System Center Configuration Manager](../../../../core/plan-design/network/extend-the-active-directory-schema.md) dans chaque forêt où vous allez publier des données de site. Vérifiez aussi que le conteneur **System Management** est présent.  
 
--   Sie müssen dem Computerkonto aller primären Standorte, die Daten veröffentlichen, die Berechtigung **Vollzugriff** für den Container **System Management** und all seine untergeordneten Objekte erteilen.  
+-   Vous devez accorder au compte d’ordinateur de chaque site principal devant publier des données le **contrôle total** sur le conteneur **System Management** et tous ses objets enfants.  
 
-### <a name="to-enable-a-configuration-manager-site-to-publish-site-information-to-active-directory-forest"></a>So aktivieren Sie einen Configuration Manager-Standort für das Veröffentlichen von Standortinformationen in einer Active Directory-Gesamtstruktur
+### <a name="to-enable-a-configuration-manager-site-to-publish-site-information-to-active-directory-forest"></a>Pour autoriser un site Configuration Manager à publier des informations de site sur une forêt Active Directory
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Verwaltung**.  
+1.  Dans la console Configuration Manager, cliquez sur **Administration**.  
 
-2.  Erweitern Sie im Arbeitsbereich **Verwaltung** den Bereich **Standortkonfiguration**, und klicken Sie auf **Standorte**. Wählen Sie den Standort aus, dessen Standortdaten veröffentlicht werden sollen. Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Eigenschaften** auf **Eigenschaften**.  
+2.  Dans l'espace de travail **Administration** , développez **Configuration du site**, puis cliquez sur **Sites**. Sélectionnez le site dont vous souhaitez publier les données. Sous l’onglet **Accueil**, dans le groupe **Propriétés**, cliquez sur **Propriétés**.  
 
-3.  Wählen Sie auf der Registerkarte **Veröffentlichen** der Standorteigenschaften die Gesamtstrukturen aus, in denen dieser Standort Standortdaten veröffentlichen soll.  
+3.  Sous l’onglet **Publication** des propriétés du site, sélectionnez les forêts sur lesquelles ce site devra publier les données de site.  
 
-4.  Klicken Sie auf **OK** , um die Konfiguration zu speichern.  
+4.  Cliquez sur **OK** pour enregistrer la configuration.  
 
-### <a name="to-set-up-active-directory-forests-for-publishing"></a>So richten Sie Active Directory-Gesamtstrukturen für die Veröffentlichung ein  
+### <a name="to-set-up-active-directory-forests-for-publishing"></a>Pour configurer des forêts Active Directory pour la publication  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Verwaltung**.  
+1.  Dans la console Configuration Manager, cliquez sur **Administration**.  
 
-2.  Klicken Sie im Arbeitsbereich **Verwaltung** auf **Active Directory-Gesamtstrukturen**. Wenn eine Active Directory-Gesamtstrukturermittlung bereits ausgeführt wurde, werden die ermittelten Gesamtstrukturen im Ergebnisbereich angezeigt. Bei der Ausführung der Active Directory-Gesamtstrukturermittlung werden die lokale Gesamtstruktur und alle vertrauenswürdigen Gesamtstrukturen ermittelt. Nur nicht vertrauenswürdige Gesamtstrukturen müssen manuell hinzugefügt werden.  
+2.  Dans l'espace de travail **Administration** , cliquez sur **Forêts Active Directory**. Si la découverte de forêts Active Directory a été exécutée précédemment, vous pouvez voir chaque forêt découverte dans le volet des résultats. La forêt locale et toutes les forêts approuvées sont découvertes lorsque la Découverte de forêts Active Directory s'exécute. Seules les forêts non approuvées doivent être ajoutées manuellement.  
 
-    -   Wählen Sie zum Einrichten einer bereits ermittelten Gesamtstruktur die gewünschte Gesamtstruktur im Ergebnisbereich aus. Klicken Sie dann auf der Registerkarte **Startseite** in der Gruppe **Eigenschaften** auf **Eigenschaften**, um die Gesamtstruktureigenschaften zu öffnen. Fahren Sie mit Schritt 3 fort.  
+    -   Pour configurer une forêt qui a été découverte, sélectionnez la forêt dans le volet de résultats. Ensuite, sous l’onglet **Accueil**, dans le groupe **Propriétés**, cliquez sur **Propriétés** pour ouvrir les propriétés de la forêt. Passez à l'étape 3.  
 
-    -   Klicken Sie zum Einrichten einer nicht aufgelisteten Gesamtstruktur auf der Registerkarte **Startseite** in der Gruppe **Erstellen** auf **Gesamtstruktur hinzufügen**, um das Dialogfeld **Gesamtstruktur hinzufügen** zu öffnen. Fahren Sie mit Schritt 3 fort.  
+    -   Pour configurer une nouvelle forêt qui n’est pas répertoriée, sous l’onglet **Accueil**, dans le groupe **Créer**, cliquez sur **Ajouter une forêt** pour ouvrir la boîte de dialogue **Ajouter une forêt**. Passez à l'étape 3.  
 
-3.  Schließen Sie auf der Registerkarte **Allgemein** die Konfiguration für die zu ermittelnde Gesamtstruktur ab, und geben Sie das **Konto für die Active Directory-Gesamtstruktur** an.  
-
-    > [!NOTE]  
-    >  Für die Active Directory-Gesamtstrukturermittlung ist ein globales Konto erforderlich, damit Ermittlung und Veröffentlichung in nicht vertrauenswürdigen Gesamtstrukturen möglich sind. Wenn Sie nicht das Computerkonto des Standortservers verwenden, können Sie nur ein globales Konto auswählen.  
-
-4.  Wenn Sie planen, eine Veröffentlichung von Standortdaten in dieser Gesamtstruktur zu ermöglichen, konfigurieren Sie auf der Registerkarte **Veröffentlichen** das Veröffentlichen in dieser Gesamtstruktur.  
+3.  Sous l’onglet **Général**, remplissez les configurations pour la forêt que vous souhaitez découvrir et spécifiez le **Compte de forêt Active Directory**.  
 
     > [!NOTE]  
-    >  Wenn Sie Standorte für die Veröffentlichung in einer Gesamtstruktur aktivieren, müssen Sie das Active Directory-Schema dieser Gesamtstruktur für Configuration Manager erweitern. Das Konto für die Active Directory-Gesamtstruktur muss Vollzugriff auf den Systemcontainer in dieser Gesamtstruktur besitzen.  
+    >  La découverte de forêts Active Directory requiert un compte global pour découvrir et publier les forêts non approuvées. Si vous n'utilisez pas le compte d'ordinateur du serveur du site, vous pouvez uniquement sélectionner un compte global.  
 
-5.  Wenn Sie die Konfiguration dieser Gesamtstruktur zur Verwendung mit der Active Directory-Gesamtstrukturermittlung abgeschlossen haben, klicken Sie auf **OK** , um die Konfiguration zu speichern.  
+4.  Si vous prévoyez d'autoriser des sites à publier des données de site pour cette forêt, dans l'onglet **Publication** , remplissez la configuration de la publication de cette forêt.  
+
+    > [!NOTE]  
+    >  Si vous autorisez les sites à publier sur une forêt, vous devez étendre le schéma Active Directory de cette forêt pour Configuration Manager. Le compte de forêt Active Directory doit avoir des autorisations Contrôle total sur le conteneur système dans cette forêt.  
+
+5.  Lorsque vous terminez la configuration de cette forêt pour une utilisation avec la Découverte de forêts Active Directory, cliquez sur **OK** pour enregistrer la configuration.  

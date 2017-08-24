@@ -1,6 +1,6 @@
 ---
-title: Benachrichtigungen und Statussystem | Microsoft-Dokumentation
-description: "Konfigurieren Sie Warnungen, und verwenden Sie das Statussystem, damit Sie ständig über den Status Ihrer Configuration Manager-Bereitstellung informiert werden."
+title: "Alertes et système d’état | Microsoft Docs"
+description: "Configurez des alertes et utilisez le système d’état pour rester informé de l’état de votre déploiement de Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,295 +17,295 @@ manager: angrobe
 ms.openlocfilehash: ed692bdea055775890535d2666f09ba5f5c7c4e1
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="use-alerts-and-the-status-system-for-system-center-configuration-manager"></a>Verwenden von Benachrichtigungen und des Statussystems für System Center Configuration Manager
+# <a name="use-alerts-and-the-status-system-for-system-center-configuration-manager"></a>Utiliser des alertes et le système d’état pour System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Konfigurieren Sie Warnungen, und verwenden Sie das integrierte Statussystem, damit Sie ständig über den Status Ihrer Configuration Manager-Bereitstellung informiert werden.  
+Configurez des alertes et utilisez le système d’état intégré pour rester informé de l’état de votre déploiement de System Center Configuration Manager.  
 
 
-##  <a name="bkmk_Status"></a> Statussystem  
- Alle wichtigen Standortkomponenten generieren Meldungen, die Feedback zu Standort- und Hierarchievorgängen bereitstellen.    Mit diesen Informationen bleiben Sie auf dem Laufenden hinsichtlich der Integrität unterschiedlicher Standortprozesse. Sie können das Warnungssystem optimieren, sodass bekannte Probleme weitgehend ignoriert werden, während für andere Probleme, die möglicherweise Ihrer Aufmerksamkeit bedürfen, eine frühe Sichtbarkeit erreicht wird.  
+##  <a name="bkmk_Status"></a> Système d’état  
+ Tous les composants de site principaux génèrent des messages d’état qui fournissent des commentaires sur les opérations de site et de hiérarchie.    Cette information peut vous tenir informé de l’intégrité des différents processus de site. Vous pouvez régler le système d’alerte pour ignorer le bruit concernant les problèmes connus tout en permettant une visibilité anticipée d’autres problèmes susceptibles de nécessiter votre attention.  
 
- Das Configuration Manager-Statussystem wird standardmäßig ohne Konfiguration ausgeführt, da Einstellungen verwendet werden, die für die meisten Umgebungen geeignet sind. Folgende Elemente können aber konfiguriert werden:  
+ Par défaut, le système d’état de Configuration Manager fonctionne sans configuration en utilisant les paramètres qui conviennent à la plupart des environnements. Toutefois, vous pouvez configurer les éléments suivants :  
 
--   **Statuszusammenfassungen:** Sie können die Statuszusammenfassungen an jedem Standort bearbeiten, um die Häufigkeit von Statusmeldungen zu steuern, die eine Änderung des Statusindikators für die folgenden vier Zusammenfassungen generieren:  
+-   **Outils de synthèse d’état :** vous pouvez modifier les outils de synthèse d’état sur chaque site pour contrôler la fréquence des messages d’état qui génèrent un changement d’indicateur d’état pour les quatre outils de synthèse suivants :  
 
-    -   Anwendungsbereitstellung – Zusammenfassung  
+    -   Outil de synthèse du déploiement d'application  
 
-    -   Anwendungsstatistik – Zusammenfassung  
+    -   Outil de synthèse des statistiques d'application  
 
-    -   Komponentenstatus – Zusammenfassung  
+    -   Outil de synthèse d'état des composants  
 
-    -   Standortsystemstatus – Zusammenfassung  
+    -   Outil de synthèse d'état du système de site  
 
--   **Statusfilterregeln:** Sie können für jeden Standort neue Statusfilterregeln erstellen, die Priorität der Regeln ändern, Regeln deaktivieren oder aktivieren und nicht verwendete Regeln löschen.  
+-   **Règles de filtre d’état :** vous pouvez créer des règles de filtre d’état, modifier la priorité des règles, activer ou désactiver des règles, ainsi que supprimer des règles non utilisées sur chaque site.  
 
     > [!NOTE]  
-    >  Bei Statusfilterregeln wird die Verwendung von Umgebungsvariablen zur Ausführung externer Befehle nicht unterstützt.  
+    >  Les règles de filtre d'état ne prennent pas en charge l'utilisation de variables d'environnement pour exécuter des commandes externes.  
 
--   **Statusberichterstattung:** Sie können sowohl die Server- als auch die Clientkomponenten-Berichterstattung konfigurieren, um zu ändern, wie Meldungen an das Configuration Manager-Statussystem gemeldet werden, sowie anzugeben, wohin die Statusmeldungen gesendet werden.  
+-   **Rapport d’état :** vous pouvez configurer le rapport des composants client et serveur pour modifier la façon dont les messages d’état sont signalées dans un rapport au système d’état de Configuration Manager et spécifier où les messages d’état sont envoyés.  
 
     > [!WARNING]  
-    >  Die Standardeinstellungen für die Berichterstattung eignen sich für die meisten Umgebungen und sollten nur mit großer Sorgfalt geändert werden. Wenn Sie die Ebene der Statusberichterstattung erhöhen, damit alle Statusdetails gemeldet werden, kann dies zu einer höheren Last auf dem Configuration Manager-Standort führen, da mehr Statusmeldungen verarbeitet werden müssen. Wird die Ebene der Statusberichterstattung verringert, kann dies den Nutzen der Statuszusammenfassungen einschränken.  
+    >  Étant donné que les paramètres de rapport par défaut conviennent à la plupart des environnements, ils doivent être modifiés avec précaution. Lorsque vous augmentez le niveau du rapport d'état en choisissant de rapporter tous les détails d'état, vous pouvez augmenter la quantité de messages d'état à traiter, ce qui accroît la charge de traitement sur le site Configuration Manager. À l'inverse, une diminution du niveau du rapport d'état peut limiter l'utilité des outils de synthèse d'état.  
 
-Da im Statussystem getrennte Konfigurationen für jeden Standort verwaltet werden, müssen Sie jeden Standort einzeln bearbeiten.  
+Étant donné que le système d’état tient à jour des configurations distinctes pour chaque site, vous devez modifier chaque site individuellement.  
 
-###  <a name="bkmk_configstatus"></a> Vorgehensweisen zum Konfigurieren des Statussystems  
+###  <a name="bkmk_configstatus"></a> Procédures de configuration du système d’état  
 
-##### <a name="to-configure-status-summarizers"></a>So konfigurieren Sie Statuszusammenfassungen  
+##### <a name="to-configure-status-summarizers"></a>Pour configurer des outils de synthèse d'état  
 
-1.  Navigieren Sie in der Configuration Manager-Konsole zu **Verwaltung** > **Standortkonfiguration** >**Standorte**, und wählen Sie dann den Standort aus, für den Sie das Statussystem konfigurieren möchten.  
+1.  Dans la console Configuration Manager, accédez à **Administration** > **Configuration du site** >**Sites**, puis sélectionnez le site dont vous voulez configurer le système d’état.  
 
-2.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Einstellungen** auf **Statuszusammenfassungen**.  
+2.  Dans l'onglet **Accueil** , dans le groupe **Paramètres** , cliquez sur **Outils de synthèse d'état**.  
 
-3.  Wählen Sie im Dialogfeld **Statuszusammenfassungen** die Statuszusammenfassung aus, die Sie konfigurieren möchten, und klicken Sie dann auf **Bearbeiten** , um die Eigenschaften für diese Zusammenfassung zu öffnen. Wenn Sie die Zusammenfassung "Anwendungsbereitstellung" oder "Anwendungsstatistik" bearbeiten, fahren Sie mit Schritt 5 fort. Wenn Sie die Zusammenfassung "Komponentenstatus" bearbeiten, fahren Sie mit Schritt 6 fort. Wenn Sie die Zusammenfassung "Standortsystemstatus" bearbeiten, fahren Sie mit Schritt 7 fort.  
+3.  Dans la boîte de dialogue **Outils de synthèse d'état** , sélectionnez l'outil de synthèse d'état que vous souhaitez configurer, puis cliquez sur **Modifier** pour ouvrir les propriétés de cet outil de synthèse. Si vous modifiez l'outil de synthèse du déploiement d'application ou des statistiques d'application, passez à l'étape 5. Si vous modifiez l'outil de synthèse d'état des composants, passez à l'étape 6. Si vous modifiez l'outil de synthèse d'état du système de site, passez à l'étape 7.  
 
-4.  Gehen Sie nach dem Öffnen der Eigenschaftenseite für die Zusammenfassung „Anwendungsbereitstellung“ oder „Anwendungsstatistik“ wie nachfolgend beschrieben vor:  
+4.  Utilisez les étapes suivantes après avoir ouvert la page de propriétés de l'outil de synthèse du déploiement d'application ou l'outil de synthèse des statistiques d'application :  
 
-    1.  Konfigurieren Sie auf der Eigenschaftenseite für die Zusammenfassung auf der Registerkarte **Allgemein** das Zusammenfassungsintervall, und klicken Sie dann auf **OK** , um die Eigenschaftenseite zu schließen.  
+    1.  Dans l'onglet **Général** de la page de propriétés des outils de synthèse, configurez les intervalles de synthèse, puis cliquez sur **OK** pour fermer la page de propriétés.  
 
-    2.  Klicken Sie auf **OK** , um das Dialogfeld **Statuszusammenfassungen** zu schließen und dieses Verfahren abzuschließen.  
+    2.  Cliquez sur **OK** pour fermer la boîte de dialogue **Outils de synthèse d'état** et terminez cette procédure.  
 
-5.  Gehen Sie nach dem Öffnen der Eigenschaftenseite für die Zusammenfassung „Komponentenstatus“ wie nachfolgend beschrieben vor:  
+5.  Utilisez les étapes suivantes après avoir ouvert la page de propriétés de l'outil de synthèse d'état des composants :  
 
-    1.  Konfigurieren Sie auf der Eigenschaftenseite für die Zusammenfassung auf der Registerkarte **Allgemein** die Werte für Replikation und Schwellenwertzeitraum.  
+    1.  Dans l'onglet **Général** de la page de propriétés des outils de synthèse, configurez les valeurs de réplication et de période seuil.  
 
-    2.  Wählen Sie auf der Registerkarte **Schwellenwerte** den zu konfigurierenden **Meldungstyp** aus, und klicken Sie dann in der Liste **Schwellenwerte** auf den Namen einer Komponente.  
+    2.  Dans l'onglet **Seuils** , sélectionnez le **Type de Message** que vous souhaitez configurer, puis cliquez sur le nom d'un composant dans la liste **Seuils** .  
 
-    3.  Bearbeiten Sie im Dialogfeld **Eigenschaften von Statusschwellenwerten** die Schwellenwerte für Warnungs- und kritische Meldungen, und klicken Sie dann auf **OK**.  
+    3.  Dans la boîte de dialogue **Propriétés du seuil de l'état** , modifiez les valeurs de seuil d'avertissement et critique, puis cliquez sur **OK**.  
 
-    4.  Wiederholen Sie bei Bedarf Schritte 6.b und 6.c, und klicken Sie abschließend auf **OK** , um die Eigenschaften für die Zusammenfassung zu schließen.  
+    4.  Répétez les étapes 6.b et 6.c au besoin et, lorsque vous avez terminé, cliquez sur **OK** pour fermer les propriétés de l'outil de synthèse.  
 
-    5.  Klicken Sie auf **OK** , um das Dialogfeld **Statuszusammenfassungen** zu schließen und dieses Verfahren abzuschließen.  
+    5.  Cliquez sur **OK** pour fermer la boîte de dialogue **Outils de synthèse d'état** et terminez cette procédure.  
 
-6.  Gehen Sie nach dem Öffnen der Eigenschaftenseite für die Zusammenfassung „Standortsystemstatus“ wie nachfolgend beschrieben vor:  
+6.  Utilisez les étapes suivantes après avoir ouvert les pages des propriétés de l'outil de synthèse d'état du système de site :  
 
-    1.  Konfigurieren Sie auf der Eigenschaftenseite für die Zusammenfassung auf der Registerkarte **Allgemein** die Werte für Replikation und Schwellenwertzeitraum.  
+    1.  Dans l'onglet **Général** de la page de propriétés des outils de synthèse, configurez les valeurs de réplication et de planification.  
 
-    2.  Geben Sie auf der Registerkarte **Schwellenwerte** die Werte für die **Standardschwellenwerte** an, um die Standardschwellenwerte für die Statusanzeigen „Kritisch“ und „Warnung“ zu konfigurieren.  
+    2.  Dans l'onglet **Seuils** , spécifiez des valeurs pour les **Seuils par défaut** afin de configurer des seuils par défaut pour les affichages d'état critique et d'avertissement.  
 
-    3.  Die Werte für bestimmte **Speicherobjekte**können Sie bearbeiten, indem Sie das Objekt in der Liste **Spezifische Schwellenwerte** auswählen und dann auf die Schaltfläche **Eigenschaften** klicken, um die Schwellenwerte für die Statusanzeigen „Kritisch“ und „Warnung“ für Speicherobjekte aufzurufen und zu bearbeiten. Klicken Sie auf **OK** , um die Speicherobjekteigenschaften zu schließen.  
+    3.  Pour modifier les valeurs des **Objets de stockage**spécifiques, cliquez sur l'objet dans la liste **Seuils spécifiques** et cliquez sur le bouton **Propriétés** pour pouvoir accéder et modifier les seuils critique et d'avertissement des objets de stockage. Cliquez sur **OK** pour fermer les propriétés des objets de stockage.  
 
-    4.  Sie können ein neues Speicherobjekt erstellen, indem Sie auf die Schaltfläche **Objekt erstellen** klicken und die Werte für das Speicherobjekt angeben. Klicken Sie auf **OK** , um die Objekteigenschaften zu schließen.  
+    4.  Pour créer un nouvel objet de stockage, cliquez sur le bouton **Créer un objet** et spécifiez les valeurs des objets de stockage. Cliquez sur **OK** pour fermer les propriétés de l'objet.  
 
-    5.  Sie können ein Speicherobjekt löschen, indem Sie das Objekt auswählen und auf die Schaltfläche **Löschen** klicken.  
+    5.  Pour supprimer un objet de stockage, sélectionnez l'objet, puis cliquez sur le bouton **Supprimer** .  
 
-    6.  Wiederholen Sie die Schritte 7.b bis 7.e. nach Bedarf. Klicken Sie abschließend auf **OK** , um die Zusammenfassungseigenschaften zu schließen.  
+    6.  Répétez les étapes 7.b à 7.e si besoin. Lorsque vous avez terminé, cliquez sur **OK** pour fermer les propriétés de l'outil de synthèse.  
 
-    7.  Klicken Sie auf **OK** , um das Dialogfeld **Statuszusammenfassungen** zu schließen und dieses Verfahren abzuschließen.  
+    7.  Cliquez sur **OK** pour fermer la boîte de dialogue **Outils de synthèse d'état** et terminez cette procédure.  
 
-##### <a name="to-create-a-status-filter-rule"></a>So erstellen Sie eine Statusfilterregel  
+##### <a name="to-create-a-status-filter-rule"></a>Pour créer une règle de filtre d'état  
 
-1.  Navigieren Sie in der Configuration Manager-Konsole zu **Verwaltung** > **Standortkonfiguration** >**Standorte**, und wählen Sie dann den Standort aus, an dem Sie das Statussystem konfigurieren möchten.  
+1.  Dans la console Configuration Manager, accédez à **Administration** > **Configuration du site** >**Sites**, puis sélectionnez le site pour lequel vous voulez configurer le système d’état.  
 
-2.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Einstellungen** auf **Statusfilterregeln**. Das Dialogfeld **Statusfilterregeln** wird geöffnet.  
+2.  Dans l'onglet **Accueil** , dans le groupe **Paramètres** , cliquez sur **Règles de filtre d'état**. La boîte de dialogue **Règles de filtre d'état** s'ouvre.  
 
-3.  Klicken Sie auf **Erstellen**.  
+3.  Cliquez sur **Créer**.  
 
-4.  Geben Sie im **Assistenten für neue Statusfilterregeln**auf der Seite **Allgemein** einen Namen für die neue Statusfilterregel sowie Meldungsübereinstimmungskriterien für die Regel an, und klicken Sie dann auf **Weiter**.  
+4.  Sur la page **Général**de l' **Assistant Création de règle de filtre d'état** , spécifiez un nom pour la nouvelle règle de filtre d'état et un critère de correspondance des messages pour la règle, puis cliquez sur **Suivant**.  
 
-5.  Geben Sie auf der Registerkarte **Aktionen** die Aktionen an, die ausgeführt werden sollen, wenn eine Statusmeldung mit der Filterregel übereinstimmt, und klicken Sie dann auf **Weiter**.  
+5.  Sur la page **Actions** , spécifiez les actions à entreprendre lorsqu'un message d'état correspond à la règle de filtre, puis cliquez sur **Suivant**.  
 
-6.  Überprüfen Sie auf der Seite **Zusammenfassung** die Details für die neue Regel, und schließen Sie dann den Assistenten ab.  
+6.  Sur la page **Résumé** , consultez les détails de la nouvelle règle, puis terminez l'Assistant.  
 
     > [!NOTE]  
-    >  Configuration Manager erfordert nur, dass die neue Statusfilterregel einen Namen hat. Wenn die Regel erstellt wird, ohne Kriterien für die Verarbeitung von Statusmeldungen anzugeben, hat die Statusfilterregel keine Auswirkungen. Dadurch ist es möglich, dass Regeln vor dem eigentlichen Konfigurieren der Statusfilterkriterien für die einzelnen Regeln erstellt und organisiert werden.  
+    >  Configuration Manager exige uniquement que la nouvelle règle de filtre d'état ait un nom. Si la règle est créée, mais que vous ne spécifiez pas de critère pour traiter les messages d'état, la règle de filtre d'état n'aura aucun effet. Cela vous permet de créer et d'organiser des règles avant de configurer les critères de filtre d'état pour chaque règle.  
 
-##### <a name="to-modify-or-delete-a-status-filter-rule"></a>So ändern oder löschen Sie eine Statusfilterregel  
+##### <a name="to-modify-or-delete-a-status-filter-rule"></a>Pour modifier ou supprimer une règle de filtre d'état  
 
-1.  Navigieren Sie in der Configuration Manager-Konsole zu **Verwaltung** > **Standortkonfiguration** >**Standorte**, und wählen Sie dann den Standort aus, an dem Sie das Statussystem konfigurieren möchten.  
+1.  Dans la console Configuration Manager, accédez à **Administration** > **Configuration du site** >**Sites**, puis sélectionnez le site pour lequel vous voulez configurer le système d’état.  
 
-2.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Einstellungen** auf **Statusfilterregeln**.  
+2.  Dans l'onglet **Accueil** , dans le groupe **Paramètres** , cliquez sur **Règles de filtre d'état**.  
 
-3.  Wählen Sie im Dialogfeld **Statusfilterregeln** die zu ändernde Regel aus, und führen Sie dann eine der folgenden Aktionen aus:  
+3.  Dans la boîte de dialogue **Règles de filtre d'état** , sélectionnez la règle que vous souhaitez modifier puis effectuez l'une des actions suivantes :  
 
-    -   Klicken Sie auf **Priorität erhöhen** oder **Priorität verringern** , um die Verarbeitungsreihenfolge der Statusfilterregel zu ändern. Wählen Sie dann eine andere Aktion aus, oder fahren Sie mit Schritt 8 dieses Verfahrens fort, um diesen Task abzuschließen.  
+    -   Cliquez sur **Augmenter la priorité** ou **Diminuer la priorité** pour modifier l'ordre de traitement de la règle de filtre d'état. Puis sélectionnez une autre action ou passez à l'étape 8 de cette procédure pour terminer cette tâche.  
 
-    -   Klicken Sie auf **Deaktivieren** oder **Aktivieren** , um den Status der Regel zu ändern. Wählen Sie anschließend eine andere Aktion aus, oder fahren Sie mit Schritt 8 dieses Verfahrens fort, um diesen Task abzuschließen.  
+    -   Cliquez sur **Désactiver** ou **Activer** pour modifier l'état de la règle. Après avoir modifié l'état de la règle, sélectionnez une autre action ou passez à l'étape 8 de cette procédure pour terminer cette tâche.  
 
-    -   Klicken Sie auf **Löschen** , um die Statusfilterregel von diesem Standort zu löschen, und klicken Sie dann auf **Ja** , um die Aktion zu bestätigen. Wählen Sie anschließend eine andere Aktion aus, oder fahren Sie mit Schritt 8 dieses Verfahrens fort, um diesen Task abzuschließen.  
+    -   Cliquez sur **Supprimer** si vous souhaitez supprimer la règle de filtre d'état de ce site, puis cliquez sur **Oui** pour confirmer l'action. Après avoir supprimé une règle, sélectionnez une autre action ou passez à l'étape 8 de cette procédure pour terminer cette tâche.  
 
-    -   Klicken Sie auf **Bearbeiten** , um die Kriterien für die Regel zu ändern, und fahren Sie mit Schritt 5 dieses Verfahrens fort.  
+    -   Cliquez sur **Modifier** si vous souhaitez modifier les critères de la règle de message d'état et passez à l'étape 5 de cette procédure.  
 
-4.  Ändern Sie auf der Registerkarte **Allgemein** des Eigenschaftendialogfeldes für die Statusfilterregel die Regel und die Meldungsübereinstimmungskriterien.  
+4.  Sur l'onglet **Général** de la boîte de dialogue Propriétés de la règle de filtre d'état, modifiez la règle et les critères de correspondance des messages.  
 
-5.  Ändern Sie auf der Registerkarte **Aktionen** die Aktionen, die ausgeführt werden sollen, wenn eine Statusmeldung mit der Filterregel übereinstimmt.  
+5.  Cliquez sur l'onglet **Actions** , modifiez les actions à entreprendre lorsqu'un message d'état correspond à la règle de filtre.  
 
-6.  Klicken Sie zum Speichern der Änderungen auf **OK** .  
+6.  Cliquez sur **OK** pour enregistrer les modifications.  
 
-7.  Klicken Sie auf **OK** , um das Dialogfeld **Statusfilterregeln** zu schließen.  
+7.  Cliquez sur **OK** pour fermer la boîte de dialogue **Règles de filtre d'état** .  
 
-##### <a name="to-configure-status-reporting"></a>So konfigurieren Sie die Statusberichterstattung  
+##### <a name="to-configure-status-reporting"></a>Pour configurer un rapport d'état  
 
-1.  Navigieren Sie in der Configuration Manager-Konsole zu **Verwaltung** > **Standortkonfiguration** > **Standorte**, und wählen Sie dann den Standort aus, an dem Sie das Statussystem konfigurieren möchten.  
+1.  Dans la console Configuration Manager, accédez à **Administration** > **Configuration du site** > **Sites**, puis sélectionnez le site pour lequel vous voulez configurer le système d’état.  
 
-2.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Einstellungen** auf **Standortkomponenten konfigurieren**, und wählen Sie dann **Statusberichterstattung**aus.  
+2.  Dans l'onglet **Accueil** , dans le groupe **Paramètres** , cliquez sur **Configurer les composants de site**, puis sélectionnez **Rapport d'état**.  
 
-3.  Geben Sie im Dialogfeld **Eigenschaften der Statusberichtkomponenten** die Server- und Clientkomponentenstatusmeldungen an, die berichtet oder protokolliert werden sollen:  
+3.  Dans la boîte de dialogue **Propriétés du composant de rapport d'état** , spécifiez les messages d'état de composant serveur et client que vous souhaitez signaler ou journaliser :  
 
-    1.  Konfigurieren Sie **Bericht**, um Statusmeldungen an das Configuration Manager-Statusmeldungssystem senden zu lassen.  
+    1.  Configurez **Rapport** pour envoyer des messages d'état au système de messages d'état de Configuration Manager.  
 
-    2.  Konfigurieren Sie **Protokoll** , um Typ und Schweregrad von Statusmeldungen in das Windows-Ereignisprotokoll schreiben zu lassen.  
+    2.  Configurez **Journal** pour écrire le type et la gravité des messages d'état dans le journal des événements Windows.  
 
-4.  Klicken Sie auf **OK**.  
+4.  Cliquez sur **OK**.  
 
-###  <a name="BKMK_MonitorSystemStatus"></a> Überwachen des Statussystems für Configuration Manager  
- **Systemstatus** bietet eine Übersicht über allgemeine Standortvorgänge sowie Standortservervorgänge in Ihrer Hierarchie. Hier können Sie Funktionsprobleme bei Standortsystemservern oder Komponenten erkennen, und Sie können den Systemstatus verwenden, um bestimmte Details zu verschiedenen Configuration Manager-Vorgängen zu überprüfen. Sie können den Systemstatus in der Configuration Manager-Konsole im Arbeitsbereich **Überwachung** im Knoten **Systemstatus** überwachen.  
+###  <a name="BKMK_MonitorSystemStatus"></a> Surveiller l’état du système de Configuration Manager  
+ L’**état du système** dans Configuration Manager fournit une vue d’ensemble des opérations générales de sites et des opérations de serveur de site de votre hiérarchie. Il peut révéler des problèmes de fonctionnement des serveurs de système de site ou des composants, et vous pouvez utiliser l'état du système pour consulter des détails spécifiques pour différentes opérations de Configuration Manager. Vous surveillez l'état du système à partir du nœud **État du système** de l'espace de travail **Surveillance** dans la console Configuration Manager.  
 
- Von den meisten Configuration Manager-Standortsystemrollen und -Komponenten werden Statusmeldungen generiert. Details zu Statusmeldungen werden in den Betriebsprotokollen der jeweiligen Komponenten protokolliert und zusätzlich an die Standortdatenbank übermittelt. Dort werden sie zusammengefasst und in einem allgemeinen Rollup zu den Komponenten oder zur Standortsystemintegrität angezeigt. In diesen Rollups der Statusmeldungen sind Informationen und Details zu normalen Vorgängen sowie zu Warnungen und Fehlern enthalten. Sie können die Schwellenwerte konfigurieren, bei denen Warnungen und Fehlermeldungen ausgelöst werden, und eine Feinabstimmung des Systems ausführen. So können Sie gewährleisten, dass bekannte und nicht relevante Probleme nicht in den Rollupinformationen berücksichtigt werden, während Sie auf aktuelle Probleme bei Servern oder Komponentenvorgängen, die Sie möglicherweise untersuchen möchten, hingewiesen werden.  
+ La plupart des composants et rôles de système de site Configuration Manager génèrent des messages d'état. Les détails des messages d'état sont consignés dans chaque journal opérationnel des composants, mais ils sont également soumis à la base de données de site lorsqu'ils sont résumés et présentés dans un cumul général de l'intégrité de chaque composant ou des systèmes de site. Ces cumuls de messages d'état fournissent des informations détaillées pour les opérations et avertissements réguliers ainsi que pour les détails de l'erreur. Vous pouvez configurer les seuils auxquels les avertissements ou les erreurs sont déclenchés et ajuster le système afin de vous assurer que les informations relatives au cumul ignorent les problèmes connus qui ne vous concernent pas tout en attirant votre attention sur les problèmes réels des serveurs ou sur les opérations liées aux composants que vous souhaitez peut-être examiner.  
 
- Der Systemstatus wird auf andere Standorte in einer Hierarchie als Standortdaten repliziert, nicht als globale Daten. Daher können Sie nur den Status des Standorts, mit dem Ihre Configuration Manager-Konsole verbunden ist, sowie der diesem Standort untergeordneten Standorte anzeigen. Aus diesem Grund empfiehlt es sich, für die Anzeige des Systemstatus eine Verbindung zwischen der Configuration Manager-Konsole und dem Standort der obersten Ebene Ihrer Hierarchie herzustellen.  
+ L'état du système est répliqué vers d'autres sites dans une hiérarchie en tant que données de site, pas en tant que données globales. Cela signifie que vous ne pouvez voir que l'état du site auquel votre console Configuration Manager se connecte, et les sites enfants de ce site. Ainsi, envisagez de connecter votre console Configuration Manager sur le site de niveau supérieur de votre hiérarchie lorsque vous affichez l'état du système.  
 
- Mithilfe der folgenden Tabelle können Sie die verschiedenen Systemstatusansichten identifizieren und in welchen Situationen sie zu verwenden sind.  
+ Utilisez le tableau suivant pour identifier les différents affichages de l'état du système et les situations dans lesquelles les utiliser.  
 
-|Knoten|Weitere Informationen|  
+|Nœud|Plus d'informations|  
 |----------|----------------------|  
-|Standortstatus|Verwenden Sie diesen Knoten, um einen Statusrollup für jedes Standortsystem anzuzeigen und die Integrität jedes Standortsystemservers zu überprüfen. Die Integrität von Standortsystemen wird bestimmt durch Schwellenwerte, die Sie für jeden Standort unter **Standortsystemstatus – Zusammenfassung**konfigurieren können.<br /><br /> Mithilfe des Dienst-Managers für Configuration Manager ****können Sie Statusmeldungen für jedes Standortsystem anzeigen, Schwellenwerte für Statusmeldungen festlegen und den Betrieb der Komponenten auf Standortsystemen verwalten.|  
-|Komponentenstatus|Verwenden Sie diesen Knoten, um einen Statusrollup für jede Configuration Manager-Komponente anzuzeigen und die Betriebsintegrität der Komponente zu überprüfen. Die Integrität von Komponenten wird bestimmt durch Schwellenwerte, die Sie für jeden Standort unter **Statuszusammenfasser für Komponenten**konfigurieren können.<br /><br /> Mithilfe des Dienst-Managers für Configuration Manager ****können Sie Statusmeldungen für jede Komponente anzeigen, Schwellenwerte für Statusmeldungen festlegen und den Betrieb der Komponenten verwalten.|  
-|In Konflikt stehende Datensätze|Verwenden Sie diesen Knoten, um Statusmeldungen für Clients mit Datensatzkonflikten anzuzeigen.<br /><br /> Configuration Manager identifiziert mithilfe der Hardware-ID Clients, bei denen es sich um Duplikate handeln könnte. Sie werden über in Konflikt stehende Datensätze informiert. Wenn Sie z.B. einen Computer erneut installieren müssen, bleibt die Hardware-ID unverändert, während sich die von Configuration Manager verwendete GUID ändern kann.|  
-|Statusmeldungsabfragen|Verwenden Sie diesen Knoten, um Statusmeldungen für bestimmte Ereignisse und entsprechende Details abzufragen. Mithilfe von Statusmeldungsabfragen können Sie die Statusmeldungen zu bestimmten Ereignissen finden.<br /><br /> Statusmeldungsabfragen bieten sich an, um zu ermitteln, wann eine bestimmte Komponente, ein Vorgang oder ein Configuration Manager-Objekt geändert wurde und von welchem Konto die Änderung ausgeführt wurde. Zum Beispiel können Sie die integrierte Abfrage **Erstellte, geänderte oder gelöschte Sammlungen** ausführen, um herauszufinden, wann eine bestimmte Sammlung von welchem Benutzerkonto erstellt wurde.|  
+|État du site|Ce nœud permet d'afficher une synthèse de l'état de chaque système de site pour consulter l'intégrité de chaque serveur de système de site. L'intégrité d'un système de site est déterminée par des seuils que vous configurez pour chaque site dans l' **Outil de synthèse d'état du système de site**.<br /><br /> Vous pouvez afficher les messages d'état de chaque système de site, définir des seuils pour les messages d'état et gérer le fonctionnement des composants sur des systèmes de site à l'aide du **Gestionnaire de service de Configuration Manager**.|  
+|État du composant|Utilisez ce nœud pour afficher une synthèse de l'état de chaque composant de Configuration Manager pour vérifier son bon fonctionnement. L'intégrité d'un composant est déterminée par les seuils que vous configurez pour chaque site dans l' **Outil de synthèse d'état des composants**.<br /><br /> Vous pouvez afficher les messages d'état pour chaque composant, définir des seuils pour les messages d'état et gérer le fonctionnement des composants à l'aide du **Gestionnaire de service de Configuration Manager**.|  
+|Enregistrements en conflit|Utilisez ce nœud pour afficher les messages d'état de clients qui peuvent présenter des conflits de rapports.<br /><br /> Configuration Manager utilise l'ID du matériel pour tenter d'identifier les éventuels clients dupliqués et vous signale les enregistrements en conflit. Par exemple, si vous devez réinstaller un ordinateur, il est possible que l'ID du matériel soit le même, mais que le GUID utilisé par Configuration Manager soit différent.|  
+|Requêtes sur les messages d'état|Utilisez ce nœud pour demander des messages d'état d'événements spécifiques ou des informations liées. Vous pouvez utiliser les requêtes de messages d'état pour trouver des messages d'état liés à des événements spécifiques.<br /><br /> Il est possible d'utiliser fréquemment des requêtes de messages d'état pour identifier quand un composant, une opération ou un objet Configuration Manager spécifique a été modifié ainsi que le compte utilisé pour effectuer cette modification. Par exemple, vous pouvez exécuter la requête intégrée pour les **Regroupements créés, modifiés ou supprimés** afin d'identifier quand un regroupement a été créé et le compte utilisateur utilisé pour créer ce regroupement.|  
 
-####  <a name="bkmk_managestatus"></a> Verwalten von Standortstatus und Komponentenstatus  
- Verwenden Sie die folgenden Informationen zum Verwalten von Standortstatus und Komponentenstatus:  
+####  <a name="bkmk_managestatus"></a> Gérer l’état du site et l’état des composants  
+ Utilisez les informations suivantes pour gérer l'état du site et l'état du composant :  
 
--   Hinweise zum Konfigurieren von Schwellenwerten für das Statussystem finden Sie unter [Vorgehensweisen zum Konfigurieren des Statussystems](#bkmk_configstatus).  
+-   Pour configurer des seuils pour le système d'état, voir [Procédures de configuration du système d’état](#bkmk_configstatus).  
 
--   Verwenden Sie den **Service Manager für Configuration Manager**, um einzelne Komponenten zu verwalten.  
+-   Pour gérer les composants individuels dans Configuration Manager, utilisez le **Gestionnaire de service de Configuration Manager**.  
 
-####  <a name="bkmk_view"></a> Anzeigen von Statusmeldungen  
- Sie können die Statusmeldungen für einzelne Standortsystemserver und Komponenten anzeigen.  
+####  <a name="bkmk_view"></a> Afficher les messages d’état  
+ Vous pouvez afficher les messages d'état des serveurs de système de site et des composants individuels.  
 
- Zum Anzeigen von Statusmeldungen in der Configuration Manager-Konsole wählen Sie einen bestimmten Standortsystemserver oder eine Komponente aus, und klicken Sie dann auf **Meldungen anzeigen**. Sie können die Anzeige der Meldungen nach bestimmten Meldungstypen, nach einem bestimmten Meldungszeitraum und nach den Details der Statusmeldungen filtern.  
+ Pour consulter des messages d'état dans la console Configuration Manager, sélectionnez un serveur de système de site ou un composant spécifique, puis cliquez sur **Afficher les messages**. Lorsque vous consultez des messages, vous pouvez choisir d'afficher des types de message spécifiques ou des messages d'une période indiquée. Vous pouvez également filtrer les résultats en fonction des détails du message d'état.  
 
-##  <a name="bkmk_Alerts"></a> Warnungen  
- Configuration Manager-Warnungen werden bei einigen Vorgängen generiert, wenn eine bestimmte Bedingung eintritt.  
+##  <a name="bkmk_Alerts"></a> Alertes  
+ Les alertes Configuration Manager sont générées par certaines opérations quand une condition spécifique se produit.  
 
--   In der Regel werden Warnungen generiert, wenn ein Fehler auftritt, der behoben werden muss.  
+-   Les alertes sont habituellement générées quand une erreur que vous devez résoudre se produit  
 
--   Möglicherweise werden Warnungen generiert, um auf das Vorhandensein einer bestimmten Bedingung hinzuweisen, damit Sie die Situation weiterhin überwachen können.  
+-   Les alertes peuvent être générées pour vous avertir qu’une condition a été détectée afin que vous puissiez continuer à surveiller la situation.  
 
--   Einige Warnungen können Sie konfigurieren, etwa Warnungen für Endpoint Protection und Clientstatus, während andere Warnungen automatisch konfiguriert werden.  
+-   Certaines alertes que vous configurez, telles que les alertes concernant l’état de Endpoint Protection et du client, tandis que les autres alertes sont configurées automatiquement  
 
--   Sie können warnungsbezogene Abonnements konfigurieren, die dann Details per E-Mail senden können, wodurch die Wahrnehmung von wesentlichen Problemen erhöht wird.  
+-   Vous pouvez configurer des abonnements aux alertes qui peuvent ensuite envoyer des détails par courrier électronique, ce qui permet une plus grande sensibilisation aux problèmes clés  
 
- In der folgenden Tabelle finden Sie Informationen dazu, wie Warnungen und Warnungsabonnements in Configuration Manager konfiguriert werden:  
+ Utilisez le tableau suivant pour rechercher des informations sur la façon de configurer des alertes et des abonnements aux alertes dans Configuration Manager :  
 
 
-|Aktion|Weitere Informationen|  
+|Action|Informations complémentaires|  
 |------------|----------------------|  
-|Konfigurieren von Endpoint Protection-Warnungen für eine Sammlung|Siehe **Konfigurieren von Warnungen für Endpoint Protection in Configuration Manager** unter [Konfigurieren von Endpoint Protection in System Center Configuration Manager](../../../protect/deploy-use/configure-endpoint-protection.md)|  
-|Konfigurieren von Clientstatuswarnungen für eine Sammlung|Siehe [Konfigurieren des Clientstatus in System Center Configuration Manager](../../../core/clients/deploy/configure-client-status.md).|  
-|Verwalten von Configuration Manager-Warnungen|Weitere Informationen finden Sie in diesem Thema im Abschnitt [Management tasks for alerts](#BKMK_Manage) .|  
-|Konfigurieren von E-Mail-Abonnements für Warnungen|Weitere Informationen finden Sie in diesem Thema im Abschnitt [Management tasks for alerts](#BKMK_Manage) .|  
-|Überwachen von Warnungen|Weitere Informationen finden Sie in diesem Thema im Abschnitt [Überwachen von Warnungen](#BKMK_MonitorAlerts)|  
+|Configurer des alertes Endpoint Protection pour un regroupement|Voir **Comment configurer des alertes pour Endpoint Protection dans Configuration Manager** dans [Configuration de Endpoint Protection dans System Center Configuration Manager](../../../protect/deploy-use/configure-endpoint-protection.md).|  
+|Configurer des alertes d’état du client pour un regroupement|Voir [Guide pratique pour configurer l’état du client dans System Center Configuration Manager](../../../core/clients/deploy/configure-client-status.md).|  
+|Gérer les alertes Configuration Manager|Consultez la section [Management tasks for alerts](#BKMK_Manage) de cette rubrique.|  
+|Configurer les abonnements par courrier électronique aux alertes|Consultez la section [Management tasks for alerts](#BKMK_Manage) de cette rubrique.|  
+|Surveiller les alertes|Consultez la section [Surveiller les alertes](#BKMK_MonitorAlerts)|  
 
 ###  <a name="BKMK_Manage"></a> Management tasks for alerts  
 
-##### <a name="to-manage-general-alerts"></a>So verwalten Sie allgemeine Warnungen  
+##### <a name="to-manage-general-alerts"></a>Pour gérer les alertes générales  
 
-1.  Wechseln Sie in der Configuration Manager-Konsole zu **Überwachung** > **Warnungen**, und wählen Sie dann einen Verwaltungstask aus.  
+1.  Dans la console Configuration Manager, accédez à **Surveillance** > **Alertes**, puis sélectionnez une tâche de gestion.  
 
-  In der nachfolgenden Tabelle finden Sie weitere Informationen zu den Verwaltungstasks, für die möglicherweise einige Informationen benötigt werden, bevor Sie sie auswählen.  
+  Utilisez le tableau suivant pour obtenir plus d'informations sur les tâches de gestion qui pourraient nécessiter certaines informations avant de les sélectionner.  
 
-|Verwaltungstask|Details|  
+|Tâche de gestion|Détails|  
     |---------------------|-------------|  
-    |**Konfigurieren Sie**|Öffnet das Dialogfeld *&lt;Warnungsname*\>**Eigenschaften**, in dem Sie den Namen, den Schweregrad sowie die Schwellenwerte für die ausgewählte Warnung ändern können. Wenn Sie den Schweregrad der Warnung ändern, wirkt sich diese Konfiguration darauf aus, wie Warnungen in der Configuration Manager-Konsole angezeigt werden.|  
-    |**Kommentare bearbeiten**|Geben Sie Kommentare für die ausgewählten Warnungen ein. Diese Kommentare werden zusammen mit den Warnungen in der Configuration Manager-Konsole angezeigt.|  
-    |**Verschieben**|Hält die Überwachung der Warnung an, bis das angegebene Datum erreicht ist. Zu diesem Zeitpunkt wird der Zustand der Warnung aktualisiert.<br /><br /> Sie können eine Warnung nur anhalten (verschieben), wenn sie aktiviert ist.|  
-    |**Abonnement erstellen**|Öffnet das Dialogfeld **Neues Abonnement** , in dem Sie ein E-Mail-Abonnement für die ausgewählte Warnung erstellen können.|  
+    |**Configurer**|Ouvre la boîte de dialogue *Propriétés de* **&lt;nom de l’alerte\>**où vous pouvez modifier le nom, la gravité et les seuils de l’alerte sélectionnée. Si vous modifiez la gravité de l’alerte, cette configuration affecte la façon dont les alertes sont affichées dans la console Configuration Manager.|  
+    |**Modifier les commentaires**|Entrez un commentaire pour les alertes sélectionnées. Ces commentaires s’affichent avec l’alerte dans la console Configuration Manager.|  
+    |**Reporter**|Suspend la surveillance de l’alerte jusqu’à la date spécifiée. À ce moment-là, l’état de l’alerte est mis à jour.<br /><br /> Vous pouvez reporter une alerte uniquement quand celle-ci est active.|  
+    |**Créer un abonnement**|Ouvre la boîte de dialogue **Nouvel abonnement** où vous pouvez créer un abonnement par courrier électronique à l’alerte sélectionnée.|  
 
-##### <a name="to-configure-endpoint-protection-alerts-for-a-collection"></a>So konfigurieren Sie Endpoint Protection-Warnungen für eine Sammlung  
+##### <a name="to-configure-endpoint-protection-alerts-for-a-collection"></a>Pour configurer des alertes Endpoint Protection pour un regroupement  
 
-1.  Ausstehend  
+1.  en attente  
 
-##### <a name="to-configure-client-status-alerts-for-a-collection"></a>So konfigurieren Sie Clientstatuswarnungen für eine Sammlung  
+##### <a name="to-configure-client-status-alerts-for-a-collection"></a>Pour configurer des alertes d’état du client pour un regroupement  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Bestand und Kompatibilität** >   **Gerätesammlungen**.  
+1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité** >   **Regroupements d’appareils**.  
 
-2.  Wählen Sie in der Liste **Gerätesammlungen** die Sammlung aus, für die Sie Warnungen konfigurieren möchten, und klicken Sie dann auf der Registerkarte **Startseite** in der Gruppe **Eigenschaften** auf **Eigenschaften**.  
-
-    > [!NOTE]  
-    >  Es können keine Benachrichtigungen für Benutzersammlungen konfiguriert werden.  
-
-3.  Klicken Sie auf der Registerkarte **Warnungen** des Dialogfelds *&lt;Sammlungsname*\>**Eigenschaften** auf **Hinzufügen**.  
+2.  Dans la liste **Regroupements de périphériques** , sélectionnez le regroupement pour lequel vous souhaitez configurer des alertes, puis cliquez sur **Propriétés** dans l'onglet **Accueil** , du groupe **Propriétés**.  
 
     > [!NOTE]  
-    >  Die Registerkarte **Warnungen** wird nur angezeigt, wenn die Ihnen zugewiesene Sicherheitsrolle über Berechtigungen für Warnungen verfügt.  
+    >  Vous ne pouvez pas configurer d'alertes pour les regroupements d'utilisateurs.  
 
-4.  Wählen Sie im Dialogfeld **Neue Sammlungswarnungen hinzufügen** die Warnungen aus, die beim Unterschreiten bestimmter Clientstatuswerte generiert werden sollen, und klicken Sie dann auf **OK**.  
-
-5.  Wählen Sie auf der Registerkarte **Warnungen** in der Liste **Bedingungen** die einzelnen Clientstatuswarnungen aus, und geben Sie für jede Warnung die folgenden Informationen an:  
-
-    -   **Warnungsname** – Übernehmen Sie den Standardnamen, oder geben Sie einen neuen Namen für die Warnung ein.  
-
-    -   **Warnungsschweregrad** – Wählen Sie in der Dropdownliste den Schweregrad aus, der in der Configuration Manager-Konsole angezeigt werden soll.  
-
-    -   **Warnung auslösen**: Geben Sie den Schwellenwert für die Warnung in Prozent an.  
-
-6.  Klicken Sie auf **OK**, um das Dialogfeld *&lt;Sammlungsname*\>**Eigenschaften** zu schließen.  
-
-##### <a name="to-configure-email-notification-for-alerts"></a>So konfigurieren Sie E-Mail-Benachrichtigungen für Warnungen  
-
-1.  Wechseln Sie in der Configuration Manager-Konsole zu **Überwachung** > **Warnungen** > **Abonnements**.  
-
-2.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** auf **E-Mail-Benachrichtigung konfigurieren**.  
-
-3.  Geben Sie im Dialogfeld **Eigenschaften der Komponente für E-Mail-Benachrichtigungen** die folgenden Informationen an:  
-
-    -   **E-Mail-Benachrichtigungen für Warnungen aktivieren**: Aktivieren Sie dieses Kontrollkästchen, damit Configuration Manager einen SMTP-Server verwenden kann, um E-Mail-Benachrichtigungen zu versenden.  
-
-    -   **FQDN oder IP-Adresse des SMTP-Servers, von dem Warnungen über E-Mail verschickt werden sollen**: Geben Sie den vollqualifizierten Domänennamen (FQDN) oder die IP-Adresse sowie den SMTP-Port für den E-Mail-Server an, der für die Benachrichtigungen verwendet werden soll.  
-
-    -   **Verbindungskonto des SMTP-Servers**: Geben Sie die Authentifizierungsmethode an, mit der Configuration Manager Verbindungen mit dem E-Mail-Server herstellen soll.  
-
-    -   **Adresse des Absenders für Warnungen über E-Mail**: Geben Sie die E-Mail-Adresse an, von der Warnungen über E-Mail gesendet werden.  
-
-    -   **SMTP-Server testen**: Es wird eine Test-E-Mail an die E-Mail-Adresse gesendet, die in **Adresse des Absenders für Warnungen über E-Mail**angegeben ist.  
-
-4.  Klicken Sie auf **OK** , um die Einstellungen zu speichern und das Dialogfeld **Eigenschaften der E-Mail-Benachrichtigungskomponente** zu schließen.  
-
-##### <a name="to-subscribe-to-email-alerts"></a>So abonnieren Sie E-Mail-Benachrichtigungen  
-
-1.  Wechseln Sie in der Configuration Manager-Konsole zu **Überwachung** > **Warnungen**.  
-
-2.  Wählen Sie eine Warnung aus, und klicken Sie dann auf der Registerkarte **Startseite** in der Gruppe **Abonnement** auf **Abonnement erstellen**.  
-
-3.  Geben Sie im Dialogfeld **Neues Abonnement** die folgenden Informationen an:  
-
-    -   **Name**: Geben Sie einen Namen ein, um das E-Mail-Abonnement zu identifizieren. Sie können bis zu 255 Zeichen verwenden.  
-
-    -   **E-Mail-Adresse**: Geben Sie die E-Mail-Adressen ein, an die die Warnung gesendet werden soll. Sie können mehrere E-Mail-Adressen durch Semikolons trennen.  
-
-    -   **E-Mail-Sprache**: Geben Sie in der Liste die Sprache für die E-Mail an.  
-
-4.  Klicken Sie auf **OK** , um das Dialogfeld **Neues Abonnement** zu schließen und das E-Mail-Abonnement zu erstellen.  
+3.  Sous l'onglet **Alertes** de la boîte de dialogue **Propriétés de** *&lt;Nom du regroupement*\>, cliquez sur **Ajouter**.  
 
     > [!NOTE]  
-    >  Im Arbeitsbereich **Überwachung** können Sie Abonnements bearbeiten und löschen. Erweitern Sie den Knoten **Warnungen** , und klicken Sie auf den Knoten **Abonnements** .  
+    >  L'onglet **Alertes** n'est visible que si le rôle de sécurité auquel vous êtes associé dispose d'autorisations pour les alertes.  
 
-###  <a name="BKMK_MonitorAlerts"></a> Überwachen von Warnungen  
- Sie können die Warnungen im Arbeitsbereich **Überwachung** über den Knoten **Warnungen** anzeigen. Warnungen haben einen der folgenden Warnungszustände:  
+4.  Dans la boîte de dialogue **Ajouter de nouvelles alertes de regroupement** , choisissez les alertes que vous souhaitez générer lorsque les seuils d'état du client passent sous une valeur spécifique, puis cliquez sur **OK**.  
 
--   **Niemals ausgelöst**: Die Bedingung der Warnung wurde nicht erfüllt.  
+5.  Dans la liste **Conditions** de l'onglet **Alertes** , sélectionnez chaque alerte relative à l'état du client, puis spécifiez les informations suivantes.  
 
--   **Aktiv**: Die Bedingung der Warnung wurde erfüllt.  
+    -   **Nom d’alerte** – Acceptez le nom par défaut ou entrez un nouveau nom pour l’alerte.  
 
--   **Abgebrochen**: Die Bedingung für eine aktive Warnung ist nicht mehr erfüllt. Dieser Status zeigt an, dass die Bedingung, die die Warnung ausgelöst hat, nun behoben ist.  
+    -   **Gravité d’alerte** – Dans la liste déroulante, choisissez la gravité d’alerte qui sera affichée dans la console Configuration Manager.  
 
--   **Verschoben**: Der Administrator hat Configuration Manager so konfiguriert, dass der Zustand der Warnung zu einem späteren Zeitpunkt ausgewertet wird.  
+    -   **Déclencher l'alerte** : spécifiez le pourcentage seuil pour l'alerte.  
 
--   **Deaktiviert**: Die Warnung wurde vom Administrator deaktiviert. Wenn sich eine Warnung in diesem Zustand befindet, aktualisiert Configuration Manager die Warnung auch dann nicht, wenn sich ihr Zustand ändert.  
+6.  Cliquez sur **OK** pour fermer la boîte de dialogue **Propriétés de** *&lt;Nom du regroupement*\>.  
 
- Sie können eine der folgenden Aktionen durchführen, wenn Configuration Manager eine Warnung generiert:  
+##### <a name="to-configure-email-notification-for-alerts"></a>Pour configurer une notification par courrier électronique pour les alertes  
 
--   Die Bedingung beheben, die die Warnung ausgelöst hat; Sie beheben beispielsweise ein Netzwerkproblem oder ein Konfigurationsproblem, das die Warnung ausgelöst hat. Wenn Configuration Manager feststellt, dass das Problem nicht mehr besteht, wird der Warnungszustand auf **Abbrechen** gesetzt.  
+1.  Dans la console Configuration Manager, accédez à **Analyse** > **Alertes**  > **Inscriptions**.  
 
--   Wenn die Warnung sich auf ein bekanntes Problem bezieht, können Sie die Warnung um einen bestimmten Zeitraum verschieben. Configuration Manager aktualisiert dann die Warnung auf ihren aktuellen Zustand.  
+2.  Sous l'onglet **Accueil** , du groupe **Créer** , cliquez sur **Configurer la notification par courrier électronique**.  
 
-     Sie können nur aktive Warnungen verschieben.  
+3.  Dans la boîte de dialogue **Propriétés du composant de notification de courrier électronique** , définissez ce qui suit :  
 
--   Sie können den **Kommentar** einer Warnung bearbeiten, um anderen Administratoren mitzuteilen, dass Sie die Warnung zur Kenntnis genommen haben. Im Kommentar können Sie beispielsweise bestimmen, wie eine Bedingung behoben werden kann, Informationen zum aktuellen Zustand einer Bedingung bereitstellen oder erklären, warum Sie die Warnung verschoben haben.  
+    -   **Activer les notifications par courrier électronique pour les alertes** : cochez cette case pour permettre à Configuration Manager d’utiliser un serveur SMTP pour envoyer des alertes par e-mail.  
+
+    -   **Nom de domaine complet ou adresse IP du serveur SMTP pour envoyer des alertes par courrier électronique**: entrez le nom de domaine complet (FQDN) ou l’adresse IP et le port SMTP du serveur de messagerie à utiliser pour ces alertes.  
+
+    -   **Compte de connexion au serveur SMTP** : spécifiez la méthode d’authentification que Configuration Manager doit utiliser pour se connecter au serveur de messagerie.  
+
+    -   **Adresse de l’expéditeur pour les alertes de courrier électronique**: spécifiez l’adresse électronique à partir de laquelle les courriers électroniques d’alerte sont envoyés.  
+
+    -   **Tester le serveur SMTP**: envoie un courrier électronique de test à l’adresse électronique spécifiée dans **Adresse de l’expéditeur pour les alertes de courrier électronique**.  
+
+4.  Cliquez sur **OK** pour enregistrer les paramètres et fermer la boîte de dialogue des **Propriétés du composant de notification de courrier électronique** .  
+
+##### <a name="to-subscribe-to-email-alerts"></a>Pour vous abonner aux alertes par courrier électronique  
+
+1.  Dans la console Configuration Manager, accédez à **Analyse** > **Alertes** .  
+
+2.  Sélectionnez une alerte, puis sous l’onglet **Accueil** , dans le groupe **Abonnement** , cliquez sur **Créer un abonnement**.  
+
+3.  Dans la boîte de dialogue **Nouvel abonnement** , spécifiez les éléments suivants :  
+
+    -   **Nom**: entrez le nom permettant d’identifier l’abonnement par courrier électronique. Vous pouvez entrer jusqu'à 255 caractères.  
+
+    -   **Adresse de messagerie**: entrez les adresses de messagerie de destination de l’alerte. Vous pouvez séparer plusieurs adresses de messagerie par un point-virgule.  
+
+    -   **Langue de messagerie**: dans la liste, spécifiez la langue du courrier électronique.  
+
+4.  Cliquez sur **OK** pour fermer la boîte de dialogue **Nouvel abonnement** et créer l'abonnement par courrier électronique.  
+
+    > [!NOTE]  
+    >  Vous pouvez supprimer et modifier les abonnements dans l'espace de travail **Surveillance** lorsque vous développez le nœud **Alertes** , puis cliquez sur le nœud **Abonnements** .  
+
+###  <a name="BKMK_MonitorAlerts"></a> Surveiller les alertes  
+ Vous pouvez consulter les alertes dans le nœud **Alertes** de l'espace de travail **Surveillance** . Les alertes présentent l'un des états d'alerte suivants :  
+
+-   **Jamais déclenché**: la condition de l’alerte n’a pas été remplie.  
+
+-   **Actif**: la condition de l’alerte est remplie.  
+
+-   **Annulé**: la condition d’une alerte active n’est plus remplie. Cet état indique que la condition qui a entraîné l'alerte est maintenant résolue.  
+
+-   **Reporté à plus tard** : un utilisateur administratif a configuré Configuration Manager pour évaluer l’état de l’alerte ultérieurement.  
+
+-   **Désactivé**: l’alerte a été désactivée par un utilisateur administratif. Lorsqu'une alerte présente cet état, Configuration Manager ne la met pas à jour même si l'état de l'alerte change.  
+
+ Vous pouvez effectuer l'une des actions suivantes lorsque Configuration Manager génère une alerte :  
+
+-   Corrigez la condition qui a généré l'alerte, par exemple, corrigez un problème réseau ou un problème de configuration qui a généré l'alerte. Une fois que Configuration Manager a détecté que le problème n'existe plus, l'état de l'alerte passe à **Annuler**.  
+
+-   Si l'alerte est un problème connu, vous pouvez reporter l'alerte pendant une durée spécifique. À ce moment, Configuration Manager met à jour l'alerte à son état actuel.  
+
+     Vous pouvez reporter une alerte uniquement lorsque celle-ci est active.  
+
+-   Vous pouvez modifier le **Commentaire** d'une alerte afin d'informer les autres utilisateurs administratifs que cette alerte est surveillée. Par exemple, dans le commentaire, vous pouvez identifier comment résoudre la condition, fournir des informations sur l'état actuel de la condition ou expliquer la raison du report de l'alerte.  

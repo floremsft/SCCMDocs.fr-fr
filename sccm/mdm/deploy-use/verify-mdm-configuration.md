@@ -1,6 +1,6 @@
 ---
-title: "Überprüfen der MDM-Konfiguration unter Verwendung von System Center Configuration Manager | Microsoft-Dokumentation"
-description: "Überprüfen der MDM-Konfiguration unter Verwendung von System Center Configuration Manager."
+title: "Vérifier une configuration MDM via System Center Configuration Manager | Microsoft Docs"
+description: "Vérifiez une configuration MDM via System Center Configuration Manager."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -18,20 +18,20 @@ manager: angrobe
 ms.openlocfilehash: ad4b923bd6d3e8acfe799a4ebe2adec737939d75
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="verify-mdm-configuration-with-system-center-configuration-manager"></a>Überprüfen der MDM-Konfiguration mit System Center Configuration Manager
+# <a name="verify-mdm-configuration-with-system-center-configuration-manager"></a>Vérifier une configuration MDM via System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Bestimmte Komponenten der Geräteverwaltung können Sie überprüfen, indem Sie die folgenden Protokolldateien überprüfen:
+Vous pouvez vérifier certains composants de gestion des périphériques en consultant les fichiers journaux suivants :
 
--   Überprüfen Sie die Datei Cloudusersync.log, um sicherzustellen, dass die Synchronisierung von Benutzerkonten erfolgreich ist.
+-   Consultez le fichier Cloudusersync.log pour vérifier que les comptes d'utilisateur sont bien synchronisés.
 
--   Überprüfen Sie die Datei „Sitecomp.log“, um sicherzustellen, dass die Erstellung des Dienstverbindungspunkts erfolgreich war.
+-   Consultez le fichier Sitecomp.log pour vérifier que le point de connexion de service a bien été créé.
 
-Weitere Informationen zu diesen bestimmten Protokolldateien und wie diese angezeigt werden können finden Sie unter [Protokolldateien in System Center Configuration Manager](../../core/plan-design/hierarchy/log-files.md#a-namebkmkfunctionlogsa-log-files-for-configuration-manager-functionality).
+Vous pouvez consulter la section [Fichiers journaux dans System Center Configuration Manager](../../core/plan-design/hierarchy/log-files.md#a-namebkmkfunctionlogsa-log-files-for-configuration-manager-functionality) pour en savoir plus sur ces fichiers journaux spécifiques et la procédure permettant de les afficher.
 
 > [!div class="button"]
-[< Vorheriger Schritt](set-up-additional-management.md)
+[< Étape précédente](set-up-additional-management.md)

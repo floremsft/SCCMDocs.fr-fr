@@ -1,6 +1,6 @@
 ---
-title: "Auswählen von Intune Standalone oder der hybriden Verwaltung mobiler Geräte (MDM) | Microsoft-Dokumentation"
-description: "Wählen Sie aus, ob Sie die hybride Verwaltung mobiler Geräte mit Intune und Configuration Manager bereitstellen oder Intune Standalone ausführen."
+title: Choisir entre Intune autonome et la gestion des appareils mobiles hybride | Microsoft Docs
+description: "Choisissez de déployer la gestion des appareils mobiles hybride avec Intune et Configuration Manager ou d’exécuter Intune de façon autonome."
 ms.custom: na
 ms.date: 07/18/2017
 ms.prod: configuration-manager
@@ -17,39 +17,39 @@ manager: angrobe
 ms.openlocfilehash: 26c36df77c21254c7ad2b8a45906bd3706f9ec65
 ms.sourcegitcommit: 06aef618f72c700f8a716a43fb8eedf97c62a72b
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/21/2017
 ---
-# <a name="choose-between-microsoft-intune-standalone-and-hybrid-mobile-device-management-with-system-center-configuration-manager"></a>Wählen zwischen Microsoft Intune Standalone und der hybriden Verwaltung mobiler Geräte mit System Center Configuration Manager
+# <a name="choose-between-microsoft-intune-standalone-and-hybrid-mobile-device-management-with-system-center-configuration-manager"></a>Choisir entre Intune autonome et la gestion des appareils mobiles hybride avec System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Eine der am häufigsten gestellten Fragen bezüglich der Verwaltung mobiler Geräte (Mobile Device Management, MDM) mit Microsoft Intune ist folgende: „Sollte ich die hybride Verwaltung mobiler Geräte mit Intune und Configuration Manager bereitstellen oder Intune Standalone in der Konfiguration nur für die Cloud ausführen?“ Um diese Frage zu beantworten, sollten Sie die beiden Optionen sorgfältig gegeneinander abwägen.
+L’une des questions les plus fréquentes relatives à la gestion des appareils mobiles avec Microsoft Intune est la suivante : « Dois-je intégrer Intune à Configuration Manager (gestion des appareils mobiles hybride) ou exécuter Intune autonome dans la configuration cloud ? ». Pour répondre à cette question, vous devez soigneusement comparer les deux options.
 
-## <a name="intune-standalone"></a>Intune Standalone
-Intune Standalone ist die empfohlene Bereitstellungstopologie von Microsoft. Intune Standalone ist eine rein cloudbasierte MDM-Lösung, die mithilfe einer Webkonsole verwaltet wird, auf die von überall in der Welt aus zugegriffen werden kann. Intune Rechenzentren werden in Nordamerika, Europa und Asien gehostet. Da Intune ein Clouddienst ist, können Sie die Intune-Verwaltung auf Ihren Geräten in einem relativ kleinen Zeitrahmen bereitstellen.
+## <a name="intune-standalone"></a>Intune autonome
+Intune autonome est la topologie de déploiement recommandée par Microsoft. Intune autonome est une solution cloud de gestion des périphériques mobiles (GPM) qui est gérée à l’aide d’une console web accessible n’importe où dans le monde. Les centres de données Intune sont hébergés en Amérique du Nord, en Europe et en Asie. Intune étant un service cloud, vous pouvez déployer la gestion Intune sur vos appareils dans des délais relativement courts.
 
-Die meisten Kunden finden es im Allgemeinen schneller und einfacher, die eigenständige Topologie bereitzustellen, da keine Abhängigkeiten für lokale Komponenten entstehen. Intune Standalone wurde jetzt in die Microsoft Azure-Cloudplattform integriert und bietet viele erweiterte Features, wie z.B. die folgenden:
-- Integrierte Verwaltungsplattform für Mobilgeräte in Unternehmen: Cloudplattform und Verwaltungsoberfläche für Intune, Azure AD Premium und Azure Information Protection sind im Azure-Portal integriert.
-- Verwaltung mobiler Geräte: umfassende Funktionen für die Verwaltung mobiler Geräte und den Schutz von Informationen.
-- Skalierung: Sie können mobile Geräte bereitstellen und verwalten, ohne sich um die Anzahl Gedanken machen zu müssen.
-- Rollenbasierte Zugriffssteuerung: Einschränken des Zugriffs auf Verwaltungsfunktionen auf Grundlage zugewiesener Rollen und Bereiche.
-- Programmgesteuerter Zugriff (API): Unterstützung für die Microsoft Graph-API plus SDK- und PowerShell-Verwaltungsoptionen.
-- Webkonsole: HTML 5-basierte Konsole gemäß Webstandards mit Unterstützung für die meisten modernen Webbrowser.
-- Erweiterte Berichtsfunktionen: Erstellen benutzerdefinierter Berichte.
-- Agilität: Einfache Einrichtung und schnelle Bereitstellung neuer Funktionen.
-
-
-## <a name="hybrid-mdm-with-configuration-manager"></a>Hybride Verwaltung mobiler Geräte (Hybrid-MDM) mit Configuration Manager
-Hybrid-MDM ist eine Lösung, die die Intune-Funktionen für die Verwaltung mobiler Geräte in Configuration Manager integriert. Die Lösung nutzt Intune als Übermittlungskanal für Richtlinien, Profile und Anwendungen für Geräte und die lokale Infrastruktur von Configuration Manager, um Inhalte zu speichern und die Geräte zu verwalten. Mit einer hybriden Implementierung erhalten Sie eine Steuerzentrale für alle Elemente.  Sie können also dieselbe lokale Infrastruktur und Administratorkonsole sowohl zum Verwalten mobiler Geräte mit Intune als auch zum Verwalten von PCs und Servern mit dem herkömmlichen Configuration Manager-Client verwenden. Folgende Gründe sprechen für die Verwendung einer Hybrid-MDM-Lösung:  
-- Sie möchten eine einzige gleiche Verwaltungskonsole für die Verwaltung sowohl von in Intune registrierten Geräten als auch von Geräten verwenden, die über den Configuration Manager-Client verwaltet werden.
-- Ihre Infrastruktur erfordert die Verwendung mehrerer NDES-Server für die Zertifikatübermittlung an mobile Geräte.
-- Ihre Infrastruktur erfordert die Verwendung von mehreren Exchange-Connectors.
-- Sie benötigen Unterstützung für die S/MIME-Verschlüsselung.
+Il est généralement plus rapide et plus facile pour les clients de déployer la topologie autonome, car il n’existe aucune dépendance pour les composants locaux. Intune autonome est désormais disponible sur la plateforme cloud de Microsoft Azure et fournit de nombreuses fonctionnalités avancées, telles que :
+- Plateforme de gestion Enterprise Mobility intégrée : plateforme cloud avec expérience administrateur intégrée dans le portail Azure pour Intune, Azure AD Premium et Azure Information Protection.
+- Gestion des périphériques mobiles : fonctionnalités de protection des informations et de gestion des périphériques mobiles.
+- Mise à l’échelle : déployez et gérez des appareils mobiles sans vous préoccuper de la mise à l’échelle.
+- Contrôle d’accès en fonction du rôle : restriction de l’accès aux fonctions d’administration en fonction des rôles affectés et des étendues.
+- Accès par programmation (API) : prise en charge de l’API Microsoft Graph, options de gestion SDK et PowerShell.
+- Console Web : console HTML 5 reposant sur des normes web prenant en charge la plupart des navigateurs web les plus récents.
+- Création de rapports avancée : fonctionnalité permettant de créer des rapports personnalisés.
+- Agilité : programme d’installation simple et diffusion rapide de nouvelles fonctionnalités.
 
 
-## <a name="changing-the-mdm-authority-setting"></a>Ändern der MDM-Autoritätseinstellung
-Sie können die MDM-Autorität ohne Unterstützung durch den Microsoft-Support und ohne Aufheben der Registrierung und erneutes Registrieren Ihrer vorhandenen verwalteten Geräte selbst ändern. Einzelheiten finden Sie unter [Umstellen der MDM-Autorität](../deploy-use/change-mdm-authority.md).
+## <a name="hybrid-mdm-with-configuration-manager"></a>Gestion des périphériques mobiles (GPM) hybride avec Configuration Manager
+La gestion des périphériques mobiles (GPM) hybride est une solution qui intègre les fonctionnalités de gestion des périphériques mobiles d’Intune à Configuration Manager. Elle utilise Intune comme canal de remise des stratégies, profils et applications aux appareils. En revanche, elle utilise l’infrastructure locale de Configuration Manager pour administrer le contenu et gérer les appareils. Une implémentation hybride vous offre un « contrôle unifié ».  Ce qui signifie que vous pouvez utiliser la même infrastructure locale et la même console d’administration pour gérer d’une part des appareils mobiles avec Intune et, d’autre part, des PC et des serveurs avec le client Configuration Manager traditionnel. Vous pouvez choisir la gestion des périphériques mobiles (GPM) hybride pour les raisons suivantes :  
+- Vous voulez gérer les appareils mobiles inscrits dans Intune et les appareils gérés avec le client Configuration Manager à partir de la même console d’administration
+- Votre infrastructure nécessite que vous disposiez de plusieurs serveurs NDES pour la remise de certificat aux appareils mobiles
+- Votre infrastructure nécessite que vous disposiez de plusieurs connecteurs Exchange Server
+- Vous avez besoin de la prise en charge du chiffrement S/MIME
+
+
+## <a name="changing-the-mdm-authority-setting"></a>Modification du paramètre d’autorité de gestion des périphériques mobiles (GPM)
+Si vous voulez modifier le paramètre d’autorité de gestion des périphériques mobiles, vous pouvez le faire sans avoir à contacter le Support Microsoft et sans devoir annuler l’inscription de vos appareils gérés existants et les réinscrire. Pour plus d’informations, consultez [Changer d’autorité MDM](../deploy-use/change-mdm-authority.md).
 
 > [!NOTE]    
-> Um die MDM-Autorität zu Intune Standalone zu ändern, müssen Sie über Configuration Manager Version 1610 oder höher verfügen. Wenn Sie eine frühere Version von Configuration Manager verwenden, können Sie die MDM-Autorität ändern, benötigen dafür aber Unterstützung vom Microsoft-Support und dem Betriebsteam. In diesem Fall müssen Sie nach der Änderung der MDM-Autorität auch die Registrierung aller Geräte aufheben und alle Geräte erneut registrieren.  
+> Vous devez disposer de Configuration Manager 1610 ou version ultérieure pour modifier votre autorité de gestion des périphériques mobiles sur Intune autonome. Si vous avez une version antérieure de Configuration Manager, vous pouvez modifier l’autorité de gestion des périphériques mobiles, mais vous aurez besoin de l’aide du Support et des opérations de Microsoft. Vous devrez également annuler l’inscription de tous vos appareils et les réinscrire après la modification de l’autorité de gestion des périphériques mobiles.  

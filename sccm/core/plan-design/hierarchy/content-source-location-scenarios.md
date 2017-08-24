@@ -1,6 +1,6 @@
 ---
-title: "Quellspeicherort für Inhalt | Microsoft-Dokumentation"
-description: "Erfahren Sie mehr über die System Center Configuration Manager-Einstellungen, mit denen Clients Inhalte in einem langsamen Netzwerk finden können."
+title: Emplacement source de contenu | Microsoft Docs
+description: "Découvrez comment utiliser les paramètres System Center Configuration Manager qui permettent aux clients d’obtenir du contenu sur un réseau lent."
 ms.custom: na
 ms.date: 1/3/2017
 ms.reviewer: na
@@ -17,239 +17,239 @@ manager: angrobe
 ms.openlocfilehash: a823458dc3b891b1c32d1cb44a96e8cafd376ed5
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="content-source-location-scenarios-in-system-center-configuration-manager"></a>Szenarios für Quellspeicherorte für Inhalt in System Center Configuration Manager
+# <a name="content-source-location-scenarios-in-system-center-configuration-manager"></a>Scénarios d’emplacement source du contenu dans System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-System Center Configuration Manager unterstützt vor Version 1610 mehrere Einstellungen, die festlegen, wie und wo Clients Inhalte finden, wenn sie sich in einem langsamen Netzwerk befinden. Die möglichen Kombinationen wirken sich auf die Inhaltsspeicherort-Clients und darauf aus, ob sie erfolgreich einen Fallbackpfad verwenden können, wenn eine bevorzugte Quelle für Inhalte nicht verfügbar ist.  
+Dans les versions de System Center Configuration Manager antérieures à 1610, vous pouvez utiliser une combinaison de différents paramètres pour définir de quelle manière et à quel emplacement les clients peuvent obtenir du contenu sur un réseau lent. Les combinaisons possibles déterminent l’emplacement du contenu utilisé par les clients, et si les clients peuvent utiliser un emplacement de secours quand la source de contenu préférée n’est pas disponible.  
 
 > [!IMPORTANT]  
-> **Wenn an Ihren Standorten die Versionen 1511, 1602 oder 1606 laufen**, gelten die Informationen in diesem Thema für Ihre Infrastruktur. Siehe auch [Begrenzungsgruppen für die System Center Configuration Manager-Versionen 1511, 1602 und 1606](/sccm/core/servers/deploy/configure/boundary-groups-for-1511-1602-and-1606) für Informationen, die für Begrenzungsgruppen mit diesen Versionen von Configuration Manager spezifisch sind.
+> **Si vos sites exécutent la version 1511, 1602 ou 1606**, les informations contenues dans cette rubrique s’appliquent à votre infrastructure. Consultez également [Groupes de limites pour les versions 1511, 1602 et 1606](/sccm/core/servers/deploy/configure/boundary-groups-for-1511-1602-and-1606) pour des informations spécifiques des groupes de limites avec ces versions de Configuration Manager.
 >
-> **Wenn an Ihren Standorten die Version 1610 oder höher läuft**, verwenden Sie die Informationen in [Definieren von Standortgrenzen und Begrenzungsgruppen für Configuration Manager](/sccm/core/servers/deploy/configure/define-site-boundaries-and-boundary-groups#boundary-groups), um zu verstehen, wie Ihre Clients Verteilungspunkte finden, die verfügbare Inhalte haben.
+> **Si vos sites exécutent la version 1610 ou ultérieure**, utilisez les informations contenues dans [Définir des limites de site et des groupes de limites pour System Center Configuration Manager](/sccm/core/servers/deploy/configure/define-site-boundaries-and-boundary-groups#boundary-groups) pour comprendre comment vos clients trouvent des points de distribution avec du contenu disponible.
 
 
 
 
 
-**Die folgenden drei Einstellungen definieren das Verhalten, wenn Clients Inhalte anfordern:**
+**Les trois paramètres suivants définissent le comportement quand des clients demandent du contenu :**
 
--  **Fallbackquellpfad für Inhalt zulassen** (aktiviert oder deaktiviert): Diese Option können Sie auf der Registerkarte **Begrenzungsgruppen** eines Verteilungspunkts aktivieren. Dadurch kann der Client einen als Fallbackpfad konfigurierten Verteilungspunkt nutzen, wenn der Inhalt auf einem bevorzugten Verteilungspunkt nicht verfügbar ist.  
+-  **Autoriser un emplacement source de secours pour le contenu** (activé ou non activé) : Vous pouvez activer cette option sous l’onglet **Groupes de limites** d’un point de distribution. Elle permet au client d’utiliser un point de distribution configuré comme emplacement de secours quand le contenu n’est pas disponible sur un point de distribution préféré.  
 
- - **Bereitstellungsverhalten für die Netzwerkverbindungsgeschwindigkeit**: Bei jeder Bereitstellung wird für den Fall von langsamen Verbindungen zum Verteilungspunkt eine der folgenden Verhaltensweisen konfiguriert:  
+ - **Comportement du déploiement pour la vitesse de connexion du réseau** : chaque déploiement est configuré avec l’un des comportements suivants à utiliser quand la connexion au point de distribution est lente :  
 
-    -   **Inhalt vom Verteilungspunkt herunterladen und lokal ausführen**  
+    -   **Télécharger le contenu à partir du point de distribution et l’exécuter localement**  
 
-    -   **Inhalt nicht herunterladen**: Diese Option wird nur verwendet, wenn ein Client einen Fallbackpfad verwendet, um Inhalt abzurufen.  
+    -   **Ne pas télécharger de contenu** : Cette option est utilisée uniquement quand un client utilise un emplacement de secours pour obtenir du contenu.  
 
-    Die Verbindungsgeschwindigkeit für einen Verteilungspunkt wird auf der Registerkarte **Referenzen** der Begrenzungsgruppe konfiguriert und gilt nur für diese Begrenzungsgruppe.  
+    La vitesse de connexion pour un point de distribution est configurée sous l’onglet **Références** d’un groupe de limites, et est propre à celui-ci.  
 
- -  **On-demand package distribution (Paketverteilung auf Anfrage)** (an bevorzugte Verteilungspunkte): Dieses Verhalten wird aktiviert, wenn Sie auf der Registerkarte **Verteilungseinstellungen** eines Pakets oder in den Anwendungseigenschaften die Option **Den Inhalt für dieses Paket an bevorzugte Verteilungspunkte verteilen** auswählen. Das Aktivieren dieser Option veranlasst Configuration Manager, nach einer auf einem Verteilungspunkt eingehenden Inhaltsanforderung durch einen Client den betreffenden Inhalt automatisch auf einen bevorzugten Verteilungspunkt zu kopieren, der den Inhalt noch nicht enthält.  
+ -  **Distribution de package à la demande** (vers les points de distribution préférés) : Cette option est activée quand vous sélectionnez l’option **Distribuer le contenu pour ce package vers les points de distribution préférés** sous l’onglet **Paramètres de distribution** des propriétés d’un package ou d’une application. Quand cette option est activée, elle indique à Configuration Manager de copier automatiquement le contenu vers un point de distribution préféré n’ayant pas encore le contenu après qu’un client a demandé celui-ci à un point de distribution.  
 
 
- **Die folgenden Anforderungen gelten für alle Szenarios:**
+ **Les conditions préalables suivantes s’appliquent à tous les scénarios :**
 
 
--   Der Inhalt ist an einem Fallbackverteilungspunkt verfügbar.  
+-   Le contenu est disponible sur un point de distribution de secours.  
 
--   Die Verteilungspunkte sind online und zugänglich.  
+-   Les points de distribution sont en ligne et accessibles.  
 
 
-## <a name="scenario-1"></a>Szenario 1  
- Gilt, wenn folgende Konfigurationseinstellungen vorhanden sind:  
+## <a name="scenario-1"></a>Scénario 1  
+ S’applique lorsque les configurations suivantes existent :  
 
--   **Der Inhalt ist an einem bevorzugten Verteilungspunkt verfügbar.**  
+-   **Le contenu est disponible sur un point de distribution préféré**  
 
--   **Fallback zulassen**: nicht aktiviert  
+-   **Autoriser les actions de secours** : non activé  
 
--   **Bereitstellungsverhalten für langsame Netzwerke**: beliebige Konfiguration  
+-   **Comportement du déploiement pour un réseau lent** : n’importe quelle configuration  
 
 
-**Details:** (Die Konfiguration für die bedarfsgesteuerte Paketverteilung ist in diesem Szenario nicht relevant.)  
+**Détails :** (La configuration de la distribution de package à la demande ne s’applique pas dans ce scénario.)  
 
-1.  Vom Client wird eine Inhaltsanforderung an den Verwaltungspunkt gesendet.  
+1.  Le client envoie une requête de contenu au point de gestion.  
 
-2.  Vom Verwaltungspunkt wird eine Inhaltsortliste mit bevorzugten Verteilungspunkten, an denen der Inhalt verfügbar ist, an den Client zurückgegeben.  
+2.  Le point de gestion envoie une liste d'emplacements de contenu au client avec les points de distribution préférés comprenant du contenu.  
 
-3.  Der Inhalt wird von einem der bevorzugten Verteilungspunkte auf der Liste heruntergeladen.  
+3.  Le client télécharge le contenu à partir d'un point de distribution préféré sur la liste.  
 
-## <a name="scenario-2"></a>Szenario 2  
- Folgende Konfigurationseinstellungen sind vorhanden:  
+## <a name="scenario-2"></a>Scénario 2  
+ Les configurations suivantes existent :  
 
--   **Der Inhalt ist an einem bevorzugten Verteilungspunkt verfügbar.**  
+-   **Le contenu est disponible sur un point de distribution préféré**  
 
--   **Fallback zulassen**: aktiviert  
+-   **Autoriser les actions de secours** : activé  
 
--   **Bereitstellungsverhalten für langsame Netzwerke**: Inhalt nicht herunterladen  
+-   **Comportement du déploiement pour un réseau lent** : ne pas télécharger de contenu  
 
 
-**Details:** (Die Konfiguration für die bedarfsgesteuerte Paketverteilung ist in diesem Szenario nicht relevant.)  
+**Détails :** (La configuration de la distribution de package à la demande ne s’applique pas dans ce scénario.)  
 
-1.  Vom Client wird eine Inhaltsanforderung an den Verwaltungspunkt gesendet. Vom Client wird in die Anforderung ein Kennzeichen mit der Information eingeschlossen, dass Fallbackverteilungspunkte zulässig sind.  
+1.  Le client envoie une requête de contenu au point de gestion. Le client inclut un indicateur avec la demande indiquant que les points de distribution de secours sont autorisés.  
 
-2.  Vom Verwaltungspunkt wird eine Inhaltsortliste mit bevorzugten Verteilungspunkten sowie Fallbackverteilungspunkten, an denen der Inhalt verfügbar ist, an den Client zurückgegeben.  
+2.  Le point de gestion envoie une liste d'emplacements de contenu au client avec les points de distribution préférés et les points de distribution de secours comprenant du contenu.  
 
-3.  Der Inhalt wird von einem der bevorzugten Verteilungspunkte auf der Liste heruntergeladen.  
+3.  Le client télécharge le contenu à partir d'un point de distribution préféré sur la liste.  
 
-## <a name="scenario-3"></a>Szenario 3  
- Folgende Konfigurationseinstellungen sind vorhanden:  
+## <a name="scenario-3"></a>Scénario 3  
+ Les configurations suivantes existent :  
 
--   **Der Inhalt ist an einem bevorzugten Verteilungspunkt verfügbar.**  
+-   **Le contenu est disponible sur un point de distribution préféré**  
 
--   **Fallback zulassen**: aktiviert  
+-   **Autoriser les actions de secours** : activé  
 
--   **Bereitstellungsverhalten für langsame Netzwerke**: Inhalt herunterladen und installieren  
+-   **Comportement du déploiement pour un réseau lent** : télécharger et installer le contenu  
 
 
-**Details:** (Die Konfiguration für die bedarfsgesteuerte Paketverteilung ist in diesem Szenario nicht relevant.)  
+**Détails :** (La configuration de la distribution de package à la demande ne s’applique pas dans ce scénario.)  
 
-1.  Vom Client wird eine Inhaltsanforderung an den Verwaltungspunkt gesendet. Vom Client wird in die Anforderung ein Kennzeichen mit der Information eingeschlossen, dass Fallbackverteilungspunkte zulässig sind.  
+1.  Le client envoie une requête de contenu au point de gestion. Le client inclut un indicateur avec la demande indiquant que les points de distribution de secours sont autorisés.  
 
-2.  Vom Verwaltungspunkt wird eine Inhaltsortliste mit bevorzugten Verteilungspunkten sowie Fallbackverteilungspunkten, an denen der Inhalt verfügbar ist, an den Client zurückgegeben.  
+2.  Le point de gestion envoie une liste d'emplacements de contenu au client avec les points de distribution préférés et les points de distribution de secours comprenant du contenu.  
 
-3.  Der Inhalt wird von einem der bevorzugten Verteilungspunkte auf der Liste heruntergeladen.  
+3.  Le client télécharge le contenu à partir d'un point de distribution préféré sur la liste.  
 
-## <a name="scenario-4"></a>Szenario 4  
- Folgende Konfigurationseinstellungen sind vorhanden:  
+## <a name="scenario-4"></a>Scénario 4  
+ Les configurations suivantes existent :  
 
--   **Der Inhalt ist an keinem bevorzugten Verteilungspunkt verfügbar.**  
+-   **Le contenu n’est pas disponible sur un point de distribution préféré**  
 
--   **Den Inhalt für dieses Paket an bevorzugte Verteilungspunkte verteilen** ist nicht aktiviert.  
+-   **Distribuer le contenu pour ce package vers les points de distribution préférés** : non activé  
 
--   **Fallback zulassen**: nicht aktiviert  
+-   **Autoriser les actions de secours** : non activé  
 
--   **Bereitstellungsverhalten für langsame Netzwerke**: beliebige Konfiguration  
+-   **Comportement du déploiement pour un réseau lent** : n’importe quelle configuration  
 
 
-**Details:**  
+**Détails :**  
 
-1.  Vom Client wird eine Inhaltsanforderung an den Verwaltungspunkt gesendet.  
+1.  Le client envoie une requête de contenu au point de gestion.  
 
-2.  Vom Verwaltungspunkt wird eine Inhaltsortliste mit bevorzugten Verteilungspunkten, an denen der Inhalt verfügbar ist, an den Client zurückgegeben. Die Liste enthält keine bevorzugten Verteilungspunkte.  
+2.  Le point de gestion envoie une liste d'emplacements de contenu au client avec les points de distribution préférés comprenant du contenu. Il n'y a aucun point de distribution préféré dans la liste.  
 
-3.  Es tritt ein Clientfehler auf, die Fehlermeldung **Inhalt ist nicht verfügbar** wird angezeigt, und vom Client wird in den Wiederholungsmodus gewechselt. Jede Stunde wird eine neue Inhaltsanforderung gesendet.  
+3.  Le client échoue et affiche le message **Contenu indisponible** , puis passe en mode de nouvelle tentative. Une nouvelle requête de contenu est lancée toutes les heures.  
 
-## <a name="scenario-5"></a>Szenario 5  
- Folgende Konfigurationseinstellungen sind vorhanden:  
+## <a name="scenario-5"></a>Scénario 5  
+ Les configurations suivantes existent :  
 
--   **Der Inhalt ist an keinem bevorzugten Verteilungspunkt verfügbar.**  
+-   **Le contenu n’est pas disponible sur un point de distribution préféré**  
 
--   **Den Inhalt für dieses Paket an bevorzugte Verteilungspunkte verteilen** ist nicht aktiviert.  
+-   **Distribuer le contenu pour ce package vers les points de distribution préférés** : non activé  
 
--   **Fallback zulassen**: aktiviert  
+-   **Autoriser les actions de secours** : activé  
 
--   **Bereitstellungsverhalten für langsame Netzwerke**: Inhalt nicht herunterladen  
+-   **Comportement du déploiement pour un réseau lent** : ne pas télécharger de contenu  
 
 
-**Details:**  
+**Détails :**  
 
-1.  Vom Client wird eine Inhaltsanforderung an den Verwaltungspunkt gesendet. Vom Client wird in die Anforderung ein Kennzeichen mit der Information eingeschlossen, dass Fallbackverteilungspunkte zulässig sind.  
+1.  Le client envoie une requête de contenu au point de gestion. Le client inclut un indicateur avec la demande indiquant que les points de distribution de secours sont autorisés.  
 
-2.  Vom Verwaltungspunkt wird eine Inhaltsortliste mit bevorzugten Verteilungspunkten sowie Fallbackverteilungspunkten, an denen der Inhalt verfügbar ist, an den Client zurückgegeben. Der Inhalt ist an keinem bevorzugten Verteilungspunkt, jedoch an mindestens einem Fallbackverteilungspunkt verfügbar.  
+2.  Le point de gestion envoie une liste d'emplacements de contenu au client avec les points de distribution préférés et les points de distribution de secours comprenant du contenu. Si aucun point de distribution préféré n'intègre le contenu, il figure dans au moins un point de distribution de secours.  
 
-3.  Der Inhalt wird nicht heruntergeladen, weil die Bereitstellungseigenschaft für den Fall der Verwendung eines Fallbackverteilungspunkts auf **Inhalt nicht herunterladen** festgelegt ist (diese Einstellung wird verwendet, wenn Clients zum Abrufen des Inhalts auf den Fallback ausweichen). Es tritt ein Clientfehler auf, die Fehlermeldung **Inhalt ist nicht verfügbar** wird angezeigt, und vom Client wird in den Wiederholungsmodus gewechselt. Jede Stunde wird eine neue Inhaltsanforderung gesendet.  
+3.  Le contenu n’est pas téléchargé, car la propriété de déploiement appliquée quand le client utilise un point de distribution de secours est définie sur **Ne pas télécharger de contenu** (option utilisée quand des clients ont recours à un autre point de distribution pour obtenir le contenu). Le client échoue et affiche le message **Contenu indisponible** , puis passe en mode de nouvelle tentative. Le client envoie une nouvelle requête de contenu toutes les heures.  
 
-## <a name="scenario-6"></a>Szenario 6  
- Folgende Konfigurationseinstellungen sind vorhanden:  
+## <a name="scenario-6"></a>Scénario 6  
+ Les configurations suivantes existent :  
 
--   **Der Inhalt ist an keinem bevorzugten Verteilungspunkt verfügbar.**  
+-   **Le contenu n’est pas disponible sur un point de distribution préféré**  
 
--   **Den Inhalt für dieses Paket an bevorzugte Verteilungspunkte verteilen** ist nicht aktiviert.  
+-   **Distribuer le contenu pour ce package vers les points de distribution préférés** : non activé  
 
--   **Fallback zulassen**: aktiviert  
+-   **Autoriser les actions de secours** : activé  
 
--   **Bereitstellungsverhalten für langsame Netzwerke**: Inhalt herunterladen und installieren  
+-   **Comportement du déploiement pour un réseau lent** : télécharger et installer le contenu  
 
 
-**Details:**  
+**Détails :**  
 
-1.  Vom Client wird eine Inhaltsanforderung an den Verwaltungspunkt gesendet. Vom Client wird in die Anforderung ein Kennzeichen mit der Information eingeschlossen, dass Fallbackverteilungspunkte aktiviert sind.  
+1.  Le client envoie une requête de contenu au point de gestion. Le client inclut un indicateur avec la requête indiquant que les points de distribution de secours sont activés.  
 
-2.  Vom Verwaltungspunkt wird eine Inhaltsortliste mit bevorzugten Verteilungspunkten sowie Fallbackverteilungspunkten, an denen der Inhalt verfügbar ist, an den Client zurückgegeben. Der Inhalt ist an keinem bevorzugten Verteilungspunkt, jedoch an mindestens einem Fallbackverteilungspunkt verfügbar.  
+2.  Le point de gestion envoie une liste d'emplacements de contenu au client avec les points de distribution préférés et les points de distribution de secours comprenant du contenu. Si aucun point de distribution préféré n'intègre le contenu, il figure dans au moins un point de distribution de secours.  
 
-3.  Der Inhalt wird von einem Fallbackverteilungspunkt aus der Liste heruntergeladen, da die Bereitstellungseigenschaft für das Verwenden eines Fallbackverteilungspunkts auf den Wert **Inhalt herunterladen und installieren**festgelegt ist.  
+3.  Le contenu est téléchargé depuis un point de distribution de secours de la liste, car la propriété de déploiement appliquée lorsque le client utilise un point de distribution de secours est définie sur **Télécharger et installer le contenu**.  
 
-## <a name="scenario-7"></a>Szenario 7  
- Folgende Konfigurationseinstellungen sind vorhanden:  
+## <a name="scenario-7"></a>Scénario 7  
+ Les configurations suivantes existent :  
 
--   **Der Inhalt ist an keinem bevorzugten Verteilungspunkt verfügbar.**  
+-   **Le contenu n’est pas disponible sur un point de distribution préféré**  
 
--   **Den Inhalt für dieses Paket an bevorzugte Verteilungspunkte verteilen** ist aktiviert.  
+-   **Distribuer le contenu pour ce package vers les points de distribution préférés** : activé  
 
--   **Fallback zulassen**: nicht aktiviert  
+-   **Autoriser les actions de secours** : non activé  
 
--   **Bereitstellungsverhalten für langsame Netzwerke**: beliebige Konfiguration  
+-   **Comportement du déploiement pour un réseau lent** : n’importe quelle configuration  
 
 
-**Details:**  
+**Détails :**  
 
-1.  Vom Client wird eine Inhaltsanforderung an den Verwaltungspunkt gesendet.  
+1.  Le client envoie une requête de contenu au point de gestion.  
 
-2.  Vom Verwaltungspunkt wird eine Inhaltsortliste mit bevorzugten Verteilungspunkten, an denen der Inhalt verfügbar ist, an den Client zurückgegeben. Der Inhalt ist an keinem bevorzugten Verteilungspunkt verfügbar.  
+2.  Le point de gestion envoie une liste d'emplacements de contenu au client avec les points de distribution préférés comprenant du contenu. Aucun point de distribution préféré n'a le contenu.  
 
-3.  Es tritt ein Clientfehler auf, die Fehlermeldung **Inhalt ist nicht verfügbar** wird angezeigt, und vom Client wird in den Wiederholungsmodus gewechselt. Jede Stunde wird eine neue Inhaltsanforderung gesendet.  
+3.  Le client échoue et affiche le message **Contenu indisponible** , puis passe en mode de nouvelle tentative. Une nouvelle requête de contenu est lancée toutes les heures.  
 
-4.  Vom Verwaltungspunkt wird ein Trigger erstellt, mit dem der Verteilungs-Manager zur Verteilung des Inhalts an alle bevorzugten Verteilungspunkte des Clients, von dem die Inhaltsanforderung erfolgt ist, aufgefordert wird.  
+4.  Le point de gestion crée un déclencheur afin que le Gestionnaire de distribution distribue le contenu à tous les points de distribution préférés pour le client ayant lancé la requête de contenu.  
 
-5.  Der Inhalt wird vom Verteilungs-Manager an alle bevorzugten Verteilungspunkte verteilt. In den meisten Fällen wird der Inhalt innerhalb einer Stunde erfolgreich an die bevorzugten Verteilungspunkte verteilt.  
+5.  Le Gestionnaire de distribution distribue le contenu à tous les points de distribution préférés. Dans la plupart des cas, le contenu est correctement distribué aux points de distribution préférés dans l’heure.  
 
-6.  Vom Client wird eine neue Inhaltsanforderung an den Verwaltungspunkt gesendet.  
+6.  Une nouvelle demande de contenu est adressée par le client au point de gestion.  
 
-7.  Vom Verwaltungspunkt wird eine Inhaltsortliste mit bevorzugten Verteilungspunkten, an denen der Inhalt verfügbar ist, an den Client zurückgegeben. Der Inhalt wird von einem der bevorzugten Verteilungspunkte auf der Liste heruntergeladen.  
+7.  Le point de gestion envoie une liste d'emplacements de contenu au client avec les points de distribution préférés comprenant du contenu. Le client télécharge le contenu à partir d'un point de distribution préféré sur la liste.  
 
-## <a name="scenario-8"></a>Szenario 8  
- Folgende Konfigurationseinstellungen sind vorhanden:  
+## <a name="scenario-8"></a>Scénario 8  
+ Les configurations suivantes existent :  
 
--   **Der Inhalt ist an keinem bevorzugten Verteilungspunkt verfügbar.**  
+-   **Le contenu n’est pas disponible sur un point de distribution préféré**  
 
--   **Den Inhalt für dieses Paket an bevorzugte Verteilungspunkte verteilen** ist aktiviert.  
+-   **Distribuer le contenu pour ce package vers les points de distribution préférés** : activé  
 
--   **Fallback zulassen**: aktiviert  
+-   **Autoriser les actions de secours** : activé  
 
--   **Bereitstellungsverhalten für langsame Netzwerke**: Inhalt nicht herunterladen  
+-   **Comportement du déploiement pour un réseau lent** : ne pas télécharger de contenu  
 
 
-**Details:**  
+**Détails :**  
 
-1.  Vom Client wird eine Inhaltsanforderung an den Verwaltungspunkt gesendet. Vom Client wird in die Anforderung ein Kennzeichen mit der Information eingeschlossen, dass Fallbackverteilungspunkte zulässig sind.  
+1.  Le client envoie une requête de contenu au point de gestion. Le client inclut un indicateur avec la demande indiquant que les points de distribution de secours sont autorisés.  
 
-2.  Vom Verwaltungspunkt wird eine Inhaltsortliste mit bevorzugten Verteilungspunkten sowie Fallbackverteilungspunkten, an denen der Inhalt verfügbar ist, an den Client zurückgegeben. Der Inhalt ist an keinem bevorzugten Verteilungspunkt, jedoch an mindestens einem Fallbackverteilungspunkt verfügbar.  
+2.  Le point de gestion envoie une liste d'emplacements de contenu au client avec les points de distribution préférés et les points de distribution de secours comprenant du contenu. Si aucun point de distribution préféré n'intègre le contenu, il figure dans au moins un point de distribution de secours.  
 
-3.  Der Inhalt wird nicht heruntergeladen, weil die Bereitstellungseigenschaft bei Verwendung eines Fallbackverteilungspunkts mit dem Wert **Nicht herunterladen**festgelegt ist. Es tritt ein Clientfehler auf, die Fehlermeldung **Inhalt ist nicht verfügbar** wird angezeigt, und vom Client wird in den Wiederholungsmodus gewechselt. Jede Stunde wird eine neue Inhaltsanforderung gesendet.  
+3.  Le contenu n'est pas téléchargé, car la propriété de déploiement appliquée lorsque le client utilise un point de distribution de secours est définie sur **Ne pas télécharger**. Le client échoue et affiche le message **Contenu indisponible** , puis passe en mode de nouvelle tentative. Le client envoie une nouvelle requête de contenu toutes les heures.  
 
-4.  Vom Verwaltungspunkt wird ein Trigger erstellt, mit dem der Verteilungs-Manager zur Verteilung des Inhalts an alle bevorzugten Verteilungspunkte des Clients, von dem die Inhaltsanforderung erfolgt ist, aufgefordert wird.  
+4.  Le point de gestion crée un déclencheur afin que le Gestionnaire de distribution distribue le contenu à tous les points de distribution préférés pour le client ayant lancé la requête de contenu.  
 
-5.  Der Inhalt wird vom Verteilungs-Manager an alle bevorzugten Verteilungspunkte verteilt. In den meisten Fällen wird der Inhalt innerhalb einer Stunde erfolgreich an die bevorzugten Verteilungspunkte verteilt.  
+5.  Le Gestionnaire de distribution distribue le contenu à tous les points de distribution préférés. Dans la plupart des cas, le contenu est correctement distribué aux points de distribution préférés dans l’heure.  
 
-6.  Vom Client wird eine neue Inhaltsanforderung an den Verwaltungspunkt gesendet.  
+6.  Une nouvelle demande de contenu est adressée par le client au point de gestion.  
 
-7.  Vom Verwaltungspunkt wird eine Inhaltsortliste mit bevorzugten Verteilungspunkten, an denen der Inhalt verfügbar ist, an den Client zurückgegeben.  
+7.  Le point de gestion envoie une liste d'emplacements de contenu au client avec les points de distribution préférés comprenant du contenu.  
 
-8.  Der Inhalt wird von einem der bevorzugten Verteilungspunkte auf der Liste heruntergeladen.  
+8.  Le client télécharge le contenu à partir d'un point de distribution préféré sur la liste.  
 
-## <a name="scenario-9"></a>Szenario 9  
- Folgende Konfigurationseinstellungen sind vorhanden:  
+## <a name="scenario-9"></a>Scénario 9  
+ Les configurations suivantes existent :  
 
--   **Der Inhalt ist an keinem bevorzugten Verteilungspunkt verfügbar.**  
+-   **Le contenu n’est pas disponible sur un point de distribution préféré**  
 
--   **Den Inhalt für dieses Paket an bevorzugte Verteilungspunkte verteilen** ist aktiviert.  
+-   **Distribuer le contenu pour ce package vers les points de distribution préférés** : activé  
 
--   **Fallback zulassen**: aktiviert  
+-   **Autoriser les actions de secours** : activé  
 
--   **Bereitstellungsverhalten für langsame Netzwerke**: Inhalt herunterladen und installieren  
+-   **Comportement du déploiement pour un réseau lent** : télécharger et installer le contenu  
 
 
-**Details:**  
+**Détails :**  
 
-1.  Vom Client wird eine Inhaltsanforderung an den Verwaltungspunkt gesendet. Vom Client wird in die Anforderung ein Kennzeichen mit der Information eingeschlossen, dass Fallbackverteilungspunkte zulässig sind.  
+1.  Le client envoie une requête de contenu au point de gestion. Le client inclut un indicateur avec la demande indiquant que les points de distribution de secours sont autorisés.  
 
-2.  Vom Verwaltungspunkt wird eine Inhaltsortliste mit bevorzugten Verteilungspunkten sowie Fallbackverteilungspunkten, an denen der Inhalt verfügbar ist, an den Client zurückgegeben. Der Inhalt ist an keinem bevorzugten Verteilungspunkt, jedoch an mindestens einem Fallbackverteilungspunkt verfügbar.  
+2.  Le point de gestion envoie une liste d'emplacements de contenu au client avec les points de distribution préférés et les points de distribution de secours comprenant du contenu. Si aucun point de distribution préféré n'intègre le contenu, il figure dans au moins un point de distribution de secours.  
 
-3.  Der Inhalt wird von einem Fallbackverteilungspunkt aus der Liste heruntergeladen, da die Bereitstellungseigenschaft für das Verwenden eines Fallbackverteilungspunkts auf den Wert **Inhalt herunterladen und installieren**festgelegt ist. Diese Bereitstellungseinstellung ermöglicht es einem Client, der eine Fallbackinhaltsquelle verwenden muss, den Inhalt von diesem Ort abzurufen.  
+3.  Le contenu est téléchargé depuis un point de distribution de secours de la liste, car la propriété de déploiement appliquée lorsque le client utilise un point de distribution de secours est définie sur **Télécharger et installer le contenu**. Ce paramètre de déploiement permet à un client qui doit utiliser un emplacement de contenu de secours d’obtenir le contenu à partir de cet emplacement.  
 
-4.  Vom Verwaltungspunkt wird ein Trigger erstellt, mit dem der Verteilungs-Manager zur Verteilung des Inhalts an alle bevorzugten Verteilungspunkte des Clients aufgefordert wird, von dem die Inhaltsanforderung erfolgt ist.  
+4.  Le point de gestion crée un déclencheur afin que le Gestionnaire de distribution distribue le contenu à tous les points de distribution préférés pour le client ayant lancé la requête de contenu.  
 
-5.  Der Verteilungs-Manager verteilt den Inhalt an alle bevorzugten Verteilungspunkte. Dadurch können weitere Clients den Inhalt ohne Verwendung eines Fallbackverteilungspunkts abrufen.  
+5.  Le Gestionnaire de distribution distribue le contenu à tous les points de distribution préférés, ce qui permet à des clients supplémentaires d’obtenir le contenu sans utiliser de point de distribution de secours.  

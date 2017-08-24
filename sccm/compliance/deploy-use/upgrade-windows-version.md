@@ -1,6 +1,6 @@
 ---
-title: "Ausführen eines Upgrades von Windows-Geräten auf eine andere Version mit Configuration Manager | Microsoft-Dokumentation"
-description: "Automatisches Upgrade von Geräten, die Windows 10 Desktop, Windows 10 Mobile, oder Windows 10 Holographic ausführen, auf eine andere Edition mit Configuration Manager."
+title: "Mettre à niveau des appareils Windows vers une autre version avec Configuration Manager | Microsoft Docs"
+description: "Mettez automatiquement à niveau les appareils qui exécutent Windows 10 Desktop, Windows 10 Mobile ou Windows 10 Holographique vers une autre édition avec Configuration Manager."
 ms.custom: na
 ms.date: 07/31/2017
 ms.prod: configuration-manager
@@ -18,83 +18,83 @@ manager: angrobe
 ms.openlocfilehash: cd8c644d07dab0010dc211df8ce4f2dc6e1fa7ae
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="upgrade-windows-devices-with-the-edition-upgrade-policy-in-system-center-configuration-manager"></a>Aktualisieren von Windows-Geräten mit der Editionsaktualisierungsrichtlinie in System Center Configuration Manager
+# <a name="upgrade-windows-devices-with-the-edition-upgrade-policy-in-system-center-configuration-manager"></a>Mettre à niveau des appareils Windows avec la stratégie de mise à niveau d’édition dans System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
-Mit der **Upgraderichtlinie für die Edition** von System Center Configuration Manager können Sie für Geräte, auf denen eine der folgenden Windows 10-Versionen ausgeführt wird, automatisch ein Upgrade auf eine andere Version durchführen:
+La **stratégie de mise à niveau d’édition** de System Center Configuration Manager vous permet de mettre automatiquement à niveau les appareils qui exécutent une des versions suivantes de Windows 10 vers une autre édition :
 
 - Windows 10 Desktop
 - Windows 10 Mobile
 <!-- - Windows 10 Holographic -->
 
-Die folgenden Upgradepfade werden unterstützt:
+Les chemins de mise à niveau suivants sont pris en charge :
 
-- Von Windows 10 Pro auf Windows 10 Enterprise
-- Von Windows 10 Home auf Windows 10 Education
-- Von Windows 10 Mobile auf Windows 10 Mobile Enterprise
+- De Windows 10 Professionnel vers Windows 10 Entreprise
+- De Windows 10 Famille vers Windows 10 Éducation
+- De Windows 10 Mobile vers Windows 10 Mobile Entreprise
 <!-- - From Windows 10 Holographic Pro to Windows 10 Holographic Enterprise -->
 
-Die Geräte müssen bei Microsoft Intune registriert sein oder die Configuration Manager-Clientsoftware ausführen. Diese Richtlinie ist derzeit nicht mit PCs konform, die von einer lokalen MDM verwaltet werden.
+Les appareils doivent être inscrit dans Microsoft Intune ou exécuter le logiciel client Configuration Manager. Cette stratégie n’est actuellement pas compatible avec les PC gérés par gestion MDM locale.
 
-## <a name="before-you-start"></a>Vorbereitung  
- Bevor Sie beginnen, Geräte auf die neueste Version zu aktualisieren, benötigen Sie eines der folgenden Dinge:  
+## <a name="before-you-start"></a>Avant de commencer  
+ Avant de commencer à mettre à niveau des appareils vers la dernière version, vous avez besoin d’un des éléments suivants :  
 
--   Einen gültigen Product Key für die Installation der neuen Version von Windows auf allen Geräten, die das Ziel dieser Richtlinie sind (für Desktopbetriebssysteme)  
+-   Une clé de produit valide pour installer la nouvelle version de Windows sur tous les appareils que vous ciblez avec la stratégie (pour les systèmes d’exploitation d’ordinateur)  
 
--   Eine Lizenzdatei von Microsoft, die die Lizenzierungsinformationen zum Installieren der neuen Version von Windows auf allen Geräten enthält, die das Ziel dieser Richtlinie sind (für Windows 10 Mobile<!-- and Windows 10 Holographic-->).
+-   Un fichier de licence de Microsoft, qui contient les informations de licence pour installer la nouvelle version de Windows sur tous les appareils que vous ciblez avec la stratégie (pour Windows 10 Mobile<!-- and Windows 10 Holographic-->).
 
-- Zum Erstellen und Bereitstellen dieses Richtlinientyps muss Ihnen die Configuration Manager-Sicherheitsrolle **Hauptadministrator** zugewiesen sein.
+- Pour créer et déployer ce type de stratégie, le rôle de sécurité **Administrateur complet** de Configuration Manager doit vous avoir été affecté.
 
-## <a name="configure-the-edition-upgrade-policy"></a>Konfigurieren der Editionsaktualisierungsrichtlinie  
+## <a name="configure-the-edition-upgrade-policy"></a>Configurer la stratégie de mise à niveau d’édition  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Bestand und Kompatibilität** > **Kompatibilitätseinstellungen** > **Windows 10-Editionsupgrade**.  
+1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité** > **Paramètres de compatibilité** > **Mise à niveau de l'édition Windows 10**.  
 
-3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** auf **Editionsaktualisierungsrichtlinie erstellen**.  
+3.  Sous l’onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer une stratégie de mise à niveau d’édition**.  
 
-4.  Klicken Sie auf **Richtlinie erstellen**.  
+4.  Cliquez sur **Créer une stratégie**.  
 
-5.  Geben Sie auf der Seite **Allgemein** des **Assistenten zum Erstellen von Editionsaktualisierungsrichtlinien**die folgenden Informationen an:  
+5.  Dans la page **Général** de l’ **Assistant Création de stratégie de mise à niveau d’édition**, spécifiez les informations suivantes :  
 
-    -   **Name** : Geben Sie einen Namen für die Editionsaktualisierungsrichtlinie ein.  
+    -   **Nom** : entrez un nom pour la stratégie de mise à niveau d’édition.  
 
-    -   **Beschreibung** (optional): Geben Sie optional eine Beschreibung für die Richtlinie ein, damit Sie sie in der Intune-Konsole besser identifizieren können.  
+    -   **Description** (facultatif) : si vous le souhaitez, entrez une description pour la stratégie qui vous permet de l’identifier dans la console Intune.  
 
-    -   **SKU, auf die das Gerät aktualisiert werden soll**: Wählen Sie aus der Dropdownliste die Version von Windows 10 Desktop<!-- Windows 10 Holographic,--> oder Windows 10 Mobile aus, auf die die als Ziel angegebenen Geräte aktualisiert werden sollen.  
+    -   **Référence pour mettre à niveau l’appareil vers** : dans la liste déroulante, sélectionnez la version de Windows 10 Desktop, <!-- Windows 10 Holographic,--> ou Windows 10 Mobile vers laquelle vous voulez mettre à niveau les appareils ciblés.  
 
-    -   **Lizenzinformationen** : Wählen Sie eine Option aus:  
+    -   **Informations sur la licence** : sélectionnez une des options suivantes :  
 
-        -   **Product Key** : Geben Sie einen gültigen Windows 10-Product Key ein, der zum Aktualisieren der als Ziel angegebenen Geräte mit Windows 10 Desktop-Betriebssystemen verwendet werden soll.  
+        -   **Clé de produit** : entrez une clé de produit Windows 10 valide qui sera utilisée pour mettre à niveau les appareils que vous ciblez et qui exécutent des systèmes d’exploitation Windows 10 Desktop.  
 
             > [!NOTE]  
-            >  Nach der Erstellung einer Richtlinie mit einem Product Key können Sie den Product Key später nicht mehr bearbeiten. Grund hierfür ist, dass der Schlüssel aus Sicherheitsgründen verborgen wird. Um den Product Key zu ändern, müssen Sie den gesamten Schlüssel erneut eingeben.  
+            >  Une fois que vous avez créé une stratégie contenant une clé de produit, vous ne pouvez plus modifier la clé de produit. La raison en est que la clé est masquée pour des raisons de sécurité. Pour changer la clé de produit, vous devez entrer à nouveau toute la clé.  
 
-        -   **Lizenzdatei**: Klicken Sie auf **Durchsuchen**, um eine gültige Lizenzdatei im XML-Format auszuwählen, mit der die als Ziel angegebenen Geräte mit <!--Windows 10 Holographic and -->Windows 10 Mobile-Betriebssystemen aktualisiert werden sollen.  
+        -   **Fichier de licence** : cliquez sur **Parcourir** pour sélectionner un fichier de licence valide au format XML. Ce fichier sert à mettre à niveau les appareils ciblés qui exécutent les systèmes d’exploitation <!--Windows 10 Holographic and -->Windows 10 Mobile.  
 
-6.  Schließen Sie den Assistenten ab.  
+6.  Effectuez toutes les étapes de l'Assistant.  
 
-Die neue Richtlinie wird im Arbeitsbereich **Bestand und Kompatibilität** im Knoten **Windows 10-Editionsaktualisierung** angezeigt.  
+La nouvelle stratégie figure dans le nœud **Mise à niveau de l’édition de Windows 10** de l’espace de travail **Ressources et conformité** .  
 
-## <a name="deploy-the-edition-upgrade-policy"></a>Bereitstellen der Editionsaktualisierungsrichtlinie  
+## <a name="deploy-the-edition-upgrade-policy"></a>Déployer la stratégie de mise à niveau d’édition  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Bestand und Kompatibilität** > **Kompatibilitätseinstellungen** > **Windows 10-Editionsupgrade**.  
+1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité** > **Paramètres de compatibilité** > **Mise à niveau de l'édition Windows 10**.  
 
-3.  Wählen Sie die Windows 10-Editionsaktualisierungsrichtlinie aus, die Sie bereitstellen möchten, und klicken Sie dann auf der Registerkarte **Startseite** in der Gruppe **Bereitstellung** auf **Bereitstellen**.  
+3.  Sélectionnez la stratégie de mise à niveau d’édition de Windows 10 que vous voulez déployer puis, dans l’onglet **Accueil** , dans le groupe **Déploiement** , cliquez sur **Déployer**.  
 
-4.  Wählen Sie im Dialogfeld **Deploy Windows 10 Edition Upgrade** (Windows 10-Editionsaktualisierung bereitstellen) die Sammlung aus, für die Sie die Richtlinie bereitstellen möchten. Wählen Sie ferner den Zeitplan aus, nach dem die Richtlinie ausgewertet werden soll. Klicken Sie anschließend auf **OK**. Für PCs, die mit dem Configuration Manager-Client verwaltet werden, müssen Sie die Richtlinie auf einer Gerätesammlung bereitstellen. Für PCs, die bei Intune registriert sind, können Sie die Richtlinie für eine Benutzer- oder Gerätesammlung bereitstellen. 
+4.  Dans la boîte de dialogue **Déployer la mise à niveau de l’édition Windows 10**, choisissez le regroupement sur lequel vous voulez déployer la stratégie et la planification selon laquelle la stratégie doit être évaluée, puis cliquez sur **OK**. Pour les PC gérés par le client Configuration Manager, vous devez déployer la stratégie sur un regroupement d’appareils. Pour les PC inscrits dans Intune, vous pouvez déployer la stratégie sur un regroupement d’utilisateurs ou d’appareils. 
 
 
 
-## <a name="next-steps"></a>Nächste Schritte
+## <a name="next-steps"></a>Étapes suivantes
 
-Wenn Sie die Bereitstellung überwachen, die Sie im Arbeitsbereich **Überwachung** über den Knoten **Bereitstellungen** erstellt haben, werden Ihnen unter Umständen folgende Fehler angezeigt, die darauf hindeuten, dass die Bereitstellung nicht erfolgreich war:
-- **Für dieses Gerät nicht anwendbar**
-- **Fehler bei der Konvertierung des Datentyps**
+Quand vous analysez le déploiement que vous venez de créer à partir du nœud **Déploiements** de l’espace de travail **Analyse**, vous pouvez recevoir des erreurs qui semblent indiquer l’échec du déploiement. Par exemple :
+- **Ne s’applique pas à cet appareil**
+- **Échec de la conversion du type de données**
 
-Diese Fehler bedeuten allerdings nicht, dass die Bereitstellung gescheitert ist. Vergewissern Sie sich am Ziel-PC, dass das Upgrade erfolgreich durchgeführt wurde.
+Ces erreurs ne signifient pas que le déploiement a échoué. Vérifiez que la mise à niveau a réussi sur le PC ciblé.
 
-Sobald die Richtlinie einen entsprechenden Windows-PC erreicht und ausgewertet wird, wird dieser innerhalb von zwei Stunden zum Installieren der Aktualisierung neu gestartet. Stellen Sie sicher, dass Sie jeden Benutzer informieren, dem Sie die Richtlinie bereitstellen, oder planen Sie die Ausführung der Richtlinie außerhalb der Arbeitsstunden der Benutzer.
+Une fois que la stratégie atteint un PC Windows ciblé et qu’il est évalué, celui-ci est redémarré dans les deux heures suivantes pour appliquer la mise à niveau. Assurez-vous d’informer les utilisateurs sur lesquels vous déployez la stratégie ou planifiez l’exécution de la stratégie en dehors des heures de travail des utilisateurs.

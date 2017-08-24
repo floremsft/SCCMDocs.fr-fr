@@ -1,6 +1,6 @@
 ---
-title: "Funktionen in Technical Preview 1602 für Configuration Manager"
-description: "Erfahren Sie mehr zu Funktionen, die in System Center Configuration Manager Technical Preview 1602 zur Verfügung stehen."
+title: "Fonctionnalités de Technical Preview 1602 Configuration Manager"
+description: "Découvrez les fonctionnalités disponibles dans la version d’évaluation technique 1602 pour System Center Configuration Manager."
 ms.custom: na
 ms.date: 01/23/2017
 ms.prod: configuration-manager
@@ -18,44 +18,44 @@ robots: noindex,nofollow
 ms.openlocfilehash: 2354f885aaf69683004ad78f0e1978e78fee9145
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="capabilities-in-technical-preview-1602-for-system-center-configuration-manager"></a>Funktionen in Technical Preview 1602 für System Center Configuration Manager
+# <a name="capabilities-in-technical-preview-1602-for-system-center-configuration-manager"></a>Fonctionnalités de la version d’évaluation technique 1602 pour System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Technical Preview)*
+*S’applique à : System Center Configuration Manager (version d’évaluation technique)*
 
-In diesem Artikel werden die Funktionen erläutert, die in der Technical Preview 1602 für System Center Configuration Manager verfügbar sind. Sie können diese Version installieren, um neue Funktionen für Ihren Configuration Manager Technical Preview-Standort zu aktualisieren oder hinzuzufügen. Bevor Sie diese Version der Technical Preview installieren, lesen Sie das einführende Thema [Technical Preview für System Center Configuration Manager](../../core/get-started/technical-preview.md), um sich mit den allgemeinen Anforderungen und Einschränkungen bei der Verwendung einer Technical Preview vertraut zu machen, und zu erfahren, wie Sie Updates zwischen Versionen durchführen und Feedback zu den Features in einer Technical Preview geben können.  
+Cet article présente les fonctionnalités qui sont disponibles dans la version d’évaluation technique 1602 pour System Center Configuration Manager. Vous pouvez installer cette version pour mettre à jour et ajouter de nouvelles fonctionnalités à votre site de version d’évaluation technique Configuration Manager. Avant d’installer cette version d’évaluation technique, passez en revue la rubrique de présentation, [Technical Preview pour System Center Configuration Manager](../../core/get-started/technical-preview.md), pour vous familiariser avec les conditions générales et les limitations d’utilisation d’une version d’évaluation technique, la mise à jour entre les versions et l’envoi de commentaires sur les fonctionnalités dans une version d’évaluation technique.  
 
- Im Folgenden werden neue Funktionen aufgelistet, die Sie mit dieser Version ausprobieren können.  
+ Vous trouverez ci-dessous les nouvelles fonctionnalités propres à cette version.  
 
-##  <a name="BKMK_MDM"></a> Verbesserungen für die Verwaltung mobiler Geräte  
+##  <a name="BKMK_MDM"></a> Améliorations apportées à la gestion des appareils mobiles  
 
-### <a name="ios-activation-lock"></a>iOS-Aktivierungssperre  
- System Center Configuration Manager kann Sie beim Verwalten der iOS-Aktivierungssperre unterstützen, einem Feature der App „Mein iPhone suchen“ für iOS 7.1 und höher. Die Aktivierungssperre wird automatisch aktiviert, wenn die iPhone-App „Mein iPhone suchen“ auf einem Gerät verwendet wird. Nach der Aktivierung müssen die Apple-ID und das Kennwort des Benutzers eingegeben werden, bevor folgende Vorgänge möglich sind:  
+### <a name="ios-activation-lock"></a>Verrou d’activation iOS  
+ System Center Configuration Manager peut vous aider à gérer le verrou d’activation iOS, fonctionnalité de l’application Rechercher mon iPhone pour les appareils iOS 7.1 et versions ultérieures. Le verrou d'activation est activé automatiquement quand l'application Rechercher mon iPhone est utilisée sur un appareil. Une fois qu’il est activé, l’ID et le mot de passe Apple de l’utilisateur doivent être entrés pour pouvoir :  
 
--   Deaktivieren von „Mein iPhone suchen“  
+-   Désactiver Rechercher mon iPhone  
 
--   Löschen des Geräts  
+-   Effacer l'appareil  
 
--   Reaktivieren des Geräts  
+-   Réactiver l'appareil  
 
- Configuration Manager kann den Status der Aktivierungssperre von überwachten und nicht überwachten Geräten anfordern, die iOS 7.1 und höher ausführen. Für überwachte Geräte kann Intune den Umgehungscode der Aktivierungssperre abrufen und ihn direkt auf das Gerät anwenden.  
+ Configuration Manager peut demander l’état du verrou d’activation des appareils supervisés et non supervisés qui exécutent iOS 7.1 et versions ultérieures. Pour les appareils supervisés, Intune peut récupérer le code de contournement du verrou d’activation et l’émettre directement à l’appareil.  
 
- Weitere Informationen finden Sie unter [Unterstützen des Schutzes von iOS-Geräten durch Umgehung der Aktivierungssperre für Configuration Manager](/sccm/mdm/deploy-use/manage-ios-activation-lock)  
+ Pour plus d’informations, consultez [Aider à protéger les appareils iOS avec le contournement du verrou d’activation pour Configuration Manager](/sccm/mdm/deploy-use/manage-ios-activation-lock)  
 
-##  <a name="BKMK_SC1601"></a> Verbesserungen an Software Center in Version 1602  
+##  <a name="BKMK_SC1601"></a> Améliorations apportées au Centre logiciel dans la version 1602  
 
-### <a name="refresh-pc-machine-and-user-policy-from-software-center"></a>Aktualisieren von Computer- und Benutzerrichtlinien eines PCs über Software Center  
- Eine neue Option, **Richtlinie synchronisieren**, wurde in Software Center zur Seite **Optionen** > **Computerwartung** hinzugefügt. Mit dieser Option können die Configuration Manager-Computer- und -Benutzerrichtlinien auf dem PC aktualisiert werden.  
+### <a name="refresh-pc-machine-and-user-policy-from-software-center"></a>Actualiser la stratégie ordinateur et utilisateur du PC à partir du Centre logiciel  
+ Une nouvelle option, **Stratégie de synchronisation**, a été ajoutée à la page **Options** > **Maintenance de l’ordinateur** du Centre logiciel. Elle force le PC à actualiser sa stratégie ordinateur et utilisateur Configuration Manager.  
 
-##  <a name="BKMK_Win10Servicing"></a> Verbesserungen für die Wartung von Windows 10  
- Die folgenden Verbesserungen für die Wartung von Windows 10 wurden zur Technical Preview 1602 hinzugefügt:  
+##  <a name="BKMK_Win10Servicing"></a> Améliorations apportées à la maintenance de Windows 10  
+ Dans Technical Preview 1602, nous avons ajouté les améliorations suivantes à la Maintenance de Windows 10 :  
 
--   Neue Filteroptionen für Wartungpläne.  Sie können jetzt nach **Sprache**, **Erforderlich** und **Titel** filtern. Nur Upgrades, die die angegebenen Kriterien erfüllen, werden der entsprechenden Bereitstellung hinzugefügt.  
+-   Nouvelles options de filtre pour les plans de maintenance.  Vous pouvez désormais filtrer par **Langue**, **Obligatoire** et **Titre**. Seules les mises à jour qui remplissent les critères spécifiés sont ajoutées au déploiement associé.  
 
--   Bei der Auswahl der Klassifizierung **Upgrades** für die Synchronisierung von Softwareupdates wird ein Warnungsdialogfeld angezeigt, um Sie zu informieren,dass [Hotfix 3095113](https://support.microsoft.com/kb/3095113) von WSUS erforderlich ist, um Softwareupdates erfolgreich synchronisieren zu können und damit die Windows 10-Wartung ordnungsgemäß funktioniert.  Vom Dialogfeld aus gelangen Sie zum Knowledge Base-Artikel für den Hotfix.  
+-   Quand vous sélectionnez la classification **Mises à niveau** pour la synchronisation des mises à jour logicielles, une boîte de dialogue d’avertissement s’affiche pour vous informer que le [correctif 3095113](https://support.microsoft.com/kb/3095113) WSUS est nécessaire pour synchroniser correctement les mises à jour logicielles et pour que la maintenance de Windows 10 fonctionne correctement.  À partir de la boîte de dialogue, vous pouvez accéder à l’article de la Base de connaissances pour obtenir le correctif logiciel.  
 
--   Verfügbare Windows 10-Upgrades werden jetzt nur im Knoten **Windows 10-Wartung** \ **Alle Windows 10-Updates** der Configuration Manager-Konsole angezeigt. Diese Updates werden nicht mehr im Knoten **Softwareupdates** \ **Alle Softwareupdates** angezeigt.  
+-   Les mises à niveau Windows 10 disponibles sont maintenant affichées uniquement dans le nœud **Maintenance de Windows 10** \ **Toutes les mises à jour Windows 10** de la console Configuration Manager. Ces mises à jour n’apparaissent plus dans le nœud **Mises à jour logicielles** \ **Toutes les mises à jour logicielles**.  
 
--   Endbenutzern, die ein Windows 10-Upgradepaket starten, wird ein Dialogfeld angezeigt, in dem sie informiert werden, dass sie im Begriff sind, ihr Betriebssystem zu aktualisieren.  
+-   Les utilisateurs finaux qui démarrent un package de mise à niveau Windows 10 sont informés qu’ils vont mettre à niveau leur système d’exploitation.  

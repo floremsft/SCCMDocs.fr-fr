@@ -1,6 +1,6 @@
 ---
-title: Technical Preview 1705 | Microsoft-Dokumentation
-description: "Erfahren Sie mehr über die Funktionen, die mit der Technical Preview-Version 1705 für System Center Configuration Manager zur Verfügung stehen."
+title: Technical Preview 1705 | Microsoft Docs
+description: "Découvrez les fonctionnalités disponibles dans la version Technical Preview 1705 pour System Center Configuration Manager."
 ms.custom: na
 ms.date: 06/02/2017
 ms.prod: configuration-manager
@@ -16,19 +16,19 @@ manager: angrobe
 ms.openlocfilehash: b977a79baec73999caa21648adcb6fcfec4a4935
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="capabilities-in-technical-preview-1705-for-system-center-configuration-manager"></a>Funktionen in der Technical Preview-Version 1705 von System Center Configuration Manager
+# <a name="capabilities-in-technical-preview-1705-for-system-center-configuration-manager"></a>Fonctionnalités de la version Technical Preview 1705 de System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Technical Preview)*
+*S’applique à : System Center Configuration Manager (Technical Preview)*
 
-In diesem Artikel werden die Funktionen erläutert, die in Technical Preview-Version 1705 von System Center Configuration Manager verfügbar sind. Sie können diese Version installieren, um neue Funktionen für Ihren Configuration Manager Technical Preview-Standort zu aktualisieren oder hinzuzufügen. Bevor Sie diese Technical Preview-Version installieren, lesen Sie [Technical Preview für System Center Configuration Manager](../../core/get-started/technical-preview.md), um sich mit den allgemeinen Anforderungen und Einschränkungen bei der Verwendung einer Technical Preview-Version vertraut zu machen und zu erfahren, wie Sie Updates für Versionen durchführen und Feedback zu den Funktionen in einer Technical Preview-Version geben können.    
+Cet article présente les fonctionnalités qui sont disponibles dans la version Technical Preview 1705 de System Center Configuration Manager. Vous pouvez installer cette version pour mettre à jour et ajouter de nouvelles fonctionnalités à votre site Configuration Manager Technical Preview. Avant d’installer cette version Technical Preview, passez en revue [Technical Preview pour System Center Configuration Manager](../../core/get-started/technical-preview.md) pour vous familiariser avec les conditions générales et les limitations d’utilisation d’une version Technical Preview, la mise à jour entre les versions et l’envoi de commentaires sur les fonctionnalités d’une version Technical Preview.    
 
-**Bekannte Probleme in dieser Technical Preview:**
--   **Operations Manager Suite-Connector (OMS) lässt sich nicht aktualisieren**. Beim Upgrade einer früheren Technical Preview-Version, in der der OMS-Connector konfiguriert war, wird dieser Connector nicht aktualisiert und steht in der Konsole nicht mehr zur Verfügung. Nach dem Upgrade müssen Sie [den Assistenten für Azure-Dienste verwenden](capabilities-in-technical-preview-1705.md#use-azure-services-wizard-to-configure-a-connection-to-oms) und die Verbindung mit Ihrem OMS-Arbeitsbereich wiederherstellen.
--   **Surface-Treiber werden nicht erfolgreich synchronisiert**. Obwohl die Unterstützung für Surface-Treiber im Abschnitt **Neuerungen** in der Configuration Manager-Konsole für die Technical Preview aufgeführt ist, funktioniert dies noch nicht wie erwartet.
--   **Windows Update for Business-Zurückstellungsrichtlinien können nicht erstellt werden**. Obwohl die Fähigkeit zum Konfigurieren von Windows Update for Business-Zurückstellungsrichtlinien im Abschnitt **Neuerungen** in der Configuration Manager-Konsole für die Technical Preview aufgeführt ist, wird der Assistent nicht geöffnet, sodass Sie keine Richtlinien konfigurieren können.
+**Problèmes connus dans cette version Technical Preview :**
+-   **Le connecteur Operations Manager Suite ne se met pas à niveau**. Lorsque vous mettez à niveau à partir d’une version précédente de la Technical Preview qui avait le connecteur OMS configuré, ce connecteur n’est pas mis à niveau et n’est plus disponible dans la console. Après la mise à niveau, vous devez [utiliser l’assistant de services Azure](capabilities-in-technical-preview-1705.md#use-azure-services-wizard-to-configure-a-connection-to-oms) et rétablir la connexion à votre espace de travail OMS.
+-   **Les pilotes Surface ne se synchronisent pas correctement**. Même si la prise en charge des pilotes Surface est répertoriée dans les **Nouveautés** dans la console Configuration Manager pour Technical Preview, cette fonctionnalité ne fonctionne pas encore comme prévu.
+-   **Impossible de créer une stratégie de report Windows Update for Business**. Bien que la possibilité de configurer des stratégies de report Windows Update for Business est répertoriée dans les **Nouveautés** dans la console Configuration Manager pour Technical Preview, l’Assistant ne s’ouvre pas et vous ne parvenez pas à configurer des stratégies.
 
 
 <!--  Known Issues Template
@@ -37,7 +37,7 @@ In diesem Artikel werden die Funktionen erläutert, die in Technical Preview-Ver
     Workaround details.
 -->
 
-**Im Folgenden werden neue Funktionen aufgelistet, die Sie mit dieser Version ausprobieren können.**  
+**Vous trouverez ci-dessous les nouvelles fonctionnalités propres à cette version.**  
 
 <!--  Rough Section Template
 ##  FEATURE
@@ -49,253 +49,253 @@ In diesem Artikel werden die Funktionen erläutert, die in Technical Preview-Ver
  -  Task 2              
 -->
 
-## <a name="update-reset-tool"></a>Tool zum Zurücksetzen von Updates  
-Sie können das Configuration Manager-Tool zum Zurücksetzen von Updates **CMUpdateReset.exe** verwenden, sollten bei konsoleninternen Updates Probleme beim Herunterladen oder Replizieren auftreten. Dieses Tool ist in der Technical Preview-Version 1705 enthalten. Sie finden es auf dem Standortserver Ihres Technical Preview-Standorts im Ordner ***\cd.latest\SMSSETUP\TOOLS***, nachdem Sie die Preview-Version installiert haben.
+## <a name="update-reset-tool"></a>Outil de réinitialisation des mises à jour  
+Vous pouvez utiliser l’outil de réinitialisation des mises à jour Configuration Manager, **CMUpdateReset.exe**, pour résoudre les problèmes lorsque des mises à jour dans la console ont des difficultés à télécharger ou à se répliquer. Cet outil est inclus dans la Technical Preview version 1705. Vous pouvez le trouver sur le serveur du site de votre Technical Preview après avoir installé la préversion dans le dossier ***\cd.latest\SMSSETUP\TOOLS***.
 
-Sie können dieses Tool ab der Technical Preview-Version 1606 verwenden. Diese Abwärtskompatibilität wird bereitgestellt, damit das Tool mit einer Vielzahl von Technical Preview-Updateszenarien genutzt werden kann und nicht so lange gewartet werden muss, bis die nächste Technical Preview verfügbar ist.
+Vous pouvez utiliser cet outil avec les versions Technical Preview 1606 et ultérieures. Cette compatibilité descendante est proposée afin que l’outil puisse être utilisé dans différents scénarios de mise à jour de Technical Preview, sans devoir attendre la disponibilité de la Technical Preview suivante.
 
-Sie können dieses Tool verwenden, wenn ein konsoleninternes Update noch nicht installiert wurde und einen fehlerhaften Status hat. Ein fehlerhafter Status kann bedeuten, dass der Download des Updates zwar läuft, aber ins Stocken geraten ist und übermäßig lange dauert, u.U. viele Stunden länger als dies bei Updatepaketen ähnlicher Größe bislang der Fall war. Es kann sich auch um einen Fehler beim Replizieren des Updates an untergeordnete primäre Standorte handeln.  
+Vous pouvez utiliser cet outil lorsqu’une mise à jour dans la console n’a pas encore été installée et se trouve dans un état d’échec. Un état d’échec peut signifier que le téléchargement de la mise à jour est toujours en cours mais est bloqué et prend un temps extrêmement long, peut-être des heures de plus que pour les packages de taille similaire précédemment téléchargés. Il peut également s’agir d’un échec de réplication de la mise à jour sur les sites principaux enfants.  
 
-Wenn Sie das Tool ausführen, wird es für das Update ausgeführt, das Sie angeben. Erfolgreich installierte oder heruntergeladene Updates werden von diesem Tool standardmäßig nicht gelöscht.  
+Lorsque vous exécutez l’outil, il s’exécute sur la mise à jour que vous spécifiez. Par défaut, l’outil ne supprime pas les mises à jour installées ou téléchargées avec succès.  
 
-### <a name="prerequisites"></a>Voraussetzungen
-Das Konto, das Sie verwenden, um das Tool auszuführen, benötigt die folgenden Berechtigungen:
--   Die Berechtigungen **Lesen** und **Schreiben** für die Standortdatenbank des Standorts der zentralen Verwaltung und jeden primären Standort in Ihrer Hierarchie. Zum Festlegen dieser Berechtigungen können Sie das Benutzerkonto der Configuration Manager-Datenbank an jedem Standort als Mitglied der [festen Datenbankrollen](/sql/relational-databases/security/authentication-access/database-level-roles#fixed-database-roles) **db_datawriter** und **db_datareader** hinzufügen. Das Tool interagiert nicht mit sekundären Standorten.
--   **Lokaler Administrator** am Standort der obersten Ebene Ihrer Hierarchie.
--   **Lokaler Administrator** auf dem Computer, der den Dienstverbindungspunkt hostet.
+### <a name="prerequisites"></a>Conditions préalables
+Le compte que vous utilisez pour exécuter l’outil nécessite les autorisations suivantes :
+-   Les autorisations en **Lecture** et **Écriture** pour la base de données de site du site d’administration centrale et chaque site principal de votre hiérarchie. Pour définir ces autorisations, vous pouvez ajouter le compte d’utilisateur en tant que membre des [rôles de base de données fixes](/sql/relational-databases/security/authentication-access/database-level-roles#fixed-database-roles) **db_datawriter** et **db_datareader** sur la base de données Configuration Manager de chaque site. L’outil n’interagit pas avec les sites secondaires.
+-   **Administrateur local** sur le site de niveau supérieur de votre hiérarchie.
+-   **L’administrateur local** sur l’ordinateur hébergeant le point de connexion de service.
 
-Sie benötigen die GUID des Updatepakets, das Sie zurücksetzen möchten. So rufen Sie die GUID ab
--   Wechseln Sie in der Konsole zu **Verwaltung** > **Updates und Wartung**, und klicken Sie dann im Anzeigebereich mit der rechten Maustaste auf die Überschrift einer der Spalten (z.B. **Status**). Wählen Sie dann **Paket-GUID** aus. Dadurch wird diese Spalte, die die GUID des Updatepakets enthält, der Anzeige hinzugefügt.
+Vous avez besoin du GUID du package de mise à jour que vous souhaitez réinitialiser. Pour obtenir le GUID :
+-   Dans la console, accédez à **Administration** > **Mises à jour et maintenance** puis, dans le volet qui s’affiche, cliquez sur l’en-tête d’une des colonnes (comme **État**), puis sélectionnez **GUID du package**. Cette opération ajoute cette colonne à l’affichage, et la colonne présente le GUID du package de mise à jour.
 
 > [!TIP]  
-> Um die GUID zu kopieren, wählen Sie die Zeile des Updatepakets aus, das Sie zurücksetzen möchten, und drücken dann STRG+C, um diese Zeile zu kopieren. Wenn Sie die kopierte Auswahl in einen Texteditor einfügen, können Sie anschließend nur die GUID zur Verwendung als Befehlszeilenparameter kopieren, wenn Sie das Tool ausführen.
+> Pour copier le GUID, sélectionnez la ligne pour le package de mise à jour que vous souhaitez réinitialiser, puis utilisez CTRL + C pour copier cette ligne. Si vous collez votre sélection copiée dans un éditeur de texte, vous pouvez ensuite copier uniquement le GUID pour une utilisation en tant que paramètre de ligne de commande lorsque vous exécutez l’outil.
 
-### <a name="run-the-tool"></a>Ausführen des Tools    
-Das Tool muss für den Standort der obersten Ebene der Hierarchie ausgeführt werden.
+### <a name="run-the-tool"></a>Exécution de l'outil    
+L’outil doit être exécuté sur le site de niveau supérieur de la hiérarchie.
 
-Wenn Sie das Tool ausführen, verwenden Sie Befehlszeilenparameter zum Angeben der SQL Server-Instanz am Standort der obersten Ebene der Hierarchie, des Namens der Standortdatenbank und der GUID des Updatepakets, das Sie zurücksetzen möchten. Das Tool ermittelt dann die zusätzlichen Server, auf die es Zugriff benötigt, anhand des Updatestatus.   
+Lorsque vous exécutez l’outil, vous utilisez les paramètres de ligne de commande pour spécifier l’instance SQL Server sur le site de niveau supérieur de la hiérarchie, le nom de la base de données de site et le GUID du package de mise à jour que vous souhaitez réinitialiser. L’outil identifie les serveurs supplémentaires auxquels il doit accéder, en fonction de l’état des mises à jour.   
 
-Wenn das Updatepaket den Status*Nach Download* hat, wird das Paket nicht vom Tool bereinigt. Optional können Sie das Entfernen eines erfolgreich heruntergeladenen Updates mithilfe des Parameters „FDELETE“ erzwingen (siehe die Befehlszeilenparameter weiter unten in diesem Thema).
+Si le package de mise à jour est dans un état *post-téléchargement*, l’outil ne nettoie pas le package. En option, vous pouvez forcer la suppression d’une mise à jour téléchargée avec succès à l’aide du paramètre de suppression de force (voir les paramètres de ligne de commande plus loin dans cette rubrique).
 
-Nach Ausführung des Tools:
--   Nachdem ein Paket gelöscht wurde, starten Sie an den Standorten auf oberster Ebene den SMS_Executive-Dienst neu, und führen Sie danach eine Überprüfung auf Updates durch, um das Paket erneut herunterzuladen.
--   Wenn ein Paket nicht gelöscht wurde, müssen Sie keine Maßnahmen ergreifen, da das Update erneut initialisiert und die Replikation oder Installation neu gestartet wird.
+Une fois que l’outil s’exécute :
+-   Si un package a été supprimé, redémarrez le service SMS_Executive des sites de niveau supérieur, puis vérifiez les mises à jour pour retélécharger le package.
+-   Si un package n’a pas été supprimé, il est inutile d’entreprendre une action, car la mise à jour sera réinitialisée et redémarrera l’installation ou la réplication.
 
-**Befehlszeilenparameter:**  
+**Paramètres de ligne de commande :**  
 
-| Parameter        |Beschreibung                 |  
+| Paramètre        |Description                 |  
 |------------------|----------------------------|  
-|**-S &lt;Vollqualifizierter Domänenname der SQL Server-Instanz Ihres Standorts der obersten Ebene>** | *Erforderlich* <br> Sie müssen den vollqualifizierten Domänennamen der SQL Server-Instanz angeben, die die Standortdatenbank für den Standort der obersten Ebene Ihrer Hierarchie hostet.    |  
-| **-D &lt;Datenbankname>**                        | *Erforderlich* <br> Sie müssen den Namen der Datenbank des Standorts der obersten Ebene angeben.  |  
-| **-P &lt;Paket-GUID>**                         | *Erforderlich* <br> Sie müssen die GUID des Updatepakets angeben, das Sie zurücksetzen möchten.   |  
-| **-I &lt;SQL Server-Instanzname>**             | *Optional* <br> Dient zum Bestimmen der SQL Server-Instanz, die die Standortdatenbank hostet. |
-| **-FDELETE**                              | *Optional* <br> Dient zum Erzwingen des Löschens eines erfolgreich heruntergeladenen Updatepakets. |  
- **Beispiele:**  
- In einem typischen Szenario möchten Sie ein Update zurücksetzen, wenn beim Herunterladen Probleme aufgetreten sind. Der vollqualifizierte Domänenname Ihrer SQL Server-Instanz lautet *server1.fabrikam.com*, die Standortdatenbank heißt *CM_XYZ*, und die Paket-GUID lautet *61F16B3C-F1F6-4F9F-8647-2A524B0C802C*.  Führen Sie Folgendes aus: ***CMUpdateReset.exe -S server1.fabrikam.com -D CM_XYZ -P 61F16B3C-F1F6-4F9F-8647-2A524B0C802C***
+|**-S &lt;Nom de domaine complet de l’instance SQL Server de votre site de niveau supérieur >** | *Obligatoire* <br> Vous devez spécifier le nom de domaine complet de l’instance SQL Server qui héberge la base de données de site pour le site de niveau supérieur de votre hiérarchie.    |  
+| **D - &lt;Nom de la base de données>**                        | *Obligatoire* <br> Vous devez spécifier le nom de la base de données des sites de niveau supérieur.  |  
+| **-P &lt;GUID du package>**                         | *Obligatoire* <br> Vous devez spécifier le GUID pour le package de mise à jour que vous souhaitez réinitialiser.   |  
+| **-I &lt;Nom de l'instance SQL Server>**             | *Facultatif* <br> Utilisez cela pour identifier l’instance de SQL Server qui héberge la base de données du site. |
+| **-FDELETE**                              | *Facultatif* <br> Permet de forcer la suppression d’un package de mise à jour téléchargé avec succès. |  
+ **Exemples :**  
+ Dans un scénario classique, vous souhaitez réinitialiser une mise à jour qui présente des problèmes de téléchargement. Votre nom de domaine complet SQL Server est *server1.fabrikam.com*, la base de données du site est *CM_XYZ* et le GUID du package est *61F16B3C-F1F6-4F9F-8647-2A524B0C802C*.  Vous exécutez : ***CMUpdateReset.exe -S server1.fabrikam.com -D CM_XYZ -P 61F16B3C-F1F6-4F9F-8647-2A524B0C802C***
 
- In einem extremeren Szenario möchten Sie das Löschen eines problematischen Updatepakets erzwingen. Der vollqualifizierte Domänenname Ihrer SQL Server-Instanz lautet *server1.fabrikam.com*, die Standortdatenbank heißt *CM_XYZ*, und die Paket-GUID lautet *61F16B3C-F1F6-4F9F-8647-2A524B0C802C*.  Führen Sie Folgendes aus: ***CMUpdateReset.exe -FDELETE -S server1.fabrikam.com -D CM_XYZ -P 61F16B3C-F1F6-4F9F-8647-2A524B0C802C***
+ Dans un scénario plus extrême, vous souhaitez forcer la suppression du package de mise à jour problématique. Votre nom de domaine complet SQL Server est *server1.fabrikam.com*, la base de données du site est *CM_XYZ* et le GUID du package est *61F16B3C-F1F6-4F9F-8647-2A524B0C802C*.  Vous exécutez : ***CMUpdateReset.exe  -FDELETE -S server1.fabrikam.com -D CM_XYZ -P 61F16B3C-F1F6-4F9F-8647-2A524B0C802C***
 
-### <a name="test-the-tool-with-the-technical-preview"></a>Testen des Tools mit der Technical Preview-Version  
-Sie können dieses Tool ab der Technical Preview-Version 1606 verwenden. Diese Abwärtskompatibilität wird bereitgestellt, damit das Tool mit einer größeren Anzahl von Technical Preview-Updateszenarien genutzt werden kann und nicht so lange gewartet werden muss, bis die nächste Technical Preview-Version verfügbar ist.
+### <a name="test-the-tool-with-the-technical-preview"></a>Tester l’outil avec la version Technical Preview  
+Vous pouvez utiliser cet outil avec les versions Technical Preview 1606 et ultérieures. Cette compatibilité descendante est proposée afin que l’outil puisse être utilisé dans de nombreux scénarios de mise à jour de Technical Preview, sans devoir attendre la disponibilité de la version Technical Preview suivante.
 
-Führen Sie das Tool für ein Updatepaket für eine Technical Preview vor diesem Update aus, und führen Sie die entsprechende Überprüfung der Voraussetzungen durch. Der Status einer erfolgten Überprüfung der Voraussetzungen wird durch einen der folgenden Status für das Paket unter **Verwaltung** > **Updates und Wartung** bestimmt:  
--   **Die Voraussetzungsprüfung war erfolgreich**
--   **Die Überprüfung der Voraussetzung war mit einer Warnung erfolgreich**
--   **Fehler bei der Voraussetzungsüberprüfung**
-
-
-## <a name="high-dpi-console-support"></a>Unterstützung einer hohen DPI-Einstellung in der Konsole
-
-Ab dieser Version sollten Probleme damit, wie die Configuration Manager-Konsole skaliert wird und verschiedene Teile der Benutzeroberfläche bei Betrachtung auf Geräten mit hohen DPI-Einstellungen angezeigt werden (z.B. Surface Book), behoben sein.
+Exécutez l’outil sur un package de mise à jour pour une version Technical Preview avant la fin de la vérification de la configuration requise par la mise à jour. Un état de vérification terminée est identifié par l’un des états suivants pour le package dans **Administration** > **Mises à jour et maintenance** :  
+-   **Vérification de configuration requise réussie**
+-   **Vérification de configuration réussie avec avertissement**
+-   **Échec de vérification de configuration requise**
 
 
-## <a name="peer-cache-improvements"></a>Verbesserungen des Peercaches
-Ab dieser Technical Preview wird von Peercache [nicht mehr das Netzwerkzugriffskonto verwendet](/sccm/core/plan-design/hierarchy/client-peer-cache), um Downloadanforderungen von Peers zu authentifizieren.
+## <a name="high-dpi-console-support"></a>Prise en charge des consoles à résolution élevée
+
+Avec cette version, les problèmes liés à la façon dont la console Configuration Manager met à l’échelle et affiche les différentes parties de l’interface utilisateur lors de son affichage sur des appareils à résolution élevée (comme un livre) devraient être corrigés.
 
 
-## <a name="improvements-for-sql-server-always-on-availability-groups"></a>Verbesserungen für SQL Server Always On-Verfügbarkeitsgruppen  
-Ab dieser Version können Sie jetzt Replikate mit asynchronem Commit in den SQL Server Always On-Verfügbarkeitsgruppen verwenden, die Sie mit Configuration Manager nutzen.  Dies bedeutet, dass Sie Ihren Verfügbarkeitsgruppen zusätzliche Replikate hinzufügen können, die Sie als standortexterne (Remote-) Sicherungen und bei Bedarf in einem Notfallwiederherstellungsszenario einsetzen können.  
+## <a name="peer-cache-improvements"></a>Améliorations de Cache d’homologue
+À partir de cette version Technical Preview, le cache d’homologue [n’utilise plus le compte d’accès réseau](/sccm/core/plan-design/hierarchy/client-peer-cache) pour authentifier les demandes de téléchargement à partir d’homologues.
 
--   Configuration Manager unterstützt das Verwenden von Replikaten mit asynchronem Commit zum Wiederherstellen Ihres synchronen Replikats.  Unter [Wiederherstellungsoptionen für die Standortdatenbank](/sccm/protect/understand/backup-and-recovery#BKMK_SiteDatabaseRecoveryOption) finden Sie im Thema zu Sicherung und Wiederherstellung weiterführende Informationen dazu.
 
--   Diese Version unterstützt kein Failover, um das Replikat mit asynchronem Commit als Standortdatenbank zu verwenden.
+## <a name="improvements-for-sql-server-always-on-availability-groups"></a>Améliorations pour les groupes de disponibilité Always On SQL Server  
+Avec cette version, vous pouvez maintenant utiliser les réplicas avec validation asynchrone dans les groupes de disponibilité Always On SQL Server que vous utilisez avec Configuration Manager.  Cela signifie que vous pouvez ajouter des réplicas supplémentaires à vos groupes de disponibilité à utiliser en tant que sauvegardes hors site (à distance) puis de les utiliser dans un scénario de récupération d’urgence.  
+
+-   Configuration Manager prend en charge l’utilisation du réplica avec validation asynchrone pour récupérer votre réplica synchrone.  Consultez les [options de récupération de base de données de site](/sccm/protect/understand/backup-and-recovery#BKMK_SiteDatabaseRecoveryOption) dans la rubrique Sauvegarde et récupération pour plus d’informations sur la façon d’y parvenir.
+
+-   Cette version ne prend pas en charge le basculement pour utiliser le réplica avec validation asynchrone en tant que base de données de votre site.
 > [!CAUTION]  
-> Da Configuration Manager nicht den Status des Replikats mit asynchronem Commit dahingehend überprüft, ob es aktuell ist, und [ein solches Replikat asynchron sein kann](https://msdn.microsoft.com/library/ff877884(SQL.120).aspx(d=robot)#Availability%20Modes), kann das Verwenden eines Replikats mit asynchronem Commit als Standortdatenbank die Integrität Ihres Standorts und Ihrer Daten gefährden.  
+> Étant donné que Configuration Manager ne valide pas l’état du réplica avec validation asynchrone pour vérifier qu’il est à jour, et que, [par définition, un réplica de ce type peut être désynchronisé](https://msdn.microsoft.com/library/ff877884(SQL.120).aspx(d=robot)#Availability%20Modes), l’utilisation d’un réplica avec validation asynchrone comme base de données de site risque de compromettre l’intégrité de votre site et de ses données.  
 
--   Sie können die gleiche Anzahl und Art von Replikaten in einer Verfügbarkeitsgruppe nutzen, die von der von Ihnen verwendeten Version von SQL Server unterstützt wird.   (Zuvor war die Unterstützung auf zwei Replikate mit synchronem Commit beschränkt.)
+-   Vous pouvez utiliser les mêmes nombres et types de réplicas dans un groupe de disponibilité pris en charge par la version de SQL Server que vous utilisez.   (la prise en charge précédente était limitée à deux réplicas avec validation synchrone).
 
-### <a name="configure-an-asynchronous-commit-replica"></a>Konfigurieren eines Replikats mit asynchronem Commit
-Zum Hinzufügen eines asynchronen Replikats zu einer [mit Configuration Manager verwendeten Verfügbarkeitsgruppe](/sccm/core/servers/deploy/configure/sql-server-alwayson-for-a-highly-available-site-database) müssen Sie nicht die Konfigurationsskripts ausführen, die zum Konfigurieren eines synchronen Replikats erforderlich sind. (Der Grund ist, dass das Verwenden eines asynchronen Replikats als Standortdatenbank nicht unterstützt wird.) In der [SQL Server-Dokumentation](https://msdn.microsoft.com/library/hh213247(v=sql.120).aspx(d=robot)) finden Sie Informationen zum Hinzufügen sekundärer Replikate zu Verfügbarkeitsgruppen.
+### <a name="configure-an-asynchronous-commit-replica"></a>Configurer un réplica avec validation asynchrone
+Pour ajouter un réplica asynchrone à un [groupe de disponibilité que vous utilisez avec Configuration Manager](/sccm/core/servers/deploy/configure/sql-server-alwayson-for-a-highly-available-site-database), vous n’avez pas besoin d’exécuter les scripts de configuration requis pour configurer un réplica synchrone. (en effet, il n’existe aucune prise en charge pour l’utilisation de ce réplica asynchrone en tant que base de données de site.) Consultez [la documentation de SQL Server](https://msdn.microsoft.com/library/hh213247(v=sql.120).aspx(d=robot)) pour plus d’informations sur l’ajout de réplicas secondaires aux groupes de disponibilité.
 
-### <a name="use-the-asynchronous-replica-to-recover-your-site"></a>Wiederherstellen Ihres Standorts mithilfe des asynchronen Replikats
-Bevor Sie ein asynchrones Replikat zum Wiederherstellen der Standortdatenbank verwenden, müssen Sie den aktiven primären Standort beenden, um weitere Schreibvorgänge in die Standortdatenbank zu verhindern. Nachdem Sie den Standort beendet haben, können Sie ein asynchrones Replikat anstelle einer [manuell wiederhergestellten Datenbank](/sccm/protect/understand/backup-and-recovery#BKMK_SiteDatabaseRecoveryOption) verwenden.
+### <a name="use-the-asynchronous-replica-to-recover-your-site"></a>Utiliser le réplica asynchrone pour récupérer votre site
+Avant d’utiliser un réplica asynchrone pour récupérer la base de données de votre site, vous devez arrêter le site principal actif pour empêcher les écritures supplémentaires sur la base de données de site. Après avoir arrêté le site, vous pouvez utiliser un réplica asynchrone au lieu d’utiliser une [base de données récupérée manuellement](/sccm/protect/understand/backup-and-recovery#BKMK_SiteDatabaseRecoveryOption).
 
-Zum Beenden des Standorts können Sie das [Hierarchieverwaltungstool](/sccm/core/servers/manage/hierarchy-maintenance-tool-preinst.exe) verwenden, mit dem die wichtigen Dienste auf dem Standortserver beendet werden. Verwenden Sie diese Befehlszeile: **Preinst.exe /stopsite**   
+Pour arrêter le site, vous pouvez utiliser [l’outil de maintenance hiérarchique](/sccm/core/servers/manage/hierarchy-maintenance-tool-preinst.exe) pour arrêter les services principaux sur le serveur de site. Utilisez la ligne de commande : **Preinst.exe /stopsite**   
 
-Das Beenden des Standorts ist gleichbedeutend mit dem Beenden des Standortkomponenten-Manager-Diensts (sitecomp) gefolgt vom SMS_Executive-Dienst auf dem Standortserver.
+L’arrêt du site est équivalent à l’arrêt du service Gestionnaire de composants de site (sitecomp) suivi du service SMS_Executive sur le serveur de site.
 
 > [!TIP]  
-> Bei Verwendung eines primären passiven Replikats (in dieser Technical Preview als [hohe Verfügbarkeit für die Standortserverrolle](#site-server-role-high-availability) eingeführt) müssen Sie das passive Replikat nicht beenden. Nur der aktive primäre Standort muss beendet werden.
+> Si vous utilisez un réplica passif principal (disponible à partir de cette version Technical Preview en tant que [Rôle serveur site haute disponibilité](#site-server-role-high-availability)), vous n’avez pas besoin d’arrêter le réplica passif. Seul le site principal actif doit être arrêté.
 
 
 
-## <a name="improved-user-notifications-for-office-365-updates"></a>Verbesserte Benutzerbenachrichtigungen zu Office 365-Updates
-Verbesserungen sind erfolgt, um die Office-Klick-und-Los-Benutzerumgebung zu nutzen, wenn ein Client ein Office 365-Update installiert. Dazu gehören Popup- und In-App-Benachrichtigungen sowie ein Countdown. Wenn vor dieser Version ein Office 365-Update an einen Client gesendet wurde, wurden geöffnete Office-Anwendungen ohne Warnung automatisch geschlossen. Nach diesem Update werden Office-Anwendungen nicht mehr unerwartet geschlossen.
+## <a name="improved-user-notifications-for-office-365-updates"></a>Amélioration des notifications à l’utilisateur pour les mises à jour d’Office 365
+Des améliorations ont été apportées pour tirer parti de l’expérience utilisateur « Cliquer pour exécuter » d’Office lorsqu’un client installe une mise à jour d’Office 365. Cela inclut des fenêtres contextuelles et des notifications dans l’application, ainsi qu’une expérience de compte à rebours. Avant cette version, lorsqu’une mise à jour Office 365 a été envoyée à un client, les applications Office qui étaient ouvertes ont été fermées automatiquement sans avertissement. Après cette mise à jour, les applications Office ne seront plus fermées inopinément.
 
-### <a name="prerequisites"></a>Voraussetzungen
-Dieses Update gilt für Office 365 ProPlus-Clients.
+### <a name="prerequisites"></a>Conditions préalables
+Cette mise à jour s’applique aux clients Office 365 ProPlus.
 
-### <a name="known-issues"></a>Bekannte Probleme
-Wenn ein Client eine Office 365-Updatezuweisung erstmals prüft und für das Update eine in der Vergangenheit liegende Frist geplant war, es sofort geplant oder binnen 30 Minuten geplant ist, kann die Office 365-Benutzerumgebung uneinheitlich sein. Der Client kann beispielsweise ein 30-minütiges Countdown-Dialogfeld für das Update angezeigt bekommen, doch die tatsächliche Erzwingung kann vor dem Ende des Countdowns starten. Um dieses Verhalten zu vermeiden, beachten Sie Folgendes:
-- Stellen Sie das Office 365-Update mit einer Frist bereit, die mehr als 60 Minuten vor der aktuellen Uhrzeit geplant ist.
-- Konfigurieren Sie ein Wartungsfenster außerhalb der Geschäftszeiten für die Sammlung oder eine Karenzzeit für die Erzwingung der Bereitstellung.
+### <a name="known-issues"></a>Problèmes connus
+Lorsqu’un client évalue une attribution de mise à jour Office 365 pour la première fois et que la mise à jour a une échéance planifiée dans le passé, planifiée immédiatement ou planifiée dans les 30 minutes, l’expérience utilisateur Office 365 peut être incohérente. Par exemple, le client peut recevoir une boîte de dialogue de compte à rebours de 30 minutes pour la mise à jour, alors que son application réelle peut démarrer avant la fin du compte à rebours. Pour éviter ce problème, procédez comme suit :
+- Déployez la mise à jour d’Office 365 avec une échéance planifiée plus de 60 minutes après l’heure actuelle.
+- Configurez une fenêtre de maintenance pendant les heures creuses sur la collection, ou configurez une période de grâce d’application sur le déploiement.
 
-### <a name="try-it-out"></a>Probieren Sie es aus!
-Versuchen Sie, die folgenden Aufgaben auszuführen, und senden Sie uns dann **Feedback** über die Registerkarte **Start** des Menübands, um uns zu wissen zu lassen, wie es funktioniert hat:
-- Stellen Sie auf einem Client ein Office 365-Update mit einer Frist bereit, die auf eine Uhrzeit festgelegt ist, die mindestens 60 Minuten vor der aktuellen Uhrzeit liegt. Beobachten Sie das neue Verhalten auf dem Client.
-
-
-## <a name="configure-and-deploy-windows-defender-application-guard-policies"></a>Konfigurieren und Bereitstellen von Windows Defender Application Guard-Richtlinien
-
-[Windows Defender Application Guard](https://blogs.windows.com/msedgedev/2016/09/27/application-guard-microsoft-edge/#XLxEbcpkuKcFebrw.97) ist eine neue Windows-Funktion zum Schutz Ihrer Benutzer, indem nicht vertrauenswürdige Websites in einem sicheren isolierten Container geöffnet werden, auf den andere Teile des Betriebssystems keinen Zugriff haben. In dieser Technical Preview haben wir Unterstützung für diese Funktion mithilfe von Configuration Manager-Konformitätseinstellungen hinzugefügt, die Sie konfigurieren und einer Sammlung bereitstellen.
-Diese Funktion wird als Vorschau für die 64-Bit-Version von Windows 10 Creator Update (Codename: RS2) veröffentlicht. Um diese Funktion jetzt zu testen, müssen Sie eine Preview-Version dieses Updates verwenden.
+### <a name="try-it-out"></a>Essayez !
+Essayez d’effectuer les tâches suivantes, puis envoyez-nous vos **Commentaires** à partir de l’onglet **Accueil** du ruban pour nous dire comment cela a fonctionné pour vous :
+- Sur un client, déployez une mise à jour d’Office 365 avec une échéance définie au moins 60 minutes après l’heure actuelle. Observez le nouveau comportement sur le client.
 
 
-### <a name="before-you-start"></a>Vorbereitung
+## <a name="configure-and-deploy-windows-defender-application-guard-policies"></a>Configurer et déployer des stratégies Windows Defender Application Guard
 
-Zum Erstellen und Bereitstellen von Windows Defender Application Guard-Richtlinien müssen die Windows 10-Geräte, auf denen Sie die Richtlinie bereitstellen, mit einer Netzwerkisolationsrichtlinie konfiguriert werden. Weitere Informationen finden Sie im Blogbeitrag, auf den später verwiesen wird.
-Diese Funktion funktioniert nur mit aktuellen Windows 10 Insider-Builds. Um sie zu testen, muss auf Ihren Clients ein aktueller Windows 10 Insider-Build ausgeführt werden.
-
-### <a name="try-it-out"></a>Probieren Sie es aus!
-
-Lesen Sie unbedingt den Blogbeitrag, um sich mit den Grundlagen von Windows Defender Application Guard vertraut zu machen.
-
-So erstellen Sie eine Richtlinie und durchsuchen die verfügbaren Einstellungen
-
-1.  Wählen Sie in der Configuration Manager-Konsole **Assets und Konformität** aus.
-2.  Wählen Sie im Arbeitsbereich **Assets und Konformität** nacheinander **Übersicht** > **Endpoint Protection** > **Windows Defender Application Guard** aus.
-3.  Klicken Sie auf der Registerkarte **Start** in der Gruppe **Erstellen** auf **Windows Defender Application Guard-Richtlinie erstellen**.
-4.  Unter Verwendung des Blogbeitrags als Referenz können Sie die verfügbaren Einstellungen zum Testen der Funktion durchsuchen und konfigurieren.
-5.  Wenn Sie fertig sind, schließen Sie den Assistenten ab, und stellen Sie die Richtlinie auf einem oder mehreren Windows 10-Geräten bereit.
-
-### <a name="further-reading"></a>Weitere Informationen
-
-Weitere Informationen zu Windows Defender Application Guard finden Sie in [diesem Blogbeitrag]( https://blogs.windows.com/msedgedev/2016/09/27/application-guard-microsoft-edge/#BmJGKPfSjHHzsMmI.97).
-Darüber hinaus finden Sie in [diesem Blogbeitrag](https://techcommunity.microsoft.com/t5/Windows-Insider-Program/Windows-Defender-Application-Guard-Standalone-mode/td-p/66903) weitere Informationen zum eigenständigen Modus von Windows Defender Application Guard.
+[Windows Defender Application Guard](https://blogs.windows.com/msedgedev/2016/09/27/application-guard-microsoft-edge/#XLxEbcpkuKcFebrw.97) est une nouvelle fonctionnalité de Windows qui permet de protéger vos utilisateurs en ouvrant les sites web non approuvés dans un conteneur isolé et sécurisé qui n’est pas accessible par les autres parties du système d’exploitation. Dans cette version Technical Preview, nous avons ajouté la prise en charge pour configurer cette fonctionnalité à l’aide des paramètres de conformité de Configuration Manager que vous configurez, puis déployez sur une collection.
+Cette fonctionnalité sera disponible dans la version préliminaire de la version 64 bits de mise à jour de Windows 10 Creators Update (nom de code : RS2). Pour tester cette fonctionnalité maintenant, vous devez utiliser une version préliminaire de cette mise à jour.
 
 
+### <a name="before-you-start"></a>Avant de commencer
+
+Pour créer et déployer des stratégies Windows Defender Application Guard, les appareils Windows 10 sur lesquels vous déployez la stratégie doivent être configurés avec une stratégie d’isolation de réseau. Pour plus d’informations, consultez le billet de blog référencé plus tard.
+Cette fonctionnalité fonctionne uniquement avec les versions actuelles de Windows 10 Insider. Pour la tester, vos clients doivent exécuter une version récente de Windows 10 Insider.
+
+### <a name="try-it-out"></a>Essayez !
+
+Vous devez avoir lu le billet de blog pour comprendre les principes de base de Windows Defender Application Guard.
+
+Pour créer une stratégie et pour parcourir les paramètres disponibles :
+
+1.  Dans la console Configuration Manager, choisissez **Ressources et Conformité**.
+2.  Dans l’espace de travail **Biens et conformité**, choisissez **Vue d’ensemble** > **Endpoint Protection** > **Windows Defender Application Guard**.
+3.  Sous l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer une stratégie Windows Defender Application Guard**.
+4.  À l’aide du billet de blog comme référence, vous pouvez parcourir et configurer les paramètres disponibles pour tester la fonctionnalité.
+5.  Lorsque vous avez terminé, terminez l’assistant et déployez la stratégie sur un ou plusieurs appareils Windows 10.
+
+### <a name="further-reading"></a>Articles complémentaires
+
+Pour en savoir plus sur Windows Defender Application Guard, consultez [ce billet de blog]( https://blogs.windows.com/msedgedev/2016/09/27/application-guard-microsoft-edge/#BmJGKPfSjHHzsMmI.97).
+En outre, pour en savoir plus sur le mode autonome de Windows Defender Application Guard, consultez [ce billet de blog](https://techcommunity.microsoft.com/t5/Windows-Insider-Program/Windows-Defender-Application-Guard-Standalone-mode/td-p/66903).
 
 
-## <a name="new-capabilities-for-azure-ad-and-cloud-management"></a>Neue Funktionen für Azure AD und Cloudverwaltung
-
-In dieser Version können Sie Clouddienste so konfigurieren, dass Azure AD zur Unterstützung des folgenden Szenarios verwendet wird:
-
-- Manuelles Herunterladen und Installieren des Configuration Manager-Client aus dem Internet, der anschließend einem Configuration Manager-Standort zugewiesen wird
-- Verwenden von Intune zum Bereitstellen des Configuration Manager-Clients auf Geräten im Internet
-
-### <a name="advantages"></a>Vorteile
-
-Durch Verwenden von Clouddiensten und Azure AD ist das Verwenden von Clientauthentifizierungszertifikaten nicht mehr notwendig.
-
-Sie können Azure AD-Benutzer an Ihrem Standort ermitteln, um Sie in Sammlungen und anderen Configuration Manager-Vorgängen zu verwenden.
-
-### <a name="before-you-start"></a>Vorbereitung
-
-- Sie benötigen einen Azure AD-Mandanten.
-- Auf Ihren Geräten, die in Azure AD eingebunden sein müssen, muss Windows 10 ausgeführt werden.  Clients können zusätzlich zu Azure AD auch einer Domäne beitreten.
-- Zusätzlich zum Erfüllen der [geltenden Voraussetzungen](/sccm/core/plan-design/configs/site-and-site-system-prerequisites) für die Standortsystemrolle „Verwaltungspunkt“ müssen Sie außerdem sicherstellen, dass **ASP.NET 4.5** (und alle anderen Optionen, die automatisch damit ausgewählt werden) auf dem Computer aktiviert sind, der diese Standortsystemrolle hostet.
-- So verwenden Sie Intune zum Bereitstellen des Configuration Manager-Clients
-    - Sie benötigen einen funktionierenden Intune-Mandanten (Configuration Manager und Intune müssen nicht verbunden sein).
-    - In Intune haben Sie eine App, die den Configuration Manager-Client enthält, erstellt und bereitgestellt. Informationen dazu finden Sie unter „Installieren von Clients für mit Intune MDM verwaltete Windows-Geräte“.
-- So stellen Sie den Client mithilfe von Configuration Manager bereit
-    - Mindestens ein Verwaltungspunkt muss für den HTTPS-Modus konfiguriert sein.
-    - Sie müssen ein Cloud Management Gateway einrichten.
 
 
-### <a name="set-up-the-cloud-management-gateway"></a>Einrichten des Cloud Management Gateways
+## <a name="new-capabilities-for-azure-ad-and-cloud-management"></a>Nouvelles fonctionnalités pour Azure AD et la gestion du cloud
 
-Richten Sie Cloud Management Gateway ein, damit Clients ohne Zertifikate im Internet auf Ihren Configuration Manager-Standort zugreifen können.
+Dans cette version, vous pouvez configurer les services cloud pour utiliser Azure AD afin de prendre en charge le scénario suivant :
 
-Hilfe dazu finden Sie in den folgenden Themen:
+- Installez manuellement le client Configuration Manager à partir d’internet et affectez-le à un site Configuration Manager.
+- Utilisez Intune pour déployer le client Configuration Manager sur les appareils sur internet.
 
-- [Planen des Cloud Management Gateways in Configuration Manager](/sccm/core/clients/manage/plan-cloud-management-gateway)
-- [Einrichten des Cloud Management Gateways für Configuration Manager](/sccm/core/clients/manage/setup-cloud-management-gateway)
-- [Überwachen des Cloud Management Gateways in Configuration Manager](/sccm/core/clients/manage/monitor-clients-cloud-management-gateway)
+### <a name="advantages"></a>Avantages
 
-### <a name="set-up-the-azure-services-app-in-configuration-manager-cloud-services"></a>Einrichten der Azure-Dienste-App in Configuration Manager-Clouddiensten
+L’utilisation des services cloud et d’Azure AD supprime la nécessité d’utiliser des certificats d’authentification client.
 
-Hiermit wird Ihr Configuration Manager-Standort mit Azure AD verbunden, was eine Voraussetzung für alle anderen Vorgänge in diesem Abschnitt ist. Dazu ist Folgendes erforderlich:
+Vous pouvez découvrir les utilisateurs Azure AD dans votre site à utiliser dans des collections, et d’autres opérations de Configuration Manager.
 
-1.  Erweitern Sie in der Configuration Manager-Konsole im Arbeitsbereich **Verwaltung** den Eintrag **Clouddienste**, und klicken Sie dann auf **Azure-Dienste**.
-2.  Klicken Sie auf der Registerkarte **Start** in der Gruppe **Azure-Dienste** auf **Azure-Dienste konfigurieren**.
-3.  Wählen Sie im Assistenten für Azure-Dienste auf der Seite **Azure-Dienste** die Option **Cloudverwaltung** aus, damit sich Clients in der Hierarchie mithilfe von Azure AD authentifizieren können.
-4.  Geben Sie auf der Seite **Allgemein** des Assistenten einen Namen und eine Beschreibung für den Azure-Dienst ein.
-5.  Wählen Sie auf der Seite **App** des Assistenten in der Liste Ihre Azure-Umgebung aus, und klicken Sie auf **Durchsuchen**, um die Server- und Client-Apps auszuwählen, die zum Konfigurieren des Azure-Diensts verwendet werden:
-    - Wählen Sie im Fenster **Server-App** die Server-App aus, die Sie verwenden möchten, und klicken Sie dann auf **OK**. Server-Apps sind Azure-Web-Apps, die Konfigurationen für Ihr Azure-Konto enthalten, einschließlich Ihrer Mandanten-ID, Client-ID und eines geheimen Schlüssels für Clients. Wenn Sie nicht über eine verfügbare Server-App verfügen, verwenden Sie eine der folgenden:
-        - **Erstellen**: Um eine neue Server-App zu erstellen, klicken Sie auf **Erstellen**. Geben Sie einen Anzeigenamen für die App und den Mandanten an. Nachdem Sie sich bei Azure angemeldet haben, erstellt Configuration Manager daraufhin die Web-App in Azure für Sie, einschließlich der Client-ID und des geheimen Schlüssels für den Gebrauch mit der Web-App. Später können Sie diese im Azure-Portal anzeigen.
-        - **Importieren**: Um eine Web-App zu verwenden, die in Ihrem Azure-Abonnement bereits vorhanden ist, klicken Sie auf **Importieren**. Stellen Sie einen Anzeigenamen für die App und den Mandanten bereit, und geben Sie dann die Mandanten-ID, Client-ID und den geheimen Schlüssel für die Web-App an, die Configuration Manager verwenden soll. Nachdem Sie die Informationen überprüft haben, klicken Sie auf **OK**, um fortzufahren. Diese Option ist in dieser Technical Preview derzeit nicht verfügbar.
-    - Wiederholen Sie den gleichen Vorgang für die Client-App.
+### <a name="before-you-start"></a>Avant de commencer
 
-  Sie müssen bei Verwenden von „Anwendungsimport“ die Anwendungsberechtigung *Verzeichnisdaten lesen* erteilen, damit im Portal die ordnungsgemäßen Berechtigungen festgelegt werden. Bei Verwenden von „Anwendungserstellung“ werden die Berechtigungen automatisch mit der Anwendung erstellt, doch Sie müssen der Anwendung im Azure-Portal weiterhin Ihre Zustimmung geben.
-6.  Aktivieren Sie auf der Seite **Ermittlung** des Assistenten optional **Azure Active Directory-Benutzerermittlung aktivieren**, und klicken Sie dann auf **Einstellungen**.
-Konfigurieren Sie im Dialogfeld **Einstellungen der Azure AD-Benutzerermittlung** einen Zeitplan für die Ermittlung. Sie können auch die Deltaermittlung aktivieren, bei der nur eine Überprüfung auf neue oder geänderte Konten in Azure AD erfolgt.
-7.  Schließen Sie den Assistenten ab.
-
-An diesem Punkt haben Sie Ihren Configuration Manager-Standort mit Azure AD verbunden.
+- Vous devez disposer d’un client Azure AD.
+- Vos appareils doivent exécuter Windows 10 et être joints à Azure AD.  Les clients peuvent également être joints à un domaine en plus d’Azure AD).
+- Outre les [conditions préalables existantes](/sccm/core/plan-design/configs/site-and-site-system-prerequisites) pour le rôle système de site du point de gestion, vous devez vous assurer que l’option **ASP.NET 4.5** et les autres options automatiquement sélectionnées avec sont activées sur l’ordinateur qui héberge ce rôle de système de site.
+- Pour utiliser Microsoft Intune pour déployer le client Configuration Manager :
+    - Vous devez posséder un client Intune fonctionnel (Configuration Manager et Intune n’ont pas à être connectés).
+    - Dans Intune, vous avez créé et déployé une application contenant le client Configuration Manager. Pour plus d’informations sur cette procédure, consultez le guide pratique pour installer des clients sur des appareils Windows gérés par la gestion MDM d’Intune.
+- Pour utiliser Configuration Manager pour déployer le client :
+    - Au moins un point de gestion doit être configuré pour le mode HTTPS.
+    - Vous devez configurer une passerelle de gestion cloud.
 
 
-### <a name="install-the-cm-client-from-the-internet"></a>Installieren des Configuration Manager-Clients aus dem Internet
+### <a name="set-up-the-cloud-management-gateway"></a>Configuration de la passerelle de gestion cloud
 
-Bevor Sie beginnen, stellen Sie sicher, dass die Quelldateien für die Clientinstallation lokal auf dem Gerät gespeichert sind, auf dem der Client installiert werden soll.
-Befolgen Sie anschließend die Anweisungen unter [Bereitstellen von Clients auf Windows-Computern in System Center Configuration Manager](/sccm/core/clients/deploy/deploy-clients-to-windows-computers#a-namebkmkmanuala-how-to-install-clients-manually) zum Verwenden der folgenden Befehlszeile für die Installation (ersetzen Sie die Werte im Beispiel durch Ihre eigenen Werte):
+Configurez la passerelle de gestion cloud pour permettre aux clients d’accéder à votre site Configuration Manager à partir d’Internet sans utiliser de certificats.
+
+Vous trouverez de l’aide sur la procédure à suivre dans les rubriques suivantes :
+
+- [Configurer la passerelle de gestion cloud dans Configuration Manager](/sccm/core/clients/manage/plan-cloud-management-gateway).
+- [Configurer la passerelle de gestion cloud pour Configuration Manager](/sccm/core/clients/manage/setup-cloud-management-gateway).
+- [Surveiller la passerelle de gestion cloud dans Configuration Manager](/sccm/core/clients/manage/monitor-clients-cloud-management-gateway).
+
+### <a name="set-up-the-azure-services-app-in-configuration-manager-cloud-services"></a>Configurer l’application de services Azure dans les services cloud de Configuration Manager
+
+Cela connecte votre site Configuration Manager à Azure AD et est requis pour toutes les autres opérations de cette section. Pour cela :
+
+1.  Dans l’espace de travail **Administration** de la console Configuration Manager, développez **Services cloud**, puis cliquez sur **Services Azure**.
+2.  Sur l’onglet **Accueil**, sous le groupe **Services Azure**, cliquez sur **Configurer les services Azure**.
+3.  Sur la page **Services Azure** de l’assistant de services Azure, sélectionnez **Gestion cloud** pour permettre aux clients de s’authentifier auprès de la hiérarchie à l’aide d’Azure AD.
+4.  Sur la page **Général** de l’assistant, spécifiez un nom et une description pour votre service Azure.
+5.  Sur la page **Application** de l’assistant, sélectionnez votre environnement Azure dans la liste, puis cliquez sur **Parcourir** pour sélectionner les applications serveur et client qui permettent de configurer le service Azure :
+    - Dans la fenêtre **Server App**, sélectionnez l’application serveur à utiliser, puis cliquez sur **OK**. Les applications serveur sont des applications web Azure qui contiennent les configurations pour votre compte Azure, notamment l’ID de locataire, l’ID de client et une clé secrète pour les clients. Si vous ne disposez pas d’une application serveur disponible, choisissez l’une des méthodes suivantes :
+        - **Créer** : pour créer une application serveur, cliquez sur **Créer**. Fournissez un nom convivial pour l’application et le locataire. Une fois que vous êtes connecté à Azure, Configuration Manager crée l’application web dans Azure, notamment l’ID de client et la clé secrète à utiliser avec l’application web. Ces informations sont ensuite disponibles dans le portail Azure.
+        - **Importer** : pour utiliser une application web qui existe déjà dans votre abonnement Azure, cliquez sur **Importer**. Indiquez un nom convivial pour l’application et le locataire, puis spécifiez l’ID de locataire, l’ID de client et la clé secrète de l’application web Azure que Configuration Manager doit utiliser. Après avoir vérifié les informations, cliquez sur **OK** pour continuer. Cette option n’est actuellement pas disponible dans cette version Technical Preview.
+    - Répétez le même processus pour l’application cliente.
+
+  Vous devez accorder l’autorisation d’application *Lire des données d’annuaire* lors de l’importation de l’application, afin de définir les bonnes autorisations dans le portail. Si vous utilisez la création d’application, les autorisations sont automatiquement créées avec l’application, mais vous devez toujours donner votre consentement à l’application dans le portail Azure.
+6.  Sur la page **Découverte** de l’assistant, vous pouvez éventuellement **Activer la découverte d’utilisateurs Azure Active Directory**. Ensuite, cliquez sur **Paramètres**.
+Dans la boîte de dialogue **Paramètres de découverte d’utilisateurs Azure AD**, configurez une planification pour déterminer quand la détection survient. Vous pouvez également activer la découverte delta, qui vérifie uniquement les comptes nouveaux ou modifiés dans Azure AD.
+7.  Effectuez toutes les étapes de l'Assistant.
+
+À ce stade, vous avez connecté votre site Configuration Manager à Azure AD.
+
+
+### <a name="install-the-cm-client-from-the-internet"></a>Installation du client CM à partir d’Internet
+
+Avant de commencer, assurez-vous que les fichiers sources d’installation client sont stockés localement sur l’appareil sur lequel vous souhaitez installer le client.
+Ensuite, suivez les instructions de [Comment déployer des clients sur des ordinateurs Windows dans System Center Configuration Manager](/sccm/core/clients/deploy/deploy-clients-to-windows-computers#a-namebkmkmanuala-how-to-install-clients-manually) en utilisant la ligne de commande d’installation suivante (remplacez les valeurs dans l’exemple par vos propres valeurs) :
 
 **ccmsetup.exe /NoCrlCheck /Source:C:\CLIENT  CCMHOSTNAME=SCCMPROXYCONTOSO.CLOUDAPP.NET/CCM_Proxy_ServerAuth/72457598037527932 SMSSiteCode=HEC AADTENANTID=780433B5-E05E-4B7D-BFD1-E8013911E543 AADTENANTNAME=contoso  AADCLIENTAPPID=<GUID> AADRESOURCEURI=https://contososerver**
 
-- **/NoCrlCheck**: Wenn Ihr Verwaltungspunkt oder Cloud Management Gateway ein nicht öffentliches Serverzertifikat verwendet, kann der Client ggf. nicht auf den Speicherort der Zertifikatssperrliste zugreifen.
-- **/Source**: Lokaler Ordner: Speicherort der Clientinstallationsdateien.
-- **CCMHOSTNAME**: Name des Internetverwaltungspunkts. Sie finden diese Informationen, indem Sie **gwmi -namespace root\ccm\locationservices -class SMS_ActiveMPCandidate** an einer Eingabeaufforderung auf einem verwalteten Client ausführen.
-- **SMSMP**: Name des anfänglichen Verwaltungspunkts, der sich in Ihrem Intranet befinden kann.
-- **SMSSiteCode**: Standortcode Ihres Configuration Manager-Standorts.
-- **AADTENANTID**, **AADTENANTNAME**: ID und Name des Azure AD-Mandanten, den Sie mit Configuration Manager verknüpft haben. Diese Informationen können Sie herausfinden, indem Sie auf einem Azure AD beigetretenen Gerät „dsregcmd.exe /status“ an einer Eingabeaufforderung ausführen.
-- **AADCLIENTAPPID**: Die Azure AD-Client-App-ID. Hilfe zum Ermitteln dieses Werts finden Sie unter [Erstellen einer Azure Active Directory-Anwendung und eines Dienstprinzipals mit Ressourcenzugriff mithilfe des Portals](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#get-application-id-and-authentication-key).
-- **AADResourceUri**: Der Bezeichner-URI der eingebundenen Azure AD-Server-App.
+- **/NoCrlCheck** : si votre point de gestion ou votre passerelle de gestion cloud utilise un certificat de serveur non public, le client peut ne pas être en mesure d’atteindre l’emplacement de la liste de révocation de certificats.
+- **/Source** : dossier local : emplacement des fichiers d’installation du client.
+- **CCMHOSTNAME** : le nom de votre point de gestion Internet. Vous pouvez le trouver en exécutant **gwmi -namespace root\ccm\locationservices -class SMS_ActiveMPCandidate** à partir d’une invite de commandes sur un client géré.
+- **SMSMP** : le nom de votre point de gestion de recherche : il peut s’agir de votre intranet.
+- **SMSSiteCode** : le code de site de votre site Configuration Manager.
+- **AADTENANTID**, **AADTENANTNAME** : l’ID et le nom du client Azure AD que vous avez lié à Configuration Manager. Vous pouvez les trouver en exécutant dsregcmd.exe /status à partir d’une invite de commandes sur un appareil à Azure AD.
+- **AADCLIENTAPPID** : l’ID d’application du client Azure AD. Pour vous aider à le trouver, consultez [Utiliser le portail pour créer une application Azure Active Directory et un principal de service pouvant accéder aux ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#get-application-id-and-authentication-key).
+- **AADResourceUri** : l’URI de l’identificateur de l’application de serveur Azure AD intégré.
 
-## <a name="use-azure-services-wizard-to-configure-a-connection-to-oms"></a>Verwenden des Assistenten für Azure-Dienste zum Konfigurieren einer Verbindung mit Microsoft Operations Management Suite (OMS)
-Ab der Technical Preview-Version 1705 verwenden Sie den **Assistenten für Azure-Dienste** zum Konfigurieren der Verbindung zwischen Configuration Manager und dem Clouddienst Operations Management Suite (OMS). Der Assistent ersetzt vorherige Workflows zum Konfigurieren dieser Verbindung.
+## <a name="use-azure-services-wizard-to-configure-a-connection-to-oms"></a>Utiliser l’assistant de services Azure pour configurer une connexion à OMS
+À partir de la version de la version Technical Preview 1705, utilisez **l’assistant de services Azure** pour configurer votre connexion à partir de Configuration Manager pour le service cloud Operations Management Suite (OMS). L’assistant remplace les flux de travail précédents pour configurer cette connexion.
 
--   Der Assistent dient zum Konfigurieren von Clouddiensten für Configuration Manager wie OMS, Windows Store für Unternehmen (WSfB) und Azure Active Directory (Azure AD).  
+-   L’assistant est utilisé pour configurer les services cloud pour Configuration Manager, comme OMS, Windows Store pour Entreprises (WSfB) et Azure Active Directory (Azure AD).  
 
--   Configuration Manager verbindet sich mit OMS für Funktionen wie [Log Analytics](/sccm/core/clients/manage/sync-data-microsoft-operations-management-suite) oder [Upgradebereitschaft](/sccm/core/clients/manage/upgrade/upgrade-analytics).
+-   Configuration Manager se connecte à OMS pour des fonctionnalités comme [Log Analytics](/sccm/core/clients/manage/sync-data-microsoft-operations-management-suite) ou [Upgrade Readiness](/sccm/core/clients/manage/upgrade/upgrade-analytics).
 
-### <a name="prerequisites-for-the-oms-connector"></a>Voraussetzungen für den OMS-Connector
-Die Voraussetzungen zum Konfigurieren einer Verbindung mit OMS unterscheiden sich nicht von denjenigen, die [für die Current Branch-Version 1702 dokumentiert sind](/sccm/core/clients/manage/sync-data-microsoft-operations-management-suite#prerequisites). Diese Informationen werden hier wiederholt:  
+### <a name="prerequisites-for-the-oms-connector"></a>Conditions préalables pour le connecteur OMS
+Les conditions préalables requises pour configurer une connexion à OMS sont identiques à celles [documentées pour la version de Current Branch 1702](/sccm/core/clients/manage/sync-data-microsoft-operations-management-suite#prerequisites). Ces informations sont répétées ici :  
 
--   Erteilen der Configuration Manager-Berechtigung für OMS.
+-   Accorder l’autorisation Configuration Manager à OMS.
 
--   Der OMS-Connector muss auf dem Computer installiert werden, der einen [Dienstverbindungspunkt](/sccm/core/servers/deploy/configure/about-the-service-connection-point) hostet, der sich in [Onlinemodus](/sccm/core/servers/deploy/configure/about-the-service-connection-point#a-namebkmkmodesa-modes-of-operation) befindet.
+-   Le connecteur OMS doit être installé sur l’ordinateur qui héberge un [point de connexion de service](/sccm/core/servers/deploy/configure/about-the-service-connection-point) se trouvant en [mode en ligne](/sccm/core/servers/deploy/configure/about-the-service-connection-point#a-namebkmkmodesa-modes-of-operation).
 
--   Sie müssen Microsoft Monitoring Agent für OMS auf den Dienstverbindungspunk zusammen mit den OMS-Connector installieren. Der Agent und der OMS-Connector müssen so konfiguriert werden, dass sie den gleichen **OMS-Arbeitsbereich** nutzen. In der OMS-Dokumentation unter [Herunterladen und Installieren des Agents](/azure/log-analytics/log-analytics-sccm#download-and-install-the-agent) finden Sie Informationen zur Installation des Agents.
--   Nachdem Sie den Connector und den Agent installiert haben, müssen Sie OMS für die Verwendung von Configuration Manager-Daten konfigurieren. Dazu gehen Sie im OMS-Portal unter [Importieren von Sammlungen](/azure/log-analytics/log-analytics-sccm#import-collections).
+-   Vous devez installer un Microsoft Monitoring Agent pour OMS sur le point de connexion de service ainsi que le connecteur OMS. L’agent et le connecteur OMS doivent être configurés pour utiliser le même **espace de travail OMS**. Pour installer l’agent, consultez [Télécharger et installer l’agent](/azure/log-analytics/log-analytics-sccm#download-and-install-the-agent) dans la documentation OMS.
+-   Après avoir installé le connecteur et l’agent, vous devez configurer OMS pour utiliser les données Configuration Manager. Pour ce faire, dans le portail OMS, [importez des regroupements Configuration Manager](/azure/log-analytics/log-analytics-sccm#import-collections).
 
-### <a name="use-the-azure-services-wizard-to-configure-the-connection-to-oms"></a>Verwenden des Assistenten für Azure-Dienste zum Konfigurieren der Verbindung mit OMS
+### <a name="use-the-azure-services-wizard-to-configure-the-connection-to-oms"></a>Utilisez l’assistant de services Azure pour configurer la connexion à OMS
 
-1.  Wechseln Sie in der Konsole zu **Verwaltung** > **Übersicht** > **Clouddienste** > **Azure-Dienste**, und wählen Sie dann **Azure-Dienste konfigurieren** auf der Registerkarte **Start** im Menüband aus, um den **Assistenten für Azure-Dienste** zu starten.
+1.  Dans la console, accédez à **Administration** > **Présentation** > **Services cloud** > **Services Azure**, puis choisissez **Configurer les services Azure** à partir de l’onglet **Accueil** du ruban pour démarrer **l’Assistant Services Azure**.
 
-2.  Wählen Sie auf der Seite **Azure-Dienste** den Clouddienst „Operation Management Suite“ aus. Geben Sie einen Anzeigenamen für den **Azure-Dienstnamen** und eine optionale Beschreibung ein, und klicken Sie dann auf **Weiter**.
+2.  Sur la page **Services Azure**, sélectionnez le service cloud Operation Management Suite. Saisissez un nom convivial comme **Nom du service Azure** ainsi qu’une description facultative, puis cliquez sur **Suivant**.
 
-3.  Geben Sie auf der Seite **App** Ihre Azure-Umgebung an (die Technical Preview unterstützt nur die öffentliche Cloud). Klicken Sie dann auf **Durchsuchen**, um das Server-App-Fenster zu öffnen.
+3.  Sur la page **Application**, spécifiez votre environnement Azure (la version Technical Preview prend en charge uniquement le cloud public). Ensuite, cliquez sur **Parcourir** pour ouvrir la fenêtre de l’application serveur.
 
-4.  Wählen Sie eine Web-App aus:
+4.  Sélectionnez une application web :
 
-    -   **Importieren**: Um eine Web-App zu verwenden, die in Ihrem Azure-Abonnement bereits vorhanden ist, klicken Sie auf **Importieren**. Stellen Sie einen Anzeigenamen für die App und den Mandanten bereit, und geben Sie dann die Mandanten-ID, Client-ID und den geheimen Schlüssel für die Web-App an, die Configuration Manager verwenden soll. Nachdem Sie die Informationen **überprüft** haben, klicken Sie auf **OK**, um fortzufahren.   
+    -   **Importer** : pour utiliser une application web qui existe déjà dans votre abonnement Azure, cliquez sur **Importer**. Indiquez un nom convivial pour l’application et le locataire, puis spécifiez l’ID de locataire, l’ID de client et la clé secrète de l’application web Azure que Configuration Manager doit utiliser. Après avoir **vérifié** les informations, cliquez sur **OK** pour continuer.   
 
     > [!NOTE]   
-    > Bei Konfiguration von OMS in dieser Preview-Version unterstützt OMS nur die Funktion *Importieren* für eine Web-App. Das Erstellen einer neuen Web-App wird nicht unterstützt. Sie können auch keine vorhandene App für OMS wiederverwenden.
+    > Lorsque vous configurez OMS avec cette version préliminaire, OMS ne prend en charge la fonction *Importer* pour une application web. La création d’une application web n’est pas prise en charge. De même, vous ne pouvez pas réutiliser une application existante pour OMS.
 
-5.  Wenn Sie alle anderen Schritte erfolgreich ausgeführt haben, werden die Informationen auf dem Bildschirm **OMS-Verbindungskonfiguration** automatisch auf dieser Seite angezeigt. Informationen zu den Verbindungseinstellungen müssen für Ihr **Azure-Abonnement**, die **Azure-Ressourcengruppe** und den **Operations Management Suite-Arbeitsbereich** angezeigt werden.
+5.  Si vous avez suivi toutes les autres procédures avec succès, les informations sur l’écran **Configuration de la connexion OMS** s’affichent automatiquement sur cette page. Les informations pour les paramètres de connexion devraient s’afficher pour votre **Abonnement Azure**, votre **Groupe de ressources Azure** et votre **Espace de travail Operations Management Suite**.
 
-6.  Der Assistent stellt eine Verbindung mit dem OMS-Dienst unter Verwendung der von Ihnen eingegebenen Informationen her. Wählen Sie die Gerätesammlungen aus, die Sie mit OMS synchronisieren möchten, und klicken Sie dann auf **Hinzufügen**.
+6.  L’Assistant se connecte au service OMS en utilisant les informations que vous avez saisies. Sélectionnez les collections d’appareils que vous souhaitez synchroniser avec OMS, puis cliquez sur **Ajouter**.
 
-7.  Überprüfen Sie die Verbindungseinstellungen auf dem Bildschirm **Zusammenfassung**, und wählen Sie dann **Weiter** aus. Auf dem Bildschirm **Status** wird der Verbindungsstatus angezeigt. Anschließend sollte **Abgeschlossen** angezeigt werden.
+7.  Vérifiez vos paramètres de connexion dans l’écran **Résumé**, puis sélectionnez **Suivant**. L’écran **Progression** indique l’état de connexion, puis **Terminé**.
 
-8.  Nach Abschluss des Assistenten zeigt die Configuration Manager-Konsole, dass Sie **Operation Management Suite** als **Clouddiensttyp** konfiguriert haben.
+8.  Une fois l’Assistant terminé, la console Configuration Manager indique que vous avez configuré **Operation Management Suite** comme **Type de service cloud**.

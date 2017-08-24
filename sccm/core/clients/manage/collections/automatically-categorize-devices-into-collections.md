@@ -1,6 +1,6 @@
 ---
-title: "Automatisches Kategorisieren von Geräten in Sammlungen | Microsoft-Dokumentation"
-description: "Geräte mit System Center Configuration Manager automatisch in Sammlungen kategorisieren."
+title: Classer automatiquement des appareils dans des regroupements | Microsoft Docs
+description: Classez automatiquement des appareils dans des regroupements avec System Center Configuration Manager.
 ms.custom: na
 ms.date: 04/23/2016
 ms.prod: configuration-manager
@@ -17,41 +17,41 @@ manager: angrobe
 ms.openlocfilehash: d1b79fb091a6ae4b967d63843ae7b45a0cbeb555
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="automatically-categorize-devices-into-collections-with-system-center-configuration-manager"></a>Geräte mit System Center Configuration Manager automatisch in Sammlungen kategorisieren
+# <a name="automatically-categorize-devices-into-collections-with-system-center-configuration-manager"></a>Classer automatiquement des appareils dans des regroupements avec System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Sie können Gerätekategorien erstellen, mit denen Geräte automatisch in Gerätesammlungen platziert werden, wenn Sie Configuration Manager mit Microsoft Intune verwenden. Benutzer müssen eine Gerätekategorie auswählen, wenn sie ein Gerät in Intune registrieren. Sie können außerdem eine Gerätekategorie in der Configuration Manager-Konsole ändern.
+Vous pouvez créer des catégories d’appareils pour classer automatiquement les appareils dans des regroupements d’appareils quand vous utilisez Configuration Manager avec Microsoft Intune. Les utilisateurs doivent ensuite choisir une catégorie d’appareils quand ils inscrivent un appareil dans Intune. Vous pouvez changer une catégorie d’appareils dans la console Configuration Manager.
 
 > [!IMPORTANT]  
-    >  Diese Funktion wird vom Microsoft Intune-Release vom **Juni 2016** und später unterstützt. Stellen Sie sicher, dass Sie über dieses Release verfügen, bevor Sie dieses Verfahren ausprobieren.
+    >  Cette fonctionnalité est opérationnelle avec la version de Microsoft Intune de **juin 2016**  et ultérieure. Vérifiez que vous avez effectué la mise à jour vers cette version avant d’essayer ces procédures.
 
-## <a name="create-device-categories"></a>Gerätekategorien erstellen
+## <a name="create-device-categories"></a>Créer des catégories d’appareils
 
-1.  Wechseln Sie zu **Bestand und Konformität** > **Übersicht** >  **Gerätesammlungen**.
-2.  Wählen Sie auf der Registerkarte **Startseite** in der Gruppe **Gerätesammlungen** die Option **Gerätekategorien verwalten** aus.
-3.  Erstellen, bearbeiten oder entfernen Sie Kategorien.
+1.  Accédez à **Ressources et conformité** > **Vue d’ensemble** > **Regroupements d’appareils**.
+2.  Sous l’onglet **Accueil**, dans le groupe **Regroupements d’appareils**, choisissez **Gérer les catégories d’appareils**.
+3.  Créer, modifier ou supprimer des catégories.
 
-## <a name="associate-a-collection-with-a-device-category"></a>Ordnen Sie eine Sammlung einer Gerätekategorie zu
+## <a name="associate-a-collection-with-a-device-category"></a>Associer un regroupement à une catégorie d’appareils
 
-Wenn Sie eine Sammlung einer Gerätekategorie zuordnen, werden alle Geräte in der Kategorie der Sammlung hinzugefügt. Sie können keine Gerätekategorieregel zu einer integrierten Sammlung wie **Alle Systeme** hinzufügen.
+Quand vous associez un regroupement à une catégorie d’appareils, tous les appareils de cette catégorie sont ajoutés à ce regroupement. Vous ne pouvez pas ajouter une règle de catégorie d’appareils à un regroupement intégré comme **Tous les systèmes**.
 
-1.  Wählen Sie auf der Registerkarte **Mitgliedschaftsregeln** des Dialogfelds **Eigenschaften** einer Gerätesammlung **Regel hinzufügen** > **Device Category Rule** (Gerätekategorieregel) aus.
-2.  Wählen Sie im Dialogfeld **Gerätekategorien auswählen** eine oder mehrere Gerätekategorien aus, die auf allen Geräte in der Sammlung angewendet werden.
+1.  Sous l’onglet **Règles d’adhésion** de la boîte de dialogue **Propriétés** pour un regroupement d’appareils, choisissez **Ajouter une règle** > **Règle de catégorie d’appareils**.
+2.  Dans la boîte de dialogue **Sélectionner des catégories d’appareils**, sélectionnez une ou plusieurs catégories d’appareils à appliquer à tous les appareils du regroupement.
 
-## <a name="change-the-category-of-a-device"></a>Ändern der Gerätekategorie
+## <a name="change-the-category-of-a-device"></a>Changer la catégorie d’un appareil
 
-1.  Wählen Sie unter **Bestand und Konformität** > **Übersicht** > **Geräte** ein Gerät in der Liste **Geräte** aus.
-2.  Wählen Sie auf der Registerkarte **Startseite** in der Gruppe **Gerät** dann **Kategorie ändern** aus.
-3.  Wählen Sie eine Kategorie und anschließend **OK** aus.
+1.  Dans **Ressources et Conformité** > **Vue d’ensemble** > **Appareils**, sélectionnez un appareil dans la liste **Appareils**.
+2.  Sous l’onglet **Accueil**, dans le groupe **Appareil**, choisissez **Modifier la catégorie**.
+3.  Choisissez une catégorie, puis choisissez **OK**.
 
-## <a name="view-which-category-a-device-belongs-to"></a>Anzeigen der Kategorie eines Geräts
+## <a name="view-which-category-a-device-belongs-to"></a>Afficher la catégorie à laquelle appartient un appareil
 
-Unter **Bestand und Konformität** > **Übersicht** > **Geräte** wird in der Liste **Geräte** die Kategorie in der Spalte **Gerätekategorie** angezeigt.
+Dans **Ressources et Conformité** > **Vue d’ensemble** > **Appareils**, dans la liste **Appareils**, la catégorie est affichée dans la colonne **Catégorie d’appareil**.
 
-Klicken Sie mit der rechten Maustaste auf die Überschrift einer der Spalten in der Liste **Geräte** (wie **Name**), und wählen Sie dann **Gerätekategorie** aus, wenn die Spalte **Gerätekategorie** nicht angezeigt wird.
+Si la colonne **Catégorie d’appareil** n’est pas affichée, cliquez avec le bouton droit sur l’en-tête de l’une des colonnes dans la liste **Appareils** (comme **Nom**), puis sélectionnez **Catégorie d’appareil**.
 
-Wenn Sie ein Gerät zu einer Kategorie zuweisen, und die Kategorie anschließend löschen, zeigt der Bericht **Liste der pro Benutzer in Microsoft Intune registrierten Geräte** eine GUID in der Spalte **Gerätekategorie** statt eines Kategorienamens an.
+Si vous affectez un appareil à une catégorie, puis supprimez par la suite cette catégorie, le rapport **Liste des appareils inscrits par utilisateur dans Microsoft Intune** affichera un GUID dans la colonne **Catégorie d’appareil** au lieu d’un nom de catégorie.

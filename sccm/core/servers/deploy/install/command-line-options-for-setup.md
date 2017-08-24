@@ -1,6 +1,6 @@
 ---
-title: Setup-Befehlszeilenoptionen | Microsoft-Dokumentation
-description: "Verwenden Sie die Informationen in diesem Artikel, um Skripts zu konfigurieren oder System Center Configuration Manager über die Befehlszeile zu installieren."
+title: "Options de ligne de commande du programme d’installation | Microsoft Docs"
+description: "Utilisez les informations de cet article pour configurer des scripts ou installer System Center Configuration Manager à partir d’une ligne de commande."
 ms.custom: na
 ms.date: 03/27/2017
 ms.prod: configuration-manager
@@ -17,1261 +17,1261 @@ manager: angrobe
 ms.openlocfilehash: 04fe7b3e674287c4255563ab4a308e54d0b6c3aa
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="command-line-options-for-setup-in-system-center-configuration-manager"></a>Befehlszeilenoptionen für das Setup in System Center Configuration Manager
+# <a name="command-line-options-for-setup-in-system-center-configuration-manager"></a>Options de ligne de commande pour le programme d’installation de System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
- Verwenden Sie die folgenden Informationen, um Skripts zu konfigurieren oder System Center Configuration Manager über die Befehlszeile zu installieren.  
+ Utilisez les informations suivantes pour configurer des scripts ou installer System Center Configuration Manager à partir d’une ligne de commande.  
 
-##  <a name="bkmk_setup"></a> Befehlszeilenoptionen für Setup  
+##  <a name="bkmk_setup"></a> Options de ligne de commande pour le programme d’installation  
  **/DEINSTALL**  
- Damit wird der Standort deinstalliert. Sie müssen Setup vom Standortservercomputer ausführen.  
+ Désinstalle le site. Vous devez exécuter le programme d'installation à partir de l'ordinateur sur lequel est installé le serveur de site.  
 
  **/DONTSTARTSITECOMP**  
- Installiert einen Standort, ohne dass der Standortkomponenten-Manager-Dienst gestartet wird. Der Standort wird erst beim Start des Standortkomponenten-Manager-Diensts aktiv. Der Standortkomponenten-Manager ist für die Installation und den Start des Diensts SMS_Executive und für weitere Prozesse am Standort verantwortlich. Wenn Sie den Standortkomponenten-Manager-Dienst nach Abschluss der Standortinstallation starten, werden der Dienst SMS_Executive sowie weitere Prozesse installiert, die für den Betrieb des Standorts erforderlich sind.  
+ Installe un site, mais empêche le démarrage du service Gestionnaire de composant de site. Tant que le service Gestionnaire de composant de site n'a pas démarré, le site n'est pas actif. Le Gestionnaire de composant de site est chargé d’installer et de démarrer le service SMS_Executive, ainsi que d’autres processus au niveau du site. Une fois l’installation du site terminée, quand vous démarrez le service Gestionnaire de composant de site, ce dernier installe le service SMS_Executive et d’autres processus nécessaires au fonctionnement du site.  
 
  **/HIDDEN**  
- Blendet die Benutzeroberfläche beim Setup aus. Verwenden Sie diese Option nur in Verbindung mit der Option **/SCRIPT**. Die Skriptdatei zur unbeaufsichtigten Installation muss alle erforderlichen Optionen bereitstellen, oder das Setup schlägt fehl.  
+ Masque l’interface utilisateur pendant l’installation. Utilisez cette option uniquement avec l’option **/SCRIPT**. Le fichier de script sans assistance doit fournir toutes les options nécessaires pour éviter l’échec du programme d’installation.  
 
  **/NOUSERINPUT**  
- Deaktiviert die Benutzereingabe während des Setups, zeigt aber den Setup-Assistenten an. Verwenden Sie diese Option nur in Verbindung mit der Option **/SCRIPT**. Die Skriptdatei zur unbeaufsichtigten Installation muss alle erforderlichen Optionen bereitstellen, oder das Setup schlägt fehl.  
+ Désactive l’entrée utilisateur pendant l’installation, mais affiche l’Assistant Installation. Utilisez cette option uniquement avec l’option **/SCRIPT**. Le fichier de script sans assistance doit fournir toutes les options nécessaires pour éviter l’échec du programme d’installation.  
 
  **/RESETSITE**  
- Damit wird eine Standortrücksetzung ausgeführt, wobei auch die Datenbank und Dienstkonten des Standorts zurückgesetzt werden. Sie müssen das Setup über **<*Configuration Manager-Installationspfad*>\BIN\X64** auf dem Standortserver ausführen. Weitere Informationen zum Zurücksetzen des Standorts finden Sie im Abschnitt [Ausführen einer Standortrücksetzung](../../../../core/servers/manage/modify-your-infrastructure.md#bkmk_reset) des Themas [Ändern Ihrer System Center Configuration Manager-Infrastruktur](../../../../core/servers/manage/modify-your-infrastructure.md).  
+ Effectue une réinitialisation du site qui permet de réinitialiser la base de données et les comptes de service du site. Vous devez exécuter le programme d’installation à partir de **<*Chemin d’installation de Configuration Manager*>\BIN\X64** sur le serveur de site. Pour plus d’informations sur la réinitialisation du site, consultez la section [Exécuter une réinitialisation de site](../../../../core/servers/manage/modify-your-infrastructure.md#bkmk_reset) de la rubrique [Modifier votre infrastructure System Center Configuration Manager](../../../../core/servers/manage/modify-your-infrastructure.md).  
 
- **/TESTDBUPGRADE <*Instanzname*>\\<*Datenbankname*>**  
- Testet eine Sicherung der Standortdatenbank daraufhin, ob für die Datenbank ein Upgrade durchgeführt werden kann. Sie müssen den Instanznamen und den Datenbanknamen der Standortdatenbank angeben. Wenn Sie nur den Datenbanknamen angeben, wird automatisch der Standardinstanzname verwendet.  
+ **/TESTDBUPGRADE <*Nom de l’instance*>\\<*Nom de la base de données*>**  
+ Effectue un test sur une sauvegarde de la base de données du site pour vérifier qu’elle peut être mise à niveau. Vous devez fournir le nom d'instance et le nom de base de données pour la base de données de site. Si vous spécifiez uniquement le nom de la base de données, le programme d'installation utilise le nom de l'instance par défaut.  
 
 > [!IMPORTANT]  
->  Führen Sie diese Befehlszeilenoption nicht für die Datenbank des Produktionsstandorts aus. Wenn Sie diese Befehlszeilenoption für die Datenbank des Produktionsstandorts ausführen, wird ein Upgrade auf die Standortdatenbank durchgeführt und Ihr Standort kann außer Funktion gesetzt werden.  
+>  N’exécutez pas cette option de ligne de commande sur la base de données de votre site de production. L’exécution de cette option de ligne de commande sur la base de données de votre site de production met à niveau la base de données du site et risque de rendre votre site inutilisable.  
 
  **/UPGRADE**  
- Damit wird ein unbeaufsichtigtes Upgrade eines Standorts ausgeführt. Wenn Sie **/UPGRADE** verwenden, müssen Sie den Product Key einschließlich der Bindestriche (-) angeben. Darüber hinaus müssen Sie den Pfad zu den zuvor heruntergeladenen und für das Setup erforderlichen Dateien angeben.  
+ Exécute une mise à niveau sans assistance d’un site. Quand vous utilisez **/UPGRADE**, vous devez spécifier la clé du produit, en incluant les tirets (-). Par ailleurs, vous devez spécifier le chemin des fichiers nécessaires au programme d’installation que vous avez téléchargés précédemment.  
 
- Beispiel: `setupwpf.exe /UPGRADE xxxxx-xxxxx-xxxxx-xxxxx-xxxxx <path to external component files>`  
+ Exemple : `setupwpf.exe /UPGRADE xxxxx-xxxxx-xxxxx-xxxxx-xxxxx <path to external component files>`  
 
- Weitere Informationen zu den für das Setup erforderlichen Dateien finden Sie unter  [Setup-Downloadprogramm](setup-downloader.md).  
+ Pour plus d’informations sur les fichiers nécessaires au programme d’installation, consultez [Téléchargeur d’installation](setup-downloader.md).  
 
- **/SCRIPT <*Pfad zum Setupskript*>**  
- Damit werden unbeaufsichtigte Installationen ausgeführt. Bei Verwendung der Option **/SCRIPT** ist eine Initialisierungsdatei für Setup erforderlich. Weitere Informationen zur unbeaufsichtigten Ausführung des Setups finden Sie unter [Install sites using a command line (Installieren von Standorten unter Verwendung einer Befehlszeile)](../../../../core/servers/deploy/install/use-a-command-line-to-install-sites.md).  
+ **/SCRIPT <*Chemin d’accès du script d’installation*>**  
+ Effectue des installations sans assistance. Un fichier d’initialisation de l’installation est requis lorsque vous utilisez l’option **/SCRIPT** . Pour plus d’informations sur l’exécution du programme d’installation sans assistance, consultez [Installer des sites à l’aide d’une ligne de commande](../../../../core/servers/deploy/install/use-a-command-line-to-install-sites.md).  
 
- **/SDKINST <*FQDN des SMS-Anbieters*>**  
- Damit wird der SMS-Anbieter auf dem angegebenen Computer installiert. Sie müssen den vollqualifizierten Domänennamen (FQDN) für den SMS-Anbietercomputer bereitstellen. Weitere Informationen zum SMS-Anbieter finden Sie im Abschnitt [Planen des SMS-Anbieters für System Center Configuration Manager](../../../../core/plan-design/hierarchy/plan-for-the-sms-provider.md).  
+ **/SDKINST <*Nom de domaine complet du fournisseur SMS*>**  
+ Installe le fournisseur SMS sur l'ordinateur spécifié. Vous devez fournir le nom de domaine complet de l’ordinateur du fournisseur SMS. Pour plus d’informations sur le fournisseur SMS, consultez [Planifier le fournisseur SMS pour System Center Configuration Manager](../../../../core/plan-design/hierarchy/plan-for-the-sms-provider.md).  
 
- **/SDKDEINST <*FQDN des SMS-Anbieters*>**  
- Damit wird der SMS-Anbieter auf dem angegebenen Computer deinstalliert. Sie müssen den FQDN für den SMS-Anbietercomputer bereitstellen.  
+ **/SDKDEINST <*Nom de domaine complet du fournisseur SMS*>**  
+ Désinstalle le fournisseur SMS sur l'ordinateur spécifié. Vous devez fournir le nom de domaine complet pour l'ordinateur du fournisseur SMS.  
 
- **/MANAGELANGS <*Pfad zum Sprachskript*>**  
- Damit werden die Sprachen verwaltet, die an einem zuvor installierten Standort installiert wurden. Zur Verwendung dieser Option müssen Sie das Setup über **<*Configuration Manager-Installationspfad*>\BIN\X64** auf dem Standortserver ausführen und den Speicherort der Sprachskriptdatei angeben, die die Spracheinstellungen enthält. Weitere Informationen zu den in der Skriptdatei für das Sprachsetup verfügbaren Sprachoptionen finden Sie unter [Befehlszeilenoptionen zum Verwalten von Sprachen](#bkmk_Lang) in diesem Thema.  
+ **/MANAGELANGS <*Chemin d’accès au script de langue*>**  
+ Gère les langues installées sur un site installé précédemment. Pour utiliser cette option, vous devez exécuter le programme d’installation à partir de **<*Chemin d’installation de Configuration Manager*>\BIN\X64** sur le serveur de site et spécifier l’emplacement du fichier de script de langue contenant les paramètres de langue. Pour plus d’informations sur les options de langue disponibles dans le fichier du script d’installation de langue, consultez [Options de ligne de commande pour gérer les langues](#bkmk_Lang) dans cette rubrique.  
 
-##  <a name="bkmk_Lang"></a> Befehlszeilenoptionen zum Verwalten von Sprachen  
+##  <a name="bkmk_Lang"></a> Options de ligne de commande pour gérer les langues  
  **Identification**  
 
--   **Schlüsselname:** Aktion  
+-   **Nom de clé :** Action  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** ManageLanguages  
+    -   **Valeurs :** ManageLanguages  
 
-    -   **Details:** Verwaltet die Server-, Client- und mobile Clientsprache an einem Standort.  
+    -   **Détails :** gère la prise en charge des langues de serveur, de client et de client mobile d’un site.  
 
-**Optionen**  
+**Options**  
 
--   **Schlüsselname:** AddServerLanguages  
+-   **Nom de clé :** AddServerLanguages  
 
-    -   **Erforderlich:** Nein  
+    -   **Obligatoire :** non  
 
-    -   **Werte:** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK oder ZHH  
+    -   **Valeurs :** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK ou ZHH  
 
-    -   **Details:** Hiermit werden die Serversprachen angegeben, die für die Configuration Manager-Konsole, Berichte und Configuration Manager-Objekte verfügbar sein werden. Englisch ist standardmäßig verfügbar.  
+    -   **Détails :** spécifie les langues de serveur qui seront disponibles pour la console Configuration Manager, les rapports et les objets Configuration Manager. L'anglais est disponible par défaut.  
 
--   **Schlüsselname:** AddClientLanguages  
+-   **Nom de clé :** AddClientLanguages  
 
-    -   **Erforderlich:** Nein  
+    -   **Obligatoire :** non  
 
-    -   **Werte:** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK oder ZHH  
+    -   **Valeurs :** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK ou ZHH  
 
-    -   **Details:** Hiermit werden die Sprachen angegeben, die auf Clientcomputern zur Verfügung stehen werden. Englisch ist standardmäßig verfügbar.  
+    -   **Détails :** spécifie les langues qui seront disponibles sur les ordinateurs clients. L'anglais est disponible par défaut.  
 
--   **Schlüsselname:** DeleteServerLanguages  
+-   **Nom de clé :** DeleteServerLanguages  
 
-    -   **Erforderlich:** Nein  
+    -   **Obligatoire :** non  
 
-    -   **Werte:** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK oder ZHH  
+    -   **Valeurs :** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK ou ZHH  
 
-    -   **Details:** Hiermit werden die zu entfernenden Sprachen angegeben, die dann nicht mehr für die Configuration Manager-Konsole, Berichte und Configuration Manager-Objekte verfügbar sind. Englisch ist standardmäßig verfügbar und kann nicht entfernt werden.  
+    -   **Détails :** Spécifie les langues à supprimer qui ne seront plus disponibles pour la console Configuration Manager, les rapports et les objets Configuration Manager. L'anglais est disponible par défaut et ne peut pas être supprimé.  
 
--   **Schlüsselname:** DeleteClientLanguages  
+-   **Nom de clé :** DeleteClientLanguages  
 
-    -   **Erforderlich:** Nein  
+    -   **Obligatoire :** non  
 
-    -   **Werte:** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK oder ZHH  
+    -   **Valeurs :** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK ou ZHH  
 
-    -   **Details:** Hiermit werden die zu entfernenden Sprachen angegeben, die dann nicht mehr für Clientcomputer verfügbar sind. Englisch ist standardmäßig verfügbar und kann nicht entfernt werden.  
+    -   **Détails :** Spécifie les langues à supprimer qui ne seront plus disponibles sur les ordinateurs clients. L'anglais est disponible par défaut et ne peut pas être supprimé.  
 
--   **Schlüsselname:** MobileDeviceLanguage  
+-   **Nom de clé :** MobileDeviceLanguage  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** 0 oder 1  
+    -   **Valeurs :** 0 ou 1  
 
-         0 = Nicht installieren  
+         0 = Ne pas installer  
 
-         1 = Installieren  
+         1 = Installer  
 
-    -   **Details:** Hiermit wird angegeben, ob die Sprachen für mobile Geräteclients installiert sind.  
+    -   **Détails :** spécifie si les langues du client d’appareil mobile sont installées.  
 
--   **Schlüsselname:** PrerequisiteComp  
+-   **Nom de clé :** PrerequisiteComp  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** 0 oder 1  
+    -   **Valeurs :** 0 ou 1  
 
-         0 = Herunterladen  
+         0 = Télécharger  
 
-         1 = Bereits heruntergeladen  
+         1 = Déjà téléchargé  
 
-    -   **Details:** Hiermit wird angegeben, ob die für Setup erforderlichen Dateien bereits heruntergeladen wurden. Wenn Sie beispielsweise den Wert **0**angeben, werden die Dateien von Setup heruntergeladen.  
+    -   **Détails :** spécifie si les fichiers d’installation prérequis ont déjà été téléchargés. Par exemple, si vous utilisez la valeur **0**, le programme d’installation télécharge les fichiers.  
 
--   **Schlüsselname:** PrerequisitePath  
+-   **Nom de clé :** PrerequisitePath  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** <*Pfad zu erforderlichen Setup-Dateien*>  
+    -   **Valeurs :** <*Chemin des fichiers nécessaires à l’installation*>  
 
-    -   **Details:** Über diesen Schlüssel wird der Pfad zu den für Setup erforderlichen Dateien angegeben. Je nach dem Wert unter **PrerequisiteComp** wird dieser Pfad von Setup zum Speichern heruntergeladener Dateien oder zum Suchen der zuvor heruntergeladenen Dateien verwendet.  
+    -   **Détails :** spécifie le chemin vers les fichiers d’installation prérequis. Selon la valeur **PrerequisiteComp** , le programme d'installation utilise ce chemin d'accès pour stocker les fichiers téléchargés ou pour localiser des fichiers précédemment téléchargés.  
 
-##  <a name="bkmk_Unattended"></a> Skriptdateischlüssel für unbeaufsichtigtes Setup  
- In den folgenden Abschnitten erfahren Sie, wie Sie ein Skript für die unbeaufsichtigte Installation erstellen. In der Liste werden die verfügbaren Setupskriptschlüssel und die entsprechenden Werte aufgeführt. Außerdem wird angegeben, ob die Schlüssel erforderlich sind und für welchen Installationstyp sie verwendet werden. In der letzten Spalte finden Sie zudem eine kurze Beschreibung der einzelnen Schlüssel.  
+##  <a name="bkmk_Unattended"></a> Clés du fichier de script d’installation sans assistance  
+ Utilisez les sections suivantes pour vous aider à créer votre script d’installation sans assistance. Les listes affichent les clés de script d’installation disponibles ainsi que leurs valeurs correspondantes, indiquent si elles sont obligatoires ou non, le type d’installation pour lequel elles sont utilisées, ainsi qu’une brève description de la clé.  
 
-### <a name="unattended-install-for-a-central-administration-site"></a>Unbeaufsichtigtes Installieren eines Standorts der zentralen Verwaltung  
- Im folgenden Abschnitt finden Sie Detailinformationen zur unbeaufsichtigten Installation eines Standorts der zentralen Verwaltung mithilfe einer Skriptdatei.  
+### <a name="unattended-install-for-a-central-administration-site"></a>Installation sans assistance d’un site d’administration centrale  
+ Utilisez les détails suivants pour installer un site d’administration centrale à l’aide d’un fichier de script d’installation sans assistance.  
 
 **Identification**  
 
--   **Schlüsselname:** Aktion  
+-   **Nom de clé :** Action  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** InstallCAS  
+    -   **Valeurs :** InstallCAS  
 
-    -   **Details:** Hiermit wird ein Standort der zentralen Verwaltung installiert.  
+    -   **Détails :** installe un site d’administration centrale.  
 
--   **Schlüsselname:** CDLatest  
+-   **Nom de la clé :** CDLatest  
 
-    -   **Erforderlich:** Ja; nur wenn Sie Medien aus dem Ordner „CD.Latest“ verwenden    
+    -   **Obligatoire :** Oui, uniquement en cas d’utilisation de médias du dossier CD.Latest.    
 
-    -   **Werte:** 1; bei jedem Wert außer 1 wird davon ausgegangen, dass er nicht „CD.Latest“ verwendet
+    -   **Valeurs :** 1. Toute autre valeur est considérée comme signifiant que CD.Latest ne doit pas être utilisé.
 
-    -   **Details:** Ihr Skript muss diesen Schlüssel und diesen Wert enthalten, wenn Sie das Setup von einem Medium in dem Ordner „CD.Latest“ ausführen, um einen Standort der primären oder zentralen Verwaltung zu installieren oder diesen wiederherstellen möchten. Dieser Wert informiert das Setup darüber, das Medien aus „CD.Latest“ verwendet werden.
+    -   **Détails :** Le script doit inclure cette clé et cette valeur en cas d’exécution de l’installation à partir de médias du dossier CD.Latest dans le cadre de l’installation d’un site principal ou d’administration centrale, ou de la récupération d’un site principal ou d’administration centrale. Cette valeur indique au programme d’installation que des médias de CD.Latest sont utilisés.
 
-**Optionen**  
+**Options**  
 
--   **Schlüsselname:** ProductID  
+-   **Nom de clé :** ProductID  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** <*xxxxx-xxxxx-xxxxx-xxxxx-xxxxx*> *oder* Eval  
+    -   **Valeurs :** <*xxxxx-xxxxx-xxxxx-xxxxx-xxxxx*> *ou* Eval  
 
-    -   **Details:** Gibt den Product Key für die Configuration Manager-Installation, einschließlich der Gedankenstriche, an. Geben Sie **Eval** ein, um die Evaluierungsversion von Configuration Manager zu installieren.  
+    -   **Détails :** Spécifie la clé de produit de l’installation de Configuration Manager avec les tirets. Entrez **Eval** pour installer la version d’évaluation de Configuration Manager.  
 
--   **Schlüsselname:** SiteCode  
+-   **Nom de clé :** SiteCode  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** <*Standortcode*>  
+    -   **Valeurs :** <*Code de site*>  
 
-    -   **Details:** Hiermit werden drei alphanumerische Zeichen angegeben, durch die der Standort in der Hierarchie eindeutig angegeben wird.  
+    -   **Détails :** spécifie les trois caractères alphanumériques qui identifient le site de manière unique dans votre hiérarchie.  
 
--   **Schlüsselname:** Standortname  
+-   **Nom de clé :** Nom de site  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** <*Standortname*>  
+    -   **Valeurs :** <*Nom de site*>  
 
-    -   **Details:** Hiermit wird der Name für diesen Standort angegeben.  
+    -   **Détails :** spécifie le nom de ce site.  
 
--   **Schlüsselname:** SMSInstallDir  
+-   **Nom de clé :** SMSInstallDir  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** <*Configuration Manager-Installationspfad*>  
+    -   **Valeurs :** <*Chemin d’installation de Configuration Manager*>  
 
-    -   **Details:** Hiermit wird der Installationsordner für die Configuration Manager-Programmdateien angegeben.  
+    -   **Détails :** spécifie le dossier d’installation des fichiers programmes de Configuration Manager.  
 
--   **Schlüsselname:** SDKServer  
+-   **Nom de clé :** SDKServer  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** <*SMS-Anbieter-FQDN*>  
+    -   **Valeurs :** <*Nom de domaine complet du fournisseur SMS*>  
 
-    -   **Details:** Hiermit wird der FQDN des Servers angegeben, auf dem der SMS-Anbieter gehostet wird. Nach der Erstinstallation können Sie zusätzliche SMS-Anbieter für den Standort konfigurieren.  
+    -   **Détails :** spécifie le FQDN du serveur qui héberge le fournisseur SMS. Vous pouvez configurer d'autres fournisseurs SMS pour le site après l'installation initiale.  
 
--   **Schlüsselname:** PrerequisiteComp  
+-   **Nom de clé :** PrerequisiteComp  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** 0 oder 1  
+    -   **Valeurs :** 0 ou 1  
 
-         0 = Herunterladen  
+         0 = Télécharger  
 
-         1 = Bereits heruntergeladen  
+         1 = Déjà téléchargé  
 
-    -   **Details:** Hiermit wird angegeben, ob die für Setup erforderlichen Dateien bereits heruntergeladen wurden. Wenn Sie beispielsweise den Wert **0** angeben, werden die Dateien von Setup heruntergeladen.  
+    -   **Détails :** spécifie si les fichiers d’installation prérequis ont déjà été téléchargés. Par exemple, si vous utilisez la valeur **0**, le programme d’installation télécharge les fichiers.  
 
--   **Schlüsselname:** PrerequisitePath  
+-   **Nom de clé :** PrerequisitePath  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** <*Pfad zu erforderlichen Setup-Dateien*>  
+    -   **Valeurs :** <*Chemin des fichiers nécessaires à l’installation*>  
 
-    -   **Details:** Über diesen Schlüssel wird der Pfad zu den für Setup erforderlichen Dateien angegeben. Je nach dem Wert unter **PrerequisiteComp** wird dieser Pfad von Setup zum Speichern heruntergeladener Dateien oder zum Suchen der zuvor heruntergeladenen Dateien verwendet.  
+    -   **Détails :** spécifie le chemin vers les fichiers d’installation prérequis. Selon la valeur **PrerequisiteComp** , le programme d'installation utilise ce chemin d'accès pour stocker les fichiers téléchargés ou pour localiser des fichiers précédemment téléchargés.  
 
--   **Schlüsselname:** AdminConsole  
+-   **Nom de clé :** AdminConsole  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** 0 oder 1  
+    -   **Valeurs :** 0 ou 1  
 
-         0 = Nicht installieren  
+         0 = Ne pas installer  
 
-         1 = Installieren  
+         1 = Installer  
 
-    -   **Details:** Hiermit wird angegeben, ob die Configuration Manager-Konsole installiert werden soll.  
+    -   **Détails :** spécifie si la console Configuration Manager doit ou non être installée.  
 
--   **Schlüsselname:** JoinCEIP  
+-   **Nom de clé :** JoinCEIP  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** 0 oder 1  
+    -   **Valeurs :** 0 ou 1  
 
-         0 = Nicht teilnehmen  
+         0 = Ne pas participer  
 
-         1 = Teilnehmen  
+         1 = Participer  
 
-    -   **Details:** Gibt an, ob am Programm zur Verbesserung der Benutzerfreundlichkeit (CEIP) teilgenommen wird.  
+    -   **Détails :** Spécifie si vous voulez participer au programme d’amélioration des services.  
 
--   **Schlüsselname:** AddServerLanguages  
+-   **Nom de clé :** AddServerLanguages  
 
-    -   **Erforderlich:** Nein  
+    -   **Obligatoire :** non  
 
-    -   **Werte:** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK oder ZHH  
+    -   **Valeurs :** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK ou ZHH  
 
-    -   **Details:** Hiermit werden die Serversprachen angegeben, die für die Configuration Manager-Konsole, Berichte und Configuration Manager-Objekte verfügbar sein werden. Englisch ist standardmäßig verfügbar.  
+    -   **Détails :** spécifie les langues de serveur qui seront disponibles pour la console Configuration Manager, les rapports et les objets Configuration Manager. L'anglais est disponible par défaut.  
 
--   **Schlüsselname:** AddClientLanguages  
+-   **Nom de clé :** AddClientLanguages  
 
-    -   **Erforderlich:** Nein  
+    -   **Obligatoire :** non  
 
-    -   **Werte:** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK oder ZHH  
+    -   **Valeurs :** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK ou ZHH  
 
-    -   **Details:** Hiermit werden die Sprachen angegeben, die auf Clientcomputern zur Verfügung stehen werden. Englisch ist standardmäßig verfügbar.  
+    -   **Détails :** spécifie les langues qui seront disponibles sur les ordinateurs clients. L'anglais est disponible par défaut.  
 
--   **Schlüsselname:** DeleteServerLanguages  
+-   **Nom de clé :** DeleteServerLanguages  
 
-    -   **Erforderlich:** Nein  
+    -   **Obligatoire :** non  
 
-    -   **Werte:** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK oder ZHH  
+    -   **Valeurs :** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK ou ZHH  
 
-    -   **Details:** Hiermit wird ein Standort nach der Installation geändert. Gibt die zu entfernenden Sprachen an, die dann nicht mehr für die Configuration Manager-Konsole, Berichte und Configuration Manager-Objekte verfügbar sind. Englisch ist standardmäßig verfügbar und kann nicht entfernt werden.  
+    -   **Détails :** modifie un site après son installation. Spécifie les langues à supprimer qui ne seront plus disponibles pour la console Configuration Manager, les rapports et les objets Configuration Manager. L'anglais est disponible par défaut et ne peut pas être supprimé.  
 
--   **Schlüsselname:** DeleteClientLanguages  
+-   **Nom de clé :** DeleteClientLanguages  
 
-    -   **Erforderlich:** Nein  
+    -   **Obligatoire :** non  
 
-    -   **Werte:** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK oder ZHH  
+    -   **Valeurs :** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK ou ZHH  
 
-    -   **Details:** Hiermit wird ein Standort nach der Installation geändert. Gibt die zu entfernenden Sprachen an, die dann nicht mehr für Clientcomputer verfügbar sind. Englisch ist standardmäßig verfügbar und kann nicht entfernt werden.  
+    -   **Détails :** modifie un site après son installation. Spécifie les langues à supprimer qui ne seront plus disponibles sur les ordinateurs clients. L'anglais est disponible par défaut et ne peut pas être supprimé.  
 
--   **Schlüsselname:** MobileDeviceLanguage  
+-   **Nom de clé :** MobileDeviceLanguage  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** 0 oder 1  
+    -   **Valeurs :** 0 ou 1  
 
-         0 = Nicht installieren  
+         0 = Ne pas installer  
 
-         1 = Installieren  
+         1 = Installer  
 
-    -   **Details:** Hiermit wird angegeben, ob die Sprachen für mobile Geräteclients installiert sind.  
+    -   **Détails :** spécifie si les langues du client d’appareil mobile sont installées.  
 
 **SQLConfigOptions**  
 
--   **Schlüsselname:** SQLServerName  
+-   **Nom de clé :** SQLServerName  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** <*SQL Server-Name*>  
+    -   **Valeurs :** <*Nom du serveur SQL*>  
 
-    -   **Details:** Gibt den Namen des Servers oder der gruppierten Instanz an, die SQL Server ausführen, auf dem die Standortdatenbank gehostet werden soll.  
+    -   **Détails :** Spécifie le nom du serveur ou de l’instance en cluster exécutant SQL Server qui hébergera la base de données du site.  
 
--   **Schlüsselname:** DatabaseName  
+-   **Nom de clé :** DatabaseName  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** <*Standortdatenbankname*> oder <*Instanzname*>\\<*Standortdatenbankname*>  
+    -   **Valeurs :** <*Nom de la base de données du site*> ou <*Nom de l’instance*>\\<*Nom de la base de données du site*>  
 
-    -   **Details:** Gibt den Namen der SQL Server-Datenbank an, der bei der Installation der Datenbank für den Standort der zentralen Verwaltung erstellt oder verwendet werden soll.  
+    -   **Détails :** Spécifie le nom de la base de données SQL Server à créer ou de la base de données SQL Server à utiliser pour installer la base de données du site d’administration centrale.  
 
         > [!IMPORTANT]  
-        >  Sie müssen den Instanznamen und den Namen der Standortdatenbank angeben, falls Sie die Standardinstanz nicht verwenden.  
+        >  Si vous n'utilisez pas l'instance par défaut, vous devez spécifier le nom d'instance et le nom de base de données de site.  
 
--   **Schlüsselname:** SQLSSBPort  
+-   **Nom de clé :** SQLSSBPort  
 
-    -   **Erforderlich:** Nein  
+    -   **Obligatoire :** non  
 
-    -   **Werte:** <*SSB-Portnummer*>  
+    -   **Valeurs :** <*Numéro du port SSB*>  
 
-    -   **Details:** Hiermit wird der SQL Server Service Broker (SSB)-Port angegeben, der von SQL Server verwendet wird. SSB ist normalerweise für die Verwendung von Port 4022 konfiguriert, aber Sie können einen anderen Port verwenden.  
+    -   **Détails :** spécifie le port SQL Server Service Broker (SSB) que SQL Server utilise. SSB est généralement configuré pour utiliser le port TCP 4022, mais vous pouvez configurer un autre port.  
 
--   **Schlüsselname:** SQLDataFilePath  
+-   **Nom de clé :** SQLDataFilePath  
 
-    -   **Erforderlich:** Nein  
+    -   **Obligatoire :** non  
 
-    -   **Werte:** <*Pfad zur .mdb-Datenbankdatei*>  
+    -   **Valeurs :** <*Chemin du fichier .mdb de la base de données*>  
 
-    -   **Details:** Hiermit wird ein alternativer Speicherort zum Erstellen der .mdb-Datei für die Datenbank angegeben.  
+    -   **Détails :** Spécifie un autre emplacement pour créer le fichier .mdb de la base de données.  
 
--   **Schlüsselname:** SQLLogFilePath  
+-   **Nom de clé :** SQLLogFilePath  
 
-    -   **Erforderlich:** Nein  
+    -   **Obligatoire :** non  
 
-    -   **Werte:**  <*Pfad zur .ldf-Datenbankdatei*>  
+    -   **Valeurs :** <*Chemin du fichier .ldf de la base de données*>  
 
-    -   **Details:** Gibt einen alternativen Speicherort zum Erstellen der .ldf-Datei für die Datenbank an.  
+    -   **Détails :** Spécifie un autre emplacement pour créer le fichier .ldf de la base de données.  
 
 **CloudConnectorOptions**  
 
--   **Schlüsselname:** CloudConnector  
+-   **Nom de clé :** CloudConnector  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** 0 oder 1  
+    -   **Valeurs :** 0 ou 1  
 
-         0 = Nicht installieren  
+         0 = Ne pas installer  
 
-         1 = Installieren  
+         1 = Installer  
 
-    -   **Details:** Gibt an, ob ein Dienstverbindungspunkt an diesem Standort installiert werden soll. Da der Dienstverbindungspunkt in einer Standorthierarchie nur am Standort der obersten Ebene installiert werden kann, muss dieser Wert für einen untergeordneten primären Standort **0** sein.  
+    -   **Détails :** Spécifie s’il faut installer un point de connexion de service sur ce site. Comme le point de connexion de service peut uniquement être installé sur le site de niveau supérieur d’une hiérarchie, cette valeur doit être **0** pour un site principal enfant.  
 
--   **Schlüsselname:** CloudConnectorServer  
+-   **Nom de clé :** CloudConnectorServer  
 
-    -   **Erforderlich:** Erforderlich, wenn **CloudConnector** gleich 1 ist  
+    -   **Obligatoire :** Obligatoire quand **CloudConnector** est égal à 1  
 
-    -   **Werte:** <*FQDN des Servers für den Dienstverbindungspunkt*>  
+    -   **Valeurs :** <*Nom de domaine complet du serveur de point de connexion de service*>  
 
-    -   **Details:** Hiermit wird der FQDN des Servers angegeben, auf dem die Standortsystemrolle „Dienstverbindungspunkt“ gehostet wird.  
+    -   **Détails :** spécifie le nom de domaine complet du serveur qui hébergera le rôle de système de site de point de connexion de service.  
 
--   **Schlüsselname:** UseProxy  
+-   **Nom de clé :** UseProxy  
 
-    -   **Erforderlich:** Erforderlich, wenn **CloudConnector** gleich 1 ist  
+    -   **Obligatoire :** Obligatoire quand **CloudConnector** est égal à 1  
 
-    -   **Werte:** 0 oder 1  
+    -   **Valeurs :** 0 ou 1  
 
-         0 = Nicht installieren  
+         0 = Ne pas installer  
 
-         1 = Installieren  
+         1 = Installer  
 
-    -   **Details:** Gibt an, ob der Dienstverbindungspunkt einen Proxyserver verwendet.  
+    -   **Détails :** Spécifie si le point de connexion de service doit utiliser un serveur proxy.  
 
--   **Schlüsselname:** ProxyName  
+-   **Nom de clé :** ProxyName  
 
-    -   **Erforderlich:** Erforderlich, wenn **UseProxy** gleich 1 ist  
+    -   **Obligatoire :** Obligatoire quand **UseProxy** est égal à 1  
 
-    -   **Werte:** <*Proxyserver-FQDN*>  
+    -   **Valeurs :** <*Nom de domaine complet du serveur proxy*>  
 
-    -   **Details:** Hiermit wird der FQDN des Proxyservers angegeben, der von der Standortsystemrolle „Dienstverbindungspunkt“ verwendet werden wird.  
+    -   **Détails :** spécifie le nom de domaine complet du serveur proxy qui sera utilisé par le rôle de système de site de point de connexion de service.  
 
--   **Schlüsselname:** ProxyPort  
+-   **Nom de clé :** ProxyPort  
 
-    -   **Erforderlich:** Erforderlich, wenn **UseProxy** gleich 1 ist  
+    -   **Obligatoire :** Obligatoire quand **UseProxy** est égal à 1  
 
-    -   **Werte:** <*Portnummer*>  
+    -   **Valeurs :** <*Numéro de port*>  
 
-    -   **Details:** Gibt die für den Proxyport zu verwendende Portnummer an.  
+    -   **Détails :** Spécifie le numéro de port à utiliser pour le port proxy.  
 
-### <a name="unattended-install-for-a-primary-site"></a>Unbeaufsichtigtes Installieren eines primären Standorts  
-Im folgenden Abschnitt finden Sie Detailinformationen zur unbeaufsichtigten Installation eines primären Standorts mithilfe einer Skriptdatei.  
+### <a name="unattended-install-for-a-primary-site"></a>Installation sans assistance d’un site principal  
+Utilisez les détails suivants pour installer un site principal à l’aide d’un fichier de script d’installation sans assistance.  
 
 **Identification**  
 
--   **Schlüsselname:** Aktion  
+-   **Nom de clé :** Action  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** InstallPrimarySite  
+    -   **Valeurs :** InstallPrimarySite  
 
-    -   **Details:** Hiermit wird ein primärer Standort installiert.  
+    -   **Détails :** installe un site principal.  
 
--   **Schlüsselname:** CDLatest  
+-   **Nom de la clé :** CDLatest  
 
-    -   **Erforderlich:** Ja; nur wenn Sie Medien aus dem Ordner „CD.Latest“ verwenden    
+    -   **Obligatoire :** Oui, uniquement en cas d’utilisation de médias du dossier CD.Latest.    
 
-    -   **Werte:** 1; bei jedem Wert außer 1 wird davon ausgegangen, dass er nicht „CD.Latest“ verwendet
+    -   **Valeurs :** 1. Toute autre valeur est considérée comme signifiant que CD.Latest ne doit pas être utilisé.
 
-    -   **Details:** Ihr Skript muss diesen Schlüssel und diesen Wert enthalten, wenn Sie das Setup von einem Medium in dem Ordner „CD.Latest“ ausführen, um einen Standort der primären oder zentralen Verwaltung zu installieren oder diesen wiederherstellen möchten. Dieser Wert informiert das Setup darüber, das Medien aus „CD.Latest“ verwendet werden.
+    -   **Détails :** Le script doit inclure cette clé et cette valeur en cas d’exécution de l’installation à partir de médias du dossier CD.Latest dans le cadre de l’installation d’un site principal ou d’administration centrale, ou de la récupération d’un site principal ou d’administration centrale. Cette valeur indique au programme d’installation que des médias de CD.Latest sont utilisés.
 
-**Optionen**  
+**Options**  
 
--   **Schlüsselname:** ProductID  
+-   **Nom de clé :** ProductID  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** <*xxxxx-xxxxx-xxxxx-xxxxx-xxxxx*> *oder* Eval  
+    -   **Valeurs :** <*xxxxx-xxxxx-xxxxx-xxxxx-xxxxx*> *ou* Eval  
 
-    -   **Details:** Gibt den Product Key für die Configuration Manager-Installation, einschließlich der Gedankenstriche, an. Geben Sie **Eval** ein, um die Evaluierungsversion von Configuration Manager zu installieren.  
+    -   **Détails :** Spécifie la clé de produit de l’installation de Configuration Manager avec les tirets. Entrez **Eval** pour installer la version d’évaluation de Configuration Manager.  
 
--   **Schlüsselname:** SiteCode  
+-   **Nom de clé :** SiteCode  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** <*Standortcode*>  
+    -   **Valeurs :** <*Code de site*>  
 
-    -   **Details:** Hiermit werden drei alphanumerische Zeichen angegeben, durch die der Standort in der Hierarchie eindeutig angegeben wird.  
+    -   **Détails :** spécifie les trois caractères alphanumériques qui identifient le site de manière unique dans votre hiérarchie.  
 
--   **Schlüsselname:** SiteName  
+-   **Nom de clé :** SiteName  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** <*Standortname*>  
+    -   **Valeurs :** <*Nom de site*>  
 
-    -   **Details:** Hiermit wird der Name für diesen Standort angegeben.  
+    -   **Détails :** spécifie le nom de ce site.  
 
--   **Schlüsselname:** SMSInstallDir  
+-   **Nom de clé :** SMSInstallDir  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** <*Configuration Manager-Installationspfad*>
+    -   **Valeurs :** <*Chemin d’installation de Configuration Manager*>
 
-    -   **Details:** Hiermit wird der Installationsordner für die Configuration Manager-Programmdateien angegeben.  
+    -   **Détails :** spécifie le dossier d’installation des fichiers programmes de Configuration Manager.  
 
--   **Schlüsselname:** SDKServer  
+-   **Nom de clé :** SDKServer  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** <*SMS-Anbieter-FQDN*>  
+    -   **Valeurs :** <*Nom de domaine complet du fournisseur SMS*>  
 
-    -   **Details:** Hiermit wird der FQDN des Servers angegeben, auf dem der SMS-Anbieter gehostet wird. Nach der Erstinstallation können Sie zusätzliche SMS-Anbieter für den Standort konfigurieren.  
+    -   **Détails :** spécifie le FQDN du serveur qui héberge le fournisseur SMS. Vous pouvez configurer d'autres fournisseurs SMS pour le site après l'installation initiale.  
 
--   **Schlüsselname:** PrerequisiteComp  
+-   **Nom de clé :** PrerequisiteComp  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** 0 oder 1  
+    -   **Valeurs :** 0 ou 1  
 
-         0 = Herunterladen  
+         0 = Télécharger  
 
-         1 = Bereits heruntergeladen  
+         1 = Déjà téléchargé  
 
-    -   **Details:** Hiermit wird angegeben, ob die für Setup erforderlichen Dateien bereits heruntergeladen wurden. Wenn Sie beispielsweise den Wert **0** angeben, werden die Dateien von Setup heruntergeladen.  
+    -   **Détails :** spécifie si les fichiers d’installation prérequis ont déjà été téléchargés. Par exemple, si vous utilisez la valeur **0**, le programme d’installation télécharge les fichiers.  
 
--   **Schlüsselname:** PrerequisitePath  
+-   **Nom de clé :** PrerequisitePath  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** <*Pfad zu erforderlichen Setup-Dateien*>  
+    -   **Valeurs :** <*Chemin des fichiers nécessaires à l’installation*>  
 
-    -   **Details:** Über diesen Schlüssel wird der Pfad zu den für Setup erforderlichen Dateien angegeben. Je nach dem Wert unter **PrerequisiteComp** wird dieser Pfad von Setup zum Speichern heruntergeladener Dateien oder zum Suchen der zuvor heruntergeladenen Dateien verwendet.  
+    -   **Détails :** spécifie le chemin vers les fichiers d’installation prérequis. Selon la valeur **PrerequisiteComp** , le programme d'installation utilise ce chemin d'accès pour stocker les fichiers téléchargés ou pour localiser des fichiers précédemment téléchargés.  
 
--   **Schlüsselname:** AdminConsole  
+-   **Nom de clé :** AdminConsole  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** 0 oder 1  
+    -   **Valeurs :** 0 ou 1  
 
-         0 = Nicht installieren  
+         0 = Ne pas installer  
 
-         1 = Installieren  
+         1 = Installer  
 
-    -   **Details:** Hiermit wird angegeben, ob die Configuration Manager-Konsole installiert werden soll.  
+    -   **Détails :** spécifie si la console Configuration Manager doit ou non être installée.  
 
--   **Schlüsselname:** JoinCEIP  
+-   **Nom de clé :** JoinCEIP  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** 0 oder 1  
+    -   **Valeurs :** 0 ou 1  
 
-         0 = Nicht teilnehmen  
+         0 = Ne pas participer  
 
-         1 = Teilnehmen  
+         1 = Participer  
 
-    -   **Details:** Gibt an, ob am CEIP teilgenommen werden soll.  
+    -   **Détails :** Spécifie s’il faut participer au programme d’amélioration des services.  
 
--   **Schlüsselname:** ManagementPoint  
+-   **Nom de clé :** ManagementPoint  
 
-    -   **Erforderlich:** Nein  
+    -   **Obligatoire :** non  
 
-    -   **Werte:** <*FQDN des Verwaltungspunkt-Standortservers*>  
+    -   **Valeurs :** <*Nom de domaine complet du serveur de site du point de gestion*>  
 
-    -   **Details:** Hiermit wird der FQDN des Servers angegeben, auf dem die Standortsystemrolle „Verwaltungspunkt“ gehostet wird.  
+    -   **Détails :** spécifie le nom de domaine complet du serveur qui hébergera le rôle de système de site de point de gestion.  
 
--   **Schlüsselname:** ManagementPointProtocol  
+-   **Nom de clé :** ManagementPointProtocol  
 
-    -   **Erforderlich:** Nein  
+    -   **Obligatoire :** non  
 
-    -   **Werte:** HTTPS *oder* HTTP  
+    -   **Valeurs :** HTTPS *ou* HTTP  
 
-    -   **Details:** Hiermit wird das Protokoll angegeben, das für den Verwaltungspunkt verwendet werden soll.  
+    -   **Détails :** spécifie le protocole à utiliser pour le point de gestion.  
 
--   **Schlüsselname:** DistributionPoint  
+-   **Nom de clé :** DistributionPoint  
 
-    -   **Erforderlich:** Nein  
+    -   **Obligatoire :** non  
 
-    -   **Werte:** <*FQDN des Verteilungspunkt-Standortservers*>  
+    -   **Valeurs :** <*Nom de domaine complet du serveur de site du point de distribution*>  
 
-    -   **Details:** Hiermit wird das Protokoll angegeben, das für den Verteilungspunkt verwendet werden soll.  
+    -   **Détails :** spécifie le protocole à utiliser pour le point de distribution.  
 
--   **Schlüsselname:** DistributionPointProtocol  
+-   **Nom de clé :** DistributionPointProtocol  
 
-    -   **Erforderlich:** Nein  
+    -   **Obligatoire :** non  
 
-    -   **Werte:** HTTPS *oder* HTTP  
+    -   **Valeurs :** HTTPS *ou* HTTP  
 
-    -   **Details:** Hiermit wird das Protokoll angegeben, das für den Verteilungspunkt verwendet werden soll.  
+    -   **Détails :** spécifie le protocole à utiliser pour le point de distribution.  
 
--   **Schlüsselname:** RoleCommunicationProtocol  
+-   **Nom de clé :** RoleCommunicationProtocol  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** EnforceHTTPS *oder* HTTPorHTTPS  
+    -   **Valeurs :** EnforceHTTPS *ou* HTTPorHTTPS  
 
-    -   **Details:** Hiermit wird angegeben, ob von allen Standortsystemen ausschließlich die HTTPS-Kommunikation mit Clients zugelassen werden soll, oder ob die Kommunikationsmethode für jede Standortsystemrolle konfiguriert werden muss. Wenn Sie **EnforceHTTPS** auswählen, muss auf dem Clientcomputer ein gültiges Public-Key-Infrastructure-Zertifikat (PKI) für die Clientauthentifizierung vorliegen.  
+    -   **Détails :** Spécifie s’il faut configurer tous les systèmes de site pour n’accepter que les communications HTTPS des clients ou pour que la méthode de communication soit configurée pour chaque rôle de système de site. Quand vous sélectionnez **EnforceHTTPS**, l’ordinateur client doit disposer d’un certificat d’infrastructure à clé publique (PKI) valide pour l’authentification du client.  
 
--   **Schlüsselname:** ClientsUsePKICertificate  
+-   **Nom de clé :** ClientsUsePKICertificate  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** 0 oder 1  
+    -   **Valeurs :** 0 ou 1  
 
-         0 = Nicht verwenden  
+         0 = Ne pas utiliser  
 
-         1 = Verwenden  
+         1 = Utiliser  
 
-    -   **Details:** Hiermit wird angegeben, ob für die Kommunikation zwischen Clients und Standortsystemrollen ein PKI-Clientzertifikat verwendet werden soll.  
+    -   **Détails :** spécifie si les clients utiliseront un certificat PKI de client pour communiquer avec les rôles de système de site.  
 
--   **Schlüsselname:** AddServerLanguages  
+-   **Nom de clé :** AddServerLanguages  
 
-    -   **Erforderlich:** Nein  
+    -   **Obligatoire :** non  
 
-    -   **Werte:** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK oder ZHH  
+    -   **Valeurs :** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK ou ZHH  
 
-    -   **Details:** Hiermit werden die Serversprachen angegeben, die für die Configuration Manager-Konsole, Berichte und Configuration Manager-Objekte verfügbar sein werden. Englisch ist standardmäßig verfügbar.  
+    -   **Détails :** spécifie les langues de serveur qui seront disponibles pour la console Configuration Manager, les rapports et les objets Configuration Manager. L'anglais est disponible par défaut.  
 
--   **Schlüsselname:** AddClientLanguages  
+-   **Nom de clé :** AddClientLanguages  
 
-    -   **Erforderlich:** Nein  
+    -   **Obligatoire :** non  
 
-    -   **Werte:** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK oder ZHH  
+    -   **Valeurs :** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK ou ZHH  
 
-    -   **Details:** Hiermit werden die Sprachen angegeben, die auf Clientcomputern zur Verfügung stehen werden. Englisch ist standardmäßig verfügbar.  
+    -   **Détails :** spécifie les langues qui seront disponibles sur les ordinateurs clients. L'anglais est disponible par défaut.  
 
--   **Schlüsselname:** DeleteServerLanguages  
+-   **Nom de clé :** DeleteServerLanguages  
 
-    -   **Erforderlich:** Nein  
+    -   **Obligatoire :** non  
 
-    -   **Werte:** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK oder ZHH  
+    -   **Valeurs :** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK ou ZHH  
 
-    -   **Details:** Hiermit wird ein Standort nach der Installation geändert. Gibt die zu entfernenden Sprachen an, die dann nicht mehr für die Configuration Manager-Konsole, Berichte und Configuration Manager-Objekte verfügbar sind. Englisch ist standardmäßig verfügbar und kann nicht entfernt werden.  
+    -   **Détails :** modifie un site après son installation. Spécifie les langues à supprimer qui ne seront plus disponibles pour la console Configuration Manager, les rapports et les objets Configuration Manager. L'anglais est disponible par défaut et ne peut pas être supprimé.  
 
--   **Schlüsselname:** DeleteClientLanguages  
+-   **Nom de clé :** DeleteClientLanguages  
 
-    -   **Erforderlich:** Nein  
+    -   **Obligatoire :** non  
 
-    -   **Werte:** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK oder ZHH  
+    -   **Valeurs :** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK ou ZHH  
 
-    -   **Details:** Hiermit wird ein Standort nach der Installation geändert. Gibt die zu entfernenden Sprachen an, die dann nicht mehr für Clientcomputer verfügbar sind. Englisch ist standardmäßig verfügbar und kann nicht entfernt werden.  
+    -   **Détails :** modifie un site après son installation. Spécifie les langues à supprimer qui ne seront plus disponibles sur les ordinateurs clients. L'anglais est disponible par défaut et ne peut pas être supprimé.  
 
--   **Schlüsselname:** MobileDeviceLanguage  
+-   **Nom de clé :** MobileDeviceLanguage  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** 0 oder 1  
+    -   **Valeurs :** 0 ou 1  
 
-         0 = Nicht installieren  
+         0 = Ne pas installer  
 
-         1 = Installieren  
+         1 = Installer  
 
-    -   **Details:** Hiermit wird angegeben, ob die Sprachen für mobile Geräteclients installiert sind.  
+    -   **Détails :** spécifie si les langues du client d’appareil mobile sont installées.  
 
 **SQLConfigOptions**  
 
--   **Schlüsselname:** SQLServerName  
+-   **Nom de clé :** SQLServerName  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** <*SQL Server-Name*>  
+    -   **Valeurs :** <*Nom du serveur SQL*>  
 
-    -   **Details:** Gibt den Namen des Servers oder der gruppierten Instanz an, die SQL Server ausführen, auf dem die Standortdatenbank gehostet werden soll.  
+    -   **Détails :** Spécifie le nom du serveur ou de l’instance en cluster exécutant SQL Server qui hébergera la base de données du site.  
 
--   **Schlüsselname:** DatabaseName  
+-   **Nom de clé :** DatabaseName  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** <*Standortdatenbankname*> oder <*Instanzname*>\\<*Standortdatenbankname*>  
+    -   **Valeurs :** <*Nom de la base de données du site*> ou <*Nom de l’instance*>\\<*Nom de la base de données du site*>  
 
-    -   **Details:** Gibt den Namen der SQL Server-Datenbank an, der bei der Installation der primären Standortdatenbank erstellt oder verwendet werden soll.  
+    -   **Détails :** Spécifie le nom de la base de données SQL Server à créer ou de la base de données SQL Server à utiliser pour installer la base de données du site principal.  
 
         > [!IMPORTANT]  
-        >  Sie müssen den Instanznamen und den Namen der Standortdatenbank angeben, falls Sie die Standardinstanz nicht verwenden.  
+        >  Si vous n'utilisez pas l'instance par défaut, vous devez spécifier le nom d'instance et le nom de base de données de site.  
 
--   **Schlüsselname:** SQLSSBPort  
+-   **Nom de clé :** SQLSSBPort  
 
-    -   **Erforderlich:** Nein  
+    -   **Obligatoire :** non  
 
-    -   **Werte:** <*SSB-Portnummer*>  
+    -   **Valeurs :** <*Numéro du port SSB*>  
 
-    -   **Details:** Gibt den SSB-Port an, der von SQL Server verwendet wird. SSB ist normalerweise für die Verwendung von Port 4022 konfiguriert, aber Sie können einen anderen Port verwenden.  
+    -   **Détails :** Spécifie le port SSB que SQL Server utilise. SSB est généralement configuré pour utiliser le port TCP 4022, mais vous pouvez configurer un autre port.  
 
--   **Schlüsselname:** SQLDataFilePath  
+-   **Nom de clé :** SQLDataFilePath  
 
-    -   **Erforderlich:** Nein  
+    -   **Obligatoire :** non  
 
-    -   **Werte:** <*Pfad zur .mdb-Datenbankdatei*>  
+    -   **Valeurs :** <*Chemin du fichier .mdb de la base de données*>  
 
-    -   **Details:** Hiermit wird ein alternativer Speicherort zum Erstellen der .mdb-Datei für die Datenbank angegeben.  
+    -   **Détails :** Spécifie un autre emplacement pour créer le fichier .mdb de la base de données.  
 
--   **Schlüsselname:** SQLLogFilePath  
+-   **Nom de clé :** SQLLogFilePath  
 
-    -   **Erforderlich:** Nein  
+    -   **Obligatoire :** non  
 
-    -   **Werte:**  <*Pfad zur .ldf-Datenbankdatei*>  
+    -   **Valeurs :** <*Chemin du fichier .ldf de la base de données*>  
 
-    -   **Details:** Gibt einen alternativen Speicherort zum Erstellen der .ldf-Datei für die Datenbank an.  
+    -   **Détails :** Spécifie un autre emplacement pour créer le fichier .ldf de la base de données.  
 
 **HierarchyExpansionOption**  
 
--   **Schlüsselname:** CCARSiteServer  
+-   **Nom de clé :** CCARSiteServer  
 
-    -   **Erforderlich:** Nein  
+    -   **Obligatoire :** non  
 
-    -   **Werte:** <*FQDN des Standorts der zentralen Verwaltung*>  
+    -   **Valeurs :** <*Nom de domaine complet du site d’administration centrale*>  
 
-    -   **Details:** Über diesen Schlüssel wird der Standort der zentralen Verwaltung angegeben, dem ein primärer Standort beim Hinzufügen zur Configuration Manager-Hierarchie zugeordnet wird. Sie müssen den Standort der zentralen Verwaltung beim Setup angeben.  
+    -   **Détails :** spécifie le site d’administration centrale auquel un site principal s’attache quand il rejoint la hiérarchie Configuration Manager. Vous devez spécifier le site d'administration centrale lors de l'installation.  
 
--   **Schlüsselname:** CASRetryInterval  
+-   **Nom de clé :** CASRetryInterval  
 
-    -   **Erforderlich:** Nein  
+    -   **Obligatoire :** non  
 
-    -   **Werte:** <*Intervall*>  
+    -   **Valeurs :** <*intervalle*>  
 
-    -   **Details:** Über diesen Schlüssel wird das Wiederholungsintervall angegeben (in Minuten), wenn beim Herstellen der Verbindung mit dem Standort der zentralen Verwaltung ein Fehler aufgetreten ist. Wenn beispielsweise beim Herstellen der Verbindung mit dem Standort der zentralen Verwaltung ein Fehler auftritt, wird der Verbindungsversuch auf dem primären Standort nach der für den Wert für **CASRetryInterval** angegebenen Anzahl von Minuten wiederholt.  
+    -   **Détails :** spécifie l’intervalle (en minutes) avant une nouvelle tentative de connexion au site d’administration centrale après un échec de connexion. Par exemple, en cas d’échec de la connexion au site d’administration centrale, le site principal attend le nombre de minutes que vous avez spécifié pour la valeur **CASRetryInterval** et réessaye d’établir la connexion.  
 
--   **Schlüsselname:** WaitForCASTimeout  
+-   **Nom de clé :** WaitForCASTimeout  
 
-    -   **Erforderlich:** Nein  
+    -   **Obligatoire :** non  
 
-    -   **Werte:** <*Timeout*>  
+    -   **Valeurs :** <*délai_attente*>  
 
-         Ein Wert zwischen **0** und **100**  
+         Valeur de **0** à **100**  
 
-    -   **Details:** Über diesen Schlüssel wird der maximale Timeoutwert (in Minuten) für die Verbindung eines primären Standorts mit dem Standort der zentralen Verwaltung angegeben. Wenn beispielsweise beim Herstellen der Verbindung mit dem Standort der zentralen Verwaltung ein Fehler auftritt, wird der Verbindungsversuch auf dem primären Standort basierend auf dem Wert für **CASRetryInterval** solange wiederholt, bis der für **WaitForCASTimeout** angegebene Zeitraum abgelaufen ist. Sie können einen Wert von **0** bis **100** angeben.  
+    -   **Détails :** spécifie la valeur maximale du délai d’attente (en minutes) pour qu’un site principal se connecte au site d’administration centrale. Par exemple, en cas d’échec de la connexion d’un site principal à un site d’administration centrale, le site principal réessaye d’établir la connexion en fonction de la valeur de **CASRetryInterval** jusqu’à ce que le délai **WaitForCASTimeout** soit atteint. Vous pouvez spécifier une valeur entre **0** et **100**.  
 
 **CloudConnectorOptions**  
 
--   **Schlüsselname:** CloudConnector  
+-   **Nom de clé :** CloudConnector  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** 0 oder 1  
+    -   **Valeurs :** 0 ou 1  
 
-         0 = Nicht installieren  
+         0 = Ne pas installer  
 
-         1 = Installieren  
+         1 = Installer  
 
-    -   **Details:** Gibt an, ob ein Dienstverbindungspunkt an diesem Standort installiert werden soll. Da der Dienstverbindungspunkt in einer Standorthierarchie nur am Standort der obersten Ebene installiert werden kann, muss dieser Wert für einen untergeordneten primären Standort **0** sein.  
+    -   **Détails :** Spécifie s’il faut installer un point de connexion de service sur ce site. Comme le point de connexion de service peut uniquement être installé sur le site de niveau supérieur d’une hiérarchie, cette valeur doit être **0** pour un site principal enfant.  
 
--   **Schlüsselname:** CloudConnectorServer  
+-   **Nom de clé :** CloudConnectorServer  
 
-    -   **Erforderlich:** Erforderlich, wenn **CloudConnector** gleich 1 ist  
+    -   **Obligatoire :** Obligatoire quand **CloudConnector** est égal à 1  
 
-    -   **Werte:** <*FQDN des Servers für den Dienstverbindungspunkt*\>  
+    -   **Valeurs :** <*Nom de domaine complet du serveur de point de connexion de service*\>  
 
-    -   **Details:** Hiermit wird der FQDN des Servers angegeben, auf dem die Standortsystemrolle „Dienstverbindungspunkt“ gehostet wird.  
+    -   **Détails :** spécifie le nom de domaine complet du serveur qui hébergera le rôle de système de site de point de connexion de service.  
 
--   **Schlüsselname:** UseProxy  
+-   **Nom de clé :** UseProxy  
 
-    -   **Erforderlich:** Erforderlich, wenn **CloudConnector** gleich 1 ist  
+    -   **Obligatoire :** Obligatoire quand **CloudConnector** est égal à 1  
 
-    -   **Werte:** 0 oder 1  
+    -   **Valeurs :** 0 ou 1  
 
-         0 = Nicht installieren  
+         0 = Ne pas installer  
 
-         1 = Installieren  
+         1 = Installer  
 
-    -   **Details:** Gibt an, ob der Dienstverbindungspunkt einen Proxyserver verwendet.  
+    -   **Détails :** Spécifie si le point de connexion de service doit utiliser un serveur proxy.  
 
--   **Schlüsselname:** ProxyName  
+-   **Nom de clé :** ProxyName  
 
-    -   **Erforderlich:** Erforderlich, wenn **UseProxy** gleich 1 ist  
+    -   **Obligatoire :** Obligatoire quand **UseProxy** est égal à 1  
 
-    -   **Werte:** <*Proxyserver-FQDN*>  
+    -   **Valeurs :** <*Nom de domaine complet du serveur proxy*>  
 
-    -   **Details:** Hiermit wird der FQDN des Proxyservers angegeben, der von der Standortsystemrolle „Dienstverbindungspunkt“ verwendet werden wird.  
+    -   **Détails :** spécifie le nom de domaine complet du serveur proxy qui sera utilisé par le rôle de système de site de point de connexion de service.  
 
--   **Schlüsselname:** ProxyPort  
+-   **Nom de clé :** ProxyPort  
 
-    -   **Erforderlich:** Erforderlich, wenn **UseProxy** gleich 1 ist  
+    -   **Obligatoire :** Obligatoire quand **UseProxy** est égal à 1  
 
-    -   **Werte:** <*Portnummer*>  
+    -   **Valeurs :** <*Numéro de port*>  
 
-    -   **Details:** Gibt die für den Proxyport zu verwendende Portnummer an.  
+    -   **Détails :** Spécifie le numéro de port à utiliser pour le port proxy.  
 
-### <a name="unattended-recovery-for-a-central-administration-site"></a>Unbeaufsichtigtes Wiederherstellen eines Standorts der zentralen Verwaltung  
- Verwenden Sie die folgenden Details zur Wiederherstellung eines Standorts der zentralen Verwaltung mithilfe einer unbeaufsichtigten Setup-Skriptdatei.  
+### <a name="unattended-recovery-for-a-central-administration-site"></a>Récupération sans assistance d’un site d’administration centrale  
+ Utilisez les détails suivants pour récupérer un site d’administration centrale à l’aide d’un fichier de script d’installation sans assistance.  
 
 **Identification**  
 
--   **Schlüsselname:** Aktion  
+-   **Nom de clé :** Action  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** RecoverCCAR  
+    -   **Valeurs :** RecoverCCAR  
 
-    -   **Details:** Hiermit wird ein Standort der zentralen Verwaltung wiederhergestellt.  
+    -   **Détails :** récupère un site d’administration centrale.  
 
--   **Schlüsselname:** CDLatest  
+-   **Nom de la clé :** CDLatest  
 
-    -   **Erforderlich:** Ja; nur wenn Sie Medien aus dem Ordner „CD.Latest“ verwenden    
+    -   **Obligatoire :** Oui, uniquement en cas d’utilisation de médias du dossier CD.Latest.    
 
-    -   **Werte:** 1; bei jedem Wert außer 1 wird davon ausgegangen, dass er nicht „CD.Latest“ verwendet
+    -   **Valeurs :** 1. Toute autre valeur est considérée comme signifiant que CD.Latest ne doit pas être utilisé.
 
-    -   **Details:** Ihr Skript muss diesen Schlüssel und diesen Wert enthalten, wenn Sie das Setup von einem Medium in dem Ordner „CD.Latest“ ausführen, um einen Standort der primären oder zentralen Verwaltung zu installieren oder diesen wiederherstellen möchten. Dieser Wert informiert das Setup darüber, dass Medien aus „CD.Latest“ verwendet werden.
+    -   **Détails :** Le script doit inclure cette clé et cette valeur en cas d’exécution de l’installation à partir de médias du dossier CD.Latest dans le cadre de l’installation d’un site principal ou d’administration centrale, ou de la récupération d’un site principal ou d’administration centrale. Cette valeur indique au programme d’installation que des médias de CD.Latest sont utilisés.
 
 **RecoveryOptions**  
 
--   **Schlüsselname:** ServerRecoveryOptions  
+-   **Nom de clé :** ServerRecoveryOptions  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** 1, 2 oder 4  
+    -   **Valeurs :** 1, 2 ou 4  
 
-         1 = Wiederherstellung von Standortserver und SQL Server  
+         1 = Récupérer le serveur de site et SQL Server.  
 
-         2 = nur Wiederherstellung von Standortserver  
+         2 = Récupérer le serveur de site uniquement.  
 
-         4 = nur Wiederherstellung von SQL Server  
+         4 = Récupérer SQL Server uniquement.  
 
-    -   **Details:** Hiermit wird angegeben, ob von Setup der Standortserver, SQL Server oder beides wiederhergestellt wird. Die zugeordneten Schlüssel sind erforderlich, wenn Sie den folgenden Wert für die Einstellung **ServerRecoveryOptions** festlegen:  
+    -   **Détails :** spécifie si le programme d’installation doit récupérer le serveur de site, SQL Server ou les deux. Les clés associées sont nécessaires quand vous définissez la valeur suivante pour le paramètre **ServerRecoveryOptions** :  
 
-        -   Wert = 1: Sie können einen Wert für den Schlüssel **SiteServerBackupLocation** angeben, um den Standort aus einer Standortsicherung wiederherstellen zu lassen. Wenn Sie keinen Wert angeben, wird der Standort erneut installiert, ohne ihn aus einem Sicherungssatz wiederherzustellen.  
+        -   Valeur = 1 : vous avez la possibilité de spécifier une valeur pour la clé **SiteServerBackupLocation** afin de récupérer le site à l’aide d’une sauvegarde de site. Si vous ne spécifiez pas de valeur, le site est réinstallé sans être restauré à partir d'un jeu de sauvegarde.  
 
-        -   Wert = 1: Sie können einen Wert für den Schlüssel **SiteServerBackupLocation** angeben, um den Standort aus einer Standortsicherung wiederherstellen zu lassen. Wenn Sie keinen Wert angeben, wird der Standort erneut installiert, ohne ihn aus einem Sicherungssatz wiederherzustellen.  
+        -   Valeur = 2 : vous avez la possibilité de spécifier une valeur pour la clé **SiteServerBackupLocation** afin de récupérer le site à l’aide d’une sauvegarde de site. Si vous ne spécifiez pas de valeur, le site est réinstallé sans être restauré à partir d'un jeu de sauvegarde.  
 
-        -   Wert= 4: Der Schlüssel **BackupLocation** ist erforderlich, wenn Sie für den Schlüssel **DatabaseRecoveryOptions** den Wert **10** konfigurieren, um die Standortdatenbank aus einer Sicherung wiederherstellen zu lassen.  
+        -   Valeur = 4 : la clé **BackupLocation** est obligatoire si vous attribuez la valeur **10** à la clé **DatabaseRecoveryOptions** afin de restaurer la base de données du site à partir d’une sauvegarde.  
 
--   **Schlüsselname:** DatabaseRecoveryOptions  
+-   **Nom de clé :** DatabaseRecoveryOptions  
 
-    -   **Erforderlich**: Dieser Schlüssel ist erforderlich, wenn für die Einstellung **ServerRecoveryOptions** der Wert **1** oder **4** konfiguriert wurde.  
+    -   **Obligatoire :** Cette clé est obligatoire quand la valeur du paramètre **ServerRecoveryOptions** est **1** ou **4**.  
 
-    -   **Werte:** 10, 20, 40 oder 80  
+    -   **Valeurs :** 10, 20, 40 ou 80  
 
-         10 = Wiederherstellen der Standortdatenbank aus einer Sicherung  
+         10 = Restaurer la base de données du site à partir d'une sauvegarde.  
 
-         20 = Verwenden einer Standortdatenbank, die mithilfe einer anderen Methode manuell wiederhergestellt wurde  
+         20 = Utiliser une base de données de site qui a été récupérée manuellement à l'aide d'une autre méthode.  
 
-         40 = Erstellen einer neuen Datenbank für den Standort. Verwenden Sie diese Option, wenn keine Standortdatenbank verfügbar ist. Globale Daten und Standortdaten werden durch die Replikation von anderen Standorten wiederhergestellt.  
+         40 = Créer une nouvelle base de données de site. Utilisez cette option lorsqu'aucune sauvegarde de base de données de site n'est disponible. Les données globales et de site sont récupérées via la réplication à partir d'autres sites.  
 
-         80 = Überspringen der Datenbankwiederherstellung.  
+         80 = Ignorer la récupération de base de données.  
 
-    -   **Details:** Hiermit wird angegeben, wie die Standortdatenbank in SQL Server durch Setup wiederhergestellt wird.  
+    -   **Détails :** spécifie comment le programme d’installation récupère la base de données du site dans SQL Server.  
 
--   **Schlüsselname:** ReferenceSite  
+-   **Nom de clé :** ReferenceSite  
 
-    -   **Erforderlich:** Dieser Schlüssel ist erforderlich, wenn für die Einstellung **DatabaseRecoveryOptions** der Wert **40** festgelegt wurde.  
+    -   **Obligatoire :** cette clé est obligatoire quand la valeur du paramètre **DatabaseRecoveryOptions** est **40**.  
 
-    -   **Werte:** <*FQDN des Referenzstandorts*>  
+    -   **Valeurs :** <*Nom de domaine complet du site de référence*>  
 
-    -   **Details:** Hiermit wird der primäre Referenzstandort angegeben, der vom Standort der zentralen Verwaltung verwendet wird, um globale Daten wiederherzustellen, wenn die Datenbanksicherung älter ist als die Beibehaltungsdauer der Änderungsnachverfolgung oder wenn Sie den Standort ohne Sicherung wiederherstellen.  
+    -   **Détails :** Spécifie le site principal de référence que le site d’administration centrale utilise pour récupérer des données globales si la sauvegarde de la base de données est antérieure à la période de rétention du suivi des modifications ou quand vous récupérez le site sans sauvegarde.  
 
-         Wenn Sie keinen Referenzstandort angeben und die Sicherung älter als die Beibehaltungsdauer der Änderungsnachverfolgung ist, dann werden alle primären Standorte mit den wiederhergestellten Daten vom Standort der zentralen Verwaltung neu initialisiert.  
+         Quand vous ne spécifiez pas de site de référence et que la sauvegarde est antérieure à la période de rétention du suivi des modifications, tous les sites principaux sont réinitialisés avec les données restaurées à partir du site d’administration centrale.  
 
-         Wenn Sie keinen Referenzstandort angeben und die Sicherung innerhalb der Beibehaltungsdauer der Änderungsnachverfolgung liegt, dann werden nur Änderungen, die nach der Sicherung vorgenommen wurden, von den primären Standorten repliziert. Wenn Änderungen von verschiedenen primären Standorten vorliegen, die miteinander in Konflikt stehen, dann wird vom Standort der zentralen Verwaltung die zuerst empfangene verwendet.  
+         Quand vous ne spécifiez pas de site de référence et que la sauvegarde est comprise dans la période de rétention du suivi des modifications, seules les modifications effectuées après la sauvegarde sont répliquées à partir des sites principaux. Lorsqu'il existe des conflits entre des modifications issues de différents sites principaux, le site d'administration centrale utilise la première modification reçue.  
 
--   **Schlüsselname:** SiteServerBackupLocation  
+-   **Nom de clé :** SiteServerBackupLocation  
 
-    -   **Erforderlich:** Nein  
+    -   **Obligatoire :** non  
 
-    -   **Werte:** <*Pfad zum Sicherungssatz des Standortservers*>  
+    -   **Valeurs :** <*Chemin du jeu de sauvegarde du serveur de site*>  
 
-    -   **Details:** Hiermit wird der Pfad zum Sicherungssatz des Standortservers angegeben. Dieser Schlüssel ist optional, wenn für die Einstellung **ServerRecoveryOptions** der Wert **1** oder **2**konfiguriert wurde. Geben Sie einen Wert für den Schlüssel **SiteServerBackupLocation** an, um den Standort aus einer Standortsicherung wiederherstellen zu lassen. Wenn Sie keinen Wert angeben, wird der Standort erneut installiert, ohne ihn aus einem Sicherungssatz wiederherzustellen.  
+    -   **Détails :** spécifie le chemin vers le jeu de sauvegarde du serveur de site. Cette clé est optionnelle lorsque la valeur du paramètre **ServerRecoveryOptions** est **1** ou **2**. Spécifiez une valeur pour la clé **SiteServerBackupLocation** pour récupérer le site à l'aide d'une sauvegarde de site. Si vous ne spécifiez pas de valeur, le site est réinstallé sans être restauré à partir d'un jeu de sauvegarde.  
 
--   **Schlüsselname:** BackupLocation  
+-   **Nom de clé :** BackupLocation  
 
-    -   **Erforderlich:** Dieser Schlüssel ist erforderlich, wenn Sie für den Schlüssel **ServerRecoveryOptions** den Wert **1** oder **4** und für den Schlüssel **DatabaseRecoveryOptions** den Wert **10** konfigurieren.  
+    -   **Obligatoire :** Cette clé est obligatoire quand vous configurez la valeur **1** ou **4** pour la clé **ServerRecoveryOptions**, et la valeur **10** pour la clé **DatabaseRecoveryOptions**.  
 
-    -   **Werte:** <*Pfad zum Sicherungssatz der Standortdatenbank*>  
+    -   **Valeurs :** <*Chemin du jeu de sauvegarde de la base de données du site*>  
 
-    -   **Details:** Hiermit wird der Pfad zum Sicherungssatz der Standortdatenbank angegeben.  
+    -   **Détails :** spécifie le chemin d’accès au jeu de sauvegarde de la base de données du site.  
 
-**Optionen**  
+**Options**  
 
--   **Schlüsselname:** ProductID  
+-   **Nom de clé :** ProductID  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** <*xxxxx-xxxxx-xxxxx-xxxxx-xxxxx*> *oder* Eval  
+    -   **Valeurs :** <*xxxxx-xxxxx-xxxxx-xxxxx-xxxxx*> *ou* Eval  
 
-    -   **Details:** Gibt den Product Key für die Configuration Manager-Installation, einschließlich der Gedankenstriche, an. Geben Sie **Eval** ein, um die Evaluierungsversion von Configuration Manager zu installieren.  
+    -   **Détails :** Spécifie la clé de produit de l’installation de Configuration Manager avec les tirets. Entrez **Eval** pour installer la version d’évaluation de Configuration Manager.  
 
--   **Schlüsselname:** SiteCode  
+-   **Nom de clé :** SiteCode  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** <*Standortcode*>  
+    -   **Valeurs :** <*Code de site*>  
 
-    -   **Details:** Hiermit werden drei alphanumerische Zeichen angegeben, durch die der Standort in der Hierarchie eindeutig angegeben wird. Sie müssen den Standortcode angeben, der vor dem Auftreten des Fehlers vom Standort verwendet wurde.
+    -   **Détails :** spécifie les trois caractères alphanumériques qui identifient le site de manière unique dans votre hiérarchie. Vous devez spécifier le code de site que le site utilisait avant la défaillance.
 
--   **Schlüsselname:** SiteName  
+-   **Nom de clé :** SiteName  
 
-    -   **Erforderlich:** Nein  
+    -   **Obligatoire :** non  
 
-    -   **Werte:** <*Standortname*>  
+    -   **Valeurs :** <*Nom de site*>  
 
-    -   **Details:** Hiermit wird der Name für diesen Standort angegeben.  
+    -   **Détails :** spécifie le nom de ce site.  
 
--   **Schlüsselname:** SMSInstallDir  
+-   **Nom de clé :** SMSInstallDir  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** <*Configuration Manager-Installationspfad*>  
+    -   **Valeurs :** <*Chemin d’installation de Configuration Manager*>  
 
-    -   **Details:** Hiermit wird der Installationsordner für die Configuration Manager-Programmdateien angegeben.  
+    -   **Détails :** spécifie le dossier d’installation des fichiers programmes de Configuration Manager.  
 
--   **Schlüsselname:** SDKServer  
+-   **Nom de clé :** SDKServer  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** <*SMS-Anbieter-FQDN*>  
+    -   **Valeurs :** <*Nom de domaine complet du fournisseur SMS*>  
 
-    -   **Details:** Hiermit wird der FQDN des Servers angegeben, auf dem der SMS-Anbieter gehostet wird. Sie müssen den Server angeben, von dem der SMS-Anbieter vor Auftreten des Fehlers gehostet wurde.  
+    -   **Détails :** spécifie le FQDN du serveur qui héberge le fournisseur SMS. Vous devez spécifier le serveur qui hébergeait le fournisseur SMS avant la défaillance.  
 
-         Nach der Erstinstallation können Sie zusätzliche SMS-Anbieter für den Standort konfigurieren. Weitere Informationen zum SMS-Anbieter finden Sie im Abschnitt [Planen des SMS-Anbieters für System Center Configuration Manager](../../../../core/plan-design/hierarchy/plan-for-the-sms-provider.md).  
+         Vous pouvez configurer d'autres fournisseurs SMS pour le site après l'installation initiale. Pour plus d’informations sur le fournisseur SMS, consultez [Planifier le fournisseur SMS pour System Center Configuration Manager](../../../../core/plan-design/hierarchy/plan-for-the-sms-provider.md).  
 
--   **Schlüsselname:** PrerequisiteComp  
+-   **Nom de clé :** PrerequisiteComp  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** 0 oder 1  
+    -   **Valeurs :** 0 ou 1  
 
-         0 = Herunterladen  
+         0 = Télécharger  
 
-         1 = Bereits heruntergeladen  
+         1 = Déjà téléchargé  
 
-    -   **Details:** Hiermit wird angegeben, ob die für Setup erforderlichen Dateien bereits heruntergeladen wurden. Wenn Sie beispielsweise den Wert **0**angeben, werden die Dateien von Setup heruntergeladen.  
+    -   **Détails :** spécifie si les fichiers d’installation prérequis ont déjà été téléchargés. Par exemple, si vous utilisez la valeur **0**, le programme d’installation télécharge les fichiers.  
 
--   **Schlüsselname:** PrerequisitePath  
+-   **Nom de clé :** PrerequisitePath  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** <*Pfad zu erforderlichen Setup-Dateien*>  
+    -   **Valeurs :** <*Chemin des fichiers nécessaires à l’installation*>  
 
-    -   **Details:** Über diesen Schlüssel wird der Pfad zu den für Setup erforderlichen Dateien angegeben. Je nach dem Wert unter **PrerequisiteComp** wird dieser Pfad von Setup zum Speichern heruntergeladener Dateien oder zum Suchen der zuvor heruntergeladenen Dateien verwendet.  
+    -   **Détails :** spécifie le chemin vers les fichiers d’installation prérequis. Selon la valeur **PrerequisiteComp** , le programme d'installation utilise ce chemin d'accès pour stocker les fichiers téléchargés ou pour localiser des fichiers précédemment téléchargés.  
 
--   **Schlüsselname:** AdminConsole  
+-   **Nom de clé :** AdminConsole  
 
-    -   **Erforderlich:** Dieser Schlüssel ist erforderlich, außer wenn für die Einstellung **ServerRecoveryOptions** der Wert **4** festgelegt wurde.  
+    -   **Obligatoire :** cette clé est obligatoire sauf quand le paramètre **ServerRecoveryOptions** a la valeur **4**.  
 
-    -   **Werte:** 0 oder 1  
+    -   **Valeurs :** 0 ou 1  
 
-         0 = Nicht installieren  
+         0 = Ne pas installer  
 
-         1 = Installieren  
+         1 = Installer  
 
-    -   **Details:** Hiermit wird angegeben, ob die Configuration Manager-Konsole installiert werden soll.  
+    -   **Détails :** spécifie si la console Configuration Manager doit ou non être installée.  
 
--   **Schlüsselname:** JoinCEIP  
+-   **Nom de clé :** JoinCEIP  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** 0 oder 1  
+    -   **Valeurs :** 0 ou 1  
 
-         0 = Nicht teilnehmen  
+         0 = Ne pas participer  
 
-         1 = Teilnehmen  
+         1 = Participer  
 
-    -   **Details:** Gibt an, ob am CEIP teilgenommen werden soll.  
+    -   **Détails :** Spécifie s’il faut participer au programme d’amélioration des services.  
 
 **SQLConfigOptions**  
 
--   **Schlüsselname:** SQLServerName  
+-   **Nom de clé :** SQLServerName  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** <*SQL Server-Name*>  
+    -   **Valeurs :** <*Nom du serveur SQL*>  
 
-    -   **Details:** Gibt den Namen des Servers oder der gruppierten Instanz an, die SQL Server ausführen, auf dem die Standortdatenbank gehostet werden soll. Sie müssen den Server angeben, von dem die Standortdatenbank vor dem Auftreten des Fehlers gehostet wurde.  
+    -   **Détails :** Spécifie le nom du serveur ou de l’instance en cluster exécutant SQL Server qui hébergera la base de données du site. Vous devez spécifier le serveur qui a hébergé la base de données de site avant la défaillance.  
 
--   **Schlüsselname:** DatabaseName  
+-   **Nom de clé :** DatabaseName  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** <*Standortdatenbankname*> oder <*Instanzname*>\\<*Standortdatenbankname*>  
+    -   **Valeurs :** <*Nom de la base de données du site*> ou <*Nom de l’instance*>\\<*Nom de la base de données du site*>  
 
-    -   **Details:** Gibt den Namen der SQL Server-Datenbank an, der bei der Installation der Datenbank für den Standort der zentralen Verwaltung erstellt oder verwendet werden soll. Sie müssen den gleichen Datenbanknamen angeben, der vor Auftreten des Fehlers verwendet wurde.  
+    -   **Détails :** Spécifie le nom de la base de données SQL Server à créer ou de la base de données SQL Server à utiliser pour installer la base de données du site d’administration centrale. Vous devez spécifier le nom de base de données qui était utilisé avant la défaillance.  
 
         > [!IMPORTANT]  
-        >  Sie müssen den Instanznamen und den Namen der Standortdatenbank angeben, falls Sie die Standardinstanz nicht verwenden.  
+        >  Si vous n'utilisez pas l'instance par défaut, vous devez spécifier le nom d'instance et le nom de base de données de site.  
 
--   **Schlüsselname:** SQLSSBPort  
+-   **Nom de clé :** SQLSSBPort  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** <*SSB-Portnummer*>  
+    -   **Valeurs :** <*Numéro du port SSB*>  
 
-    -   **Details:** Gibt den SSB-Port an, der von SQL Server verwendet wird. SSB ist normalerweise für die Verwendung von TCP-Port 4022 konfiguriert. Sie müssen den gleichen SSB-Port angeben, der vor Auftreten des Fehlers verwendet wurde.  
+    -   **Détails :** Spécifie le port SSB que SQL Server utilise. Généralement, SSB est configuré pour utiliser le port TCP 4022. Vous devez définir le même port SSB utilisé avant la défaillance.  
 
--   **Schlüsselname:** SQLDataFilePath  
+-   **Nom de clé :** SQLDataFilePath  
 
-    -   **Erforderlich:** Nein  
+    -   **Obligatoire :** non  
 
-    -   **Werte:** <*Pfad zur .mdb-Datenbankdatei*>  
+    -   **Valeurs :** <*Chemin du fichier .mdb de la base de données*>  
 
-    -   **Details:** Hiermit wird ein alternativer Speicherort zum Erstellen der .mdb-Datei für die Datenbank angegeben.  
+    -   **Détails :** Spécifie un autre emplacement pour créer le fichier .mdb de la base de données.  
 
--   **Schlüsselname:** SQLLogFilePath  
+-   **Nom de clé :** SQLLogFilePath  
 
-    -   **Erforderlich:** Nein  
+    -   **Obligatoire :** non  
 
-    -   **Werte:**  <*Pfad zur .ldf-Datenbankdatei*>  
+    -   **Valeurs :** <*Chemin du fichier .ldf de la base de données*>  
 
-    -   **Details:** Gibt einen alternativen Speicherort zum Erstellen der .ldf-Datei für die Datenbank an.  
+    -   **Détails :** Spécifie un autre emplacement pour créer le fichier .ldf de la base de données.  
 
 **CloudConnectorOptions**  
 
--   **Schlüsselname:** CloudConnector  
+-   **Nom de clé :** CloudConnector  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** 0 oder 1  
+    -   **Valeurs :** 0 ou 1  
 
-         0 = Nicht installieren  
+         0 = Ne pas installer  
 
-         1 = Installieren  
+         1 = Installer  
 
-    -   **Details:** Gibt an, ob ein Dienstverbindungspunkt an diesem Standort installiert werden soll. Da der Dienstverbindungspunkt in einer Standorthierarchie nur am Standort der obersten Ebene installiert werden kann, muss dieser Wert für einen untergeordneten primären Standort **0** sein.  
+    -   **Détails :** Spécifie s’il faut installer un point de connexion de service sur ce site. Comme le point de connexion de service peut uniquement être installé sur le site de niveau supérieur d’une hiérarchie, cette valeur doit être **0** pour un site principal enfant.  
 
--   **Schlüsselname:** CloudConnectorServer  
+-   **Nom de clé :** CloudConnectorServer  
 
-    -   **Erforderlich:** Erforderlich, wenn **CloudConnector** gleich 1 ist  
+    -   **Obligatoire :** Obligatoire quand **CloudConnector** est égal à 1  
 
-    -   **Werte:** <*FQDN des Servers für den Dienstverbindungspunkt*>  
+    -   **Valeurs :** <*Nom de domaine complet du serveur de point de connexion de service*>  
 
-    -   **Details:** Hiermit wird der FQDN des Servers angegeben, auf dem die Standortsystemrolle „Dienstverbindungspunkt“ gehostet wird.  
+    -   **Détails :** spécifie le nom de domaine complet du serveur qui hébergera le rôle de système de site de point de connexion de service.  
 
--   **Schlüsselname:** UseProxy  
+-   **Nom de clé :** UseProxy  
 
-    -   **Erforderlich:** Erforderlich, wenn **CloudConnector** gleich 1 ist  
+    -   **Obligatoire :** Obligatoire quand **CloudConnector** est égal à 1  
 
-    -   **Werte:** 0 oder 1  
+    -   **Valeurs :** 0 ou 1  
 
-         0 = Nicht installieren  
+         0 = Ne pas installer  
 
-         1 = Installieren  
+         1 = Installer  
 
-    -   **Details:** Gibt an, ob der Dienstverbindungspunkt einen Proxyserver verwendet.  
+    -   **Détails :** Spécifie si le point de connexion de service doit utiliser un serveur proxy.  
 
--   **Schlüsselname:** ProxyName  
+-   **Nom de clé :** ProxyName  
 
-    -   **Erforderlich:** Erforderlich, wenn **CloudConnector** gleich 1 ist  
+    -   **Obligatoire :** Obligatoire quand **CloudConnector** est égal à 1  
 
-    -   **Werte:** <*Proxyserver-FQDN*>  
+    -   **Valeurs :** <*Nom de domaine complet du serveur proxy*>  
 
-    -   **Details:** Hiermit wird der FQDN des Proxyservers angegeben, der von der Standortsystemrolle „Dienstverbindungspunkt“ verwendet werden wird.  
+    -   **Détails :** spécifie le nom de domaine complet du serveur proxy qui sera utilisé par le rôle de système de site de point de connexion de service.  
 
--   **Schlüsselname:** ProxyPort  
+-   **Nom de clé :** ProxyPort  
 
-    -   **Erforderlich:** Erforderlich, wenn **CloudConnector** gleich 1 ist  
+    -   **Obligatoire :** Obligatoire quand **CloudConnector** est égal à 1  
 
-    -   **Werte:** <*Portnummer*>  
+    -   **Valeurs :** <*Numéro de port*>  
 
-    -   **Details:** Gibt die für den Proxyport zu verwendende Portnummer an.  
+    -   **Détails :** Spécifie le numéro de port à utiliser pour le port proxy.  
 
-### <a name="unattended-recovery-for-a-primary-site"></a>Unbeaufsichtigte Wiederherstellung eines primären Standorts  
- Im folgenden Abschnitt finden Sie Detailinformationen zur unbeaufsichtigten Wiederherstellung eines primären Standorts mithilfe einer Skriptdatei.  
+### <a name="unattended-recovery-for-a-primary-site"></a>Récupération sans assistance d’un site principal  
+ Utilisez les détails suivant pour récupérer un site principal à l’aide d’un fichier de script d’installation sans assistance.  
 
 **Identification**  
 
--   **Schlüsselname:** Aktion  
+-   **Nom de clé :** Action  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** <*RecoverPrimarySite*>  
+    -   **Valeurs :** <*RecoverPrimarySite*>  
 
-    -   **Details:** Hiermit wird ein primärer Standort wiederhergestellt.  
+    -   **Détails :** récupère un site principal.  
 
--   **Schlüsselname:** CDLatest  
+-   **Nom de la clé :** CDLatest  
 
-    -   **Erforderlich:** Ja; nur wenn Sie Medien aus dem Ordner „CD.Latest“ verwenden    
+    -   **Obligatoire :** Oui, uniquement en cas d’utilisation de médias du dossier CD.Latest.    
 
-    -   **Werte:** 1; bei jedem Wert außer 1 wird davon ausgegangen, dass er nicht „CD.Latest“ verwendet
+    -   **Valeurs :** 1. Toute autre valeur est considérée comme signifiant que CD.Latest ne doit pas être utilisé.
 
-    -   **Details:** Ihr Skript muss diesen Schlüssel und diesen Wert enthalten, wenn Sie das Setup von einem Medium in dem Ordner „CD.Latest“ ausführen, um einen Standort der primären oder zentralen Verwaltung zu installieren oder diesen wiederherstellen möchten. Dieser Wert informiert das Setup darüber, dass Medien aus „CD.Latest“ verwendet werden.    
+    -   **Détails :** Le script doit inclure cette clé et cette valeur en cas d’exécution de l’installation à partir de médias du dossier CD.Latest dans le cadre de l’installation d’un site principal ou d’administration centrale, ou de la récupération d’un site principal ou d’administration centrale. Cette valeur indique au programme d’installation que des médias de CD.Latest sont utilisés.    
 
 **RecoveryOptions**  
 
--   **Schlüsselname:** ServerRecoveryOptions  
+-   **Nom de clé :** ServerRecoveryOptions  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** 1, 2 oder 4  
+    -   **Valeurs :** 1, 2 ou 4  
 
-         1 = Wiederherstellung von Standortserver und SQL Server  
+         1 = Récupérer le serveur de site et SQL Server.  
 
-         2 = nur Wiederherstellung von Standortserver  
+         2 = Récupérer le serveur de site uniquement.  
 
-         4 = nur Wiederherstellung von SQL Server  
+         4 = Récupérer SQL Server uniquement.  
 
-    -   **Details:** Hiermit wird angegeben, ob von Setup der Standortserver, SQL Server oder beides wiederhergestellt wird. Die zugeordneten Schlüssel sind erforderlich, wenn Sie den folgenden Wert für die Einstellung **ServerRecoveryOptions** festlegen:  
+    -   **Détails :** spécifie si le programme d’installation doit récupérer le serveur de site, SQL Server ou les deux. Les clés associées sont nécessaires quand vous définissez la valeur suivante pour le paramètre **ServerRecoveryOptions** :  
 
-        -   Wert = 1: Sie können einen Wert für den Schlüssel **SiteServerBackupLocation** angeben, um den Standort aus einer Standortsicherung wiederherstellen zu lassen. Wenn Sie keinen Wert angeben, wird der Standort erneut installiert, ohne ihn aus einem Sicherungssatz wiederherzustellen.  
+        -   Valeur = 1 : vous avez la possibilité de spécifier une valeur pour la clé **SiteServerBackupLocation** afin de récupérer le site à l’aide d’une sauvegarde de site. Si vous ne spécifiez pas de valeur, le site est réinstallé sans être restauré à partir d'un jeu de sauvegarde.  
 
-        -   Wert = 1: Sie können einen Wert für den Schlüssel **SiteServerBackupLocation** angeben, um den Standort aus einer Standortsicherung wiederherstellen zu lassen. Wenn Sie keinen Wert angeben, wird der Standort erneut installiert, ohne ihn aus einem Sicherungssatz wiederherzustellen.  
+        -   Valeur = 2 : vous avez la possibilité de spécifier une valeur pour la clé **SiteServerBackupLocation** afin de récupérer le site à l’aide d’une sauvegarde de site. Si vous ne spécifiez pas de valeur, le site est réinstallé sans être restauré à partir d'un jeu de sauvegarde.  
 
-        -   Wert= 4: Der Schlüssel **BackupLocation** ist erforderlich, wenn Sie für den Schlüssel **DatabaseRecoveryOptions** den Wert **10** konfigurieren, um die Standortdatenbank aus einer Sicherung wiederherstellen zu lassen.  
+        -   Valeur = 4 : la clé **BackupLocation** est obligatoire si vous attribuez la valeur **10** à la clé **DatabaseRecoveryOptions** afin de restaurer la base de données du site à partir d’une sauvegarde.  
 
--   **Schlüsselname:** DatabaseRecoveryOptions  
+-   **Nom de clé :** DatabaseRecoveryOptions  
 
-    -   **Erforderlich**: Dieser Schlüssel ist erforderlich, wenn für die Einstellung **ServerRecoveryOptions** der Wert **1** oder **4** konfiguriert wurde.  
+    -   **Obligatoire :** Cette clé est obligatoire quand la valeur du paramètre **ServerRecoveryOptions** est **1** ou **4**.  
 
-    -   **Werte:** 10, 20, 40 oder 80  
+    -   **Valeurs :** 10, 20, 40 ou 80  
 
-         10 = Wiederherstellen der Standortdatenbank aus einer Sicherung  
+         10 = Restaurer la base de données du site à partir d'une sauvegarde.  
 
-         20 = Verwenden einer Standortdatenbank, die mithilfe einer anderen Methode manuell wiederhergestellt wurde  
+         20 = Utiliser une base de données de site qui a été récupérée manuellement à l'aide d'une autre méthode.  
 
-         40 = Erstellen einer neuen Datenbank für den Standort. Verwenden Sie diese Option, wenn keine Standortdatenbank verfügbar ist. Globale Daten und Standortdaten werden durch die Replikation von anderen Standorten wiederhergestellt.  
+         40 = Créer une nouvelle base de données de site. Utilisez cette option lorsqu'aucune sauvegarde de base de données de site n'est disponible. Les données globales et de site sont récupérées via la réplication à partir d'autres sites.  
 
-         80 = Überspringen der Datenbankwiederherstellung.  
+         80 = Ignorer la récupération de base de données.  
 
-    -   **Details:** Hiermit wird angegeben, wie die Standortdatenbank in SQL Server durch Setup wiederhergestellt wird.  
+    -   **Détails :** spécifie comment le programme d’installation récupère la base de données du site dans SQL Server.  
 
--   **Schlüsselname:** SiteServerBackupLocation  
+-   **Nom de clé :** SiteServerBackupLocation  
 
-    -   **Erforderlich:** Nein  
+    -   **Obligatoire :** non  
 
-    -   **Werte:** <*Pfad zum Sicherungssatz des Standortservers*>  
+    -   **Valeurs :** <*Chemin du jeu de sauvegarde du serveur de site*>  
 
-    -   **Details:**  
+    -   **Détails :**  
 
-         Über diesen Schlüssel wird der Pfad zum Sicherungssatz des Standortservers angegeben. Dieser Schlüssel ist optional, wenn für die Einstellung **ServerRecoveryOptions** der Wert **1** oder **2**festgelegt wurde. Geben Sie einen Wert für den Schlüssel **SiteServerBackupLocation** an, um den Standort aus einer Standortsicherung wiederherstellen zu lassen. Wenn Sie keinen Wert angeben, wird der Standort erneut installiert, ohne ihn aus einem Sicherungssatz wiederherzustellen.  
+         Spécifie le chemin d'accès au jeu de sauvegarde du serveur de site. Cette clé est facultative si le paramètre **ServerRecoveryOptions** a la valeur **1** ou **2**. Spécifiez une valeur pour la clé **SiteServerBackupLocation** pour récupérer le site à l'aide d'une sauvegarde de site. Si vous ne spécifiez pas de valeur, le site est réinstallé sans être restauré à partir d'un jeu de sauvegarde.  
 
--   **Schlüsselname:** BackupLocation  
+-   **Nom de clé :** BackupLocation  
 
-    -   **Erforderlich:** Dieser Schlüssel ist erforderlich, wenn Sie für den Schlüssel **ServerRecoveryOptions** den Wert **1** oder **4** und für den Schlüssel **DatabaseRecoveryOptions** den Wert **10** konfigurieren.  
+    -   **Obligatoire :** cette clé est obligatoire quand vous configurez la valeur **1** ou **4** pour la clé **ServerRecoveryOptions**, et la valeur **10** pour la clé **DatabaseRecoveryOptions**.  
 
-    -   **Werte:** <*Pfad zum Sicherungssatz der Standortdatenbank*>  
+    -   **Valeurs :** <*Chemin du jeu de sauvegarde de la base de données du site*>  
 
-    -   **Details:** Hiermit wird der Pfad zum Sicherungssatz der Standortdatenbank angegeben.  
+    -   **Détails :** spécifie le chemin d’accès au jeu de sauvegarde de la base de données du site.  
 
-**Optionen**  
+**Options**  
 
--   **Schlüsselname:** ProductID  
+-   **Nom de clé :** ProductID  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** *xxxxx-xxxxx-xxxxx-xxxxx-xxxxx* oder *Eval*  
+    -   **Valeurs :** *xxxxx-xxxxx-xxxxx-xxxxx-xxxxx* ou *Eval*  
 
-    -   **Details:** Gibt den Product Key für die Configuration Manager-Installation, einschließlich der Gedankenstriche, an. Geben Sie **Eval** ein, um die Evaluierungsversion von Configuration Manager zu installieren.  
+    -   **Détails :** Spécifie la clé de produit de l’installation de Configuration Manager avec les tirets. Entrez **Eval** pour installer la version d’évaluation de Configuration Manager.  
 
--   **Schlüsselname:** SiteCode  
+-   **Nom de clé :** SiteCode  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** <*Standortcode*>  
+    -   **Valeurs :** <*Code de site*>  
 
-    -   **Details:** Hiermit werden drei alphanumerische Zeichen angegeben, durch die der Standort in der Hierarchie eindeutig angegeben wird. Sie müssen den Standortcode angeben, der vor dem Auftreten des Fehlers vom Standort verwendet wurde.
+    -   **Détails :** spécifie les trois caractères alphanumériques qui identifient le site de manière unique dans votre hiérarchie. Vous devez spécifier le code de site que le site utilisait avant la défaillance.
 
--   **Schlüsselname:** SiteName  
+-   **Nom de clé :** SiteName  
 
-    -   **Erforderlich:** Nein  
+    -   **Obligatoire :** non  
 
-    -   **Werte:** <*Standortname*>  
+    -   **Valeurs :** <*Nom de site*>  
 
-    -   **Details:** Hiermit wird der Name für diesen Standort angegeben.  
+    -   **Détails :** spécifie le nom de ce site.  
 
--   **Schlüsselname:** SMSInstallDir  
+-   **Nom de clé :** SMSInstallDir  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** <*Configuration Manager-Installationspfad*>  
+    -   **Valeurs :** <*Chemin d’installation de Configuration Manager*>  
 
-    -   **Details:** Hiermit wird der Installationsordner für die Configuration Manager-Programmdateien angegeben.  
+    -   **Détails :** spécifie le dossier d’installation des fichiers programmes de Configuration Manager.  
 
--   **Schlüsselname:** SDKServer  
+-   **Nom de clé :** SDKServer  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** <*SMS-Anbieter-FQDN*>  
+    -   **Valeurs :** <*Nom de domaine complet du fournisseur SMS*>  
 
-    -   **Details:** Hiermit wird der FQDN des Servers angegeben, auf dem der SMS-Anbieter gehostet wird. Sie müssen den Server angeben, von dem der SMS-Anbieter vor Auftreten des Fehlers gehostet wurde. Nach der Erstinstallation können Sie zusätzliche SMS-Anbieter für den Standort konfigurieren. Weitere Informationen zum SMS-Anbieter finden Sie im Abschnitt [Planen des SMS-Anbieters für System Center Configuration Manager](../../../../core/plan-design/hierarchy/plan-for-the-sms-provider.md).  
+    -   **Détails :** spécifie le FQDN du serveur qui héberge le fournisseur SMS. Vous devez spécifier le serveur qui hébergeait le fournisseur SMS avant la défaillance. Vous pouvez configurer d'autres fournisseurs SMS pour le site après l'installation initiale. Pour plus d’informations sur le fournisseur SMS, consultez [Planifier le fournisseur SMS pour System Center Configuration Manager](../../../../core/plan-design/hierarchy/plan-for-the-sms-provider.md).  
 
--   **Schlüsselname:** PrerequisiteComp  
+-   **Nom de clé :** PrerequisiteComp  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** 0 oder 1  
+    -   **Valeurs :** 0 ou 1  
 
-         0 = Herunterladen  
+         0 = Télécharger  
 
-         1 = Bereits heruntergeladen  
+         1 = Déjà téléchargé  
 
-    -   **Details:** Hiermit wird angegeben, ob die für Setup erforderlichen Dateien bereits heruntergeladen wurden. Wenn Sie beispielsweise den Wert **0**angeben, werden die Dateien von Setup heruntergeladen.  
+    -   **Détails :** spécifie si les fichiers d’installation prérequis ont déjà été téléchargés. Par exemple, si vous utilisez la valeur **0**, le programme d’installation télécharge les fichiers.  
 
--   **Schlüsselname:** PrerequisitePath  
+-   **Nom de clé :** PrerequisitePath  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** <*Pfad zu erforderlichen Setup-Dateien*>  
+    -   **Valeurs :** <*Chemin des fichiers nécessaires à l’installation*>  
 
-    -   **Details:** Über diesen Schlüssel wird der Pfad zu den für Setup erforderlichen Dateien angegeben. Je nach dem Wert unter **PrerequisiteComp** wird dieser Pfad von Setup zum Speichern heruntergeladener Dateien oder zum Suchen der zuvor heruntergeladenen Dateien verwendet.  
+    -   **Détails :** spécifie le chemin vers les fichiers d’installation prérequis. Selon la valeur **PrerequisiteComp** , le programme d'installation utilise ce chemin d'accès pour stocker les fichiers téléchargés ou pour localiser des fichiers précédemment téléchargés.  
 
--   **Schlüsselname:** AdminConsole  
+-   **Nom de clé :** AdminConsole  
 
-    -   **Erforderlich:** Dieser Schlüssel ist erforderlich, außer wenn für die Einstellung **ServerRecoveryOptions** der Wert **4** festgelegt wurde.  
+    -   **Obligatoire :** cette clé est obligatoire sauf quand le paramètre **ServerRecoveryOptions** a la valeur **4**.  
 
-    -   **Werte:** 0 oder 1  
+    -   **Valeurs :** 0 ou 1  
 
-         0 = Nicht installieren  
+         0 = Ne pas installer  
 
-         1 = Installieren  
+         1 = Installer  
 
-    -   **Details:** Hiermit wird angegeben, ob die Configuration Manager-Konsole installiert werden soll.  
+    -   **Détails :** spécifie si la console Configuration Manager doit ou non être installée.  
 
--   **Schlüsselname:** JoinCEIP  
+-   **Nom de clé :** JoinCEIP  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** 0 oder 1  
+    -   **Valeurs :** 0 ou 1  
 
-         0 = Nicht teilnehmen  
+         0 = Ne pas participer  
 
-         1 = Teilnehmen  
+         1 = Participer  
 
-    -   **Details:** Gibt an, ob am CEIP teilgenommen werden soll.  
+    -   **Détails :** Spécifie s’il faut participer au programme d’amélioration des services.  
 
 **SQLConfigOptions**  
 
--   **Schlüsselname:** SQLServerName  
+-   **Nom de clé :** SQLServerName  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** <*SQL Server-Name*>  
+    -   **Valeurs :** <*Nom du serveur SQL*>  
 
-    -   **Details:** Gibt den Namen des Servers oder der gruppierten Instanz an, die SQL Server ausführen, auf dem die Standortdatenbank gehostet werden soll. Sie müssen den Server angeben, von dem die Standortdatenbank vor dem Auftreten des Fehlers gehostet wurde.  
+    -   **Détails :** Spécifie le nom du serveur ou de l’instance en cluster exécutant SQL Server qui hébergera la base de données du site. Vous devez spécifier le serveur qui a hébergé la base de données de site avant la défaillance.  
 
--   **Schlüsselname:** DatabaseName  
+-   **Nom de clé :** DatabaseName  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:**  <*Standortdatenbankname*> oder <*Instanzname*>\\<*Standortdatenbankname*>
+    -   **Valeurs :**  <*Nom de la base de données du site*> ou <*Nom de l’instance*>\\<*Nom de la base de données du site*>
 
-    -   **Details:**  
+    -   **Détails :**  
 
-         Gibt den Namen der SQL Server-Datenbank an, der bei der Installation der Datenbank für den Standort der zentralen Verwaltung erstellt oder verwendet werden soll. Sie müssen den gleichen Datenbanknamen angeben, der vor Auftreten des Fehlers verwendet wurde.  
+         Spécifie le nom de la base de données SQL Server à créer ou de la base de données SQL Server à utiliser pour installer la base de données du site d’administration centrale. Vous devez spécifier le nom de base de données qui était utilisé avant la défaillance.  
 
         > [!IMPORTANT]  
-        >  Sie müssen den Instanznamen und den Namen der Standortdatenbank angeben, falls Sie die Standardinstanz nicht verwenden.  
+        >  Si vous n'utilisez pas l'instance par défaut, vous devez spécifier le nom d'instance et le nom de base de données de site.  
 
--   **Schlüsselname:** SQLSSBPort  
+-   **Nom de clé :** SQLSSBPort  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** <*SSB-Portnummer*>  
+    -   **Valeurs :** <*Numéro du port SSB*>  
 
-    -   **Details:** Gibt den SSB-Port an, der von SQL Server verwendet wird. SSB ist normalerweise für die Verwendung von TCP-Port 4022 konfiguriert. Sie müssen den gleichen SSB-Port angeben, der vor Auftreten des Fehlers verwendet wurde.  
+    -   **Détails :** Spécifie le port SSB que SQL Server utilise. Généralement, SSB est configuré pour utiliser le port TCP 4022. Vous devez définir le même port SSB utilisé avant la défaillance.  
 
--   **Schlüsselname:** SQLDataFilePath  
+-   **Nom de clé :** SQLDataFilePath  
 
-    -   **Erforderlich:** Nein  
+    -   **Obligatoire :** non  
 
-    -   **Werte:** <*Pfad zur .mdb-Datenbankdatei*>  
+    -   **Valeurs :** <*Chemin du fichier .mdb de la base de données*>  
 
-    -   **Details:** Hiermit wird ein alternativer Speicherort zum Erstellen der .mdb-Datei für die Datenbank angegeben.  
+    -   **Détails :** Spécifie un autre emplacement pour créer le fichier .mdb de la base de données.  
 
--   **Schlüsselname:** SQLLogFilePath  
+-   **Nom de clé :** SQLLogFilePath  
 
-    -   **Erforderlich:** Nein  
+    -   **Obligatoire :** non  
 
-    -   **Werte:**  <*Pfad zur .ldf-Datenbankdatei*>  
+    -   **Valeurs :** <*Chemin du fichier .ldf de la base de données*>  
 
-    -   **Details:** Gibt einen alternativen Speicherort zum Erstellen der .ldf-Datei für die Datenbank an.  
+    -   **Détails :** Spécifie un autre emplacement pour créer le fichier .ldf de la base de données.  
 
 **HierarchyExpansionOptions**  
 
--   **Schlüsselname:** CCARSiteServer  
+-   **Nom de clé :** CCARSiteServer  
 
-    -   **Erforderlich:** Siehe Details.  
+    -   **Obligatoire :** afficher les détails.  
 
-    -   **Werte:** <*Standortcode für den Standort der zentralen Verwaltung*>  
+    -   **Valeurs :** <*Code du site d’administration centrale*>  
 
-    -   **Details:** Hiermit wird der Standort der zentralen Verwaltung angegeben, dem ein primärer Standort beim Verknüpfen mit der Configuration Manager-Hierarchie zugeordnet wird. Diese Einstellung ist erforderlich, wenn der primäre Standort vor dem Fehler mit einem zentralen Verwaltungsstandort verbunden war. Sie müssen den Standortcode angeben, der vor dem Auftreten des Fehlers vom zentralen Verwaltungsstandort verwendet wurde.  
+    -   **Détails :** spécifie le site d’administration centrale auquel un site principal s’attache quand il rejoint la hiérarchie Configuration Manager. Ce paramètre est requis si le site principal était attaché à un site d'administration centrale avant la défaillance. Vous devez spécifier le code de site qui était utilisé pour le site d'administration centrale avant la défaillance.  
 
--   **Schlüsselname:** CASRetryInterval  
+-   **Nom de clé :** CASRetryInterval  
 
-    -   **Erforderlich:** Nein  
+    -   **Obligatoire :** non  
 
-    -   **Werte:** <*Intervall*>  
+    -   **Valeurs :** <*intervalle*>  
 
-    -   **Details:** Über diesen Schlüssel wird das Wiederholungsintervall angegeben (in Minuten), wenn beim Herstellen der Verbindung mit dem Standort der zentralen Verwaltung ein Fehler aufgetreten ist. Wenn beispielsweise beim Herstellen der Verbindung mit dem Standort der zentralen Verwaltung ein Fehler auftritt, wird der Verbindungsversuch auf dem primären Standort nach der für den Wert für **CASRetryInterval** angegebenen Anzahl von Minuten erneut wiederholt.  
+    -   **Détails :** spécifie l’intervalle (en minutes) avant une nouvelle tentative de connexion au site d’administration centrale après un échec de connexion. Par exemple, en cas d’échec de la connexion au site d’administration centrale, le site principal attend le nombre de minutes que vous avez spécifié pour la valeur **CASRetryInterval** et réessaye d’établir la connexion.  
 
--   **Schlüsselname:** WaitForCASTimeout  
+-   **Nom de clé :** WaitForCASTimeout  
 
-    -   **Erforderlich:** Nein  
+    -   **Obligatoire :** non  
 
-    -   **Werte:** <*Timeout*>  
+    -   **Valeurs :** <*délai_attente*>  
 
-    -   **Details:** Über diesen Schlüssel wird der maximale Timeoutwert (in Minuten) für die Verbindung eines primären Standorts mit dem Standort der zentralen Verwaltung angegeben. Wenn beispielsweise beim Herstellen der Verbindung mit dem Standort der zentralen Verwaltung ein Fehler auftritt, wird der Verbindungsversuch auf dem primären Standort basierend auf dem Wert für **CASRetryInterval** solange wiederholt, bis der für **WaitForCASTimeout** angegebene Zeitraum abgelaufen ist. Sie können einen Wert von **0** bis **100** angeben.  
+    -   **Détails :** spécifie la valeur maximale du délai d’attente (en minutes) pour qu’un site principal se connecte au site d’administration centrale. Par exemple, en cas d’échec de la connexion d’un site principal à un site d’administration centrale, le site principal réessaye d’établir la connexion en fonction de la valeur de **CASRetryInterval** jusqu’à ce que le délai **WaitForCASTimeout** soit atteint. Vous pouvez spécifier une valeur entre **0** et **100**.  
 
 **CloudConnectorOptions**  
 
--   **Schlüsselname:** CloudConnector  
+-   **Nom de clé :** CloudConnector  
 
-    -   **Erforderlich:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Werte:** 0 oder 1  
+    -   **Valeurs :** 0 ou 1  
 
-         0 = Nicht installieren  
+         0 = Ne pas installer  
 
-         1 = Installieren  
+         1 = Installer  
 
-    -   **Details:** Gibt an, ob ein Dienstverbindungspunkt an diesem Standort installiert werden soll. Da der Dienstverbindungspunkt in einer Standorthierarchie nur am Standort der obersten Ebene installiert werden kann, muss dieser Wert für einen untergeordneten primären Standort **0** sein.  
+    -   **Détails :** Spécifie s’il faut installer un point de connexion de service sur ce site. Comme le point de connexion de service peut uniquement être installé sur le site de niveau supérieur d’une hiérarchie, cette valeur doit être **0** pour un site principal enfant.  
 
--   **Schlüsselname:** CloudConnectorServer  
+-   **Nom de clé :** CloudConnectorServer  
 
-    -   **Erforderlich:** Erforderlich, wenn **CloudConnector** gleich 1 ist  
+    -   **Obligatoire :** Obligatoire quand **CloudConnector** est égal à 1  
 
-    -   **Werte:** <*FQDN des Servers für den Dienstverbindungspunkt*>  
+    -   **Valeurs :** <*Nom de domaine complet du serveur de point de connexion de service*>  
 
-    -   **Details:** Hiermit wird der FQDN des Servers angegeben, auf dem die Standortsystemrolle „Dienstverbindungspunkt“ gehostet wird.  
+    -   **Détails :** spécifie le nom de domaine complet du serveur qui hébergera le rôle de système de site de point de connexion de service.  
 
--   **Schlüsselname:** UseProxy  
+-   **Nom de clé :** UseProxy  
 
-    -   **Erforderlich:** Erforderlich, wenn **CloudConnector** gleich 1 ist  
+    -   **Obligatoire :** Obligatoire quand **CloudConnector** est égal à 1  
 
-    -   **Werte:** 0 oder 1  
+    -   **Valeurs :** 0 ou 1  
 
-         0 = Nicht installieren  
+         0 = Ne pas installer  
 
-         1 = Installieren  
+         1 = Installer  
 
-    -   **Details:** Gibt an, ob der Dienstverbindungspunkt einen Proxyserver verwendet.  
+    -   **Détails :** Spécifie si le point de connexion de service doit utiliser un serveur proxy.  
 
--   **Schlüsselname:** ProxyName  
+-   **Nom de clé :** ProxyName  
 
-    -   **Erforderlich:** Erforderlich, wenn **CloudConnector** gleich 1 ist  
+    -   **Obligatoire :** Obligatoire quand **CloudConnector** est égal à 1  
 
-    -   **Werte:** <*Proxyserver-FQDN*>  
+    -   **Valeurs :** <*Nom de domaine complet du serveur proxy*>  
 
-    -   **Details:** Hiermit wird der FQDN des Proxyservers angegeben, der von der Standortsystemrolle „Dienstverbindungspunkt“ verwendet werden wird.  
+    -   **Détails :** spécifie le nom de domaine complet du serveur proxy qui sera utilisé par le rôle de système de site de point de connexion de service.  
 
--   **Schlüsselname:** ProxyPort  
+-   **Nom de clé :** ProxyPort  
 
-    -   **Erforderlich:** Erforderlich, wenn **CloudConnector** gleich 1 ist  
+    -   **Obligatoire :** Obligatoire quand **CloudConnector** est égal à 1  
 
-    -   **Werte:** <*Portnummer*>  
+    -   **Valeurs :** <*Numéro de port*>  
 
-    -   **Details:** Gibt die für den Proxyport zu verwendende Portnummer an.  
+    -   **Détails :** Spécifie le numéro de port à utiliser pour le port proxy.  

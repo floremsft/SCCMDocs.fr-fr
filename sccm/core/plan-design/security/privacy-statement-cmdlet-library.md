@@ -1,6 +1,6 @@
 ---
-title: "System Center Configuration Manager-Datenschutzbestimmungen – Configuration Manager-Cmdlet-Bibliothek | Microsoft-Dokumentation"
-description: "Erfahren Sie mehr darüber, wie Microsoft Daten zur System Center Configuration Manager-Cmdlet-Bibliothek sammelt und verwendet."
+title: "Déclaration de confidentialité de System Center Configuration Manager - Bibliothèque d’applets de commande de Configuration Manager | Microsoft Docs"
+description: "Découvrez comment Microsoft collecte et utilise les données relatives à la bibliothèque d’applets de commande de System Center Configuration Manager."
 ms.custom: na
 ms.date: 1/3/2017
 ms.prod: configuration-manager
@@ -18,34 +18,34 @@ manager: angrobe
 ms.openlocfilehash: 3936075555cc0bb370ea6e42c7e720b864d565f7
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="system-center-configuration-manager-privacy-statement---configuration-manager-cmdlet-library"></a>System Center Configuration Manager-Datenschutzbestimmungen – Configuration Manager-Cmdlet-Bibliothek
+# <a name="system-center-configuration-manager-privacy-statement---configuration-manager-cmdlet-library"></a>Déclaration de confidentialité de System Center Configuration Manager – Bibliothèque d’applets de commande de Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Diese Datenschutzbestimmungen gelten für die Features der System Center Configuration Manager-Cmdlet-Bibliothek.  
+Cette déclaration de confidentialité couvre les fonctionnalités de la bibliothèque d’applets de commande de System Center Configuration Manager.  
 
-## <a name="usage-data"></a>Nutzungsdaten  
- **Funktionsweise dieses Features:**   
-Mit der System Center Configuration Manager-Cmdlet-Bibliothek können Sie eine Configuration Manager-Hierarchie mithilfe von Windows PowerShell-Cmdlets und -Skripts verwalten. Von der Cmdlet-Bibliothek werden Informationen darüber gesammelt, wie Sie die Cmdlets in der Bibliothek verwenden, um Trends und Verwendungsmuster zu ermitteln. Von der Cmdlet-Bibliothek werden auch Art und Anzahl der Fehler ermittelt, die beim Verwenden der Cmdlets auftreten.  
+## <a name="usage-data"></a>Données d’utilisation  
+ **Descriptif de cette fonctionnalité :**   
+La bibliothèque d’applets de commande de System Center Configuration Manager vous permet de gérer une hiérarchie Configuration Manager à l’aide d’applets de commande et de scripts Windows PowerShell. La bibliothèque d’applets de commande collecte des informations sur l’utilisation des applets de commande dans la bibliothèque pour identifier des tendances et des modèles d’utilisation. La bibliothèque d’applets de commande collecte également les types et le nombre d’erreurs que vous rencontrez quand vous utilisez les applets de commande.  
 
- **Erfasste, verarbeitete oder übertragene Informationen:**   
-Zu den gesammelten Nutzungsdaten gehören das Starten, Anhalten und Beenden von Cmdlets und das Ausführen von veralteten Cmdlets und Aktivitätsmetriken für Vorgänge im Zusammenhang mit Cmdlets, die mit SMS-Anbietern (Systems Management Server) verknüpft sind. Diese Informationen sind nicht personenbezogen.  Zu den gesammelten Informationen gehören u.a. die von Cmdlets zurückgegebenen Fehler sowie Details zu Ausnahmefehlern. Einige Detailberichte zu Fehlern enthalten möglicherweise unbeabsichtigt personenbezogene Daten, z.B. Seriennummern von Geräten, die mit dem Computer verbunden sind. Diese Informationen in den Fehlerberichten werden von der Cmdlet-Bibliothek gefiltert und anonymisiert, um etwaige persönliche Informationen vor der Übertragung an Microsoft zu entfernen.  
+ **Informations collectées, traitées ou transmises :**   
+Les données d’utilisation collectées comprennent le démarrage, l’arrêt et l’interruption des applets de commande, l’exécution d’applets de commande déconseillées, et des mesures d’activité pour les opérations du fournisseur Systems Management Server (SMS) qui sont liées aux applets de commande. Ces informations ne permettent pas de vous identifier personnellement.  Les informations collectées sur les erreurs comprennent les erreurs que les applets de commande renvoient ainsi que les détails des erreurs d’exception. Certains rapports détaillés sur les erreurs peuvent contenir par inadvertance des identificateurs individuels, comme le numéro de série d’un appareil connecté à votre ordinateur. La bibliothèque d’applets de commande filtre et rend anonymes les informations dans les rapports d’erreur pour supprimer les identificateurs individuels avant leur transmission à Microsoft.  
 
- **Verwendung der Informationen:**   
-Wir verwenden diese Informationen zur Verbesserung der Qualität, der Sicherheit und der Integrität der von uns angebotenen Produkte und Dienste.  
+ **Utilisation des informations :**   
+Nous utilisons ces informations pour améliorer la qualité, la sécurité et l’intégrité des produits et services que nous proposons.  
 
- **Auswahl/Kontrolle:**   
-Das Feature zur Erfassung von Nutzungsdaten ist standardmäßig aktiviert. Die System Center Configuration Manager-Cmdlet-Bibliothek umfasst zwei Registrierungsschlüssel zur Steuerung dieser Funktionalität.  
+ **Choix/contrôle :**   
+Cette fonctionnalité de données d’utilisation est activée par défaut. La bibliothèque d’applets de commande de System Center Configuration Manager a deux clés de Registre qui contrôlent cette fonctionnalité.  
 
- Zur vollständigen Deaktivierung müssen Sie die Werte dieser beiden Registrierungsschlüssel festlegen – jeweils einen für jeden der Anbieter zur Ereignisnachverfolgung für Windows (Event Tracing for Windows, ETW):  
+ Pour la désactiver complètement, vous devez définir les deux valeurs de clé de Registre suivantes, une pour chacun des fournisseurs de suivi d’événements pour Windows (ETW) :  
 
--   HKLM\Software\Microsoft\ConfigMgr10\PowerShell\Microsoft.ConfigurationManagement.PowerShell.Provider:CeipLevel=0 (beendet die Erfassung von Nutzungsdaten für den Laufwerksanbieter)  
+-   HKLM\Software\Microsoft\ConfigMgr10\PowerShell\Microsoft.ConfigurationManagement.PowerShell.Provider:CeipLevel=0 (désactive la fonctionnalité Données d’utilisation pour le fournisseur du lecteur)  
 
--   HKLM\Software\Microsoft\ConfigMgr10\PowerShell\Microsoft.ConfigurationManagement.PowerShell.Cmdlets:CeipLevel=0 (beendet die Erfassung von Nutzungsdaten für die Cmdlets)  
+-   HKLM\Software\Microsoft\ConfigMgr10\PowerShell\Microsoft.ConfigurationManagement.PowerShell.Cmdlets:CeipLevel=0 (désactive la fonctionnalité Données d’utilisation pour les applets de commande)  
 
- Die Einstellungen für Nutzungsdaten gelten nur für den betreffenden Computer, auf dem sie festgelegt wurden.  
+ Les modifications des paramètres de données d’utilisation sont spécifiques de l’ordinateur sur lequel elles ont été effectuées.  
 
- Weitere Informationen zum Konfigurieren von Nutzungsdaten (Sammlung) finden Sie in der [Dokumentation zur System Center Configuration Manager-Cmdlets-Bibliothek](https://technet.microsoft.com/en-us/library/dn958404.aspx).   
+ Pour en savoir plus sur la configuration des données d’utilisation (collecte), consultez la [Documentation de la bibliothèque d’applets de commande de System Center Configuration Manager](https://technet.microsoft.com/en-us/library/dn958404.aspx).   

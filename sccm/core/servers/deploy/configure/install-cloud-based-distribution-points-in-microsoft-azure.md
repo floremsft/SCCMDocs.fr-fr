@@ -1,6 +1,6 @@
 ---
-title: Installieren von cloudbasierten Verteilungspunkten | Microsoft-Dokumentation
-description: "Erfahren Sie, was Sie tun müssen, um mit der Verwendung von cloudbasierten Verteilungspunkten in Microsoft Azure zu beginnen."
+title: Installer des points de distribution cloud | Microsoft Docs
+description: "Découvrez ce que vous devez faire pour commencer à utiliser des points de distribution cloud dans Microsoft Azure."
 ms.custom: na
 ms.date: 2/8/2017
 ms.prod: configuration-manager
@@ -17,116 +17,116 @@ manager: angrobe
 ms.openlocfilehash: 39b35cccf78bba4e69a7de0ca3a5a8dc516201e3
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="install-cloud-based-distribution-points-in-microsoft-azure-for-system-center-configuration-manager"></a>Installieren von cloudbasierten Verteilungspunkte in Microsoft Azure für System Center Configuration Manager
+# <a name="install-cloud-based-distribution-points-in-microsoft-azure-for-system-center-configuration-manager"></a>Installer des points de distribution cloud dans Microsoft Azure pour System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Sie können in Microsoft Azure cloudbasierte Verteilungspunkte von System Center Configuration Manager installieren. Wenn Sie keine Erfahrung mit cloudbasierten Verteilungspunkten haben, lesen Sie das Thema [Verwenden eines cloudbasierten Verteilungspunkts](../../../../core/plan-design/hierarchy/use-a-cloud-based-distribution-point.md), bevor Sie fortfahren.
+Vous pouvez installer des points de distribution cloud System Center Configuration Manager dans Microsoft Azure. Si vous n’êtes pas familiarisé avec les points de distribution cloud, consultez [Utiliser un point de distribution cloud](../../../../core/plan-design/hierarchy/use-a-cloud-based-distribution-point.md) avant de poursuivre.
 
- Bevor Sie mit der Installation beginnen, stellen Sie sicher, dass Sie über die erforderlichen Zertifikatdateien verfügen:  
+ Avant de commencer l’installation, vérifiez que vous disposez bien des fichiers de certificat nécessaires :  
 
--   Ein Microsoft Azure-Verwaltungszertifikat, das in eine CER-Datei und in eine PFX-Datei exportiert wird  
+-   Un certificat de gestion Microsoft Azure exporté dans un fichier .cer et un fichier .pfx.  
 
--   Ein Dienstzertifikat für cloudbasierte Verteilungspunkte von Configuration Manager, das in eine PFX-Datei exportiert wird.  
+-   Un certificat de service de point de distribution cloud Configuration Manager exporté dans un fichier .pfx.  
 
     > [!TIP]
-    >   Weitere Informationen zu diesen Zertifikaten bietet der Abschnitt zu cloudbasierten Verteilungspunkten des Themas [PKI-Zertifikatanforderungen für System Center Configuration Manager](../../../../core/plan-design/network/pki-certificate-requirements.md). Eine Beispielbereitstellung des Dienstzertifikats für cloudbasierte Verteilungspunkte finden Sie im Abschnitt „Bereitstellen des Dienstzertifikats für cloudbasierte Verteilungspunkte“ im Thema [Beispiel für die schrittweise Bereitstellung der PKI-Zertifikate für System Center Configuration Manager: Windows Server 2008-Zertifizierungsstelle](/sccm/core/plan-design/network/example-deployment-of-pki-certificates).  
+    >   Pour plus d’informations sur ces certificats, consultez la section consacrée aux points de distribution cloud dans la rubrique [Configuration requise des certificats PKI pour System Center Configuration Manager](../../../../core/plan-design/network/pki-certificate-requirements.md). Pour obtenir un exemple de déploiement du certificat de service de point de distribution cloud, consultez la section « Déploiement du certificat de service pour les points de distribution cloud » dans la rubrique [Exemple de déploiement pas à pas des certificats PKI pour System Center Configuration Manager : autorité de certification Windows Server 2008](/sccm/core/plan-design/network/example-deployment-of-pki-certificates).  
 
 
- Nach der Installation des cloudbasierten Verteilungspunkts wird von Azure automatisch eine GUID für den Dienst generiert, die an das DNS-Suffix von **cloudapp.net** angehängt wird. Mit dieser GUID müssen Sie einen DNS-Datensatz mit einem DNS-Alias (CNAME-Datensatz) konfigurieren. So können Sie den im Dienstzertifikat für cloudbasierte Verteilungspunkte von Configuration Manager definierten Dienstnamen der automatisch generierten GUID zuordnen.  
+ Une fois que vous avez installé le point de distribution cloud, Azure génère automatiquement un GUID pour le service et l’ajoute au suffixe DNS de **cloudapp.net**. En utilisant ce GUID, vous devez configurer DNS avec un alias DNS (enregistrement CNAME). Cela vous permet de mapper le nom de service que vous définissez dans le certificat de service de point de distribution cloud Configuration Manager au GUID généré automatiquement.  
 
- Wenn Sie einen Proxywebserver verwenden, müssen Sie möglicherweise Proxyeinstellungen konfigurieren, um die Kommunikation mit dem Clouddienst zu ermöglichen, von dem der Verteilungspunkt gehostet wird.  
+ Si vous utilisez un serveur Web proxy, vous serez peut-être amené à configurer les paramètres de proxy pour permettre la communication avec le service cloud hébergeant le point de distribution.  
 
-##  <a name="BKMK_ConfigWindowsAzureandInstallDP"></a> Einrichten von Azure und Installieren von cloudbasierten Verteilungspunkten  
- Gehen Sie wie folgt vor, um Azure zur Unterstützung von Verteilungspunkten einzurichten. Installieren Sie anschließend den cloudbasierten Verteilungspunkt in Configuration Manager.  
+##  <a name="BKMK_ConfigWindowsAzureandInstallDP"></a> Configurer Azure et installer des points de distribution cloud  
+ Utilisez les procédures suivantes pour configurer la prise en charge par Azure des points de distribution et installer le point de distribution cloud dans Configuration Manager.  
 
-### <a name="to-set-up-a-cloud-service-in-azure-for-a-distribution-point"></a>So richten Sie einen Clouddienst in Azure für einen Verteilungspunkt ein  
+### <a name="to-set-up-a-cloud-service-in-azure-for-a-distribution-point"></a>Pour configurer un service cloud dans Azure pour un point de distribution  
 
-1.  Öffnen Sie einen Webbrowser zum Azure-Portal unter https://manage.windowsazure.com, und öffnen Sie Ihr Konto.  
+1.  Dans un navigateur web, accédez au portail Azure à l’adresse https://manage.windowsazure.com, puis accédez à votre compte.  
 
-2.  Klicken Sie auf **Gehostete Dienste, Speicherkonten & CDN**, und wählen Sie dann **Verwaltungszertifikate** aus.  
+2.  Cliquez sur **Services hébergés, Comptes de stockage et CDN**, puis sélectionnez **Certificats de gestion**.  
 
-3.  Klicken Sie mit der rechten Maustaste auf Ihr Abonnement, und wählen Sie anschließend **Zertifikat hinzufügen**aus.  
+3.  Cliquez avec le bouton droit sur votre abonnement, puis sélectionnez **Ajouter un certificat**.  
 
-4.  Geben Sie unter **Zertifikatdatei** die CER-Datei an, die das exportierte Azure-Verwaltungszertifikat enthält, das für diesen Clouddienst verwendet werden soll. Klicken Sie dann auf **OK**.  
+4.  Pour **Fichier de certificat**, spécifiez le fichier .cer contenant le certificat de gestion Azure exporté à utiliser pour ce service cloud, puis cliquez sur **OK**.  
 
-Das Verwaltungszertifikat wird in Azure geladen, und Sie können nun einen cloudbasierten Verteilungspunkt installieren.  
+Le certificat de gestion est chargé dans Azure, ce qui vous permet maintenant d’installer un point de distribution cloud.  
 
-### <a name="to-install-a-cloud-based-distribution-point-for-configuration-manager"></a>So installieren Sie einen cloudbasierten Verteilungspunkt für Configuration Manager  
+### <a name="to-install-a-cloud-based-distribution-point-for-configuration-manager"></a>Pour installer un point de distribution cloud pour Configuration Manager  
 
-1.  Führen Sie die Schritte aus dem vorhergehenden Verfahren aus, um einen Clouddienst in Azure mit einem Verwaltungszertifikat einzurichten.  
+1.  Exécutez les étapes de la procédure précédente pour configurer un service cloud dans Azure avec un certificat de gestion.  
 
-2.  Erweitern Sie in der Configuration Manager-Konsole im Arbeitsbereich **Verwaltung** den Eintrag **Cloud Services**, und wählen Sie dann **Cloudverteilungspunkte** aus. Klicken Sie auf der Registerkarte **Startseite** auf **Cloudverteilungspunkt erstellen**.  
+2.  Dans l’espace de travail **Administration** de la console Configuration Manager, développez **Services cloud**, puis sélectionnez **Points de distribution cloud**. Sous l’onglet **Accueil**, cliquez sur **Créer un point de distribution cloud**.  
 
-3.  Richten Sie auf der Seite **Allgemein** des Assistenten zum Erstellen von Cloudverteilungspunkten Folgendes ein:  
+3.  Dans la page **Général** de l’Assistant Création d’un point de distribution cloud, configurez les éléments suivants :  
 
-    -   Geben Sie die **Abonnement-ID** für Ihr Azure-Konto an.  
+    -   Spécifiez l’**ID d’abonnement** de votre compte Azure.  
 
         > [!TIP]  
-        >  Sie können Ihre Azure-Abonnement-ID im Azure-Portal finden.  
+        >  Vous pouvez trouver votre ID d’abonnement Azure dans le portail Azure.  
 
-    -   Geben Sie das **Verwaltungszertifikat**an. Klicken Sie auf **Durchsuchen**, um die PFX-Datei anzugeben, die das exportierte Azure-Verwaltungszertifikat enthält, und geben Sie dann das Kennwort für das Zertifikat ein. Optional können Sie eine Version 1 der PUBLISHSETTINGS-Datei aus dem Azure SDK 1.7 angeben.  
+    -   Spécifiez le **Certificat de gestion**. Cliquez sur **Parcourir** pour spécifier le fichier .pfx contenant le certificat de gestion Azure exporté, puis entrez le mot de passe du certificat. Vous pouvez également spécifier un fichier .publishsettings version 1 issu du Kit de développement logiciel Azure SDK 1.7.  
 
-4.  Klicken Sie auf **Weiter**. Der Configuration Manager stellt eine Verbindung zu Azure her, um das Verwaltungszertifikat zu überprüfen.  
+4.  Cliquez sur **Suivant**. Configuration Manager se connecte à Azure pour valider le certificat de gestion.  
 
-5.  Führen Sie auf der Seite **Einstellungen** die folgenden Schritte aus, und klicken Sie dann auf **Weiter**:  
+5.  Dans la page **Paramètres**, effectuez les opérations suivantes et cliquez sur **Suivant** :  
 
-    -   Wählen Sie unter **Region** die Azure-Region aus, in der Sie den Clouddienst erstellen möchten, von dem dieser Verteilungspunkt gehostet wird.  
+    -   Pour **Région**, sélectionnez la région Azure dans laquelle vous souhaitez créer le service cloud qui héberge ce point de distribution.  
 
-    -   Geben Sie unter **Zertifikatdatei** die PFX-Datei an, die das exportierte Dienstzertifikat für cloudbasierte Verteilungspunkte von Configuration Manager enthält. Geben Sie dann das Kennwort ein.  
+    -   Pour **Fichier de certificat**, spécifiez le fichier .pfx qui contient le certificat exporté pour le service de point de distribution cloud Configuration Manager. Entrez ensuite le mot de passe.  
 
         > [!NOTE]  
-        >  Das Feld **Dienst-FQDN** wird automatisch mit dem Namen des Zertifikatantragstellers aufgefüllt. Es muss in der Regel nicht bearbeitet werden. Die Ausnahme ist, wenn Sie ein Platzhalterzertifikat in einer Testumgebung verwenden. Beispielsweise können Sie in diesem Fall möglicherweise nicht den Hostnamen angeben, damit mehrere Computer mit dem gleichen DNS-Suffix das Zertifikat verwenden können. In diesem Szenario enthält der Zertifikatantragsteller einen ähnlichen Wert wie **CN=\*.contoso.com**, und von Configuration Manager wird eine Meldung darüber angezeigt, dass der korrekte FQDN angegeben werden muss. Klicken Sie auf **OK** , um die Meldung zu schließen. Geben Sie anschließend einen bestimmten Namen vor dem DNS-Suffix ein, damit der FQDN vollständig ist. Fügen Sie beispielsweise **clouddp1** hinzu, um den vollständigen Dienst-FQDN von **clouddp1.contoso.com**anzugeben. Der FQDN des Diensts muss in Ihrer Domäne eindeutig sein und darf keinem der Domäne angehörenden Gerät entsprechen.  
+        >  La zone **FQDN du service** est complétée automatiquement avec le nom d’objet du certificat. Dans la plupart des cas, vous n’avez pas à le modifier. Vous le devrez exceptionnellement si vous utilisez un certificat générique dans un environnement de test. Par exemple, dans ce cas, vous pouvez ne pas spécifier le nom d’hôte pour que plusieurs ordinateurs dotés du même suffixe DNS puissent utiliser ce certificat. Dans ce scénario, l’objet du certificat contient une valeur similaire à **CN=\*.contoso.com** et Configuration Manager affiche un message indiquant que vous devez spécifier le nom de domaine complet correct. Cliquez sur **OK** pour fermer le message, puis entrez un nom spécifique avant le suffixe DNS pour fournir un nom de domaine complet. Par exemple, vous pouvez ajouter **clouddp1** pour spécifier le nom de domaine complet du service **clouddp1.contoso.com**. Le nom de domaine complet du service doit être unique dans votre domaine et ne doit correspondre à aucun périphérique joint à un domaine.  
         >   
-        >  Platzhalterzertifikate werden nur in Testumgebungen unterstützt.  
+        >  Les certificats génériques sont pris en charge pour tester les environnements uniquement.  
 
-6.  Richten Sie auf der Seite **Warnungen** Speicher- und Übertragungsquoten ein, und geben Sie an, bei welchem Prozentsatz dieser Quoten von Configuration Manager Warnungen generiert werden sollen. Klicken Sie anschließend auf **Weiter**.  
+6.  Dans la page **Alertes**, configurez les quotas de stockage, les quotas de transfert, ainsi que le pourcentage de ces quotas auquel Configuration Manager doit générer des alertes. Cliquez ensuite sur **Suivant**.  
 
-7.  Schließen Sie den Assistenten ab.  
+7.  Effectuez toutes les étapes de l'Assistant.  
 
-Mit dem Assistenten wird ein neuer gehosteter Dienst für den cloudbasierten Verteilungspunkt erstellt. Wenn Sie den Assistenten geschlossen haben, können Sie den Installationsfortschritt des cloudbasierten Verteilungspunkts in der Configuration Manager-Konsole überwachen. Sie können auch die **CloudMgr.log**-Datei auf dem primären Standortserver überwachen. Es ist möglich, die Bereitstellung des Clouddiensts im Azure-Portal zu überwachen.  
+L'Assistant crée un service hébergé pour le point de distribution cloud. Après avoir fermé l’Assistant, vous pouvez surveiller la progression de l’installation du point de distribution cloud dans la console Configuration Manager. Vous pouvez également surveiller le fichier **CloudMgr.log** sur le serveur de site principal. Vous pouvez surveiller la mise en service du service cloud dans le portail Azure.  
 
 > [!NOTE]  
->  Die Bereitstellung eines neuen Verteilungspunkts in Azure kann bis zu 30 Minuten dauern. Bis zur Bereitstellung des Speicherkontos wird in der Datei **CloudMgr.log** wiederholt die Meldung angezeigt, **dass auf die Überprüfung gewartet wird, ob ein Container vorhanden ist, und dass die Überprüfung in 10 Sekunden wiederholt wird**. Anschließend wird der Dienst erstellt und konfiguriert.  
+>  La mise en service d’un nouveau point de distribution dans Azure peut prendre jusqu’à 30 minutes. Le message suivant est répété dans le fichier **CloudMgr.log** tant que le compte de stockage n’est pas approvisionné : **En attente de vérification de l’existence du conteneur. Une nouvelle vérification sera effectuée dans 10 secondes**. Le service est ensuite créé et configuré.  
 
- Prüfen Sie mithilfe eines der folgenden Verfahren, ob die Installation des cloudbasierten Verteilungspunkts abgeschlossen ist:  
+ Pour savoir si l'installation du point de distribution cloud est terminée, employez les méthodes suivantes :  
 
--   Im Azure-Portal wird unter **Bereitstellung** für den cloudbasierten Verteilungspunkt der Status **Bereit** angezeigt.  
+-   Dans le portail Azure, le **Déploiement** du point de distribution cloud indique l’état **Prêt**.  
 
--   In der Configuration Manager-Konsole wird im Arbeitsbereich **Verwaltung** im Knoten **Hierarchiekonfiguration**, **Cloud** für den cloudbasierten Verteilungspunkt der Status **Bereit** angezeigt.  
+-   Dans la console Configuration Manager, dans l’espace de travail **Administration**, sous le nœud **Configuration de la hiérarchie**, **Cloud**, le point de distribution cloud indique l’état **Prêt**.  
 
--   In Configuration Manager wird eine Statusmeldung mit der ID **9409** für die Komponente SMS_CLOUD_SERVICES_MANAGER angezeigt.  
+-   Configuration Manager affiche l’ID de message d’état **9409** pour le composant SMS_CLOUD_SERVICES_MANAGER.  
 
-##  <a name="BKMK_ConfigDNSforCloudDPs"></a> Einrichten der Namensauflösung für cloudbasierte Verteilungspunkte  
- Damit Clients auf den cloudbasierten Verteilungspunkt zugreifen können, muss auf diesen Clients der Name des cloudbasierten Verteilungspunkts in eine IP-Adresse aufgelöst werden können, die von Azure verwaltet wird. Dies erfolgt bei Clients in zwei Phasen:  
+##  <a name="BKMK_ConfigDNSforCloudDPs"></a> Configurer la résolution de noms pour les points de distribution cloud  
+ Pour pouvoir accéder au point de distribution cloud, les clients doivent être en mesure de résoudre le nom du point de distribution cloud de manière à fournir une adresse IP gérée par Azure. Pour ce faire, les clients procèdent en deux étapes :  
 
-1.  Der mit dem Dienstzertifikat für cloudbasierte Verteilungspunkte von Configuration Manager definierte Dienstname wird dem Dienst-FQDN von Azure zugeordnet. Dieser FQDN enthält eine GUID und das DNS-Suffix von **cloudapp.net**. Die GUID wird nach der Installation des cloudbasierten Verteilungspunkts automatisch generiert. Den vollständigen FQDN können Sie im Azure-Portal anzeigen, indem Sie im Dashboard des Clouddiensts auf die **SITE-URL** verweisen. Die URL einer Website kann beispielsweise **http://d1594d4527614a09b934d470.cloudapp.net**lauten.  
+1.  Ils mappent le nom de service que vous avez fourni avec le certificat du service de point de distribution cloud Configuration Manager au nom de domaine complet de votre service Azure. Ce nom de domaine complet contient un GUID et le suffixe DNS de **cloudapp.net**. Le GUID est généré automatiquement après l'installation du point de distribution cloud. Vous pouvez afficher le nom de domaine complet dans le portail Azure, en référençant l’**URL du site** dans le tableau de bord du service cloud. Voici un exemple d'URL de site : **http://d1594d4527614a09b934d470.cloudapp.net**.  
 
-2.  Damit wird die Dienst-FQDN von Azure in die von Azure zugewiesene IP-Adresse aufgelöst. Diese IP-Adresse kann auch im Dashboard des Clouddiensts des Azure-Portals ermittelt werden und trägt die Bezeichnung **ÖFFENTLICHE VIRTUELLE IP-ADRESSE**.  
+2.  Ils résolvent le nom de domaine complet du service Azure pour fournir l’adresse IP allouée par Azure. Cette adresse IP peut également être identifiée dans le tableau de bord pour le service cloud du portail Azure, et elle est nommée **ADRESSE IP VIRTUELLE PUBLIQUE (VIP)**.  
 
-DNS-Server im Internet müssen über einen DNS-Alias verfügen (CNAME-Eintrag), damit der Dienstname, den Sie mit dem Dienstzertifikat für cloudbasierte Verteilungspunkte von Configuration Manager angegeben haben (z.B. **clouddp1.contoso.com**), dem Dienst-FQDN von Azure zugeordnet wird (z.B. **d1594d4527614a09b934d470.cloudapp.net**). Von Clients kann dann unter Verwendung der DNS-Server im Internet der Dienst-FQDN von Azure in die IP-Adresse aufgelöst werden.  
+Pour mapper le nom de service que vous avez fourni avec le certificat de service de point de distribution cloud Configuration Manager (par exemple **clouddp1.contoso.com**) au nom de domaine complet de votre service Azure (par exemple **d1594d4527614a09b934d470.cloudapp.net**), les serveurs DNS sur Internet doivent avoir un alias DNS (enregistrement CNAME). Les clients peuvent ensuite résoudre le nom de domaine complet du service Azure pour fournir l’adresse IP en utilisant des serveurs DNS sur Internet.  
 
-##  <a name="BKMK_ConfigProxyforCloud"></a> Einrichten von Proxyeinstellungen für primäre Standorte, von denen Clouddienste verwaltet werden  
- Wenn Sie Clouddienste mit Configuration Manager verwenden, muss an dem primären Standort, von dem der cloudbasierte Verteilungspunkt verwaltet wird, eine Verbindung zum Azure-Portal hergestellt werden können. Verwendet wird dazu das Konto **System** des primären Standortcomputers. Diese Verbindung wird über den Standardwebbrowser auf dem Computer des primären Standortservers hergestellt.  
+##  <a name="BKMK_ConfigProxyforCloud"></a> Configurer les paramètres de proxy pour des sites principaux gérant des services cloud  
+ Quand vous utilisez des services cloud avec Configuration Manager, le site principal qui gère le point de distribution cloud doit pouvoir se connecter au portail Azure. Le site se connecte à l’aide du compte **Système** de l’ordinateur de site principal. Cette connexion est établie à l'aide du navigateur Web par défaut sur l'ordinateur serveur de site principal.  
 
- Auf dem primären Standortserver, von dem der cloudbasierte Verteilungspunkt verwaltet wird, müssen Sie möglicherweise Proxyeinstellungen einrichten, damit der primäre Standort Zugriff auf das Internet und Azure erhält.  
+ Sur le serveur de site principal qui gère le point de distribution cloud, vous devrez peut-être configurer les paramètres de proxy pour permettre au site principal d’accéder à Internet et à Azure.  
 
- Gehen Sie wie folgt vor, um Proxyeinstellungen für den primären Standortserver in der Configuration Manager-Konsole einzurichten.  
+ Pour configurer les paramètres de proxy du serveur de site principal dans la console Configuration Manager, exécutez la procédure ci-dessous.  
 
 > [!TIP]  
->  Sie können auch den **Assistenten zum Hinzufügen von Standortsystemrollen** verwenden, um den Proxyserver beim Installieren neuer Standortsystemrollen auf dem primären Standortserver einzurichten.  
+>  Vous pouvez également configurer le serveur proxy lors de l’installation de nouveaux rôles de système de site sur le serveur de site principal à l’aide de l’**Assistant Ajout des rôles de système de site**.  
 
-#### <a name="to-set-up-proxy-settings-for-the-primary-site-server"></a>So richten Sie Proxyeinstellungen für den primären Standortserver ein  
+#### <a name="to-set-up-proxy-settings-for-the-primary-site-server"></a>Pour configurer les paramètres de proxy pour le serveur de site principal  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Verwaltung**.  
+1.  Dans la console Configuration Manager, cliquez sur **Administration**.  
 
-2.  Erweitern Sie im Arbeitsbereich **Verwaltung** den Knoten **Standortkonfiguration**, und klicken Sie dann auf **Server und Standortsystemrollen**. Wählen Sie dann den primären Standortserver aus, von dem der cloudbasierte Verteilungspunkt verwaltet wird.  
+2.  Dans l'espace de travail **Administration** , développez **Configuration du site**, puis cliquez sur **Serveurs et rôles de système de site**. Ensuite, sélectionnez le serveur de site principal qui gère le point de distribution cloud.  
 
-3.  Klicken Sie im Detailbereich mit der rechten Maustaste auf **Standortsystem**, und klicken Sie dann auf **Eigenschaften**.  
+3.  Dans le volet d'informations, cliquez avec le bouton droit sur **Système de site**, puis cliquez sur **Propriétés**.  
 
-4.  Wählen Sie unter **Eigenschaften des Standortsystems** die Registerkarte **Proxy** aus, und richten Sie die Proxyeinstellungen für diesen primären Standortserver ein.  
+4.  Dans **Propriétés du système de site**, sélectionnez l’onglet **Proxy**, puis configurez les paramètres de proxy de ce serveur de site principal.  
 
-5.  Klicken Sie auf **OK**, um die Einstellungen zu speichern.  
+5.  Cliquez sur **OK** pour enregistrer les paramètres.  

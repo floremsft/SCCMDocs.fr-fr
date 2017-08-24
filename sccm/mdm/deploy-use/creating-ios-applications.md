@@ -1,6 +1,6 @@
 ---
-title: Erstellen von iOS-Anwendungen | Microsoft Docs
-description: "Was Sie beim Erstellen und Bereitstellen von Apps für iOS-Geräte berücksichtigen müssen."
+title: "Créer des applications iOS | Documents Microsoft"
+description: "Examinez les éléments à prendre en compte quand vous créez et déployez des applications pour des appareils iOS."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -17,37 +17,37 @@ manager: angrobe
 ms.openlocfilehash: 349fcf335e7faddbcbd2ffe0ece7e711465f28df
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-ios-applications-with-system-center-configuration-manager"></a>Erstellen von iOS-Apps mit System Center Configuration Manager
+# <a name="create-ios-applications-with-system-center-configuration-manager"></a>Créer des applications iOS avec System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-In einer System Center Configuration Manager-Anwendung ist mindestens ein Bereitstellungstyp enthalten, der die Installationsdateien und Informationen enthält, die zur Bereitstellung der Software für ein Gerät erforderlich sind. Bereitstellungstypen verfügen auch über Regeln, aus denen hervorgeht, wann und wie die Software bereitgestellt wird.  
+Une application System Center Configuration Manager inclut un ou plusieurs types de déploiement, qui comprennent les fichiers d’installation et informations nécessaires pour déployer le logiciel sur un appareil. Le type de déploiement contient également des règles spécifiant à quel moment et selon quelle méthode le logiciel est déployé.  
 
- Es gibt die folgenden Möglichkeiten zum Erstellen von Anwendungen:  
+ Vous pouvez créer des applications à l'aide des méthodes suivantes :  
 
--   Erstellen Sie die Anwendungen und Bereitstellungstypen durch Lesen der Installationsdateien der Anwendung automatisch.  
+-   Créer automatiquement les types d'application et de déploiement en lisant les fichiers d'installation de l'application.  
 
--   Erstellen Sie die Anwendung manuell, und fügen Sie Bereitstellungstypen später hinzu.  
+-   Créer manuellement l'application, puis ajouter des types de déploiement ultérieurement.  
 
--   Importieren Sie eine Anwendung aus einer Datei.  
+-   Importer une application à partir d’un fichier.  
 
-Unter [Starten des Assistenten zum Erstellen von Anwendungen](../../apps/deploy-use/create-applications.md#start-the-create-application-wizard) finden Sie weitere Informationen zu erforderlichen Schritten zum Erstellen von Configuration Manager-Anwendungen und Bereitstellungstypen. Berücksichtigen Sie beim Erstellen und Bereitstellen von Apps für iOS-Geräte auch Folgendes.  
+Pour connaître les étapes requises pour créer des types de déploiement et applications Configuration Manager, voir [Démarrer l’Assistant Création d’une application](../../apps/deploy-use/create-applications.md#start-the-create-application-wizard). De plus, gardez à l’esprit les considérations suivantes lorsque vous créez et déployez des applications pour les appareils iOS.  
 
-## <a name="general-considerations"></a>Allgemeine Aspekte  
- Configuration Manager unterstützt die Bereitstellung folgender App-Typen:  
+## <a name="general-considerations"></a>Éléments généraux à prendre en compte  
+ Configuration Manager prend en charge le déploiement des types d’applications suivants :  
 
-|Gerätetyp|Unterstützte Dateien|  
+|Type d'appareil|Fichiers pris en charge|  
 |-----------------|---------------------|  
-|iOS|*.ipa<br /><br /> In System Center Configuration Manager müssen Sie beim Importieren einer iOS-App keine Eigenschaftenliste (.plist) angeben.|  
+|iOS|*.ipa<br /><br /> Dans System Center Configuration Manager, vous n’avez pas besoin de spécifier de fichier de liste de propriétés (.plist) lors de l’importation d’une application iOS.|  
 
- Die folgenden Bereitstellungsaktionen werden unterstützt:  
+ Les actions de déploiement suivantes sont prises en charge :  
 
-|Gerätetyp|Unterstützte Aktionen|  
+|Type d'appareil|Actions prises en charge|  
 |-----------------|-----------------------|  
-|iOS|**Verfügbar**, **Erforderlich** Der Benutzer muss der Installation und Deinstallation zustimmen.
+|iOS|**Disponible**, **Obligatoire**. L’utilisateur doit donner son consentement pour l’installation et la désinstallation.
 
 > [!IMPORTANT]  
->  Derzeit können Endbenutzer Unternehmens-Apps nicht über die Microsoft Intune-Unternehmensportal-App für iOS installieren. Der Grund sind für Apps geltende Einschränkungen, die im iOS App Store veröffentlicht werden (siehe App Store-Rezensionsrichtlinien, Abschnitt 2). Benutzer können Unternehmens-Apps (einschließlich verwalteter App Store-Apps und Branchenanwendungspakete) durch Navigieren zum Webportal von Intune auf ihrem Gerät installieren (portal.manage.microsoft.com). Weitere Informationen über die mobilen Verwaltungsfunktionen, die von der Intune-Unternehmensportal-App aktiviert werden, finden Sie unter [Verwaltungsfunktionen für registrierte Geräte in Microsoft Intune](https://technet.microsoft.com/library/dn600287.aspx).  
+>  Actuellement, les utilisateurs finaux ne peuvent pas installer des applications d’entreprise à partir de l’application Portail d’entreprise Microsoft Intune pour iOS. Cela est dû au fait qu’il existe des restrictions concernant les applications publiées dans l’App Store iOS (consultez Directives de révision App Store, à la section 2). Les utilisateurs peuvent installer des applications d’entreprise (y compris les applications App Store gérées et des packages d’applications métiers) via le portail web Intune sur leur appareil (portal.manage.microsoft.com). Pour plus d’informations sur les fonctionnalités de gestion des appareils mobiles activées par l’application Portail d’entreprise Intune, consultez [Fonctionnalités de gestion des appareils inscrits de Microsoft Intune](https://technet.microsoft.com/library/dn600287.aspx).  

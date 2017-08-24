@@ -1,6 +1,6 @@
 ---
-title: Erstellen von Windows-Anwendungen | Microsoft Docs
-description: "Erfahren Sie, was Sie beim Erstellen und Bereitstellen von Anwendungen für Windows-Geräte berücksichtigen müssen."
+title: "Créer des applications Windows | Documents Microsoft"
+description: "Examinez les éléments à prendre en compte quand vous créez et déployez des applications pour appareils Windows."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,52 +17,52 @@ manager: angrobe
 ms.openlocfilehash: 9c80cc42f9ce6775067a89a9f5a63c1bf4a0c7ca
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-windows-applications-with-system-center-configuration-manager"></a>Erstellen von Windows-Anwendungen mit System Center Configuration Manager
+# <a name="create-windows-applications-with-system-center-configuration-manager"></a>Créer des applications Windows avec System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Zusätzlich zu den anderen System Center Configuration Manager-Anforderungen und -Verfahren zum Erstellen einer Anwendung müssen beim Erstellen und Bereitstellen von Anwendungen für Windows-Geräte auch die folgenden Aspekte berücksichtigt werden.  
+En plus des autres exigences et procédures System Center Configuration Manager à observer pour créer une application, vous devez aussi prendre en compte les éléments suivants au moment de créer et déployer des applications pour des appareils Windows.  
 
-## <a name="general-considerations"></a>Allgemeine Aspekte  
- Configuration Manager unterstützt die Bereitstellung folgender App-Dateitypen:  
+## <a name="general-considerations"></a>Éléments généraux à prendre en compte  
+ Configuration Manager prend en charge le déploiement des types de fichiers d’application suivants :  
 
-|Gerätetyp|Unterstützte Dateitypen|  
+|Type d'appareil|Types de fichiers pris en charge|  
 |-----------------|---------------------|  
-|Windows RT und Windows RT 8.1|*.appx, \*.appxbundle|  
-|Windows 8.1 und höher, als mobiles Gerät registriert|*.appx, \*.appxbundle|  
+|Windows RT et Windows RT 8.1|*.appx, \*.appxbundle|  
+|Windows 8.1 et versions ultérieures inscrit en tant qu’appareil mobile|*.appx, \*.appxbundle|  
 
- Die folgenden Bereitstellungsaktionen werden unterstützt:  
+ Les actions de déploiement suivantes sont prises en charge :  
 
-|Gerätetyp|Unterstützte Aktionen|  
+|Type d'appareil|Actions prises en charge|  
 |-----------------|-----------------------|  
-|Windows 8.1 und höher|Verfügbar, Erforderlich, Deinstallieren|  
-|Windows RT|Verfügbar, Erforderlich, Deinstallieren|  
+|Windows 8.1 et versions ultérieures|disponible, obligatoire, désinstaller|  
+|Windows RT|disponible, obligatoire, désinstaller|  
 
-## <a name="support-for-universal-windows-platform-uwp-apps"></a>Unterstützung für UWP-Apps (Universelle Windows-Plattform)  
- Windows 10-Geräte erfordern keinen Sideload-Schlüssel für die Installation von Branchen-Apps. Allerdings muss der Registrierungsschlüssel **HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Appx\AllowAllTrustedApps** den Wert 1 haben, um das Querladen zu aktivieren.  
+## <a name="support-for-universal-windows-platform-uwp-apps"></a>Prise en charge des applications de plateforme Windows universelle (UWP)  
+ Les appareils Windows 10 n’ont pas besoin d’une clé de chargement indépendant pour installer des applications métier. Pour que le chargement indépendant soit activé, la clé de Registre **HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Appx\AllowAllTrustedApps** doit avoir la valeur 1.  
 
- Wenn dieser Registrierungsschlüssel nicht konfiguriert ist, legt Configuration Manager diesen Wert automatisch auf **1** fest, wenn Sie zum ersten Mal eine App auf dem Gerät bereitstellen. Wenn Sie diesen Wert auf **0**festgelegt haben, kann Configuration Manager den Wert nicht automatisch ändern, und bei der Bereitstellung von branchenspezifischen Apps tritt ein Fehler auf.  
+ Si cette clé de Registre n’est pas configurée, Configuration Manager lui affecte automatiquement la valeur **1** la première fois que vous déployez une application sur l’appareil. Si vous avez défini cette valeur sur **0**, Configuration Manager ne peut pas changer automatiquement la valeur et le déploiement d’applications métier échoue.  
 
- UWP-Branchen-Apps (Universal Windows Platform) müssen mit einem codesignierten Zertifikat signiert sein, das auf jedem Gerät, auf dem die App bereitgestellt ist, als vertrauenswürdig eingestuft ist. Sie können Zertifikate aus einer internen PKI-Infrastruktur verwenden oder ein Zertifikat von einer öffentlichen Drittanbieter-Stammzertifizierungsstelle, das auf dem Gerät installiert ist.  
+ Les applications métier de la plateforme Windows universelle doivent être signées avec un certificat de signature de code approuvé sur chaque appareil sur lequel l’application est déployée. Vous pouvez utiliser des certificats issus d’une infrastructure PKI interne ou un certificat issu d’un certificat racine public tiers installé sur l’appareil.  
 
- Auf Windows 10 Mobile-Geräten können Sie ein nicht von Symantec stammendes Codesignaturzertifikat zum Signieren universeller **APPX** -Apps verwenden. Für **XAP** -apps sowie für **APPX** -Pakete, die für Windows Phone 8.1 erstellt wurden, die Sie auf Windows 10 Mobile-Geräten installieren möchten, müssen Sie ein Codesignaturzertifikat von Symantec verwenden.  
+ Sur les appareils Windows 10 Mobile, vous pouvez utiliser un certificat de code de signature non Symantec pour signer les applications **.appx** universelles. Pour les applications **.xap** , mais aussi les packages **.appx** générés pour Windows Phone 8.1 que vous voulez installer sur des appareils Windows 10 Mobile, vous devez utiliser un certificat de code de signature Symantec.  
 
-## <a name="deploy-windows-installer-apps-to-enrolled-windows-10-pcs"></a>Bereitstellen von Windows Installer-Apps auf registrierten Windows 10-PCs  
- Mit dem Installertyp **Windows Installer über MDM (\*.msi)** können Sie Windows Installer-basierte Apps auf registrierten Geräten unter Windows 10 erstellen und bereitstellen.  
+## <a name="deploy-windows-installer-apps-to-enrolled-windows-10-pcs"></a>Déployer des applications Windows Installer sur des PC Windows 10 inscrits  
+ Le type de programme d’installation **Windows Installer via MDM (\*.msi)** vous permet de créer et déployer des applications Windows Installer sur des PC inscrits qui exécutent Windows 10.  
 
- Folgendes muss berücksichtigt werden, wenn Sie diese Art Installationsprogramm verwenden:  
+ Tenez compte des points suivants quand vous utilisez ce type de programme d’installation :  
 
--   Sie können nur eine einzelne Datei mit der Erweiterung ".msi" hochladen.  
+-   Vous ne pouvez charger qu’un seul fichier avec l’extension .msi.  
 
--   Produktcode und Produktversion der Datei werden zur Erkennung der App verwendet.  
+-   Le code de produit et la version de produit du fichier sont utilisés pour la détection d’applications.  
 
--   Es wird das standardmäßige Verhalten bei Neustart der App verwendet. Dies wird nicht von Configuration Manager gesteuert.  
+-   Le comportement de redémarrage par défaut de l’application est utilisé. Configuration Manager ne contrôle pas cette fonctionnalité.  
 
--   Pro Benutzer definierte MSI-Pakete werden für einen einzelnen Benutzer installiert.  
+-   Les packages MSI par utilisateur sont installés pour un seul utilisateur.  
 
--   Pro Gerät definierte MSI-Pakete werden für alle Benutzer des Geräts installiert.  
+-   Les packages MSI par ordinateur sont installés pour tous les utilisateurs sur l’appareil.  
 
--   App-Updates werden unterstützt, wenn jede Version den gleichen MSI-Produktcode aufweist.  
+-   Les mises à jour d’application sont prises en charge quand les codes de produit MSI de toutes les versions sont identiques.  

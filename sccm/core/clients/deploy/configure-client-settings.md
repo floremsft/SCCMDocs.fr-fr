@@ -1,6 +1,6 @@
 ---
-title: Konfigurieren von Clienteinstellungen | Microsoft Docs
-description: "Wählen Sie die Clienteinstellungen in System Center Configuration Manager aus."
+title: "Configurer les paramètres client | Microsoft Docs"
+description: "Sélectionnez les paramètres client dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
@@ -17,65 +17,65 @@ manager: angrobe
 ms.openlocfilehash: 478d562bfb7fdb3921a4278741ff096e81e6092a
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-configure-client-settings-in-system-center-configuration-manager"></a>Konfigurieren von Clienteinstellungen in System Center Configuration Manager
+# <a name="how-to-configure-client-settings-in-system-center-configuration-manager"></a>Guide pratique pour configurer les paramètres client dans System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Sie verwalten alle Clienteinstellungen in System Center Configuration Manager über **Verwaltung** > **Clienteinstellungen**. Ändern Sie die Standardeinstellungen, um Einstellungen für alle Benutzer und Geräte in der Hierarchie zu konfigurieren, auf die keine benutzerdefinierten Einstellungen angewendet wurden. Wenn Sie abweichende Einstellungen nur auf bestimmte Benutzer oder Geräte anwenden möchten, stellen Sie benutzerdefinierte Einstellungen für Sammlungen bereit.  
+Vous gérez tous les paramètres client dans System Center Configuration Manager depuis **Administration** > **Paramètres client**. Modifiez les paramètres par défaut lorsque vous souhaitez configurer des paramètres pour tous les utilisateurs et appareils de la hiérarchie ne disposant pas de paramètres personnalisés. Si vous souhaitez appliquer différents paramètres à certains utilisateurs ou appareils, créez des paramètres personnalisés et déployez-les vers les regroupements.  
 
-Informationen zu den einzelnen Clienteinstellungen finden Sie unter [Informationen zu Clienteinstellungen in System Center Configuration Manager](../../../core/clients/deploy/about-client-settings.md).
+Pour plus d’informations sur chaque paramètre client, consultez [À propos des paramètres client dans System Center Configuration Manager](../../../core/clients/deploy/about-client-settings.md).
 
 > [!NOTE]  
->  Sie können außerdem Konfigurationselemente verwenden, um Clients zu verwalten und die Konfigurationskompatibilität von Geräten zu bewerten, nachzuverfolgen und wiederherzustellen. Weitere Informationen finden Sie unter [Sicherstellen der Gerätekompatibilität mit System Center Configuration Manager](../../../compliance/understand/ensure-device-compliance.md).  
+>  Vous pouvez également utiliser des éléments de configuration pour gérer des clients afin d'évaluer, de suivre et de corriger la conformité de la configuration des appareils. Pour plus d’informations, consultez [Garantir la conformité des appareils avec System Center Configuration Manager](../../../compliance/understand/ensure-device-compliance.md).  
 
-##  <a name="configure-the-default-client-settings"></a>Konfigurieren der Clientstandardeinstellungen    
+##  <a name="configure-the-default-client-settings"></a>Configurer les paramètres client par défaut    
 
-1.  Wählen Sie in der Configuration Manager-Konsole die Optionen **Verwaltung** > **Clienteinstellungen** > **Clientstandardeinstellungen** aus.  
+1.  Dans la console Configuration Manager, choisissez **Administration** > **Paramètres client** > **Paramètres client par défaut**.  
 
-3.  Wählen Sie auf der Registerkarte **Startseite** die Option **Eigenschaften** aus.  
+3.  Sous l’onglet **Accueil**, choisissez **Propriétés**.  
 
-4.  Zeigen Sie die Clienteinstellungen für jede Einstellungsgruppe im Navigationsbereich an, und konfigurieren Sie sie.  
+4.  Consultez et configurez les paramètres client pour chaque groupe de paramètres dans le volet de navigation.  
 
- Die Clientcomputer werden beim nächsten Clientrichtliniendownload mit diesen Einstellungen konfiguriert. Informationen zum Initiieren des Richtlinienabrufs für einen einzelnen Client finden Sie unter [Initiieren des Richtlinienabrufs für einen Configuration Manager-Client](../../../core/clients/manage/manage-clients.md#BKMK_PolicyRetrieval) in [Verwalten von Clients in System Center Configuration Manager](../../../core/clients/manage/manage-clients.md).  
+ Les ordinateurs client sont configurés avec ces paramètres lorsqu'ils téléchargent la stratégie client. Pour lancer une récupération de stratégie pour un seul client, consultez [Lancer une récupération de stratégie pour un client Configuration Manager](../../../core/clients/manage/manage-clients.md#BKMK_PolicyRetrieval) dans [Comment gérer les clients dans System Center Configuration Manager](../../../core/clients/manage/manage-clients.md).  
 
-##  <a name="create-and-deploy-custom-client-settings"></a>Erstellen und Bereitstellen von benutzerdefinierten Clienteinstellungen  
-Wenn Sie diese benutzerdefinierten Einstellungen bereitstellen, setzen sie die Clientstandardeinstellungen außer Kraft. Bevor Sie diese Schritte ausführen, vergewissern Sie sich, dass eine Sammlung mit den Benutzern oder Geräten vorhanden ist, für die diese benutzerdefinierten Clienteinstellungen erforderlich sind.  
+##  <a name="create-and-deploy-custom-client-settings"></a>Créer et déployer des paramètres client personnalisés  
+Lorsque vous déployez ces paramètres personnalisés, ceux-ci remplacent les paramètres client par défaut. Avant de débuter cette procédure, assurez-vous que vous disposez d'un regroupement qui contient les utilisateurs ou les appareils qui nécessitent ces paramètres client personnalisés.  
 
-1.  Wählen Sie in der Configuration Manager-Konsole **Verwaltung** > **Clienteinstellungen** aus.  
+1.  Dans la console Configuration Manager, cliquez sur **Administration** > **Paramètres client**.  
 
-3.  Wählen Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** die Option **Benutzerdefinierte Clienteinstellungen erstellen** und dann eine der folgenden Optionen aus:  
+3.  Sous l’onglet **Accueil**, dans le groupe **Créer**, choisissez **Créer des paramètres client personnalisés**, puis choisissez une des deux options suivantes :  
 
-    -   **Benutzerdefinierte Geräteclienteinstellungen erstellen**  
+    -   **Créer des paramètres d'appareil client personnalisés**  
 
-    -   **Benutzerdefinierte Benutzerclienteinstellungen erstellen**  
+    -   **Créer des paramètres utilisateur client personnalisés**  
 
-4.  Geben Sie einen eindeutigen Namen und optional eine Beschreibung an.  
+4.  Spécifiez un nom et une description de l’option.  
 
-5.  Aktivieren Sie mindestens ein Kontrollkästchen, mit dem eine Gruppe von Einstellungen angezeigt wird.  
+5.  Cochez une ou plusieurs des cases qui affichent un groupe de paramètres.  
 
-6.  Wählen Sie im Navigationsbereich jede Gruppe von Einstellungen aus, und konfigurieren Sie die verfügbaren Einstellungen. Klicken Sie anschließend auf **OK**.   
+6.  Choisissez chaque groupe de paramètres dans le volet de navigation et configurez les paramètres disponibles, puis cliquez sur **OK**.   
 
-8.  Wählen Sie die erstellte benutzerdefinierte Clienteinstellung aus. Wählen Sie auf der Registerkarte **Startseite** in der Gruppe **Clienteinstellungen** die Option **Bereitstellen** aus.  
+8.  Sélectionnez le paramètre client personnalisé que vous avez créé. Sous l’onglet **Accueil**, dans le groupe **Paramètres client**, choisissez **Déployer**.  
 
-9. Wählen Sie im Dialogfeld **Sammlung auswählen** die entsprechende Sammlung aus, und klicken Sie dann auf **OK**. Klicken Sie im Detailbereich auf **Bereitstellungen** , um die ausgewählte Sammlung zu überprüfen.  
+9. Dans la boîte de dialogue **Sélectionner un regroupement**, sélectionnez le regroupement approprié, puis choisissez **OK**. Vous pouvez vérifier le regroupement sélectionné en cliquant sur l'onglet **Déploiements** du volet d'informations.  
 
-10. Zeigen Sie die Reihenfolge der neu erstellten benutzerdefinierten Clienteinstellung an. Wenn mehrere benutzerdefinierte Clienteinstellungen vorhanden sind, werden diese nach der Reihenfolgennummer angewendet. Bei Konflikten setzt die Einstellung mit der niedrigsten Reihenfolgennummer die anderen Einstellungen außer Kraft. Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Clienteinstellungen** auf **Priorität erhöhen** oder **Priorität verringern**, um die Reihenfolgennummer zu ändern.  
+10. Consultez l'ordre du paramètre client personnalisé que vous venez de créer. Lorsque vous disposez de plusieurs paramètres client personnalisés, ceux-ci sont appliqués en fonction de leur numéro. En cas de conflit, le paramètre dont le numéro d'ordre est le plus petit remplace les autres paramètres. Pour changer le numéro d’ordre, sous l’onglet **Accueil**, dans le groupe **Paramètres client**, cliquez sur **Déplacer l’élément vers le haut** ou **Déplacer l’élément vers le bas**.  
 
- Die Clientcomputer werden beim nächsten Clientrichtliniendownload mit diesen Einstellungen konfiguriert. Informationen zum Initiieren des Richtlinienabrufs für einen einzelnen Client finden Sie unter [Initiieren des Richtlinienabrufs für einen Configuration Manager-Client](../../../core/clients/manage/manage-clients.md#BKMK_PolicyRetrieval) in [Verwalten von Clients in System Center Configuration Manager](../../../core/clients/manage/manage-clients.md).  
+ Les ordinateurs client sont configurés avec ces paramètres lorsqu'ils téléchargent la stratégie client. Pour lancer une récupération de stratégie pour un seul client, consultez [Lancer une récupération de stratégie pour un client Configuration Manager](../../../core/clients/manage/manage-clients.md#BKMK_PolicyRetrieval) dans [Comment gérer les clients dans System Center Configuration Manager](../../../core/clients/manage/manage-clients.md).  
 
-##  <a name="view-client-settings"></a>Anzeigen der Clienteinstellungen  
- Wenn dem gleichen Gerät oder Benutzer bzw. der gleichen Benutzergruppe Einstellungen für mehrere Clients bereitgestellt wurden, kann sich die Priorisierung und Kombination der Einstellungen zu einer komplexen Angelegenheit auswachsen. So zeigen Sie die Clienteinstellungen an  
+##  <a name="view-client-settings"></a>Afficher les paramètres client  
+ Lorsque plusieurs paramètres client sont déployés sur le même appareil, utilisateur ou groupe d'utilisateurs, la définition des priorités et la combinaison des paramètres peuvent être complexes. Pour afficher les paramètres client :  
 
-1.  Wählen Sie in der Configuration Manager-Konsole **Bestand und Kompatibilität** > **Geräte** > **Benutzer** oder **Gerätesammlungen** aus.  
+1.  Dans la console Configuration Manager, choisissez **Ressources et Conformité** > **Appareils** > **Utilisateurs** ou **Regroupements d’utilisateurs**.  
 
-3.  Wählen Sie erst ein Gerät, einen Benutzer oder eine Benutzergruppe und dann in der Gruppe **Clienteinstellungen** die Option **Resultierende Clienteinstellungen**aus.  
+3.  Sélectionnez un appareil, un utilisateur ou un groupe d'utilisateurs, puis dans le groupe **Paramètres client** , sélectionnez **Paramètres résultants du client**.  
 
-4.  Bei Auswahl einer Clienteinstellung im linken Fensterbereich werden die Einstellungen angezeigt. In dieser Ansicht sind die Einstellungen schreibgeschützt. 
+4.  Sélectionnez un paramètre client dans le volet gauche pour afficher les paramètres. Dans cette vue, les paramètres sont en lecture seule. 
 
     > [!NOTE]  
-    >  Zum Anzeigen der Clienteinstellungen müssen Sie über Leseberechtigungen für die Clienteinstellungen verfügen.  
+    >  Pour afficher les paramètres client, vous devez disposer d’un accès en lecture aux paramètres client.  
 
     

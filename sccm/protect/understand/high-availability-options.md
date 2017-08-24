@@ -1,6 +1,6 @@
 ---
-title: "Hohe Verfügbarkeit | Microsoft-Dokumentation"
-description: "Erfahren Sie mehr über das Bereitstellen von System Center Configuration Manager mithilfe von Optionen, die eine hohe Dienstverfügbarkeit gewährleisten."
+title: "Haute disponibilité | Microsoft Docs"
+description: "Découvrez comment déployer System Center Configuration Manager avec des options qui garantissent une haute disponibilité des services."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,247 +17,247 @@ manager: angrobe
 ms.openlocfilehash: d3e9afb90cdc85bc7299626b642c52be659e3bdf
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="high-availability-options-for-system-center-configuration-manager"></a>Hochverfügbarkeitsoptionen für System Center Configuration Manager
+# <a name="high-availability-options-for-system-center-configuration-manager"></a>Options de haute disponibilité pour System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
-
-
-
-Sie können System Center Configuration Manager mithilfe von Optionen bereitstellen, die eine hohe Dienstverfügbarkeit gewährleisten.   
-
-Optionen, die hohe Verfügbarkeit unterstützen:   
-
--   Von Standorten werden mehrere Instanzen von Standortsystemservern, die wichtige Dienste für Clients bereitstellen, unterstützt.  
-
--   Von Standorten der zentralen Verwaltung und primären Standorten wird die Sicherung der Standortdatenbank unterstützt. Die Standortdatenbank enthält sämtliche Konfigurationen für Standorte und Clients. In einer Hierarchie, die einen Standort der zentralen Verwaltung umfasst, wird die Datenbank für die verschiedenen Standorte freigegeben.  
-
--   Durch integrierte Wiederherstellungsoptionen kann die Serverdowntime reduziert werden. Die Wiederherstellung wird bei einer Hierarchie mit einem Standort der zentralen Verwaltung durch erweiterte Optionen vereinfacht.  
-
--   Typische Probleme können von Clients automatisch und ohne Eingreifen des Administrators behoben werden.  
-
--   Von Standorten werden Warnungen zu Clients ausgegeben, von denen keine aktuellen Daten übermittelt werden. Administratoren werden so auf potenzielle Probleme aufmerksam gemacht.  
-
--   Configuration Manager bietet mehrere integrierte Berichte, mit denen Sie Probleme und Trends identifizieren können, bevor diese sich zu Problemen für Server- oder Clientvorgänge entwickeln.  
-
- Configuration Manager stellt keinen Echtzeitdienst bereit, und Sie müssen sich auf ein gewisses Maß an Datenlatenz einstellen. Es ist daher ungewöhnlich, dass eine vorübergehende Dienstunterbrechung sich zu einem kritischen Problem entwickelt. Wenn Sie Ihre Standorte und Hierarchien mit Blick auf eine hohe Verfügbarkeit konfiguriert haben, kann die Downtime auf ein Minimum reduziert, die Autonomie der Vorgänge aufrechterhalten und ein hoher Servicelevel bereitgestellt werden.  
-
- Beispielsweise führen Configuration Manager-Clients Verarbeitungsvorgänge in der Regel autonom aus. Dabei werden bekannte Zeitpläne und Konfigurationen für Vorgänge sowie Zeitpläne für die Übermittlung der zu verarbeitenden Daten an den Standort verwendet.  
-
--   Wenn von den Clients keine Verbindung mit dem Standort hergestellt werden kann, werden die zu übermittelnden Daten zwischengespeichert, bis eine Verbindung zustande kommt.  
-
--   Kann keine Verbindung mit dem Standort hergestellt werden, werden Clientvorgänge zudem mithilfe der letzten bekannten Zeitpläne und der zwischengespeicherten Informationen fortgesetzt, bis eine Verbindung mit dem Standort hergestellt werden kann und neue Richtlinien empfangen werden. Beispielsweise werden zuvor heruntergeladene Anwendungen ausgeführt bzw. installiert.  
-
--   Die Standortsysteme und Clients eines Standorts werden auf regelmäßige Statusaktualisierungen überwacht. Wenn diese Aktualisierungen nicht registriert werden können, werden vom Standort entsprechende Warnungen ausgegeben.  
-
--   Über integrierte Berichte erhalten Sie einen Einblick in den laufenden Betrieb sowie in historische Vorgänge und Trends. Configuration Manager unterstützt auch statusbasierte Meldungen, über die Informationen zu laufenden Vorgängen beinahe in Echtzeit bereitgestellt werden.  
-
-  Verwenden Sie die Informationen in diesem Thema mit den Informationen in den folgenden Artikeln:
--   [Empfohlene Hardware](../../core/plan-design/configs/recommended-hardware.md)
--   [Unterstützte Betriebssysteme für Standortsystemserver](../../core/plan-design/configs/supported-operating-systems-for-site-system-servers.md)  
-
--   [Voraussetzungen für Standorte und Standortsysteme](../../core/plan-design/configs/site-and-site-system-prerequisites.md)
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
-##  <a name="bkmk_snh"></a> Hohe Verfügbarkeit für Standorte und Hierarchien  
- **Hosten der Standortdatenbank mit einem SQL Server-Cluster:**  
 
- Wenn Sie für die Datenbank an einem Standort der zentralen Verwaltung oder einem primären Standort einen SQL Server-Cluster verwenden, profitieren Sie von der in SQL Server integrierten Failoverunterstützung.  
+Vous pouvez déployer System Center Configuration Manager avec des options qui garantissent une haute disponibilité des services.   
 
- Von sekundären Standorten können keine SQL Server-Cluster verwendet werden, und die Sicherung oder Wiederherstellung ihrer Standortdatenbank wird nicht unterstützt. Zur Wiederherstellung eines sekundären Standorts installieren Sie den sekundären Standort vom übergeordneten primären Standort aus neu.  
+Les options de haute disponibilité sont les suivantes :   
 
- **Verwenden einer SQL Server Always On-Verfügbarkeitsgruppe zum Hosten der Standortdatenbank:**  
+-   Les sites prennent en charge plusieurs instances de serveurs de système de site qui fournissent des services importants aux clients.  
 
- Beginnend mit der Version 1602 können Sie SQL Server-AlwaysOn-Verfügbarkeitsgruppen zum Hosten der Standortdatenbank an primären Standorten und am Standort der zentralen Verwaltung als Lösung für hohe Verfügbarkeit und Notfallwiederherstellung nutzen. Weitere Informationen finden Sie unter [SQL Server Always On für eine hoch verfügbare Standortdatenbank für System Center Configuration Manager](../../core/servers/deploy/configure/sql-server-alwayson-for-a-highly-available-site-database.md).  
+-   Les sites d'administration centrale et les sites principaux prennent en charge la sauvegarde de la base de données de site. La base de données de site contient toutes les configurations des sites et des clients : de plus, elle est partagée entre les sites d'une hiérarchie contenant un site d'administration centrale.  
 
- **Bereitstellen einer Standorthierarchie mit einem Standort der zentralen Verwaltung und untergeordneten primären Standorten:**  
+-   Les options de récupération de site intégrées permettent de réduire les temps d'arrêt du serveur. En outre, des options avancées permettent de simplifier la récupération lorsque votre hiérarchie comprend un site d'administration centrale.  
 
- Mithilfe dieser Konfiguration kann eine Fehlertoleranz bereitgestellt werden, falls überlappende Netzwerksegmente von den Standorten verwaltet werden. Darüber hinaus wird mit dieser Konfiguration eine zusätzliche Wiederherstellungsoption angeboten. So wird es möglich, die Standortdatenbank am wiederhergestellten Standort anhand der Informationen in der an einem anderen Standort verfügbaren, freigegebenen Datenbank neu zu erstellen. Mit dieser Option können Sie eine fehlerhafte oder nicht verfügbare Sicherung der fehlerhaften Standortdatenbank ersetzen.  
+-   Les clients peuvent corriger automatiquement les problèmes typiques sans intervention de l'administrateur.  
 
- **Erstellen regelmäßiger Sicherungen am Standort der zentralen Verwaltung und an primären Standorten:**  
+-   Les sites génèrent des alertes concernant les clients qui ne soumettent pas de données récentes, ce qui a pour effet d'informer les administrateurs d'éventuels problèmes.  
 
- Wenn Sie regelmäßige Standortsicherungen erstellen und testen, stehen Ihnen jederzeit die zur Wiederherstellung eines Standorts erforderlichen Daten zur Verfügung, und Sie verfügen über die notwendige Erfahrung, um einen Standort mit minimalem Zeitaufwand wiederherzustellen.  
+-   Configuration Manager fournit plusieurs rapports intégrés qui vous permettent d’identifier en amont les problèmes et les tendances, et ainsi de garantir le bon fonctionnement du serveur et du client.  
 
- **Installieren mehrerer Instanzen von Standortsystemrollen:**  
+ Configuration Manager ne fournit pas un service en temps réel, ce qui peut entraîner une latence des données dans son fonctionnement. Par conséquent, il est rare pour la plupart des scénarios qui impliquent une interruption du service temporaire de se transformer en problème critique. Lorsque vous configurez vos sites et hiérarchies en tenant compte de la haute disponibilité, vous pouvez minimiser les temps d'arrêt, maintenir l'autonomie des opérations et fournir un niveau de service élevé.  
 
- Wenn Sie mehrere Instanzen kritischer Standortsystemrollen, wie beispielsweise Verwaltungspunkt und Verteilungspunkt, installieren, stellen Sie für den Fall, dass ein bestimmter Standortsystemserver offline ist, redundante Kontaktpunkte für Clients bereit.  
+ Par exemple, les clients Configuration Manager fonctionnent généralement de manière autonome en se basant sur les planifications et configurations connues pour les opérations, ainsi que sur les planifications d’envoi des données à traiter au site.  
 
- **Installieren Sie mehrere Instanzen des SMS-Anbieters an einem Standort:** Der SMS-Anbieter stellt den administrativen Kontaktpunkt für eine oder mehrere Configuration Manager-Konsolen bereit. Wenn Sie mehrere SMS-Anbieter installieren, können Sie Redundanz für Kontaktpunkte zur Verwaltung des Standorts und der Hierarchie bereitstellen.  
+-   Lorsque les clients ne parviennent pas à contacter le site, ils mettent en cache données à envoyer jusqu'à ce qu'ils puissent contacter le site.  
 
-##  <a name="bkmk_ssr"></a> Hohe Verfügbarkeit für Standortsystemrollen  
- Sie stellen an jedem Standort Standortsystemrollen bereit, um die Dienste verfügbar zu machen, die an diesem Standort von Clients verwendet werden sollen. Die Standortdatenbank enthält die Konfigurationsinformationen für den Standort und sämtliche Clients. Verwenden Sie mindestens eine der verfügbaren Optionen, um eine hohe Verfügbarkeit der Standortdatenbank sowie bei Bedarf die Wiederherstellung des Standorts und der Standortdatenbank zu ermöglichen.  
+-   Les clients qui ne parviennent pas à contacter le site continuent à fonctionner en utilisant les dernières planifications connues, ainsi que les informations mises en cache, concernant par exemple une application précédemment téléchargée qu’ils doivent exécuter ou installer, jusqu’au moment où ils parviennent à contacter le site et à recevoir de nouvelles stratégies.  
 
- **Redundanz für wichtige Standortsystemrollen:**  
+-   Le site surveille ses systèmes de site et clients à la recherche de mises à jour d'état périodiques, et peut générer des alertes si ces dernières ne sont pas enregistrées.  
 
--   Anwendungskatalog-Webdienstpunkt  
+-   Les rapports intégrés fournissent une vision des opérations en cours ainsi que des opérations historiques et des tendances. Configuration Manager prend en charge des messages basés sur l’état qui fournissent des informations presque en temps réel sur les opérations en cours.  
 
--   Anwendungskatalog-Websitepunkt  
+  Utilisez les informations de cette rubrique ainsi que celles contenues dans les articles suivants :
+-   [Matériel recommandé](../../core/plan-design/configs/recommended-hardware.md)
+-   [Systèmes d’exploitation pris en charge pour les serveurs de système de site](../../core/plan-design/configs/supported-operating-systems-for-site-system-servers.md)  
 
--   Verteilungspunkt  
-
--   Verwaltungspunkt  
-
--   Softwareupdatepunkt  
-
--   Zustandsmigrationspunkt  
-
- Sie können mehrere Instanzen der Reporting Services-Punktrolle installieren, um Redundanz für die Berichterstattung an Standorten und auf Clients bereitzustellen.
-
- Sie können die folgende Softwareupdatepunkt-Standortsystemrolle auf einem Windows NLB-Cluster (Network Load Balancing, Netzwerklastenausgleich) installieren, um Failoverunterstützung bereitzustellen  
+-   [Prérequis des sites et systèmes de site](../../core/plan-design/configs/site-and-site-system-prerequisites.md)
 
 
- **Integrierte Standortsicherung:**  
+##  <a name="bkmk_snh"></a> Haute disponibilité pour les sites et les hiérarchies  
+ **Utiliser un cluster SQL Server pour héberger la base de données de site :**  
 
- Configuration Manager enthält einen integrierten Sicherungstask, mit dessen Hilfe Sie einen Standort und kritische Informationen regelmäßig sichern können. Darüber hinaus unterstützt der Setup-Assistent von Configuration Manager Standortwiederherstellungsaktionen, mit denen Sie die Betriebsfähigkeit eines Standorts wiederherstellen können.  
+ Lorsque vous utilisez un cluster SQL Server pour la base de données sur un site d'administration centrale ou sur un site principal, vous utilisez la prise en charge de basculement intégrée à SQL Server.  
 
- **Veröffentlichen in Active Directory Domain Services und DNS:**  
+ Les sites secondaires ne peuvent pas utiliser un cluster SQL Server et ne prennent pas en charge la sauvegarde ou la restauration de leur base de données de site. La récupération d’un site secondaire s’effectue en le réinstallant à partir de son site principal parent.  
 
- Sie können jeden Standort zur Veröffentlichung von Daten zu Standortsystemservern und -diensten in den Active Directory-Domänendiensten und DNS konfigurieren. Von den Clients kann dann der zugänglichste Server im Netzwerk identifiziert werden. Zudem können neue Standortsystemserver, von denen wichtige Dienste wie Verwaltungspunkte bereitgestellt werden können, erkannt werden.  
+ **Utiliser un groupe de disponibilité SQL Server AlwaysOn pour héberger la base de données de site :**  
 
- **SMS-Anbieter und Configuration Manager-Konsole:**  
+ Depuis la version 1602, vous pouvez utiliser des groupes de disponibilité SQL Server AlwaysOn pour héberger la base de données du site sur des sites principaux et le site d’administration centrale, en tant que solution de haute disponibilité et de récupération d’urgence. Pour plus d’informations, consultez [SQL Server AlwaysOn pour une base de données de site à haut niveau de disponibilité pour System Center Configuration Manager](../../core/servers/deploy/configure/sql-server-alwayson-for-a-highly-available-site-database.md).  
 
- Configuration Manager unterstützt die Installation mehrerer SMS-Anbieter auf separaten Computern, damit für die Configuration Manager-Konsole mehrere Zugriffspunkte verfügbar sind. Auf diese Weise wird sichergestellt, dass Sie selbst dann Configuration Manager-Standorte und Clients anzeigen und neu konfigurieren können, wenn ein SMS-Anbietercomputer offline ist.  
+ **Déployer une hiérarchie de sites avec un site d’administration centrale et un ou plusieurs sites principaux enfants :**  
 
- Beim Herstellen einer Verbindung mit einem Standort stellt eine Configuration Manager-Konsole eine Verbindung mit einer Instanz des SMS-Anbieters an diesem Standort her. Die Instanz des SMS-Anbieters wird nicht deterministisch ausgewählt. Wenn der ausgewählte SMS-Anbieter nicht verfügbar ist, haben Sie folgende Möglichkeiten:  
+ Cette configuration peut fournir une tolérance aux pannes lorsque vos sites gèrent des segments se chevauchant de votre réseau. De plus, cette configuration propose une option de récupération supplémentaire pour utiliser les informations dans la base de données partagée disponible sur un autre site afin de reconstruire la base de données de site sur le site récupéré. Vous pouvez utiliser cette option pour remplacer une sauvegarde non réussie ou non disponible de la base de données du site ayant échoué.  
 
--   Verbinden Sie die Konsole erneut mit dem Standort. Jede neue Verbindungsanforderung wird auf nicht deterministische Weise einer Instanz des SMS-Anbieters zugewiesen. Es ist möglich, dass der neuen Verbindung eine verfügbare Instanz zugewiesen wird.  
+ **Créer des sauvegardes régulières sur des sites d’administration centrale et des sites principaux :**  
 
--   Verbinden Sie die Konsole mit einem anderen Configuration Manager-Standort, und verwalten Sie die Konfiguration über diese Verbindung. Bei dieser Vorgehensweise tritt bei Konfigurationsänderungen eine kurze Verzögerung von ein paar Minuten auf. Sobald der SMS-Anbieter des Standorts online ist, können Sie die Configuration Manager-Konsole wieder direkt mit dem zu verwaltenden Standort verbinden.  
+ Lorsque vous créez et testez une sauvegarde de site régulière, vous pouvez vous assurer que vous disposez des données nécessaires à la récupération d'un site et de l'expérience pour récupérer un site le plus rapidement possible.  
 
- Sie können die Configuration Manager-Konsole auf mehreren Computern installieren, die von Administratoren verwendet werden. Jeder SMS-Anbieter unterstützt Verbindungen von mehreren Configuration Manager-Konsolen.  
+ **Installer plusieurs instances de rôles de système de site :**  
 
- **Verwaltungspunkt:**  
+ Lorsque vous installez plusieurs instances de rôles de système de site critiques, par exemple, le point de gestion et le point de distribution, vous fournissez des points de contact redondants pour les clients dans le cas où un serveur de système de site est hors-ligne.  
 
- Installieren Sie an jedem primären Standort mehrere Verwaltungspunkte, und sorgen Sie dafür, dass die Veröffentlichung von Standortdaten in der Active Directory-Infrastruktur und DNS durch die Standorte möglich ist.  
+ **Installer plusieurs instances du fournisseur SMS sur un site :** le fournisseur SMS fournit le point de contact administratif pour une ou plusieurs consoles Configuration Manager. Lorsque vous installez plusieurs fournisseurs SMS, vous pouvez fournir une redondance pour l'administration de votre site et hiérarchie par des points de contact.  
 
- Sind mehrere Verwaltungspunkte vorhanden, können Sie einen Lastenausgleich vornehmen, wenn ein einzelner Verwaltungspunkt von mehreren Clients in Anspruch genommen wird. Außerdem können Sie mehrere Datenbankreplikate für Verwaltungspunkte installieren, um CPU-intensive Vorgänge eines Verwaltungspunkts zu verringern und die Verfügbarkeit dieser kritischen Standortsystemrolle zu steigern.  
+##  <a name="bkmk_ssr"></a> Haute disponibilité pour les rôles système de site  
+ Sur chaque site, vous déployez des rôles de système de site pour fournir les services que vous souhaitez voir les clients utiliser sur ce site. La base de données du site contient les informations de configuration du site et de tous les clients. Utilisez une ou plusieurs des options disponibles pour fournir une haute disponibilité de la base de données de site et la récupération du site et de la base de données de site, le cas échéant.  
 
- Da Sie an einem sekundären Standort, der sich auf dem sekundären Standortserver befinden muss, nur einen Verwaltungspunkt installieren können, wird die Konfiguration von Verwaltungspunkten an sekundären Standorten nicht als hoch verfügbar angesehen.  
+ **Redondance pour les rôles de système de site importants :**  
+
+-   Point de service Web du catalogue des applications  
+
+-   Point du site web du catalogue des applications  
+
+-   Point de distribution  
+
+-   Point de gestion  
+
+-   Point de mise à jour logicielle  
+
+-   Point de migration d’état  
+
+ Vous pouvez installer plusieurs instances du rôle de point de Reporting Services pour fournir la redondance des rapports sur les sites et les clients.
+
+ Vous pouvez utiliser PowerShell pour installer le rôle de système de site de point de mise à jour logicielle sur un cluster NLB Windows pour fournir la prise en charge du basculement.  
+
+
+ **Sauvegarde de site intégrée :**  
+
+ Configuration Manager inclut une tâche de sauvegarde intégrée pour vous aider à sauvegarder votre site et vos informations critiques à intervalles réguliers. En outre, l’Assistant Installation de Configuration Manager prend en charge des actions de restauration de site pour vous aider à restaurer l’état de fonctionnement d’un site.  
+
+ **Publication vers les services de domaine Active Directory et DNS :**  
+
+ Vous pouvez configurer chaque site afin de publier des données concernant les serveurs de système de site et les services vers les services de domaine Active Directory et DNS. Cela permet aux clients d'identifier le serveur le plus accessible sur le réseau, ainsi que la disponibilité de nouveaux serveurs de système de site qui fournissent des services importants, tels que des points de gestion.  
+
+ **Fournisseur SMS et console Configuration Manager :**  
+
+ Configuration Manager permet l’installation de plusieurs fournisseurs SMS, chacun sur un ordinateur distinct, pour mettre plusieurs points d’accès à la disposition de la console Configuration Manager. Cela garantit que, si un ordinateur fournisseur SMS est hors connexion, vous avez la possibilité d’afficher et de reconfigurer les sites et clients Configuration Manager.  
+
+ Quand une console Configuration Manager se connecte à un site, elle se connecte à une instance du fournisseur SMS sur ce site. L’instance du fournisseur SMS est sélectionnée de façon non déterministe. Si le fournisseur SMS sélectionné n’est pas disponible, vous disposez des options suivantes :  
+
+-   Reconnectez la console au site. Une instance du fournisseur SMS est affectée de façon non déterministe à chaque nouvelle demande de connexion. Il se peut également qu’une instance disponible soit affectée à la nouvelle connexion.  
+
+-   Connectez la console à un autre site Configuration Manager, puis gérez la configuration à partir de cette connexion. L'application des modifications apportées à la configuration prend quelques minutes. Lorsque le fournisseur SMS pour le site est en ligne, vous pouvez reconnecter votre console Configuration Manager directement au site à gérer.  
+
+ Vous pouvez installer la console Configuration Manager sur plusieurs ordinateurs afin que les utilisateurs administratifs puissent l’utiliser. Chaque fournisseur SMS prend en charge des connexions à partir de plusieurs consoles Configuration Manager.  
+
+ **Point de gestion :**  
+
+ Installez plusieurs points de gestion sur chaque site principal et activez les sites pour publier des données de site vers votre infrastructure Active Directory et vers DNS.  
+
+ Des points de gestion multiples permettent d'équilibrer la charge d'utilisation d'un point de gestion unique par plusieurs clients. Sans compter que vous pouvez installer une ou plusieurs réplicas de la base de données pour les points de gestion afin de réduire les opérations intensives du point de gestion et d'augmenter la disponibilité de ce rôle de système de site critique.  
+
+ Comme vous ne pouvez installer qu'un seul point de gestion dans un site secondaire et qu'il doit se trouver sur le serveur de site secondaire, les points de gestion des sites secondaires ne sont pas considérés comme ayant une configuration à haute disponibilité.  
 
 > [!NOTE]  
->  Von der lokalen mobilen Geräteverwaltung verwaltete Geräte werden nur mit einem einzigen Verwaltungspunkt an einem primären Standort verbunden. Der Verwaltungspunkt wird dem mobilen Gerät von Configuration Manager während der Registrierung zugewiesen und danach nicht mehr geändert. Wenn Sie mehrere Verwaltungspunkte installieren und für mobile Geräte mehr als einen dieser Punkte aktivieren, ist der Verwaltungspunkt, der einem mobilen Geräteclient zugewiesen ist, nicht deterministisch.  
+>  Les appareils gérés par une gestion des appareils mobiles locale se connectent à un seul point de gestion sur un site principal. Configuration Manager attribue le point de gestion à l’appareil mobile au moment de l’inscription et ne le change pas par la suite. Lorsque vous installez plusieurs points de gestion et que vous en activez plusieurs pour les appareils mobiles, le point de gestion qui est attribué à un client d'appareil mobile n'est pas déterministe.  
 >   
->  Falls der von einem mobilen Geräteclient verwendete Verwaltungspunkt nicht mehr verfügbar ist, müssen Sie das Problem für diesen Verwaltungspunkt beheben. Sie können das mobile Gerät auch zurücksetzen und neu registrieren, damit es einem betriebsbereiten Verwaltungspunkt zugewiesen werden kann, der für mobile Geräte aktiviert ist.  
+>  Si le point de gestion utilisé par un client d’appareil mobile n’est plus disponible, vous devez résoudre le problème au niveau de ce point de gestion, ou réinitialiser l’appareil mobile et le réinscrire pour qu’il puisse être attribué à un autre point de gestion disponible pour les appareils mobiles.  
 
- **Verteilungspunkt:**  
+ **Point de distribution :**  
 
- Installieren Sie mehrere Verteilungspunkte, und stellen Sie Inhalte für mehrere Verteilungspunkte bereit. Sie können überlappende Begrenzungsgruppen für Inhaltsorte konfigurieren und so sicherstellen, dass Clients auf den einzelnen Subnetzen von mehreren Verteilungspunkten aus Zugriff auf die Bereitstellung haben. Erwägen Sie schließlich, mindestens einen Verteilungspunkt als Fallbackpfad für Inhalt zu konfigurieren.  
+ Installez plusieurs points de distribution et déployez du contenu sur plusieurs points de distribution. Vous pouvez configurer des groupes de limites se chevauchant pour l'emplacement de contenu, afin de garantir aux clients sur chaque sous-réseau d'accéder à un déploiement à partir de deux points de distribution ou plus. Enfin, envisagez de configurer un point de distribution ou plus comme emplacements de secours pour le contenu.  
 
- Weitere Informationen finden Sie unter [Verwalten von Inhalt und Inhaltsinfrastruktur für System Center Configuration Manager](../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+ Pour plus d’informations sur les emplacements de secours pour le contenu, consultez [Gérer le contenu et l’infrastructure de contenu pour System Center Configuration Manager](../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
- **Anwendungskatalog-Webdienstpunkt und Anwendungskatalog-Websitepunkt:**  
+ **Point de service web du catalogue des applications et point du site web du catalogue des applications :**  
 
- Es können mehrere Instanzen dieser Standortsystemrollen installiert werden. Zur Leistungsoptimierung sollten Sie jeweils eine Instanz beider Rollen auf dem gleichen Standortsystemcomputer installieren.  
+ Vous pouvez installer plusieurs instances de chaque rôle de système de site, et pour obtenir des performances optimales, en déployer une de chaque sur le même ordinateur de système de site.  
 
- Von jeder Standortsystemrolle für den Anwendungskatalog werden die gleichen Informationen wie von anderen Instanzen dieser Standortsystemrolle bereitgestellt, unabhängig davon, wo diese Standortsystemrolle sich in der Hierarchie befindet. Wenn von einem Client also eine Anforderung an den Anwendungskatalog gesendet wird und Sie für die Geräteclienteinstellung „Websitepunkt des Standardanwendungskatalogs“ die Option „Automatisch ermitteln“ konfiguriert haben, kann der Client an eine verfügbare Instanz weitergeleitet werden. Dabei wird, ausgehend vom aktuellen Netzwerkort des Clients, lokalen Standortsystemservern für den Anwendungskatalog Priorität eingeräumt.  
+ Chaque rôle de système de site du catalogue d'applications fournit les mêmes informations que les autres instances de ce rôle de système de site quel que soit l'emplacement du rôle de serveur de site dans la hiérarchie. Par conséquent, quand un client envoie une demande pour le catalogue d’applications et que vous avez configuré le paramètre de l’appareil client Point du site web du catalogue des applications par défaut sur Détecter automatiquement, le client peut être redirigé vers une instance disponible. La préférence est donnée aux serveurs de système de site du catalogue d’applications locaux, sur la base de l’emplacement réseau actuel du client.  
 
- Weitere Informationen zu dieser Clienteinstellung und zur automatischen Ermittlung finden Sie im Abschnitt zur [Computer-Agent](../../core/clients/deploy/about-client-settings.md#computer-agent) des Themas [Informationen zu Clienteinstellungen in System Center Configuration Manager](../../core/clients/deploy/about-client-settings.md).  
+ Pour plus d’informations sur ce paramètre client et sur le fonctionnement de la détection automatique, consultez la section [Agent ordinateur](../../core/clients/deploy/about-client-settings.md#computer-agent) dans la rubrique [À propos des paramètres client dans System Center Configuration Manager](../../core/clients/deploy/about-client-settings.md).  
 
-##  <a name="bkmk_client"></a> Hohe Verfügbarkeit für Clients  
- **Autonomie von Clientvorgängen:**  
+##  <a name="bkmk_client"></a> Haute disponibilité pour les clients  
+ **Le client fonctionne de manière autonome :**  
 
- In den folgenden Bereichen werden Configuration Manager-Clientvorgänge autonom ausgeführt:  
+ L’autonomie du client Configuration Manager se traduit ainsi :  
 
--   Für Clients ist keine ständige Verbindung mit bestimmten Standortsystemservern erforderlich. Von den Clients werden bekannte Konfigurationen verwendet, um vorkonfigurierte Aktionen nach einem Zeitplan auszuführen.  
+-   Les clients ne nécessitent pas un contact permanent avec un serveur de système de site spécifique. Ils utilisent de configurations connues pour effectuer des actions préconfigurées selon une planification.  
 
--   Jede verfügbare Instanz einer Standortsystemrolle, von der Dienste für Clients bereitgestellt werden, kann von Clients verwendet werden. Von den Clients wird versucht, mit bekannten Servern eine Verbindung herzustellen, bis ein verfügbarer Server gefunden wird.  
+-   Les clients peuvent utiliser toute instance disponible d'un rôle de système de site qui fournit des services aux clients. Ils continueront de contacter les serveurs connus jusqu'à localiser un serveur disponible.  
 
--   Von Clients können Inventuren, Softwarebereitstellungen und ähnliche geplante Aktionen auch ohne direkte Verbindung mit Standortsystemservern ausgeführt werden.  
+-   Les clients peuvent exécuter un inventaire, des déploiements de logiciels et autres actions planifiées similaires indépendamment d'un contact direct avec les serveurs de système de site.  
 
--   Von Clients, die zur Verwendung eines Fallbackstatuspunkts konfiguriert sind, können Details an den Fallbackstatuspunkt gesendet werden, wenn die Kommunikation mit einem Verwaltungspunkt nicht möglich ist.  
+-   Les clients qui sont configurés pour utiliser un point d'état de secours peuvent soumettre des détails sur le point d'état de secours lorsque la communication avec un point de gestion n'est pas possible.  
 
- **Clients können sich selbst reparieren:**  
+ **Les clients peuvent se réparer eux-mêmes :**  
 
- Die meisten typischen Probleme werden von Clients automatisch und ohne direkten Eingriff durch einen Administrator behoben:  
+ Les clients corrigent automatiquement les problèmes les plus typiques sans une intervention directe de l'administrateur :  
 
--   Der eigene Status wird von Clients regelmäßig bewertet. Standardprobleme werden ggf. unter Verwendung der lokal gespeicherten Wiederherstellungsschritte und Quelldateien behoben.  
+-   Régulièrement, les clients évaluent leur état et prennent les mesures nécessaires pour corriger les problèmes typiques à l'aide d'un cache local d'étapes de mise à jour et de fichiers sources pour la réparation.  
 
--   Wenn von einem Client keine Statusinformationen an den ihm zugewiesenen Standort übermittelt werden, kann vom Standort eine Warnung ausgegeben werden. Administratoren, bei denen diese Warnungen eingehen, können sofort handeln, um den normalen Betrieb des Clients wiederherzustellen.  
+-   Lorsqu'un client ne soumet des informations d'état sur son site, le site génère une alerte. Les utilisateurs administratifs qui reçoivent ces alertes peuvent prendre des mesures immédiates pour restaurer le fonctionnement normal du client.  
 
- **Clients können Informationen zur späteren Verwendung zwischenspeichern:**  
+ **Les clients mettent en cache les informations dont ils auront besoin ultérieurement :**  
 
- Bei der Kommunikation eines Clients mit einem Verwaltungspunkt können die folgenden Informationen vom Client abgerufen und zwischengespeichert werden:  
+ Lorsqu'un client communique avec un point de gestion, le client peut obtenir et mettre en cache les informations suivantes :  
 
--   Clienteinstellungen  
+-   Paramètres client.  
 
--   Clientzeitpläne  
+-   Planifications du client.  
 
--   Informationen über Softwarebereitstellungen und einen Download der Software, die laut Zeitplan vom Client installiert werden soll, sofern die Bereitstellung für diese Aktion konfiguriert ist  
+-   Des informations sur les déploiements de logiciels et un téléchargement du logiciel que le client doit installer, lorsque le déploiement est configuré pour cette action.  
 
- Wenn ein Client einen Verwaltungspunkt nicht kontaktieren kann, werden der Status, der Zustand und die Clientinformationen, die dem Standort gemeldet werden, vom Client im lokalen Cache gespeichert. Diese Daten werden übertragen, sobald eine Verbindung mit einem Verwaltungspunkt zustande kommt.  
+ Quand un client ne réussit pas à contacter un point de gestion, il copie dans le cache local les informations sur le statut, l’état et le client qu’il consigne sur le site. Il transfère ces données dès qu’il réussit à contacter un point de gestion.  
 
- **Übermittlung des Status an einen Fallbackstatuspunkt:**  
+ **Le client peut soumettre l’état à un point d’état de secours :**  
 
- Wenn Sie einen Client zur Verwendung eines Fallbackstatuspunkts konfigurieren, weisen Sie dem Client einen zusätzlichen Kontaktpunkt für die Übermittlung wichtiger Details zu seinen Vorgängen zu. Von Clients, die zur Verwendung eines Fallbackstatuspunkts konfiguriert sind, werden auch dann weiterhin Statusinformationen über ihre Vorgänge an diese Standortsystemrolle gesendet, wenn keine Verbindung mit einem Verwaltungspunkt hergestellt werden kann.  
+ Quand vous configurez un client pour qu’il utilise un point d’état de secours, vous fournissez au client un point de contact supplémentaire vers lequel il peut envoyer des informations détaillées importantes sur son fonctionnement. Les clients qui sont configurés de manière à utiliser un point d'état de secours continuent à envoyer des informations sur l'état de leurs opérations vers ce rôle de système de site lorsque la communication avec un point de gestion n'est pas possible.  
 
- **Zentrale Verwaltung von Clientdaten und Clientidentität:**  
+ **Gestion centralisée des données et de l’identité du client :**  
 
- Wichtige Informationen über die Identität eines Clients werden nicht jeweils vom Client selbst, sondern von der Standortdatenbank gespeichert und einem bestimmten Computer oder Benutzer zugeordnet. Dies bedeutet:  
+ La base de données de site, plutôt que le client, conserve les informations importantes sur l’identité de chaque client et associe ces données à un utilisateur ou un ordinateur spécifique. Cela a les conséquences suivantes :  
 
--   Die Clientquelldateien auf einem Computer können ohne Auswirkungen auf die historischen Datensätze für den Computer mit dem installierten Client deinstalliert und erneut installiert werden.  
+-   Les fichiers source du client sur un ordinateur peuvent être désinstallés et réinstallés sans modifier les enregistrements historiques de l’ordinateur sur lequel est installé le client.  
 
--   Fehler auf einem Clientcomputer wirken sich nicht auf die Integrität der in der Datenbank gespeicherten Informationen aus. Diese Informationen können für die Berichterstellung verfügbar bleiben.  
+-   La défaillance d'un ordinateur client n'affecte pas l'intégrité des informations qui sont stockées dans la base de données. Ces informations peuvent rester disponibles pour les rapports.  
 
-##  <a name="bkmk_nonHAoptions"></a> Optionen für Standorte und Standortsystemrollen ohne hohe Verfügbarkeit  
- Von einigen Standortsystemen wird nur eine Instanz an einem Standort oder in der Hierarchie unterstützt. Die Informationen können Ihnen bei der Vorbereitung auf das Offlineschalten dieser Standortsysteme helfen.  
+##  <a name="bkmk_nonHAoptions"></a> Options pour les sites et les rôles système de site qui n’ont pas un haut niveau de disponibilité  
+ Plusieurs systèmes de site ne prennent pas en charge des instances multiples sur un site ou dans la hiérarchie. Aidez-vous des informations ci-dessous pour préparer la mise hors connexion de ces systèmes de site.  
 
- **Standortserver (Standort):**  
+ **Serveur de site (site) :**  
 
- Configuration Manager unterstützt die Installation des Standortservers für jeden Standort auf einem Windows Server-Cluster oder NLB-Cluster nicht.  
+ Configuration Manager ne prend pas en charge l’installation du serveur de site pour chaque site d’un cluster Windows Server ou NLB.  
 
- Mithilfe der folgenden Informationen können Sie sich auf Probleme und Betriebsausfälle bei einem Standortserver vorbereiten:  
+ Les informations suivantes peuvent vous aider à vous préparer au cas où un serveur de site tomberait en panne ou ne serait pas opérationnel :  
 
--   Verwenden Sie den integrierten Sicherungstask, um regelmäßig eine Sicherung des Standorts auszuführen. Üben Sie in Testumgebungen regelmäßig das Wiederherstellen von Standorten aus einer Sicherung.  
+-   La tâche de sauvegarde intégrée permet de faire une sauvegarde régulière du site. Dans un environnement de test, pratiquez régulièrement la restauration de sites à partir d'une sauvegarde.  
 
--   Stellen Sie in einer Hierarchie mit einem Standort der zentralen Verwaltung mehrere primäre Configuration Manager-Standorte bereit, um für Redundanz zu sorgen. Im Fall eines Standortausfalls können Sie Clients mithilfe von Windows-Gruppenrichtlinien oder Anmeldeskripts einem funktionsbereiten Standort zuweisen.  
+-   Déployez plusieurs sites principaux Configuration Manager dans une hiérarchie avec un site d’administration centrale pour créer un système redondant. En cas de panne du site, envisagez d'utiliser la stratégie de groupe Windows ou des scripts d'ouverture de session pour réattribuer des clients à un site fonctionnel.  
 
--   In einer Hierarchie mit einem Standort der zentralen Verwaltung können Sie den Standort der zentralen Verwaltung oder einen untergeordneten primären Standort mithilfe der Option zum Wiederherstellen einer Standortdatenbank von einem anderen Standort in Ihrer Hierarchie wiederherstellen.  
+-   Si votre hiérarchie dispose d'un site d'administration centrale, vous pouvez restaurer celui-ci ou un site principal enfant en utilisant l'option de restauration d'une base de donnée de site à partir d'un autre site de la hiérarchie.  
 
--   Sekundäre Standorte können nicht wiederhergestellt werden und müssen neu installiert werden.  
+-   Les sites secondaires ne peuvent pas être restaurés et doivent être réinstallés.  
 
- **Asset Intelligence-Synchronisierungspunkt (Hierarchie):**  
+ **Point de synchronisation Asset Intelligence (hiérarchie) :**  
 
- Diese Standortsystemrolle wird als nicht unternehmenskritisch betrachtet. Sie stellt optionale Funktionen in Configuration Manager bereit. Wenn dieses Standortsystem offline geschaltet wird, verwenden Sie eine der folgenden Optionen:  
+ Ce rôle de système de site n’est pas capital et fournit une fonctionnalité facultative dans Configuration Manager. Si ce système de site est mis hors ligne, utilisez l'une des options suivantes :  
 
--   Beseitigen Sie die Ursache für den Offlinezustand des Standortsystems.  
+-   Résolvez la cause de mise hors ligne du système de site.  
 
--   Deinstallieren Sie die Rolle vom aktuellen Server, und installieren Sie sie auf einem neuen Server.  
+-   Désinstallez le rôle du serveur en cours et installez le rôle sur un nouveau serveur.  
 
- **Endpoint Protection-Punkt (Hierarchie):**  
+ **Point Endpoint Protection (hiérarchie) :**  
 
- Diese Standortsystemrolle wird als nicht unternehmenskritisch betrachtet. Sie stellt optionale Funktionen in Configuration Manager bereit. Wenn dieses Standortsystem offline geschaltet wird, verwenden Sie eine der folgenden Optionen:  
+ Ce rôle de système de site n’est pas capital et fournit une fonctionnalité facultative dans Configuration Manager. Si ce système de site est mis hors ligne, utilisez l'une des options suivantes :  
 
--   Beseitigen Sie die Ursache für den Offlinezustand des Standortsystems.  
+-   Résolvez la cause de mise hors ligne du système de site.  
 
--   Deinstallieren Sie die Rolle vom aktuellen Server, und installieren Sie sie auf einem neuen Server.  
+-   Désinstallez le rôle du serveur en cours et installez le rôle sur un nouveau serveur.  
 
- **Anmeldungspunkt (Standort):**  
+ **Point d’inscription (site) :**  
 
- Diese Standortsystemrolle wird als nicht unternehmenskritisch betrachtet. Sie stellt optionale Funktionen in Configuration Manager bereit. Wenn dieses Standortsystem offline geschaltet wird, verwenden Sie eine der folgenden Optionen:  
+ Ce rôle de système de site n’est pas capital et fournit une fonctionnalité facultative dans Configuration Manager. Si ce système de site est mis hors ligne, utilisez l'une des options suivantes :  
 
--   Beseitigen Sie die Ursache für den Offlinezustand des Standortsystems.  
+-   Résolvez la cause de mise hors ligne du système de site.  
 
--   Deinstallieren Sie die Rolle vom aktuellen Server, und installieren Sie sie auf einem neuen Server.  
+-   Désinstallez le rôle du serveur en cours et installez le rôle sur un nouveau serveur.  
 
- **Anmeldungsproxypunkt (Standort):**  
+ **Point proxy d’inscription (site) :**  
 
- Diese Standortsystemrolle wird als nicht unternehmenskritisch betrachtet. Sie stellt optionale Funktionen in Configuration Manager bereit. Allerdings können Sie mehrere Instanzen dieser Standortsystemrolle auf einem Standort sowie auf mehreren Standorten in der Hierarchie installieren. Wenn dieses Standortsystem offline geschaltet wird, verwenden Sie eine der folgenden Optionen:  
+ Ce rôle de système de site n’est pas capital et fournit une fonctionnalité facultative dans Configuration Manager. Vous pouvez toutefois installer plusieurs instances de ce rôle de système de site sur un site et sur plusieurs sites dans la hiérarchie. Si ce système de site est mis hors ligne, utilisez l'une des options suivantes :  
 
--   Beseitigen Sie die Ursache für den Offlinezustand des Standortsystems.  
+-   Résolvez la cause de mise hors ligne du système de site.  
 
--   Deinstallieren Sie die Rolle vom aktuellen Server, und installieren Sie sie auf einem neuen Server.  
+-   Désinstallez le rôle du serveur en cours et installez le rôle sur un nouveau serveur.  
 
- Wenn Sie auf einem Standort über mehrere Anmeldungsproxypunkte verfügen, verwenden Sie für den Servernamen einen DNS-Alias. Wenn Sie diese Konfiguration verwenden, werden Benutzern beim Anmelden Ihrer mobilen Geräte mithilfe von DNS-Roundrobin Fehlertoleranz und Lastenausgleich zur Verfügung gestellt.  
+ Lorsque vous disposez de plusieurs serveurs proxy d'inscription sur un site, utilisez un alias DNS pour le nom du serveur. Lorsque vous utilisez cette configuration, le tourniquet DNS tolère des erreurs et l'équilibrage de charge dans une certaine mesure lorsque les utilisateurs inscrivent leurs appareils mobiles.  
 
- **Fallbackstatuspunkt (Standort oder Hierarchie):**  
+ **Point d’état de secours (site ou hiérarchie) :**  
 
- Diese Standortsystemrolle wird als nicht unternehmenskritisch betrachtet. Sie stellt optionale Funktionen in Configuration Manager bereit. Wenn dieses Standortsystem offline geschaltet wird, verwenden Sie eine der folgenden Optionen:  
+ Ce rôle de système de site n’est pas capital et fournit une fonctionnalité facultative dans Configuration Manager. Si ce système de site est mis hors ligne, utilisez l'une des options suivantes :  
 
--   Beseitigen Sie die Ursache für den Offlinezustand des Standortsystems.  
+-   Résolvez la cause de mise hors ligne du système de site.  
 
--   Deinstallieren Sie die Rolle vom aktuellen Server, und installieren Sie sie auf einem neuen Server. Da Clients der Fallbackstatuspunkt während der Clientinstallation zugewiesen wird, müssen Sie vorhandene Clients ändern, damit sie den neuen Standortsystemserver verwenden.  
+-   Désinstallez le rôle du serveur en cours et installez le rôle sur un nouveau serveur. Comme les clients sont affectés au point d'état de secours lors de leur installation, vous devrez modifier les clients existants pour qu'ils utilisent le nouveau serveur de système de site.  
 
-### <a name="see-also"></a>Weitere Informationen:  
- [Unterstützte Konfigurationen für System Center Configuration Manager](../../core/plan-design/configs/supported-configurations.md)
+### <a name="see-also"></a>Voir aussi  
+ [Configurations prises en charge pour System Center Configuration Manager](../../core/plan-design/configs/supported-configurations.md)

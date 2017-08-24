@@ -1,6 +1,6 @@
 ---
-title: Verwenden von Asset Intelligence | Microsoft-Dokumentation
-description: "Führen Sie allgemeine Asset Intelligence-Aufgaben in System Center Configuration Manager aus."
+title: Utiliser Asset Intelligence | Microsoft Docs
+description: "Effectuez les tâches courantes Asset Intelligence dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 2/22/2017
 ms.prod: configuration-manager
@@ -18,320 +18,320 @@ manager: angrobe
 ms.openlocfilehash: 17168e26f13340847928f6e3623115cd4b55997b
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-use-asset-intelligence-in-system-center-configuration-manager"></a>So verwenden Sie Asset Intelligence in System Center Configuration Manager
+# <a name="how-to-use-asset-intelligence-in-system-center-configuration-manager"></a>Guide pratique pour utiliser Asset Intelligence dans System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Dieses Thema enthält Informationen zum Verwalten typischer Asset Intelligence-Tasks in der Hierarchie von System Center Configuration Manager:  
+Cette rubrique contient des informations destinées à vous aider à gérer les tâches courantes Asset Intelligence dans votre hiérarchie System Center Configuration Manager :  
 
-##  <a name="BKMK_ViewInformation"></a> Anzeigen von Asset Intelligence-Informationen  
- Asset Intelligence-Informationen können auf der **Asset Intelligence** -Startseite und in Asset Intelligence-Berichten angezeigt werden.  
+##  <a name="BKMK_ViewInformation"></a> Afficher les informations Asset Intelligence  
+ Vous pouvez afficher les informations Asset Intelligence sur la page d'accueil **Asset Intelligence** et dans les rapports Asset Intelligence.  
 
-###  <a name="BKMK_AssetIntelligenceHomePage"></a> Asset Intelligence-Startseite  
- Auf der **Asset Intelligence** -Startseite wird eine Zusammenfassung von Asset Intelligence-Kataloginformationen angezeigt. Auf der Startseite können Sie Informationen zur Katalogsynchronisierung und zum Status für inventarisierte Software anzeigen. Die **Asset Intelligence** -Startseite ist in folgende Abschnitte untergliedert:  
+###  <a name="BKMK_AssetIntelligenceHomePage"></a> Page d’accueil d’Asset Intelligence  
+ La page d'accueil d' **Asset Intelligence** contient un tableau de bord récapitulant les informations du catalogue Asset Intelligence. Sur la page d'accueil, vous pouvez visualiser des informations sur la synchronisation du catalogue et l'état des logiciels inventoriés. La page d'accueil d' **Asset Intelligence** comporte les sections suivantes :  
 
--   **Katalogsynchronisierung**: Enthält Informationen darüber, ob Asset Intelligence aktiviert ist, über den aktuellen Status des Asset Intelligence-Synchronisierungspunkts, den Synchronisierungszeitplan, ferner darüber, ob die Kundenlizenzzusammenfassung importiert wird und wann der Status zuletzt aktualisiert wurde. Außerdem enthält der Bereich Informationen über den Zeitpunkt des nächsten geplanten Updates und über die Anzahl der vorgenommenen Änderungen seit der Installation des Asset Intelligence-Synchronisierungspunkt-Standortsystems.  
+-   **Synchronisation de catalogue**: indique si Asset Intelligence est activé, l’état du point de synchronisation Asset Intelligence, la planification de la synchronisation, si la déclaration de licence du client est importée, la date/heure de la dernière mise à jour de l’état et de la prochaine mise à jour planifiée et le nombre de modifications effectuées après l’installation du système de site du point de synchronisation Asset Intelligence.  
 
     > [!NOTE]  
-    >  Der Synchronisierungsbereich des Asset Intelligence-Katalogs auf der **Asset Intelligence** -Startseite wird nur angezeigt, wenn eine Standortsystemrolle für den Asset Intelligence-Synchronisierungspunkt installiert wurde.  
+    >  La section de synchronisation du catalogue Asset Intelligence de la page d'accueil **Asset Intelligence** s'affiche uniquement si un rôle de système de site du point de synchronisation Asset Intelligence a été installé.  
 
--   **Status für inventarisierte Software**: Enthält die Anzahl und den Prozentsatz inventarisierter Software, Softwarekategorien und Softwarefamilien, die von Microsoft oder einem Administrator identifiziert wurden, deren Onlineidentifikation aussteht oder die nicht identifiziert sind und deren Onlineidentifikation nicht ausstehend ist. Die Informationen im Tabellenformat repräsentieren die jeweilige Anzahl, die Informationen im Diagramm den jeweiligen Prozentsatz.  
+-   **État des logiciels inventoriés**: indique le nombre et le pourcentage de logiciels, catégories de logiciels et familles de logiciels inventoriés qui sont identifiés par Microsoft, identifiés par un utilisateur administratif, en attente d’identification en ligne ou non identifiés et pas en attente. Les informations affichées dans un tableau indiquent le nombre pour chacun des éléments, tandis que les informations affichées dans le graphique indiquent le pourcentage de chacun des éléments.  
 
- Gehen Sie wie folgt vor, um Asset Intelligence-Informationen auf der **Asset Intelligence** -Startseite anzuzeigen.  
+ Utilisez la procédure suivante pour afficher les informations Asset Intelligence sur la page d'accueil **Asset Intelligence** .  
 
-##### <a name="to-view-asset-intelligence-information-on-the-asset-intelligence-home-page"></a>So zeigen Sie Asset Intelligence-Informationen auf der Asset Intelligence-Startseite an  
+##### <a name="to-view-asset-intelligence-information-on-the-asset-intelligence-home-page"></a>Pour afficher les informations Asset Intelligence sur la page d'accueil Asset Intelligence  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Bestand und Kompatibilität**.  
+1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.  
 
-2.  Klicken Sie im Arbeitsbereich **Bestand und Kompatibilität** auf **Asset Intelligence**. Die Asset Intelligence-Berichte werden angezeigt.  
+2.  Dans l'espace de travail **Biens et conformité** , cliquez sur **Asset Intelligence**. Les rapports Asset Intelligence s'affichent.  
 
-###  <a name="BKMK_AssetIntelligenceReports"></a> Asset Intelligence-Berichte  
- Es sind über 60 Asset Intelligence-Berichte verfügbar, die die von Asset Intelligence gesammelten Informationen anzeigen. Viele dieser Berichte sind mit detaillierteren Berichten verknüpft, sodass Sie allgemeine Informationen abfragen und dann per Drilldown ausführlichere Informationen anzeigen können. Sie finden die Asset Intelligence-Berichte in der Configuration Manager-Konsole im Arbeitsbereich **Überwachung** unter dem Knoten **Berichterstellung**. Die Berichte enthalten Informationen zu Hardware, Lizenzverwaltung und Software. Weitere Informationen zu Berichten in Configuration Manager finden Sie unter [Berichterstellung in System Center Configuration Manager](../../../../core/servers/manage/reporting.md).  
+###  <a name="BKMK_AssetIntelligenceReports"></a> Rapports Asset Intelligence  
+ Il existe plus de 60 rapports Asset Intelligence qui affichent les informations collectées par Asset Intelligence. La plupart de ces rapports renvoient vers des rapports plus spécifiques qui permettent de rechercher des informations générales et d'accéder à des informations plus détaillées. Les rapports Asset Intelligence se trouvent dans la console Configuration Manager, dans l’espace de travail **Surveillance**, sous le nœud **Rapports**. Les rapports fournissent des informations sur les matériels, la gestion des licences et les logiciels. Pour plus d’informations sur les rapports Configuration Manager, consultez [Génération de rapports dans System Center Configuration Manager](../../../../core/servers/manage/reporting.md).  
 
 > [!NOTE]  
->  Die Genauigkeit der in Asset Intelligence-Berichten angezeigten Anzahl installierter Softwaretitel und der Lizenzinformationen kann aufgrund komplizierter Abhängigkeiten und Einschränkungen bei der Inventur von Softwarelizenzinformationen für die in Unternehmen installierten Softwaretitel von der tatsächlichen Anzahl installierter Softwaretitel oder verwendeter Lizenzen in Unternehmensumgebungen abweichen. Asset Intelligence-Berichte sollten bei der Prüfung der erworbenen Softwarelizenzen nicht als alleinige Quelle herangezogen werden.  
+>  L'exactitude des nombres de titres de logiciels et des informations de licence affichés dans les rapports Asset Intelligence peut varier par rapport au nombre réel de titres de logiciels installés ou de licences utilisées dans l'environnement. Ceci est dû aux dépendances complexes et aux limitations propres à l'inventaire des informations de licences logicielles pour les titres de logiciels installés dans les environnements d'entreprise. N'utilisez pas uniquement Asset Intelligence pour déterminer la conformité des licences logicielles achetées.  
 
- Gehen Sie wie folgt vor, um Asset Intelligence-Informationen mithilfe der Asset Intelligence-Berichte anzuzeigen.  
+ Utilisez la procédure suivante pour afficher les informations Asset Intelligence en utilisant les rapports Asset Intelligence.  
 
-##### <a name="to-view-collected-asset-intelligence-information-by-using-asset-intelligence-reports"></a>So zeigen Sie die gesammelten Asset Intelligence-Informationen mithilfe der Asset Intelligence-Berichte an  
+##### <a name="to-view-collected-asset-intelligence-information-by-using-asset-intelligence-reports"></a>Pour afficher les informations Asset Intelligence collectées en utilisant les rapports Asset Intelligence  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Überwachung**.  
+1.  Dans la console Configuration Manager, cliquez sur **Surveillance**.  
 
-2.  Erweitern Sie im Arbeitsbereich **Überwachung** den Knoten **Berichterstattung**, dann **Berichte**, und klicken Sie auf **Asset Intelligence**. Die Asset Intelligence-Berichte werden angezeigt.  
+2.  Dans l'espace de travail **Surveillance** , développez **Rapports**et **Rapports**, puis cliquez sur **Asset Intelligence**. Les rapports Asset Intelligence s'affichent.  
 
     > [!WARNING]  
-    >  Wenn unter dem Knoten **Berichte** keine Berichtsordner vorhanden sind, überprüfen Sie, ob Sie die Berichterstattung konfiguriert haben. Weitere Informationen finden Sie unter [Konfigurieren der Berichterstellung in System Center Configuration Manager](../../../../core/servers/manage/configuring-reporting.md).  
+    >  Si aucun dossier de rapport n'existe sous le noeud **Rapports** , vérifiez que vous avez configuré la création de rapports. Pour plus d’informations, consultez [Configuration de la génération de rapports dans System Center Configuration Manager](../../../../core/servers/manage/configuring-reporting.md).  
 
-3.  Wählen Sie den Asset Intelligence-Bericht aus, der ausgeführt werden soll, und klicken Sie dann auf der Registerkarte **Startseite** in der Gruppe **Berichtsgruppe** auf **Ausführen**.  
+3.  Sélectionnez le rapport Asset Intelligence à exécuter, puis dans l'onglet **Accueil** , dans le groupe **Groupe de rapports** , cliquez sur **Exécuter**.  
 
-##  <a name="BKMK_SynchronizeTheCatalog"></a> Synchronisieren des Asset Intelligence-Katalogs  
- Sie können den lokalen Asset Intelligence-Katalog mit System Center Online synchronisieren, um die aktuellste Softwaretitelkategorisierung abzurufen. Wenn Sie die Katalogsynchronisierung mit System Center Online manuell anfordern, kann es mindestens 15 Minuten dauern, bis der Synchronisierungsprozess mit System Center Online abgeschlossen ist. Configuration Manager aktualisiert die Einstellung **Letztes erfolgreiches Update** auf der **Asset Intelligence**-Startseite mit der aktuellen Zeit, zu der die Synchronisierung erfolgreich abgeschlossen wurde.  
+##  <a name="BKMK_SynchronizeTheCatalog"></a> Synchroniser le catalogue Asset Intelligence  
+ Vous pouvez synchroniser le catalogue local Asset Intelligence avec System Center Online pour récupérer la dernière catégorisation de titres de logiciels. Quand vous demandez manuellement la synchronisation du catalogue avec System Center Online, l’achèvement du processus de synchronisation avec System Center Online peut prendre 15 minutes ou plus. Configuration Manager met à jour le paramètre **Dernière mise à jour réussie** dans la page d’accueil d’**Asset Intelligence** avec l’heure à laquelle la synchronisation se termine.  
 
 > [!NOTE]  
->  Bevor das in diesem Thema beschriebenen Verfahren angewendet werden kann, muss eine Standortsystemrolle für den Asset Intelligence-Synchronisierungspunkt installiert werden. Weitere Informationen zum Installieren eines Asset Intelligence-Synchronisierungspunkts finden Sie im Abschnitt [Konfigurieren von Asset Intelligence in System Center Configuration Manager](../../../../core/clients/manage/asset-intelligence/configuring-asset-intelligence.md).  
+>  Pour pouvoir utiliser les procédures, vous devez installer préalablement un rôle de système de site de point de synchronisation Asset Intelligence. Pour plus d’informations sur l’installation d’un point de synchronisation Asset Intelligence, consultez [Configuration d’Asset Intelligence dans System Center Configuration Manager](../../../../core/clients/manage/asset-intelligence/configuring-asset-intelligence.md).  
 
- Gehen Sie wie folgt vor, um einen Synchronisierungszeitplan für den Asset Intelligence-Katalog zu erstellen.  
+ Utilisez la procédure suivante pour créer une planification de synchronisation pour le catalogue Asset Intelligence.  
 
-#### <a name="to-create-a-synchronization-schedule-for-the-asset-intelligence-catalog"></a>So erstellen Sie einen Synchronisierungszeitplan für den Asset Intelligence-Katalog  
+#### <a name="to-create-a-synchronization-schedule-for-the-asset-intelligence-catalog"></a>Pour créer une planification de synchronisation pour le catalogue Asset Intelligence  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Bestand und Kompatibilität**.  
+1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.  
 
-2.  Klicken Sie im Arbeitsbereich **Bestand und Kompatibilität** auf **Asset Intelligence**.  
+2.  Dans l'espace de travail **Biens et conformité** , cliquez sur **Asset Intelligence**.  
 
-3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** auf **Synchronisieren**und dann auf **Synchronisierung planen**.  
+3.  Sur l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Synchroniser**, puis sur **Planifier la synchronisation**.  
 
-4.  Wählen Sie im Dialogfeld **Zeitplan für Asset Intelligence-Synchronisierungspunkt** die Option **Synchronisierung nach Zeitplan aktivieren**aus, und konfigurieren Sie dann einen einfachen oder benutzerdefinierten Zeitplan.  
+4.  Dans la boîte de dialogue **Planification de point de synchronisation Asset Intelligence** , sélectionnez **Activer la synchronisation dans un calendrier**, puis définissez une planification simple ou personnalisée.  
 
-5.  Klicken Sie zum Speichern der Änderungen auf **OK** .  
+5.  Cliquez sur **OK** pour enregistrer les modifications.  
 
     > [!NOTE]  
-    >  Weitere Informationen zum Synchronisierungszeitplan einschließlich der nächsten geplanten Synchronisierung finden Sie im Knoten **Asset Intelligence** im Arbeitsbereich **Bestand und Kompatibilität** im Standort der obersten Ebene der Hierarchie.  
+    >  Pour plus d’informations sur la planification de la synchronisation, y compris la prochaine synchronisation planifiée, consultez le nœud **Asset Intelligence** dans l’espace de travail **Ressources et Conformité** sur le site de niveau supérieur de la hiérarchie.  
 
- Gehen Sie wie folgt vor, um den Asset Intelligence-Katalog manuell zu synchronisieren.  
+ Utilisez la procédure suivante pour synchroniser manuellement le catalogue Asset Intelligence.  
 
 > [!WARNING]  
->  Von System Center Online wird innerhalb eines Zeitraums von 12 Stunden nur eine Synchronisierungsanforderung zugelassen.  
+>  System Center Online n'accepte qu'une seule demande de synchronisation manuelle sur une période de 12 heures.  
 
-###  <a name="BKMK_ManuallySynchronizeCatalog"></a> So führen Sie eine manuelle Synchronisierung des Asset Intelligence-Katalogs durch  
+###  <a name="BKMK_ManuallySynchronizeCatalog"></a> Pour synchroniser manuellement le catalogue Asset Intelligence  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Bestand und Kompatibilität**.  
+1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.  
 
-2.  Klicken Sie im Arbeitsbereich **Bestand und Kompatibilität** auf **Asset Intelligence**.  
+2.  Dans l'espace de travail **Biens et conformité** , cliquez sur **Asset Intelligence**.  
 
-3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** auf **Synchronisieren**, dann auf **Asset Intelligence-Katalog synchronisieren**und dann auf **OK**.  
+3.  Sur l'onglet **Accueil** , dans le groupe **Créer** , cliquez successivement sur **Synchroniser**, **Synchroniser le catalogue Asset Intelligence**et **OK**.  
 
-##  <a name="BKMK_CustomizeCatalog"></a> Anpassen des Asset Intelligence-Katalogs  
- Kategorisierungsinformationen zum Asset Intelligence-Katalog, die von System Center Online heruntergeladen wurden, werden schreibgeschützt in der Standortdatenbank gespeichert und können weder geändert noch gelöscht werden. Es können jedoch benutzerdefinierte Softwarekategorien, Softwarefamilien, Softwarebezeichnungen und Hardwareanforderungs-Kataloginformationen erstellt, geändert und gelöscht werden. Dann können benutzerdefinierte Kategorisierungsdaten anstatt der von System Center Online bereitgestellten Daten für vorhandene benutzerdefinierte Softwaretitelinformationen verwendet werden. Wenn Kategorisierungsinformationen geändert oder hinzugefügt werden, gelten die Kataloginformationen als benutzerdefiniert. Benutzerdefinierte Kategorisierungsinformationen werden in anderen Datenbanktabellen gespeichert als geprüfte Kataloginformationen.  
+##  <a name="BKMK_CustomizeCatalog"></a> Personnaliser le catalogue Asset Intelligence  
+ Les informations de catégorisation du catalogue Asset Intelligence envoyées par System Center Online sont stockées en lecture seule dans la base de données de site et elles ne peuvent donc pas être modifiées, ni supprimées. Toutefois, vous pouvez créer, modifier et supprimer des catégories de logiciels, des familles de logiciels, des légendes logicielles et des informations de configuration matérielle personnalisées dans le catalogue. Ensuite, vous pouvez utiliser les informations de catégorisation personnalisées à la place des informations fournies par System Center Online pour les informations de titres de logiciels définies par l'utilisateur ou existantes. Lorsque vous modifiez ou ajoutez des informations de catégorisation, les informations du catalogue sont considérées avoir été définies par l'utilisateur. Les informations de catégorisation définies par l'utilisateur ne sont pas stockées dans les mêmes tables de base de données que les informations validées du catalogue.  
 
-###  <a name="BKMK_SoftwareCategories"></a> Softwarekategorien  
- Asset Intelligence-Softwarekategorien werden zur groben Kategorisierung inventarisierter Softwaretitel verwendet sowie zum allgemeinen Gruppieren spezifischerer Softwarefamilien. Eine Softwarekategorie könnte beispielsweise ein Energieversorgungsunternehmen sein und eine Softwarefamilie innerhalb dieser Softwarekategorie beispielsweise Öl und Gas oder Wasserenergie. Viele Softwarekategorien sind im Asset Intelligence-Katalog vordefiniert. Zusätzliche benutzerdefinierte Kategorien können hinzugefügt werden, um die inventarisierte Software näher zu definieren. Der Überprüfungszustand aller vordefinierten Softwarekategorien lautet immer **Überprüft**, während dem Asset Intelligence-Katalog hinzugefügte benutzerdefinierte Softwarekategorieinformationen als **Benutzerdefiniert**angegeben werden.  
+###  <a name="BKMK_SoftwareCategories"></a> Catégories de logiciels  
+ Les catégories de logiciels Asset Intelligence sont utilisées pour catégoriser de façon large les titres de logiciels inventoriés et pour les regroupements généraux de familles de logiciels plus spécifiques. Par exemple, « Société d'énergie » peut correspondre à une catégorie de logiciels, et « Pétrole », « Gaz » ou « Hydroélectrique » peuvent correspondre à des familles de logiciels dans cette catégorie. La plupart des catégories de logiciels sont prédéfinies dans le catalogue Asset Intelligence et des catégories définies par l'utilisateur peuvent être créées pour définir plus précisément les logiciels inventoriés. L'état de validation de toutes les catégories de logiciels prédéfinies est toujours **Validé**, alors que les informations de catégories de logiciels personnalisées ajoutées au catalogue Asset Intelligence ont l'état **Défini par l'utilisateur**  
 
- Gehen Sie wie folgt vor, um eine benutzerdefinierte Softwarekategorie zu erstellen.  
+ Utilisez la procédure suivante pour créer une catégorie de logiciels définie par l'utilisateur.  
 
-##### <a name="to-create-a-user-defined-software-category"></a>So erstellen Sie eine benutzerdefinierte Softwarekategorie  
+##### <a name="to-create-a-user-defined-software-category"></a>Pour créer une catégorie de logiciels définie par l'utilisateur  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Bestand und Kompatibilität**.  
+1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.  
 
-2.  Klicken Sie im Arbeitsbereich **Bestand und Kompatibilität** auf **Asset Intelligence**, und klicken Sie dann auf **Katalog**.  
+2.  Dans l'espace de travail **Biens et conformité** , cliquez sur **Asset Intelligence**, puis sur **Catalogue**.  
 
-3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** auf **Softwarekategorie erstellen**.  
+3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer une catégorie logicielle**.  
 
-4.  Geben Sie auf der Seite **Allgemein** einen Namen und optional eine Beschreibung für die neue Softwarekategorie ein.  
-
-    > [!NOTE]  
-    >  Der Überprüfungszustand für alle selbst erstellten neuen Softwarekategorien ist immer auf **Benutzerdefiniert**eingestellt.  
-
-     Klicken Sie auf **Weiter**.  
-
-5.  Überprüfen Sie auf der Seite **Zusammenfassung** die Einstellungen, und klicken Sie dann auf **Weiter**.  
-
-6.  Klicken Sie auf der Seite **Abschluss des Vorgangs** zum Beenden des Assistenten auf **Schließen** .  
-
-###  <a name="BKMK_SoftwareFamilies"></a> Softwarefamilien  
- Mithilfe von Asset Intelligence-Softwarefamilien können inventarisierte Softwaretitel innerhalb von Softwarekategorien genauer definiert werden. Eine Softwarekategorie könnte beispielsweise ein Energieversorgungsunternehmen sein und eine Softwarefamilie innerhalb dieser Softwarekategorie beispielsweise Öl und Gas oder Wasserenergie. Viele Softwarefamilien sind im Asset Intelligence-Katalog vordefiniert. Zur Definition der inventarisierten Software können zusätzliche benutzerdefinierte Familien erstellt werden. Der Überprüfungszustand aller vordefinierten Softwarefamilien lautet immer **Überprüft**, während dem Asset Intelligence-Katalog hinzugefügte benutzerdefinierte Softwarefamilien als **Benutzerdefiniert**angegeben werden.  
-
- Gehen Sie wie folgt vor, um eine benutzerdefinierte Softwarefamilie zu erstellen.  
-
-##### <a name="to-create-a-user-defined-software-family"></a>So erstellen Sie eine benutzerdefinierte Softwarefamilie  
-
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Bestand und Kompatibilität**.  
-
-2.  Klicken Sie im Arbeitsbereich **Bestand und Kompatibilität** auf **Asset Intelligence**, und klicken Sie dann auf **Katalog**.  
-
-3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** auf **Softwarefamilie erstellen**.  
-
-4.  Geben Sie auf der Seite **Allgemein** einen Namen und optional eine Beschreibung für die neue Softwarefamilie ein.  
+4.  Sur la page **Général** , entrez le nom de la nouvelle catégorie de logiciels et, éventuellement, une description.  
 
     > [!NOTE]  
-    >  Der Überprüfungszustand für alle selbst erstellten neuen Softwarefamilien ist immer auf **Benutzerdefiniert**eingestellt.  
+    >  L'état de validation de toutes les nouvelles catégories personnalisées de logiciels est toujours **Défini par l'utilisateur**.  
 
-5.  Überprüfen Sie auf der Seite **Zusammenfassung** die Einstellungen, und klicken Sie dann auf **Weiter**.  
+     Cliquez sur **Suivant**.  
 
-6.  Klicken Sie auf der Seite **Abschluss des Vorgangs** zum Beenden des Assistenten auf **Schließen** .  
+5.  Sur la page **Résumé** , vérifiez les paramètres, puis cliquez sur **Suivant**.  
 
-###  <a name="BKMK_SoftwareLabels"></a> Softwarebezeichnungen  
- Mit benutzerdefinierten Softwarebezeichnungen können Sie in Asset Intelligence Filter zum Gruppieren von Softwaretiteln und zum Anzeigen der Softwaretitel in Asset Intelligence-Berichten erstellen. Sie können beispielsweise eine Softwarebezeichnung namens "Shareware" erstellen, diese einer Reihe von Anwendungen zuweisen und dann einen Bericht ausführen, in dem alle Titel mit der Bezeichnung "Shareware" aufgeführt werden. Der Überprüfungszustand ist für alle benutzerdefinierten Softwarebezeichnungen, die dem Asset Intelligence-Katalog hinzugefügt werden, auf **Benutzerdefiniert** eingestellt.  
+6.  Sur la page **Dernière étape** , cliquez sur **Fermer** pour quitter l'Assistant.  
 
- Gehen Sie wie folgt vor, um eine benutzerdefinierte Softwarebezeichnung zu erstellen.  
+###  <a name="BKMK_SoftwareFamilies"></a> Familles de logiciels  
+ Les familles de logiciels Asset Intelligence permettent de définir plus précisément les titres de logiciels dans les catégories de logiciels. Par exemple, « Société d'énergie » peut correspondre à une catégorie de logiciels, et « Pétrole », « Gaz » ou « Hydroélectrique » peuvent correspondre à des familles de logiciels dans cette catégorie. La plupart des familles de logiciels sont prédéfinies dans le catalogue Asset Intelligence et des familles additionnelles définies par l'utilisateur peuvent être créées pour définir les logiciels inventoriés. L'état de validation de toutes les familles de logiciels prédéfinies est toujours **Validé**, alors que les informations de familles de logiciels personnalisées ajoutées au catalogue Asset Intelligence ont l'état **Défini par l'utilisateur**  
 
-##### <a name="to-create-a-user-defined-software-label"></a>So erstellen Sie eine benutzerdefinierte Softwarebezeichnung  
+ Utilisez la procédure suivante pour créer une famille de logiciels définie par l'utilisateur.  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Bestand und Kompatibilität**.  
+##### <a name="to-create-a-user-defined-software-family"></a>Pour créer une famille de logiciels définie par l'utilisateur  
 
-2.  Klicken Sie im Arbeitsbereich **Bestand und Kompatibilität** auf **Asset Intelligence**, und klicken Sie dann auf **Katalog**.  
+1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.  
 
-3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** auf **Softwarebezeichnung erstellen**.  
+2.  Dans l'espace de travail **Biens et conformité** , cliquez sur **Asset Intelligence**, puis sur **Catalogue**.  
 
-4.  Geben Sie auf der Seite **Allgemein** einen Namen und optional eine Beschreibung für die neue Softwarefamilie ein.  
+3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer une famille logicielle**.  
+
+4.  Sur la page **Général** , entrez le nom de la nouvelle famille de logiciels et, éventuellement, une description.  
 
     > [!NOTE]  
-    >  Der Überprüfungszustand für alle selbst erstellten neuen Softwarebezeichnungen ist immer auf **Benutzerdefiniert**eingestellt.  
+    >  L'état de validation de toutes les nouvelles familles personnalisées de logiciels est toujours **Défini par l'utilisateur**.  
 
-5.  Überprüfen Sie auf der Seite **Zusammenfassung** die Einstellungen, und klicken Sie dann auf **Weiter**.  
+5.  Sur la page **Résumé** , vérifiez les paramètres, puis cliquez sur **Suivant**.  
 
-6.  Klicken Sie auf der Seite **Abschluss des Vorgangs** zum Beenden des Assistenten auf **Schließen** .  
+6.  Sur la page **Dernière étape** , cliquez sur **Fermer** pour quitter l'Assistant.  
 
-###  <a name="BKMK_HardwareRequirements"></a> Hardwareanforderungen  
- Mithilfe von Informationen zu Hardwareanforderungen kann überprüft werden, ob Computer die Hardwareanforderungen für Softwaretitel erfüllen, bevor auf ihnen Softwarebereitstellungen vorgenommen werden. Viele Hardwareanforderungen sind im Asset Intelligence-Katalog vordefiniert, und es können neue benutzerdefinierte Hardwareanforderungsinformationen erstellt werden, um benutzerdefinierten Anforderungen zu entsprechen. Der Überprüfungszustand aller vordefinierten Hardwareanforderungen lautet immer **Überprüft**, während dem Asset Intelligence-Katalog hinzugefügte benutzerdefinierte Hardwareanforderungen als **Benutzerdefiniert**angegeben werden.  
+###  <a name="BKMK_SoftwareLabels"></a> Légendes logicielles  
+ Les légendes logicielles personnalisées Asset Intelligence permettent de créer des filtres que vous pouvez utiliser pour regrouper les titres de logiciels et les afficher en utilisant des rapports Asset Intelligence. Par exemple, vous pouvez créer une légende logicielle appelée « logiciel à contribution volontaire », l'associer à un certain nombre d'applications, puis exécuter un rapport pour afficher tous les titres ayant la légende logicelle « logiciel à contribution volontaire ». L'état de validation est **Défini par l'utilisateur** pour toutes les légendes logicielles personnalisées que vous ajoutez au catalogue Asset Intelligence.  
+
+ Utilisez la procédure suivante pour créer une légende personnalisée définie par l'utilisateur.  
+
+##### <a name="to-create-a-user-defined-software-label"></a>Pour créer une légende logicielle définie par l'utilisateur  
+
+1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.  
+
+2.  Dans l'espace de travail **Biens et conformité** , cliquez sur **Asset Intelligence**, puis sur **Catalogue**.  
+
+3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer une légende logicielle**.  
+
+4.  Sur la page **Général** , entrez le nom de la nouvelle famille de logiciels et, éventuellement, une description.  
+
+    > [!NOTE]  
+    >  L'état de validation de toutes les nouvelles légendes logicielles personnalisées est toujours **Défini par l'utilisateur**.  
+
+5.  Sur la page **Résumé** , vérifiez les paramètres, puis cliquez sur **Suivant**.  
+
+6.  Sur la page **Dernière étape** , cliquez sur **Fermer** pour quitter l'Assistant.  
+
+###  <a name="BKMK_HardwareRequirements"></a> Configuration matérielle requise  
+ Les informations de configuration matérielle requise permettent de vérifier que les ordinateurs répondent à la configuration matérielle requise pour les titres de logiciels avant d'y déployer les logiciels. La plupart des configurations matérielles requises sont prédéfinies dans le catalogue Asset Intelligence et vous pouvez créer des informations de configuration matérielle définies par l'utilisateur pour répondre à des besoins spécifiques. L'état de validation de toutes les configurations matérielles requises prédéfinies est toujours **Validé**, tandis que celui des informations de configuration matérielle requise définies par l'utilisateur ajoutées au catalogue Asset Intelligence est **Défini par l'utilisateur**.  
 
 > [!IMPORTANT]  
->  Die in der Configuration Manager-Konsole angezeigten Hardwareanforderungen werden vom Asset Intelligence-Katalog auf dem lokalen Computer abgerufen und basieren nicht auf inventarisierten Informationen zu Softwaretiteln von System Center 2012 Configuration Manager-Clients. Die Hardwareanforderungsinformationen werden nicht als Teil der Synchronisierung mit System Center Online aktualisiert. Sie können benutzerdefinierte Hardwareanforderungen für inventarisierte Software erstellen, der keine Hardwareanforderungen zugeordnet sind.  
+>  Les informations de configuration matérielle requise figurant dans la console Configuration Manager sont tirées du catalogue Asset Intelligence sur l’ordinateur local et ne reposent pas sur les informations de titres de logiciels inventoriés sur les clients System Center 2012 Configuration Manager. Les informations de configuration matérielle requise ne sont pas mises à jour au cours de la synchronisation avec System Center Online. Vous pouvez créer une configuration matérielle requise définie par l'utilisateur pour le logiciel inventorié n'ayant pas de configuration matérielle.  
 
- Gehen Sie wie folgt vor, um benutzerdefinierte Hardwareanforderungen zu erstellen.  
+ Utilisez la procédure suivante pour créer une configuration matérielle requise définie par l'utilisateur.  
 
-##### <a name="to-create-a-user-defined-hardware-requirements"></a>So erstellen Sie benutzerdefinierte Hardwareanforderungen  
+##### <a name="to-create-a-user-defined-hardware-requirements"></a>Pour créer une configuration matérielle requise définie par l'utilisateur  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Bestand und Kompatibilität**.  
+1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.  
 
-2.  Klicken Sie im Arbeitsbereich **Bestand und Kompatibilität** auf **Asset Intelligence**, und klicken Sie dann auf **Hardwareanforderungen**.  
+2.  Dans l'espace de travail **Biens et conformité** , cliquez sur **Asset Intelligence**, puis sur **Configuration matérielle requise**.  
 
-3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** auf **Hardwareanforderungen erstellen**.  
+3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer la configuration matérielle requise**.  
 
-4.  Geben Sie auf der Seite **Allgemein** die folgenden Informationen ein:  
+4.  Sur la page **Général** , spécifiez les informations suivantes :  
 
-    1.  **Softwaretitel**: Gibt den Softwaretitel an, dem die Hardwareanforderungen zugeordnet sind. Der Softwaretitel darf im Asset Intelligence-Katalog noch nicht vorhanden sein.  
+    1.  **Nom du logiciel**: spécifie le nom du logiciel auquel la configuration matérielle requise est associée. Le titre du logiciel ne peut pas exister déjà dans le catalogue Asset Intelligence.  
 
-    2.  **Überprüfungszustand**: Gibt den Überprüfungszustand für die Hardwareanforderungen als **Benutzerdefiniert** an. Diese Einstellung kann nicht geändert werden.  
+    2.  **État de validation**: indique l’état de validation, tel que **Défini par l’utilisateur** , de la configuration matérielle requise. Vous ne pouvez pas modifier ce paramètre.  
 
-    3.  **Mindesttaktfrequenz der CPU (MHz)**: Gibt die Mindestprozessorgeschwindigkeit in Megahertz (MHz) an, die vom Softwaretitel benötigt wird.  
+    3.  **Vitesse min. du processeur (MHz)**: spécifie la vitesse minimale du processeur, en mégahertz (MHz), nécessaire au logiciel.  
 
-    4.  **Mindestgröße des RAM (KB)**: Gibt die Mindestgröße des Arbeitsspeichers in Kilobytes (KB) an, die vom Softwaretitel benötigt wird.  
+    4.  **Mémoire RAM minimum (Ko)**: spécifie la quantité de mémoire vive minimale en kilo-octets (Ko) nécessaire au logiciel.  
 
-    5.  **Mindestspeicherplatz auf dem Datenträger (KB)**: Gibt den freien Mindestspeicherplatz auf dem Datenträger in KB an, der vom Softwaretitel benötigt wird.  
+    5.  **Espace disque minimum (Ko)**: spécifie l’espace disque libre minimal en Ko nécessaire au logiciel.  
 
-    6.  **Mindestgröße des Datenträgers (KB)**: Gibt die für den Softwaretitel erforderliche Mindestgröße des Festplattenspeicherplatzes in KB an.  
+    6.  **Taille minimale du disque (Ko)**: spécifie l’espace disque libre minimal en Ko nécessaire au logiciel.  
 
-     Klicken Sie auf **Weiter**.  
+     Cliquez sur **Suivant**.  
 
-5.  Überprüfen Sie auf der Seite **Zusammenfassung** die Einstellungen, und klicken Sie dann auf **Weiter**.  
+5.  Sur la page **Résumé** , vérifiez les paramètres, puis cliquez sur **Suivant**.  
 
-6.  Klicken Sie auf der Seite **Abschluss des Vorgangs** zum Beenden des Assistenten auf **Schließen** .  
+6.  Sur la page **Dernière étape** , cliquez sur **Fermer** pour quitter l'Assistant.  
 
-###  <a name="BKMK_ModifyCategorization"></a> Ändern von Kategorisierungsinformationen für inventarisierte Software  
- Im Asset Intelligence-Katalog vordefinierte Software ist mit bestimmten Kategorisierungsinformationen beispielsweise zu Produktnamen, Hersteller, Softwarekategorie und Softwarefamilie konfiguriert. Wenn die vordefinierten Kategorisierungsinformationen Ihren Anforderungen nicht entsprechen, können Sie die Informationen in den Eigenschaften für den Softwaretitel ändern. Wenn Kategorisierungsinformationen für vordefinierte Software geändert werden, wird der Überprüfungszustand für die Software von **Überprüft** auf **Benutzerdefiniert**geändert.  
+###  <a name="BKMK_ModifyCategorization"></a> Modifier les informations de catégorisation des logiciels inventoriés  
+ Le logiciel prédéfini dans le catalogue Asset Intelligence est configuré avec des informations de catégorisation spécifiques, telles que le nom du produit, le fournisseur, la catégorie du logiciel et la famille du logiciel. Lorsque les informations de catégorisation prédéfinies ne répondent pas à vos besoins, vous pouvez modifier les informations dans les propriétés du titre du logiciel. Lorsque vous modifiez les informations de catégorisation des logiciels prédéfinis, l'état de validation **Validé** des modifications de logiciels devient **Défini par l'utilisateur**.  
 
 > [!IMPORTANT]  
->  Die Kategorisierungsinformationen können nur am Standort der obersten Ebene geändert werden.  
+>  Les informations de catégorisation peuvent être uniquement modifiées sur le site de niveau supérieur.  
 
- Gehen Sie wie folgt vor, um Kategorisierungsinformationen für inventarisierte Software zu ändern.  
+ Utilisez la procédure suivante pour modifier les informations de catégorisation des logiciels inventoriés.  
 
-##### <a name="to-modify-the-categorizations-for-software-titles"></a>So ändern Sie die Kategorisierungen für Softwaretitel  
+##### <a name="to-modify-the-categorizations-for-software-titles"></a>Pour modifier les catégorisations des titres de logiciels  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Bestand und Kompatibilität**.  
+1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.  
 
-2.  Klicken Sie im Arbeitsbereich **Bestand und Kompatibilität** auf **Asset Intelligence**, und klicken Sie dann auf **Inventarisierte Software**.  
+2.  Dans l'espace de travail **Biens et conformité** , cliquez sur **Asset Intelligence**, puis sur **Logiciels inventoriés**.  
 
-3.  Wählen Sie mindestens einen Softwaretitel aus, für den Kategorisierungen geändert werden sollen.  
+3.  Sélectionnez le ou les titres de logiciels dont vous voulez modifier les catégorisations.  
 
-4.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Eigenschaften** auf **Eigenschaften**.  
+4.  Dans l'onglet **Accueil** , dans le groupe **Propriétés** , cliquez sur **Propriétés**.  
 
-5.  Auf der Registerkarte **Allgemein** können Sie die folgenden Kategorisierungsinformationen ändern:  
+5.  Sur l'onglet **Général** , vous pouvez modifier les informations de catégorisation suivantes :  
 
-    -   **Produktname**: Gibt den Namen des inventarisierten Softwaretitels an.  
+    -   **Nom du produit**: spécifie le nom du logiciel inventorié.  
 
-    -   **Hersteller**: Gibt den Namen des Herstellers an, der den inventarisierten Softwaretitel entwickelt hat.  
+    -   **Fournisseur**: spécifie le nom du fournisseur qui a développé le logiciel inventorié.  
 
-    -   **Kategorie**: Gibt die Softwarekategorie an, die dem inventarisierten Softwaretitel derzeit zugewiesen ist.  
+    -   **Catégorie**: spécifie la catégorie de logiciels actuellement affectée au logiciel inventorié.  
 
-    -   **Familie**: Gibt die Softwarefamilie an, die dem inventarisierten Softwaretitel derzeit zugewiesen ist.  
+    -   **Famille**: spécifie la famille de logiciels actuellement affectée au logiciel inventorié.  
 
-6.  Klicken Sie zum Speichern der Änderungen auf **OK** .  
+6.  Cliquez sur **OK** pour enregistrer les modifications.  
 
- Gehen Sie wie folgt vor, um die ursprünglichen Kategorisierungsinformationen für Software wiederherzustellen.  
+ Utilisez la procédure suivante pour restaurer les informations de catégorisation d'origine d'un logiciel.  
 
-### <a name="revert-categorization-information-to-original-settings-for-software"></a>Wiederherstellen der ursprünglichen Kategorisierungsinformationen für Software  
- In Configuration Manager werden von System Center Online erhaltene Kategorisierungsinformationen in der Datenbank gespeichert. Die Informationen können nicht gelöscht werden. Nach Änderungen an den Informationen können die Kategorisierungsinformationen wieder auf die System Center Online-Kategorisierung zurückgesetzt werden. Auch inventarisierte Software, die sich nicht im Asset Intelligence-Katalog befindet, kann auf die ursprünglichen Einstellungen zurückgesetzt werden.  
+### <a name="revert-categorization-information-to-original-settings-for-software"></a>Restaurer les paramètres d’origine des informations de catégorisation des logiciels  
+ Configuration Manager stocke les informations de catégorisation obtenues de System Center Online dans la base de données. Les informations ne peuvent pas être supprimées. Une fois les informations modifiées, vous pouvez restaurer les informations de catégorisation System Center Online. Vous pouvez également restaurer les paramètres d'origine des logiciels inventoriés qui ne figurent pas dans le catalogue Asset Intelligence.  
 
- Gehen Sie wie folgt vor, um die ursprünglichen Kategorisierungsinformationen wiederherzustellen.  
+ Utilisez la procédure suivante pour restaurer les paramètres d'origine des informations de catégorisation.  
 
-##### <a name="to-revert-categorization-information-to-original-settings"></a>So stellen Sie die ursprünglichen Kategorisierungsinformationen wieder her  
+##### <a name="to-revert-categorization-information-to-original-settings"></a>Pour restaurer les paramètres d'origine des informations de catégorisation  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Bestand und Kompatibilität**.  
+1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.  
 
-2.  Klicken Sie im Arbeitsbereich **Bestand und Kompatibilität** auf **Asset Intelligence**, und klicken Sie dann auf **Inventarisierte Software**.  
+2.  Dans l'espace de travail **Biens et conformité** , cliquez sur **Asset Intelligence**, puis sur **Logiciels inventoriés**.  
 
-3.  Wählen Sie mindestens einen Softwaretitel aus, bei dem Sie die ursprünglichen Einstellungen wiederherstellen möchten. Es können nur bei Softwaretiteln mit dem Zustand **Benutzerdefiniert** die ursprünglichen Kategorisierungsinformationen wiederhergestellt werden.  
+3.  Sélectionnez le ou les titres de logiciels dont vous voulez restaurer les paramètres d'origine. Seuls les logiciels ayant l'état **Défini par l'utilisateur** peuvent faire l'objet d'une restauration.  
 
     > [!TIP]  
-    >  Klicken Sie auf die Spalte **Zustand** , um nach dem Überprüfungszustand zu sortieren. Durch Sortieren erhalten Sie einen Softwareüberblick nach Überprüfungszustand und können im Handumdrehen mehrere Elemente auswählen, um für diese die ursprünglichen Einstellungen wiederherzustellen.  
+    >  Cliquez sur la colonne **État** pour trier selon l'état de validation. Le tri vous permet de voir tous les logiciels en fonction de leur état de validation et de sélectionner rapidement plusieurs éléments pour rétablir les paramètres d'origine.  
 
-4.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Produkt** auf **Wiederherstellen**.  
+4.  Dans l'onglet **Accueil** , dans le groupe **Produit** , cliquez sur **Restaurer**.  
 
-5.  Klicken Sie auf **Ja** , um die ursprünglichen Kategorisierungsinformationen der Software wiederherzustellen.  
+5.  Cliquez sur **Oui** pour restaurer les informations de catégorisation d'origine du logiciel.  
 
-6.  Wenn Sie Kategorisierungsinformationen für Software wiederherstellen, die sich im Asset Intelligence-Katalog befindet, ändert sich der Überprüfungszustand von **Benutzerdefiniert** in **Überprüft**. Wenn Sie Software wiederherstellen, die sich nicht im Katalog befindet, ändert sich der Überprüfungszustand von **Benutzerdefiniert** in **Nicht kategorisiert**.  
+6.  Lorsque vous restaurez les informations de catégorisation d'un logiciel qui se trouve dans le catalogue Asset Intelligence, l'état de validation passe de **Défini par l'utilisateur** à **Validé**. Lorsque vous restaurez un logiciel qui n'est pas dans le catalogue, l'état de validation passe de **Défini par l'utilisateur** à **Sans catégorie**.  
 
-##  <a name="BKMK_RequestCatalogUpdate"></a> Anfordern eines Katalogupdates für nicht kategorisierte Softwaretitel  
- Informationen zu nicht kategorisierten Softwaretiteln können zu Recherche- und Kategorisierungszwecken an System Center Online übermittelt werden. Nach der Übermittlung eines nicht kategorisierten Softwaretitels identifizieren und kategorisieren Entwicklungsmitarbeiter den Softwaretitel und stellen die Informationen zur Softwaretitelkategorisierung dann über System Center Online für alle Kunden zur Verfügung. Voraussetzung ist allerdings, dass mindestens vier Kategorisierungsanforderungen von Kunden für diesen Softwaretitel vorliegen. Microsoft verleiht den Softwaretiteln die höchste Priorität, deren Kategorisierung am häufigsten angefordert wurde. Benutzerdefinierte Software und Branchenanwendungen erhalten i. d. R. keine Kategorie. Es empfiehlt sich daher, diese Softwaretitel nicht zur Kategorisierung an Microsoft zu senden.  
+##  <a name="BKMK_RequestCatalogUpdate"></a> Demander une mise à jour du catalogue pour les logiciels sans catégorie  
+ Les informations sur les noms de logiciels sans catégorie peuvent être soumises à System Center Online afin d'être examinées et catégorisées. Une fois qu'un logiciel sans catégorie est soumis et s'il existe au moins 4 demandes de catégorisation de la part de clients pour le même logiciel, les fonctions de recherche identifient, classent, puis mettent les informations de catégorisation des logiciels à la disposition de tous les clients qui utilisent le service System Center Online. Microsoft donne la priorité la plus élevée aux logiciels qui possèdent le plus de requêtes de catégorisation. Les logiciels personnalisés et les applications métier sont peu susceptibles de recevoir une catégorie, et nous vous conseillons de ne pas envoyer ces logiciels à Microsoft pour catégorisation.  
 
- Wenn Informationen zu nicht kategorisierten Softwaretiteln an System Center Online übermittelt werden, gelten die folgenden Bedingungen.  
+ Lorsque des informations sur les noms de logiciels sont soumises à System Center Online pour catégorisation, les conditions suivantes s'appliquent :  
 
--   Nur grundlegende Informationen zum Softwaretitel werden an System Center Online übermittelt, und die zu kategorisierenden Softwaretitelinformationen können vor der Übermittlung überprüft werden.  
+-   Seules les informations de base sur les noms de logiciels sont transmises à System Center Online, et elles peuvent être vérifiées avant leur soumission.  
 
--   Softwarelizenzinformationen werden nicht übermittelt.  
+-   Aucune information de licence de logiciel n'est transmise.  
 
--   Jeder aktualisierte Softwaretitel wird als Teil des System Center Online-Katalogs öffentlich zur Verfügung gestellt und kann von anderen Kunden heruntergeladen werden.  
+-   Les noms de logiciels téléchargés sont ouvertement publiés dans le catalogue de System Center Online et peuvent être téléchargés par d'autres clients.  
 
--   Die Quelle des Softwaretitels wird nicht im System Center Online-Katalog gespeichert. Allerdings sollten Anwendungstitel, die vertrauliche oder proprietäre Informationen enthalten, nicht zur Kategorisierung durch System Center Online übermittelt werden.  
+-   La source du nom du logiciel n'est pas stockée dans le catalogue de System Center Online. Toutefois, il est recommandé de ne pas soumettre à System Center Online des noms d'applications contenant des informations propriétaires ou confidentielles.  
 
 > [!NOTE]  
->  Weitere Informationen zum Datenschutz in Asset Intelligence finden Sie unter [Sicherheit und Datenschutz für Asset Intelligence in System Center Configuration Manager](../../../../core/clients/manage/asset-intelligence/security-and-privacy-for-asset-intelligence.md).  
+>  Pour en savoir plus sur les informations de confidentialité Asset Intelligence, consultez [Sécurité et confidentialité pour Asset Intelligence dans System Center Configuration Manager](../../../../core/clients/manage/asset-intelligence/security-and-privacy-for-asset-intelligence.md).  
 
- Gehen Sie wie folgt vor, um eine Softwaretitelkategorisierung für den Asset Intelligence-Katalog von System Center Online anzufordern.  
+ Procédez comme suit pour demander à System Center Online la catégorisation d'un nom de logiciel du catalogue Asset Intelligence.  
 
-#### <a name="to-request-a-catalog-update-for-uncategorized-software-titles"></a>So fordern Sie ein Katalogupdate für nicht kategorisierte Softwaretitel an  
+#### <a name="to-request-a-catalog-update-for-uncategorized-software-titles"></a>Pour demander une mise à jour du catalogue pour les logiciels sans catégorie  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Bestand und Kompatibilität**.  
+1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.  
 
-2.  Klicken Sie im Arbeitsbereich **Bestand und Kompatibilität** auf **Asset Intelligence**, und klicken Sie dann auf **Inventarisierte Software**.  
+2.  Dans l'espace de travail **Biens et conformité** , cliquez sur **Asset Intelligence**, puis sur **Logiciels inventoriés**.  
 
-3.  Wählen Sie mindestens einen zur Kategorisierung an System Center Online zu übermittelnden Produktnamen aus. Nur nicht kategorisierte inventarisierte Softwaretitel können zur Kategorisierung an System Center Online übermittelt werden. Wenn ein inventarisierter Softwaretitel von einem Administrator kategorisiert wurde und das zu einem benutzerdefinierten Zustand geführt hat, müssen Sie mit der rechten Maustaste auf den inventarisierten Softwaretitel und dann auf **Wiederherstellen** klicken, um den Softwaretitel in den Zustand **Nicht kategorisiert** zurückzusetzen, bevor er zur Kategorisierung an System Center Online übermittelt werden kann.  
+3.  Sélectionnez un ou plusieurs noms de produits à soumettre à System Center Online pour catégorisation. Seuls les noms de logiciels inventoriés sans catégorie peuvent être soumis. Si un logiciel inventorié a été catégorisé par un administrateur, entraînant un état défini par l'utilisateur, vous devez cliquer dessus avec le bouton droit, puis cliquer sur **Restaurer** pour rétablir le logiciel dans l'état **Sans catégorie** avant qu'il puisse être soumis à System Center Online pour catégorisation.  
 
     > [!NOTE]  
-    >  In Configuration Manager können bis zu 100 Softwaretitel gleichzeitig zur Kategorisierung verarbeitet werden. Wenn Sie eine höhere Anzahl auswählen, werden nur die ersten 100 Softwaretitel verarbeitet. Sie müssen die verbleibenden zu kategorisierenden Softwaretitel stapelweise auswählen, wobei sich weniger als 100 Softwaretitel im jeweiligen Stapel befinden dürfen.  
+    >  Configuration Manager peut traiter jusqu’à 100 titres de logiciels à la fois pour catégorisation. Si vous sélectionnez plus de 100 logiciels, seuls les 100 premiers logiciels seront traités. Vous devez sélectionner les logiciels restants pour catégorisation par lots de moins de 100.  
 
     > [!TIP]  
-    >  Klicken Sie auf die Spalte **Zustand** , um nach dem Überprüfungszustand zu sortieren. Mit dieser Aktion können Sie alle nicht kategorisierten Produktnamen anzeigen und schnell mehrere Elemente auswählen, um eine Kategorisierungsanforderung für diese zu übermitteln.  
+    >  Cliquez sur la colonne **État** pour trier selon l'état de validation. Cela vous permet de voir tous les noms de produit sans catégorie et de sélectionner rapidement plusieurs éléments à soumettre pour catégorisation.  
 
-4.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Produkt** auf **Katalogupdate anfordern**.  
+4.  Dans l'onglet **Accueil** , dans le groupe **Produit** , cliquez sur **Demander une mise à jour du catalogue**.  
 
-5.  Lesen Sie die Datenschutzmeldung zur Kategorisierungsübermittlung an System Center Online. Klicken Sie auf **Details** , um die Informationen anzuzeigen, die an System Center Online gesendet werden.  
+5.  Consultez le message de confidentialité de soumission de catégorisation de System Center Online. Cliquez sur **Détails** pour afficher les informations qui seront envoyées à System Center Online.  
 
-6.  Wählen Sie **Ich habe diese Meldung gelesen und verstanden**aus, und klicken Sie dann auf **OK** , damit die ausgewählten Softwaretitel zur Kategorisierung übermittelt werden können.  
+6.  Sélectionnez **J'ai bien lu et compris ce message**, puis cliquez sur **OK** pour autoriser les logiciels sélectionnés à être soumis à la catégorisation.  
 
-7.  Überprüfen Sie, ob sich der Zustand der Namen von inventarisierten Softwareprodukten, die an System Center Online zur Kategorisierung übermittelt wurden, von **Nicht kategorisiert** in **Ausstehend**ändert.  
+7.  Vérifiez que l'état des noms de produits logiciels inventoriés soumis à System Center Online pour catégorisation est passé de **Sans catégorie** à **En attente**.  
 
     > [!NOTE]  
-    >  Software, die an System Center Online zur Kategorisierung übermittelt wurde, hat zwar den Überprüfungszustand **Ausstehend** am zentralen Verwaltungsstandort, wird jedoch an untergeordneten primären Standorten mit dem Überprüfungszustand **Nicht kategorisiert** angezeigt.  
+    >  L'état de validation du logiciel soumis à System Center Online pour catégorisation est **En attente** sur un site d'administration centrale mais sur les sites principaux enfant, l'état de validation affiché pour ces éléments continue d'être **Sans catégorie** .  
 
-##  <a name="BKMK_ResolveSoftwareDetails"></a> Auflösen von Konflikten zwischen Softwaredetails  
- Wenn neu aktualisierte Softwarekategorisierungsdetails von System Center Online empfangen wurden, die in Konflikt mit vorhandenen Softwaredetailinformationen stehen, haben Sie die Möglichkeit auszuwählen, wie Sie den Konflikt auflösen möchten. Software, bei der ein aktueller Konflikt vorliegt, hat den Überprüfungszustand **Aktualisierbar**. Nach der Lösung des Konflikts zwischen Softwaredetails verbleiben die Softwarekategorisierungsinformationen entsprechend der festgelegten Einstellungen im Asset Intelligence-Katalog. Für denselben Softwarekategorisierungswert tritt kein erneuter Konflikt zwischen Softwaredetails auf, es sei denn, der System Center Online-Wert wird nach Lösung des Konflikts geändert.  
+##  <a name="BKMK_ResolveSoftwareDetails"></a> Résoudre les conflits de détails de logiciel  
+ Suite à la réception par System Center Online de détails de catégorisation de logiciels nouvellement mis à jour et qui entrent en conflit avec des informations détaillées de logiciels existants, vous pouvez choisir la manière dont le conflit sera résolu. L'état de validation d'un logiciel en conflit est **Peut être mis à jour**. Après la résolution d'un conflit de détails de logiciel, les informations de catégorisation de logiciels sont conservées dans le catalogue Asset Intelligence en fonction des paramètres que vous avez définis. Un conflit de détails de logiciel ne peut pas se produire plusieurs fois pour la même valeur de catégorisation de logiciels à moins que la valeur System Center Online soit modifiée après la résolution du conflit.  
 
- Gehen Sie wie folgt vor, um einen Konflikt zwischen Softwaredetails aufzulösen.  
+ Procédez comme suit pour résoudre un conflit de détails de logiciel.  
 
-#### <a name="to-resolve-a-software-details-conflict"></a>So lösen Sie einen Konflikt zwischen Softwaredetails auf  
+#### <a name="to-resolve-a-software-details-conflict"></a>Pour résoudre un conflit de détails de logiciel  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Bestand und Kompatibilität**.  
+1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.  
 
-2.  Klicken Sie im Arbeitsbereich **Bestand und Kompatibilität** auf **Asset Intelligence**, und klicken Sie dann auf **Inventarisierte Software**.  
+2.  Dans l'espace de travail **Biens et conformité** , cliquez sur **Asset Intelligence**, puis sur **Logiciels inventoriés**.  
 
-3.  Überprüfen Sie die Spalte **Zustand** für Softwaretitel mit dem Zustand **Aktualisierbar** .  
+3.  Passez en revue la colonne **État** pour les logiciels dont l'état est **Peut être mis à jour** .  
 
-4.  Wählen Sie den Softwaretitel aus, für den es einen Konflikt zu beheben gilt, und klicken Sie dann auf der Registerkarte **Startseite** in der Gruppe **Produkt** auf **Konflikt beheben**.  
+4.  Sélectionnez le logiciel pour lequel vous devez résoudre un conflit, puis sur l'onglet **Accueil** , dans le groupe **Produit** , puis cliquez sur **Résoudre le conflit**.  
 
-5.  Überprüfen Sie die folgenden Informationen:  
+5.  Passez en revue les informations suivantes :  
 
-    -   **Lokaler Wert**: Gibt die vorhandenen Softwarekategorisierungsinformationen des Asset Intelligence-Katalogs an, die in Konflikt mit neueren Softwarekategorisierungsdetails von System Center Online stehen.  
+    -   **Valeur locale**: spécifie les informations existantes de catégorisation de logiciels dans le catalogue Asset Intelligence qui entrent en conflit avec les détails de catégorisation de logiciels System Center Online plus récents.  
 
-    -   **Heruntergeladener Wert**: Gibt die neuen Softwarekategorisierungsinformationen von System Center Online an, die in Konflikt mit den Softwarekategorisierungsinformationen des Asset Intelligence-Katalogs stehen.  
+    -   **Valeur téléchargée**: spécifie les nouvelles informations de catégorisation de logiciels System Center Online pour les informations de catégorisation de logiciels en conflit dans le catalogue Asset Intelligence.  
 
-6.  Wählen Sie mindestens eine der folgenden Einstellungen aus, um den Konflikt zwischen Softwaredetails aufzulösen:  
+6.  Sélectionnez l'un des paramètres suivants pour résoudre le conflit de détails du logiciel :  
 
-    -   **Lokal bearbeiteten Kataloginformationswert nicht ändern**: Löst den Konflikt zwischen Softwaredetails durch Beibehalten der vorhandenen Softwarekategorisierungsinformationen im Asset Intelligence-Katalog. Wenn Sie diese Einstellung auswählen, ändert sich der Softwaretitelzustand von **Aktualisierbar** in **Benutzerdefiniert**.  
+    -   **Ne changez pas la valeur des informations de catalogue modifiées localement**: résout le conflit de détails de logiciel en conservant les informations existantes de catégorisation de logiciels du catalogue Asset Intelligence. Lorsque vous sélectionnez ce paramètre, l'état du logiciel passe de **Peut être mis à jour** à **Défini par l'utilisateur**.  
 
-    -   **Lokal bearbeiteten Kataloginformationswert mit dem heruntergeladenen System Center Online-Wert überschreiben**: Löst den Konflikt zwischen Softwaredetails durch Überschreiben der vorhandenen Softwarekategorisierungsinformationen im Asset Intelligence-Katalog mit den neuen Informationen von System Center Online. Wenn Sie diese Einstellung auswählen, ändert sich der Softwaretitelzustand von **Aktualisierbar** in **Überprüft**.  
+    -   **Remplacez la valeur des informations de catalogue modifiées localement par la valeur System Center Online téléchargée**: résout le conflit de détails de logiciel en remplaçant les informations existantes de catégorisation de logiciels du catalogue Asset Intelligence par les nouvelles informations obtenues depuis System Center Online. Lorsque vous sélectionnez ce paramètre, l'état du logiciel passe de **Peut être mis à jour** à **Validé**.  
 
-     Klicken Sie auf **OK** , um die Konfliktauflösung zu speichern.  
+     Cliquez sur **OK** pour enregistrer la résolution du conflit.  

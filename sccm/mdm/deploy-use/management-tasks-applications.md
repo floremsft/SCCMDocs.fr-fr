@@ -1,6 +1,6 @@
 ---
-title: Verwalten von Anwendungen in System Center Configuration Manager | Microsoft-Dokumentation
-description: Verwalten Sie Anwendungen in System Center Configuration Manager.
+title: "Gérer des applications dans System Center Configuration Manager | Microsoft Docs"
+description: "Gérez des applications dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -18,39 +18,39 @@ manager: angrobe
 ms.openlocfilehash: bc7bb99bc526ed0bbaaad15fc9af39fa8b7c3893
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-applications-in-system-center-configuration-manager"></a>Verwalten von Anwendungen in System Center Configuration Manager
+# <a name="manage-applications-in-system-center-configuration-manager"></a>Gérer des applications dans System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Beim Verwalten von Geräten mit Microsoft Intune oder der lokalen Geräteverwaltung von Configuration Manager können Sie folgende zusätzliche Anwendungstypen verwalten:
-- Windows Phone-App-Paket (XAP-Datei)
-- App-Paket für iOS (IPA-Datei)
-- App-Paket für Android (APK-Datei)
-- App-Paket für Android auf Google Play
-- Windows Phone-App-Paket (in Windows Phone Store)
-- Windows Installer über MDM
-- Webanwendung
+Lorsque vous administrez des appareils par le biais de la gestion des appareils locaux Microsoft Intune ou de Configuration Manager, vous pouvez gérer ces types d’application supplémentaires :
+- Package d'application Windows Phone (fichier *.xap)
+- Package d'application pour iOS (fichier *.ipa)
+- Package d'application pour Android (fichier *.apk)
+- Package d'application pour Android sur Google Play
+- Package d'application Windows Phone (dans Windows Phone Store)
+- Windows Installer par le biais de la gestion des appareils mobiles
+- Application Web
 
-Dieser Abschnitt enthält ausführliche Informationen zum Erstellen und Verwalten von Anwendungen mithilfe von hybrider oder lokaler MDM-Software.
+Cette section fournit des informations détaillées sur la création et l’administration des applications à l’aide de la fonction de gestion des appareils mobiles locale ou hybride.
 
-[Verwaltungstasks für System Center Configuration Manager-Anwendungen](../../apps/deploy-use/management-tasks-applications.md) bietet allgemeine Informationen zum Verwalten von System Center Configuration Manager-Anwendungen und Bereitstellungstypen.
+La section [Tâches de gestion pour les applications System Center Configuration Manager](../../apps/deploy-use/management-tasks-applications.md) fournit des informations générales supplémentaires sur la gestion des types de déploiement et applications System Center Configuration Manager.
 
-## <a name="deploying-and-monitoring-apps"></a>Bereitstellen und Überwachen von Apps
+## <a name="deploying-and-monitoring-apps"></a>Déploiement et surveillance des applications
 
-Bereitstellen und Überwachen von Anwendungen in System Center Configuration Manager sind die gleichen Prozesse sowohl für mobile Geräte als auch für Geräte vor Ort wie Laptops und Desktopcomputer. Sie können für allgemeine Informationen zum Bereitstellen und Überwachen von Anwendungen die folgenden Themen lesen:
+Dans System Center Configuration Manager, les processus de déploiement et de surveillance sont identiques pour les appareils mobiles et pour les dispositifs locaux (ordinateurs de bureau ou portables). Pour obtenir des informations générales sur le déploiement et la surveillance des applications, vous pouvez lire les rubriques suivantes :
 
-- [Bereitstellen von Anwendungen in System Center Configuration Manager](../../apps/deploy-use/deploy-applications.md)
-- [Überwachen von Anwendungen in System Center Configuration Manager](../../apps/deploy-use/monitor-applications-from-the-console.md)
+- [Déployer des applications avec System Center Configuration Manager](../../apps/deploy-use/deploy-applications.md)
+- [Surveiller des applications à partir de la console System Center Configuration Manager](../../apps/deploy-use/monitor-applications-from-the-console.md)
 
-Hier sind einige Punkte, die bei der Bereitstellung und Überwachung von Anwendungen bei der Verwaltung mobiler Geräte beachtet werden müssen.
+Lors du déploiement et de la surveillance des applications, voici quelques considérations à prendre en compte, spécifiques à la gestion des appareils mobiles.
 
-- MDM-registrierte Geräte unterstützen keine simulierten Bereitstellungen, Einstellungen für Benutzerfreundlichkeit oder Zeitplanung.
+- Les appareils inscrits auprès de la fonction de gestion des appareils mobiles ne prennent pas en charge les déploiements simulés, l’expérience utilisateur ou les paramètres de planification.
 
-- Wenn Sie bereits eine iOS-App-Konfigurationsrichtlinie konfiguriert haben, können Sie die Bereitstellung dieser zuordnen. Weitere Informationen finden Sie unter [Einstellungen anwenden für iOS-Apps mit Konfigurationsrichtlinien](configure-ios-apps-with-app-configuration-policies.md).
+- Vous pouvez associer le déploiement avec une stratégie de configuration d’application iOS, si vous en avez configuré une. Voir [Appliquer des paramètres aux applications iOS à l’aide de stratégies de configuration d’application dans System Center Configuration Manager](configure-ios-apps-with-app-configuration-policies.md).
 
-### <a name="next-steps"></a>Nächste Schritte
+### <a name="next-steps"></a>Étapes suivantes
 
-Nach einiger Zeit möchten Sie möglicherweise Änderungen an einer Anwendung vornehmen, eine Anwendung deinstallieren oder eine bereits bereitgestellte Anwendung durch eine neue Anwendung ersetzen. Weitere Informationen zu diesen Funktionen finden Sie unter [Aktualisieren und Deinstallieren von Anwendungen mit System Center Configuration Manager](../../apps/deploy-use/update-and-retire-applications.md).
+Peut-être voudrez-vous apporter des modifications à une application, en désinstaller une ou remplacer une application déjà déployée par une nouvelle. Pour comprendre le fonctionnement de ces fonctionnalités, voir [Mettre à jour et mettre hors service des applications avec System Center Configuration Manager](../../apps/deploy-use/update-and-retire-applications.md).

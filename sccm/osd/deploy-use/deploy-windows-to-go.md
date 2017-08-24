@@ -1,6 +1,6 @@
 ---
-title: Bereitstellen von Windows To Go mit System Center Configuration Manager | Microsoft-Dokumentation
-description: "Erfahren Sie, wie Sie Windows To Go in System Center Configuration Manager bereitstellen, um einen Arbeitsbereich in Windows To Go zu erstellen, der über eine externe Festplatte neu startet."
+title: "Déployer Windows To Go avec System Center Configuration Manager | Microsoft Docs"
+description: "Découvrez comment mettre en service Windows To Go dans System Center Configuration Manager pour créer un espace de travail Windows To Go qui démarre à partir d’un lecteur externe."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -18,451 +18,451 @@ manager: angrobe
 ms.openlocfilehash: a8b1a42c43438553cfbb62328bed933378bb344c
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="deploy-windows-to-go-with-system-center-configuration-manager"></a>Bereitstellen von Windows to Go mit System Center Configuration Manager.
+# <a name="deploy-windows-to-go-with-system-center-configuration-manager"></a>Déployer Windows To Go avec System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-In diesem Thema finden Sie die Schritte zum Bereitstellen von Windows To Go in System Center Configuration Manager. Windows To Go ist ein Unternehmensfeature von Windows 8, das die Erstellung eines Windows To Go-Arbeitsbereichs ermöglicht, der von einem externen USB-Laufwerk auf Computern gestartet werden kann, die die Windows 7- oder Windows 8-Zertifizierungsanforderungen erfüllen. Dabei ist es unerheblich, welches Betriebssystem auf dem jeweiligen Computer ausgeführt wird. Von Windows To Go-Arbeitsbereichen kann dasselbe Abbild verwendet werden, das Unternehmen für Desktops und Laptops verwenden. Außerdem können die Arbeitsbereiche auf dieselbe Weise verwaltet werden.  
+Cette rubrique fournit les étapes permettant de mettre en service Windows To Go dans System Center Configuration Manager. Windows To Go est une fonctionnalité d'entreprise de Windows 8 qui permet de créer un espace de travail Windows To Go pouvant être démarré à partir d'un lecteur externe USB sur les ordinateurs qui satisfont les conditions de certification de Windows 7 ou Windows 8, quel que soit le système d'exploitation en cours d'exécution sur ces ordinateurs. Les espaces de travail Windows To Go peuvent utiliser la même image que celle que les entreprises utilisent pour leurs ordinateurs de bureau et ordinateurs portables ; ils peuvent être gérés de la même façon.  
 
- Weitere Informationen zu Windows To Go finden Sie unter [Windows To Go: Featureübersicht](http://go.microsoft.com/fwlink/p/?LinkId=263433).  
+ Pour plus d’informations sur Windows To Go, consultez [Windows To Go : vue d’ensemble des fonctionnalités](http://go.microsoft.com/fwlink/p/?LinkId=263433).  
 
-## <a name="provision-windows-to-go"></a>Bereitstellen von Windows To Go  
- Windows To Go ist ein Betriebssystem, das auf einem externen USB-Laufwerk gespeichert wird. Sie können das Windows To Go-Laufwerk auf dieselbe Weise wie andere Betriebssystembereitstellungen bereitstellen. Da jedoch Windows To Go als benutzerzentrierte Mobilitätslösung konzipiert ist, müssen Sie beim Bereitstellen dieser Laufwerke einen etwas anderen Ansatz verfolgen.  
+## <a name="provision-windows-to-go"></a>Préparer Windows To Go  
+ Windows To Go est un système d'exploitation stocké sur un lecteur externe USB. Vous pouvez préparer le lecteur Windows To Go de la même manière que vous préparez les déploiements d'autres systèmes d'exploitation. Toutefois, étant donné que Windows To Go a vocation à constituer une solution centrée sur l'utilisateur et hautement mobile, vous devez adopter une approche légèrement différente pour préparer ces lecteurs.  
 
- Auf hoher Ebene handelt es sich bei Windows To Go um eine Bereitstellung in zwei Phasen, die es Ihnen ermöglicht, das Windows To Go-Gerät zu konfigurieren und Inhalt für die Betriebssystembereitstellung vorab bereitzustellen. Dies können Sie mit minimalen Beeinträchtigungen des Benutzers und begrenzter Downtime des Benutzercomputers erreichen. Nachdem Sie den Computer vorab bereitgestellt haben, müssen Sie den Bereitstellungsvorgang abschließen, um sicherzustellen, dass der Computer vom Benutzer verwendet werden kann. Der Bereitstellungsvorgang ist mit dem aktuellen Vorgang der Betriebssystembereitstellung vergleichbar. Im Folgenden wird der allgemeine Workflow zum Vorabbereitstellen von Inhalt und zum Bereitstellen von Windows To Go aufgelistet:  
+ À niveau élevé, Windows To Go est un déploiement en deux phases qui vous permet de configurer le périphérique Windows To Go et le contenu préparé pour le déploiement du système d'exploitation. Vous pouvez y parvenir avec un impact minimal sur l’utilisateur tout en limitant le temps d’arrêt de son ordinateur. Une fois que vous avez préparé l'ordinateur, vous devez exécuter le processus de préparation pour vous assurer que l'ordinateur est prêt pour l'utilisateur. Le processus de préparation est similaire au processus de déploiement du système d'exploitation actif. Voici le flux de travail général pour préparer le contenu et préparer Windows To Go :  
 
-1.  [Voraussetzungen für die Bereitstellung von Windows To Go](#BKMK_Prereqs)  
+1.  [Conditions préalables à la préparation de Windows To Go](#BKMK_Prereqs)  
 
-2.  [Erstellen von vorab bereitgestellten Medien](#BKMK_CreatePrestagedMedia)  
+2.  [Créer un média préparé](#BKMK_CreatePrestagedMedia)  
 
-3.  [Erstellen eines Windows To Go Creator-Pakets](#BKMK_CreatePackage)  
+3.  [Créer un package Windows To Go Creator](#BKMK_CreatePackage)  
 
-4.  [Aktualisieren der Tasksequenz zum Aktivieren von BitLocker für Windows To Go](#BKMK_UpdateTaskSequence)  
+4.  [Mettre à jour la séquence de tâches pour activer BitLocker pour Windows To Go](#BKMK_UpdateTaskSequence)  
 
-5.  [Bereitstellen von Windows To Go Creator-Paket und Tasksequenz](#BKMK_Deployments)  
+5.  [Déployer le package Windows To Go Creator et la séquence de tâches](#BKMK_Deployments)  
 
-6.  [Benutzer führt Windows To Go Creator aus](#BKMK_UserExperience)  
+6.  [L’utilisateur exécute Windows To Go Creator](#BKMK_UserExperience)  
 
-7.  [Configuration Manager konfiguriert das Windows To Go-Laufwerk und stellt es vorab bereit](#BKMK_ConfigureStageDrive)  
+7.  [Configuration Manager configure et prépare le lecteur Windows To Go](#BKMK_ConfigureStageDrive)  
 
-8.  [Benutzer meldet sich bei Windows 8 an](#BKMK_UserLogsIn)  
+8.  [L’utilisateur ouvre une session Windows 8](#BKMK_UserLogsIn)  
 
-###  <a name="BKMK_Prereqs"></a> Voraussetzungen für die Bereitstellung von Windows To Go  
- Vor dem Bereitstellen von Windows To Go müssen Sie die folgenden Aktionen in Configuration Manager ausführen:  
+###  <a name="BKMK_Prereqs"></a> Conditions préalables à la préparation de Windows To Go  
+ Avant de mettre en service Windows To Go, vous devez effectuer les opérations suivantes dans Configuration Manager :  
 
--   **Verteilen eines Startabbilds an einen Verteilungspunkt**  
+-   **Distribuer une image de démarrage à un point de distribution**  
 
-     Vor dem Erstellen von vorab bereitgestellten Medien müssen Sie das Startabbild an einen Verteilungspunkt verteilen.  
-
-    > [!NOTE]  
-    >  Startimages werden zum Installieren des Betriebssystems auf den Zielcomputern in Ihrer Configuration Manager-Umgebung verwendet. Sie enthalten eine Version von Windows PE, von der das Betriebssystem sowie alle zusätzlich erforderlichen Gerätetreiber installiert werden. Configuration Manager stellt zwei Startimages bereit: eines zur Unterstützung von x86-Plattformen und eines zur Unterstützung von x64-Plattformen. Sie können auch Ihre eigenen Startabbilder erstellen. Weitere Informationen finden Sie unter [Verwalten von Startimages](../get-started/manage-boot-images.md).  
-
--   **Verteilen des Windows 8-Betriebssystemabbilds an einen Verteilungspunkt**  
-
-     Vor dem Erstellen von vorab bereitgestellten Medien müssen Sie das Windows 8-Betriebssystemabbild an einen Verteilungspunkt verteilen.  
+     avant de créer des médias préparés, vous devez distribuer l'image de démarrage à un point de distribution.  
 
     > [!NOTE]  
-    >  Betriebssystemabbilder sind Dateien im WIM-Format und stellen eine komprimierte Sammlung von Verweisdateien und -ordnern dar, die für die erfolgreiche Installation und Konfiguration eines Betriebssystems auf einem Computer erforderlich sind. Weitere Informationen finden Sie unter [Manage operating system images (Verwalten von Betriebssystemimages)](../get-started/manage-operating-system-images.md).  
+    >  Les images de démarrage sont utilisées pour installer le système d’exploitation sur les ordinateurs de destination dans votre environnement Configuration Manager. Elles contiennent une version de Windows PE qui installe le système d'exploitation, ainsi que les autres pilotes de périphérique nécessaires. Configuration Manager fournit deux images de démarrage : une pour la prise en charge des plateformes x86 et une autre pour la prise en charge des plateformes x64. Vous pouvez également créer vos propres images de démarrage. Pour plus d’informations, consultez [Gérer les images de démarrage](../get-started/manage-boot-images.md).  
 
--   **Erstellen einer Tasksequenz zum Bereitstellen von Windows 8**  
+-   **Distribuer l’image du système d’exploitation Windows 8 à un point de distribution**  
 
-     Sie müssen eine Tasksequenz für eine Windows 8-Bereitstellung erstellen, auf die Sie verweisen, wenn Sie vorab bereitgestellte Medien erstellen. Weitere Informationen finden Sie unter [Verwalten von Tasksequenzen zum Automatisieren von Aufgaben](manage-task-sequences-to-automate-tasks.md).  
+     avant de créer des médias préparés, vous devez distribuer l'image du système d'exploitation Windows 8 à un point de distribution.  
 
-###  <a name="BKMK_CreatePrestagedMedia"></a> Erstellen von vorab bereitgestellten Medien  
- Vorab bereitgestellte Medien enthalten das Startabbild, mit dem der Zielcomputer gestartet wird, und das Betriebssystemabbild, das auf den Zielcomputer angewendet wird. Der Computer, auf dem Sie vorab bereitgestellte Medien bereitstellen, kann mithilfe des Startabbilds gestartet werden. Auf dem Computer kann dann eine vorhandene Tasksequenz für die Betriebssystembereitstellung ausgeführt werden, um eine vollständige Betriebssystembereitstellung zu installieren. Die Tasksequenz zur Bereitstellung des Betriebssystems ist nicht in den Medien enthalten.  
+    > [!NOTE]  
+    >  Les images de système d'exploitation sont des fichiers au format .WIM et représentent un regroupement compressé de fichiers et dossiers de référence nécessaires à l'installation et à la configuration d'un système d'exploitation sur un ordinateur. Pour plus d’informations, consultez [Gérer les images de système d’exploitation](../get-started/manage-operating-system-images.md).  
 
- Sie können neben dem Betriebssystemabbild und Startabbild in der Vorabbereitstellungsphase auch Inhalte wie Anwendungen und Gerätetreiber hinzufügen. Dadurch wird die zum Bereitstellen eines Betriebssystems benötigte Zeit verringert, und zudem wird der Netzwerkverkehr reduziert, weil sich der Inhalt bereits auf dem Laufwerk befindet.  
+-   **Créer une séquence de tâches pour déployer Windows 8**  
 
- Gehen Sie folgendermaßen vor, um vorab bereitgestellte Medien zu erstellen.  
+     vous devez créer une séquence de tâches pour un déploiement de Windows 8, auquel vous ferez référence lorsque vous créerez des médias préparés. Pour plus d’informations, consultez [Gérer les séquences de tâches pour automatiser des tâches](manage-task-sequences-to-automate-tasks.md).  
 
-#### <a name="to-create-prestaged-media"></a>So erstellen Sie vorab bereitgestellte Medien  
+###  <a name="BKMK_CreatePrestagedMedia"></a> Créer un média préparé  
+ Un média préparé contient l'image de démarrage utilisée pour démarrer l'ordinateur de destination et l'image du système d'exploitation qui est appliquée à l'ordinateur de destination. L'ordinateur que vous préparez avec des médias préparés peut être démarré à l'aide de l'image de démarrage. L'ordinateur peut alors exécuter une séquence de tâches de déploiement du système d'exploitation existant, pour installer un déploiement de système d'exploitation complet. La séquence de tâches qui déploie le système d'exploitation n'est pas incluse dans le média.  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Softwarebibliothek**.  
+ Vous pouvez ajouter du contenu, tel que des applications et des pilotes de périphériques, en plus de l’image du système d’exploitation et de l’image de démarrage, pendant la phase de préparation. Vous réduisez ainsi le temps nécessaire pour déployer un système d'exploitation et le trafic réseau car le contenu est déjà sur le lecteur.  
 
-2.  Erweitern Sie im Arbeitsbereich **Softwarebibliothek** den Bereich **Betriebssysteme**, und klicken Sie dann auf **Tasksequenzen**.  
+ Pour créer les médias préparés, appliquez la procédure suivante.  
 
-3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** auf **Tasksequenzmedien erstellen** , um den Assistenten zum Erstellen von Tasksequenzmedien zu starten.  
+#### <a name="to-create-prestaged-media"></a>Pour créer un média préparé  
 
-4.  Geben Sie auf der Seite **Medientyp wählen** die folgenden Informationen an, und klicken Sie dann auf **Weiter**.  
+1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
-    -   Wählen Sie **Vorab bereitgestellte Medien**aus.  
+2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Séquences de tâches**.  
 
-    -   Aktivieren Sie die Option **Unbeaufsichtigte Betriebssystembereitstellung zulassen** , um die Windows To Go-Bereitstellung ohne Benutzereingriff zu starten.  
+3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer un média de séquence de tâches** pour démarrer l'Assistant Création d'un média de séquence de tâches.  
 
-        > [!IMPORTANT]  
-        >  Wenn Sie diese Option mit der (im weiteren Verlauf dieses Verfahrens festgelegten) benutzerdefinierten Variablen SMSTSPreferredAdvertID verwenden, ist kein Benutzereingriff erforderlich, und der Computer wird bei der Bereitstellung von Windows To Go automatisch gestartet, sobald ein Windows To Go-Laufwerk erkannt wird. Der Benutzer wird aber weiterhin zur Eingabe eines Kennworts aufgefordert, wenn die Medien für den Kennwortschutz konfiguriert sind. Wenn Sie die Einstellung **Unbeaufsichtigte Betriebssystembereitstellung zulassen** verwenden, ohne die Variable SMSTSPreferredAdvertID zu konfigurieren, tritt beim Bereitstellen der Tasksequenz ein Fehler auf.  
+4.  Sur la page **Sélectionner le type de média** , spécifiez les informations suivantes, puis cliquez sur **Suivant**.  
 
-5.  Geben Sie auf der Seite **Medienverwaltung** die folgenden Informationen an, und klicken Sie dann auf **Weiter**.  
+    -   Sélectionnez **Média préparé**.  
 
-    -   Wählen Sie **Dynamisches Medium** aus, wenn Sie zulassen möchten, dass das Medium ausgehend vom Clientstandort innerhalb der Standortgrenzen von einem Verwaltungspunkt an einen anderen Verwaltungspunkt umgeleitet wird.  
-
-    -   Wählen Sie **Standortbasiertes Medium** aus, wenn Sie wünschen, dass von dem Medium nur mit dem angegebenen Verwaltungspunkt Kontakt aufgenommen wird.  
-
-6.  Geben Sie auf der Seite **Medieneigenschaften**  die folgenden Informationen an, und klicken Sie dann auf **Weiter**.  
-
-    -   **Erstellt von**: Geben Sie an, von wem das Medium erstellt wurde.  
-
-    -   **Version**: Geben Sie die Versionsnummer des Mediums an.  
-
-    -   **Kommentar**: Geben Sie eine eindeutige Beschreibung des Verwendungszwecks des Mediums an.  
-
-    -   **Mediendatei**: Geben Sie den Namen und Pfad der Ausgabedateien an. Die Ausgabedateien werden vom Assistenten an diesen Speicherort geschrieben. Beispiel: **\\\Servername\Ordner\Ausgabedatei.wim**  
-
-7.  Geben Sie auf der Seite **Sicherheit** die folgenden Informationen an, und klicken Sie dann auf **Weiter**.  
-
-    -   Aktivieren Sie das Kontrollkästchen **Unterstützung für unbekannte Computer aktivieren**, um zuzulassen, dass von dem Medium ein Betriebssystem auf einem nicht von Configuration Manager verwalteten Computer bereitgestellt wird. Für diese Computer gibt es in der Configuration Manager-Datenbank keine Einträge. Zu unbekannten Computern gehören die folgenden:  
-
-        -   Computer, auf denen kein Configuration Manager-Client installiert ist  
-
-        -   Computer, die nicht in Configuration Manager importiert wurden  
-
-        -   Computer, die von Configuration Manager nicht ermittelt wurden  
-
-    -   Aktivieren Sie das Kontrollkästchen **Medien durch Kennwort schützen** , und geben Sie ein sicheres Kennwort ein, um das Medium vor nicht autorisiertem Zugriff zu schützen. Wenn Sie ein Kennwort angeben, kann der Benutzer das vorab bereitgestellte Medium nur nach Eingabe dieses Kennworts verwenden.  
+    -   Sélectionnez **Autoriser le déploiement du système d'exploitation de manière autonome** pour démarrer le déploiement de Windows To Go sans aucune interaction utilisateur.  
 
         > [!IMPORTANT]  
-        >  Aus Sicherheitsgründen wird empfohlen, zum Schutz vorab bereitgestellter Medien immer ein Kennwort zuzuweisen.  
+        >  Lorsque vous utilisez cette option avec la variable personnalisée SMSTSPreferredAdvertID (définie plus tard au cours de cette procédure), aucune interaction utilisateur n'est requise et l'ordinateur démarre automatiquement le déploiement de Windows To Go lorsqu'il détecte un lecteur Windows To Go. L'utilisateur est quand même invité à fournir un mot de passe si le média est configuré avec une protection par mot de passe. Si vous utilisez le paramètre **Autoriser le déploiement du système d'exploitation de manière autonome** sans configurer la variable SMSTSPreferredAdvertID, une erreur se produit lorsque vous déployez la séquence de tâches.  
+
+5.  Sur la page **Gestion du média** , spécifiez les informations suivantes, puis cliquez sur **Suivant**.  
+
+    -   Sélectionnez **Média dynamique** si vous souhaitez autoriser un point de gestion à rediriger le média vers un autre point de gestion, basé sur l'emplacement du client dans les limites du site.  
+
+    -   Sélectionnez **Média basé sur le site** si vous souhaitez que le média contacte uniquement le point de gestion spécifié.  
+
+6.  Dans la page **Propriétés du média**  , spécifiez les informations suivantes, puis cliquez sur **Suivant**.  
+
+    -   **Créé par**: spécifiez qui a créé le média.  
+
+    -   **Version**: spécifiez le numéro de version du média.  
+
+    -   **Commentaire**: spécifiez une description unique de ce pour quoi le média est utilisé.  
+
+    -   **Fichier multimédia**: spécifiez le nom et le chemin des fichiers de sortie. L'Assistant écrit les fichiers de sortie à cet emplacement. Par exemple : **\\\nomserveur\dossier\outputfile.wim**  
+
+7.  Sur la page **Sécurité** , spécifiez les informations suivantes, puis cliquez sur **Suivant**.  
+
+    -   Sélectionnez **Activer la prise en charge d’ordinateur inconnu** pour autoriser le média à déployer un système d’exploitation sur un ordinateur qui n’est pas géré par Configuration Manager. Il n’existe aucun enregistrement de ces ordinateurs dans la base de données Configuration Manager. Les ordinateurs inconnus sont les suivants :  
+
+        -   Un ordinateur sur lequel le client Configuration Manager n’est pas installé  
+
+        -   Un ordinateur qui n’est pas importé dans Configuration Manager  
+
+        -   Un ordinateur qui n’a pas été découvert par Configuration Manager.  
+
+    -   Sélectionnez **Protéger le média à l'aide d'un mot de passe** et entrez un mot de passe fort pour mieux protéger le média contre les accès non autorisés. Lorsque vous spécifiez un mot de passe, l'utilisateur doit fournir ce mot de passe pour utiliser le média préparé.  
+
+        > [!IMPORTANT]  
+        >  Pour une sécurité optimale, il vous est conseillé de toujours attribuer un mot de passe pour protéger les médias préparés.  
 
         > [!NOTE]  
-        >  Wenn Sie die vorab bereitgestellten Medien durch ein Kennwort schützen, wird der Benutzer auch dann zur Eingabe des Kennworts aufgefordert, wenn die Medien mit der Einstellung **Unbeaufsichtigte Betriebssystembereitstellung zulassen** konfiguriert sind.  
+        >  Lorsque vous protégez le média préparé à l'aide d'un mot de passe, l'utilisateur est invité à entrer ce mot de passe même quand le média est configuré avec le paramètre **Autoriser le déploiement du système d'exploitation de manière autonome** .  
 
-    -   Wählen Sie für die HTTP-Kommunikation die Option **Selbstsigniertes Medienzertifikat erstellen**aus, und geben Sie dann das Start- und Ablaufdatum des Zertifikats an.  
+    -   Pour les communications HTTP, sélectionnez **Créer un certificat de média auto-signé**, puis spécifiez les dates de début et d'expiration du certificat.  
 
-    -   Wählen Sie für die HTTPS-Kommunikation **PKI-Zertifikat importieren**aus, und geben Sie dann das zu importierende Zertifikat und das zugehörige Kennwort an.  
+    -   Pour les communications HTTPS, sélectionnez **Importer un certificat PKI**, puis spécifiez le certificat à importer et son mot de passe.  
 
-         Weitere Informationen zu diesem für Startimages verwendeten Clientzertifikat finden Sie unter [PKI certificate requirements (PKI-Zertifikatanforderungen)](../../core/plan-design/network/pki-certificate-requirements.md).  
+         Pour plus d’informations sur ce certificat client utilisé pour les images de démarrage, consultez [Configuration requise des certificats PKI](../../core/plan-design/network/pki-certificate-requirements.md).  
 
-    -   **Affinität zwischen Benutzer und Gerät**: Geben Sie an, wie die Zuordnung von Benutzern zum Zielcomputer durch das Medium erfolgen soll, um die benutzerzentrierte Verwaltung in Configuration Manager zu unterstützen. Weitere Informationen dazu, wie die Affinität zwischen Benutzer und Gerät durch die Bereitstellung von Betriebssystemen unterstützt wird, finden Sie unter [Associate users with a destination computer (Zuordnen von Benutzern zu einem Zielcomputer)](../get-started/associate-users-with-a-destination-computer.md).  
+    -   **Affinité entre appareil et utilisateur** : pour prendre en charge la gestion centrée sur l’utilisateur dans Configuration Manager, spécifiez la manière dont vous voulez que le média associe des utilisateurs à l’ordinateur de destination. Pour plus d’informations sur la prise en charge de l’affinité entre utilisateur et appareil par le déploiement de systèmes d’exploitation, consultez [Associer des utilisateurs à un ordinateur de destination](../get-started/associate-users-with-a-destination-computer.md).  
 
-        -   Geben Sie **Affinität zwischen Benutzer und Gerät mit automatischer Genehmigung zulassen** an, wenn die Zuordnung von Benutzern zum Zielcomputer durch das Medium automatisch erfolgen soll. Diese Funktionalität basiert auf den Aktionen der Tasksequenz, von der das Betriebssystem bereitgestellt wird. In diesem Fall wird von der Tasksequenz während der Bereitstellung des Betriebssystems an den Zielcomputer eine Beziehung zwischen den angegebenen Benutzern und dem Zielcomputer erstellt.  
+        -   Spécifiez **Autoriser une affinité entre périphérique et utilisateur avec approbation automatique** si vous voulez que le média associe automatiquement des utilisateurs à l'ordinateur de destination. Cette fonctionnalité est basée sur les actions de la séquence de tâches qui déploie le système d'exploitation. Dans ce scénario, la séquence de tâches crée une relation entre les utilisateurs spécifiés et l'ordinateur de destination lorsqu'elle déploie le système d'exploitation sur l'ordinateur de destination.  
 
-        -   Geben Sie **Affinität zwischen Benutzer und Gerät mit ausstehender Genehmigung durch den Administrator zulassen** an, wenn die Zuordnung von Benutzern zum Zielcomputer durch das Medium nach einer entsprechenden Genehmigung erfolgen soll. Diese Funktionalität basiert auf dem Geltungsbereich der Tasksequenz, von der das Betriebssystem bereitgestellt wird. In diesem Fall wird von der Tasksequenz eine Beziehung zwischen den angegebenen Benutzern und dem Zielcomputer erstellt. Es wird jedoch auf die Genehmigung durch den Administrator gewartet, bevor das Betriebssystem bereitgestellt wird.  
+        -   Spécifiez **Autoriser une affinité entre périphérique et utilisateur en attente de l'approbation de l'administrateur** si vous souhaitez que le média associe des utilisateurs à l'ordinateur de destination une fois l'approbation accordée. Cette fonctionnalité est basée sur l'étendue de la séquence de tâches qui déploie le système d'exploitation. Dans ce scénario, la séquence de tâches crée une relation entre les utilisateurs spécifiés et l'ordinateur de destination, mais attend l'approbation d'un utilisateur administratif avant le déploiement du système d'exploitation.  
 
-        -   Geben Sie **Affinität zwischen Benutzer und Gerät nicht zulassen** an, wenn keine Zuordnung von Benutzern zum Zielcomputer durch das Medium erfolgen soll. In diesem Fall wird während der Bereitstellung des Betriebssystems keine Beziehung zwischen Benutzern und dem Zielcomputer erstellt.  
+        -   Spécifiez **Ne pas autoriser d'affinité entre périphérique et utilisateur** si vous ne souhaitez pas que le média associe des utilisateurs à l'ordinateur de destination. Dans ce scénario, la séquence de tâches n'associe pas d'utilisateurs à l'ordinateur de destination lorsqu'elle déploie le système d'exploitation.  
 
-8.  Geben Sie auf der Seite **Tasksequenz** die Windows 8-Tasksequenz an, die Sie im vorherigen Abschnitt erstellt haben.  
+8.  Sur la page **Séquence de tâches** , spécifiez la séquence de tâches Windows 8 que vous avez créée dans la section précédente.  
 
-9. Geben Sie auf der Seite **Startabbild** die folgenden Informationen an, und klicken Sie dann auf **Weiter**.  
+9. Sur la page **Image de démarrage** , spécifiez les informations suivantes et cliquez sur **Suivant**.  
 
     > [!IMPORTANT]  
-    >  Die Architektur des verteilten Startabbilds muss für die Architektur des Zielcomputers geeignet sein. Beispielsweise kann ein x86- oder x64-Startabbild von einem x64-Zielcomputer gestartet und ausgeführt werden. Bei einem x86-Zielcomputer sind jedoch nur der Start und die Ausführung eines x86-Startabbilds möglich. Bei Windows 8-zertifizierten Computern im EFI-Modus müssen Sie ein x64-Startabbild verwenden.  
+    >  L'architecture de l'image de démarrage qui est distribuée doit être adaptée à l'architecture de l'ordinateur de destination. Par exemple, un ordinateur de destination x64 peut démarrer et exécuter une image de démarrage x86 ou x64. Toutefois, un ordinateur de destination x86 peut démarrer et exécuter uniquement une image de démarrage x86. Pour les ordinateurs certifiés Windows 8 en mode EFI, vous devez utiliser une image de démarrage x64.  
 
-    -   **Startabbild**: Geben Sie das Startabbild zum Starten des Zielcomputers an.  
+    -   **Image de démarrage**: spécifiez l’image de démarrage pour démarrer l’ordinateur de destination.  
 
-    -   **Verteilungspunkt**: Geben Sie den Verteilungspunkt an, auf dem das Startabbild gehostet wird. Das Startabbild wird von dem Assistenten vom Verteilungspunkt abgerufen und auf das Medium geschrieben.  
-
-        > [!NOTE]  
-        >  Der Administrator muss über das Zugriffsrecht **Lesen** für den Startabbildinhalt auf dem Verteilungspunkt verfügen. Weitere Informationen finden Sie unter [Manage accounts to access content (Verwalten von Konten für den Zugriff auf Inhalt)](../../core/plan-design/hierarchy/manage-accounts-to-access-content.md).  
-
-    -   Wenn Sie auf der Seite **Medienverwaltung** des Assistenten die Option **Standortbasiertes Medium** ausgewählt haben, müssen Sie im Feld **Verwaltungspunkt** einen Verwaltungspunkt eines primären Standorts angeben.  
-
-    -   Wenn Sie auf der Seite **Medienverwaltung** des Assistenten die Option **Dynamisches Medium** ausgewählt haben, müssen Sie im Feld **Zugehörige Verwaltungspunkte** die zu verwendenden Verwaltungspunkte des primären Standorts sowie eine Prioritätsreihenfolge für die erste Kommunikation angeben.  
-
-10. Geben Sie auf der Seite **Abbilder** die folgenden Informationen an, und klicken Sie dann auf **Weiter**.  
-
-    -   **Abbildpaket**: Geben Sie das Paket an, das das Windows 8-Betriebssystemabbild enthält.  
-
-    -   **Abbildindex**: Geben Sie das bereitzustellende Abbild an, wenn das Paket mehrere Betriebssystemabbilder enthält.  
-
-    -   **Verteilungspunkt**: Geben Sie den Verteilungspunkt an, auf dem das Betriebssystemabbildpaket gehostet wird. Das Betriebssystemabbild wird von dem Assistenten vom Verteilungspunkt abgerufen und auf das Medium geschrieben.  
+    -   **Point de distribution**: spécifiez le point de distribution qui héberge l’image de démarrage. L'Assistant extrait l'image de démarrage à partir du point de distribution et l'écrit sur le média.  
 
         > [!NOTE]  
-        >  Der Administrator muss über das Zugriffsrecht **Lesen** für den Betriebssystemabbildinhalt auf dem Verteilungspunkt verfügen. Weitere Informationen finden Sie unter [Manage accounts to access content (Verwalten von Konten für den Zugriff auf Inhalt)](../../core/plan-design/hierarchy/manage-accounts-to-access-content.md).  
+        >  L'utilisateur administratif doit posséder des droits d'accès en **Lecture** au contenu de l'image de démarrage sur le point de distribution. Pour plus d’informations, consultez [Gérer les comptes pour accéder au contenu](../../core/plan-design/hierarchy/manage-accounts-to-access-content.md).  
 
-11. Wählen Sie auf der Seite **Anwendung auswählen** den der Mediendatei hinzuzufügenden Anwendungsinhalt aus, und klicken Sie dann auf **Weiter**.  
+    -   Si vous avez sélectionné **Média basé sur le site** sur la page **Gestion du média** de l'Assistant, dans la zone **Point de gestion** , spécifiez un point de gestion à partir d'un site principal.  
 
-12. Wählen Sie auf der Seite **Paket auswählen** zusätzlichen Paketinhalt für die Mediendatei aus, und klicken Sie dann auf **Weiter**.  
+    -   Si vous avez sélectionné **Média dynamique** sur la page **Gestion du média** de l'Assistant, dans la zone **Points de gestion associés** , spécifiez les points de gestion de site principal à utiliser et un ordre de priorité pour les communications initiales.  
 
-13. Wählen Sie auf der Seite **Treiberpaket auswählen** den der Mediendatei hinzuzufügenden Treiberpaketinhalt aus, und klicken Sie dann auf **Weiter**.  
+10. Sur la page **Images** , spécifiez les informations suivantes, puis cliquez sur **Suivant**.  
 
-14. Wählen Sie auf der Seite **Verteilungspunkte** mindestens einen Verteilungspunkt aus, der den für die Tasksequenz erforderlichen Inhalt enthält, und klicken Sie dann auf **Weiter**.  
+    -   **Package d’images**: spécifiez le package qui contient l’image du système d’exploitation Windows 8.  
 
-15. Geben Sie auf der Seite **Anpassung** die folgenden Informationen an, und klicken Sie dann auf **Weiter**.  
+    -   **Index d’images**: spécifiez l’image à déployer si le package contient plusieurs images de système d’exploitation.  
 
-    -   **Variablen**: Geben Sie die Variablen an, die von der Tasksequenz zur Bereitstellung des Betriebssystems verwendet werden. Verwenden Sie für Windows To Go die Variable SMSTSPreferredAdvertID, um die Windows To Go-Bereitstellung im folgenden Format automatisch auszuwählen:  
+    -   **Point de distribution**: spécifiez le point de distribution qui héberge le package d’images de système d’exploitation. L'Assistant extrait l'image du système d'exploitation à partir du point de distribution et l'écrit sur le média.  
 
-         SMSTSPreferredAdvertID = {*Bereitstellungs-ID*}: Hierbei stellt „Bereitstellungs-ID“ die Bereitstellungs-ID dar, die der Tasksequenz zugeordnet ist, die Sie zum Ausführen des Bereitstellungsvorgangs für das Windows To Go-Laufwerk verwenden.  
+        > [!NOTE]  
+        >  L'utilisateur administratif doit posséder des droits d'accès en **Lecture** au contenu de l'image du système d'exploitation sur le point de distribution. Pour plus d’informations, consultez [Gérer les comptes pour accéder au contenu](../../core/plan-design/hierarchy/manage-accounts-to-access-content.md).  
+
+11. Sur la page **Sélectionner une application** , sélectionnez le contenu d'application à inclure dans le fichier du média, puis cliquez sur **Suivant**.  
+
+12. Sur la page **Sélectionner le package** , sélectionnez le contenu de package supplémentaire à inclure dans le fichier du média, puis cliquez sur **Suivant**.  
+
+13. Sur la page **Sélectionner le package de pilotes** , sélectionnez le contenu du package de pilotes à inclure dans le fichier du média, puis cliquez sur **Suivant**.  
+
+14. Sur la page **Points de distribution** , sélectionnez un ou plusieurs points de distribution comprenant le contenu requis par la séquence de tâches, puis cliquez sur **Suivant**.  
+
+15. Sur la page **Personnalisation** , spécifiez les informations suivantes, puis cliquez sur **Suivant**.  
+
+    -   **Variables**: spécifiez les variables que la séquence de tâches utilise pour déployer le système d’exploitation. Pour Windows To Go, utilisez la variable SMSTSPreferredAdvertID pour sélectionner automatiquement le déploiement de Windows To Go à l'aide du format suivant :  
+
+         SMSTSPreferredAdvertID = {*DeploymentID*}, où DeploymentID correspond à l'ID de déploiement associé à la séquence de tâches que vous allez utiliser pour exécuter le processus de préparation du lecteur Windows To Go.  
 
         > [!TIP]  
-        >  Wenn Sie diese Variable mit einer Tasksequenz verwenden, die (zuvor in diesem Verfahren) für die unbeaufsichtigte Ausführung konfiguriert wurde, ist kein Benutzereingriff erforderlich, und der Computer wird bei der Bereitstellung von Windows To Go automatisch gestartet, sobald ein Windows To Go-Laufwerk erkannt wird. Der Benutzer wird aber weiterhin zur Eingabe eines Kennworts aufgefordert, wenn die Medien für den Kennwortschutz konfiguriert sind.  
+        >  Lorsque vous utilisez cette variable avec une séquence de tâches définie pour s'exécuter sans assistance (définie plus tôt au cours de cette procédure), aucune interaction utilisateur n'est requise et l'ordinateur démarre automatiquement le déploiement de Windows To Go lorsqu'il détecte un lecteur Windows To Go. L'utilisateur est quand même invité à fournir un mot de passe si le média est configuré avec une protection par mot de passe.  
 
-    -   **Prestart-Befehle**: Geben Sie alle Prestart-Befehle an, die Sie vor der Tasksequenz ausführen möchten. Bei Prestart-Befehlen kann es sich um eine Skriptdatei oder ausführbare Datei handeln, über die eine Interaktion mit dem Benutzer in Windows PE möglich ist, bevor die Tasksequenz zum Installieren des Betriebssystems ausgeführt wird. Konfigurieren Sie die folgenden Variablen für die Windows To Go-Bereitstellung:  
+    -   **Commandes de prédémarrage**: spécifiez les commandes de prédémarrage que vous voulez exécuter avant l’exécution de la séquence de tâches. Les commandes de prédémarrage peuvent être un script ou un exécutable capable d'interagir avec l'utilisateur dans Windows PE avant que la séquence de tâches s'exécute pour installer le système d'exploitation. Configurez les éléments suivants pour le déploiement de Windows To Go :  
 
-        -   **OSDBitLockerPIN**: BitLocker für Windows To Go erfordert eine Passphrase. Legen Sie die Variable **OSDBitLockerPIN** als Teil eines Prestart-Befehls zum Festlegen der BitLocker-Passphrase für das Windows To Go-Laufwerk fest.  
+        -   **OSDBitLockerPIN**: BitLocker pour Windows To Go nécessite une phrase secrète. Définissez la variable **OSDBitLockerPIN** dans le cadre d'une commande de prédémarrage pour définir la phrase secrète BitLocker pour le lecteur Windows To Go.  
 
             > [!WARNING]  
-            >  Wenn BitLocker für die Passphrase aktiviert wurde, muss der Benutzer die Passphrase bei jedem Neustart des Computers vom Windows To Go-Laufwerk eingeben.  
+            >  Une fois que BitLocker est activé pour la phrase secrète, l'utilisateur doit entrer cette phrase secrète chaque fois que l'ordinateur démarre sur le lecteur Windows To Go.  
 
-        -   **SMSTSUDAUsers**: Gibt den primären Benutzer des Zielcomputers an. Verwenden Sie diese Variable, um den Benutzernamen zu erfassen, der dann zum Zuordnen des Benutzers und Geräts verwendet werden kann. Weitere Informationen finden Sie unter [Zuordnen von Benutzern zu einem Zielcomputer](../get-started/associate-users-with-a-destination-computer.md).  
+        -   **SMSTSUDAUsers**: spécifie l’utilisateur principal de l’ordinateur de destination. Utilisez cette variable pour collecter le nom d'utilisateur, lequel peut ensuite être utilisé pour associer l'utilisateur et le périphérique. Pour plus d’informations, consultez [Associer des utilisateurs à un ordinateur de destination](../get-started/associate-users-with-a-destination-computer.md).  
 
             > [!TIP]  
-            >  Zum Abrufen des Benutzernamens können Sie ein Eingabefeld als Teil des Prestart-Befehls erstellen, sodass Benutzer ihren Benutzernamen eingeben müssen, und dann die Variable mit dem Wert festlegen. Sie können der Skriptdatei für den Prestart-Befehl beispielsweise die folgenden Zeilen hinzufügen:  
+            >  Pour extraire le nom d'utilisateur, vous pouvez créer une zone de saisie dans le cadre d'une commande de prédémarrage, inviter l'utilisateur à entrer son nom d'utilisateur, puis affecter la valeur à la variable. Par exemple, vous pouvez ajouter les lignes suivantes au fichier de script de la commande de prédémarrage :  
             >   
             >  `UserID = inputbox("Enter Username" ,"Enter your username:","",400,0)`  
             >   
             >  `env("SMSTSUDAUsers") = UserID`  
 
-         Weitere Informationen zum Erstellen einer Skriptdatei zur Verwendung als Prestart-Befehl finden Sie unter [Prestart commands for task sequence media (Prestart-Befehle für Tasksequenzmedien)](../understand/prestart-commands-for-task-sequence-media.md).  
+         Pour plus d’informations sur la manière de créer un fichier de script à utiliser en tant que commande de prédémarrage, consultez [Commandes de prédémarrage pour les médias de séquence de tâches](../understand/prestart-commands-for-task-sequence-media.md).  
 
-16. Schließen Sie den Assistenten ab.  
-
-    > [!NOTE]  
-    >  Die Erstellung der vorab bereitgestellten Mediendatei durch den Assistenten kann einige Zeit in Anspruch nehmen.  
-
-###  <a name="BKMK_CreatePackage"></a> Erstellen eines Windows To Go Creator-Pakets  
- Sie müssen im Rahmen der Windows To Go-Bereitstellung ein Paket zum Bereitstellen der vorab bereitgestellten Mediendatei erstellen. Im Paket muss das Tool enthalten sein, mit dem das Windows To Go-Laufwerk konfiguriert und die vorab bereitgestellte Mediendatei auf dem Laufwerk extrahiert wird. Gehen Sie folgendermaßen vor, um das Windows To Go Creator-Paket zu erstellen.  
-
-#### <a name="to-create-the-windows-to-go-creator-package"></a>So erstellen Sie das Windows To Go Creator-Paket  
-
-1.  Erstellen Sie auf dem Server zum Hosten der Windows To Go Creator-Paketdateien einen Quellordner für die Paketquelldateien.  
+16. Effectuez toutes les étapes de l'Assistant.  
 
     > [!NOTE]  
-    >  Dem Computerkonto des Standortservers muss das Zugriffsrecht **Lesen** für den Quellordner zugewiesen sein.  
+    >  La création du fichier de média préparé par l'Assistant peut être un processus très long.  
 
-2.  Kopieren Sie die im Abschnitt [Create prestaged media](#BKMK_CreatePrestagedMedia) erstellte vorab bereitgestellte Mediendatei in den Paketquellordner.  
+###  <a name="BKMK_CreatePackage"></a> Créer un package Windows To Go Creator  
+ Dans le cadre du déploiement de Windows To Go, vous devez créer un package pour déployer le fichier de média préparé. Le package doit inclure l'outil qui configure le lecteur Windows To Go et extrait le média préparé vers le lecteur. Appliquez la procédure suivante pour créer le package Windows To Go Creator.  
 
-3.  Kopieren Sie das Windows To Go Creator-Tool (WTGCreator.exe) in den Paketquellordner. Dieses Creator-Tool steht auf jedem primären Standortserver im Verzeichnis „<*Configuration Manager-Installationsverzeichnis*>\OSD\Tools\WTG\Creator“ zur Verfügung.  
+#### <a name="to-create-the-windows-to-go-creator-package"></a>Pour créer le package Windows To Go Creator  
 
-4.  Erstellen Sie mithilfe des Assistenten zum Erstellen von Paketen und Programmen ein Paket und Programm.  
+1.  Sur le serveur qui doit héberger les fichiers du package Windows To Go Creator, créez un dossier source pour les fichiers sources du package.  
 
-5.  Klicken Sie in der Configuration Manager-Konsole auf **Softwarebibliothek**.  
+    > [!NOTE]  
+    >  Le compte d'ordinateur du serveur de site doit disposer de droits d'accès en **Lecture** sur le dossier source.  
 
-6.  Erweitern Sie im Arbeitsbereich **Softwarebibliothek** den Abschnitt **Anwendungsverwaltung**, und klicken Sie dann auf **Pakete**.  
+2.  Copiez le fichier du média préparé que vous avez créé dans la section [Create prestaged media](#BKMK_CreatePrestagedMedia) vers le dossier source du package.  
 
-7.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** auf **Paket erstellen**.  
+3.  Copiez l'outil Windows To Go Creator (WTGCreator.exe) vers le dossier source du package. L’outil Creator est disponible sur n’importe quel serveur de site principal à l’emplacement suivant : <*dossier_installation_Configuration_Manager*>\OSD\Tools\WTG\Creator.  
 
-8.  Geben Sie auf der Seite **Paket** den Namen und die Beschreibung des Pakets an. Geben Sie beispielsweise **Windows To Go** für den Paketnamen ein, und geben Sie **Package to configure a Windows To Go drive using System Center Configuration Manager** als Paketbeschreibung an.  
+4.  Créez un package et un programme à l'aide de l'Assistant Création d'un package et d'un programme.  
 
-9. Aktivieren Sie das Kontrollkästchen **Dieses Paket enthält Quelldateien**, geben Sie den Pfad zu dem in Schritt 1 erstellten Paketquellordner an, und klicken Sie dann auf **Weiter**.  
+5.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
-10. Wählen Sie auf der Seite **Programmtyp** die Option **Standardprogramm**aus, und klicken Sie dann auf **Weiter**.  
+6.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Gestion d'applications**, puis cliquez sur **Packages**.  
 
-11. Geben Sie auf der Seite **Standardprogramm** Folgendes an:  
+7.  Sous l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer le package**.  
 
-    -   **Name**: Geben Sie den Namen des Programms an. Geben Sie beispielsweise **Creator** als Programmnamen ein.  
+8.  Sur la page **Package** , spécifiez le nom et la description du package. Par exemple, entrez **Windows To Go** comme nom de package et spécifiez **Package to configure a Windows To Go drive using System Center Configuration Manager** comme description de package.  
 
-    -   **Befehlszeile**: Geben **WTGCreator.exe /wim:PrestageName.wim**ein, wobei „PrestageName“ den Namen der vorab bereitgestellten Datei darstellt, die Sie erstellt und in den Paketquellordner für das Windows To Go Creator-Paket kopiert haben.  
+9. Sélectionnez **Ce package contient des fichiers sources**, spécifiez le chemin d'accès au dossier source du package que vous avez créé à l'étape 1, puis cliquez sur **Suivant**.  
 
-         Optional können Sie die folgenden Optionen hinzufügen:  
+10. Sur la page **Type de programme** , sélectionnez **Programme standard**, puis cliquez sur **Suivant**.  
 
-        -   **enableBootRedirect**: Dies ist die Befehlszeilenoption zum Ändern der Windows To Go-Startoptionen, sodass eine Startumleitung zulässig ist. Wenn Sie diese Option verwenden, wird der Computer vom USB-Laufwerk gestartet, ohne dass die Startreihenfolge in der Computerfirmware geändert werden oder der Benutzer beim Start eine Startoption auswählen muss. Wenn ein Windows To Go-Laufwerk erkannt wird, erfolgt der Computerstart von diesem Laufwerk.  
+11. Sur la page **Programme standard** , spécifiez les informations suivantes :  
 
-    -   **Ausführen**: Geben Sie **Normal** an, um das Programm basierend auf den Standardeinstellungen des Systems und Programms auszuführen.  
+    -   **Nom**: spécifiez le nom du programme. Par exemple, tapez **Creator** comme nom de programme.  
 
-    -   **Programm kann ausgeführt werden**: Geben Sie an, ob das Programm nur ausgeführt werden kann, wenn ein Benutzer angemeldet ist.  
+    -   **Ligne de commande**: tapez **WTGCreator.exe /wim:PrestageName.wim**, où PrestageName correspond au nom du fichier préparé que vous avez créé et copié vers le dossier source du package pour le package Windows To Go Creator.  
 
-    -   **Ausführungsmodus**: Geben Sie an, ob das Programm mit den Berechtigungen des angemeldeten Benutzers oder mit Administratorberechtigungen ausgeführt werden soll. Zum Ausführen von Windows To Go Creator sind erhöhte Rechte erforderlich.  
+         Éventuellement, vous pouvez ajouter les options suivantes :  
 
-    -   Wählen Sie **Benutzern gestatten, die Programminstallation anzuzeigen und mit ihr zu interagieren**aus, und klicken Sie dann auf **Weiter**.  
+        -   **enableBootRedirect**: option de ligne de commande pour modifier les options de démarrage Windows To Go pour autoriser la redirection de démarrage. Lorsque vous utilisez cette option, l'ordinateur démarre à partir du lecteur USB sans avoir à modifier l'ordre de démarrage dans le microprogramme de l'ordinateur ni à inviter l'utilisateur à sélectionner une option de démarrage dans une liste au moment du démarrage. Si un lecteur Windows To Go est détecté, l'ordinateur démarre sur ce lecteur.  
 
-12. Geben Sie auf der Seite Anforderungen Folgendes an:  
+    -   **Exécuter**: spécifiez **Normal** pour exécuter le programme en fonction des paramètres par défaut du système et du programme.  
 
-    -   **Plattformanforderungen**: Wählen Sie die entsprechenden Windows 8-Plattformen für die Bereitstellung aus.  
+    -   **Le programme peut s’exécuter**: spécifiez si le programme peut s’exécuter uniquement quand un utilisateur est connecté.  
 
-    -   **Geschätzter Speicherplatz**: Geben Sie die Größe des Paketquellordners für Windows To Go Creator an.  
+    -   **Mode d’exécution**: spécifiez si le programme s’exécute avec les autorisations d’utilisateurs connectés ou les autorisations administratives. Windows To Go Creator requiert des autorisations avec élévation de privilèges pour s'exécuter.  
 
-    -   **Maximal zulässige Ausführungszeit (Minuten)**: Hiermit geben Sie an, wie lange die Ausführung des Programms auf dem Clientcomputer voraussichtlich maximal dauert. Standardmäßig ist dieser Wert auf 120 Minuten festgelegt.  
+    -   Sélectionnez **Permettre aux utilisateurs d'afficher et d'interagir avec l'installation du programme**, puis cliquez sur **Suivant**.  
+
+12. Sur la page Spécifications, spécifiez les informations suivantes :  
+
+    -   **Exigences de plateformes**: sélectionnez les plateformes Windows 8 applicables pour permettre la configuration.  
+
+    -   **Espace disque estimé**: spécifiez la taille du dossier source du package pour Windows To Go Creator.  
+
+    -   **Durée maximale d’exécution allouée (en minutes)**: indique la durée maximale pendant laquelle le programme est supposé être exécuté sur l’ordinateur client. Par défaut, cette valeur est définie à 120 minutes.  
 
         > [!IMPORTANT]  
-        >  Wenn Sie bei der Sammlung, für die dieses Programm ausgeführt wird, Wartungsfenster verwenden, kann ein Konflikt auftreten, wenn die **Maximal zulässige Laufzeit** länger ist als das geplante Wartungsfenster. Wenn für die maximal zulässige Laufzeit der Wert **Unbekannt**festgelegt ist, wird das Programm zwar während des Wartungsfensters gestartet, die Ausführung wird jedoch am Ende des Wartungsfensters nicht unterbrochen, sondern solange fortgesetzt, bis das Programm abgeschlossen ist oder ein Fehler auftritt. Wenn Sie für die maximal zulässige Laufzeit einen bestimmten Zeitraum (und nicht Unbekannt) festlegen, der die Dauer aller verfügbaren Wartungsfenster überschreitet, wird dieses Programm nicht ausgeführt.  
+        >  Si vous utilisez des fenêtres de maintenance pour le regroupement sur lequel ce programme est exécuté, un conflit peut survenir si la **Durée maximale d'exécution allouée** est supérieure à la fenêtre de maintenance programmée. Si la durée d'exécution maximale est définie sur **Inconnu**, il démarre pendant la fenêtre de maintenance mais continue son exécution jusqu'à ce qu'il ait terminé ou échoué après la fermeture de la fenêtre de maintenance. Si vous définissez la durée d'exécution maximale sur une période donnée (pas sur Inconnu) qui dépasse la durée de toute fenêtre de maintenance disponible, ce programme n'est pas exécuté.  
 
         > [!NOTE]  
-        >  Wenn der Wert auf **Unknown** (Unbekannt) festgelegt ist, legt Configuration Manager die maximal zulässige Laufzeit auf 12 Stunden (720 Minuten) fest.  
+        >  Si la valeur définie est **Inconnu**, Configuration Manager fixe la durée d’exécution maximale autorisée à 12 heures (720 minutes).  
 
         > [!NOTE]  
-        >  Wird die (vom Benutzer festgelegte oder als Standardwert verwendete) maximal zulässige Laufzeit überschritten, wird das Programm von Configuration Manager beendet, sofern auf der Seite **Standardprogramm** die Option **Mit Administratorrechten ausführen** aktiviert und die Option **Benutzern gestatten, die Programminstallation anzuzeigen und mit ihr zu interagieren** deaktiviert ist.  
+        >  Si cette durée d’exécution maximale (qu’elle soit définie par l’utilisateur ou par défaut) est dépassée, Configuration Manager arrête le programme si **Exécuter avec les droits d’administration** est sélectionné et si **Permettre aux utilisateurs d’afficher et d’interagir avec l’installation du programme** n’est pas sélectionné sur la page **Programme standard**.  
 
-     Klicken Sie auf **Weiter** , und schließen Sie den Assistenten ab.  
+     Cliquez sur **Suivant** pour terminer l'Assistant.  
 
-###  <a name="BKMK_UpdateTaskSequence"></a> Aktualisieren der Tasksequenz zum Aktivieren von BitLocker für Windows To Go  
- Von Windows To Go wird BitLocker auf einem externen Startlaufwerk ohne TPM aktiviert. Deshalb müssen Sie zum Konfigurieren von BitLocker auf dem Windows To Go-Laufwerk ein anderes Tool verwenden. Zum Aktivieren von BitLocker müssen Sie der Tasksequenz nach dem Schritt **Windows und ConfigMgr einrichten** eine Aktion hinzufügen.  
+###  <a name="BKMK_UpdateTaskSequence"></a> Mettre à jour la séquence de tâches pour activer BitLocker pour Windows To Go  
+ Windows To Go active BitLocker sur un lecteur externe démarrable sans utiliser le Module de plateforme sécurisée (TPM). Par conséquent, vous devez utiliser un outil distinct pour configurer BitLocker sur le lecteur Windows To Go. Pour activer BitLocker, vous devez ajouter une action à la séquence de tâches après l'étape **Configurer Windows et ConfigMgr** .  
 
 > [!NOTE]  
->  BitLocker für Windows To Go erfordert eine Passphrase. Im Schritt [Create prestaged media](#BKMK_CreatePrestagedMedia) legen Sie die Passphrase als Teil eines Prestart-Befehls mit der Variablen OSDBitLockerPIN fest.  
+>  BitLocker pour Windows To Go nécessite une phrase secrète. À l'étape [Create prestaged media](#BKMK_CreatePrestagedMedia) , vous avez défini la phrase secrète dans le cadre d'une commande de prédémarrage à l'aide de la variable OSDBitLockerPIN.  
 
- Gehen Sie folgendermaßen vor, um die Windows 8-Tasksequenz zum Aktivieren von BitLocker für Windows To Go zu aktualisieren.  
+ Appliquez la procédure suivante pour mettre à jour la séquence de tâches Windows 8 pour activer BitLocker pour Windows To Go.  
 
-#### <a name="to-update-the-windows-8-task-sequence-to-enable-bitlocker"></a>So aktualisieren Sie die Windows 8-Tasksequenz zum Aktivieren von BitLocker  
+#### <a name="to-update-the-windows-8-task-sequence-to-enable-bitlocker"></a>Pour mettre à jour la séquence de tâches Windows 8 pour activer BitLocker  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Softwarebibliothek**.  
+1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
-2.  Erweitern Sie im Arbeitsbereich **Softwarebibliothek** den Abschnitt **Anwendungsverwaltung**, und klicken Sie dann auf **Pakete**.  
+2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Gestion d'applications**, puis cliquez sur **Packages**.  
 
-3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** auf **Paket erstellen**.  
+3.  Sous l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer le package**.  
 
-4.  Geben Sie auf der Seite **Paket** den Namen und die Beschreibung des Pakets an. Geben Sie beispielsweise **BitLocker for Windows To Go** für den Paketnamen ein, und geben Sie **Package to update BitLocker for Windows To Go** als Paketbeschreibung an.  
+4.  Sur la page **Package** , spécifiez le nom et la description du package. Par exemple, tapez **BitLocker for Windows To Go** comme nom de package et spécifiez **Package to update BitLocker for Windows To Go** comme description de package.  
 
-5.  Aktivieren Sie das Kontrollkästchen **Dieses Paket enthält Quelldateien**, geben Sie den Speicherort für das Tool BitLocker für Windows To Go an, und klicken Sie dann auf **Weiter**. Das Tool „BitLocker“ steht auf jedem primären Configuration Manager-Standortserver im Verzeichnis „<*Configuration Manager-Installationsordner*>\OSD\Tools\WTG\BitLocker\“ zur Verfügung.  
+5.  Sélectionnez **Ce package contient des fichiers sources**, spécifiez l'emplacement de l'outil BitLocker pour Windows To Go, puis cliquez sur **Suivant**. L’outil BitLocker est disponible sur n’importe quel serveur de site principal Configuration Manager à l’emplacement suivant : <*dossier_installation_Configuration_Manager*>\OSD\Tools\WTG\BitLocker\  
 
-6.  Wählen Sie auf der Seite **Programmtyp** die Option **Kein Programm erstellen**aus.  
+6.  Sur la page **Type de programme** , sélectionnez **Ne pas créer de programme**.  
 
-7.  Klicken Sie auf **Weiter** , und schließen Sie den Assistenten ab.  
+7.  Cliquez sur **Suivant** pour terminer l'Assistant.  
 
-8.  Klicken Sie in der Configuration Manager-Konsole auf **Softwarebibliothek**.  
+8.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
-9. Erweitern Sie im Arbeitsbereich **Softwarebibliothek** den Bereich **Betriebssysteme**, und klicken Sie dann auf **Tasksequenzen**.  
+9. Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Séquences de tâches**.  
 
-10. Wählen Sie die Windows 8-Tasksequenz aus, auf die auf dem vorab bereitgestellten Medium verwiesen wird.  
+10. Sélectionnez la séquence de tâches de Windows 8 que vous référencez dans les médias préparés.  
 
-11. Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Tasksequenz** auf **Bearbeiten**.  
+11. Sous l'onglet **Accueil** , dans le groupe **Séquence de tâches** , cliquez sur **Modifier**.  
 
-12. Klicken Sie auf den Schritt **Windows und ConfigMgr einrichten** , dann auf **hinzufügen**, anschließend auf **Allgemein**und schließlich auf **Befehlszeile ausführen**. Der Schritt Befehlszeile ausführen wird nach dem Schritt Windows und ConfigMgr einrichten hinzugefügt.  
+12. Cliquez sur l'étape **Configurer Windows et ConfigMgr** , cliquez sur **Ajouter**, cliquez sur **Général**, puis sur **Exécuter la ligne de commande**. L'étape Exécuter la ligne de commande est ajoutée après l'étape Configurer Windows et ConfigMgr.  
 
-13. Fügen Sie auf der Registerkarte **Eigenschaften** des Schritts **Befehlszeile ausführen** Folgendes hinzu:  
+13. Sous l'onglet **Propriétés** de l'étape **Exécuter la ligne de commande** , ajoutez les éléments suivants :  
 
-    1.  **Name**: Geben Sie einen Namen für die Befehlszeile an, z. B. **Enable BitLocker for Windows To Go**.  
+    1.  **Nom**: spécifiez un nom pour la ligne de commande, par exemple **Enable BitLocker for Windows To Go**.  
 
-    2.  **Befehlszeile**: i386\osdbitlocker_wtg.exe /Enable /pwd:< *None&#124;AD*>  
+    2.  **Ligne de commande** : i386\osdbitlocker_wtg.exe /Enable /pwd:< *None&#124;AD*>  
 
-         Parameter:  
+         Paramètres :  
 
-        -   /pwd:<None&#124;AD> – Geben Sie den Modus für die BitLocker-Kennwortwiederherstellung an. Dieser Parameter ist erforderlich, wenn Sie den Parameter /Enable in der Befehlszeile verwenden.  
+        -   /pwd:<None&#124;AD> : spécifiez le mode de récupération de mot de passe BitLocker. Ce paramètre est requis si vous utilisez le paramètre /Enable dans la ligne de commande.  
 
-             Wählen Sie **AD** aus, um die BitLocker-Laufwerkverschlüsselung so zu konfigurieren, dass Wiederherstellungsinformationen für mit BitLocker geschützte Laufwerke in Active Directory-Domänendiensten (AD DS) gesichert werden. Durch die Sicherung von Wiederherstellungskennwörtern für ein mit BitLocker geschütztes Laufwerk können Administratoren das Laufwerk wiederherstellen, wenn es gesperrt ist. Dadurch wird sichergestellt, dass autorisierte Benutzer stets Zugriff auf verschlüsselte Daten des Unternehmens haben. Wenn Sie **Keine**angeben, ist der Benutzer selbst dafür verantwortlich, eine Kopie des Wiederherstellungskennworts oder Wiederherstellungsschlüssels aufzubewahren. Wenn diese Informationen verloren gehen oder ein Benutzer das Laufwerk vor dem Verlassen des Unternehmens nicht entschlüsselt, können Administratoren nicht problemlos auf das Laufwerk zugreifen.  
+             Sélectionnez **AD** pour configurer le chiffrement de lecteur BitLocker pour la sauvegarde des informations de récupération des lecteurs protégés par BitLocker sur les services de domaine Active Directory (AD DS). La sauvegarde des mots de passe de récupération d'un lecteur protégé par BitLocker permet aux utilisateurs administratifs de récupérer le lecteur s'il est verrouillé. Ainsi, les utilisateurs autorisés peuvent toujours accéder aux données chiffrées appartenant à l'entreprise. Lorsque vous spécifiez **Aucun**, l'utilisateur est responsable de la conservation d'une copie du mot de passe de récupération ou de la clé de récupération. Si l'utilisateur perd ces informations ou omet de déchiffrer le lecteur avant de quitter l'organisation, les utilisateurs administratifs ne peuvent pas accéder facilement au lecteur.  
 
-        -   /wait:<TRUE&#124;FALSE> – Geben Sie an, ob bei einer Tasksequenz auf den Abschluss der Verschlüsselung gewartet wird.  
+        -   /wait:<TRUE&#124;FALSE> : indiquez si la séquence de tâches attend la fin du chiffrement avant de se terminer.  
 
-    3.  Wählen Sie die Option **Paket**aus, und geben Sie anschließend das Paket an, das Sie zu Beginn dieser Prozedur erstellt haben.  
+    3.  Sélectionnez **Package**, puis définissez le package que vous avez créé au début de cette procédure.  
 
-    4.  Fügen Sie auf der Registerkarte **Optionen** die folgenden Bedingungen hinzu:  
+    4.  Sous l'onglet **Options** , spécifiez les conditions suivantes :  
 
-        -   Bedingung = Tasksequenzvariable  
+        -   Condition = Variable de séquence de tâches  
 
         -   Variable = _SMSTSWTG  
 
-        -   Bedingung = Ist gleich  
+        -   Condition = Égal à  
 
-        -   Wert = Wahr  
+        -   Valeur = True  
 
     > [!NOTE]  
-    >  Mit dem Schritt **BitLocker aktivieren** , welcher häufig auf den neuen Befehlszeilenschritt folgt, kann BitLocker für Windows To Go nicht aktiviert werden. Dennoch können Sie diesen Schritt in der Tasksequenz behalten, um sie für Windows 8-Bereitstellungen ohne Windows To Go-Laufwerk zu verwenden.  
+    >  L'étape **Activer BitLocker** , susceptible d'intervenir après la nouvelle étape de ligne de commande, n'est pas utilisée pour activer BitLocker pour Windows To Go. Toutefois, vous pouvez conserver cette étape dans la séquence de tâches et l'utiliser pour les déploiements de Windows 8 qui n'utilisent pas un lecteur Windows To Go.  
 
-###  <a name="BKMK_Deployments"></a> Bereitstellen von Windows To Go Creator-Paket und Tasksequenz  
- Bei Windows To Go handelt es sich um einen Hybrid-Bereitstellungsprozess. Daher müssen Sie das Windows To Go Creator-Paket und die Windows 8-Tasksequenz bereitstellen Verwenden Sie die folgenden Verfahren, um den Bereitstellungsvorgang abzuschließen.  
+###  <a name="BKMK_Deployments"></a> Déployer le package Windows To Go Creator et la séquence de tâches  
+ Windows To Go est un processus de déploiement hybride. Par conséquent, vous devez déployer le package Windows To Go Creator et la séquence de tâches Windows 8. Utilisez les procédures suivantes pour terminer le processus de déploiement.  
 
-#### <a name="to-deploy-the-windows-to-go-creator-package"></a>So stellen Sie das Windows To Go Creator-Paket bereit  
+#### <a name="to-deploy-the-windows-to-go-creator-package"></a>Pour déployer le package Windows To Go Creator  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Softwarebibliothek**.  
+1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
-2.  Erweitern Sie im Arbeitsbereich **Softwarebibliothek** den Abschnitt **Anwendungsverwaltung**, und klicken Sie dann auf **Pakete**.  
+2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Gestion d'applications**, puis cliquez sur **Packages**.  
 
-3.  Wählen Sie das Windows To Go Creator-Paket aus, das Sie im Schritt [Erstellen eines Windows To Go Creator-Pakets](#BKMK_CreatePackage) erstellt haben.  
+3.  Sélectionnez le package Windows To Go que vous avez créé à l'étape [Créer un package Windows To Go Creator](#BKMK_CreatePackage) .  
 
-4.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Bereitstellung** auf **Bereitstellen**.  
+4.  Dans l'onglet **Accueil** , dans le groupe **Déploiement** , cliquez sur **Déployer**.  
 
-5.  Geben Sie auf der Seite **Allgemein** die folgenden Einstellungen an:  
+5.  Sur la page **Général** , spécifiez les paramètres suivants :  
 
-    1.  **Software**: Vergewissern Sie sich, dass das Windows To Go-Paket ausgewählt ist.  
+    1.  **Logiciel**: vérifiez que le package Windows To Go est sélectionné.  
 
-    2.  **Sammlung**: Klicken Sie auf **Durchsuchen** , um die Sammlung auszuwählen, für die das Windows To Go-Paket bereitgestellt werden soll.  
+    2.  **Regroupement**: cliquez sur **Parcourir** pour sélectionner le regroupement vers lequel vous voulez déployer le package Windows To Go.  
 
-    3.  **Standard-Verteilungspunktgruppen verwenden, die dieser Sammlung zugeordnet sind**: Wählen Sie diese Option aus, wenn der Paketinhalt in der Standardverteilungspunktgruppe der Sammlung gespeichert werden soll. Wenn die ausgewählte Sammlung keiner Verteilungspunktgruppe zugeordnet ist, ist diese Option nicht verfügbar.  
+    3.  **Utiliser des groupes de points de distribution par défaut associés à ce regroupement**: sélectionnez cette option si vous voulez stocker le contenu du package sur le groupe de points de distribution par défaut du regroupement. Si vous n'avez pas associé le regroupement sélectionné à un groupe de points de distribution, cette option ne sera pas disponible.  
 
-6.  Klicken Sie auf der Seite **Inhalt** auf **Hinzufügen** , und wählen Sie dann die Verteilungspunkte oder Verteilungspunktgruppen aus, auf denen der diesem Paket und diesem Programm zugeordnete Inhalt bereitgestellt werden soll.  
+6.  Sur la page **Contenu** , cliquez sur **Ajouter** , puis sélectionnez les points de distribution ou les groupes de points de distribution vers lesquels le contenu associé à ce package et ce programme doit être déployé.  
 
-7.  Wählen Sie auf der Seite **Bereitstellungseinstellungen** als Bereitstellungstyp **Erforderlich** aus, und klicken Sie dann auf **Weiter**.  
+7.  Sur la page **Paramètres de déploiement** , sélectionnez **Disponible** pour le type de déploiement, puis cliquez sur **Suivant**.  
 
-8.  Konfigurieren Sie auf der Seite **Zeitplanung**, wann dieses Paket und dieses Programm bereitgestellt oder für Clientgeräte verfügbar gemacht werden.  
+8.  Sur la page **Planification**, configurez l'heure à laquelle ce package et ce programme seront déployés ou mis à disposition des périphériques clients.  
 
-     Welche Optionen auf dieser Seite verfügbar sind, ist davon abhängig, ob die Bereitstellungsaktion auf **Verfügbar** oder **Erforderlich**gesetzt ist.  
+     Les options de cette page pourront différer selon si l'action de déploiement est définie sur **Disponible** ou sur **Obligatoire**.  
 
-9. Konfigurieren Sie unter **Zeitplanung**die folgenden Einstellungen, und klicken Sie dann auf **Weiter**.  
+9. Sur la page **Planification**, configurez les paramètres suivants, puis cliquez sur **Suivant**.  
 
-    1.  **Verfügbarkeitsdatum der Bereitstellung festlegen**: Geben Sie den Zeitpunkt (Datum und Uhrzeit) an, zu dem das Paket und das Programm zur Ausführung auf dem Zielcomputer verfügbar sind. Wenn Sie das Kontrollkästchen **UTC**aktivieren, sind das Paket und das Programm zum gleichen Zeitpunkt für mehrere Zielcomputer verfügbar, anstatt der lokalen Zeit auf den Zielcomputern entsprechend zu unterschiedlichen Zeitpunkten.  
+    1.  **Planifier la disponibilité de ce déploiement**: spécifiez la date et l’heure auxquelles le package et le programme sont disponibles pour s’exécuter sur l’ordinateur de destination. Lorsque vous sélectionnez **UTC**, ce paramètre s'assure que le package et le programme sont disponibles pour plusieurs ordinateurs de destination en même temps plutôt qu'à des heures différentes, en fonction de l'heure locale sur les ordinateurs de destination.  
 
-    2.  **Ablaufdatum der Bereitstellung festlegen**: Geben Sie den Zeitpunkt (Datum und Uhrzeit) an, zu dem das Paket und das Programm auf dem Zielcomputer ablaufen. Wenn Sie **UTC**auswählen, endet die Gültigkeit der Tasksequenz auf mehreren Zielcomputern zum gleichen Zeitpunkt, anstatt der lokalen Zeit auf den Zielcomputern entsprechend zu unterschiedlichen Zeitpunkten.  
+    2.  **Planifier la date d’expiration de ce déploiement**: spécifiez la date et l’heure d’expiration du package et du programme sur l’ordinateur de destination Lorsque vous sélectionnez **UTC**, ce paramètre s'assure que la séquence de tâches expire sur plusieurs ordinateurs de destination en même temps plutôt qu'à des heures différentes, en fonction de l'heure locale sur les ordinateurs de destination.  
 
-10. Geben Sie auf der Seite **Benutzerfreundlichkeit** des Assistenten die folgenden Informationen an:  
+10. Sur la page **Expérience utilisateur** de l'Assistant, spécifiez les informations suivantes :  
 
-    -   **Softwareinstallation**: Die Software kann außerhalb konfigurierter Wartungsfenster installiert werden.  
+    -   **Installation du logiciel**: permet au logiciel d’être installé en dehors de toute fenêtre de maintenance configurée.  
 
-    -   **Systemneustart (falls dieser zum Abschluss der Installation erforderlich ist)**: Ermöglicht das Neustarten eines Geräts außerhalb konfigurierter Wartungsfenster, wenn dies bei der Softwareinstallation erforderlich ist.  
+    -   **Redémarrage du système (si nécessaire pour terminer l’installation)**: permet à un appareil de redémarrer en dehors des fenêtres de maintenance configurées quand cela est exigé par l’installation du logiciel.  
 
-    -   **Eingebettete Geräte:**Beim Bereitstellen von Paketen und Programmen für Windows Embedded-Geräte mit Schreibfilteraktivierung können Sie angeben, dass die Pakete und Programme auf dem temporären Overlay gespeichert und die Änderungen später ausgeführt werden oder dass sie am Installationsstichtag oder während eines Wartungsfensters ausgeführt werden sollen. Falls die Änderungen am Installationsstichtag oder während eines Wartungsfensters ausgeführt werden, ist ein Neustart erforderlich, und die Änderungen werden auf dem Gerät beibehalten.  
+    -   **Appareils Windows Embedded**: quand vous déployez des packages et des programmes sur des appareils Windows Embedded dont le filtre d’écriture est activé, vous pouvez choisir d’installer les packages et les programmes sur un segment de recouvrement temporaire puis de valider les modifications ultérieurement, ou de valider les modifications à l’échéance de l’installation ou au cours d’une fenêtre de maintenance. Lorsque vous validez des modifications à l'échéance de l'installation ou au cours d'une fenêtre de maintenance, un redémarrage est requis et les modifications sont conservées sur l'appareil.  
 
-11. Geben Sie auf der Seite **Verteilungspunkte** die folgenden Informationen an:  
+11. Sur la page **Points de distribution** , spécifiez les informations suivantes :  
 
-    -   **Bereitstellungsoptionen:** Geben Sie **Inhalt vom Verteilungspunkt herunterladen und lokal ausführen**an.  
+    -   **Options de déploiement :** spécifiez **Télécharger le contenu à partir du point de distribution et l’exécuter localement**.  
 
-    -   **Freigeben von Inhalten für andere Clients im gleichen Subnetz zulassen**: Wählen Sie diese Option aus, um das Herunterladen von Inhalten von anderen Clients zuzulassen, von denen die Inhalte bereits heruntergeladen und zwischengespeichert wurden, und so die Netzwerkauslastung zu reduzieren. Bei dieser Option, die auf Computern verwendet werden kann, auf denen Windows Vista SP2 und höher ausgeführt wird, wird Windows BranchCache verwendet.  
+    -   **Autoriser les clients à partager du contenu avec d’autres clients sur le même sous-réseau**: sélectionnez cette option pour réduire la charge du réseau en autorisant les clients à télécharger du contenu à partir d’autres clients du réseau ayant déjà téléchargé et mis en cache le contenu. Cette option utilise Windows BranchCache et peut être utilisée sur des ordinateurs exécutant Windows Vista SP2 et versions ultérieures.  
 
-    -   **Die Verwendung eines Fallbackquellpfads für den Inhalt durch Clients zulassen**: Geben Sie an, ob Clients ein Ausweichen und Verwenden eines nicht bevorzugten Verteilungspunkts als Quellspeicherort für Inhalt ermöglicht werden soll, wenn der Inhalt an keinem bevorzugten Verteilungspunkt verfügbar ist.  
+    -   **Autoriser les clients à utiliser un emplacement source de secours pour le contenu**: spécifiez si les clients sont autorisés à revenir et à utiliser un point de distribution non préféré en tant qu’emplacement source de contenu quand le contenu n’est pas disponible sur un point de distribution préféré.  
 
-12. Schließen Sie den Assistenten ab.  
+12. Effectuez toutes les étapes de l'Assistant.  
 
-#### <a name="to-deploy-the-windows-8-task-sequence"></a>So stellen Sie die Windows 8-Tasksequenz bereit  
+#### <a name="to-deploy-the-windows-8-task-sequence"></a>Pour déployer la séquence de tâches de Windows 8  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Softwarebibliothek**.  
+1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
-2.  Erweitern Sie im Arbeitsbereich **Softwarebibliothek** den Bereich **Betriebssysteme**, und klicken Sie dann auf **Tasksequenzen**.  
+2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Séquences de tâches**.  
 
-3.  Wählen Sie die Windows 8-Tasksequenz aus, die Sie im Schritt [Prerequisites to provision Windows To Go](#BKMK_Prereqs) erstellt haben.  
+3.  Sélectionnez la séquence de tâche Windows 8 que vous avez créée à l'étape [Prerequisites to provision Windows To Go](#BKMK_Prereqs) .  
 
-4.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Bereitstellung** auf **Bereitstellen**.  
+4.  Dans l'onglet **Accueil** , dans le groupe **Déploiement** , cliquez sur **Déployer**.  
 
-5.  Geben Sie auf der Seite **Allgemein** die folgenden Einstellungen an:  
+5.  Sur la page **Général** , spécifiez les paramètres suivants :  
 
-    1.  **Tasksequenz**: Vergewissern Sie sich, dass die Windows 8-Tasksequenz ausgewählt ist.  
+    1.  **Séquence de tâches**: vérifiez que la séquence de tâches de Windows 8 est sélectionnée.  
 
-    2.  **Sammlung**: Klicken Sie auf **Durchsuchen** , um die Sammlung mit allen Geräten auszuwählen, für die möglicherweise eine Bereitstellung von Windows To Go erforderlich ist.  
-
-        > [!IMPORTANT]  
-        >  Wenn vom vorab bereitgestellten Medium, das Sie im Schritt [Create prestaged media](#BKMK_CreatePrestagedMedia) erstellt haben, die Variable **SMSTSPreferredAdvertID** verwendet wird, können Sie die Tasksequenz für die Sammlung **Alle Systeme** bereitstellen und auf der Seite **Inhalt** die Einstellung Nur Windows PE (ausgeblendet) angeben. Da die Tasksequenz ausgeblendet ist, steht sie nur Medien zur Verfügung.  
-
-    3.  **Standard-Verteilungspunktgruppen verwenden, die dieser Sammlung zugeordnet sind**: Wählen Sie diese Option aus, wenn der Paketinhalt in der Standardverteilungspunktgruppe der Sammlung gespeichert werden soll. Wenn die ausgewählte Sammlung keiner Verteilungspunktgruppe zugeordnet ist, ist diese Option nicht verfügbar.  
-
-6.  Konfigurieren Sie auf der Seite **Bereitstellungseinstellungen** die folgenden Einstellungen, und klicken Sie dann auf **Weiter**.  
-
-    -   **Zweck**: Wählen Sie **Verfügbar**aus. Wenn die Tasksequenz für einen Benutzer bereitgestellt wird, wird die veröffentlichte Tasksequenz dem Benutzer im Anwendungskatalog angezeigt, wo er sie bei Bedarf anfordern kann. Wenn die Tasksequenz auf einem Gerät bereitgestellt wird, wird sie dem Benutzer im Softwarecenter angezeigt, und der Benutzer kann sie bei Bedarf installieren.  
-
-    -   **Verfügbar machen für**: Geben Sie an, ob die Tasksequenz für Configuration Manager-Clients, Medien oder die PXE verfügbar sein soll.  
+    2.  **Regroupement**: cliquez sur **Parcourir** pour sélectionner le regroupement qui contient tous les appareils pour lesquels un utilisateur peut configurer Windows To Go.  
 
         > [!IMPORTANT]  
-        >  Verwenden Sie die Einstellung **Nur Medien und PXE (ausgeblendet)** für automatisierte Bereitstellungen von Tasksequenzen. Aktivieren Sie die Option **Unbeaufsichtigte Betriebssystembereitstellung zulassen** , und legen Sie die Variable SMSTSPreferredAdvertID als Teil des vorab bereitgestellten Mediums fest, damit der Computer ohne Benutzerinteraktion bei der Bereitstellung von Windows To Go automatisch gestartet wird, sobald ein Windows To Go-Laufwerk erkannt wird. Weitere Informationen zu den Einstellungen dieser vorab bereitgestellten Medien finden Sie im Abschnitt [Create prestaged media](#BKMK_CreatePrestagedMedia) .  
+        >  Si le média préparé que vous avez créé dans dans la section [Create prestaged media](#BKMK_CreatePrestagedMedia) utilise la variable SMSTSPreferredAdvertID, vous pouvez déployer la séquence de tâches sur le regroupement **Tous les systèmes** et définir le paramètre **Windows PE uniquement (masqué)** sur la page **Contenu** . La séquence de tâches étant masquée, elle ne sera disponible que pour le média.  
 
-7.  Konfigurieren Sie auf der Seite **Zeitplanung** die folgenden Einstellungen, und klicken Sie dann auf **Weiter**.  
+    3.  **Utiliser des groupes de points de distribution par défaut associés à ce regroupement**: sélectionnez cette option si vous voulez stocker le contenu du package sur le groupe de points de distribution par défaut du regroupement. Si vous n'avez pas associé le regroupement sélectionné à un groupe de points de distribution, cette option ne sera pas disponible.  
 
-    1.  **Verfügbarkeitsdatum der Bereitstellung festlegen**: Geben Sie den Zeitpunkt (Datum und Uhrzeit) an, zu dem die Tasksequenz zur Ausführung auf dem Zielcomputer verfügbar ist. Wenn Sie das Kontrollkästchen **UTC**aktivieren, ist die Tasksequenz zum gleichen Zeitpunkt für mehrere Zielcomputer verfügbar, anstatt der lokalen Zeit auf den Zielcomputern entsprechend zu unterschiedlichen Zeitpunkten.  
+6.  Sur la page **Paramètres de déploiement** , configurez les paramètres suivants, puis cliquez sur **Suivant**.  
 
-    2.  **Ablaufdatum der Bereitstellung festlegen**: Geben Sie den Zeitpunkt (Datum und Uhrzeit) an, zu dem die Tasksequenz auf dem Zielcomputer abläuft. Wenn Sie **UTC**auswählen, endet die Gültigkeit der Tasksequenz auf mehreren Zielcomputern zum gleichen Zeitpunkt, anstatt der lokalen Zeit auf den Zielcomputern entsprechend zu unterschiedlichen Zeitpunkten.  
+    -   **Objet**: sélectionnez **Disponible**. Lorsque vous déployez la séquence de tâches sur un utilisateur, l'utilisateur peut voir la séquence de tâches publiée dans le catalogue des applications et il peut la demander au besoin. Si la séquence de tâches est déployée sur un périphérique, l'utilisateur pourra la voir dans le Centre logiciel et peut l'installer sur demande.  
 
-8.  Geben Sie auf der Seite **Benutzerfreundlichkeit** die folgenden Informationen an:  
+    -   **Rendre disponible aux éléments suivants** : spécifiez si la séquence de tâches est disponible pour les clients Configuration Manager, les médias ou les environnements PXE.  
 
-    -   **Tasksequenzstatus anzeigen**: Geben Sie an, ob der Status der Tasksequenz vom Configuration Manager-Client angezeigt wird.  
+        > [!IMPORTANT]  
+        >  Utilisez le paramètre **Média et environnement PXE uniquement (masqué)** pour les déploiements de séquence de tâches automatisés. Sélectionnez **Autoriser le déploiement du système d'exploitation de manière autonome** et définissez la variable SMSTSPreferredAdvertID à inclure dans le média préparé de sorte que l'ordinateur démarre automatiquement le déploiement de Windows To Go sans aucune interaction utilisateur lorsqu'il détecte un lecteur Windows To Go. Pour plus d'informations sur ces paramètres de média préparé, voir la section [Create prestaged media](#BKMK_CreatePrestagedMedia) .  
 
-    -   **Softwareinstallation**: Geben Sie an, ob der Benutzer außerhalb eines konfigurierten Wartungsfensters nach dem geplanten Zeitpunkt Software installieren darf.  
+7.  Sur la page **Planification** , configurez les paramètres suivants, puis cliquez sur **Suivant**.  
 
-    -   **Systemneustart (falls dieser zum Abschluss der Installation erforderlich ist)**: Ermöglicht das Neustarten eines Geräts außerhalb konfigurierter Wartungsfenster, wenn dies bei der Softwareinstallation erforderlich ist.  
+    1.  **Planifier la disponibilité de ce déploiement**: spécifiez la date et l’heure auxquelles la séquence de tâches est disponible pour s’exécuter sur l’ordinateur de destination. Lorsque vous sélectionnez **UTC**, ce paramètre s'assure que la séquence de tâches est disponible pour plusieurs ordinateurs de destination en même temps plutôt qu'à des heures différentes, en fonction de l'heure locale sur les ordinateurs de destination.  
 
-    -   **Eingebettete Geräte:**Beim Bereitstellen von Paketen und Programmen für Windows Embedded-Geräte mit Schreibfilteraktivierung können Sie angeben, dass die Pakete und Programme auf dem temporären Overlay gespeichert und die Änderungen später ausgeführt werden oder dass sie am Installationsstichtag oder während eines Wartungsfensters ausgeführt werden sollen. Falls die Änderungen am Installationsstichtag oder während eines Wartungsfensters ausgeführt werden, ist ein Neustart erforderlich, und die Änderungen werden auf dem Gerät beibehalten.  
+    2.  **Planifier la disponibilité de ce déploiement**: spécifiez la date et l’heure d’expiration de la séquence de tâches sur l’ordinateur de destination. Lorsque vous sélectionnez **UTC**, ce paramètre s'assure que la séquence de tâches expire sur plusieurs ordinateurs de destination en même temps plutôt qu'à des heures différentes, en fonction de l'heure locale sur les ordinateurs de destination.  
 
-    -   **Internetbasierte Clients**: Geben Sie an, ob die Tasksequenz auf einem internetbasierten Client ausgeführt werden darf. Vorgänge, mit denen Software wie ein Betriebssystem installiert wird, werden von dieser Einstellung nicht unterstützt. Verwenden Sie diese Option nur für generische skriptbasierte Tasksequenzen, mit denen Vorgänge im Standardbetriebssystem ausgeführt werden.  
+8.  Sur la page **Expérience utilisateur** , spécifiez les informations suivantes :  
 
-9. Geben Sie auf der Seite **Warnungen** die für diese Tasksequenzbereitstellung gewünschten Warnungseinstellungen an, und klicken Sie dann auf **Weiter**.  
+    -   **Afficher la progression de la séquence de tâches** : spécifiez si le client Configuration Manager affiche la progression de la séquence de tâches.  
 
-10. Geben Sie auf der Seite **Verteilungspunkte** die folgenden Informationen an, und klicken Sie dann auf **Weiter**.  
+    -   **Installation du logiciel**: spécifiez si l’utilisateur est autorisé à installer le logiciel en dehors de fenêtres de maintenance configurées après l’heure planifiée.  
 
-    -   **Bereitstellungsoptionen**: Wählen Sie **Inhalt lokal herunterladen, wenn dies für die Ausführung der Tasksequenz erforderlich ist**aus.  
+    -   **Redémarrage du système (si nécessaire pour terminer l’installation)**: permet à un appareil de redémarrer en dehors des fenêtres de maintenance configurées quand cela est exigé par l’installation du logiciel.  
 
-    -   **Remoteverteilungspunkt verwenden, wenn kein lokaler Verteilungspunkt verfügbar ist**: Geben Sie an, ob Verteilungspunkte in langsamen und unzuverlässigen Netzwerken von Clients zum Herunterladen des Inhalts verwendet werden können, der für die Tasksequenz erforderlich ist.  
+    -   **Appareils Windows Embedded**: quand vous déployez des packages et des programmes sur des appareils Windows Embedded dont le filtre d’écriture est activé, vous pouvez choisir d’installer les packages et les programmes sur un segment de recouvrement temporaire puis de valider les modifications ultérieurement, ou de valider les modifications à l’échéance de l’installation ou au cours d’une fenêtre de maintenance. Lorsque vous validez des modifications à l'échéance de l'installation ou au cours d'une fenêtre de maintenance, un redémarrage est requis et les modifications sont conservées sur l'appareil.  
 
-    -   **Die Verwendung eines Fallbackquellpfads für den Inhalt durch Clients zulassen**:
-        - *Vor Version 1610* können Sie das Kontrollkästchen „Fallbackquellpfad für Inhalt zulassen“ aktivieren, um für Clients außerhalb solcher Begrenzungsgruppen ein Ausweichen auf den Verteilungspunkt als Quellort für Inhalt zu ermöglichen, wenn keine anderen Verteilungspunkte verfügbar sind.
-        - *Ab Version 1610* können Sie **Fallbackquellpfad für Inhalt zulassen** nicht mehr konfigurieren.  Stattdessen können Sie Beziehungen zwischen Begrenzungsgruppen konfigurieren, die bestimmen, ab wann ein Client mit der Suche nach zusätzlichen Begrenzungsgruppen für einen gültigen Quellspeicherort für den Inhalt suchen kann. 
+    -   **Clients basés sur Internet**: spécifiez si la séquence de tâches est autorisée à s’exécuter sur un client basé sur Internet. Les opérations qui installent le logiciel, tel qu'un système d'exploitation, ne sont pas prises en charge avec ce paramètre. Utilisez cette option uniquement pour les séquences de tâches basées sur des scripts génériques qui effectuent des opérations dans le système d'exploitation standard.  
 
-11. Schließen Sie den Assistenten ab.  
+9. Sur la page **Alertes** , spécifiez les paramètres d'alerte que vous souhaitez pour ce déploiement de séquence de tâches, puis cliquez sur **Suivant**.  
 
-###  <a name="BKMK_UserExperience"></a> Benutzer führt Windows To Go Creator aus  
- Nach der Bereitstellung des Windows To Go-Pakets und der Windows 8-Tasksequenz steht dem Benutzer der Windows To Go Creator zur Verfügung. Der Benutzer kann den Softwarekatalog bzw. das Softwarecenter (bei Bereitstellung von Windows To Go auf Geräten) aufrufen und das Programm „Windows To Go Creator“ ausführen. Sobald das Creator-Paket heruntergeladen wurde, wird auf der Taskleiste ein blinkendes Symbol angezeigt. Wenn der Benutzer auf das Symbol klickt, wird ein Dialogfeld angezeigt, in dem das Laufwerk für die Bereitstellung von Windows To Go ausgewählt werden kann (es sei denn, es wird die Befehlszeilenoption /drive verwendet). Wenn die Anforderungen von Windows To Go vom Laufwerk nicht erfüllt werden können oder auf dem Laufwerk nicht genügend freier Speicherplatz vorhanden ist, wird von Creator eine Fehlermeldung angezeigt. Der Benutzer kann Laufwerk und Abbild, die über die Bestätigungsseite angewendet werden, überprüfen. Während der Konfiguration und Vorabbereitstellung von Inhalten auf dem Windows To Go-Laufwerk von Creator wird ein Fortschrittsdialogfeld angezeigt. Nach Abschluss der Vorabbereitstellung wird von Creator eine Aufforderung zum Neustarten des Computers vom Windows To Go-Laufwerk angezeigt.  
+10. Sur la page **Points de distribution** , spécifiez les informations suivantes, puis cliquez sur **Suivant**.  
+
+    -   **Options de déploiement**: sélectionnez **Télécharger le contenu localement si nécessaire, en exécutant la séquence de tâches**.  
+
+    -   **Quand aucun point de distribution local n’est disponible, utiliser un point de distribution distant**: spécifiez si les clients peuvent utiliser les points de distribution qui se trouvent sur des réseaux lents et peu fiables pour télécharger le contenu exigé par la séquence de tâches.  
+
+    -   **Autoriser les clients à utiliser un emplacement source de secours pour le contenu** :
+        - *Avant la version 1610*, vous pouviez cocher la case Autoriser un emplacement source de secours pour le contenu pour permettre aux clients situés en dehors de ces groupes de limites d’avoir recours au point de distribution comme emplacement source pour le contenu quand aucun autre point de distribution n’est disponible.
+        - *À partir de la version 1610*, vous ne pouvez plus configurer l’option **Autoriser un emplacement source de secours pour le contenu**.  Au lieu de cela, vous configurez des relations entre les groupes de limites qui déterminent quand un client peut commencer à rechercher un emplacement source de contenu valide dans d’autres groupes de limites. 
+
+11. Effectuez toutes les étapes de l'Assistant.  
+
+###  <a name="BKMK_UserExperience"></a> L’utilisateur exécute Windows To Go Creator  
+ Suite au déploiement du package Windows To Go et de la séquence de tâches de Windows 8, Windows To Go Creator est disponible pour l'utilisateur. L'utilisateur peut accéder au catalogue de logiciels ou au centre logiciel si Windows To Go Creator a été déployé sur les périphériques et exécute le programme Windows To Go Creator. Une fois le package Creator téléchargé, une icône clignotante s'affiche dans la barre des tâches. Lorsque l'utilisateur clique sur cette icône, une boîte de dialogue s'affiche et permet à l'utilisateur de sélectionner le lecteur Windows To Go à préparer (sauf si l'option de ligne de commande /drive est utilisée). Si le lecteur n'est pas conforme à la configuration requise pour Windows To Go ou si l'espace disque disponible est insuffisant pour installer l'image, le programme Creator affiche un message d'erreur. L'utilisateur peut vérifier le lecteur et l'image qui sera appliquée à partir de la page de confirmation. Lorsque Creator configure et prépare un contenu pour le lecteur Windows To Go, une boîte de dialogue indique la progression. Une fois la préparation terminée, Creator vous invite à redémarrer l'ordinateur pour démarrer sur le lecteur Windows Go To.  
 
 > [!NOTE]  
->  Wenn Sie im Abschnitt [Create a Windows To Go Creator package](#BKMK_CreatePackage) als Teil der Befehlszeile von Creator nicht die Startumleitung aktiviert haben, muss der Benutzer möglicherweise bei jedem Systemneustart manuell vom Windows To Go-Laufwerk starten.  
+>  Si vous n'avez pas activé la redirection de démarrage dans le cadre de la ligne de commande du programme Creator dans la section [Create a Windows To Go Creator package](#BKMK_CreatePackage) , l'utilisateur devra peut-être effectuer manuellement le démarrage sur le lecteur Windows To Go à chaque redémarrage du système.  
 
-###  <a name="BKMK_ConfigureStageDrive"></a> Configuration Manager konfiguriert das Windows To Go-Laufwerk und stellt es vorab bereit  
- Nach dem Neustart des Computers vom Windows To Go-Laufwerk wird vom Laufwerk Windows PE gestartet und eine Verbindung zum Verwaltungspunkt hergestellt, um die Richtlinie zum Abschließen der Bereitstellung des Betriebssystems abzurufen. Configuration Manager konfiguriert das Laufwerk und stellt es vorab bereit. Nach der Bereitstellung des Laufwerks durch Configuration Manager kann der Benutzer den Computer neu starten, um den Bereitstellungsvorgang abzuschließen (z.B. einer Domäne beitreten oder Apps installieren). Dieser Vorgang ist bei allen vorab bereitgestellten Medien identisch.  
+###  <a name="BKMK_ConfigureStageDrive"></a> Configuration Manager configure et prépare le lecteur Windows To Go  
+ Après le redémarrage de l'ordinateur sur le lecteur Windows To Go, le lecteur démarre dans Windows PE et se connecte au point de gestion pour obtenir la stratégie de finalisation du déploiement du système d'exploitation. Configuration Manager configure et prépare le lecteur. Après la préparation du lecteur par Configuration Manager, l’utilisateur peut redémarrer l’ordinateur pour finaliser le processus de mise en service (par exemple, joindre un domaine ou installer des applications). Ce processus est le même pour tous les médias préparés.  
 
-###  <a name="BKMK_UserLogsIn"></a> Benutzer meldet sich bei Windows 8 an  
- Nach Abschluss des Bereitstellungsvorgangs durch Configuration Manager und sobald der Windows 8-Sperrbildschirm angezeigt wird, kann sich der Benutzer beim Betriebssystem anmelden.  
+###  <a name="BKMK_UserLogsIn"></a> L’utilisateur ouvre une session Windows 8  
+ Lorsque Configuration Manager termine le processus de mise en service et que l’écran de verrouillage Windows 8 s’affiche, l’utilisateur peut ouvrir une session sur le système d’exploitation.  

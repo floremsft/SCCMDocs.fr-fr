@@ -1,6 +1,6 @@
 ---
-title: "Funktionen in Technical Preview 1703 für Configuration Manager"
-description: "Erfahren Sie mehr über die Funktionen, die mit Technical Preview für System Center Configuration Manager, Version 1703, zur Verfügung stehen."
+title: "Fonctionnalités de Configuration Manager Technical Preview 1703"
+description: "Découvrez les fonctionnalités disponibles dans la version Technical Preview 1703 de System Center Configuration Manager."
 ms.custom: na
 ms.date: 03/24/2017
 ms.prod: configuration-manager
@@ -17,147 +17,147 @@ manager: angrobe
 ms.openlocfilehash: bb1b96a56db68dcea22270855b899ba3a90afd0d
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="capabilities-in-technical-preview-1703-for-system-center-configuration-manager"></a>Funktionen in Technical Preview 1703 für System Center Configuration Manager
+# <a name="capabilities-in-technical-preview-1703-for-system-center-configuration-manager"></a>Fonctionnalités de la version Technical Preview 1703 de System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Technical Preview)*
+*S’applique à : System Center Configuration Manager (version d’évaluation technique)*
 
-In diesem Artikel werden die Funktionen erläutert, die in Technical Preview für System Center Configuration Manager, Version 1703, zur Verfügung stehen. Sie können diese Version installieren, um neue Funktionen für Ihren Configuration Manager Technical Preview-Standort zu aktualisieren oder hinzuzufügen. Bevor Sie diese Version der Technical Preview installieren, lesen Sie das einführende Thema [Technical Preview für System Center Configuration Manager](../../core/get-started/technical-preview.md), um sich mit den allgemeinen Anforderungen und Einschränkungen bei der Verwendung einer Technical Preview vertraut zu machen, und zu erfahren, wie Sie Updates zwischen Versionen durchführen und Feedback zu den Features in einer Technical Preview geben können.    
+Cet article présente les fonctionnalités disponibles dans la version Technical Preview 1703 de System Center Configuration Manager. Vous pouvez installer cette version pour mettre à jour et ajouter de nouvelles fonctionnalités à votre site de version d’évaluation technique Configuration Manager. Avant d’installer cette version d’évaluation technique, passez en revue la rubrique de présentation, [Technical Preview pour System Center Configuration Manager](../../core/get-started/technical-preview.md), pour vous familiariser avec les conditions générales et les limitations d’utilisation d’une version d’évaluation technique, la mise à jour entre les versions et l’envoi de commentaires sur les fonctionnalités dans une version d’évaluation technique.    
 
 
-**Im Folgenden werden neue Features aufgelistet, die Sie mit dieser Version ausprobieren können.**  
+**Vous trouverez ci-dessous les nouvelles fonctionnalités propres à cette version.**  
 
-## <a name="deploy-volume-purchased-ios-apps-to-device-collections"></a>Bereitstellen per Volumenlizenz erworbener iOS-Apps in Gerätesammlungen
+## <a name="deploy-volume-purchased-ios-apps-to-device-collections"></a>Déployer des applications iOS achetées en volume sur des regroupements d’appareils
 
-Sie können jetzt sowohl Geräten als auch Benutzern lizenzierte Apps bereitstellen. Je nachdem, inwieweit die App Gerätelizenzierungen unterstützt, wird eine entsprechende Lizenz wie folgt beansprucht:
+Vous pouvez désormais déployer des applications sous licence sur des appareils ainsi que des utilisateurs. En fonction de la capacité des applications à prendre en charge les licences d’appareils, une licence appropriée sera réclamée lors du déploiement, comme suit :
 
 |||||
 |-|-|-|-|
-|Configuration Manager-Version|Unterstützt die App Gerätelizenzierung?|Typ der Bereitstellungssammlung|Beanspruchte Lizenz|
-|Früher als 1702|Ja|Benutzer|Benutzerlizenz|
-|Früher als 1702|Nein|Benutzer|Benutzerlizenz|
-|Früher als 1702|Ja|Gerät|Benutzerlizenz|
-|Früher als 1702|Nein|Gerät|Benutzerlizenz|
-|1702 und höher|Ja|Benutzer|Benutzerlizenz|
-|1702 und höher|Nein|Benutzer|Benutzerlizenz|
-|1702 und höher|Ja|Gerät|Gerätelizenz|
-|1702 und höher|Nein|Gerät|Benutzerlizenz|
+|Version de Configuration Manager|L’application prend-elle en charge les licences d’appareil ?|Type de regroupement de déploiement|Licence demandée|
+|Antérieure à 1702|Oui|utilisateur|Licence utilisateur|
+|Antérieure à 1702|Non|utilisateur|Licence utilisateur|
+|Antérieure à 1702|Oui|Appareil|Licence utilisateur|
+|Antérieure à 1702|Non|Appareil|Licence utilisateur|
+|1702 et versions ultérieures|Oui|utilisateur|Licence utilisateur|
+|1702 et versions ultérieures|Non|utilisateur|Licence utilisateur|
+|1702 et versions ultérieures|Oui|Appareil|Licence d’appareil|
+|1702 et versions ultérieures|Non|Appareil|Licence utilisateur|
 
-Weitere Informationen zu iOS-Apps, die über ein Volumenprogramm erworben wurden, finden Sie unter [Verwalten von iOS-Apps, die über ein Volumenprogramm erworben wurden](/sccm/mdm/deploy-use/manage-volume-purchased-ios-apps).
+Pour plus d’informations sur les applications iOS achetées en volume, consultez [Gérer des applications iOS achetées en volume](/sccm/mdm/deploy-use/manage-volume-purchased-ios-apps).
 
-## <a name="direct-links-to-applications-in-software-center"></a>Direkte Links zu Anwendungen im Softwarecenter
+## <a name="direct-links-to-applications-in-software-center"></a>Liens directs aux applications dans le Centre logiciel
 
-Sie können jetzt Endbenutzern einen direkten Link zu einer Anwendung im Softwarecenter bereitstellen. Dies bedeutet, dass sie nicht mehr das Softwarecenter öffnen und nach einer Anwendung suchen müssen, bevor Sie sie installieren können. Dies ist nur für Configuration Manager-Anwendungen verfügbar, nicht für Pakete und Programme oder Tasksequenzen.
+Vous pouvez désormais fournir aux utilisateurs finaux un lien direct à une application du Centre logiciel. De cette façon, ils ne sont pas obligés d’ouvrir le Centre logiciel et de rechercher une application pour l’installer. Cette fonctionnalité est uniquement disponible pour les applications Configuration Manager ; elle ne s’applique pas aux packages, programmes ou séquences de tâches.
 
-### <a name="try-it-out"></a>Probieren Sie es aus                 
+### <a name="try-it-out"></a>Essayer                 
 
-Verwenden Sie das folgende URL-Format, um das Softwarecenter für eine bestimmte Anwendung zu öffnen:
+Utilisez le format d’URL suivant pour ouvrir le Centre logiciel à une application particulière :
 
-**Softwarecenter:SoftwareId=*Application Identifier***
+**Softwarecenter:SoftwareId=*Identificateur d’application***
 
-### <a name="how-to-get-the-application-identifier-of-an-application"></a>So rufen Sie den Anwendungsbezeichner einer Anwendung ab
+### <a name="how-to-get-the-application-identifier-of-an-application"></a>Comment obtenir l’identificateur d’une application
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Softwarebibliothek**.
-2.  Erweitern Sie im Arbeitsbereich „Softwarebibliothek“ den Knoten **Anwendungsverwaltung**, und klicken Sie dann auf **Anwendungen**.
-3.  Klicken Sie mit der rechten Maustaste in der Ansicht **Anwendungen** auf eine der Spaltenüberschriften, und wählen Sie anschließend **Eindeutige CI-ID** aus der Liste aus. Sie sehen, dass die eindeutige ID jeder Anwendung jetzt in der Liste angezeigt wird.
-4.  Beachten Sie die **Eindeutige CI-ID** der Anwendung, für die Sie einen Link bereitstellen möchten, z.B.: **ScopeId_1672B0CD-912A-4613-9BAB-D4EF2696D416/Application_970b1fef-1f38-405c-ad37-c753400b895f/2**.
-5.  Entfernen Sie dann den Text, der auf die Anwendungs-GUID folgt. In diesem Fall ist es **/2**. Dadurch bleibt der Anwendungsbezeichner übrig.
-6.  Um die Erstellung des Links abzuschließen, stellen Sie ihr **Softwarecenter:SoftwareID=** voran. Mit dem obigen Beispiel sieht der schlussendliche Link folgendermaßen aus: **Softwarecenter:SoftwareId= ScopeId_1672B0CD-912A-4613-9BAB-D4EF2696D416/Application_970b1fef-1f38-405c-ad37-c753400b895f**.
+1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.
+2.  Dans l’espace de travail Bibliothèque de logiciels, développez **Gestion des applications**, puis cliquez sur **Applications**.
+3.  Dans l’affichage **Applications**, cliquez avec le bouton droit sur l’un des en-têtes de colonne. Ensuite, dans la liste, sélectionnez **ID unique de l’élément de configuration**. L’ID unique de chaque application s’affiche alors dans la liste.
+4.  Notez l’**ID unique de l’élément de configuration** de l’application pour laquelle vous souhaitez créer un lien. Par exemple : **ScopeId_1672B0CD-912A-4613-9BAB-D4EF2696D416/Application_970b1fef-1f38-405c-ad37-c753400b895f/2**
+5.  Ensuite, supprimez le texte situé après le GUID de l’application (dans ce cas, **/2**). Il vous reste alors l’identificateur de l’application.
+6.  Enfin, pour terminer la création du lien, faites-le précéder de **Softwarecenter:SoftwareID=**. Si vous avez suivi l’exemple ci-dessus, le lien final se présente comme suit : **Softwarecenter:SoftwareId= ScopeId_1672B0CD-912A-4613-9BAB-D4EF2696D416/Application_970b1fef-1f38-405c-ad37-c753400b895f**.
 
-Mithilfe dieses Links können Endbenutzer Softwarecenter direkt für die von Ihnen angegebene Anwendung öffnen.
-
-
-## <a name="pfx-certificates-for-configuration-manager-windows-client-computers"></a>PFX-Zertifikate für Configuration Manager-Windows-Clientcomputer
-
-Sie können nun PFX-Zertifikatprofile bereitstellen, die Sie für Configuration Manager-Clientcomputer unter Windows 10 importiert haben.
-
-### <a name="try-it-out"></a>Probieren Sie es aus
-
-Verwenden Sie die Anweisungen unter [Erstellen von PFX-Zertifikatprofilen](/sccm/mdm/deploy-use/create-pfx-certificate-profiles), um ein PFX-Profil zu importieren, das Profil bereitzustellen, und dann zu überprüfen, ob das Zertifikat für den Zielbenutzer installiert wurde.
+Les utilisateurs finaux peuvent utiliser ce lien pour ouvrir directement le Centre logiciel à l’application spécifiée.
 
 
+## <a name="pfx-certificates-for-configuration-manager-windows-client-computers"></a>Certificats PFX pour les ordinateurs clients Configuration Manager exécutant Windows
 
-## <a name="configure-azure-services-wizard"></a>Konfigurieren des Azure Dienste-Assistenten
-Technical Preview 1703 führt den Assistenten **zum Konfigurieren von Azure-Diensten** ein. Dieser Assistent bietet eine allgemeine Konfigurationserfahrung, die die einzelnen Workflows mit den Clouddiensten ersetzt, die Sie mit Configuration Manager verwenden. Dies erfolgt mithilfe einer **Azure Web-App**, um das Abonnement und Konfigurationsdetails bereitzustellen, die Sie andernfalls jedes Mal eingeben müssen, wenn Sie eine neue Configuration Manager-Komponente oder einen -Dienst mit Azure einrichten.
+Vous pouvez désormais déployer des profils de certificat PFX importés dans des ordinateurs clients Configuration Manager exécutant Windows 10.
 
-Mit Technical Preview 1703 wird nur Windows Store for Business (WSfB) mit diesem Assistenten konfiguriert.  Andere Clouddienste werden mithilfe ihrer eigenen Workflows konfiguriert.
+### <a name="try-it-out"></a>Essayer
 
--   Verwenden Sie die Informationen in diesem Preview-Thema, um die Konfigurationsschritte im Abschnitt [Einrichten der Synchronisierung mit Windows Store für Unternehmen](/sccm/apps/deploy-use/manage-apps-from-the-windows-store-for-business#set-up-windows-store-for-business-synchronization) des Current Branch-Themas [Verwalten von Apps aus dem Windows Store für Unternehmen mit System Center Configuration Manager](/sccm/apps/deploy-use/manage-apps-from-the-windows-store-for-business) zu ersetzen.
-
--   Weitere Informationen zu Web-Apps, finden Sie unter [Authentifizierung und Autorisierung in Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview), und [Web-Apps – Übersicht](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview).
-
-### <a name="prerequisites-and-planning"></a>Erforderliche Komponenten und Planung
-Wenn Sie eine Verbindung zwischen Configuration Manager und dem Windows Store für Unternehmen herstellen, müssen Sie einen Ordner angeben, in dem App-Inhalte, die aus dem Store synchronisiert werden, gespeichert werden. Um sicherzustellen, dass es sich um einen sicheren Ordner handelt, und dass der Inhalt auf Geräten bereitgestellt werden kann, müssen Sie sichergehen, dass die folgenden Berechtigungen vorhanden sind:
--   Der Computer, auf dem Sie die Standortsystemrolle „Dienstverbindungspunkt“ installieren (der Standort der obersten Ebene in der Hierarchie), muss über Lese- und Schreibberechtigungen für den Ordner verfügen, den Sie bei der Verwendung des Kontos **Computer$** angegeben haben.  
-
--   Der Autor der App muss über Leseberechtigungen für den angegebenen Ordner verfügen.  
-
--   Das Konto **Computer$** jedes Computers, der eine Instanz des SMS-Anbieters hostet, muss den angegebenen Ordner verwenden können.
-
-Registrieren Sie Configuration Manager über Webanwendung oder Web-API als Verwaltungstool in Azure Active Directory. Dadurch kann die Client-ID erstellt werden, die Sie später benötigen werden.
-
-### <a name="use-the-wizard-to-configure-the-wsfb-cloud-service"></a>Verwenden des Assistenten zum Konfigurieren des WSfB-Clouddiensts
-
-1. Wechseln Sie in der Konsole zu **Verwaltung** > **Übersicht** > **Cloud Services Management** (Verwaltung der Clouddienste) > **Azure** > **Azure-Dienste**, und wählen Sie dann **Configure Azure Services** (Azure-Dienste konfigurieren) aus, um den **Azure-Dienste-Assistenten** zu starten.
-
-2. Wählen Sie auf der Seite **Azure-Dienste** den Dienst aus, den Sie konfigurieren möchten, und klicken Sie dann auf **Weiter**. Mit dieser Vorschau kann nur WSfB konfiguriert werden.
-
-3. Geben Sie auf der Seite **Allgemein** einen Anzeigenamen für den **Azure-Dienstnamen** und eine optionale Beschreibung ein, und klicken Sie dann auf **Weiter**.
-
-4. Auf der **App** Seite geben Sie Ihre Azure-Umgebung an und klicken dann auf **Durchsuchen**, um das Fenster „Server-App“ zu öffnen.
-
-5. Wählen Sie im Fenster **Server App** (Server-App) die Server-App aus, die Sie verwenden möchten, und klicken Sie dann auf **OK**.
-Server-Apps sind Azure-Web-Apps, die Konfigurationen für Ihr Azure-Konto enthalten, einschließlich Ihrer Mandanten-ID, Client-ID und eines geheimen Schlüssels für Clients. Wenn Sie nicht über eine verfügbare Server-App verfügen, verwenden Sie eine der folgenden:
-  - **Erstellen**: Um eine neue Server-App zu erstellen, klicken Sie auf **Erstellen**. Geben Sie einen Anzeigenamen für die App und den Mandanten an. Nachdem Sie sich bei Azure angemeldet haben, erstellt Configuration Manager daraufhin die Web-App in Azure für Sie, einschließlich der Client-ID und des geheimen Schlüssels für den Gebrauch mit der Web-App. Später können Sie diese im Azure-Portal anzeigen.
-  - **Importieren**: Um eine Web-App zu verwenden, die in Ihrem Azure-Abonnement bereits vorhanden ist, klicken Sie auf **Importieren**. Stellen Sie einen Anzeigenamen für die App und den Mandanten bereit, und geben Sie dann die Mandanten-ID, Client-ID und den geheimen Schlüssel für die Web-App an, die Configuration Manager verwenden soll. Nachdem Sie die Informationen **überprüft** haben, klicken Sie auf **OK**, um fortzufahren.  </br></br>
-
-6. Überprüfen Sie die Seite **Informationen**, und schließen Sie alle zusätzlichen Schritte und Konfigurationen so wie angegeben ab. Diese Konfigurationen sind erforderlich, um den Dienst mit Configuration Manager zu verwenden.
-So konfigurieren Sie z.B. WSfB:
-
-  1. In Azure müssen Sie Configuration Manager als eine Web-Anwendung oder eine Web-API registrieren und die Client-ID notieren. Außerdem geben Sie einen Clientschlüssel für die Verwendung durch das Verwaltungstool (das ist Configuration Manager) an.
-
-  2.    In der WSfB-Konsole müssen Sie Configuration Manager als Speicherverwaltungstool angeben, Unterstützung für Offline-lizenzierte Apps aktivieren und anschließen mindestens eine App kaufen.   </br>
-
-  Klicken Sie zum Fortfahren auf **Weiter**.
-
-7. Schließen Sie auf der Seite **App Configurations** (App-Konfigurationen) die Konfigurationen für den App-Katalog und die Sprache für diesen Dienst ab, und klicken Sie dann auf **Weiter**.
-8. Nach Abschluss des Assistenten zeigt die Configuration Manager-Konsole, dass Sie **Windows Store for Business** als **Clouddiensttyp** konfiguriert haben.
-
-Jetzt können Sie den Rest des [Current Branch-Inhalts](/sccm/apps/deploy-use/manage-apps-from-the-windows-store-for-business) für das Verwalten von Apps von WSfB zum Synchronisieren, Erstellen und Bereitstellen sowie zum Überwachen von Windows Store for Business-Apps verwenden.
-
-### <a name="modify-a-cloud-service-configuration"></a>Ändern einer Clouddienstkonfiguration
-Sie können die Eigenschaften eines Clouddiensts anzeigen und bearbeiten, um die Konfiguration zu ändern.
-
-Wechseln Sie in der Konsole zu **Verwaltung** > **Übersicht** > **Cloud Services Management** (Verwaltung der Clouddienste) > **Azure** > **Azure-Dienste**, und wählen Sie dann **Configure Azure Services** (Azure-Dienste konfigurieren) au, wählen Sie einen Clouddienst aus und anschließend **Eigenschaften**.
-
-## <a name="convert-from-bios-to-uefi-during-an-in-place-upgrade"></a>Konvertieren von BIOS zu UEFI während eines direkten Upgrades
-Windows 10 Creators Update führt ein einfaches Konvertierungstool ein, womit der Prozess der Neupartitionierung der Festplatte für UEFI-aktivierte Hardware automatisiert werden kann und das Konvertierungstool in den direkten Upgradeprozess von Windows 7 zu Windows 10 integriert werden kann. Wenn Sie dieses Tool mit Ihrer Tasksequenz des Betriebssystemupgrades und dem OEM-Tool kombinieren, der die Firmware von BIOS zu UEFI konvertiert, können Sie Ihre Computer von BIOS zu UEFI während eines direkten Upgrades zu Windows 10 Creators Update konvertieren. Weitere Informationen finden Sie unter [Task sequence steps to manage BIOS to UEFI conversion (Tasksequenzschritte für das Verwalten einer Konvertierung von BIOS zu UEFI)](/sccm/osd/deploy-use/task-sequence-steps-to-manage-bios-to-uefi-conversion#convert-from-bios-to-uefi-during-an-in-place-upgrade).
-
-## <a name="collapsible-task-sequence-groups"></a>Reduzierbare Tasksequenzgruppen
-Diese Version bietet die Möglichkeit zum Erweitern und Reduzieren von Tasksequenzgruppen. Sie können einzelne Gruppen erweitern oder reduzieren oder alle Gruppen auf einmal erweitern oder reduzieren.
+Suivez les instructions fournies dans [Comment créer des profils de certificat PFX](/sccm/mdm/deploy-use/create-pfx-certificate-profiles) pour importer un profil PFX, le déployer et vérifier si le certificat a été installé pour l’utilisateur ciblé.
 
 
-## <a name="client-settings-to-configure-windows-analytics-for-upgrade-readiness"></a>Clienteinstellungen zum Konfigurieren von Windows Analytics für Upgrade Readiness
-Ab dieser Version können Sie Clienteinstellungen für Geräte verwenden, um die Konfiguration der Windows-Telemetrie zu vereinfachen, die zur Verwendung von [Windows Analytics](https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics)-Lösungen wie z.B. [Upgradebereitschaft](/sccm/core/clients/manage/upgrade/upgrade-analytics) mit Configuration Manager erforderlich ist. Configuration Manager kann Daten aus Windows Analytics abrufen, die wertvolle Informationen über den aktuellen Zustand Ihrer Umgebung liefern. Diese Informationen basieren auf den Windows-Telemetriedaten, die von Ihren Clientcomputern gemeldet werden. Windows-Telemetriedaten werden von Clientcomputern an den Windows-Telemetriedienst gemeldet, und dann werden relevante Daten an Windows Analytics-Lösungen übertragen, die in einem der OMS-Arbeitsbereiche Ihrer Organisation gehostet werden. Die Upgradebereitschaft ist eine Windows Analytics-Lösung, die Sie bei der Priorisierung von Entscheidungen über Windows-Upgrades für Ihre verwalteten Geräte unterstützt.
 
-Informationen zu Einstellungen für Windows-Telemetriedaten finden Sie unter [Konfigurieren der Windows-Telemetrie in Ihrem Unternehmen](https://technet.microsoft.com/itpro/windows/manage/configure-windows-telemetry-in-your-organization).
+## <a name="configure-azure-services-wizard"></a>Assistant Configuration des services Azure
+L’Assistant **Configuration des services Azure** est une nouveauté de la version Technical Preview 1703. Cet Assistant propose une expérience de configuration commune qui remplace les différents flux de travail associés à la configuration des services cloud que vous utilisez avec Configuration Manager. Pour cela, une **application web Azure** fournit les détails de l’abonnement et de la configuration, ce qui vous évite de les entrer chaque fois que vous configurez un nouveau service ou composant Configuration Manager avec Azure.
 
-### <a name="prerequisites"></a>Voraussetzungen
-- Sie müssen Ihren Standort zur Verwendung des Clouddiensts für die Upgradebereitschaft konfiguriert haben. Weitere Informationen finden Sie unter [Upgradebereitschaft](/sccm/core/clients/manage/upgrade/upgrade-analytics).
+Dans la version Technical Preview 1703, cet Assistant permet uniquement de configurer le Windows Store pour Entreprises.  Pour configurer d’autres services cloud, effectuez les flux de travail propres à chacun d’eux.
 
-### <a name="configure-windows-analytics-client-settings"></a>Konfigurieren von Clienteinstellungen für Windows Analytics
-Wechseln Sie zum Konfigurieren von Windows Analytics in der Configuration Manager-Konsole zu **Verwaltung** > **Clienteinstellungen**, doppelklicken Sie auf **Benutzerdefinierte Clienteinstellungen für Geräte erstellen**, und aktivieren Sie dann **Windows Analytics**.  
+-   Utilisez les informations contenues dans cette rubrique d’aperçu pour remplacer les étapes de configuration de la section [Configurer la synchronisation avec le Windows Store pour Entreprises](/sccm/apps/deploy-use/manage-apps-from-the-windows-store-for-business#set-up-windows-store-for-business-synchronization) de la rubrique Current Branch [Gérer les applications à partir du Windows Store pour Entreprises avec System Center Configuration Manager](/sccm/apps/deploy-use/manage-apps-from-the-windows-store-for-business).
 
-Wechseln Sie zur Registerkarte mit den Einstellungen für **Windows Analytics**, und konfigurieren Sie Folgendes:
-- **Kommerzielle ID**  
-Der Schlüssel „Kommerzielle ID“ ordnet Informationen der von Ihnen verwalteten Geräte zu dem OMS-Arbeitsbereich zu, der die Windows Analytics-Daten Ihrer Organisation hostet. Wenn Sie bereits einen kommerziellen ID-Schlüssel für die Verwendung mit der Upgradebereitschaft konfiguriert haben, verwenden Sie diese ID. Wenn Sie noch nicht über einen kommerziellen ID-Schlüssel verfügen, finden Sie weitere Informationen unter [Generieren des kommerziellen ID-Schlüssels]( https://technet.microsoft.com /itpro/windows/deploy/upgrade-readiness-get-started#generate-your-commercial-id-key).
+-   Pour plus d’informations sur les applications web, consultez [Authentification et autorisation dans Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview) et [Vue d’ensemble des applications web](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview).
 
-- Festlegen einer **Telemetriestufe für Windows 10-Geräte**   
-Informationen darüber, was auf jeder Telemetriestufe von Windows 10 gesammelt wird, finden Sie unter [Konfigurieren der Windows-Telemetrie in Ihrem Unternehmen]( https://technet.microsoft.com/itpro/windows/manage/configure-windows-telemetry-in-your-organization#telemetry-levels).
+### <a name="prerequisites-and-planning"></a>Prérequis et planification
+Quand vous configurez une connexion entre Configuration Manager et le Windows Store pour Entreprises, vous devez fournir un dossier où le contenu d’application synchronisé à partir du Windows Store sera conservé. Pour vous assurer que ce dossier est sécurisé et que son contenu peut être déployé sur des appareils, vérifiez que les autorisations suivantes sont en place :
+-   L’ordinateur sur lequel vous installez le rôle de système de site de point de connexion de service (le site de niveau supérieur dans la hiérarchie) doit disposer d’autorisations en lecture et en écriture sur le dossier que vous avez spécifié lors de l’utilisation du compte **Computer$**.  
 
-- **Abonnieren Sie die Sammlung kommerzieller Daten auf Geräten unter Windows 7, 8 und 8.1**   
-Informationen zu gesammelten Daten von diesen Betriebssystemen bei der Anmeldung, finden Sie in der PDF-Datei [Windows 7, Windows 8, and Windows 8.1 appraiser telemetry events and fields (Appraiser-Telemetrieereignisse und -felder unter Windows 7, Windows 8 und 8.1)](https://go.microsoft.com/fwlink/?LinkID=822965).
+-   L’auteur de l’application doit avoir des autorisations en lecture sur le dossier spécifié.  
 
-- **Konfigurieren der Datensammlung von Internet Explorer**: Auf Geräten unter Windows 8.1 oder früher kann die Internet Explorer-Datensammlung es der Upgradebereitschaft ermöglichen, Inkompatibilitäten von Web-Apps zu erkennen, die ein reibungsloses Upgrade auf Windows 10 verhindern könnten. Die Internet Explorer-Datensammlung kann für einzelne Internetzonen aktiviert werden. Weitere Informationen zu Internetzonen finden Sie unter [About URL Security Zones](https://msdn.microsoft.com/en-us/library/ms537183(v=vs.85).aspx) (Informationen zu URL-Sicherheitszonen).
+-   Le compte **Computer$** de chaque ordinateur qui héberge une instance du fournisseur SMS doit être en mesure d’utiliser le dossier spécifié.
+
+Dans Azure Active Directory, inscrivez Configuration Manager comme outil de gestion d’applications web ou d’API web. Vous obtenez un ID de client dont vous aurez besoin par la suite.
+
+### <a name="use-the-wizard-to-configure-the-wsfb-cloud-service"></a>Utiliser l’Assistant pour configurer le service cloud Windows Store pour Entreprises
+
+1. Dans la console, accédez à **Administration** > **Présentation** > **Gestion des services cloud** > **Azure** > **Services Azure**, puis choisissez **Configurer les services Azure** pour démarrer l’**Assistant Services Azure**.
+
+2. Dans la page **Services Azure**, sélectionnez le service à configurer, puis cliquez sur **Suivant**. Dans cette préversion, seul le Windows Store pour Entreprises peut être configuré.
+
+3. Dans la page **Général**, entrez un nom convivial comme **Nom du service Azure** ainsi qu’une description facultative, puis cliquez sur **Suivant**.
+
+4. Dans la page **Application**, spécifiez votre environnement Azure, puis cliquez sur **Parcourir** pour ouvrir la fenêtre Server App.
+
+5. Dans la fenêtre **Server App**, sélectionnez l’application serveur à utiliser, puis cliquez sur **OK**.
+Les applications serveur sont des applications web Azure qui contiennent les configurations pour votre compte Azure, notamment l’ID de locataire, l’ID de client et une clé secrète pour les clients. Si vous ne disposez pas d’une application serveur disponible, choisissez l’une des méthodes suivantes :
+  - **Créer** : pour créer une application serveur, cliquez sur **Créer**. Fournissez un nom convivial pour l’application et le locataire. Une fois que vous êtes connecté à Azure, Configuration Manager crée l’application web dans Azure, notamment l’ID de client et la clé secrète à utiliser avec l’application web. Ces informations sont ensuite disponibles dans le portail Azure.
+  - **Importer** : pour utiliser une application web qui existe déjà dans votre abonnement Azure, cliquez sur **Importer**. Indiquez un nom convivial pour l’application et le locataire, puis spécifiez l’ID de locataire, l’ID de client et la clé secrète de l’application web Azure que Configuration Manager doit utiliser. Après avoir **vérifié** les informations, cliquez sur **OK** pour continuer.  </br></br>
+
+6. Passez en revue la page **Informations**, puis effectuez les étapes et configurations supplémentaires indiquées. Ces configurations sont nécessaires pour utiliser le service avec Configuration Manager.
+Par exemple, pour configurer le Windows Store pour Entreprises :
+
+  1. Dans Azure, vous devez inscrire Configuration Manager comme application web ou API web et enregistrer l’ID de client. Vous devez aussi spécifier une clé de client que doit utiliser l’outil de gestion (c’est-à-dire, Configuration Manager).
+
+  2.    Dans la console Windows Store pour Entreprises, vous devez configurer Configuration Manager comme outil de gestion du magasin, activer la prise en charge pour les applications sous licence en mode hors connexion, puis acheter au moins une application.   </br>
+
+  Cliquez sur **Suivant** quand vous êtes prêt à continuer.
+
+7. Dans la page **Configurations d’application**, configurez le catalogue d’applications et la langue de ce service, puis cliquez sur **Suivant**.
+8. Une fois l’Assistant terminé, la console Configuration Manager indique que vous avez configuré **Windows Store pour Entreprises** comme **Type de service cloud**.
+
+Vous pouvez maintenant utiliser le reste du [contenu Current Branch](/sccm/apps/deploy-use/manage-apps-from-the-windows-store-for-business) pour synchroniser, créer, déployer et surveiller les applications Windows Store pour Entreprises.
+
+### <a name="modify-a-cloud-service-configuration"></a>Modifier la configuration d’un service cloud
+Vous pouvez afficher et réviser les propriétés d’un service cloud pour modifier sa configuration.
+
+Dans la console, accédez à **Administration** > **Présentation** > **Gestion des services cloud** > **Azure** > **Services Azure**, choisissez **Configurer les services Azure**, sélectionnez un service cloud, puis choisissez **Propriétés**.
+
+## <a name="convert-from-bios-to-uefi-during-an-in-place-upgrade"></a>Convertir du BIOS en UEFI pendant une mise à niveau sur place
+Windows 10 Creators Update inclut un outil de conversion simple qui automatise le processus de repartitionnement du disque dur pour le matériel compatible UEFI et intègre l’outil de conversion dans le processus de mise à niveau sur place de Windows 7 vers Windows 10. Lorsque vous combinez cet outil avec la séquence de tâches de mise à niveau du système d’exploitation et l’outil OEM qui convertit le microprogramme du BIOS en UEFI, vous pouvez convertir vos ordinateurs du BIOS en UEFI pendant une mise à niveau sur place vers Windows 10 Creators Update. Pour plus d’informations, consultez [Étapes de séquence de tâches pour gérer la conversion du BIOS en UEFI](/sccm/osd/deploy-use/task-sequence-steps-to-manage-bios-to-uefi-conversion#convert-from-bios-to-uefi-during-an-in-place-upgrade).
+
+## <a name="collapsible-task-sequence-groups"></a>Groupes de séquences de tâches réductibles
+Cette version permet de développer et réduire des groupes de séquences de tâches. Vous pouvez développer ou réduire des groupes individuels ou tous les groupes à la fois.
+
+
+## <a name="client-settings-to-configure-windows-analytics-for-upgrade-readiness"></a>Paramètres du client pour configurer Windows Analytics pour Upgrade Readiness
+À compter de cette version, vous pouvez utiliser les paramètres client d’appareil pour simplifier la configuration des données de télémétrie Windows nécessaires pour utiliser des solutions [Windows Analytics](https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics) comme [Upgrade Readiness](/sccm/core/clients/manage/upgrade/upgrade-analytics) avec Configuration Manager. Configuration Manager peut récupérer les données de Windows Analytics qui fournissent des informations importantes sur l’état actuel de votre environnement en fonction des données de télémétrie Windows transmises par vos ordinateurs clients. Les données de télémétrie Windows sont transmises par les ordinateurs clients au service de télémétrie Windows, puis les informations pertinentes sont transférées aux solutions Windows Analytics hébergées sur un des espaces de travail OMS de votre organisation. Upgrade Readiness est une solution Windows Analytics qui peut vous aider à hiérarchiser les décisions liées aux mises à niveau de Windows sur vos appareils gérés.
+
+Pour plus d’informations sur les paramètres de télémétrie Windows, consultez [Configurer la télémétrie Windows dans votre organisation](https://technet.microsoft.com/itpro/windows/manage/configure-windows-telemetry-in-your-organization).
+
+### <a name="prerequisites"></a>Conditions préalables
+- Vous devez configurer votre site de façon à ce qu’il utilise le service cloud Upgrade Readiness. Pour plus d’informations, consultez [Upgrade Readiness](/sccm/core/clients/manage/upgrade/upgrade-analytics)
+
+### <a name="configure-windows-analytics-client-settings"></a>Configurer les paramètres client Windows Analytics
+Pour configurer Windows Analytics, dans la console Configuration Manager, accédez à **Administration** > **Paramètres client**, double-cliquez sur **Créer des paramètres client d’appareil personnalisés par défaut**, puis sélectionnez **Windows Analytics**.  
+
+Naviguez vers l’onglet des paramètres **Windows Analytics** puis configurez les éléments suivants :
+- **ID commercial**  
+La clé d’ID commercial mappe les informations des appareils que vous gérez à l’espace de travail OMS qui héberge les données Windows Analytics de votre organisation. Si vous avez déjà configuré une clé d’ID commercial avec Upgrade Readiness, utilisez cet ID. Si vous ne disposez pas encore d’une clé ID commercial, consultez [Générer une clé d’ID commercial]( https://technet.microsoft.com /itpro/windows/deploy/upgrade-readiness-get-started#generate-your-commercial-id-key).
+
+- Définir un **Niveau de télémétrie pour les appareils Windows 10**   
+Pour plus d’informations sur les données collectées par chaque niveau de télémétrie Windows 10, consultez [Configurer la télémétrie Windows dans votre organisation]( https://technet.microsoft.com/itpro/windows/manage/configure-windows-telemetry-in-your-organization#telemetry-levels).
+
+- **Participer à la collecte de données commerciales sur les appareils Windows 7, 8 et 8.1**   
+Pour plus d’informations sur les données collectées à partir de ces systèmes d’exploitation quand vous choisissez de participer, téléchargez le fichier .pdf [Windows 7, Windows 8, and Windows 8.1 appraiser telemetry events and fields](https://go.microsoft.com/fwlink/?LinkID=822965) disponible sur le site web de Microsoft.
+
+- **Configurer la collecte de données dans Internet Explorer** Sur les appareils exécutant Windows 8.1 ou version antérieure, Internet la collecte de données dans Internet Explorer permet à Upgrade Readiness de détecter les incompatibilités d’application web qui risquent d’empêcher une mise à niveau sans heurts vers Windows 10. La collecte des données dans Internet Explorer peut être activée pour chaque zone internet. Pour plus d’informations sur les zones internet, consultez [À propos des zones de sécurité des URL](https://msdn.microsoft.com/en-us/library/ms537183(v=vs.85).aspx).

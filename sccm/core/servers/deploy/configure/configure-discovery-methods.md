@@ -1,6 +1,6 @@
 ---
-title: Konfigurieren von Ermittlungsmethoden | Microsoft-Dokumentation
-description: "Konfigurieren Sie Ermittlungsmethoden zur Ausführung auf einem Configuration Manager-Standort, um Ressourcen zu suchen, die Sie von der Netzwerkinfrastruktur und Active Directory verwalten können."
+title: "Configurer la découverte | Microsoft Docs"
+description: "Configurez les méthodes de découverte à exécuter sur un site Configuration Manager pour rechercher les ressources que vous pouvez gérer à partir de votre infrastructure réseau et d’Active Directory."
 ms.custom: na
 ms.date: 7/31/2017
 ms.prod: configuration-manager
@@ -17,450 +17,450 @@ manager: angrobe
 ms.openlocfilehash: 34a539ceaea6b070f81a28d2c0a9ce388e26cfeb
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="configure-discovery-methods-for-system-center-configuration-manager"></a>Konfigurieren von Ermittlungsmethoden für System Center Configuration Manager
+# <a name="configure-discovery-methods-for-system-center-configuration-manager"></a>Configurer les méthodes de découverte pour System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
-Sie konfigurieren Ermittlungsmethoden zur Ausführung auf einem System Center Configuration Manager-Standort, um Ressourcen zu suchen, die Sie von der Netzwerkinfrastruktur und Active Directory verwalten können. Dazu müssen Sie jede Methode aktivieren und anschließend konfigurieren, die Sie zum Suchen in Ihrer Umgebung verwenden möchten. (Sie können außerdem jede Methode mit den gleichen Schritten deaktivieren, mit denen sie aktiviert wird.)  Die einzigen Ausnahmen hiervon sind Frequenzermittlung und Serverermittlung:  
+Vous configurez les méthodes de découverte à exécuter sur un site System Center Configuration Manager pour rechercher les ressources que vous pouvez gérer à partir de votre infrastructure réseau et d’Active Directory. Pour cela, vous devez activer et configurer chaque méthode à utiliser pour explorer votre environnement. (Vous pouvez aussi désactiver une méthode en suivant la même procédure que pour l’activer.)  La découverte par pulsations d’inventaire et la découverte de serveur constituent les seules exceptions :  
 
--   In der Standardeinstellung ist die Frequenzermittlung bereits aktiviert, wenn Sie einen primären Standort von Configuration Manager installieren, und für die Ausführung nach einem einfachen Zeitplan konfiguriert. Es wird empfohlen, die Frequenzermittlung aktiviert zu lassen, da dadurch sichergestellt wird, dass die Discovery Data Records (DDRs) für Geräte aktuell sind. Weitere Informationen zur Frequenzermittlung finden Sie unter [Informationen zur Frequenzermittlung](../../../../core/servers/deploy/configure/about-discovery-methods.md#bkmk_aboutHeartbeat).  
+-   Par défaut, la découverte par pulsations d’inventaire est déjà activée quand vous installez un site principal Configuration Manager et est configurée pour s’exécuter selon une planification de base. Il est recommandé de maintenir activée la découverte par pulsations d’inventaire, car cette méthode garantit que les enregistrements de données de découverte (DDR) des appareils sont à jour. Pour plus d’informations sur la découverte par pulsations d’inventaire, consultez [Découverte par pulsations d’inventaire](../../../../core/servers/deploy/configure/about-discovery-methods.md#bkmk_aboutHeartbeat).  
 
--   Die Serverermittlung ist eine automatische Erkennungsmethode, die Computer findet, die Sie als Standortsystem verwenden. Sie können sie nicht konfigurieren oder deaktivieren.  
+-   La découverte de serveur est une méthode automatique qui recherche les ordinateurs que vous utilisez comme systèmes de site. Elle n’est ni configurable ni désactivable.  
 
-**So aktivieren Sie eine konfigurierbare Ermittlungsmethode:**  
+**Pour activer une méthode de découverte configurable :**  
  > [!NOTE]  
- > Die folgenden Informationen treffen nicht auf die Azure Active Directory-Benutzerermittlung zu. Informationen hierzu finden Sie unter [Konfigurieren der Azure AD-Benutzerermittlung](#azureaadisc) weiter unten in diesem Thema.
+ > Les informations suivantes ne s’appliquent pas à la découverte des utilisateurs Azure Active Directory. Consultez plutôt [Configurer la découverte des utilisateurs Azure AD](#azureaadisc) plus loin dans cette rubrique.
 
-1.  Wählen Sie in der Configuration Manager-Konsole **Verwaltung** > **Hierarchiekonfiguration** und anschließend **Ermittlungsmethoden** aus.  
+1.  Dans la console Configuration Manager, choisissez **Administration** > **Configuration de la hiérarchie**, puis **Méthodes de découverte**.  
 
-2.  Wählen Sie die Ermittlungsmethode für den Standort aus, an dem die Ermittlung aktiviert werden soll.  
+2.  Sélectionnez la méthode de découverte pour le site sur lequel vous voulez activer la découverte.  
 
-3.  Wählen Sie in der Gruppe **Eigenschaften** auf der Registerkarte **Startseite** die Option **Eigenschaften** aus, und aktivieren Sie dann auf der Registerkarte **Allgemein** das Kontrollkästchen **Ermittlungsmethode&lt; aktivieren\>**.  
+3.  Dans l’onglet **Accueil** puis dans le groupe **Propriétés**, choisissez **Propriétés**. Ensuite, dans l’onglet **Général**, activez la case à cocher **Enable&lt;discovery method (Activer méthode de découverte)\>**.  
 
-     Wenn dieses Kontrollkästchen bereits aktiviert ist, können Sie die Ermittlungsmethode deaktivieren, indem Sie das Kontrollkästchen deaktivieren.  
+     Si cette case à cocher est déjà activée, vous pouvez la désélectionner pour désactiver la méthode de découverte.  
 
-4.  Wählen Sie **OK** aus, um die Konfiguration zu speichern.  
+4.  Choisissez **OK** pour enregistrer la configuration.  
 
 
-##  <a name="BKMK_ConfigADForestDisc"></a> Konfigurieren der Active Directory-Gesamtstrukturermittlung  
-Sie müssen an zwei Orten Einstellungen konfigurieren, um die Konfiguration der Active Directory-Gesamtstrukturermittlung abzuschließen:  
+##  <a name="BKMK_ConfigADForestDisc"></a> Configurer la découverte de forêts Active Directory  
+Pour finaliser la configuration de la découverte des forêts Active Directory, vous devez configurer des paramètres dans deux emplacements :  
 
--   Über den Knoten **Ermittlungsmethoden** haben Sie die folgenden Möglichkeiten:
+-   Dans le nœud **Méthodes de découverte**, vous pouvez :
 
-    - Sie können diese Ermittlungsmethode festlegen.
-    - Sie können einen Abfragezeitplan festlegen.
-    - Sie können auswählen, ob die Ermittlung automatisch Grenzen für die Active Directory-Standorte und Subnetze erstellt, die entdeckt werden.  
+    - Activer cette méthode de découverte.
+    - Définir un calendrier d’interrogation.
+    - Indiquez si la découverte doit créer automatiquement des limites pour les sites Active Directory et les sous-réseaux qui sont découverts.  
 
--   Über den Knoten **Active Directory-Gesamtstrukturen** haben Sie die folgenden Möglichkeiten:
+-   Dans le nœud **Forêts Active Directory**, vous pouvez :
 
-    - Sie können Gesamtstrukturen hinzufügen, die Sie ermitteln möchten.
-    - Sie können die Ermittlung von Active Directory-Standorten und Subnetzen in dieser Gesamtstruktur aktivieren.
-    - Sie können Einstellungen konfigurieren, über die Configuration Manager-Standorte ihre Standortinformationen für die Gesamtstruktur veröffentlichen können.
-    - Sie können ein Konto zuweisen, das als Konto für die Active Directory-Gesamtstruktur für die einzelnen Gesamtstrukturen verwendet wird.  
+    - Ajouter les forêts à découvrir.
+    - Activer la découverte des sites et sous-réseaux Active Directory dans cette forêt.
+    - Configurer les paramètres permettant aux sites Configuration Manager de publier leurs informations de site dans la forêt.
+    - Attribuer un compte à utiliser comme compte de forêt Active Directory pour chaque forêt.  
 
-Wenden Sie die folgenden Verfahren an, um die Active Directory-Gesamtstrukturermittlung zu aktivieren und individuelle Gesamtstrukturen für die Verwendung mit der Active Directory-Gesamtstrukturermittlung zu konfigurieren.  
+Utilisez les procédures suivantes pour activer la découverte de forêts Active Directory et configurer chaque forêt à utiliser avec la découverte de forêts Active Directory.  
 
-#### <a name="to-enable-active-directory-forest-discovery"></a>So aktivieren Sie die Active Directory-Gesamtstrukturermittlung  
+#### <a name="to-enable-active-directory-forest-discovery"></a>Pour activer la découverte de forêts Active Directory  
 
-1.  Wählen Sie in der Configuration Manager-Konsole **Verwaltung** > **Hierarchiekonfiguration** und anschließend **Ermittlungsmethoden** aus.  
+1.  Dans la console Configuration Manager, choisissez **Administration** > **Configuration de la hiérarchie**, puis **Méthodes de découverte**.  
 
-2.  Wählen Sie die Methode Active Directory-Gesamtstrukturermittlung für den Standort, an dem die Ermittlung konfiguriert werden soll, aus.  
+2.  Sélectionnez la méthode Découverte de forêts Active Directory pour le site sur lequel vous voulez configurer la découverte.  
 
-3.  Wählen Sie auf der Registerkarte **Startseite** in der Gruppe **Eigenschaften** die Option **Eigenschaften** aus.  
+3.  Sous l’onglet **Accueil**, dans le groupe **Propriétés**, choisissez **Propriétés**.  
 
-4.  Aktivieren Sie auf der Registerkarte **Allgemein** das Kontrollkästchen zum Aktivieren der Ermittlung. Oder Sie können die Ermittlung auch sofort konfigurieren und später zurückkehren, um sie zu aktivieren.  
+4.  Dans l’onglet **Général**, activez la case à cocher pour activer la découverte. Vous pouvez aussi configurer la découverte maintenant et l’activer ultérieurement.  
 
-5.  Geben Sie Optionen zum Erstellen von Standortgrenzen für ermittelte Orte an.  
+5.  Spécifiez les options nécessaires pour créer des limites de site des emplacements découverts.  
 
-6.  Geben Sie einen Zeitplan für die Ausführung der Ermittlung an.  
+6.  Spécifiez une planification du moment d'exécution de la découverte.  
 
-7.  Wenn Sie mit der Konfiguration der Active Directory-Gesamtstrukturermittlung für diesen Standort fertig sind, wählen Sie **OK** aus, um die Konfiguration zu speichern.  
+7.  Après avoir terminé la configuration de la découverte de forêts Active Directory pour ce site, choisissez **OK** pour enregistrer la configuration.  
 
-#### <a name="to-configure-a-forest-for-active-directory-forest-discovery"></a>So konfigurieren Sie eine Gesamtstruktur für die Active Directory-Gesamtstrukturermittlung  
+#### <a name="to-configure-a-forest-for-active-directory-forest-discovery"></a>Pour configurer une forêt pour la découverte de forêts Active Directory  
 
-1.  Wählen Sie im Arbeitsbereich **Verwaltung** die Option **Active Directory-Gesamtstrukturen** aus. Wenn eine Active Directory-Gesamtstrukturermittlung bereits ausgeführt wurde, werden die ermittelten Gesamtstrukturen im Ergebnisbereich angezeigt. Bei der Ausführung der Active Directory-Gesamtstrukturermittlung werden die lokale Gesamtstruktur und alle vertrauenswürdigen Gesamtstrukturen ermittelt. Nur nicht vertrauenswürdige Gesamtstrukturen müssen manuell hinzugefügt werden.  
+1.  Dans l’espace de travail **Administration**, choisissez **Forêts Active Directory**. Si la découverte de forêts Active Directory a été exécutée précédemment, vous pouvez voir chaque forêt découverte dans le volet des résultats. La forêt locale et toutes les forêts approuvées sont découvertes lorsque la Découverte de forêts Active Directory s'exécute. Seules les forêts non approuvées doivent être ajoutées manuellement.  
 
-    -   Wählen Sie zum Konfigurieren einer bereits ermittelten Gesamtstruktur die gewünschte Gesamtstruktur im Ergebnisbereich aus. Wählen Sie dann auf der Registerkarte **Startseite** in der Gruppe **Eigenschaften** die Option **Eigenschaften** aus, um die Gesamtstruktureigenschaften zu öffnen. Fahren Sie mit Schritt 3 fort.  
+    -   Pour configurer une forêt déjà découverte, sélectionnez-la dans le volet de résultats. Ensuite, dans l’onglet **Accueil** et dans le groupe **Propriétés**, choisissez **Propriétés** pour ouvrir les propriétés de la forêt. Passez à l'étape 3.  
 
-    -   Wählen Sie zum Konfigurieren einer nicht aufgelisteten Gesamtstruktur die Registerkarte **Startseite** in der Gruppe **Erstellen** und dann **Gesamtstruktur hinzufügen** aus, um das Dialogfeld **Gesamtstruktur hinzufügen** zu öffnen. Fahren Sie mit Schritt 3 fort.  
+    -   Pour configurer une nouvelle forêt non répertoriée, dans l’onglet **Accueil** et dans le groupe **Créer**, choisissez **Ajouter une forêt** pour ouvrir la boîte de dialogue **Ajouter une forêt**. Passez à l'étape 3.  
 
-2.  Schließen Sie auf der Registerkarte **Allgemein** die Konfiguration für die zu ermittelnde Gesamtstruktur ab, und geben Sie das **Konto für die Active Directory-Gesamtstruktur** an.  
-
-    > [!NOTE]  
-    >  Für die Active Directory-Gesamtstrukturermittlung ist ein globales Konto erforderlich, damit Ermittlung und Veröffentlichung in nicht vertrauenswürdigen Gesamtstrukturen möglich sind. Wenn Sie nicht das Computerkonto des Standortservers verwenden, können Sie nur ein globales Konto auswählen.  
-
-3.  Wenn Sie planen, eine Veröffentlichung von Standortdaten in dieser Gesamtstruktur zu ermöglichen, konfigurieren Sie auf der Registerkarte **Veröffentlichen** das Veröffentlichen in dieser Gesamtstruktur.  
+2.  Dans l’onglet **Général**, finalisez la configuration de forêt que vous souhaitez découvrir et spécifiez le **Compte de forêt Active Directory**.  
 
     > [!NOTE]  
-    >  Wenn Sie die Veröffentlichung von Standorten in einer Gesamtstruktur zulassen, müssen Sie das Active Directory-Schema dieser Gesamtstruktur für Configuration Manager erweitern. Das Konto für die Active Directory-Gesamtstruktur muss Vollzugriff auf den Systemcontainer in dieser Gesamtstruktur besitzen.  
+    >  La découverte de forêts Active Directory requiert un compte global pour découvrir et publier les forêts non approuvées. Si vous n’utilisez pas le compte d’ordinateur du serveur de site, vous ne pouvez sélectionner qu’un compte global.  
 
-4.  Wenn Sie die Konfiguration dieser Gesamtstruktur zur Verwendung mit der Active Directory-Gesamtstrukturermittlung abgeschlossen haben, wählen Sie **OK** aus, um die Konfiguration zu speichern.  
+3.  Si vous prévoyez d’autoriser des sites à publier des données de site dans cette forêt, dans l’onglet **Publication**, terminez la configuration de la publication dans cette forêt.  
 
-##  <a name="BKMK_ConfigADDiscGeneral"></a> Konfigurieren der Active Directory-Ermittlung für Computer, Benutzer oder Gruppen  
- Verwenden Sie die Informationen in den folgenden Abschnitten, um für Computer, Benutzer oder Gruppen zu konfigurieren. Sie verwenden diese Ermittlungsmethoden:  
+    > [!NOTE]  
+    >  Si vous autorisez les sites à publier dans une forêt, vous devez étendre le schéma Active Directory de cette forêt à Configuration Manager. Le compte de forêt Active Directory doit avoir des autorisations Contrôle total sur le conteneur système dans cette forêt.  
 
--   Active Directory-Gruppenermittlung  
+4.  Lorsque vous terminez la configuration de cette forêt à utiliser avec la Découverte de forêts Active Directory, choisissez **OK** pour enregistrer la configuration.  
 
--   Active Directory-Systemermittlung  
+##  <a name="BKMK_ConfigADDiscGeneral"></a> Configurer la découverte Active Directory pour les ordinateurs, les utilisateurs ou les groupes  
+ Utilisez les informations des sections suivantes pour configurer la découverte des ordinateurs, des utilisateurs ou des groupes. Vous allez utiliser les méthodes de découverte suivantes :  
 
--   Active Directory-Benutzerermittlung  
+-   Découverte de groupes Active Directory  
+
+-   Découverte de systèmes Active Directory  
+
+-   Découverte d’utilisateurs Active Directory  
 
 > [!NOTE]  
->  Die Informationen in diesem Abschnitt gelten nicht für die Active Directory-Gesamtstrukturermittlung.  
+>  Les informations dans cette section ne s'appliquent pas à la découverte de forêts Active Directory.  
 
- Obwohl jede dieser Ermittlungsmethoden unabhängig von den anderen angewendet werden kann, sind ihre Optionen jedoch vergleichbar. Weitere Informationen zu diesen Konfigurationsoptionen finden Sie unter [Shared options for Group, System, and User discovery (Gemeinsam genutzte Optionen für die Gruppen-, System- und Benutzererkennung)](../../../../core/servers/deploy/configure/about-discovery-methods.md#bkmk_shared).  
+ Bien qu’indépendantes, ces méthodes de découverte partagent des options similaires. Pour plus d’informations sur ces options de configuration, consultez [Options partagées pour la découverte des groupes, systèmes et utilisateurs](../../../../core/servers/deploy/configure/about-discovery-methods.md#bkmk_shared).  
 
 > [!WARNING]  
->  Durch die Active Directory-Abfragen im Rahmen jeder dieser Ermittlungsmethoden kann eine erhebliche Netzwerkauslastung verursacht werden. Erwägen Sie, die Ermittlungsmethoden für Zeiten zu planen, wenn die geschäftliche Nutzung des Netzwerks durch eine solche Netzwerkauslastung nicht beeinträchtigt wird.  
+>  Le processus d'interrogation Active Directory par chacune de ces méthodes de découverte peut entraîner un trafic réseau important. Pensez à planifier l'exécution de chaque méthode de découverte à des moments où ce trafic ne risque pas de nuire à l'usage commercial de votre réseau.  
 
-#### <a name="to-configure-active-directory-group-discovery"></a>Konfigurieren der Active Directory-Gruppenermittlung  
+#### <a name="to-configure-active-directory-group-discovery"></a>Pour configurer la découverte de groupes Active Directory  
 
-1.  Wählen Sie in der Configuration Manager-Konsole **Verwaltung** > **Hierarchiekonfiguration** und anschließend **Ermittlungsmethoden** aus.  
+1.  Dans la console Configuration Manager, choisissez **Administration** > **Configuration de la hiérarchie**, puis **Méthodes de découverte**.  
 
-2.  Wählen Sie die Methode **Active Directory-Gruppenermittlung** für den Standort aus, an dem die Ermittlung konfiguriert werden soll.  
+2.  Sélectionnez la méthode **Découverte de groupes Active Directory** pour le site sur lequel vous voulez configurer la découverte.  
 
-3.  Wählen Sie auf der Registerkarte **Startseite** in der Gruppe **Eigenschaften** die Option **Eigenschaften** aus.  
+3.  Sous l’onglet **Accueil**, dans le groupe **Propriétés**, choisissez **Propriétés**.  
 
-4.  Aktivieren Sie auf der Registerkarte **Allgemein** das Kontrollkästchen zum Aktivieren der Ermittlung. Oder Sie können die Ermittlung auch sofort konfigurieren und später zurückkehren, um sie zu aktivieren.  
+4.  Dans l’onglet **Général**, activez la case à cocher pour activer la découverte. Vous pouvez aussi configurer la découverte maintenant et l’activer ultérieurement.  
 
-5.  Wählen Sie **Hinzufügen** aus, um einen Ermittlungsbereich zu konfigurieren. Wählen Sie entweder **Gruppen** oder **Ort** aus, und führen Sie im Dialogfeld **Gruppen hinzufügen** bzw. im Dialogfeld **Active Directory-Ort hinzufügen** die folgenden Konfigurationen aus:  
+5.  Choisissez **Ajouter** pour configurer une étendue de découverte, sélectionnez **Groupes** ou **Emplacement**, puis terminez les configurations suivantes dans la boîte de dialogue **Ajouter des groupes** ou **Ajouter un emplacement Active Directory** :  
 
-    1.  Geben Sie einen Namen ****  für diesen Ermittlungsbereich an.  
+    1.  Spécifiez un **Nom** pour cette étendue de découverte.  
 
-    2.  Geben Sie eine **Active Directory-Domäne** oder einen **Ort** zum Durchsuchen an:  
+    2.  Spécifiez un **Domaine Active Directory** ou un **Emplacement** à rechercher :  
 
-        -   Wenn Sie **Gruppen** ausgewählt haben, geben Sie mindestens eine Active Directory-Gruppe an, die ermittelt werden soll.  
+        -   Si vous avez choisi **Groupes**, spécifiez un ou plusieurs groupes Active Directory à découvrir.  
 
-        -   Wenn Sie **Ort** ausgewählt haben, geben Sie einen Active Directory-Container als Ort an, der ermittelt werden soll. Sie können auch eine rekursive Suche in den untergeordneten Active Directory-Containern dieses Orts aktivieren.  
+        -   Si vous avez choisi **Emplacement**, spécifiez un conteneur Active Directory comme emplacement à découvrir. Vous pouvez également activer une recherche récursive des conteneurs enfants Active Directory pour cet emplacement.  
 
-    3.  Geben Sie das **Konto für die Active Directory-Sicherheitsgruppenermittlung** an, das zum Durchsuchen dieses Ermittlungsbereichs verwendet werden soll.  
+    3.  Spécifiez le **Compte de découverte de groupes Active Directory** utilisé pour rechercher cette étendue de découverte.  
 
-    4.  Wählen Sie **OK** aus, um die Konfiguration des Ermittlungsbereichs zu speichern.  
+    4.  Choisissez **OK** pour enregistrer la configuration de l’étendue de découverte.  
 
-6.  Wiederholen Sie Schritt 6 für jeden zusätzlichen Ermittlungsbereich, den Sie definieren möchten.  
+6.  Répétez l'étape 6 pour chaque étendue de découverte supplémentaire à définir.  
 
-7.  Konfigurieren Sie auf der Registerkarte **Abfragezeitplan** den Zeitplan für die vollständige Ermittlungsabfrage sowie die Deltaermittlung.  
+7.  Dans l'onglet **Calendrier d'interrogation** , configurez le calendrier d'interrogation de découverte complet et la découverte delta.  
 
-8.  Optional können Sie auf der Registerkarte **Option** Optionen zum Herausfiltern oder Ausschließen veralteter Computerdatensätze von der Ermittlung sowie zum Ermitteln der Mitgliedschaft von Verteilergruppen konfigurieren.  
+8.  Le cas échéant, dans l’onglet **Option**, vous pouvez configurer des options pour filtrer ou exclure les enregistrements d’ordinateur obsolètes de la découverte et découvrir les membres des groupes de distribution.  
 
     > [!NOTE]  
-    >  Von der Active Directory-Gruppenermittlung wird standardmäßig nur die Mitgliedschaft von Sicherheitsgruppen ermittelt.  
+    >  Par défaut, le processus de découverte de groupes Active Directory ne découvre que l'appartenance aux groupes de sécurité.  
 
-9. Wenn Sie mit dem Konfigurieren der Active Directory-Gruppenermittlung fertig sind, wählen Sie **OK** aus, um die Konfiguration zu speichern.  
+9. Après avoir terminé la configuration de la découverte des groupes Active Directory, choisissez **OK** pour enregistrer la configuration.  
 
-#### <a name="to-configure-active-directory-system-discovery"></a>So konfigurieren Sie die Active Directory-Systemermittlung  
+#### <a name="to-configure-active-directory-system-discovery"></a>Pour configurer la découverte de systèmes Active Directory  
 
-1.  Wählen Sie in der Configuration Manager-Konsole **Verwaltung** > **Hierarchiekonfiguration** und anschließend **Ermittlungsmethoden** aus.  
+1.  Dans la console Configuration Manager, choisissez **Administration** > **Configuration de la hiérarchie**, puis **Méthodes de découverte**.  
 
-2.  Wählen Sie die Ermittlungsmethode für den Standort aus, an dem die Ermittlung konfiguriert werden soll.  
+2.  Sélectionnez la méthode pour le site sur lequel vous voulez configurer la découverte.  
 
-3.  Wählen Sie auf der Registerkarte **Startseite** in der Gruppe **Eigenschaften** die Option **Eigenschaften** aus.  
+3.  Sous l’onglet **Accueil**, dans le groupe **Propriétés**, choisissez **Propriétés**.  
 
-4.  Aktivieren Sie auf der Registerkarte **Allgemein** das Kontrollkästchen zum Aktivieren der Ermittlung. Oder Sie können die Ermittlung auch sofort konfigurieren und später zurückkehren, um sie zu aktivieren.  
+4.  Dans l’onglet **Général**, activez la case à cocher pour activer la découverte. Vous pouvez aussi configurer la découverte maintenant et l’activer ultérieurement.  
 
-5.  Wählen Sie das Symbol **Neu** ![Symbol „Neu“](media/Disc_new_Icon.gif) aus, um einen neuen Active Directory-Container anzugeben. Beenden Sie im Dialogfeld **Active Directory-Container** die folgenden Konfigurationen:  
+5.  Choisissez l’icône **Nouveau** ![Icône Nouveau](media/Disc_new_Icon.gif) pour spécifier un nouveau conteneur Active Directory. Dans la boîte de dialogue **Conteneur Active Directory**, finalisez les configurations suivantes :  
 
-    1.  Geben Sie mindestens einen Speicherort an, der durchsucht werden soll.  
+    1.  Spécifiez un ou plusieurs emplacements à rechercher.  
 
-    2.  Geben Sie für jeden Speicherort Optionen an, von denen das Suchverhalten geändert wird.  
+    2.  Pour chaque emplacement, spécifiez les options qui modifient le comportement de la recherche.  
 
-    3.  Geben Sie für jeden Speicherort ein Konto an, das als **Active Directory-Ermittlungskonto**verwendet werden soll.  
+    3.  Pour chaque emplacement, spécifiez le compte à utiliser en tant que **Compte de découverte Active Directory**.  
 
         > [!TIP]  
-        >  Sie können für jeden Speicherort, den Sie angeben, einen Satz von Ermittlungsoptionen und ein eindeutiges Active Directory-Ermittlungskonto konfigurieren.  
+        >  Pour chaque emplacement spécifié, vous pouvez configurer un ensemble d'options de découverte et un compte de découverte Active Directory unique.  
 
-    4.  Wählen Sie **OK** aus, um die Konfiguration des Active Directory-Containers zu speichern.  
+    4.  Choisissez **OK** pour enregistrer la configuration du conteneur Active Directory.  
 
-6.  Konfigurieren Sie auf der Registerkarte **Abfragezeitplan** den Zeitplan für die vollständige Ermittlungsabfrage sowie die Deltaermittlung.  
+6.  Dans l'onglet **Calendrier d'interrogation** , configurez le calendrier d'interrogation de découverte complet et la découverte delta.  
 
-7.  Optional können Sie auf der Registerkarte **Active Directory-Attribute** zusätzliche Active Directory-Attribute für Computer, die ermittelt werden sollen, konfigurieren. Es werden auch die Standardobjektattribute aufgelistet.  
+7.  Le cas échéant, dans l'onglet **Attributs Active Directory** , vous pouvez configurer des attributs Active Directory supplémentaires pour les ordinateurs à découvrir. Les attributs d'objets par défaut sont également répertoriés.  
 
-8.  Optional können Sie auf der Registerkarte **Option** Optionen zum Herausfiltern oder Ausschließen veralteter Computerdatensätze von der Ermittlung konfigurieren.  
+8.  Le cas échéant, dans l’onglet **Option**, vous pouvez configurer des options pour filtrer ou exclure les enregistrements d’ordinateur obsolètes de la découverte.  
 
-9. Wenn Sie mit dem Konfigurieren der Active Directory-Systemermittlung fertig sind, wählen Sie **OK** aus, um die Konfiguration zu speichern.  
+9. Après avoir terminé la configuration de la découverte de systèmes Active Directory pour ce site, choisissez **OK** pour enregistrer la configuration.  
 
-#### <a name="to-configure-active-directory-user-discovery"></a>So konfigurieren Sie die Active Directory-Benutzerermittlung  
+#### <a name="to-configure-active-directory-user-discovery"></a>Pour configurer la découverte d'utilisateurs Active Directory  
 
-1.  Wählen Sie in der Configuration Manager-Konsole **Verwaltung** > **Hierarchiekonfiguration** und anschließend **Ermittlungsmethoden** aus.  
+1.  Dans la console Configuration Manager, choisissez **Administration** > **Configuration de la hiérarchie**, puis **Méthodes de découverte**.  
 
-2.  Wählen Sie die Methode **Active Directory-Benutzerermittlung** für den Standort aus, an dem die Ermittlung konfiguriert werden soll.  
+2.  Choisissez la méthode **Découverte d’utilisateurs Active Directory** pour le site sur lequel vous voulez configurer la découverte.  
 
-3.  Wählen Sie auf der Registerkarte **Startseite** in der Gruppe **Eigenschaften** die Option **Eigenschaften** aus.  
+3.  Sous l’onglet **Accueil**, dans le groupe **Propriétés**, choisissez **Propriétés**.  
 
-4.  Aktivieren Sie auf der Registerkarte **Allgemein** das Kontrollkästchen zum Aktivieren der Ermittlung. Oder Sie können die Ermittlung auch sofort konfigurieren und später zurückkehren, um sie zu aktivieren.  
+4.  Dans l’onglet **Général**, activez la case à cocher pour activer la découverte. Vous pouvez aussi configurer la découverte maintenant et l’activer ultérieurement.  
 
-5.  Wählen Sie das Symbol **Neu** ![Symbol „Neu“](media/Disc_new_Icon.gif) aus, um einen neuen Active Directory-Container anzugeben. Beenden Sie im Dialogfeld **Active Directory-Container** die folgenden Konfigurationen:  
+5.  Choisissez l’icône **Nouveau** ![Icône Nouveau](media/Disc_new_Icon.gif) pour spécifier un nouveau conteneur Active Directory. Dans la boîte de dialogue **Conteneur Active Directory**, finalisez les configurations suivantes :  
 
-    1.  Geben Sie mindestens einen Speicherort an, der durchsucht werden soll.  
+    1.  Spécifiez un ou plusieurs emplacements à rechercher.  
 
-    2.  Geben Sie für jeden Speicherort Optionen an, von denen das Suchverhalten geändert wird.  
+    2.  Pour chaque emplacement, spécifiez les options qui modifient le comportement de la recherche.  
 
-    3.  Geben Sie für jeden Speicherort ein Konto an, das als **Active Directory-Ermittlungskonto**verwendet werden soll.  
+    3.  Pour chaque emplacement, spécifiez le compte à utiliser en tant que **Compte de découverte Active Directory**.  
 
         > [!NOTE]  
-        >  Sie können für jeden Speicherort, den Sie angeben, einen eindeutigen Satz von Ermittlungsoptionen und ein eindeutiges Active Directory-Ermittlungskonto konfigurieren.  
+        >  Pour chaque emplacement spécifié, vous pouvez configurer un ensemble d'options de découverte et un compte de découverte Active Directory uniques.  
 
-    4.  Wählen Sie **OK** aus, um die Konfiguration des Active Directory-Containers zu speichern.  
+    4.  Choisissez **OK** pour enregistrer la configuration du conteneur Active Directory.  
 
-6.  Konfigurieren Sie auf der Registerkarte **Abfragezeitplan** den Zeitplan für die vollständige Ermittlungsabfrage sowie die Deltaermittlung.  
+6.  Dans l'onglet **Calendrier d'interrogation** , configurez le calendrier d'interrogation de découverte complet et la découverte delta.  
 
-7.  Optional können Sie auf der Registerkarte **Active Directory-Attribute** zusätzliche Active Directory-Attribute für Computer, die ermittelt werden sollen, konfigurieren. Es werden auch die Standardobjektattribute aufgelistet.  
+7.  Le cas échéant, dans l'onglet **Attributs Active Directory** , vous pouvez configurer des attributs Active Directory supplémentaires pour les ordinateurs à découvrir. Les attributs d'objets par défaut sont également répertoriés.  
 
-8.  Wenn Sie mit dem Konfigurieren der Active Directory-Benutzerermittlung fertig sind, wählen Sie **OK** aus, um die Konfiguration zu speichern.  
+8.  Après avoir terminé la configuration de la découverte d’utilisateurs Active Directory, choisissez **OK** pour enregistrer la configuration.  
 
-## <a name="azureaadisc"></a> Konfigurieren der Azure AD-Benutzerermittlung
-Ab Version 1706 können Sie die Azure Active Directory-Benutzerermittlung konfigurieren, wenn Sie Configuration Manager mit Ihrem [Azure-Abonnement und Azure Active Directory](/sccm/core/servers/deploy/configure/azure-services-wizard) verbinden.
+## <a name="azureaadisc"></a> Configurer la découverte des utilisateurs Azure AD
+Depuis la version 1706, vous pouvez configurer la découverte des utilisateurs Azure Active Directory quand vous connectez Configuration Manager à votre [abonnement Azure et à Azure Active Directory](/sccm/core/servers/deploy/configure/azure-services-wizard).
 
-Die Azure AD-Benutzerermittlung wird als Teil der *Cloudverwaltung* konfiguriert. Das entsprechende Verfahren hierfür finden Sie unter [Erstellen der Azure-Web-App für die Verwendung mit Configuration Manager](/sccm/core/servers/deploy/configure/Azure-services-wizard#webapp) im Thema *Konfigurieren von Azure-Diensten für die Verwendung mit Configuration Manager*.
-
-
+La découverte des utilisateurs Azure AD est configurée dans le cadre de la *gestion cloud*. La procédure à suivre est détaillée dans [Créer l’application web Azure à utiliser avec Configuration Manager](/sccm/core/servers/deploy/configure/Azure-services-wizard#webapp) dans la rubrique *Configurer les services Azure à utiliser avec Configuration Manager*.
 
 
-##  <a name="BKMK_ConfigHBDisc"></a> Konfigurieren einer Frequenzermittlung  
- Die Frequenzermittlung ist standardmäßig aktiviert, wenn Sie einen primären Configuration Manager-Standort installieren. Daher müssen Sie nur mithilfe eines Zeitplans festlegen, wie oft die Discovery Data Records der Frequenzermittlung von den Clients an einen Verwaltungspunkt gesendet werden sollen, wenn Sie nicht die Standardeinstellung „alle 7 Tage“ verwenden möchten.  
 
-> [!NOTE]  
->  Wenn an einem Standort die Clientpushinstallation und der Standortwartungstask **Installationsflag löschen** zugleich aktiviert sind, legen Sie den Zeitplan für die Frequenzermittlung mit einem kürzeren Zeitraum als dem **Clientneuermittlungs-Zeitraum** des Standortwartungstasks **Installationsflag löschen** fest. Weitere Informationen zu Standortwartungstasks finden Sie unter [Wartungstasks für System Center Configuration Manager](../../../../core/servers/manage/maintenance-tasks.md).  
 
-#### <a name="to-configure-the-heartbeat-discovery-schedule"></a>So konfigurieren Sie den Zeitplan für die Frequenzermittlung  
-
-1.  Wählen Sie in der Configuration Manager-Konsole **Verwaltung** > **Hierarchiekonfiguration** und anschließend **Ermittlungsmethoden** aus.  
-
-2.  Wählen Sie **Frequenzermittlung** für den Standort, an dem die Frequenzermittlung konfiguriert werden soll, aus.  
-
-3.  Wählen Sie auf der Registerkarte **Startseite** in der Gruppe **Eigenschaften** die Option **Eigenschaften** aus.  
-
-4.  Konfigurieren Sie die Häufigkeit, mit der Discovery Data Records der Frequenzermittlung von den Clients übermittelt werden sollen, und wählen Sie **OK** aus, um die Konfiguration zu speichern.  
-
-##  <a name="BKMK_ConfigNetworkDisc"></a> Konfigurieren einer Netzwerkermittlung  
- Verwenden Sie die Informationen in den folgenden Abschnitten zum Konfigurieren der Netzwerkermittlung.  
-
-###  <a name="BKMK_AboutConfigNetworkDisc"></a> Informationen zum Konfigurieren der Netzwerkermittlung  
- Zum Konfigurieren der Netzwerkermittlung benötigen Sie die folgenden Informationen:  
-
--   Verfügbare Ebenen der Netzwerkermittlung  
-
--   Verfügbare Optionen der Netzwerkermittlung  
-
--   Begrenzen der Netzwerkermittlung im Netzwerk  
-
-Weitere Informationen finden Sie in [Informationen zur Netzwerkermittlung](../../../../core/servers/deploy/configure/about-discovery-methods.md#bkmk_aboutNetwork).  
-
- In den folgenden Abschnitten finden Sie Informationen zu häufig verwendeten Konfigurationen für die Netzwerkermittlung. Sie können eine oder mehrere dieser Konfigurationen innerhalb einer Ermittlungsausführung verwenden. Wenn Sie mehrere Konfigurationen verwenden, müssen Sie die Interaktionen berücksichtigen, durch die die Ermittlungsergebnisse beeinflusst werden können.  
-
- Beispielsweise möchten Sie möglicherweise alle SNMP-Geräte (Simple Network Management Protocol) mit einem bestimmten öffentlichen SNMP-Namen ermitteln. Zusätzlich möchten Sie für diese Ermittlungsausführung möglicherweise die Ermittlung in einem bestimmten Subnetz deaktivieren. Wenn die Ermittlung ausgeführt wird, werden die SNMP-Geräte mit dem angegebenen öffentlichen Namen im deaktivierten Subnetz nicht ermittelt.  
-
-####  <a name="BKMK_DetermineNetTopology"></a> Bestimmen der Netzwerktopologie  
- Sie können eine topologiebezogene Ermittlung verwenden, um Ihr Netzwerk zuzuordnen. Von dieser Art der Ermittlung werden keine potenziellen Clients erkannt. Die topologiebezogene Netzwerkermittlung beruht auf SNMP.  
-
- Wenn Sie Ihre Netzwerktopologie zuordnen, müssen Sie im Dialogfeld **Netzwerkermittlung Eigenschaften** auf der Registerkarte **SNMP** die **Maximale Hopanzahl** konfigurieren. Bei einer geringen Hopanzahl ist es einfacher, die Netzwerkauslastung beim Ausführen der Ermittlung zu kontrollieren. Mit zunehmender Ermittlung des Netzwerks können Sie die Hopanzahl steigern, um sich ein besseres Bild von Ihrer Netzwerktopologie zu verschaffen.  
-
- Wenn Ihnen die Netzwerktopologie bekannt ist, können Sie zusätzliche Eigenschaften für die Netzwerkerkennung konfigurieren, um potenzielle Clients sowie deren Betriebssysteme zu ermitteln, während Sie verfügbare Konfigurationen zur Begrenzung der durchsuchbaren Netzwerksegmente verwenden.  
-
-####  <a name="BKMK_LimitBySubnet"></a> Begrenzen von Suchvorgängen mithilfe von Subnetzen  
- Sie können die Netzwerkermittlung so konfigurieren, dass bestimmte Subnetze durchsucht werden, wenn eine Ermittlung ausgeführt wird. Standardmäßig wird von der Netzwerkermittlung das Subnetz des Servers, auf dem die Ermittlung ausgeführt wird, durchsucht. Für alle zusätzlichen Subnetze, die Sie konfigurieren und aktivieren, gelten nur die Suchoptionen von SNMP und DHCP (Dynamic Host Configuration Protocol). Wenn von der Netzwerkermittlung Domänen durchsucht werden, gilt dabei keine konfigurierte Begrenzung auf Subnetze.  
-
- Wenn Sie im Dialogfeld **Netzwerkermittlung Eigenschaften** auf der Registerkarte **Subnetze** ein oder mehrere Subnetze angeben, werden nur die Subnetze durchsucht, die als **Aktiviert** gekennzeichnet sind.  
-
- Wenn Sie ein Subnetz deaktivieren, ist es von der Ermittlung ausgeschlossen, und es treffen die folgenden Bedingungen zu:  
-
--   SNMP-basierte Abfragen werden nicht auf dem Subnetz ausgeführt.  
-
--   Von DHCP-Servern wird keine Listen mit Ressourcen, die sich im Subnetz befinden, zurückgegeben.  
-
--   Von domänenbasierten Abfragen können Ressourcen im Subnetz ermittelt werden.  
-
-####  <a name="BKMK_SearchByDomain"></a> Durchsuchen einer bestimmten Domäne  
- Sie können die Netzwerkermittlung so konfigurieren, dass bei einer Ermittlungsausführung eine bestimmte Domäne oder ein bestimmter Domänensatz durchsucht wird. Standardmäßig wird von der Netzwerkermittlung die lokale Domäne des Servers, auf dem die Ermittlung ausgeführt wird, durchsucht.  
-
- Wenn Sie im Dialogfeld **Netzwerkermittlung Eigenschaften** auf der Registerkarte **Domänen** eine oder mehrere Domänen angeben, werden nur die Domänen durchsucht, die als **Aktiviert** gekennzeichnet sind.  
-
- Wenn Sie eine Domäne deaktivieren, ist sie von der Ermittlung ausgeschlossen, und es treffen die folgenden Bedingungen zu:  
-
--   Von der Netzwerkermittlung werden keine Domänencontroller in dieser Domäne abgefragt.  
-
--   SNMP-basierte Abfragen können auf Subnetzen in der Domäne weiterhin ausgeführt werden.  
-
--   Von DHCP-Servern werden weiterhin Listen mit Ressourcen in der Domäne zurückgegeben.  
-
-####  <a name="BKMK_LimitBySNMPname"></a> Begrenzen von Suchvorgängen mithilfe von SNMP-Communitynamen  
- Sie können die Netzwerkermittlung so konfigurieren, dass eine bestimmte SNMP-Community oder ein bestimmter Communitysatz durchsucht wird, wenn eine Ermittlung ausgeführt wird. Standardmäßig ist der Communityname **Öffentlich** für die Verwendung konfiguriert.  
-
- Die Netzwerkermittlung verwendet Communitynamen für den Zugriff auf Router, bei denen es sich um SNMP-Geräte handelt. Von einem Router können Informationen zu verknüpften Routern und Subnetzen für die Netzwerkermittlung bereitgestellt werden.  
+##  <a name="BKMK_ConfigHBDisc"></a> Configurer la découverte par pulsations d’inventaire  
+ Par défaut, la découverte par pulsations d’inventaire est activée au moment où vous installez un site principal Configuration Manager. Par conséquent, il vous suffit de configurer la fréquence selon laquelle les clients envoient l’enregistrement des données de la découverte par pulsations d’inventaire au point de gestion, si vous ne voulez pas utiliser la valeur par défaut (tous les sept jours).  
 
 > [!NOTE]  
->  SNMP-Communitynamen sind mit Kennwörtern vergleichbar. Die Netzwerkermittlung kann nur Informationen von einem SNMP-Medium beziehen, für das Sie einen Communitynamen angegeben haben. Jedes SNMP-Gerät kann einen eigenen Communitynamen besitzen, oft verwenden jedoch mehrere Medien denselben Communitynamen. Zusätzlich haben die meisten SNMP-Geräte den Standardcommunitynamen **Öffentlich**. Von einigen Unternehmen wird der **öffentliche** Communityname jedoch als Sicherheitsmaßnahme von den Geräten gelöscht.  
+>  Si la tâche d'installation poussée du client et la tâche de maintenance de site pour **Remettre à zéro l'indicateur d'installation** sont activées sur le même site, définissez la planification de la découverte par pulsations d'inventaire à une valeur inférieure à la **Période de redécouverte client** de la tâche de maintenance de site **Remettre à zéro l'indicateur d'installation** . Pour plus d’informations sur les tâches de maintenance de site, consultez [Tâches de maintenance pour System Center Configuration Manager](../../../../core/servers/manage/maintenance-tasks.md).  
 
- Wenn im Dialogfeld **Netzwerkermittlung Eigenschaften** auf der Registerkarte **SNMP** mehrere SNMP-Communitys angezeigt werden, werden sie von der Netzwerkermittlung in der angezeigten Reihenfolge durchsucht. Sorgen Sie dafür, dass die meistverwendeten Namen sich oben auf der Liste befinden, um die Netzwerkauslastung durch Versuche, den Kontakt zu einem Gerät mithilfe verschiedener Namen herzustellen, möglichst gering zu halten.  
+#### <a name="to-configure-the-heartbeat-discovery-schedule"></a>Pour configurer la planification de découverte par pulsations d'inventaire  
+
+1.  Dans la console Configuration Manager, choisissez **Administration** > **Configuration de la hiérarchie**, puis **Méthodes de découverte**.  
+
+2.  Sélectionnez **Découverte par pulsations d’inventaire** pour le site sur lequel vous souhaitez exécuter la découverte par pulsations d’inventaire.  
+
+3.  Sous l’onglet **Accueil**, dans le groupe **Propriétés**, choisissez **Propriétés**.  
+
+4.  Configurez la fréquence de l’envoi d’un enregistrement de données de découverte par pulsations d’inventaire par les clients, puis choisissez **OK** pour enregistrer la configuration.  
+
+##  <a name="BKMK_ConfigNetworkDisc"></a> Configurer la découverte du réseau  
+ Utilisez les informations dans les sections suivantes pour configurer la découverte du réseau.  
+
+###  <a name="BKMK_AboutConfigNetworkDisc"></a> À propos de la configuration de la découverte du réseau  
+ Avant de configurer la découverte du réseau, vous devez comprendre les points suivants :  
+
+-   Niveaux disponibles de découverte du réseau  
+
+-   Options disponibles de découverte du réseau  
+
+-   Limitation de la découverte du réseau sur le réseau  
+
+Pour plus d’informations, consultez la section [Découverte du réseau](../../../../core/servers/deploy/configure/about-discovery-methods.md#bkmk_aboutNetwork).  
+
+ Les sections suivantes fournissent des informations sur les configurations courantes pour la découverte du réseau. Vous pouvez configurer une ou plusieurs de ces configurations pour l'utilisation pendant la même exécution de la découverte. Si vous utilisez plusieurs configurations, vous devez tenir compte des interactions pouvant affecter les résultats de la découverte.  
+
+ Vous pouvez, par exemple, vouloir découvrir tous les appareils SNMP (Simple Network Management Protocol) qui utilisent un nom de communauté SNMP spécifique. De plus, vous pouvez désactiver la découverte sur un sous-réseau spécifique pour la même exécution de la découverte. Lors de l'exécution de la découverte, la découverte du réseau ne découvre pas les périphériques SNMP avec le nom de communauté spécifié sur le sous-réseau que vous avez désactivé.  
+
+####  <a name="BKMK_DetermineNetTopology"></a> Déterminer la topologie de votre réseau  
+ La découverte pour la topologie uniquement vous permet de mapper votre réseau. Ce type de découverte ne découvre pas les clients potentiels. La découverte du réseau pour la topologie uniquement s'appuie sur SNMP.  
+
+ Lors du mappage de la topologie de votre réseau, vous devez configurer le **Nombre maximal de sauts** dans l’onglet **SNMP** de la boîte de dialogue **Propriétés de la découverte du réseau**. Quelques sauts permettent de contrôler la bande passante du réseau utilisée lors de l'exécution de la découverte. À mesure que vous découvrez votre réseau, vous pouvez augmenter le nombre de sauts pour mieux comprendre la topologie de votre réseau.  
+
+ Une fois que vous avez compris la topologie de votre réseau, vous pouvez configurer des propriétés supplémentaires permettant à la découverte du réseau de découvrir des clients potentiels et leurs systèmes d'exploitation, pendant que vous utilisez les configurations disponibles pour limiter le nombre de segments réseau que la découverte du réseau peut rechercher.  
+
+####  <a name="BKMK_LimitBySubnet"></a> Limiter les recherches en utilisant des sous-réseaux  
+ Vous pouvez configurer la découverte du réseau pour rechercher des sous-réseaux spécifiques au cours d'une opération de découverte. Par défaut, la découverte du réseau recherche le sous-réseau du serveur qui exécute la découverte. Tous les sous-réseaux supplémentaires que vous configurez et activez ne s’appliquent qu’aux options de recherche SNMP et DHCP (Dynamic Host Configuration Protocol). Lorsque la découverte du réseau recherche les domaines, elle n'est pas limitée par les configurations des sous-réseaux.  
+
+ Si vous spécifiez un ou plusieurs sous-réseaux dans l'onglet **Sous-réseaux** de la boîte de dialogue **Propriétés de la découverte du réseau** , la recherche s'applique uniquement aux sous-réseaux marqués **Activé** .  
+
+ Lorsque vous désactivez un sous-réseau, il est exclu de la découverte, et les conditions suivantes s'appliquent :  
+
+-   Les requêtes SNMP ne s’exécutent pas sur le sous-réseau.  
+
+-   Les serveurs DHCP ne renvoient pas une liste des ressources situées sur le sous-réseau.  
+
+-   Les requêtes basées sur le domaine peuvent découvrir des ressources situées sur le sous-réseau.  
+
+####  <a name="BKMK_SearchByDomain"></a> Rechercher dans un domaine spécifique  
+ La découverte du réseau peut être configurée pour rechercher dans un domaine spécifique ou dans plusieurs domaines au cours d'une opération de découverte. Par défaut, la découverte du réseau recherche dans le domaine local du serveur qui exécute la découverte.  
+
+ Si vous spécifiez un ou plusieurs domaines sous l'onglet **Domaines** de la boîte de dialogue **Propriétés de la découverte du réseau**, la recherche s'applique uniquement aux domaines marqués **Activé**.  
+
+ Lorsque vous désactivez un domaine, il est exclu de la découverte, et les conditions suivantes s'appliquent :  
+
+-   La découverte du réseau n’interroge pas les contrôleurs de domaine situés dans ce domaine.  
+
+-   Les requêtes SNMP s’exécutent sur les sous-réseaux du domaine.  
+
+-   Les serveurs DHCP renvoient toujours une liste des ressources situées dans le domaine.  
+
+####  <a name="BKMK_LimitBySNMPname"></a> Limiter les recherches en utilisant des noms de communautés SNMP  
+ La découverte du réseau peut être configurée pour rechercher une communauté SNMP spécifique ou plusieurs communautés au cours d'une opération de découverte. Par défaut, le nom de communauté dit **Public** est configuré pour l'utilisation.  
+
+ La fonction de découverte du réseau utilise des noms de communautés pour accéder à des routeurs qui constituent des périphériques SNMP. Un routeur permet d'informer le service de découverte du réseau sur les autres routeurs et les sous-réseaux liés au premier routeur.  
 
 > [!NOTE]  
->  Zusätzlich zum SNMP-Communitynamen können Sie auch die IP-Adresse oder den auflösbaren Namen eines bestimmten SNMP-Geräts verwenden. Dies erfolgt im Dialogfeld **Eigenschaften der Netzwerkermittlung** auf der Registerkarte **SNMP-Geräte**.  
+>  Les noms de communautés SNMP sont semblables aux mots de passe. Le service de découverte du réseau peut uniquement obtenir des informations d'un périphérique SNMP pour lequel vous avez spécifié un nom de communauté. Chaque périphérique SNMP peut disposer de son propre nom de communauté mais souvent, plusieurs périphériques partagent le même nom de communauté. En outre, la plupart des périphériques SNMP disposent d'un nom de communauté par défaut dit **Public**. Toutefois, certaines organisations suppriment le nom de communauté **Public** de leurs appareils pour des raisons de sécurité.  
 
-####  <a name="BKMK_SearchByDHCP"></a> Durchsuchen eines bestimmten DHCP-Servers  
- Sie können die Netzwerkermittlung zur Verwendung eines oder mehrerer bestimmter DHCP-Server zum Ermitteln der DHCP-Clients konfigurieren.  
-
- Jeder DHCP-Server, den Sie im Dialogfeld **Netzwerkermittlung Eigenschaften** auf der Registerkarte **DHCP** angeben, wird von der Netzwerkermittlung durchsucht. Wenn die IP-Adresse durch den Server, von dem die Ermittlung ausgeführt wird, von einem DHCP-Server geleast wird, können Sie die Ermittlung für das Durchsuchen dieses DHCP-Servers konfigurieren, indem Sie das Kontrollkästchen **Den vom Standortserver verwendeten DHCP-Server einschließen** aktivieren.  
+ Si plusieurs communautés SNMP s’affichent dans l’onglet **SNMP** de la boîte de dialogue **Propriétés de la découverte du réseau**, les recherches effectuées par la découverte du réseau s’effectuent dans l’ordre d’affichage des communautés. Afin de réduire l'impact sur le trafic réseau généré par les tentatives de contact avec un périphérique en utilisant différents noms, assurez-vous que les noms les plus fréquemment utilisés sont en haut de la liste.  
 
 > [!NOTE]  
->  Zum erfolgreichen Konfigurieren eines DHCP-Servers für die Netzwerkermittlung ist es erforderlich, dass IPv4 von der Umgebung unterstützt wird. Sie können die Netzwerkermittlung nicht für die Verwendung eines DHCP-Servers in einer nativen IPv6-Umgebung konfigurieren.  
+>  Outre le nom de communauté SNMP, vous pouvez spécifier l’adresse IP ou le nom pouvant être résolu d’un périphérique SNMP. Pour ce faire, utilisez l’onglet **Périphériques SNMP** de la boîte de dialogue **Propriétés de la découverte du réseau**.  
 
-###  <a name="BKMK_HowToConfigNetDisc"></a> Konfigurieren der Netzwerkermittlung  
- Wenden Sie die folgenden Verfahren an, um zunächst nur Ihre Netzwerktopologie zu ermitteln und die Netzwerkermittlung danach für das Ermitteln potenzieller Clients mithilfe einer oder mehrerer verfügbarer Netzwerkermittlungsoptionen zu konfigurieren.  
+####  <a name="BKMK_SearchByDHCP"></a> Rechercher sur un serveur DHCP spécifique  
+ La découverte du réseau peut être configurée pour utiliser un serveur DHCP spécifique ou plusieurs serveurs en vue de découvrir des clients DHCP au cours d'une opération de découverte.  
 
-##### <a name="to-determine-your-network-topology"></a>So bestimmen Sie die Netzwerktopologie  
+ La découverte du réseau recherche sur chaque serveur DHCP que vous spécifiez sous l'onglet **DHCP** de la boîte de dialogue **Propriétés de la découverte du réseau**. Si le serveur qui exécute la découverte loue son adresse IP à un serveur DHCP, vous pouvez configurer la découverte pour qu’elle effectue la recherche sur ce serveur DHCP en activant la case à cocher **Inclure le serveur DHCP pour lequel le serveur de site est configuré**.  
 
-1.  Wählen Sie in der Configuration Manager-Konsole **Verwaltung** > **Hierarchiekonfiguration** und anschließend **Ermittlungsmethoden** aus.  
+> [!NOTE]  
+>  Pour configurer avec succès un serveur DHCP dans la découverte du réseau, votre environnement doit prendre en charge IPv4. Vous ne pouvez pas configurer la découverte du réseau de sorte qu'elle utilise un serveur DHCP dans un environnement IPv6 natif.  
 
-2.  Wählen Sie für den Standort, an dem die Netzwerkermittlung ausgeführt werden soll, **Netzwerkermittlung** aus.  
+###  <a name="BKMK_HowToConfigNetDisc"></a> Guide pratique pour configurer la découverte du réseau  
+ Procédez comme suit pour d'abord découvrir uniquement la topologie de votre réseau, puis configurer la découverte du réseau afin de découvrir des clients potentiels à l'aide de l'une ou de plusieurs options disponibles de découverte du réseau.  
 
-3.  Wählen Sie auf der Registerkarte **Startseite** in der Gruppe **Eigenschaften** die Option **Eigenschaften** aus.  
+##### <a name="to-determine-your-network-topology"></a>Pour déterminer la topologie de votre réseau  
 
-    -   Aktivieren Sie auf der Registerkarte **Allgemein** das Kontrollkästchen **Netzwerkermittlung aktivieren**, und wählen Sie dann aus den Optionen **Art der Ermittlung** die Option **Topologie** aus.  
+1.  Dans la console Configuration Manager, choisissez **Administration** > **Configuration de la hiérarchie**, puis **Méthodes de découverte**.  
 
-    -   Aktivieren Sie auf der Registerkarte **Subnetze** das Kontrollkästchen **Lokale Subnetze durchsuchen**.  
+2.  Choisissez **Découverte du réseau** pour le site sur lequel vous souhaitez exécuter la découverte du réseau.  
+
+3.  Sous l’onglet **Accueil**, dans le groupe **Propriétés**, choisissez **Propriétés**.  
+
+    -   Dans l’onglet **Général**, activez la case à cocher **Activer la découverte du réseau**, puis choisissez **Topologie** dans **Type de découverte**.  
+
+    -   Dans l’onglet **Sous-réseaux**, activez la case à cocher **Rechercher les sous-réseaux locaux**.  
 
         > [!TIP]  
-        >  Wenn Ihnen die speziellen Subnetze des Netzwerks bekannt sind, können Sie das Kontrollkästchen **Lokale Subnetze durchsuchen** deaktivieren und über das Symbol **Neu** ![Symbol „Neu“](media/Disc_new_Icon.gif) die Subnetze hinzufügen, die durchsucht werden sollen. Bei großen Netzwerken ist es oft sinnvoll, nur ein oder zwei Subnetze auf einmal zu durchsuchen, um die Netzwerkauslastung zu minimieren.  
+        >  Si vous connaissez les sous-réseaux qui constituent votre réseau, vous pouvez désactiver la case **Rechercher les sous-réseaux locaux** et utiliser l’icône **Nouveau** ![Icône Nouveau](media/Disc_new_Icon.gif) pour ajouter les sous-réseaux qui doivent faire l’objet de la recherche. Pour les réseaux de grande taille, il est souvent préférable d'effectuer la recherche uniquement dans un ou deux sous-réseaux à la fois, afin de minimiser l'utilisation de la bande passante du réseau.  
 
-    -   Aktivieren Sie auf der Registerkarte **Domänen** das Kontrollkästchen **Lokale Domäne durchsuchen**.  
+    -   Dans l’onglet **Domaines**, activez la case à cocher **Rechercher dans le domaine local**.  
 
-    -   Verwenden Sie auf der Registerkarte **SNMP** die Dropdownliste **Maximale Hopanzahl** , um die Anzahl der Routerhops zu begrenzen, die von der Netzwerkermittlung bei der Zuordnung der Topologie ausgeführt werden können.  
+    -   Dans l'onglet **SNMP** , utilisez la liste déroulante **Nombre maximal de sauts** pour déterminer le nombre de sauts de routeur que la découverte du réseau doit effectuer lors du mappage de votre topologie.  
 
         > [!TIP]  
-        >  Für die erste Zuordnung Ihrer Netzwerktopologie konfigurieren Sie nur wenige Routerhops, um die Netzwerkauslastung zu minimieren.  
+        >  Lorsque vous mappez la topologie de votre réseau pour la première fois, configurez quelques sauts de routeur pour réduire l'utilisation de la bande passante du réseau.  
 
-4.  Wählen Sie auf der Registerkarte **Zeitplan** das Symbol **Neu** ![Symbol „Neu“](media/Disc_new_Icon.gif) aus, um einen Zeitplan für die Ausführung der Netzwerkermittlung festzulegen.  
-
-    > [!NOTE]  
-    >  Es ist nicht möglich, einzelnen Zeitplänen für die Netzwerkermittlung verschiedene Ermittlungskonfigurationen zuzuweisen. Bei jedem Ausführen der Netzwerkermittlung wird die aktuelle Ermittlungskonfiguration verwendet.  
-
-5.  Wählen Sie **OK** aus, um die Konfigurationen zu übernehmen. Die Netzwerkermittlung wird zum geplanten Zeitpunkt ausgeführt.  
-
-##### <a name="to-configure-network-discovery"></a>So konfigurieren Sie die Netzwerkermittlung  
-
-1.  Wählen Sie in der Configuration Manager-Konsole **Verwaltung** > **Hierarchiekonfiguration** und anschließend **Ermittlungsmethoden** aus.  
-
-2.  Wählen Sie für den Standort, an dem die Netzwerkermittlung ausgeführt werden soll, **Netzwerkermittlung** aus.  
-
-3.  Wählen Sie auf der Registerkarte **Startseite** in der Gruppe **Eigenschaften** die Option **Eigenschaften** aus.  
-
-4.  Aktivieren Sie auf der Registerkarte **Allgemein** das Kontrollkästchen **Netzwerkermittlung aktivieren**, und wählen Sie dann aus den Optionen **Art der Ermittlung** die Art der auszuführenden Ermittlung aus.  
-
-5.  Wählen Sie zum Konfigurieren der Ermittlung für das Durchsuchen von Subnetzen die Registerkarte **Subnetze** aus, und konfigurieren Sie dann eine oder mehrere der folgenden Optionen:  
-
-    -   Aktivieren Sie das Kontrollkästchen **Lokale Subnetze durchsuchen**, um die Ermittlung in Subnetzen auszuführen, die sich lokal auf dem Computer befinden, von dem die Ermittlung ausgeführt wird.  
-
-    -   Wenn ein bestimmtes Subnetz durchsucht werden soll, muss es unter **Zu durchsuchende Subnetze** aufgeführt sein, und der Wert **Suchen** muss **Aktiviert** lauten:  
-
-        1.  Ist das Subnetz nicht aufgeführt, wählen Sie das Symbol **Neu** ![Symbol „Neu“](media/Disc_new_Icon.gif) aus. Geben Sie im Dialogfeld **Neue Subnetzzuweisung** die Informationen zu **Subnetz** und **Maske** ein, und wählen Sie dann **OK** aus. Es wird standardmäßig ein neues Subnetz für die Suche aktiviert.  
-
-        2.  Zum Ändern des Werts **Suchen** für ein aufgeführtes Subnetz wählen Sie das Subnetz und dann das Symbol **Ein-/Ausschalten** aus, um zwischen **Deaktiviert** und **Aktiviert** zu wechseln.  
-
-6.  Wählen Sie zum Konfigurieren der Ermittlung für das Durchsuchen von Domänen die Registerkarte **Domänen** aus, und konfigurieren Sie dann eine oder mehrere der folgenden Optionen:  
-
-    -   Aktivieren Sie das Kontrollkästchen **Lokale Domäne durchsuchen**, um die Ermittlung in der Domäne des Computers auszuführen, von dem die Ermittlung ausgeführt wird.  
-
-    -   Wenn eine bestimmte Domäne durchsucht werden soll, muss sie unter **Domänen** aufgeführt sein, und der Wert **Suchen** muss **Aktiviert** lauten:  
-
-        1.  Ist die Domänen nicht aufgeführt, wählen Sie das Symbol **Neu** ![Symbol „Neu“](media/Disc_new_Icon.gif) aus. Geben Sie im Dialogfeld **Domäneneigenschaften** die Informationen für die **Domäne** ein, und wählen Sie dann **OK** aus. Es wird standardmäßig eine neue Domäne für die Suche aktiviert.  
-
-        2.  Zum Ändern des Werts **Suchen** für eine aufgeführte Domäne wählen Sie die Domäne und dann das Symbol **Ein-/Ausschalten** aus, um zwischen **Deaktiviert** und **Aktiviert** zu wechseln.  
-
-7.  Zum Konfigurieren der Ermittlung für das Durchsuchen bestimmter SNMP-Communitynamen für SNMP-Geräte wählen Sie die Registerkarte **SNMP** aus und konfigurieren dann eine oder mehrere der folgenden Optionen:  
-
-    -   Wählen Sie zum Hinzufügen eines SNMP_Communitynamens zur Liste **SNMP-Communitynamen** das Symbol **Neu** ![Symbol „Neu“](media/Disc_new_Icon.gif) aus. Geben Sie im Dialogfeld **Neuer SNMP-Communityname** den **Namen** der SNMP-Community ein, und wählen Sie dann **OK** aus.  
-
-    -   Wenn Sie einen SNMP-Communitynamen entfernen möchten, wählen Sie den Namen und anschließend das Symbol **Löschen** ![Symbol „Löschen“](media/Disc_delete_Icon.gif) aus.  
-
-    -   Wenn Sie die Suchreihenfolge der SNMP-Communitynamen ändern möchten, wählen Sie einen Namen und dann das Symbol **Nach oben** ![Symbol „Nach oben“](media/Disc_moveUp_Icon.gif) bzw. das Symbol **Nach unten** ![Symbol „Nach unten“](media/Disc_moveDown_Icon.gif) aus. Beim Ausführen der Ermittlung werden die Communitynamen von oben nach unten durchsucht. Beachten Sie die folgenden Punkte.
-
-        > [!NOTE]  
-        >  Die Netzwerkermittlung greift anhand von SMS-Communitynamen auf Router zu, bei denen es sich um SNMP-Geräte handelt. Die Netzwerkermittlung kann von einem Router über mit diesem verknüpfte Router und Subnetze informiert werden.  
-
-        -   SNMP-Communitynamen sind mit Kennwörtern vergleichbar.  
-
-        -   Die Netzwerkermittlung kann nur Informationen von einem SNMP-Medium beziehen, für das Sie einen Communitynamen angegeben haben.  
-
-        -   Jedes SNMP-Gerät kann einen eigenen Communitynamen besitzen, oft verwenden jedoch mehrere Medien denselben Communitynamen.  
-
-        -   Die meisten SNMP-Geräte weisen den Standardcommunitynamen **Öffentlich** auf. Sie können diesen Namen verwenden, wenn Sie keine anderen Communitynamen kennen. Von einigen Unternehmen wird der Communityname **Öffentlich** jedoch als Sicherheitsmaßnahme von den Geräten gelöscht.  
-
-8.  Zum Konfigurieren der maximalen Anzahl von Routerhops bei SNMP-Suchen wählen Sie die Registerkarte **SNMP** und dann die gewünschte Anzahl aus der Dropdownliste **Maximale Hopanzahl** aus.  
-
-9. Um ein SNMP-Gerät zu konfigurieren, wählen Sie die Registerkarte **SNMP-Geräte** aus. Ist das Gerät hier nicht aufgeführt, wählen Sie das Symbol **Neu** ![Symbol „Neu“](media/Disc_new_Icon.gif) aus. Geben Sie im Dialogfeld **Neues SNMP-Gerät** die IP-Adresse oder den Gerätenamen des SNMP-Geräts ein, und wählen Sie dann **OK** aus.  
+4.  Dans l’onglet **Calendrier**, choisissez l’icône **Nouveau** ![Icône Nouveau](media/Disc_new_Icon.gif) pour définir le calendrier d’exécution de la découverte du réseau.  
 
     > [!NOTE]  
-    >  Wenn Sie einen Gerätenamen angeben, muss der NetBIOS-Name von Configuration Manager in eine IP-Adresse aufgelöst werden können.  
+    >  Vous ne pouvez pas attribuer une configuration de découverte différente à des planifications de découverte du réseau distinctes. La découverte du réseau utilise la configuration de découverte en cours à chaque exécution.  
 
-10. Zum Konfigurieren der Ermittlung für die Abfrage bestimmter DHCP-Server für DHCP-Clients wählen Sie die Registerkarte **DHCP** aus und konfigurieren dann eine oder mehrere der folgenden Optionen:  
+5.  Choisissez **OK** pour accepter la configuration. La découverte du réseau s'exécute à l'heure planifiée.  
 
-    -   Wenn der DHCP-Server auf dem Computer, auf dem die Ermittlung ausgeführt wird, abgefragt werden soll, aktivieren Sie das Kontrollkästchen **Immer den DHCP-Server des Standortservers verwenden**.  
+##### <a name="to-configure-network-discovery"></a>Pour configurer la découverte du réseau  
+
+1.  Dans la console Configuration Manager, choisissez **Administration** > **Configuration de la hiérarchie**, puis **Méthodes de découverte**.  
+
+2.  Choisissez **Découverte du réseau** pour le site sur lequel vous souhaitez exécuter la découverte du réseau.  
+
+3.  Sous l’onglet **Accueil**, dans le groupe **Propriétés**, choisissez **Propriétés**.  
+
+4.  Dans l’onglet **Général**, activez la case à cocher **Activer la découverte du réseau**, puis sélectionnez le type de découverte à exécuter dans **Type de découverte**.  
+
+5.  Pour configurer la découverte afin de rechercher les sous-réseaux, cliquez sur l’onglet **Sous-réseaux**, puis configurez une ou plusieurs des options suivantes :  
+
+    -   Pour lancer la découverte sur les sous-réseaux locaux de l’ordinateur exécutant la découverte, activez la case à cocher **Rechercher les sous-réseaux locaux**.  
+
+    -   Pour rechercher un sous-réseau spécifique, celui-ci doit figurer dans la liste **Sous-réseaux à rechercher** et son paramètre **Rechercher** doit avoir pour valeur **Activé** :  
+
+        1.  Si le sous-réseau ne figure pas dans la liste, choisissez l’icône **Nouveau** ![Icône Nouveau](media/Disc_new_Icon.gif). Dans la boîte de dialogue **Nouvelle attribution de sous-réseau**, renseignez les champs **Sous-réseau** et **Masque**, puis choisissez **OK**. Par défaut, un nouveau sous-réseau est activé pour la recherche.  
+
+        2.  Pour modifier la valeur **Rechercher** d’un sous-réseau figurant dans la liste, sélectionnez-le, puis choisissez l’icône **Basculer** afin de remplacer la valeur **Désactivé** par la valeur **Activé** (ou inversement).  
+
+6.  Pour configurer la découverte et rechercher les domaines, cliquez sur l’onglet **Domaines**, puis configurez une ou plusieurs des options suivantes :  
+
+    -   Pour lancer la découverte sur le domaine de l’ordinateur exécutant la découverte, activez la case à cocher **Rechercher dans le domaine local**.  
+
+    -   Pour rechercher un domaine spécifique, vérifiez que celui-ci figure dans la liste **Domaines** et que son paramètre **Rechercher** a pour valeur **Activé** :  
+
+        1.  Si le domaine ne figure pas dans la liste, choisissez l’icône **Nouveau** ![Icône Nouveau](media/Disc_new_Icon.gif). Dans la boîte de dialogue **Propriétés de domaine**, renseignez le champ **Domaine**, puis choisissez **OK**. Par défaut, un nouveau domaine est activé pour la recherche.  
+
+        2.  Pour modifier la valeur **Rechercher** d’un domaine figurant dans la liste, sélectionnez le domaine, puis choisissez l’icône **Basculer** afin de remplacer la valeur **Désactivé** par la valeur **Activé** (ou inversement).  
+
+7.  Pour configurer la découverte afin de rechercher des noms de communautés SNMP, choisissez l’onglet **SNMP**, puis configurez une ou plusieurs des options suivantes :  
+
+    -   Pour ajouter un nom de communauté SNMP dans la liste **Noms de communautés SNMP**, choisissez l’icône **Nouveau** ![Icône Nouveau](media/Disc_new_Icon.gif). Dans la boîte de dialogue **Nouveau nom de communauté SNMP**, indiquez le **Nom** de la communauté SNMP, puis choisissez **OK**.  
+
+    -   Pour supprimer un nom de communauté SNMP, sélectionnez-le, puis choisissez l’icône **Supprimer** ![Icône Supprimer](media/Disc_delete_Icon.gif).  
+
+    -   Pour modifier l’ordre de recherche des noms de communautés SNMP, sélectionnez un nom de communauté, puis choisissez l’icône **Déplacer l’élément vers le haut** ![Icône Déplacer l’élément vers le haut](media/Disc_moveUp_Icon.gif) ou **Déplacer l’élément vers le bas** ![Icône Déplacer l’élément vers le bas](media/Disc_moveDown_Icon.gif). Lors de l'exécution de la découverte, la recherche des noms de communauté est effectuée dans un ordre de haut en bas. Gardez à l’esprit les points suivants.
 
         > [!NOTE]  
-        >  Dabei ist es erforderlich, dass die IP-Adresse durch den Server von einem DHCP-Server geleast wird. Es kann keine statische IP-Adresse verwendet werden.  
+        >  Le service de découverte du réseau utilise les noms des communautés SNMP pour accéder à des routeurs correspondant à des périphériques SNMP. Un routeur permet d'informer le service de découverte du réseau sur les autres routeurs et les sous-réseaux liés au premier routeur.  
 
-    -   Wählen Sie zum Abfragen eines bestimmten DHCP-Servers das Symbol **Neu** ![Symbol „Neu“](media/Disc_new_Icon.gif) aus. Geben im Dialogfeld **Neuer DHCP-Server** die IP-Adresse bzw. den Servernamen des DHCP-Servers an, und wählen Sie dann **OK** aus.  
+        -   Les noms de communautés SNMP sont semblables aux mots de passe.  
 
-        > [!NOTE]  
-        >  Wenn Sie einen Servernamen angeben, muss der NetBIOS-Name von Configuration Manager in eine IP-Adresse aufgelöst werden können.  
+        -   Le service de découverte du réseau peut uniquement obtenir des informations d'un périphérique SNMP pour lequel vous avez spécifié un nom de communauté.  
 
-11. Konfigurieren Sie, wann die Ermittlung ausgeführt werden soll, indem Sie die Registerkarte **Zeitplan** auswählen. Wählen Sie dann das Symbol **Neu** ![Symbol „Neu“](media/Disc_new_Icon.gif) aus, um einen Zeitplan für die Ausführung der Netzwerkermittlung festzulegen.  
+        -   Chaque périphérique SNMP peut disposer de son propre nom de communauté mais souvent, plusieurs périphériques partagent le même nom de communauté.  
 
-     Sie können mehrere wiederkehrende und nicht wiederkehrende Zeitpläne konfigurieren.  
+        -   La plupart des périphériques SNMP ont un nom de communauté par défaut, qui est **Public**. Vous pouvez l’utiliser si vous n’en connaissez pas d’autres. Toutefois, certaines organisations suppriment le nom de communauté **Public** de leurs périphériques pour des raisons de sécurité.  
+
+8.  Pour configurer le nombre maximal de sauts de routeur pour les recherches SNMP, choisissez l’onglet **SNMP**, puis sélectionnez le nombre maximal de sauts dans la liste déroulante **Nombre maximal de sauts**.  
+
+9. Pour configurer un périphérique SNMP, choisissez l’onglet **Périphériques SNMP**. Si le périphérique ne figure pas dans la liste, choisissez l’icône **Nouveau** ![Icône Nouveau](media/Disc_new_Icon.gif). Dans la boîte de dialogue **Nouvelle unité SNMP**, tapez l’adresse IP ou le nom du périphérique SNMP, puis choisissez **OK**.  
 
     > [!NOTE]  
-    >  Wenn auf der Registerkarte **Zeitplan** mehrere Zeitpläne zugleich angezeigt werden, werden die Netzwerkermittlungen zu den darin angegebenen Zeiten entsprechend den Konfigurationen ausgeführt. Dies gilt auch für Zeitpläne mit Wiederholung.  
+    >  Si vous spécifiez un nom de périphérique, Configuration Manager doit pouvoir résoudre le nom NetBIOS en adresse IP.  
 
-12. Wählen Sie **OK** aus, um die Konfigurationen zu speichern.  
+10. Pour configurer la découverte afin d’interroger certains serveurs DHCP de clients DHCP, choisissez l’onglet **DHCP**, puis configurez une ou plusieurs des options suivantes :  
 
-###  <a name="BKMK_HowToVerifyNetDisc"></a> Überprüfen, ob die Netzwerkermittlung abgeschlossen ist  
- Die Zeit, die für die Netzwerkermittlung erforderlich ist, wird von zahlreichen Faktoren beeinflusst. Folgende Faktoren können die Dauer beeinflussen:  
+    -   Pour interroger le serveur DHCP sur l’ordinateur exécutant la découverte, activez la case à cocher **Always use the site server’s DHCP server (Toujours utiliser le serveur DHCP du serveur de site)**.  
 
--   Die Größe des Netzwerks  
+        > [!NOTE]  
+        >  Pour utiliser cette option, le serveur doit louer son adresse IP à un serveur DHCP, et il ne peut pas utiliser une adresse IP statique.  
 
--   Die Topologie des Netzwerks  
+    -   Pour interroger un serveur DHCP spécifique, choisissez l’icône **Nouveau** ![Icône Nouveau](media/Disc_new_Icon.gif). Dans la boîte de dialogue **Nouveau serveur DHCP**, entrez l’adresse IP ou le nom du serveur DHCP, puis choisissez **OK**.  
 
--   Die maximale Anzahl von Hops, die zum Suchen von Routern im Netzwerk konfiguriert ist  
+        > [!NOTE]  
+        >  Si vous spécifiez un nom de serveur, Configuration Manager doit pouvoir résoudre le nom NetBIOS en adresse IP.  
 
--   Die Art der Ermittlung, die ausgeführt wird  
+11. Pour configurer à quel moment la découverte s’exécute, cliquez sur l’onglet **Calendrier**, puis choisissez l’icône **Nouveau** ![Icône Nouveau](media/Disc_new_Icon.gif) afin de définir le calendrier d’exécution de la découverte du réseau.  
 
-Von der Netzwerkermittlung werden keine Meldungen über den Abschluss der Ermittlung erstellt. Sie können mithilfe des folgenden Verfahrens überprüfen, ob die Ermittlung abgeschlossen ist.  
+     Vous pouvez configurer plusieurs calendriers récurrents et plusieurs calendriers non récurrents.  
 
-##### <a name="to-verify-that-network-discovery-has-finished"></a>So überprüfen Sie, ob die Netzwerkermittlung abgeschlossen ist  
+    > [!NOTE]  
+    >  Si plusieurs calendriers s’affichent dans l’onglet **Calendrier**, tous exécutent la découverte du réseau à l’heure indiquée. Cela s'applique également aux planifications périodiques.  
 
-1.  Wählen Sie in der Configuration Manager-Konsole die Option **Überwachung** aus.  
+12. Choisissez **OK** pour enregistrer vos configurations.  
 
-2.  Erweitern Sie im Arbeitsbereich **Überwachung** die Option **Systemstatus**, und wählen Sie dann **Statusmeldungsabfragen** aus.  
+###  <a name="BKMK_HowToVerifyNetDisc"></a> Guide pratique pour vérifier que la découverte du réseau est terminée  
+ La durée d’exécution de la découverte du réseau peut varier selon plusieurs facteurs, dont un ou plusieurs des points suivants :  
 
-3.  Wählen Sie **Alle Statusmeldungen** aus.  
+-   Taille de votre réseau  
 
-4.  Wählen Sie auf der Registerkarte **Startseite** in der Gruppe **Statusmeldungsabfragen** die Option **Meldungen anzeigen** aus.  
+-   Topologie de votre réseau  
 
-5.  Wählen Sie in der Dropdownliste **Datum und Uhrzeit auswählen** einen Wert aus, der berücksichtigt, wie viel Zeit seit dem Start der Ermittlung vergangen ist. Wählen Sie dann **OK** aus, um die **Configuration Manager-Statusmeldungsanzeige**zu öffnen.  
+-   Nombre maximal de sauts configurés pour la recherche de routeurs sur le réseau  
+
+-   Type de découverte en cours d'exécution  
+
+La découverte du réseau ne génère pas de message d'alerte signalant qu'elle est terminée, vous devez donc le vérifier à l'aide de la procédure suivante.  
+
+##### <a name="to-verify-that-network-discovery-has-finished"></a>Pour vérifier qu'une découverte du réseau est terminée  
+
+1.  Dans la console Configuration Manager, choisissez **Surveillance**.  
+
+2.  Dans l’espace de travail **Surveillance**, développez **État du système**, puis choisissez **Requêtes sur les messages d’état**.  
+
+3.  Choisissez **All Status Messages (Tous les messages d’état)**.  
+
+4.  Dans l’onglet **Accueil** puis dans le groupe **Requêtes sur les messages d’état**, choisissez **Afficher les messages**.  
+
+5.  Dans la liste déroulante **Sélectionner la date et l’heure**, sélectionnez une valeur indiquant depuis combien de temps a démarré la découverte, puis choisissez **OK** pour ouvrir la boîte de dialogue **Afficheur des messages d’état de Configuration Manager**.  
 
     > [!TIP]  
-    >  Mithilfe der Option **Datum und Uhrzeit angeben** können Sie auch den Zeitpunkt (Datum und Uhrzeit) auswählen, zu dem die Ermittlung ausgeführt wurde. Diese Option ist nützlich, wenn Sie die Netzwerkermittlung an einem bestimmten Termin ausgeführt haben und nur Meldungen von diesem Datum abrufen möchten.  
+    >  Vous pouvez également utiliser l'option **Spécifier la date et l'heure** pour sélectionner la date et l'heure auxquelles vous avez exécuté la découverte. Cette option s'avère utile si vous avez exécuté une découverte du réseau à une date donnée et que vous voulez récupérer uniquement les messages ayant été générés à cette date.  
 
-6.  Suchen Sie nach einer Statusmeldung mit den folgenden Details, um zu überprüfen, ob die Netzwerkermittlung abgeschlossen ist:  
+6.  Pour valider que la découverte du réseau est terminée, recherchez un message d'état contenant les détails suivants :  
 
-    -   Meldungs-ID: **502**  
+    -   ID de message : **502**  
 
-    -   Komponente: **SMS_NETWORK_DISCOVERY**  
+    -   Composant : **SMS_NETWORK_DISCOVERY**  
 
-    -   Beschreibung: **Diese Komponente wurde beendet.**  
+    -   Description : **Ce composant s'est arrêté.**  
 
-    Wenn diese Statusmeldung nicht vorhanden ist, ist die Netzwerkermittlung nicht abgeschlossen.  
+    Si ce message d'état ne s'affiche pas, la découverte de réseau n'est pas terminée.  
 
-7.  Suchen Sie nach einer Statusmeldung mit den folgenden Details, um zu überprüfen, wann die Netzwerkermittlung gestartet wurde:  
+7.  Pour valider le moment de démarrage de la découverte du réseau, recherchez un message d'état contenant les détails suivants :  
 
-    -   Meldungs-ID: **500**  
+    -   ID de message : **500**  
 
-    -   Komponente: **SMS_NETWORK_DISCOVERY**  
+    -   Composant : **SMS_NETWORK_DISCOVERY**  
 
-    -   Beschreibung: **Diese Komponente wurde gestartet.**  
+    -   Description : **Ce composant a démarré.**  
 
-    Dadurch wird bestätigt, dass die Netzwerkermittlung gestartet wurde. Wenn diese Informationen fehlen, planen Sie die Netzwerkermittlung neu.  
+    Ces informations vérifient que la découverte du réseau a démarré. Si ces informations ne s'affichent pas, replanifiez une découverte du réseau.  

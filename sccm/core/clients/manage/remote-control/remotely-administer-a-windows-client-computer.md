@@ -1,6 +1,6 @@
 ---
-title: Remoteverwaltung von Windows-Computern | Microsoft-Dokumentation
-description: "Mit System Center Configuration Manager können Windows-Remoteclientcomputer verwaltet werden."
+title: "Administrer à distance un ordinateur Windows | Microsoft Docs"
+description: "Administrez un ordinateur client Windows distant à l’aide de System Center Configuration Manager."
 ms.custom: na
 ms.date: 07/27/2017
 ms.prod: configuration-manager
@@ -18,80 +18,80 @@ manager: angrobe
 ms.openlocfilehash: aecc4ccfec98932f3988f1ca1fcdc898cd417933
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-remotely-administer-a-windows-client-computer-by-using-system-center-configuration-manager"></a>Remoteverwaltung eines Windows-Clientcomputers mithilfe von System Center Configuration Manager
+# <a name="how-to-remotely-administer-a-windows-client-computer-by-using-system-center-configuration-manager"></a>Comment administrer à distance un ordinateur client Windows à l’aide de System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Bevor Sie die Remotesteuerung einsetzen, sollten Sie die folgenden Themen durchgehen:  
+Avant de commencer à utiliser le contrôle à distance, veillez à consulter les informations des rubriques suivantes :  
 
--   [Voraussetzungen für die Remotesteuerung in System Center Configuration Manager](../../../../core/clients/manage/remote-control/prerequisites-for-remote-control.md)  
+-   [Prérequis pour le contrôle à distance dans System Center Configuration Manager](../../../../core/clients/manage/remote-control/prerequisites-for-remote-control.md)  
 
--   [Configuring remote control in System Center Configuration Manager (Konfigurieren der Remotesteuerung in System Center Configuration Manager)](../../../../core/clients/manage/remote-control/configuring-remote-control.md)  
+-   [Configuration du contrôle à distance dans System Center Configuration Manager](../../../../core/clients/manage/remote-control/configuring-remote-control.md)  
 
-Im Folgenden finden Sie drei Möglichkeiten, den Remotesteuerungsviewer zu starten:  
+Vous pouvez démarrer l’observateur de contrôle à distance de trois manières :  
 
--   In der Configuration Manager-Konsole.  
+-   Dans la console Configuration Manager.  
 
--   In einer Windows-Eingabeaufforderung.  
+-   À une invite de commandes Windows.  
 
--   Mithilfe des Windows-Menüs **Start** eines Computers, auf dem die Configuration Manager-Konsole aus der Programmgruppe **Microsoft System Center** ausgeführt wird  
+-   Dans le menu **Démarrer** de Windows sur un ordinateur qui exécute la console Configuration Manager à partir du groupe de programmes **Microsoft System Center**.  
 
-### <a name="to-remotely-administer-a-client-computer-from-the-configuration-manager-console"></a>So verwalten Sie einen Clientcomputer remote mit der Configuration Manager-Konsole  
+### <a name="to-remotely-administer-a-client-computer-from-the-configuration-manager-console"></a>Pour administrer à distance un ordinateur client à partir de la console Configuration Manager  
 
-1.  Wählen Sie in der Configuration Manager-Konsole **Bestand und Konformität** > **Geräte** oder **Gerätesammlungen** aus.  
+1.  Dans la console Configuration Manager, choisissez **Actifs et Conformité** > **Appareils** ou **Regroupements d’appareils**.  
 
-3.  Wählen Sie den Computer aus, der remote verwaltet werden soll. Wählen Sie auf der Registerkarte **Startseite** in der Gruppe **Geräte** die Option **Starten** > **Remotesteuerung** aus.  
+3.  Sélectionnez l’ordinateur à administrer à distance puis, sous l’onglet **Accueil**, dans le groupe **Appareil**, choisissez **Démarrer** > **Contrôle à distance**.  
 
     > [!IMPORTANT]  
-    >  Wenn die Clienteinstellung **Benutzer zur Vergabe der Berechtigung für Remotesteuerung auffordern** auf **Wahr**festgelegt ist, wird eine Verbindung erst dann hergestellt, wenn der Benutzer am Remotecomputer der Remotesteuerungsaufforderung zustimmt. Weitere Informationen finden Sie unter [Configuring remote control in System Center Configuration Manager (Konfigurieren der Remotesteuerung in System Center Configuration Manager)](../../../../core/clients/manage/remote-control/configuring-remote-control.md).  
+    >  Si le paramètre client **Inviter l’utilisateur à autoriser le contrôle à distance** a la valeur **True**, la connexion ne démarre pas tant que l’utilisateur de l’ordinateur distant n’accepte pas l’invite de contrôle à distance. Pour plus d’informations, consultez [Configuration du contrôle à distance dans System Center Configuration Manager](../../../../core/clients/manage/remote-control/configuring-remote-control.md).  
 
-4.  Wenn das Fenster **Configuration Manager-Remotesteuerung** geöffnet ist, können Sie den Clientcomputer remote verwalten. Verwenden Sie die folgenden Optionen zum Konfigurieren der Verbindung.  
+4.  Lorsque la fenêtre **Contrôle à distance de Configuration Manager** s'ouvre, vous pouvez administrer à distance l'ordinateur client. Utilisez les options suivantes pour configurer la connexion.  
 
     > [!NOTE]  
-    >  Wenn der Computer, mit dem eine Verbindung hergestellt wird, über mehrere Monitore verfügt, wird der Inhalt all dieser Monitore im Remotesteuerungsfenster angezeigt.  
+    >  Si l’ordinateur auquel vous vous connectez dispose de plusieurs moniteurs, l’affichage de tous les moniteurs apparaît dans la fenêtre de contrôle à distance.  
 
-    -   **Datei – Verbinden**: Verbinden mit einem anderen Computer. Diese Option ist nicht verfügbar, wenn eine Remotesteuerungssitzung aktiv ist.  
+    -   **Fichier - Connecter** : se connecte à un autre ordinateur. Cette option n'est pas disponible lorsqu'une session de contrôle à distance est active.  
 
-    -   **Datei – Verbindung trennen**: Beenden der aktiven Remotesteuerungssitzung. Das Fenster **Configuration Manager-Remotesteuerung** wird nicht geschlossen.  
+    -   **Fichier - Déconnecter** : déconnecte la session active de contrôle à distance, mais ne ferme pas la fenêtre **Contrôle à distance de Configuration Manager**.  
 
-    -   **Datei – Beenden**: Beenden der aktiven Remotesteuerungssitzung. Das Fenster **Configuration Manager-Remotesteuerung** wird geschlossen.  
-
-        > [!NOTE]  
-        >  Wenn eine Remotesteuerungssitzung beendet wird, werden die Inhalte der Zwischenablage von Windows auf dem Computer gelöscht, der angezeigt wird.  
-
-    -   **Anzeigen – Vollbild**: Maximieren des Fensters **Configuration Manager-Remotesteuerung**.  
+    -   **Fichier - Quitter** : déconnecte la session de contrôle à distance active et ferme la fenêtre **Contrôle à distance de Configuration Manager**.  
 
         > [!NOTE]  
-        >  Drücken Sie STRG+ALT+UNTBR, um den Vollbildmodus zu beenden.  
+        >  Quand vous vous déconnectez d’une session de contrôle à distance, le contenu du Presse-papiers de Windows sur l’ordinateur que vous visualisez est supprimé.  
 
-    -   **Anzeige – Skalierung anpassen**: Skalieren der Anzeige des Remotecomputers auf die Größe des Fensters **Configuration Manager-Remotesteuerung**.  
-
-    -   **Anzeige – Statusleiste**: Ein-/Ausschalten der Anzeige der Fensterstatusleiste des Fensters **Configuration Manager-Remotesteuerung**.  
-
-    -   **Aktion – STRG+ALT+ENTF senden**: Senden der Tastenkombination STRG+ALT+ENTF an den Remotecomputer.  
-
-    -   **Aktion – Freigabe der Zwischenablage aktivieren**: Zulassen des Kopierens und Einfügens von Elementen vom/auf dem Remotecomputer. Wenn dieser Wert geändert wird, muss die Remotesteuerungssitzung neu gestartet werden, damit die Änderung wirksam wird.  
+    -   **Affichage - Plein écran** : optimise la fenêtre **Contrôle à distance de Configuration Manager**.  
 
         > [!NOTE]  
-        >  Wenn die Freigabe der Zwischenablage in der Configuration Manager-Konsole nicht aktiviert sein soll, legen Sie auf dem Computer, auf dem die Konsole ausgeführt wird, den Wert des Registrierungsschlüssels **HKEY_CURRENT_USER\Software\Microsoft\ConfigMgr10\Remote Control\Clipboard Sharing** auf **0**fest.  
+        >  Pour quitter le mode plein écran, appuyez sur Ctrl+Alt+Pause.  
 
-    -   **Aktion – Remotetastatur und Maus sperren**: Sperren von Remotetastatur und Remotemaus, um den Benutzer an der Bedienung des Remotecomputers zu hindern.  
+    -   **Afficher - Ajuster à la page** : redimensionne l’affichage de l’ordinateur distant pour l’adapter à la taille de la fenêtre **Contrôle à distance de Configuration Manager**.  
 
-    -   **Hilfe – Info**: Zeigt die aktuelle Version des Viewers.  
+    -   **Afficher - Barre d’état** : active ou désactive l’affichage de la barre d’état de la fenêtre **Contrôle à distance de Configuration Manager**.  
 
-5.  Benutzer am Remotecomputer können mehr Informationen über die Remotesteuerungssitzung anzeigen, indem sie in Configuration Manager auf das Symbol **Remotesteuerung** im Infobereich von Windows oder auf das Symbol auf der Leiste der Remotesteuerungssitzung klicken.  
+    -   **Action - Envoyer Ctrl+Alt+Suppr** : envoie la séquence de touches Ctrl+Alt+Suppr à l’ordinateur distant.  
 
-### <a name="to-start-the-remote-control-viewer-from-the-windows-command-line"></a>So starten Sie den Remotesteuerungsviewer von der Windows-Befehlszeile aus  
+    -   **Action - Activer le partage du Presse-papiers** : permet de copier et coller des éléments vers et depuis l’ordinateur distant. Si vous modifiez cette valeur, vous devez redémarrer la session de contrôle à distance pour appliquer la modification.  
 
--   Geben Sie an der Windows-Eingabeaufforderung *<Configuration Manager-Installationsordner\>***\AdminConsole\Bin\x64\CmRcViewer.exe** ein.  
+        > [!NOTE]  
+        >  Si vous ne voulez pas que le partage du Presse-papiers soit activé dans la console Configuration Manager, sur l’ordinateur exécutant la console, définissez la valeur de la clé de Registre **HKEY_CURRENT_USER\Software\Microsoft\ConfigMgr10\Remote Control\Clipboard Sharing** sur **0**.  
 
-Folgende Befehlszeilenoptionen werden von CmRcViewer.exe unterstützt:  
+    -   **Action - Verrouiller le clavier distant et la souris** : verrouille le clavier et la souris distants pour empêcher l’utilisateur d’utiliser l’ordinateur distant.  
 
-- *Adresse*: Geben Sie den NetBIOS-Namen, den vollqualifizierten Domänennamen (FQDN) oder die IP-Adresse des Clientcomputers an, mit dem eine Verbindung hergestellt werden soll.
-- *Standortservername*: Geben Sie den Namen des System Center Configuration Manager-Standortservers an, an den Statusmeldungen im Zusammenhang mit der Remotesteuerungssitzung gesendet werden sollen.
-- **/?** : Zeigt die Befehlszeilenoptionen für den Remotesteuerungsviewer an.  
+    -   **Aide - À propos du contrôle à distance** : affiche la version actuelle de l’observateur.  
+
+5.  Les utilisateurs de l’ordinateur distant peuvent afficher plus d’informations sur la session de contrôle à distance lorsqu’ils cliquent sur l’icône **Contrôle à distance** de Configuration Manager dans la zone de notification de Windows ou sur l’icône dans la barre de la session de contrôle à distance.  
+
+### <a name="to-start-the-remote-control-viewer-from-the-windows-command-line"></a>Pour démarrer l'observateur de contrôle à distance à partir de la ligne de commande Windows  
+
+-   À l’invite de commandes Windows, tapez *<Dossier d’installation Configuration Manager>\>***\AdminConsole\Bin\x64\CmRcViewer.exe**  
+
+CmRcViewer.exe prend en charge les options de ligne de commande suivantes :  
+
+- *Adresse* : spécifie le nom NetBIOS, le nom de domaine complet (FQDN) ou l’adresse IP de l’ordinateur client auquel vous voulez vous connecter.
+- *Nom du serveur de site* : indique le nom du serveur de site System Center Configuration Manager auquel vous voulez envoyer des messages d’état associés à la session de contrôle à distance.
+- **/?** : affiche les options de ligne de commande de l’observateur de contrôle à distance.  
      
-**Beispiel: CmRcViewer.exe** *<Adresse\>* *<\\\Name des Standortservers>*  
+**Example:CmRcViewer.exe** *<Adresse\>* *<\\\Nom du serveur de site>*  

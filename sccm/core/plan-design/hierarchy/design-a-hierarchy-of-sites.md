@@ -1,6 +1,6 @@
 ---
-title: "Entwurf einer Standorthierarchie – Configuration Manager | Microsoft-Dokumentation"
-description: "Grundlegendes zu den verfügbaren Topologien und Verwaltungsoptionen für System Center Configuration Manager, damit Sie Ihre Standorthierarchie planen können."
+title: "Concevoir une hiérarchie de sites - Configuration Manager | Microsoft Docs"
+description: "Découvrez les topologies et les options de gestion disponibles pour System Center Configuration Manager afin de pouvoir planifier votre hiérarchie de site."
 ms.custom: na
 ms.date: 6/16/2017
 ms.prod: configuration-manager
@@ -18,170 +18,170 @@ manager: angrobe
 ms.openlocfilehash: 4710b1b89eb50cb7bcf4c4ee50c12a96b6561bc9
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="design-a-hierarchy-of-sites-for-system-center-configuration-manager"></a>Entwerfen einer Hierarchie von Standorten für System Center Configuration Manager
+# <a name="design-a-hierarchy-of-sites-for-system-center-configuration-manager"></a>Concevoir une hiérarchie de sites pour System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Vor der Installation des ersten Standorts einer neuen System Center Configuration Manager-Hierarchie sollten Sie sich mit den verfügbaren Topologien für Configuration Manager, den Typen der verfügbaren Standorte, ihren Beziehungen untereinander und dem Verwaltungsbereich vertraut machen, den jeder Standorttyp bereitstellt.
-Nachdem Sie die Content Management-Optionen abgewogen haben, die die Anzahl der zu installierenden Standorte reduzieren können, können Sie eine Topologie planen, die effizient an Ihren aktuellen geschäftlichen Bedarf angepasst ist, und diese später erweitern, um zukünftiges Wachstum zu verwalten.  
+Avant d’installer le premier site d’une nouvelle hiérarchie System Center Configuration Manager, il est judicieux de comprendre les topologies disponibles pour Configuration Manager, les types de sites disponibles et leurs relations mutuelles, ainsi que l’étendue de gestion fournie par chaque type de site.
+Après avoir étudié les options de gestion de contenu qui peuvent réduire le nombre de sites à installer, vous pouvez planifier une topologie qui répond efficacement aux besoins de votre entreprise et peut être étendue par la suite pour gérer la croissance à venir.  
 
 > [!NOTE]
-> Achten Sie bei der Planung einer neuen Configuration Manager-Installation auf die [Versionsanmerkungen]( /sccm/core/servers/deploy/install/release-notes), die aktuelle Probleme in den aktiven Versionen behandeln. Die Versionsanmerkungen gelten für alle Branches von Configuration Manager.  Wenn Sie allerdings [Technical Preview]( /sccm/core/get-started/technical-preview) verwenden, finden Sie in der Dokumentation für jede Version von Technical Preview Probleme, die nur für diesen Branch spezifisch sind.  
+> Quand vous planifiez une nouvelle installation de Configuration Manager, tenez compte des [notes de publication]( /sccm/core/servers/deploy/install/release-notes) qui décrivent en détail les problèmes dans les versions actives. Les notes de publication s’appliquent à toutes les branches de Configuration Manager.  Toutefois, quand vous utilisez l’[édition Technical Preview]( /sccm/core/get-started/technical-preview), vous rencontrez des problèmes spécifiques uniquement à cette édition dans la documentation pour chaque version de Technical Preview.  
 
-##  <a name="bkmk_topology"></a> Hierarchietopologie  
- Hierarchietopologien reichen von einzelnen eigenständigen primären Standorten bis zu einer Gruppe von verbundenen primären und sekundären Standorten mit einem zentralen Verwaltungsstandort am obersten Standort (obere Leiste) der Hierarchie.   Der Schlüsseltreiber für den Typ und die Anzahl der Standorte, die Sie in einer Hierarchie verwenden, entspricht normalerweise der Anzahl und der Art von Geräten, die Sie unterstützen müssen wie folgt:   
+##  <a name="bkmk_topology"></a> Topologie de la hiérarchie  
+ Les topologies de hiérarchie peuvent aller d’un site principal autonome unique à un groupe de sites principaux et secondaires connectés avec un site d’administration centrale dans le site de niveau supérieur de la hiérarchie.   Le principal facteur qui détermine le type et le nombre de sites que vous utilisez dans une hiérarchie est généralement le nombre et le type d’appareils que vous devez prendre en charge, comme illustré ci-dessous :   
 
- **Ein eigenständiger primärer Standort:** Verwenden Sie einen eigenständigen primären Standort, wenn ein einziger primärer Standort die Verwaltung all Ihrer Geräte und Benutzer unterstützen kann (siehe [Sizing and scale numbers (Anpassen der Größe und Skalierung von Zahlen))](/sccm/core/plan-design/configs/size-and-scale-numbers). Diese Topologie ist auch erfolgreich, wenn für die unterschiedlichen geografischen Standorte Ihres Unternehmens ein einzelner primärer Standort ausreicht.  Sie können zur Verwaltung des Netzwerkverkehrs bevorzugte Verwaltungspunkte und eine sorgfältig geplante Inhaltsinfrastruktur verwenden (Informationen finden Sie unter [Grundlegende Konzepte für die Inhaltsverwaltung in System Center Configuration Manager](../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md)).  
+ **Site principal autonome :** utilisez un site principal autonome quand un seul site principal peut prendre en charge la gestion de tous vos appareils et utilisateurs (consultez [Le dimensionnement et la mise à l’échelle en nombres](/sccm/core/plan-design/configs/size-and-scale-numbers)). Cette topologie convient également quand les différents emplacements géographiques de votre société peuvent être correctement servis par un seul site principal.  Pour mieux gérer le trafic réseau, vous pouvez utiliser des points de gestion préférés et une infrastructure de contenu soigneusement planifiée (consultez [Concepts fondamentaux de la gestion de contenu dans System Center Configuration Manager](../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md)).  
 
- Diese Topologie bietet u.a. folgende Vorteile:  
+ Les avantages de cette topologie sont notamment les suivants :  
 
--   vereinfachter Verwaltungsaufwand  
+-   Surcharge administrative simplifiée.  
 
--   vereinfachte Clientstandortzuweisung und Ermittlung der verfügbaren Ressourcen und Dienste  
+-   Attribution des sites clients simplifiée et découverte des services et des ressources disponibles.  
 
--   Beseitigung möglicher Verzögerungen durch die Einführung der Datenbankreplikation zwischen Standorten
+-   Élimination du retard possible engendré par la réplication de base de données entre sites.
 
--   Option zum Erweitern einer eigenständigen primären Hierarchie in eine größere Hierarchie mit einem zentralen Verwaltungsstandort Dadurch können Sie neue primäre Standorte installieren, um den Umfang Ihrer Bereitstellung zu erweitern.  
+-   Possibilité de développer une hiérarchie principale autonome en une hiérarchie plus grande avec un site d’administration centrale. Cela vous permet d’installer ensuite de nouveaux sites principaux pour étendre l’échelle de votre déploiement.  
 
 
-**Ein Standort der zentralen Verwaltung mit mindestens einem untergeordneten primären Standorten:** Verwenden Sie diese Topologie, wenn Sie mehr als einen primären Standort benötigen, um die Verwaltung all Ihrer Geräte und Benutzer zu unterstützen.  Sie ist erforderlich, wenn Sie mehr als einen primären Standort verwenden müssen. Diese Topologie bietet u.a. folgende Vorteile:  
+**Site d’administration centrale avec un ou plusieurs sites principaux enfants :** Utilisez cette topologie quand vous avez besoin de plusieurs sites principaux pour prendre en charge la gestion de tous les appareils et utilisateurs.  Elle est nécessaire quand vous avez besoin d’utiliser plusieurs sites principaux. Les avantages de cette topologie sont notamment les suivants :  
 
 
--   Sie unterstützt bis zu 25 primäre Standorte, durch die Sie den Umfang Ihrer Hierarchie erweitern können.  
+-   Elle prend en charge jusqu’à 25 sites principaux, ce qui vous permet d’étendre l’échelle de votre hiérarchie.  
 
--   Daher verwenden Sie immer den Standort der zentralen Verwaltung (sofern Sie Ihre Standorte nicht neu installieren). Dies ist eine dauerhafte Option. Sie können einen untergeordneten primären Standort nicht trennen, damit er zum eigenständigen primären Standort wird.
+-   Vous utiliserez toujours le site d’administration centrale, sauf si vous réinstallez vos sites. Ce choix est définitif. Vous ne pouvez pas détacher un site principal enfant pour en faire un site principal autonome.
 
- Die folgenden Abschnitte können Ihnen dabei helfen zu verstehen, wann eine bestimmte Standort- oder Content Management-Option anstelle eines zusätzlichen Standorts verwendet werden sollte.  
+ Les sections suivantes peuvent vous aider à déterminer quand utiliser un site ou une option de gestion de contenu spécifique plutôt qu’un site supplémentaire.  
 
-##  <a name="BKMK_ChooseCAS"></a> Ermitteln des Zeitpunkts für die Verwendung eines Standorts der zentralen Verwaltung  
- Mithilfe eines Standorts der zentralen Verwaltung können Sie hierarchieweite Einstellungen konfigurieren und alle Standorte sowie Objekte in der Hierarchie überwachen. Von diesem Standorttyp werden Clients nicht direkt verwaltet, jedoch wird die Datenreplikation zwischen Standorten koordiniert. Auch die hierarchieweite Konfiguration von Standorten und Clients ist darin eingeschlossen.  
+##  <a name="BKMK_ChooseCAS"></a> Déterminer quand utiliser un site d’administration centrale  
+ Utilisez un site d'administration centrale pour configurer des paramètres à l'échelle de la hiérarchie et surveiller tous les sites et objets dans la hiérarchie. Ce type de site ne gère pas directement les clients, mais il coordonne la réplication de données inter-site, y compris la configuration de sites et de clients dans toute la hiérarchie.  
 
-**Die folgenden Informationen können Sie bei der Entscheidung unterstützen, wann ein Standort der zentralen Verwaltung installiert werden sollte:**  
+**Les informations suivantes peuvent vous aider à déterminer quand installer un site d’administration centrale :**  
 
--   Der Standort der zentralen Verwaltung ist der Standort der obersten Ebene einer Hierarchie.  
+-   Le site d'administration centrale est le site de niveau supérieur dans une hiérarchie.  
 
--   Wenn Sie eine Hierarchie mit mehr als einem primären Standort konfigurieren, müssen Sie einen Standort der zentralen Verwaltung installieren. Wenn Sie sofort zwei oder mehr primäre Standorte benötigen, installieren Sie zuerst den Standort der zentralen Verwaltung. Wenn Sie bereits über einen primären Standort verfügen und dann einen Standort der zentralen Verwaltung installieren möchten, müssen Sie [den eigenständigen primären Standort erweitern](/sccm/core/servers/deploy/install/prerequisites-for-installing-sites#bkmk_expand), um den Standort der zentralen Verwaltung zu installieren. 
+-   Lorsque vous configurez une hiérarchie comprenant plusieurs sites principaux, vous devez installer un site d'administration centrale. Si vous avez immédiatement besoin de deux ou plusieurs sites principaux, installez tout d’abord le site d’administration centrale. Si vous disposez déjà d’un site principal et que vous souhaitez installer un site d’administration centrale, vous devez [développer le site principal autonome](/sccm/core/servers/deploy/install/prerequisites-for-installing-sites#bkmk_expand) pour installer le site administration centrale. 
 
--   Es werden nur primäre Standorte als untergeordnete Standorte vom Standort der zentralen Verwaltung unterstützt.  
+-   Le site d'administration centrale prend en charge uniquement des sites principaux en tant que sites enfants.  
 
--   Es ist nicht möglich, dem Standort der zentralen Verwaltung Clients zuzuweisen.  
+-   Vous ne pouvez pas attribuer de clients au site d'administration centrale.  
 
--   Der Standort der zentralen Verwaltung unterstützt keine Standortsystemrollen, die eine direkte Unterstützung für Clients bieten, z.B. Verwaltungspunkte und Verteilungspunkte.  
+-   Le site d’administration centrale ne prend pas en charge les rôles de système de site qui prennent directement en charge les clients, comme les points de gestion et les points de distribution.  
 
--   Mithilfe einer Configuration Manager-Konsole, die mit dem Standort der zentralen Verwaltung verbunden ist, können Sie alle Clients in der Hierarchie verwalten und Standortverwaltungstasks für jeden untergeordneten Standort ausführen. Dies kann das Installieren von Verwaltungspunkten oder anderen Standortsystemrollen an untergeordneten primären oder sekundären Standorten einbeziehen.  
+-   Vous pouvez gérer tous les clients dans la hiérarchie et exécuter des tâches de gestion de site pour tout site enfant quand vous utilisez une console Configuration Manager connectée au site d’administration centrale. Cela peut comprendre l’installation de points de gestion ou d’autres rôles de système de site sur des sites principaux ou secondaires enfants.  
 
--   Wenn Sie einen Standort der zentralen Verwaltung verwenden, ist dies der einzige Ort, an dem Sie Standortdaten von sämtlichen Standorten in Ihrer Hierarchie einsehen können. Hierin sind auch Informationen wie Inventurdaten und Statusmeldungen eingeschlossen.  
+-   Quand vous utilisez un site d’administration centrale, il s’agit du seul emplacement où vous pouvez consulter les données de tous les sites de votre hiérarchie. Ces données incluent des informations telles que des données d'inventaire et des messages d'état.  
 
--   Sie können vom Standort der zentralen Verwaltung aus hierarchieweite Ermittlungsvorgänge konfigurieren, indem Sie Ermittlungsmethoden zur Ausführung an einzelnen Standorten zuweisen.  
+-   Vous pouvez configurer des opérations de découverte dans toute la hiérarchie à partir du site d'administration centrale en attribuant l'exécution de méthodes de découverte sur des sites individuels.  
 
--   Sie können die Sicherheit hierarchieweit verwalten, indem Sie verschiedenen Administratoren entsprechende Sicherheitsrollen, Sicherheitsbereiche und Sammlungen zuweisen. Diese Konfigurationen sind an jedem Standort in der Hierarchie gültig.  
+-   Vous pouvez gérer la sécurité dans toute la hiérarchie en attribuant différents rôles de sécurité, étendues de sécurité et regroupements à différents utilisateurs administratifs. Ces configurations s'appliquent à chaque site dans la hiérarchie.  
 
--   Sie können eine Datei- und Datenbankreplikation konfigurieren, um die Kommunikation zwischen Standorten in der Hierarchie zu steuern. Dies umfasst die Planung der Datenbankreplikation für Standortdaten und die Verwaltung der Bandbreite für die Übertragung dateibasierter Daten zwischen Standorten.  
+-   Vous pouvez configurer la réplication de fichiers et la réplication de base de données pour contrôler la communication entre les sites de la hiérarchie. Cela consiste notamment à planifier la réplication de base de données pour les données de site et à gérer la bande passante pour le transfert de données basées sur des fichiers entre les sites.  
 
-##  <a name="BKMK_ChoosePriimary"></a> Ermitteln des Zeitpunkts für die Verwendung eines primären Standorts  
- Verwenden Sie primäre Standorte, um Clients zu verwalten. Sie können einen primären Standort als untergeordneten primären Standort unter einem Standort der zentralen Verwaltung oder als ersten Standort einer neuen Hierarchie installieren. Wird ein primärer Standort als erster Standort einer Hierarchie installiert, dann bildet dieser einen eigenständigen primären Standort. Sekundäre Standorte als untergeordnete Standorte des primären Standorts werden sowohl von untergeordneten primären Standorten als auch von eigenständigen primären Standorten unterstützt.  
+##  <a name="BKMK_ChoosePriimary"></a> Déterminer quand utiliser un site principal  
+ Utilisez les sites principaux pour gérer les clients. Vous pouvez installer un site principal en tant que site principal enfant sous un site d’administration centrale, ou en tant que premier site d’une nouvelle hiérarchie. Un site principal installé en tant que premier site d’une hiérarchie crée un site principal autonome. Les sites principaux enfants et les sites principaux autonomes prennent en charge les sites secondaires en tant que sites enfants du site principal.  
 
- Erwägen Sie die Verwendung eines primären Standorts aus einem der folgenden Gründe:  
+ Utilisez un site principal pour l’une des raisons suivantes :  
 
--   zum Verwalten von Geräten und Benutzern  
+-   Pour gérer des appareils et des utilisateurs.  
 
--   zum Erhöhen der Anzahl von Geräten, die mit einer einzelnen Hierarchie verwaltet werden können  
+-   Pour augmenter le nombre d’appareils que vous pouvez gérer avec une hiérarchie unique.  
 
--   zum Bereitstellen eines zusätzlichen Konnektivitätspunkts zur Verwaltung Ihrer Bereitstellung  
+-   Pour fournir un point de connectivité supplémentaire pour l’administration de votre déploiement.  
 
--   Sie möchten die Verwaltungsanforderungen Ihrer Organisation erfüllen. Beispielsweise könnten Sie einen primären Standort an einem Remotestandort installieren, um die Übertragung von Bereitstellungsinhalt über ein Netzwerk mit geringer Bandbreite zu verwalten. Sie können allerdings in System Center Configuration Manager bei der Übertragung von Daten an einen Verteilungspunkt die Optionen zur Drosselung der Netzwerkbandbreitenauslastung verwenden. Diese Inhaltsverwaltungsfunktion kann es überflüssig machen, zusätzliche Standorte zu installieren.  
+-   Pour répondre aux exigences de gestion organisationnelles. Par exemple, vous pouvez installer un site principal à un emplacement distant pour gérer le transfert de contenu de déploiement dans un réseau à faible bande passante. Cependant, avec System Center Configuration Manager, vous pouvez utiliser des options pour limiter l’utilisation de la bande passante réseau lors du transfert de données vers un point de distribution. Cette fonctionnalité de gestion du contenu peut remplacer le besoin d’installer des sites supplémentaires.  
 
 
-**Die folgenden Informationen können Sie bei der Entscheidung unterstützen, wann ein primärer Standort installiert werden sollte:**  
+**Les informations suivantes peuvent vous aider à déterminer quand installer un site principal :**  
 
--   Bei einem primären Standort kann es sich um einen eigenständigen primären Standort oder um einen untergeordneten primären Standort in einer größeren Hierarchie handeln. Wenn ein primärer Standort Mitglied einer Hierarchie mit einem Standort der zentralen Verwaltung ist, wird von den Standorten die Datenbankreplikation verwendet, um Daten zwischen den Standorten zu replizieren. Sofern Sie nicht mehr Clients und Geräte unterstützen müssen, als dies mit einem einzelnen primären Standort möglich ist, sollten Sie die Installation eines eigenständigen primären Standorts in Betracht ziehen.  Nachdem ein eigenständiger primärer Standort installiert wurde, können Sie diesen erweitern, um an einen neuen Standort der zentralen Verwaltung zu berichten, um für Ihre Bereitstellung zentral hochzuskalieren.  
+-   Un site principal peut être un site principal autonome ou un site principal enfant dans une hiérarchie plus grande. Lorsqu'un site principal est membre d'une hiérarchie avec un site d'administration centrale, les sites utilisent la réplication de base de données pour répliquer des données entre les sites. Sauf si vous avez besoin de prendre en charge un nombre de clients et de périphériques supérieur à la capacité d'un seul site principal, envisagez l'installation d'un site principal autonome.  Après l’installation d’un site principal autonome, vous pouvez l’étendre pour qu’il rende compte à un nouveau site d’administration centrale, pour faire monter votre déploiement en puissance.  
 
--   Von einem primären Standort wird nur ein Standort der zentralen Verwaltung als übergeordneter Standort unterstützt.  
+-   Un site principal prend en charge uniquement un site d'administration centrale en tant que site parent.  
 
--   Von einem primären Standort werden nur sekundäre Standorte als untergeordnete Standorte unterstützt. Es können dabei auch mehrere sekundäre Standorte unterstützt werden.  
+-   Un site principal prend en charge uniquement des sites secondaires en tant que sites enfants, et peut aussi prendre en charge plusieurs sites enfants secondaires.  
 
--   An primären Standorten werden alle Clientdaten der zugewiesenen Clients verarbeitet.  
+-   Les sites principaux sont chargés de traiter toutes les données du client à partir de leurs clients attribués.  
 
--   Mithilfe der Datenbankreplikation erfolgt eine direkte Kommunikation der primären Standorte mit dem Standort der zentralen Verwaltung (dies wird beim Installieren eines neuen Standorts automatisch konfiguriert).  
+-   Les sites principaux utilisent la réplication de base de données pour communiquer directement avec leur site d’administration centrale (qui est configuré automatiquement lors de l’installation d’un nouveau site).  
 
-##  <a name="BKMK_ChooseSecondary"></a> Ermitteln des Zeitpunkts für die Verwendung eines sekundären Standorts  
- Verwenden Sie sekundäre Standorte, um die Übertragung von Bereitstellungsinhalten und Clientdaten über Netzwerke mit geringer Bandbreite zu verwalten.  
+##  <a name="BKMK_ChooseSecondary"></a> Déterminer quand utiliser un site secondaire  
+ Utilisez des sites secondaires pour gérer le transfert de contenu de déploiement et de données client dans les réseaux à faible bande passante.  
 
- Ein sekundärer Standort wird mithilfe seines direkt übergeordneten primären Standorts oder mithilfe eines Standorts der zentralen Verwaltung verwaltet. Sekundäre Standorte müssen mit einem primären Standort verbunden sein. Sie können nicht zu einem anderen übergeordneten Standort verschoben werden, sondern müssen stattdessen deinstalliert und als untergeordneter Standort unter dem neuen primären Standort installiert werden.
+ Vous gérez un site secondaire à partir d’un site d’administration centrale ou du site principal parent direct du site secondaire. Vous devez associer les sites secondaires à un site principal, et vous ne pouvez pas les déplacer vers un autre site parent sans les avoir préalablement désinstallés puis réinstallés en tant que site enfant sous le nouveau site principal.
 
-Sie können jedoch Inhalt zwischen zwei sekundären Peer-Standorten weiterleiten, um die dateibasierte Replikation von Bereitstellunginhalt zu verwalten. Clientdaten werden vom sekundären Standort mithilfe von dateibasierter Replikation an einen primären Standort übertragen. Die dateibasierte Replikation wird vom sekundären Standort auch zur Kommunikation mit dem übergeordneten primären Standort verwendet.  
+Toutefois, vous pouvez acheminer du contenu entre deux sites secondaires homologues pour aider à gérer la réplication basée sur les fichiers du contenu de déploiement. Pour transférer des données du client vers un site principal, le site secondaire utilise la réplication basée sur les fichiers. Un site secondaire utilise également la réplication de base de données pour communiquer avec son site principal parent.  
 
- Erwägen Sie die Installation eines sekundären Standorts, wenn eine der folgenden Bedingungen erfüllt ist:  
+ Envisagez d'installer un site secondaire si l'une des conditions suivantes est remplie :  
 
--   Sie benötigen keinen lokalen Verbindungspunkt für einen Administrator.  
+-   Vous n’avez pas besoin de point de connectivité local pour un utilisateur administratif.  
 
--   Sie müssen die Übertragung von Bereitstellungsinhalt an Standorte verwalten, die sich in der Hierarchie weiter unten befinden.  
+-   Vous devez gérer le transfert de contenu de déploiement vers des sites qui se trouvent à un niveau inférieur dans la hiérarchie.  
 
--   Sie müssen Clientinformationen verwalten, die an Standorte gesendet werden, die sich in der Hierarchie weiter oben befinden.  
+-   Vous devez gérer des informations clientes qui sont envoyées à des sites à un niveau supérieur dans la hiérarchie.  
 
- Wenn Sie keinen sekundären Standort installieren möchten und es Clients an Remotestandorten gibt, erwägen Sie den Einsatz von Windows BranchCache oder das Installieren von Verteilungspunkten, die für die Bandbreitensteuerung und Planung aktiviert sind. Nach Wunsch können Sie diese Inhaltsverwaltungsoptionen mit sekundären Standorten kombinieren. Außerdem können Sie mit diesen Optionen die Anzahl der Standorte und Server reduzieren, die Sie installieren müssen. Informationen zu Inhaltsverwaltungsoptionen in Configuration Manager finden Sie unter [Ermitteln des Zeitpunkts für die Verwendung der Optionen für die Inhaltsverwaltung](#BKMK_ChooseSecondaryorDP).  
+ Si vous ne souhaitez pas installer de site secondaire et que vous avez des clients à des emplacements distants, utilisez Windows BranchCache ou installez des points de distribution qui sont activés pour la planification et le contrôle de la bande passante. Vous pouvez utiliser ces options de gestion de contenu avec ou sans sites secondaires et elles peuvent vous aider à réduire le nombre de sites et de serveurs que vous devez installer. Pour plus d’informations sur les options de gestion de contenu dans Configuration Manager, consultez [Déterminer quand utiliser les options de gestion de contenu](#BKMK_ChooseSecondaryorDP).  
 
 
-**Die folgenden Informationen können Sie bei der Entscheidung unterstützen, wann ein sekundärer Standort installiert werden sollte:**  
+**Les informations suivantes peuvent vous aider à déterminer quand installer un site secondaire :**  
 
--   Falls keine lokale SQL Server-Instanz verfügbar ist, wird SQL Server Express im Rahmen der Standortinstallation von sekundären Standorten automatisch installiert.  
+-   Les sites secondaires installent automatiquement SQL Server Express lors de l'installation de site si une instance locale de SQL Server n'est pas disponible.  
 
--   Die Installation des sekundären Standorts wird über die Configuration Manager-Konsole eingeleitet, anstatt das Setup direkt auf einem Computer auszuführen.  
+-   Une installation de site secondaire est lancée à partir de la console Configuration Manager plutôt qu’en exécutant le programme d’installation directement sur un ordinateur.  
 
--   Sekundäre Standorte verwenden eine Teilmenge der Informationen in der Standortdatenbank, wodurch die Datenmenge verringert wird, die bei der Datenbankreplikation zwischen den übergeordneten primären und sekundären Standort repliziert wird.  
+-   Les sites secondaires utilisent un sous-ensemble des informations contenues dans la base de données de site, ce qui réduit la quantité de données répliquées par la réplication de base de données entre le site principal et le site secondaire.  
 
--   Das Routing dateibasierter Inhalte an andere sekundäre Standorte mit dem gleichen übergeordneten primären Standort wird von sekundären Standorten unterstützt.  
+-   Les sites secondaires prennent en charge l'acheminement de contenu basé sur des fichiers vers d'autres sites secondaires qui possèdent un site principal parent commun.  
 
--   Bei der Installation eines sekundären Standorts werden auf dem sekundären Standortserver automatisch ein Verwaltungspunkt und ein Verteilungspunkt bereitgestellt.  
+-   Les installations de site secondaire déploient automatiquement un point de gestion et un point de distribution situés sur le serveur de site secondaire.  
 
-##  <a name="BKMK_ChooseSecondaryorDP"></a> Ermitteln des Zeitpunkts für die Verwendung der Optionen für die Inhaltsverwaltung  
- Falls es Clients an Remotenetzwerkorten gibt, sollten Sie erwägen, anstatt eines primären oder sekundären Standorts einige Inhaltsverwaltungsoptionen zu verwenden. Die Anforderung zur Installation eines Standorts kann häufig beseitigt werden, wenn Sie Windows BranchCache verwenden, Verteilungspunkte zur Steuerung der Bandbreite konfigurieren oder Inhalte manuell auf Verteilungspunkte kopieren (Inhalte vorab bereitstellen).  
+##  <a name="BKMK_ChooseSecondaryorDP"></a> Déterminer quand utiliser les options de gestion de contenu  
+ Si vous possédez des clients dans des emplacements réseau distants, envisagez d'utiliser une ou plusieurs options de gestion de contenu plutôt qu'un site principal ou secondaire. Souvent, vous n’avez pas besoin d’installer un site quand vous utilisez Windows BranchCache, quand vous configurez des points de distribution pour le contrôle de la bande passante, ou quand vous copiez manuellement du contenu vers des points de distribution (préparation du contenu).  
 
 
-**Erwägen Sie, einen Verteilungspunkt bereitzustellen, anstatt einen weiteren Standort zu installieren, falls Folgendes zutrifft:**  
+**Envisagez de déployer un point de distribution plutôt que d’installer un autre site si l’une des conditions suivantes s’applique :**  
 
--   Dank der verfügbaren Netzwerkbandbreite ist die Kommunikation zwischen Clientcomputern an einem Remotestandort und an einem Verwaltungspunkt möglich. Von den Clientcomputern können Clientrichtlinien heruntergeladen sowie Inventurdaten, Statusberichte und Ermittlungsinformationen gesendet werden.  
+-   Votre bande passante réseau est suffisante pour que les ordinateurs clients situés à l'emplacement distant communiquent avec un point de gestion afin de télécharger une stratégie client et envoient un inventaire, un état du rapport et des informations de découverte.  
 
--   Die von Background Intelligent Transfer Service (BITS) bereitgestellte Bandbreitensteuerung deckt sich nicht mit Ihren Netzwerkanforderungen.  
+-   Le service de transfert intelligent en arrière-plan (BITS) ne fournit pas de contrôle de bande passante suffisant pour les besoins de votre réseau.  
 
- Weitere Informationen zu Content Management-Optionen in Configuration Manager finden Sie unter [Grundlegende Konzepte für die Inhaltsverwaltung in System Center Configuration Manager](../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md).  
+ Pour plus d’informations sur les options de gestion de contenu dans Configuration Manager, consultez [Concepts fondamentaux de la gestion de contenu dans System Center Configuration Manager](../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md).  
 
-##  <a name="bkmk_beyond"></a> Jenseits der Hierarchietopologie  
- Bedenken Sie, welche Dienste oder Funktionen zusätzlich zu einer anfänglichen Hierarchietopologie von verschiedenen Standorten in der Hierarchie (Standortsystemrollen) zur Verfügung gestellt werden, und wie hierarchieweite Konfigurationen und Funktionen in Ihrer Infrastruktur verwaltet werden. Die folgenden allgemeinen Überlegungen werden in separaten Themen behandelt. Diese sind wichtig, da sie Ihren Hierarchieentwurf beeinflussen, oder von diesem beeinflusst werden können:  
+##  <a name="bkmk_beyond"></a> Au-delà de la topologie de la hiérarchie  
+ En plus de la topologie de la hiérarchie initiale, réfléchissez aux services ou aux fonctionnalités qui seront disponibles à partir de différents sites dans la hiérarchie (rôles de système de site), et à la façon dont les fonctionnalités et configurations à l’échelle de la hiérarchie seront gérées dans votre infrastructure. Les considérations courantes suivantes sont traitées dans des rubriques distinctes. Ces éléments sont importants, car ils peuvent influencer la conception de votre hiérarchie ou être influencés par celle-ci :  
 
--   Wenn Sie die [Verwaltung von Computern und Geräten mit System Center Configuration Manager](/sccm/core/clients/manage/manage-clients) vorbereiten, sollten Sie berücksichtigen, ob die von Ihnen verwalteten Geräte sich an Ihrem Standort oder in der Cloud befinden, oder ob eigene Geräte der Benutzer darunter sind (BYOD).  Berücksichtigen Sie darüber hinaus Ihre Vorgehensweise beim Verwalten von Geräten, die von verschiedenen Verwaltungsoptionen unterstützt werden, z.B. Windows 10-Computer, die direkt von Configuration Manager oder über die Integration mit Microsoft Intune verwaltet werden können.  
+-   Quand vous vous préparez à [gérer des ordinateurs et des appareils avec System Center Configuration Manager](/sccm/core/clients/manage/manage-clients), déterminez si les appareils que vous gérez sont locaux, situés dans le cloud ou comptent des appareils appartenant à l’utilisateur (BYOD).  Étudiez également la façon dont vous allez gérer les appareils qui sont pris en charge par plusieurs options de gestion, tels que des ordinateurs Windows 10 pouvant être gérés directement par Configuration Manager ou via l’intégration à Microsoft Intune.  
 
--   Vergegenwärtigen Sie sich die möglichen Auswirkungen Ihrer verfügbaren Netzwerkinfrastruktur auf den Datenfluss zwischen Remotestandorten (siehe [Vorbereiten der Netzwerkumgebung für System Center Configuration Manager](/sccm/core/plan-design/network/configure-firewalls-ports-domains)). Berücksichtigen Sie auch, wo sich von Ihnen verwaltete Benutzer und Geräte geografisch befinden, und ob diese über Ihre Unternehmensdomäne oder das Internet auf Ihre Infrastruktur zugreifen.  
+-   Découvrez comment votre infrastructure réseau disponible peut affecter le flux de données entre des sites distants (consultez [Préparer votre environnement réseau pour System Center Configuration Manager](/sccm/core/plan-design/network/configure-firewalls-ports-domains)). Tenez aussi compte de l’emplacement géographique des utilisateurs et appareils que vous gérez, et déterminez s’ils accèdent à votre infrastructure par l’intermédiaire de votre domaine d’entreprise ou d’Internet.  
 
--   Planen Sie eine Inhaltsinfrastruktur, um die von Ihnen bereitgestellten Informationen (Dateien und Apps) effizient an von Ihnen verwaltete Geräte zu verteilen (siehe [Verwalten von Inhalt und Inhaltsinfrastruktur für System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md)).  
+-   Planifiez une infrastructure de contenu pour distribuer efficacement les informations que vous déployez (fichiers et applications) sur les appareils que vous gérez (consultez [Gérer le contenu et l’infrastructure de contenu pour System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md)).  
 
--   Ermitteln Sie, welche [Features und Funktionen von System Center Configuration Manager](../../../core/plan-design/changes/features-and-capabilities.md) Sie verwenden möchten, welche Standortsystemrollen oder Windows-Infrastruktur sie erfordern, und auf welchen Standorten in einer Hierarchie mit mehreren Standorten Sie sie für die effizienteste Nutzung Ihrer Netzwerk- und Serverressourcen bereitstellen können.  
+-   Identifiez les [fonctions et fonctionnalités de System Center Configuration Manager](../../../core/plan-design/changes/features-and-capabilities.md) que vous envisagez d’utiliser, les rôles de système de site ou l’infrastructure Windows nécessaires ainsi que les sites au niveau desquels vous pouvez les déployer dans une hiérarchie comportant plusieurs sites pour une utilisation optimale du réseau et des ressources serveur.  
 
--   Berücksichtigen Sie die Daten- und Gerätesicherheit, einschließlich der Verwendung einer PKI. Informationen hierzu finden Sie unter [PKI-Zertifikatanforderungen für System Center Configuration Manager](../../../core/plan-design/network/pki-certificate-requirements.md).  
+-   Prenez en compte la sécurité des données et des appareils, notamment l’utilisation d’une infrastructure à clé publique. Consultez [Configuration requise des certificats PKI pour System Center Configuration Manager](../../../core/plan-design/network/pki-certificate-requirements.md).  
 
 
-**Überprüfen Sie die folgenden Ressourcen für standortspezifische Konfigurationen:**  
+**Passez en revue les ressources suivantes pour les configurations spécifiques aux sites :**  
 
--   [Planen des SMS-Anbieters für System Center Configuration Manager](../../../core/plan-design/hierarchy/plan-for-the-sms-provider.md)  
+-   [Planifier le fournisseur SMS pour System Center Configuration Manager](../../../core/plan-design/hierarchy/plan-for-the-sms-provider.md)  
 
--   [Planen der Standortdatenbank für System Center Configuration Manager](../../../core/plan-design/hierarchy/plan-for-the-site-database.md)  
+-   [Planifier la base de données du site pour System Center Configuration Manager](../../../core/plan-design/hierarchy/plan-for-the-site-database.md)  
 
--   [Planen für Standortsystemserver und Standortsystemrollen für System Center Configuration Manager](../../../core/plan-design/hierarchy/plan-for-site-system-servers-and-site-system-roles.md)  
+-   [Planifier des serveurs de système de site et des rôles système de site pour System Center Configuration Manager](../../../core/plan-design/hierarchy/plan-for-site-system-servers-and-site-system-roles.md)  
 
--   [Planen der Sicherheit in System Center Configuration Manager](../../../core/plan-design/security/plan-for-security.md)  
+-   [Planifier la sécurité dans System Center Configuration Manager](../../../core/plan-design/security/plan-for-security.md)  
 
--   [Managing network bandwidth](../../../core/plan-design/hierarchy/manage-network-bandwidth.md) bei der Bereitstellung von Inhalten innerhalb eines Standorts  
+-   [Managing network bandwidth](../../../core/plan-design/hierarchy/manage-network-bandwidth.md) lors du déploiement de contenu dans un site  
 
 
-**Betrachten Sie die Konfigurationen, die Standorte und Hierarchien umfassen:**  
+**Tenez compte des configurations qui couvrent plusieurs sites et hiérarchies :**  
 
--   [Hochverfügbarkeitsoptionen für System Center Configuration Manager](/sccm/protect/understand/high-availability-options) für Standorte und Hierarchien
+-   [Options de haute disponibilité pour System Center Configuration Manager](/sccm/protect/understand/high-availability-options) pour les sites et hiérarchies
 
--   [Erweitern Sie das Active Directory-Schema für System Center Configuration Manager](../../../core/plan-design/network/extend-the-active-directory-schema.md) und konfigurieren Sie Standorte, um [Standortdaten für System Center Configuration Manager zu veröffentlichen](../../../core/servers/deploy/configure/publish-site-data.md).  
+-   [Étendre le schéma Active Directory pour System Center Configuration Manager](../../../core/plan-design/network/extend-the-active-directory-schema.md) et configurer des sites pour la [publication de données de site pour System Center Configuration Manager](../../../core/servers/deploy/configure/publish-site-data.md)  
 
--   [Datenübertragungen zwischen Standorten in System Center Configuration Manager](../../../core/servers/manage/data-transfers-between-sites.md)  
+-   [Transfert de données entre sites dans System Center Configuration Manager](../../../core/servers/manage/data-transfers-between-sites.md)  
 
--   [Grundlagen der rollenbasierten Verwaltung für System Center Configuration Manager](../../../core/understand/fundamentals-of-role-based-administration.md)
+-   [Principes de base de l’administration basée sur des rôles pour System Center Configuration Manager](../../../core/understand/fundamentals-of-role-based-administration.md)

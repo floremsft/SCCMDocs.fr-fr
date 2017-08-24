@@ -1,6 +1,6 @@
 ---
-title: "Planen der lokalen Verwaltung mobiler Geräte | Microsoft-Dokumentation"
-description: "Planen Sie die lokale Verwaltung mobiler Geräte in System Center Configuration Manager."
+title: Planifier la gestion des appareils mobiles locale | Microsoft Docs
+description: "Planifiez la gestion des appareils mobiles (MDM) locale pour gérer des appareils mobiles dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -18,104 +18,104 @@ manager: angrobe
 ms.openlocfilehash: 544c3bea0c7df96887ee1717f061c39c64b82d01
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="plan-for-on-premises-mobile-device-management-in-system-center-configuration-manager"></a>Planen der lokalen Verwaltung mobiler Geräte in System Center Configuration Manager
+# <a name="plan-for-on-premises-mobile-device-management-in-system-center-configuration-manager"></a>Planifier la gestion des appareils mobiles locale dans System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Berücksichtigen Sie die folgenden Anforderungen vor der Vorbereitung der Configuration Manager\-Infrastruktur für die lokale Verwaltung mobiler Geräte.
+Tenez compte des conditions requises suivantes avant de préparer l’infrastructure Configuration Manager à la gestion des appareils mobiles locale.
 
-##  <a name="bkmk_devices"></a> Unterstützte Geräte  
- Die lokale Verwaltung mobiler Geräte ermöglicht das Verwalten mobiler Geräte mithilfe der in die Gerätebetriebssysteme integrierten Verwaltungsfunktionen.  Die Verwaltungsfunktionen basieren auf dem Geräteverwaltungsstandard von Open Mobile Alliance (OMA), und viele Geräteplattformen nutzen diesen Standard für die Geräteverwaltung.  In der Dokumentation und der Benutzeroberfläche der Configuration Manager-Konsole werden diese Geräte als **moderne Geräte** bezeichnet, um sie von anderen Geräten zu unterscheiden, für deren Verwaltung der Configuration Manager-Client erforderlich ist.  
+##  <a name="bkmk_devices"></a> Appareils pris en charge  
+ La gestion des appareils mobiles locale vous permet de gérer des appareils mobiles à l’aide des fonctions de gestion intégrées aux systèmes d’exploitation des appareils.  La fonctionnalité de gestion est basée sur la norme Open Mobile Alliance (OMA) Device Management (DM), et de nombreuses plateformes d’appareils utilisent cette norme pour autoriser la gestion des appareils.  Nous les appelons **appareils modernes** (dans la documentation et l’interface utilisateur de la console Configuration Manager) pour les différencier des autres appareils dont la gestion nécessite le client Configuration Manager.  
 
  > [!NOTE]  
->  Configuration Manager Current Branch unterstützt die Registrierung bei der lokalen Verwaltung mobiler Geräte für Geräte, auf denen folgende Betriebssysteme ausgeführt werden:  
+>  Dans la gestion des appareils mobiles locale, la version Current Branch de Configuration Manager prend en charge l’inscription des appareils exécutant les systèmes d’exploitation suivants :  
 >   
-> -  Windows 10 Enterprise  
-> -   Windows 10 Pro  
-> -   Microsoft 10 Team \(ab Configuration Manager Version 1602\)  
+> -  Windows 10 Entreprise  
+> -   Windows 10 Professionnel  
+> -   Windows 10 Collaboration \(à compter de Configuration Manager version 1602\)  
 > -   Windows 10 Mobile  
-> -   Windows 10 Mobile Enterprise
-> -   Windows 10 IoT Enterprise   
+> -   Windows 10 Mobile Entreprise
+> -   Windows 10 IoT Entreprise   
 
-##  <a name="bkmk_intune"></a> Verwenden des Microsoft Intune-Abonnements  
- Für den Einstieg in die lokale Verwaltung mobiler Geräte benötigen Sie ein Microsoft Intune\-Abonnement. Das Abonnement ist nur erforderlich, um die Lizenzierung der Geräten zu verfolgen und dient nicht zum Verwalten oder Speichern von Geräteverwaltungsinformationen. Die gesamte Verwaltung erfolgt mithilfe der lokalen Configuration Manager-Infrastruktur in Ihrem Unternehmen.  
+##  <a name="bkmk_intune"></a> Utilisation de l’abonnement Microsoft Intune  
+ Pour pouvoir utiliser la gestion des appareils mobiles locale, vous avez besoin d’un abonnement Microsoft Intune. L’abonnement est nécessaire uniquement pour effectuer le suivi des licences des appareils. Il ne sert pas à gérer ou à stocker des informations sur la gestion des appareils. Toute la gestion s’effectue dans votre organisation à l’aide de l’infrastructure Configuration Manager locale.  
 
  > [!NOTE]  
- > Ab Version 1610 unterstützt Configuration Manager für die Verwaltung mobiler Geräte die gleichzeitige Verwendung von Microsoft Intune und der lokalen Configuration Manager-Infrastruktur.   
+ > À compter de la version 1610, Configuration Manager prend en charge l’utilisation simultanée de Microsoft Intune et de l’infrastructure Configuration Manager locale pour gérer les appareils mobiles.   
 
- Wenn an Ihrem Standort Geräte mit Internetverbindung vorhanden sind, können Geräte über Intune benachrichtigt werden, dass sie den Geräteverwaltungspunkt nach Richtlinienupdates überprüfen sollen. Diese Verwendung von Intune dient ausschließlich zur Benachrichtigung von mit dem Internet verbundenen Geräten. Geräte ohne Internetverbindung (die nicht von Intune kontaktiert werden können) überprüfen im konfigurierten Abrufintervall die Standortsystemrollen auf Verwaltungsfunktionen.  
+ Si votre site comporte des appareils dotés d’une connectivité Internet, vous pouvez utiliser le service Intune pour que les appareils vérifient l’existence de mises à jour de la stratégie par le biais du point de gestion d’appareil. Cette utilisation d’Intune est réservée uniquement à la notification des appareils exposés à Internet. Les appareils sans connexion Internet (ne pouvant pas être contactés par Intune) se fient à l’intervalle d’interrogation configuré pour vérifier les fonctions de gestion auprès des rôles système de site.  
 
 > [!TIP]  
->  Es wird empfohlen, Intune einzurichten, bevor Sie die erforderlichen Standortsystemrollen einrichten, um die erforderliche Zeit zu minimieren, bis die Standortsystemrollen funktionsfähig sind.  
+>  Nous vous recommandons de configurer l’abonnement Intune avant de configurer les rôles système de site nécessaires, pour que ces derniers soient opérationnels le plus rapidement possible.  
 
- Weitere Informationen zum Einrichten des Intune-Abonnements finden Sie unter [Einrichten eines Microsoft Intune-Abonnements in System Center Configuration Manager](../../mdm/get-started/set-up-intune-subscription-on-premises-mdm.md).  
+ Pour plus d’informations sur la façon de configurer l’abonnement Intune, consultez [Configurer un abonnement Microsoft Intune pour la gestion locale des appareils mobiles dans System Center Configuration Manager](../../mdm/get-started/set-up-intune-subscription-on-premises-mdm.md).  
 
-##  <a name="bkmk_roles"></a> Erforderliche Standortsystemrollen  
- Die lokale Verwaltung mobiler Geräte erfordert mindestens jeweils eine der folgenden Standortsystemrollen:  
+##  <a name="bkmk_roles"></a> Rôles système de site nécessaires  
+ La gestion des appareils mobiles locale nécessite au moins un rôle système de site parmi chacun des suivants :  
 
--   **Anmeldungsproxypunkt** zur Unterstützung von Anmeldungsanforderungen.  
+-   **Point proxy d’inscription** pour prendre en charge les demandes d’inscription.  
 
--   **Anmeldungspunkt** zur Unterstützung der Geräteanmeldung.  
+-   **Point d’inscription** pour prendre en charge l’inscription des appareils.  
 
--   **Geräteverwaltungspunkt** für die Bereitstellung von Richtlinien. Diese Standortsystemrolle ist eine Variante der Verwaltungspunktrolle, die konfiguriert wurde, um die Verwaltung mobiler Geräte zu ermöglichen.  
+-   **Point de gestion du périphérique** pour la remise de la stratégie. Ce rôle de système de site est une variante du rôle de point de gestion qui a été configuré pour autoriser la gestion des appareils mobiles.  
 
--   **Verteilungspunkt** für die Inhaltsübermittlung.  
+-   **Point de distribution** pour la remise du contenu.  
 
--   **Dienstverbindungspunkt** für die Verbindung mit Intune, um Geräte außerhalb der Firewall zu benachrichtigen.  
+-   **Point de connexion de service** pour la connexion à Intune pour informer les appareils à l’extérieur du pare-feu.  
 
- Diese Standortsystemrollen können auf dem einzigen Standortsystemserver installiert oder separat auf verschiedenen Servern ausgeführt werden, je nach den Bedürfnissen Ihrer Organisation. Jeder für die lokale Verwaltung mobiler Geräte verwendete Standortsystemserver muss als HTTPS\-Endpunkt für die Kommunikation mit vertrauenswürdigen Geräten konfiguriert werden. Weitere Informationen finden Sie unter [Erforderliche vertrauenswürdige Kommunikation](#bkmk_trustedComs).  
+ Vous pouvez installer ces rôles de système de site sur le serveur de système de site unique, ou vous pouvez les exécuter séparément sur des serveurs distincts en fonction des besoins de votre organisation. Chaque serveur de système de site utilisé pour la gestion des appareils mobiles locale doit être configuré comme point de terminaison HTTPS pour communiquer avec les appareils de confiance. Pour plus d'informations, voir [Communications fiables requises](#bkmk_trustedComs).  
 
- Weitere Informationen zur Planung der Standortsystemrollen finden Sie unter [Planen von Standortsystemservern und Standortsystemrollen für System Center Configuration Manager](../../core/plan-design/hierarchy/plan-for-site-system-servers-and-site-system-roles.md).  
+ Pour plus d’informations sur la planification des rôles de système de site, consultez [Planifier des serveurs de système de site et des rôles système de site pour System Center Configuration Manager](../../core/plan-design/hierarchy/plan-for-site-system-servers-and-site-system-roles.md).  
 
- Weitere Informationen zum Hinzufügen der erforderlichen Standortsystemrollen finden Sie unter [Installieren von Standortsystemrollen für die lokale Verwaltung mobiler Geräte in System Center Configuration Manager](../../mdm/get-started/install-site-system-roles-for-on-premises-mdm.md).  
+ Pour plus d’informations sur l’ajout des rôles de système de site obligatoires, consultez [Installer des rôles de système de site pour la gestion des appareils mobiles locale dans System Center Configuration Manager](../../mdm/get-started/install-site-system-roles-for-on-premises-mdm.md).  
 
-##  <a name="bkmk_trustedComs"></a> Erforderliche vertrauenswürdige Kommunikation  
- Die lokale Verwaltung mobiler Geräte erfordert, dass die Standortsystemrollen für die HTTPS\-Kommunikation aktiviert sind. Je nach Ihren Anforderungen können Sie die Zertifizierungsstelle Ihres Unternehmens zum Herstellen der vertrauenswürdigen Verbindungen zwischen Servern und Geräten oder eine öffentlich verfügbare Zertifizierungsstelle als vertrauenswürdige Zertifizierungsstelle verwenden.  In beiden Fällen benötigen Sie ein mit IIS konfiguriertes Webserverzertifikat auf den Standortsystemservern, auf denen die erforderlichen Standortsystemrollen gehostet werden. Außerdem muss auf den Geräten, die eine Verbindung mit diesen Servern herstellen müssen, das Stammzertifikat dieser Zertifizierungsstelle installiert sein.  
+##  <a name="bkmk_trustedComs"></a> Communications fiables requises  
+ La gestion des appareils mobiles locale exige que des rôles système de site soient activés pour les communications HTTPS. En fonction de vos besoins, vous pouvez utiliser l’autorité de certification de votre entreprise pour établir les connexions approuvées entre les serveurs et les appareils, ou vous pouvez utiliser une autorité de certification publique comme autorité de confiance.  Dans les deux cas, vous devez configurer un certificat de serveur web avec IIS sur les serveurs de système de site hébergeant les rôles de système de site nécessaires, et vous devez installer le certificat racine de cette autorité de certification sur les appareils qui doivent se connecter à ces serveurs.  
 
- Wenn Sie die Zertifizierungsstelle Ihres Unternehmens für die vertrauenswürdige Kommunikation verwenden, müssen Sie die folgenden Aufgaben ausführen:  
+ Si vous utilisez l’autorité de certification de votre entreprise pour établir des communications approuvées, vous devez effectuer les tâches suivantes :  
 
--   Generieren Sie die Webserver-Zertifikatvorlage bei der Zertifizierungsstelle und stellen Sie sie aus.  
+-   Créer et émettre le modèle de certificat de serveur web sur l’autorité de certification.  
 
--   Fordern Sie ein Webserverzertifikat für jeden Standortsystemserver an, auf dem eine erforderliche Standortsystemrolle gehostet wird.  
+-   Demander un certificat de serveur web pour chaque serveur de système de site hébergeant un rôle de système de site nécessaire.  
 
--   Konfigurieren Sie IIS auf dem Standortsystemserver für die Verwendung des angeforderten Webserverzertifikats.  
+-   Configurer IIS sur le serveur de système de site pour utiliser le certificat de serveur web demandé.  
 
- Auf Geräten, die mit der Active Directory-Unternehmensdomäne verknüpft sind, ist das Stammzertifikat der Unternehmenszertifizierungsstelle bereits für vertrauenswürdige Verbindungen verfügbar. Dies bedeutet, dass Geräte, die einer Domäne angehören, (z. B. Desktopcomputer) automatisch für HTTPS-Verbindungen mit den Standortsystemservern als vertrauenswürdig eingestuft werden. Auf Geräten, die der Domäne nicht angehören, (in der Regel mobile Geräte) ist das erforderliche erforderliche Stammzertifikat jedoch nicht installiert. Auf diesen Geräten muss das Stammzertifikat manuell installiert werden, um erfolgreich mit Standortsystemservern zu kommunizieren, die die lokale Verwaltung mobiler Geräte unterstützen.  
+ Pour les appareils joints au domaine Active Directory d’entreprise, le certificat racine de l’autorité de certification d’entreprise est déjà disponible sur l’appareil pour les connexions approuvées. Cela signifie que les appareils appartenant au domaine (comme les ordinateurs de bureau) sont automatiquement approuvés pour les connexions HTTPS avec les serveurs de système de site. En revanche, les appareils non joints au domaine (généralement les appareils mobiles) ne possèdent pas le certificat racine nécessaire. Vous devez installer manuellement le certificat racine sur ces appareils pour qu’ils puissent communiquer correctement avec les serveurs de système de site prenant en charge la gestion des appareils mobiles locale.  
 
- Sie müssen das Stammzertifikat der ausstellenden Zertifizierungsstelle für die Verwendung durch einzelne Geräte exportieren. Die Stammzertifikatdatei erhalten Sie, indem Sie es über die Zertifizierungsstelle exportieren. Eine einfachere Methode ist es, mit dem von der Zertifizierungsstelle ausgestellten Webserverzertifikat das Stammzertifikat zu extrahieren und eine Stammzertifikatdatei zu erstellen.   Anschließend muss das Stammzertifikat an das Gerät übermittelt werden.  Einige Beispiele für Übermittlungsmethoden:  
+ Vous devez exporter le certificat racine de l’autorité de certification émettrice pour une utilisation par les différents appareils. Pour obtenir le fichier de certificat racine, vous pouvez l’exporter à l’aide de l’autorité de certification. Une méthode plus simple consiste à utiliser le certificat de serveur web émis par l’autorité de certification pour extraire la racine et créer un fichier de certificat racine.   Ensuite, le certificat racine doit être remis à l’appareil.  Voici quelques exemples de méthodes de remise :  
 
--   Dateisystem  
+-   Système de fichiers  
 
--   E-Mail-Anlage  
+-   Pièce jointe  
 
--   Speicherkarte  
+-   Carte mémoire  
 
--   Verbundenes Gerät  
+-   Périphérique attaché  
 
--   Cloudspeicher (z. B. OneDrive)  
+-   Stockage cloud (tel que OneDrive)  
 
--   NFC-Verbindung (Near Field Communication)  
+-   Connexion NFC (communication en champ proche)  
 
--   Barcodescanner  
+-   Lecteur de code-barres  
 
--   Out-of-Box-Experience (OOBE) des bereitstellenden Pakets  
+-   Package d’approvisionnement OOBE (Out of Box Experience)  
 
- Weitere Informationen finden Sie unter [Set up certificates for trusted communications for On-premises Mobile Device Management in System Center Configuration Manager](../../mdm/get-started/set-up-certificates-on-premises-mdm.md)  
+ Pour plus d'informations, consultez [Configurer des certificats pour les communications approuvées pour la gestion des appareils mobiles locale dans System Center Configuration Manager](../../mdm/get-started/set-up-certificates-on-premises-mdm.md).  
 
-##  <a name="bkmk_enrollment"></a> Überlegungen zur Registrierung  
- Zum Aktivieren der Geräteregistrierung für die lokale Verwaltung mobiler Geräte müssen Benutzer über Registrierungsberechtigungen verfügen, und ihre Geräte müssen zur vertrauenswürdigen Kommunikation mit den Standortsystemservern in der Lage sein, auf denen die erforderlichen Standortsystemrollen gehostet werden.  
+##  <a name="bkmk_enrollment"></a> Considérations relatives à l’inscription  
+ Pour permettre l’inscription des appareils à la gestion des appareils mobiles locale, vous devez autoriser les utilisateurs à inscrire leurs appareils et ceux-ci doivent pouvoir établir des communications approuvées avec les serveurs de système de site hébergeant les rôles système de site nécessaires.  
 
- Richten Sie zum Erteilen von Registrierungsberechtigungen an Benutzer in den Configuration Manager-Clienteinstellungen ein Anmeldungsprofil ein. Sie können die Clientstandardeinstellungen verwenden, um das Anmeldungsprofil per Push an alle ermittelten Benutzer zu übertragen, oder Sie können das Anmeldungsprofil in benutzerdefinierten Clienteinstellungen einrichten und die Einstellungen per Push an eine oder mehrere Benutzersammlungen senden.  
+ Pour accorder aux utilisateurs l’autorisation d’inscrire des appareils, vous pouvez configurer un profil d’inscription dans les paramètres client de Configuration Manager. Vous pouvez utiliser les paramètres client par défaut pour envoyer le profil d’inscription à tous les utilisateurs découverts, ou vous pouvez configurer le profil d’inscription dans les paramètres client personnalisés et envoyer les paramètres à un ou plusieurs regroupements d’utilisateurs.  
 
- Benutzer, die über Benutzeranmeldeberechtigungen verfügen, können ihre eigenen Geräte registrieren. Damit das Gerät des Benutzers registriert werden kann, muss darauf das Stammzertifikat der Zertifizierungsstelle installiert sein, die das Webserverzertifikat ausgestellt hat, das auf den Standortsystemservern verwendet wird, auf denen die erforderlichen Standortsystemrollen gehostet werden.  
+ Une fois l’autorisation d’inscription accordée aux utilisateurs, ils peuvent inscrire leurs appareils. Pour que l’inscription soit possible, il faut que l’appareil possède le certificat racine de l’autorité de certification qui a émis le certificat de serveur web utilisé sur les serveurs de système de site hébergeant les rôles de système de site nécessaires.  
 
- Als Alternative zur benutzerinitiierten Registrierung können Sie ein Massenregistrierungspaket einrichten, mit dem das Gerät ohne Eingreifen des Benutzers registriert werden kann. Dieses Paket kann an dem Gerät übermittelt werden, bevor es erstmalig für die Verwendung bereitgestellt wird oder nachdem das Gerät den OOBE-Prozess durchlaufen hat.  
+ En guise d’alternative à l’inscription initiée par l’utilisateur, vous pouvez configurer un package d’inscription en bloc qui permet d’inscrire l’appareil sans intervention de l’utilisateur. Vous pouvez remettre ce package à l’appareil avant sa mise en service initiale ou à l’issue du processus OOBE.  
 
- Weitere Informationen zum Einrichten und Registrieren von Geräten finden Sie unter  
+ Pour plus d’informations sur la façon de configurer et d’inscrire des appareils, consultez  
 
--   [Einrichten der Geräteregistrierung für die lokale Verwaltung mobiler Geräte in System Center Configuration Manager](../../mdm/get-started/set-up-device-enrollment-on-premises-mdm.md)  
+-   [Configurer l’inscription d’appareils pour la gestion des appareils mobiles locale dans System Center Configuration Manager](../../mdm/get-started/set-up-device-enrollment-on-premises-mdm.md)  
 
--   [Registrieren von Geräten für die lokale Verwaltung mobiler Geräte in System Center Configuration Manager](../../mdm/deploy-use/enroll-devices-on-premises-mdm.md)  
+-   [Inscrire des appareils pour la gestion des appareils mobiles locale dans System Center Configuration Manager](../../mdm/deploy-use/enroll-devices-on-premises-mdm.md)  

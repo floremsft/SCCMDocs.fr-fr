@@ -1,6 +1,6 @@
 ---
-title: Erstellen von WLAN-Profilen | Microsoft-Dokumentation
-description: "Hier erfahren Sie, wie Sie in System Center Configuration Manager mit WLAN-Profilen Funknetzwerkeinstellungen für Benutzer in Ihrer Organisation bereitstellen."
+title: "Guide pratique pour créer des profils Wi-Fi | Microsoft Docs"
+description: "Découvrez comment utiliser des profils Wi-Fi dans System Center Configuration Manager pour déployer des paramètres de réseau sans fil pour les utilisateurs de votre organisation."
 ms.custom: na
 ms.date: 12/11/2016
 ms.prod: configuration-manager
@@ -18,111 +18,111 @@ manager: angrobe
 ms.openlocfilehash: f1ae976899de1fd3efcbde0c7268f071a5d0218b
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-wi-fi-profiles"></a>Erstellen von WLAN-Profilen
+# <a name="create-wi-fi-profiles"></a>Créer des profils Wi-Fi
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
-Verwenden Sie WLAN-Profile in System Center Configuration Manager, um für Benutzer in Ihrer Organisation Einstellungen für Funknetzwerke bereitzustellen. Durch die Bereitstellung dieser Einstellungen erleichtern Sie den Benutzern das Herstellen einer WLAN-Verbindung.  
+Utilisez des profils Wi-Fi dans System Center Configuration Manager pour déployer des paramètres de réseau sans fil pour les utilisateurs de votre organisation. En déployant ces paramètres, il est plus facile pour les utilisateurs de se connecter au Wi-Fi.  
 
- Angenommen, Sie haben ein WLAN-Netzwerk installiert. Nun sollen alle iOS-Geräte mit diesem Netzwerk eine Verbindung herstellen können. Hierzu erstellen Sie ein WLAN-Profil mit den Einstellungen, die zum Herstellen einer Verbindung mit dem Drahtlosnetzwerk erforderlich sind. Stellen Sie dann das Profil für alle Benutzer bereit, die über iOS-Geräte in Ihrer Hierarchie verfügen. Benutzer von iOS-Geräten finden das Unternehmensnetzwerk in der Liste der Funknetzwerke und können leicht eine Verbindung mit diesem Netzwerk herstellen.  
+ Par exemple, vous avez un réseau Wi-Fi auquel vous voulez que tous les appareils iOS puissent se connecter. Créez un profil Wi-Fi contenant les paramètres nécessaires à la connexion au réseau sans fil. Déployez ensuite le profil pour tous les utilisateurs détenteurs d’appareils iOS dans votre hiérarchie. Les utilisateurs des appareils iOS voient le réseau de l'entreprise dans la liste des réseaux sans fil et peuvent immédiatement se connecter à ce réseau.  
 
- Sie können die folgenden Gerätetypen mit WLAN-Profilen konfigurieren:  
+ Vous pouvez configurer les types d'appareil suivants avec des profils Wi-Fi :  
 
--   Geräte unter Windows 8.1 32-Bit  
+-   Appareils qui exécutent Windows 8.1 32 bits  
 
--   Geräte unter Windows 8.1 64-Bit  
+-   Appareils qui exécutent Windows 8.1 64 bits  
 
--   Geräte unter Windows RT 8.1  
+-   Appareils qui exécutent Windows RT 8.1  
 
--   Geräte unter Windows 10 Desktop oder Mobile  
+-   Appareils qui exécutent Windows 10 Desktop ou Mobile  
 
-[Erstellen von WLAN-Profilen für mobile Geräte](../../mdm/deploy-use/create-wifi-profiles.md) bietet Informationen zur Bereitstellung von Einstellungen für drahtlose Netzwerke in Configuration Manager mit WLAN-Profilen für Benutzer mobiler Geräte.
+La section relative à la [création de profils Wi-Fi pour les appareils mobiles](../../mdm/deploy-use/create-wifi-profiles.md) fournit des informations sur l’utilisation des profils Wi-Fi dans Configuration Manager, afin de déployer des paramètres de réseau sans fil pour les utilisateurs d’appareils mobiles.
 
 > [!IMPORTANT]  
->  Um Profile für Android-, iOS-, Windows Phone- und registrierte Windows 8.1-Geräte (und höher) bereitzustellen, müssen diese Geräte bei Microsoft Intune registriert werden. Informationen zum Registrieren von Geräten finden Sie unter [Enroll devices for management in Intune (Registrieren von Geräten für die Verwaltung in Intune)](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune).  
+>  Pour déployer des profils sur des appareils Android, iOS, Windows Phone et sur des appareils Windows 8.1 ou version ultérieure inscrits, ces appareils doivent être inscrits dans Microsoft Intune. Pour plus d’informations sur la façon d’inscrire vos appareils, consultez [Inscrire des appareils pour la gestion dans Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune).  
 
- Wenn Sie ein WLAN-Profil erstellen, können Sie eine Vielzahl von Sicherheitseinstellungen einfügen. Dazu gehören Zertifikate für die Serverüberprüfung und die Clientauthentifizierung, die mithilfe von Configuration Manager-Zertifikatprofilen per Push übertragen wurden. Weitere Informationen zu Zertifikatprofilen finden Sie unter [Zertifikatprofile in System Center Configuration Manager](introduction-to-certificate-profiles.md).  
+ Lorsque vous créez un profil Wi-Fi, vous pouvez inclure un large éventail de paramètres de sécurité. Ceux-ci incluent des certificats pour l’authentification de client et la validation de serveur qui ont été émis à l’aide des profils de certificat Configuration Manager. Pour plus d’informations sur les profils de certificat, consultez [Profils de certificat dans System Center Configuration Manager](introduction-to-certificate-profiles.md).  
 
-## <a name="create-a-wi-fi-profile"></a>Erstellen eines WLAN-Profils  
+## <a name="create-a-wi-fi-profile"></a>Créer un profil Wi-Fi  
 
-1.  Wählen Sie in der Configuration Manager-Konsole die Optionen **Bestand und Kompatibilität** > **Kompatibilitätseinstellungen** >  **Zugriff auf Unternehmensressourcen** > **WLAN-Profile** aus.  
+1.  Dans la console Configuration Manager, choisissez **Ressources et Conformité** > **Paramètres de compatibilité** >  **Accès aux ressources de l’entreprise**  > **Profils Wi-Fi**.  
 
-3.  Wählen Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** die Option **WLAN-Profil erstellen** aus.  
+3.  Sous l’onglet **Accueil**, dans le groupe **Créer**, choisissez **Créer un profil Wi-Fi**.  
 
-1.  Geben Sie auf der Seite **Allgemein** einen eindeutigen Namen und eine Beschreibung für das WLAN-Profil ein.  Wenn Sie eine Einstellungen aus einem anderen WLAN-Profil übernehmen möchten, wählen Sie **Vorhandenes WLAN-Profil aus einer Datei importieren** aus.  
-
-    > [!IMPORTANT]  
-    >  Stellen Sie sicher, dass das importierte WLAN-Profil gültigen XML-Code für ein WLAN-Profil enthält. Das Profil wird beim Importieren der Datei von Configuration Manager nicht überprüft.  
-
-3.  Geben Sie unter **Schweregrad der Nichtkompatibilität für Berichte** den Schweregrad für Berichte an, falls festgestellt wird, dass das WLAN-Profil auf Clientgeräten nicht kompatibel ist (beispielsweise bei einem Fehler der Profilinstallation). Die folgenden Schweregrade sind verfügbar:  
-
-    -   **Keine**: Von Computern, bei denen bei dieser Kompatibilitätsregel ein Fehler auftritt, wird kein Fehlerschweregrad für Configuration Manager-Berichte gemeldet.  
-
-    -   **Information**: Von Computern, bei denen bei dieser Kompatibilitätsregel ein Fehler auftritt, wird der Fehlerschweregrad **Information** für Configuration Manager-Berichte gemeldet.  
-
-    -   **Warnung**: Von Computern, bei denen bei dieser Kompatibilitätsregel ein Fehler auftritt, wird der Fehlerschweregrad **Warnung** für Configuration Manager-Berichte gemeldet.  
-
-    -   **Kritisch**: Von Computern, bei denen bei dieser Kompatibilitätsregel ein Fehler auftritt, wird der Fehlerschweregrad **Kritisch** für Configuration Manager-Berichte gemeldet.  
-
-    -   **Kritisch mit Ereignis**: Von Computern, bei denen bei dieser Kompatibilitätsregel ein Fehler auftritt, wird der Fehlerschweregrad **Kritisch** für Configuration Manager-Berichte gemeldet. Dieser Schweregrad wird zudem im Anwendungsereignisprotokoll als Windows-Ereignis protokolliert.  
-
-1.  Geben Sie auf der Seite **WLAN-Profil** den Namen an, der auf Geräten als Netzwerkname angezeigt wird.  
+1.  Dans la page **Général**, entrez un nom unique et une description pour le profil Wi-Fi.  Si vous souhaitez utiliser les paramètres d’un autre profil Wi-Fi, sélectionnez **Importer un élément de profil Wi-Fi existant à partir d’un fichier**.  
 
     > [!IMPORTANT]  
-    >  Configuration Manager unterstützt weder den Apostroph (**‘**) noch das Komma (**,**) im Netzwerknamen.  
+    >  Assurez-vous que le profil Wi-Fi que vous importez contient du code XML valide pour un profil Wi-Fi. Configuration Manager ne valide pas le profil lorsque vous importez le fichier.  
 
-2.  Geben Sie die **SSID** unter Beachtung der Groß-/Kleinschreibung an.
-3.  Wählen Sie die anderen entsprechenden Verbindungsoptionen aus, einschließlich   **Auch dann verbinden, wenn der Name (SSID) des Netzwerks nicht von diesem gesendet wird**, wenn die Möglichkeit besteht, dass die SSID ausgeblendet ist.  
+3.  Dans **Gravité de non-compatibilité pour les rapports** spécifiez le niveau de gravité signalé en cas de non-compatibilité du profil Wi-Fi sur des appareils clients (par exemple, en cas d’échec de l’installation du profil). Les niveaux de gravité disponibles sont les suivants :  
 
-4.  Wählen Sie auf der Seite **Sicherheitskonfiguration** das Sicherheitsprotokoll aus, das im Funknetzwerk verwendet wird, oder wählen Sie **Keine Authentifizierung (Offen)** aus, wenn das Netzwerk nicht gesichert ist.
+    -   **Aucun**: les ordinateurs qui ne respectent pas cette règle de conformité ne signalent pas la gravité d’un échec pour les rapports Configuration Manager.  
+
+    -   **Informations**: les ordinateurs qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Informations** pour les rapports Configuration Manager.  
+
+    -   **Avertissement**: les ordinateurs qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Avertissement** pour les rapports Configuration Manager.  
+
+    -   **Critique**: les ordinateurs qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Critique** pour les rapports Configuration Manager.  
+
+    -   **Critique avec événement**: les ordinateurs qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Critique** pour les rapports Configuration Manager. Ce niveau de gravité est également enregistré comme un événement Windows dans le journal des événements des applications.  
+
+1.  Dans la page **Profil Wi-Fi**, indiquez le nom qui sera affiché sur les appareils comme nom de réseau.  
+
     > [!IMPORTANT]  
-    >  Wenn Sie für die lokale Verwaltung mobiler Geräte ein WLAN-Profil erstellen, unterstützt Current Branch von Configuration Manager nur die folgenden WLAN-Sicherheitskonfigurationen:  
+    >  Configuration Manager ne prend pas en charge l’utilisation des caractères apostrophe (**â€˜**) ni virgule (**,**) dans le nom du réseau.  
+
+2.  Spécifiez le **SSID** qui respecte la casse.
+3.  Choisissez les autres options de connectivité appropriées, notamment les suivantes.   **Se connecter quand le réseau ne diffuse pas son nom (SSID)**, s’il est possible que le SSID soit masqué  
+
+4.  Dans la page **Configuration de la sécurité**, sélectionnez le protocole de sécurité utilisé par le réseau sans fil ou sélectionnez **Aucune authentification (Open)** si le réseau n’est pas sécurisé.
+    > [!IMPORTANT]  
+    >  Si vous créez un profil Wi-Fi pour la gestion des appareils mobiles locale, la branche CB (Current Branch) de Configuration Manager prend uniquement en charge les configurations de sécurité Wi-Fi suivantes :  
     >   
-    >  Sicherheitstypen: **WPA2-Enterprise** oder **WPA2-Personal**  
-    > Verschlüsselungstypen: **AES** oder **TKIP**  
-    > EAP-Typen: **Smartcard- oder anderes Zertifikat** oder **PEAP**  
+    >  Types de sécurité : **WPA2-Entreprise** ou **WPA2-Personnel**  
+    > Types de chiffrement : **AES** ou **TKIP**  
+    > Types EAP : **Carte à puce ou autre certificat** ou **PEAP**  
 
-    > Für Android-Geräte werden die Sicherheitstypen **WPA-Personal**, **WPA2-Personal** und **WEP** nicht unterstützt.  
+    > Pour les appareils Android, les types de sécurité **WPA - Personnel**, **WPA2 - Personnel** et **WEP** ne sont pas pris en charge.  
 
-2.  Wählen Sie die Verschlüsselungsmethode aus, die vom Funknetzwerk verwendet wird.  
+2.  sélectionnez la méthode de chiffrement utilisée par le réseau sans fil.  
 
-3.  Wählen Sie den EAP-Typ aus, der zur Authentifizierung beim Funknetzwerk verwendet wird.  
+3.  sélectionnez le type EAP qui est utilisé pour l'authentification auprès du réseau sans fil.  
 
-     Nur für Windows Phone-Geräte: Die EAP-Typen **LEAP** und **EAP-FAST** werden nicht unterstützt.  
+     Pour les appareils Windows Phone uniquement : les types EAP **LEAP** et **EAP-FAST** ne sont pas pris en charge.  
 
-4.  Klicken Sie auf **Konfigurieren** , um Eigenschaften für den ausgewählten EAP-Typ anzugeben. Diese Option steht möglicherweise für einige ausgewählte EAP-Typen nicht zur Verfügung.  
+4.  Cliquez sur **Configurer** pour spécifier les propriétés du type EAP sélectionné. Cette option peut ne pas être disponible pour certains types de protocoles EAP sélectionnés.  
 
     > [!IMPORTANT]  
-    >  Wenn Sie auf **Konfigurieren**klicken, wird ein Windows-Dialogfeld geöffnet. Daher müssen Sie sicherstellen, dass die Konfiguration des ausgewählten EAP-Typs vom Betriebssystem des Computers unterstützt wird, auf dem die Configuration Manager-Konsole ausgeführt wird.  
+    >  Lorsque vous cliquez sur **Configurer**, une boîte de dialogue Windows s'ouvre. Pour cette raison, vous devez vous assurer que le système d’exploitation de l’ordinateur qui exécute la console Configuration Manager prend en charge la configuration du type de protocole EAP sélectionné.  
     >   
-    >  Wenn Sie für iOS-Geräte eine EAP-fremde Methode für die Authentifizierung gewählt haben, wird unabhängig von der ausgewählten Methode MS-CHAP v2 für die Verbindung verwendet.  
+    >  Pour les appareils iOS, si vous avez choisi une méthode autre qu'EAP pour l'authentification, quelle que soit la méthode choisie, MS-CHAP v2 est utilisé pour la connexion.  
 
-5.  Wenn Sie Benutzeranmeldeinformationen speichern möchten, damit Benutzer bei der Anmeldung keine Anmeldeinformationen eingeben müssen, wählen Sie **Benutzeranmeldeinformationen bei jeder Anmeldung speichern**aus.  
+5.  Si vous souhaitez stocker les informations d’identification des utilisateurs pour qu’ils ne soient pas obligés de les entrer à chaque ouverture de session, sélectionnez **Conserver les informations d’identification de l’utilisateur à chaque ouverture de session**.  
 
-6. **Nur für iOS-Geräte:**  
- Konfigurieren Sie die Informationen für alle Zertifikate, die für die WLAN-Verbindung erforderlich sind. Sie müssen wie folgt das Clientzertifikat und entweder den Namen des vertrauenswürdigen Serverzertifikats oder das Stammzertifikat konfigurieren:  
+6. **Pour les appareils iOS uniquement:**  
+ configurez les informations pour tous les certificats qui sont requis pour la connexion Wi-Fi. Vous devez configurer le certificat client et le nom du certificat de serveur approuvé ou le certificat racine comme suit :  
 
-    -   **Namen vertrauenswürdiger Serverzertifikate**: Wenn auf dem Server, mit dem das Gerät eine Verbindung herstellt, ein Serverauthentifizierungszertifikat für die Identifikation des Servers und zur Unterstützung bei der Absicherung des Kommunikationskanals verwendet wird, geben Sie den oder die Namen für den Antragstellernamen oder den alternativen Antragstellernamen dieses Zertifikats ein. Die Namen sind normalerweise die vollqualifizierten Domänennamen des Servers. Beispiel: Wenn für den Zertifikatantragsteller der allgemeine Name des Serverzertifikats „srv1.contoso.com“ lautet, geben Sie **srv1.contoso.com**ein. Wenn für das Serverzertifikat mehrere Namen als alternative Antragstellernamen angegeben sind, geben Sie die einzelnen Namen getrennt durch ein Semikolon ein.  
+    -   **Noms de certificat de serveur approuvé**: si le serveur auquel se connecte l’appareil utilise un certificat d’authentification de serveur pour identifier le serveur et sécuriser le canal de communication, entrez le ou les noms sous le nom d’objet de ce certificat ou l’autre nom d’objet de ce certificat. Le ou les noms sont généralement le nom de domaine complet du serveur. Par exemple, si le certificat de serveur est identifié par le nom commun srv1.contoso.com dans l'objet du certificat, entrez **srv1.contoso.com**. Si le certificat de serveur est identifié par plusieurs noms spécifiés dans l'autre nom d'objet, entrez chaque nom, séparé par un point-virgule.  
 
     > [!TIP]  
-    >  Wenn das Clientzertifikat, das Sie für die EAP- oder Clientauthentifizierung für ein iOS-Gerät auswählen, zur Authentifizierung bei einem RADIUS-Server (Remote Authentication Dial-In User Service) wie etwa einem Server, auf dem ein Netzwerkrichtlinienserver ausgeführt wird, verwendet wird, müssen Sie als alternativen Antragstellername den Benutzerprinzipalnamen festlegen.  
+    >  Si le certificat client sélectionné pour le protocole EAP ou pour l'authentification client d'un appareil iOS est utilisé à des fins d'authentification sur un serveur RADIUS, tel qu'un serveur exécutant NPS, l'autre nom de l'objet doit être défini sur le nom d'utilisateur principal.  
 
-    -   **Stammzertifikate für die Serverüberprüfung auswählen**: Wenn auf dem Server, mit dem das Gerät eine Verbindung herstellt, ein für das Gerät nicht vertrauenswürdiges Serverauthentifizierungszertifikat verwendet wird, wählen Sie das Zertifikatprofil aus, das das Stammzertifikat für das Serverzertifikat enthält, um auf dem Gerät eine Kette vertrauenswürdiger Zertifikate zu erstellen.  
+    -   **Sélectionner des certificats racines pour la validation du serveur**: si le serveur auquel se connecte l’appareil utilise un certificat d’authentification de serveur non approuvé par l’appareil, sélectionnez le profil de certificat qui contient le certificat racine pour le certificat de serveur pour créer une chaîne de certificats de confiance sur l’appareil.  
 
-    -   **Clientzertifikat für Clientauthentifizierung auswählen**: Wenn für den Server oder das Netzwerkgerät ein Clientzertifikat erforderlich ist, um das verbindende Gerät zu authentifizieren, wählen Sie das Zertifikatprofil aus, das das Clientauthentifizierungszertifikat enthält.  
+    -   **Sélectionner un certificat client pour l'authentification du client**: si le serveur ou l'appareil réseau requiert un certificat client pour authentifier l'appareil de connexion, sélectionnez le profil de certificat qui contient le certificat d'authentification du client.  
 
     > [!NOTE]  
-    >  Damit Sie das Stammzertifikat und das Clientzertifikat auswählen können, müssen Sie sie zuerst als Zertifikatprofil konfigurieren und bereitstellen. Weitere Informationen zu Zertifikatprofilen finden Sie unter [Zertifikatprofile in System Center Configuration Manager](introduction-to-certificate-profiles.md).  
+    >  Pour pouvoir sélectionner le certificat racine et le certificat client, vous devez tout d'abord les configurer et les déployer comme un profil de certificat. Pour plus d’informations sur les profils de certificat, consultez [Profils de certificat dans System Center Configuration Manager](introduction-to-certificate-profiles.md).  
 
-7.  Geben Sie auf der Seite **Erweiterte Einstellungen** erweiterte Einstellungen für das WLAN-Profil an. Dazu gehören der Authentifizierungsmodus, Optionen für einmaliges Anmelden und Einstellungen der FIPS-Kompatibilität (Federal Information Processing Standards). Weitere Informationen zu diesen Optionen finden Sie in der Windows-Dokumentation. Die verfügbaren erweiterten Einstellungen sind abhängig von den auf der Seite **Sicherheitskonfiguration** des Assistenten ausgewählten Optionen.  
+7.  Dans la page **Paramètres avancés**, spécifiez des paramètres avancés pour le profil Wi-Fi, tels que le mode d’authentification, les options d’authentification unique et la conformité aux normes FIPS (Federal Information Processing Standards). Pour plus d’informations sur ces options, voir la documentation de Windows. Les paramètres avancés peuvent varier ou ne pas être disponibles selon les options sélectionnées sur la page **Configuration de la sécurité** de l'Assistant.  
 
-1.  Aktivieren Sie auf der Seite **Proxyeinstellungen** das Kontrollkästchen **Proxyeinstellungen für dieses WLAN-Profil konfigurieren**, wenn für Ihr Funknetzwerk ein Proxyserver verwendet wird. Geben Sie dann die Konfigurationsinformationen an.  
+1.  Dans la page **Paramètres proxy**, cochez la case **Configurer les paramètres du proxy pour ce profil Wi-Fi** si votre connexion sans fil utilise un serveur proxy, puis fournissez les informations de configuration.  
 
-2. Wählen Sie auf der Seite **Unterstützte Plattformen** die Betriebssysteme aus, unter denen das WLAN-Profil installiert wird. Alternativ klicken Sie auf **Alle auswählen** , um das WLAN-Profil unter allen verfügbaren Betriebssystemen zu installieren.  
+2. Dans la page **Plateformes prises en charge**, sélectionnez les systèmes d’exploitation dans lesquels vous voulez installer le profil Wi-Fi. Sinon, cliquez sur **Sélectionner tout** pour installer le profil Wi-Fi sur tous les systèmes d'exploitation disponibles.  
 
-### <a name="next-steps"></a>Nächste Schritte
- Weitere Informationen zum Bereitstellen des WLAN-Profils finden Sie unter [Bereitstellen von WLAN-Profilen in System Center Configuration Manager](deploy-wifi-vpn-email-cert-profiles.md).  
+### <a name="next-steps"></a>Étapes suivantes
+ Pour plus d’informations sur le déploiement du profil Wi-Fi, consultez [Comment déployer des profils Wi-Fi dans System Center Configuration Manager](deploy-wifi-vpn-email-cert-profiles.md).  

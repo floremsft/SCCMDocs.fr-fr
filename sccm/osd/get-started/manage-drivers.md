@@ -1,6 +1,6 @@
 ---
-title: "Verwalten von Treibern – Configuration Manager | Microsoft-Dokumentation"
-description: "Verwenden Sie den Configuration Manager-Treiberkatalog zum Importieren von Gerätetreibern und Gruppentreibern in Paketen und zum Verteilen dieser Pakete an Verteilungspunkte."
+title: "Gérer des pilotes - Configuration Manager | Microsoft Docs"
+description: "Le catalogue de pilotes Configuration Manager permet d’importer des pilotes de périphérique, de les regrouper dans des packages et de distribuer ces packages à des points de distribution."
 ms.custom: na
 ms.date: 01/27/2017
 ms.prod: configuration-manager
@@ -18,259 +18,259 @@ manager: angrobe
 ms.openlocfilehash: 87ab9925717a307cbda3cea1f2e470ae012fa067
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-drivers-in-system-center-configuration-manager"></a>Verwalten von Treibern in System Center Configuration Manager
+# <a name="manage-drivers-in-system-center-configuration-manager"></a>Gérer les pilotes dans System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-System Center Configuration Manager stellt einen Treiberkatalog bereit, den Sie zum Verwalten der Windows-Gerätetreiber in Ihrer Configuration Manager-Umgebung verwenden können. Sie können den Treiberkatalog verwenden, um Gerätetreiber in Configuration Manager zu importieren, sie in Pakete zu gruppieren und um diese Pakete an Verteilungspunkte zu verteilen, wo Sie auf sie zugreifen können, wenn Sie ein Betriebssystem bereitstellen. Sie können Gerätetreiber verwenden, wenn Sie das vollständige Betriebssystem auf dem Zielcomputer installieren und wenn Sie Windows PE mithilfe eines Startabbilds installieren. Windows-Gerätetreiber bestehen aus einer INF-Datei (Setup Information File) sowie ggf. zusätzlichen Dateien, die für die Geräteunterstützung erforderlich sind. Wenn ein Betriebssystem bereitgestellt wird, werden die Hardware- und Plattforminformationen durch Configuration Manager aus der INF-Datei des Geräts abgerufen. Gehen Sie wie folgt vor, um Treiber in Ihrer Configuration Manager-Umgebung zu verwalten.
+System Center Configuration Manager propose un catalogue de pilotes qui permet de gérer les pilotes de périphérique Windows dans l’environnement Configuration Manager. Vous pouvez utiliser le catalogue de pilotes pour importer des pilotes de périphérique dans Configuration Manager, les regrouper dans des packages et distribuer ces packages à des points de distribution accessibles pendant le déploiement d’un système d’exploitation. Des pilotes de périphérique peuvent être utilisés lorsque vous installez le système d'exploitation complet sur l'ordinateur de destination et lorsque vous installez Windows PE à l'aide d'une image de démarrage. Les pilotes de périphérique Windows sont composés d'un fichier d'informations d'installation (INF) et de tous les autres fichiers nécessaires à la prise en charge du périphérique. À cette occasion, Configuration Manager obtient les informations matérielles et de plateforme du périphérique à partir de son fichier INF. Pour gérer les pilotes dans votre environnement Configuration Manager, aidez-vous des sections suivantes.
 
-##  <a name="BKMK_DriverCategories"></a> Gerätetreiberkategorien  
- Wenn Sie Gerätetreiber importieren, können Sie sie einer Kategorie zuweisen. Mithilfe von Gerätetreiberkategorien können Sie ähnlich verwendete Gerätetreiber im Treiberkatalog gruppieren. Sie können z. B. alle Netzwerkkarten-Gerätetreiber einer bestimmten Kategorie zuweisen. Wenn Sie dann eine Tasksequenz erstellen, die den Schritt [Auto Apply Drivers](../understand/task-sequence-steps.md#BKMK_AutoApplyDrivers) enthält, können Sie eine bestimmte Kategorie von Gerätetreibern angeben. Configuration Manager überprüft anschließend die Hardware und wählt die anwendbaren Treiber aus dieser Kategorie aus, um sie zur Verwendung durch Windows Setup verfügbar zu machen.  
+##  <a name="BKMK_DriverCategories"></a> Catégories de pilotes de périphériques  
+ Lorsque vous importez des pilotes de périphérique, vous pouvez affecter les pilotes de périphérique à une catégorie. Les catégories de pilotes de périphérique permettent de regrouper les pilotes de périphérique utilisés de la même façon dans le catalogue de pilotes. Par exemple, vous pouvez attribuer tous les pilotes de périphériques de carte réseau à une catégorie précise. Ensuite, quand vous créez une séquence de tâches qui comprend l’étape [Appliquer automatiquement les pilotes](../understand/task-sequence-steps.md#BKMK_AutoApplyDrivers), vous pouvez spécifier une catégorie spécifique de pilotes de périphérique. Configuration Manager analyse ensuite le matériel et sélectionne les pilotes applicables de cette catégorie pour les activer sur le système et permettre à l’installation de Windows de les utiliser.  
 
-##  <a name="BKMK_ManagingDriverPackages"></a> Treiberpakete  
- Sie können zur Vereinfachung der Bereitstellung eines Betriebssystems ähnliche Gerätetreiber in Paketen zusammenfassen. Sie können z. B. ein Treiberpaket für jeden Computerhersteller in Ihrem Netzwerk erstellen. Sie können ein Treiberpaket erstellen, wenn Sie Treiber direkt über den Knoten **Treiberpakete** in den Treiberkatalog importieren. Wenn Sie das Treiberpaket erstellt haben, müssen Sie es an Verteilungspunkte verteilen, von denen aus die Treiber von Configuration Manager-Clientcomputern nach Bedarf installiert werden können. Beachten Sie Folgendes:  
+##  <a name="BKMK_ManagingDriverPackages"></a> Packages de pilotes  
+ Vous pouvez regrouper des pilotes de périphérique similaires dans des packages pour simplifier les déploiements de systèmes d’exploitation. Par exemple, vous pouvez décider de créer un package de pilotes pour chaque marque d’ordinateur présente sur votre réseau. Vous pouvez créer un package de pilotes pendant que vous importez des pilotes dans le catalogue de pilotes directement dans le nœud **Packages de pilotes** . Une fois le package de pilotes créé, il doit être distribué aux points de distribution à partir desquels les ordinateurs clients Configuration Manager peuvent installer les pilotes, le cas échéant. Considérez les points suivants :  
 
--   Wenn Sie ein Treiberpaket erstellen, muss der Quellspeicherort des Pakets einen Verweis auf eine leere Netzwerkfreigabe enthalten, die nicht von einem anderen Treiberpaket verwendet wird, und für den SMS-Anbieter sind die Berechtigungen Lesen und Schreiben für diesen Speicherort erforderlich.  
+-   Lorsque vous créez un package de pilotes, l'emplacement source du package doit pointer sur un partage réseau vide qui n'est pas utilisé par un autre package de pilotes et le fournisseur SMS doit disposer d'autorisations en lecture et en écriture sur cet emplacement.  
 
--   Wenn Sie einem Treiberpaket Gerätetreiber hinzufügen, wird der Gerätetreiber von Configuration Manager an den Quellspeicherort des Treiberpakets kopiert. Sie können nur Gerätetreiber hinzufügen, die importiert und im Treiberkatalog für ein Treiberpaket aktiviert wurden.  
+-   Quand vous ajoutez des pilotes de périphérique à un package de pilotes, Configuration Manager copie le pilote de périphérique à l’emplacement source du package de pilotes. Vous pouvez ajouter uniquement les pilotes de périphérique qui ont été importés et qui sont activés dans le catalogue de pilotes vers un package de pilotes.  
 
--   Um eine Teilmenge der Gerätetreiber von einem bestehenden Treiberpaket zu kopieren, erstellen Sie ein neues Treiberpaket, fügen die gewünschte Teilmenge der Gerätetreiber hinzu und verteilen das neue Paket an einen Verteilungspunkt.  
+-   Pour copier un sous-ensemble de pilotes de périphérique à partir d'un package de pilotes existant, créez un nouveau package de pilotes, ajoutez-y le sous-ensemble de pilotes de périphérique, puis distribuez le nouveau package à un point de distribution.  
 
- Verwenden Sie zum Erstellen und Verwalten von Treiberpaketen die folgenden Abschnitte.  
+ Pour savoir comment créer et gérer des packages de pilotes, consultez les sections suivantes.  
 
-###  <a name="CreatingDriverPackages"></a> Erstellen eines Treiberpakets  
- Gehen Sie wie folgt vor, um ein neues Treiberpaket zu erstellen.  
+###  <a name="CreatingDriverPackages"></a> Créer un package de pilotes  
+ Utilisez la procédure ci-dessous pour créer un package de pilotes.  
 
 > [!IMPORTANT]  
->  Zum Erstellen eines Treiberpakets benötigen Sie einen leeren Netzwerkordner, der von keinem anderen Treiberpaket verwendet wird. In der Regel müssen Sie einen neuen Ordner erstellen, bevor Sie dieses Verfahren starten.  
+>  Pour créer un package de pilotes, vous devez disposer d'un dossier réseau vide qui n'est pas utilisé par un autre package de pilotes. Dans la plupart des cas, vous devez créer un nouveau dossier avant de lancer cette procédure.  
 
 > [!NOTE]  
->  Wenn Sie Tasksequenzen verwenden, um Treiber zu installieren, erstellen Sie Treiberpakete mit weniger als 500 Gerätetreibern.  
+>  Si vous prévoyez d’installer des pilotes en utilisant des séquences de tâches, créez des packages de pilotes qui contiennent moins de 500 pilotes de périphérique.  
 
- Gehen Sie wie folgt vor, um ein Treiberpaket zu erstellen.  
+ Utilisez la procédure suivante pour créer un package de pilotes.  
 
-#### <a name="to-create-a-driver-package"></a>So erstellen Sie ein Treiberpaket  
+#### <a name="to-create-a-driver-package"></a>Pour créer un package de pilotes  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Softwarebibliothek**.  
+1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
-2.  Erweitern Sie im Arbeitsbereich **Softwarebibliothek** den Bereich **Betriebssysteme**, und klicken Sie dann auf **Treiberpakete**.  
+2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Packages de pilotes**.  
 
-3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** auf **Treiberpaket erstellen**.  
+3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer un package de pilotes**.  
 
-4.  Geben Sie im Feld **Name** einen beschreibenden Namen für das Treiberpaket an.  
+4.  Dans la zone **Nom** , spécifiez un nom descriptif pour le package de pilotes.  
 
-5.  Geben Sie im Feld **Kommentar** eine optionale Beschreibung für das Treiberpaket ein. Achten Sie darauf, dass die Beschreibung Informationen zum Inhalt oder Zweck des Treiberpakets enthält.  
+5.  Dans la zone **Commentaire** , entrez une description facultative pour le package de pilotes. Vérifiez que la description fournit des informations sur le contenu ou l'objectif du package de pilotes.  
 
-6.  Geben Sie im Feld **Pfad** einen leeren Quellordner für das Treiberpaket an. Geben Sie den Pfad zum Quellordner im UNC-Format (Universal Naming Convention) ein. Von jedem Treiberpaket muss ein eindeutiger Ordner verwendet werden.  
+6.  Dans la zone **Chemin d'accès** , spécifiez un dossier source vide pour le package de pilotes. Entrez le chemin d'accès vers le dossier source au format UNC (Universal Naming Convention). Chaque package de pilotes doit utiliser un dossier unique.  
 
     > [!IMPORTANT]  
-    >  Das Standortserverkonto muss über die Berechtigungen **Lesen** und **Schreiben** für den angegebenen Quellordner verfügen.  
+    >  Le compte de serveur de site doit disposer des autorisations en **lecture** et en **écriture** dans le dossier source spécifié.  
 
- Das neue Treiberpaket enthält keine Treiber. Der nächste Schritt besteht darin, dem Paket Treiber hinzuzufügen.  
+ Le nouveau package de pilotes ne contient aucun pilote. L'étape suivante consiste à ajouter des pilotes au package.  
 
- Wenn der Knoten **Treiberpakete** mehrere Pakete enthält, können Sie dem Knoten Ordner hinzufügen, um die Pakete in logische Gruppen zu unterteilen.  
+ Si le nœud **Packages de pilotes** contient plusieurs packages, vous pouvez ajouter des dossiers au nœud pour séparer les packages en groupes logiques.  
 
-###  <a name="BKMK_PackageActions"></a> Zusätzliche Aktionen für Treiberpakete  
- Sie können zusätzliche Aktionen zur Verwaltung von Treiberpaketen ausführen, wenn Sie im Knoten **Treiberpakete** mindestens ein Treiberpaket auswählen. Diese Aktionen umfassen Folgendes:  
+###  <a name="BKMK_PackageActions"></a> Actions supplémentaires concernant les packages de pilotes  
+ Vous pouvez effectuer des actions supplémentaires pour gérer les packages de pilotes lorsque vous sélectionnez un ou plusieurs packages de pilotes dans le nœud **Packages de pilotes** . Ces actions incluent :  
 
-|Aktion|Beschreibung|  
+|Action|Description|  
 |------------|-----------------|  
-|**Datei für vorab bereitgestellten Inhalt erstellen**|Hiermit werden Dateien erstellt, die zum manuellen Importieren von Inhalt und der zugeordneten Metadaten verwendet werden können. Verwenden Sie vorab bereitgestellten Inhalt, wenn die Bandbreite zwischen dem Standortserver und den Verteilungspunkten, auf denen das Treiberpaket gespeichert wird, eingeschränkt ist.|  
-|**Löschen**|Hiermit wird das Treiberpaket aus dem Knoten **Treiberpakete** entfernt.|  
-|**Treiberpakete**|Hiermit wird das Treiberpaket an Verteilungspunkte, Verteilungspunktgruppen sowie an Verteilungspunktgruppen, die Sammlungen zugeordnet sind, verteilt.|  
-|**Zugriffskonten verwalten**|Hiermit werden Zugriffskonten für das Treiberpaket hinzugefügt, geändert oder entfernt.<br /><br /> Weitere Informationen zu Paketzugriffskonten finden Sie unter [Technische Referenz für Konten in Configuration Manager](../../core/plan-design/hierarchy/accounts.md).|  
-|**Verschieben**|Hiermit wird das Treiberpaket im Knoten **Treiberpakete** in einen anderen Ordner verschoben.|  
-|**Verteilungspunkte aktualisieren**|Hiermit wird an allen Verteilungspunkten, auf denen das Gerätetreiberpaket gespeichert wird, ein Update des Pakets ausgeführt. Bei dieser Aktion wird nur der Inhalt kopiert, der sich seit seiner letzten Verteilung geändert hat.|  
-|**Eigenschaften**|Hiermit wird das Dialogfeld **Eigenschaften** geöffnet, in dem Sie den Inhalt und die Eigenschaften des Gerätetreibers prüfen und ändern können. Beispielsweise können Sie den Namen und die Beschreibung des Gerätetreibers ändern, den Gerätetreiber aktivieren sowie angeben, auf welchen Plattformen der Gerätetreiber ausgeführt werden kann.|  
+|**Créer un fichier de contenu préparé**|Crée des fichiers qui peuvent être utilisés pour importer manuellement le contenu et ses métadonnées associées. Utilisez du contenu préparé lorsque vous avez une bande passante réseau faible entre le serveur de site et les points de distribution sur lesquels est stocké le package de pilotes.|  
+|**Supprimer**|Supprime le package de pilotes du nœud **Packages de pilotes** .|  
+|**Distribuer du contenu**|Distribue le package de pilotes sur des points de distribution, des groupes de points de distribution et des groupes de points de distribution associés à des regroupements.|  
+|**Gérer des comptes d'accès**|Ajoute, modifie ou supprime des comptes d'accès pour le package de pilotes.<br /><br /> Pour plus d’informations sur les comptes d’accès au package, consultez [Comptes utilisés dans Configuration Manager](../../core/plan-design/hierarchy/accounts.md).|  
+|**Déplacer**|Déplace le package de pilotes vers un autre dossier dans le nœud **Packages de pilotes** .|  
+|**Mise à jour des points de distribution**|Met à jour le package de pilotes de périphérique sur tous les points de distribution sur lesquels le package est stocké. Cette action copie uniquement le contenu qui a été modifié après sa dernière distribution.|  
+|**Propriétés**|Ouvre la boîte de dialogue **Propriétés** dans laquelle vous pouvez examiner et modifier le contenu et les propriétés du pilote de périphérique. Par exemple, vous pouvez modifier le nom et la description du pilote de périphérique, activer le pilote de périphérique et spécifier les plates-formes sur lesquelles le pilote de périphérique peut être exécuté.|  
 
-##  <a name="BKMK_DeviceDrivers"></a> Gerätetreiber  
- Sie können Gerätetreiber auf Zielcomputern installieren, ohne sie in das Betriebssystemabbild einzuschließen, das bereitgestellt wird. In Configuration Manager ist ein Treiberkatalog enthalten, der Verweise zu allen Gerätetreibern enthält, die Sie in Configuration Manager importieren. Der Treiberkatalog befindet sich im Arbeitsbereich **Softwarebibliothek** . Er besteht aus zwei Knoten: **Treiber** und **Treiberpakete**. Im Knoten **Treiber** sind alle Treiber aufgelistet, die Sie in den Treiberkatalog importiert haben. Verwenden Sie diesen Knoten, um Details zu jedem importierten Treiber zu ermitteln, die Treiber im Treiberpaket oder Startabbild zu ändern, einen Treiber zu aktivieren oder deaktivieren usw.  
+##  <a name="BKMK_DeviceDrivers"></a> Pilotes d'appareils  
+ Vous pouvez installer des pilotes de périphérique sur les ordinateurs de destination sans les inclure dans l'image du système d'exploitation déployée. Configuration Manager propose un catalogue de pilotes qui contient les références à tous les pilotes de périphérique que vous importez dans Configuration Manager. Le catalogue de pilotes se trouve dans l’espace de travail **Bibliothèque de logiciels** et est composé de deux nœuds : **Pilotes** et **Packages de pilotes**. Le nœud **Pilotes** répertorie tous les pilotes que vous avez importés dans le catalogue de pilotes. Ce nœud vous permet de découvrir les détails relatifs à chaque pilote importé, de modifier les pilotes contenus dans un package de pilotes ou une image de démarrage, d’activer ou désactiver un pilote, etc.  
 
-###  <a name="BKMK_ImportDrivers"></a> Importieren von Gerätetreibern in den Gerätekatalog  
- Bei der Bereitstellung eines Betriebssystems müssen Sie Gerätetreiber in den Treiberkatalog importieren, bevor Sie sie verwenden können. Sie können die Verwaltung Ihrer Gerätetreiber vereinfachen, indem Sie nur die Gerätetreiber importieren, die Sie im Rahmen der Betriebssystembereitstellung installieren möchten. Sie können aber auch mehrere Versionen der Gerätetreiber im Treiberkatalog speichern, um auf einfache Art Upgrades bei vorhandenen Gerätetreibern auszuführen, wenn sich die Hardwaregeräteanforderungen in Ihrem Netzwerk ändern.  
+###  <a name="BKMK_ImportDrivers"></a> Importer des pilotes de périphérique dans le catalogue de pilotes  
+ Vous devez importer les pilotes de périphérique dans le catalogue de pilotes avant de pouvoir les utiliser lorsque vous déployez un système d'exploitation. Pour mieux gérer vos pilotes de périphérique, importez uniquement les pilotes de périphérique que vous prévoyez d'installer dans le cadre du déploiement de votre système d'exploitation. Toutefois, vous pouvez également stocker plusieurs versions de pilotes de périphérique dans le catalogue de périphériques afin de mettre facilement à niveau des pilotes de périphérique existants lorsque la configuration matérielle requise en matière de périphériques évolue sur votre réseau.  
 
- Im Rahmen des Importvorgangs für den Gerätetreiber werden von Configuration Manager Informationen gelesen, die dem Gerät zugeordnet sind, darunter Anbieter, Klasse, Version, Signatur sowie unterstützte Hardware und Plattformen. Der Treiber wird standardmäßig nach dem ersten Hardwaregerät benannt, das von ihm unterstützt wird. Sie können den Gerätetreiber aber zu einem späteren Zeitpunkt umbenennen. Die Liste der unterstützten Plattformen beruht auf den Informationen in der INF-Datei des Treibers. Diese Informationen sind jedoch nicht immer vollständig. Überprüfen Sie daher nach dem Import eines Treibers in den Treiberkatalog manuell, ob der Gerätetreiber unterstützt wird.  
+ Pendant le processus d’importation de pilote de périphérique, Configuration Manager lit le fournisseur, la classe, la version, la signature, le matériel pris en charge et les informations de plateforme prises en charge associées au périphérique. Par défaut, le nom du pilote repose sur celui du premier périphérique matériel pris en charge ; toutefois, le pilote de périphérique peut être renommé par la suite. La liste des plates-formes prises en charge est basée sur les informations dans le fichier INF du pilote. Comme l'exactitude de ces informations peut varier, vérifiez manuellement que le pilote de périphérique est pris en charge une fois qu'il est importé dans le catalogue de pilotes.  
 
- Nachdem Sie Gerätetreiber in den Katalog importiert haben, können Sie die Gerätetreiber zudem Treiberpaketen oder Startabbildpaketen hinzufügen.  
+ Après avoir importé des pilotes de périphérique dans le catalogue, vous pouvez les ajouter à des packages de pilotes ou à des packages d’images de démarrage.  
 
 > [!IMPORTANT]  
->  Es ist nicht möglich, Gerätetreiber direkt in einen Unterordner des Knotens **Treiber** zu importieren. Zum Importieren eines Gerätetreibers in einen Unterordner importieren Sie den Gerätetreiber zuerst in den Knoten **Treiber** , und verschieben Sie den Treiber dann in den Unterordner.  
+>  Vous ne pouvez pas importer des pilotes de périphérique directement dans un sous-dossier du nœud **Pilotes** . Pour importer un pilote de périphérique dans un sous-dossier, importez-le d'abord dans le nœud **Pilotes** , puis déplacez-le dans le sous-dossier.  
 
- Gehen Sie wie folgt vor, um Windows-Gerätetreiber zu importieren.  
+ Utilisez la procédure suivante pour importer des pilotes de périphérique Windows.  
 
-#### <a name="to-import-windows-device-drivers-into-the-driver-catalog"></a>So importieren Sie Windows-Gerätetreiber in den Treiberkatalog  
+#### <a name="to-import-windows-device-drivers-into-the-driver-catalog"></a>Pour importer des pilotes de périphérique Windows dans le catalogue de pilotes  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Softwarebibliothek**.  
+1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
-2.  Erweitern Sie im Arbeitsbereich **Softwarebibliothek** den Bereich **Betriebssysteme**, und klicken Sie dann auf **Treiber**.  
+2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Pilotes**.  
 
-3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** auf **Treiber importieren** , um den **** Treiberimport-Assistenten zu starten.  
+3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Importer un pilote** pour démarrer l' **Assistant Importation de nouveau pilote**.  
 
-4.  Geben Sie auf der Seite **Treiber suchen** die folgenden Optionen an, und klicken Sie dann auf **Weiter**:  
+4.  Sur la page **Trouver le pilote** , spécifiez les options suivantes et cliquez sur **Suivant**:  
 
-    -   **Alle Treiber im folgenden Netzwerkpfad (UNC) importieren**: Geben Sie den Netzwerkpfad zu einem Gerätetreiberordner an, um alle Gerätetreiber zu importieren, die sich in einem bestimmten Ordner befinden. Beispiel:  **\\\Servername\Ordner**.  
+    -   **Importer tous les pilotes dans le chemin réseau (UNC) suivant**: Pour importer tous les pilotes de périphérique qui sont contenus dans un dossier spécifique, spécifiez le chemin d'accès réseau vers le dossier de pilote de périphérique. Par exemple :  **\\\\nom_serveur\dossier**.  
 
         > [!NOTE]  
-        >  Der Prozess zum Importieren aller Treiber kann eine Weile dauern, wenn viele Ordner und viele Treiberdateien (.inf) vorhanden sind.  
+        >  Le processus d’importation de l’ensemble des pilotes peut prendre un certain temps en présence d’un grand nombre de dossiers et de fichiers de pilote (.inf).  
 
-    -   **Bestimmten Treiber importieren**: Geben Sie den Netzwerkpfad (UNC) zur INF-Datei des Windows-Gerätetreibers oder zur Datei „Txtsetup.oem“ eines Massenspeichertreibers an, um einen bestimmten Treiber aus einem Ordner zu importieren.  
+    -   **Importer un pilote spécifique**: pour importer un pilote spécifique à partir d’un dossier, spécifiez le chemin réseau (UNC) vers le fichier .INF du pilote de périphérique Windows ou le fichier Txtsetup.oem de stockage de masse du pilote.  
 
-    -   **Option für doppelte Treiber angeben**: Geben Sie an, wie in Configuration Manager Treiberkategorien verwaltet werden sollen, wenn ein doppelter Gerätetreiber importiert wird.  
+    -   **Spécifier l’option pour les pilotes dupliqués** : indiquez comment vous voulez que Configuration Manager gère les catégories de pilotes pendant l’importation d’un pilote de périphérique en double.  
 
     > [!IMPORTANT]  
-    >  Wenn Sie Treiber importieren, muss der Standortserver über die ****  Leseberechtigung für diesen Ordner verfügen. Andernfalls tritt beim Import ein Fehler auf.  
+    >  Lorsque vous importez des pilotes, le serveur de site doit disposer de l'autorisation **Lecture** pour le dossier, sinon l'importation échoue.  
 
-5.  Geben Sie auf der Seite **Treiberdetails** die folgenden Optionen an, und klicken Sie dann auf **Weiter**:  
+5.  Sur la page **Détails du pilote** , spécifiez les options suivantes et cliquez sur **Suivant**:  
 
-    -   **Treiber ausblenden, die nicht in einer Speicher- oder Netzwerkklasse (für Startabbilder) enthalten sind**: Verwenden Sie diese Einstellung, um nur Speicher- und Netzwerktreiber anzuzeigen und andere Treiber, die in der Regel nicht für Startabbilder benötigt werden, z. B. Videotreiber oder Modemtreiber, auszublenden.  
+    -   **Masquer les pilotes hors classe de stockage ou réseau (pour les images de démarrage)**: ce paramètre permet d’afficher uniquement les pilotes réseau et de stockage, et de masquer les autres pilotes qui ne sont généralement pas nécessaires pour les images de démarrage, tels que les pilotes vidéo ou les pilotes de modem.  
 
-    -   **Treiber ausblenden, die nicht digital signiert sind**: Verwenden Sie diese Einstellung, um Treiber auszublenden, die nicht digital signiert sind.  
+    -   **Masquer les pilotes qui ne sont pas signés numériquement**: ce paramètre permet de masquer les pilotes qui ne sont pas signés numériquement.  
 
-    -   Wählen Sie in der Treiberliste die Treiber aus, die Sie in den Treiberkatalog importieren möchten.  
+    -   Dans la liste des pilotes, sélectionnez les pilotes que vous souhaitez importer dans le catalogue de pilotes.  
 
-    -   **Diese Treiber aktivieren und Installation auf Computern zulassen**: Aktivieren Sie diese Einstellung, damit die Gerätetreiber auf Computern installiert werden können. Standardmäßig ist dieses Kontrollkästchen aktiviert.  
+    -   **Activer ces pilotes et autoriser leur installation sur les ordinateurs**: sélectionnez ce paramètre pour laisser les ordinateurs installer les pilotes de périphérique. Par défaut, cette case à cocher est activée.  
 
         > [!IMPORTANT]  
-        >  Wenn ein Gerätetreiber ein Problem verursacht oder Sie die Installation eines Gerätetreibers anhalten möchten, können Sie den Gerätetreiber deaktivieren. Deaktivieren Sie dazu das Kontrollkästchen **Diese Treiber aktivieren und Installation auf Computern zulassen** . Sie können Treiber auch deaktivieren, nachdem sie importiert wurden.  
+        >  Si un pilote de périphérique est à l'origine d'un problème, ou si vous souhaitez suspendre l'installation d'un pilote de périphérique, vous pouvez désactiver le pilote de périphérique en désactivant la case à cocher **Activer ces pilotes et autoriser leur installation sur les ordinateurs** . Vous pouvez également désactiver les pilotes après leur importation.  
 
-    -   Klicken Sie auf die Schaltfläche **Kategorien** , wenn Sie die Gerätetreiber zu Filterzwecken einer Verwaltungskategorie wie „Desktops“ oder „Notebooks“ zuweisen möchten. Wählen Sie dann eine vorhandene Kategorie aus, oder erstellen Sie eine neue Kategorie. Mit der Kategoriezuweisung können Sie auch konfigurieren, welche Gerätetreiber vom Tasksequenzschritt [Auto Apply Drivers](../understand/task-sequence-steps.md#BKMK_AutoApplyDrivers) auf die Bereitstellung angewendet werden.  
+    -   Pour attribuer les pilotes de périphérique à une catégorie administrative à des fins de filtrage, telle que « Postes de travail » ou « Ordinateurs portables », cliquez sur **Catégories** et sélectionnez une catégorie existante ou créez-en une nouvelle. Vous pouvez aussi utiliser l’attribution de catégorie pour configurer les pilotes de périphérique qui s’appliquent au déploiement avec l’étape de séquence de tâches [Appliquer automatiquement les pilotes](../understand/task-sequence-steps.md#BKMK_AutoApplyDrivers).  
 
-6.  Wählen Sie auf der Seite **Treiber zu Paketen hinzufügen** aus, ob die Treiber einem Paket hinzugefügt werden sollen, und klicken Sie auf **Weiter**. Berücksichtigen beim Hinzufügen von Treibern zu einem Paket Folgendes:  
+6.  Dans la page **Ajouter un pilote aux packages** , choisissez d’ajouter ou non les pilotes à un package, puis cliquez sur **Suivant**. Tenez compte des points suivants avant d’ajouter les pilotes à un package :  
 
-    -   Wählen Sie die Treiberpakete aus, die zur Verteilung der Gerätetreiber verwendet werden.  
+    -   Sélectionnez les packages de pilotes qui sont utilisés pour distribuer les pilotes de périphérique.  
 
-         Klicken Sie optional auf **Neues Paket** , um ein neues Treiberpaket zu erstellen. Wenn Sie ein neues Treiberpaket erstellen, müssen Sie eine Netzwerkfreigabe angeben, die nicht von anderen Treiberpaketen verwendet wird.  
+         Si vous le souhaitez, cliquez sur **Nouveau package** pour créer un nouveau package de pilotes. Lorsque vous créez un nouveau package de pilotes, vous devez fournir un partage réseau qui n'est pas en cours d'utilisation par d'autres packages de pilotes.  
 
-    -   Wenn das Paket bereits an Verteilungspunkte verteilt wurde, klicken Sie im Dialogfeld auf **Ja** , um die Startabbilder auf Verteilungspunkten zu aktualisieren. Sie können Gerätetreiber erst verwenden, nachdem sie an Verteilungspunkte verteilt wurden. Wenn Sie auf **Nein**klicken, müssen Sie die Aktion **Verteilungspunkte aktualisieren** ausführen, bevor das Startabbild die aktualisierten Treiber enthält. Ist das Treiberpaket nie verteilt worden, müssen Sie am Knoten **Treiberpakete** auf **Inhalt verteilen** klicken.  
+    -   Si le package a déjà été distribué à des points de distribution, cliquez sur **Oui** dans la boîte de dialogue pour mettre à jour les images de démarrage sur les points de distribution. Vous ne pouvez pas utiliser les pilotes de périphérique tant qu'ils ne sont pas distribués sur des points de distribution. Si vous cliquez sur **Non**, vous devez exécuter l'action **Mettre à jour les points de distribution** pour que l'image de démarrage contienne les pilotes mis à jour. Si le package de pilotes n'a jamais été distribué, vous devez cliquer sur **Distribuer du contenu** à partir du nœud **Packages de pilotes** .  
 
-7.  Wählen Sie auf der Seite **Treiber zu Startabbildern hinzufügen** , ob die Gerätetreiber vorhandenen Startabbildern hinzugefügt werden sollen, und klicken Sie dann auf **Weiter**. Wenn Sie ein Startabbild auswählen, beachten Sie Folgendes:  
+7.  Dans la page **Ajouter un pilote aux images de démarrage** , choisissez éventuellement d’ajouter les pilotes de périphérique aux images de démarrage existantes, puis cliquez sur **Suivant**. Si vous sélectionnez une image de démarrage, tenez compte des points suivants :  
 
     > [!NOTE]  
-    >  Es wird empfohlen, den Startabbildern für die Bereitstellung von Betriebssystemen nur Massenspeicher- und Netzwerkgerätetreiber hinzuzufügen.  
+    >  En guise de meilleure pratique, vous devez ajouter uniquement les pilotes de périphérique de stockage de masse et les pilotes de périphérique réseau aux images de démarrage dans les scénarios de déploiement de systèmes d'exploitation.  
 
-    -   Klicken Sie im Dialogfeld auf **Ja** , um ein Update der  Startabbilder auf Verteilungspunkten auszuführen. Sie können Gerätetreiber erst verwenden, nachdem sie an Verteilungspunkte verteilt wurden. Wenn Sie auf **Nein**klicken, müssen Sie die Aktion **Verteilungspunkte aktualisieren** ausführen, bevor das Startabbild die aktualisierten Treiber enthält. Ist das Treiberpaket nie verteilt worden, müssen Sie am Knoten **Treiberpakete** auf **Inhalt verteilen** klicken.  
+    -   Cliquez sur **Oui** dans la boîte de dialogue pour mettre à jour les images de démarrage sur les points de distribution. Vous ne pouvez pas utiliser les pilotes de périphérique tant qu'ils ne sont pas distribués sur des points de distribution. Si vous cliquez sur **Non**, vous devez exécuter l'action **Mettre à jour les points de distribution** pour que l'image de démarrage contienne les pilotes mis à jour. Si le package de pilotes n'a jamais été distribué, vous devez cliquer sur **Distribuer du contenu** à partir du nœud **Packages de pilotes** .  
 
-    -   Configuration Manager gibt eine Warnung aus, wenn die Architektur für einen oder mehrere Treiber nicht mit der Architektur der von Ihnen ausgewählten Startimages übereinstimmt. Wenn das der Fall ist, klicken Sie auf **OK** , und kehren Sie zur Seite **Treiberdetails** zurück, um die Treiber zu deaktivieren, die der Architektur des ausgewählten Startabbilds nicht entsprechen. Wenn Sie beispielsweise ein x64- und x86-Startabbild auswählen, müssen alle Treiber beide Architekturen unterstützen. Wenn Sie ein x64-Startabbild auswählen, müssen alle Treiber die x64-Architekturen unterstützen.  
-
-        > [!NOTE]  
-        >  -   Die Architektur basiert auf derjenigen, die in der INF-Datei vom Hersteller angegeben ist.  
-        > -   Wenn für einen Treiber angegeben ist, dass er beide Architekturen unterstützt, können Sie ihn in jedes der Startabbilder importieren.  
-
-    -   Configuration Manager gibt eine Warnung aus, wenn Sie Gerätetreiber hinzufügen, die keine Netzwerk- oder Speichertreiber für ein Startimage sind, da diese in den meisten Fällen nicht für das Startimage erforderlich sind. Klicken Sie auf **Ja** , um die Treiber zum Startabbild hinzuzufügen, oder auf **Nein** , um zurückzukehren und die Treiberauswahl zu ändern.  
-
-    -   Configuration Manager gibt eine Warnung aus, wenn einer oder mehrere der ausgewählten Treiber nicht ordnungsgemäß digital signiert sind. Klicken Sie auf **Ja** , um fortzufahren, oder auf **Nein** , um zurückzukehren und die Treiberauswahl zu ändern.  
-
-8.  Schließen Sie den Assistenten ab.  
-
-###  <a name="BKMK_ModifyDriverPackage"></a> Verwalten von Gerätetreibern in einem Treiberpaket  
- Gehen Sie wie folgt vor, um Treiberpakete und Startabbilder zu ändern. Zum Hinzufügen oder Entfernen von Gerätetreibern suchen Sie die Treiber im Knoten **Treiber** , und bearbeiten Sie dann die Pakete oder Startabbilder, denen die ausgewählten Treiber zugeordnet sind.  
-
-#### <a name="to-modify-the-device-drivers-in-a-driver-package"></a>So ändern Sie die Gerätetreiber in einem Treiberpaket  
-
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Softwarebibliothek**.  
-
-2.  Erweitern Sie im Arbeitsbereich **Softwarebibliothek** den Bereich **Betriebssysteme**, und klicken Sie dann auf **Treiber**.  
-
-3.  Wählen Sie im Knoten **Treiber** die Gerätetreiber aus, die Sie dem Treiberpaket hinzufügen möchten.  
-
-4.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Treiber** auf **Bearbeiten**und dann auf **Treiberpakete**.  
-
-5.  Zum Hinzufügen eines Gerätetreibers aktivieren Sie das Kontrollkästchen für die Treiberpakete, denen Sie den Gerätetreiber hinzufügen möchten. Zum Entfernen eines Gerätetreibers deaktivieren Sie das Kontrollkästchen für die Treiberpakete, aus denen Sie den Gerätetreiber entfernen möchten.  
-
-     Wenn Sie Gerätetreiber hinzufügen, die Treiberpaketen zugeordnet sind, können Sie optional ein neues Paket erstellen, indem Sie auf **Neues Paket**klicken. Hierdurch wird das Dialogfeld **Treiberpaket erstellen** geöffnet.  
-
-6.  Wenn das Paket bereits an Verteilungspunkte verteilt wurde, klicken Sie im Dialogfeld auf **Ja** , um die Startabbilder auf Verteilungspunkten zu aktualisieren. Sie können Gerätetreiber erst verwenden, nachdem sie an Verteilungspunkte verteilt wurden. Wenn Sie auf **Nein**klicken, müssen Sie die Aktion **Verteilungspunkte aktualisieren** ausführen, bevor das Startabbild die aktualisierten Treiber enthält. Ist das Treiberpaket nie verteilt worden, müssen Sie am Knoten **Treiberpakete** auf **Inhalt verteilen** klicken. Bevor die Treiber zur Verfügung stehen, müssen Sie das Treiberpaket auf Verteilungspunkten aktualisieren.  
-
-     Klicken Sie auf **OK**.  
-
-###  <a name="BKMK_ManageDriversBootImage"></a> Verwalten von Gerätetreibern in einem Startabbild  
- Sie können Startabbildern Windows-Gerätetreiber hinzufügen, die in den Treiberkatalog importiert wurden. Verwenden Sie die folgenden Richtlinien, wenn Sie einem Startabbild Gerätetreiber hinzufügen:  
-
--   Fügen Sie Startabbildern nur Gerätetreiber für Massenspeichergeräte und Netzwerkadapter hinzu, da andere Treibertypen nicht grundsätzlich erforderlich sind. Durch Treiber, die nicht erforderlich sind, wird die Größe des Startabbilds unnötig erhöht.  
-
--   Fügen Sie Startabbildern nur Gerätetreiber für Windows 10 hinzu, da die erforderliche Version von Windows PE auf Windows 10 basiert.  
-
--   Vergewissern Sie sich, dass Sie die richtigen Gerätetreiber für die Startabbildarchitektur verwenden.  Fügen Sie einem x64-Startabbild keinen x86-Gerätetreiber hinzu.  
-
- Gehen Sie wie folgt vor, um Gerätetreiber in einem Startabbild hinzuzufügen oder zu entfernen.  
-
-#### <a name="to-modify-the--device-drivers-associated-with-a-boot-image"></a>So ändern Sie Gerätetreiber, die einem Startabbild zugeordnet sind  
-
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Softwarebibliothek**.  
-
-2.  Erweitern Sie im Arbeitsbereich **Softwarebibliothek** den Bereich **Betriebssysteme**, und klicken Sie dann auf **Treiber**.  
-
-3.  Wählen Sie im Knoten **Treiber** die Gerätetreiber aus, die Sie dem Treiberpaket hinzufügen möchten.  
-
-4.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Treiber** auf **Bearbeiten**und dann auf **Startabbilder**.  
-
-5.  Zum Hinzufügen eines Gerätetreibers aktivieren Sie das Kontrollkästchen für das Startabbild, dem Sie den Gerätetreiber hinzufügen möchten. Zum Entfernen eines Gerätetreibers aktivieren Sie das Kontrollkästchen für das Startabbild, aus dem Sie den Gerätetreiber entfernen möchten.  
-
-6.  Deaktivieren Sie das Kontrollkästchen **Verteilungspunkte nach Abschluss aktualisieren** , wenn Sie kein Update der Verteilungspunkte, auf denen das Startabbild gespeichert wird, ausführen möchten. Standardmäßig wird ein Update der Verteilungspunkte ausgeführt, wenn ein Update des Startabbilds ausgeführt wird.  
-
-     Klicken Sie auf **OK** , und beachten Sie Folgendes:  
-
-    -   Klicken Sie im Dialogfeld auf **Ja** , um ein Update der  Startabbilder auf Verteilungspunkten auszuführen. Sie können Gerätetreiber erst verwenden, nachdem sie an Verteilungspunkte verteilt wurden. Wenn Sie auf **Nein**klicken, müssen Sie die Aktion **Verteilungspunkte aktualisieren** ausführen, bevor das Startabbild die aktualisierten Treiber enthält. Ist das Treiberpaket nie verteilt worden, müssen Sie am Knoten **Treiberpakete** auf **Inhalt verteilen** klicken.  
-
-    -   Configuration Manager gibt eine Warnung aus, wenn die Architektur für einen oder mehrere Treiber nicht mit der Architektur der von Ihnen ausgewählten Startimages übereinstimmt. Wenn das der Fall ist, klicken Sie auf **OK** , und kehren Sie zur Seite **Treiberdetails** zurück, um die Treiber zu deaktivieren, die der Architektur des ausgewählten Startabbilds nicht entsprechen. Wenn Sie beispielsweise ein x64- und x86-Startabbild auswählen, müssen alle Treiber beide Architekturen unterstützen. Wenn Sie ein x64-Startabbild auswählen, müssen alle Treiber die x64-Architekturen unterstützen.  
+    -   Configuration Manager vous avertit si l’architecture d’un ou plusieurs pilotes ne correspond pas à celle des images de démarrage que vous avez sélectionnées. Si elles ne correspondent pas, cliquez sur **OK** et revenez à la page **Détails du pilote** pour effacer les pilotes qui ne correspondent pas à l'architecture de l'image de démarrage sélectionnée. Par exemple, si vous sélectionnez une image de démarrage x64 et x86, tous les pilotes doivent prendre en charge les deux architectures. Si vous sélectionnez une image de démarrage x64, tous les pilotes doivent prendre en charge l'architecture x 64.  
 
         > [!NOTE]  
-        >  -   Die Architektur basiert auf derjenigen, die in der INF-Datei vom Hersteller angegeben ist.  
-        > -   Wenn für einen Treiber angegeben ist, dass er beide Architekturen unterstützt, können Sie ihn in jedes der Startabbilder importieren.  
+        >  -   L'architecture est basée sur l'architecture signalée dans le fichier .INF du fabricant.  
+        > -   Si un pilote indique qu'il prend en charge les deux architectures, vous pouvez l'importer dans l'une ou l'autre image de démarrage.  
 
-    -   Configuration Manager gibt eine Warnung aus, wenn Sie Gerätetreiber hinzufügen, die keine Netzwerk- oder Speichertreiber für ein Startimage sind, da diese in den meisten Fällen nicht für das Startimage erforderlich sind. Klicken Sie auf **Ja** , um die Treiber zum Startabbild hinzuzufügen, oder auf **Nein** , um zurückzukehren und die Treiberauswahl zu ändern.  
+    -   Configuration Manager vous avertit si les pilotes de périphérique que vous ajoutez à une image de démarrage ne sont ni des pilotes réseau ni des pilotes de stockage, car dans la plupart des cas ils ne sont pas nécessaires pour l’image de démarrage. Cliquez sur **Oui** pour ajouter les pilotes à l'image de démarrage ou sur **Non** pour revenir en arrière et modifier votre sélection de pilote.  
 
-    -   Configuration Manager gibt eine Warnung aus, wenn einer oder mehrere der ausgewählten Treiber nicht ordnungsgemäß digital signiert sind. Klicken Sie auf **Ja** , um fortzufahren, oder auf **Nein** , um zurückzukehren und die Treiberauswahl zu ändern.  
+    -   Configuration Manager vous avertit si un ou plusieurs pilotes sélectionnés ne sont pas correctement signés numériquement. Cliquez sur **Oui** pour continuer ou sur **Non** pour revenir en arrière et apporter des modifications à votre sélection de pilote.  
 
-7.  Klicken Sie auf **OK**.  
+8.  Effectuez toutes les étapes de l'Assistant.  
 
-###  <a name="BKMK_DriverActions"></a> Zusätzliche Aktionen für Gerätetreiber  
- Sie können zusätzliche Aktionen zur Verwaltung von Gerätetreibern ausführen, wenn Sie im Knoten **Treiber** mindestens einen Gerätetreiber auswählen. Diese Aktionen umfassen Folgendes:  
+###  <a name="BKMK_ModifyDriverPackage"></a> Gérer les pilotes de périphérique dans un package de pilotes  
+ Utilisez les procédures suivantes pour modifier les packages de pilotes et les images de démarrage. Pour ajouter ou supprimer des pilotes de périphérique, recherchez les pilotes dans le nœud **Pilotes** , puis modifiez les packages ou les images de démarrage auxquels les pilotes sélectionnés sont associés.  
 
-|Aktion|Beschreibung|  
+#### <a name="to-modify-the-device-drivers-in-a-driver-package"></a>Pour modifier les pilotes de périphérique dans un package de pilotes  
+
+1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
+
+2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Pilotes**.  
+
+3.  Dans le nœud **Pilotes** , sélectionnez les pilotes de périphérique que vous souhaitez ajouter au package de pilotes.  
+
+4.  Dans l'onglet **Accueil** , dans le groupe **Pilote** , cliquez sur **Modifier**, puis sur **Packages de pilotes**.  
+
+5.  Pour ajouter un pilote de périphérique, activez la case à cocher des packages de pilotes auxquels vous souhaitez ajouter les pilotes de périphérique. Pour supprimer un pilote de périphérique, désactivez la case à cocher des packages de pilotes desquels vous souhaitez supprimer le pilote de périphérique.  
+
+     Si vous ajoutez des pilotes de périphérique associés à des packages de pilotes, vous pouvez éventuellement créer un nouveau package en cliquant sur **Nouveau package**qui ouvre la boîte de dialogue **Nouveau package de pilotes** .  
+
+6.  Si le package a déjà été distribué à des points de distribution, cliquez sur **Oui** dans la boîte de dialogue pour mettre à jour les images de démarrage sur les points de distribution. Vous ne pouvez pas utiliser les pilotes de périphérique tant qu'ils ne sont pas distribués sur des points de distribution. Si vous cliquez sur **Non**, vous devez exécuter l'action **Mettre à jour les points de distribution** pour que l'image de démarrage contienne les pilotes mis à jour. Si le package de pilotes n'a jamais été distribué, vous devez cliquer sur **Distribuer du contenu** à partir du nœud **Packages de pilotes** . Pour que les pilotes soient disponibles, vous devez mettre à jour le package de pilotes sur les points de distribution.  
+
+     Cliquez sur **OK**.  
+
+###  <a name="BKMK_ManageDriversBootImage"></a> Gérer les pilotes de périphérique dans une image de démarrage  
+ Vous pouvez ajouter des pilotes de périphérique Windows qui ont été importés dans le catalogue de pilotes à des images de démarrage . Lorsque vous ajoutez des pilotes de périphérique à une image de démarrage, procédez comme suit :  
+
+-   Ajoutez uniquement les pilotes de périphérique de stockage de masse et de carte réseau aux images de démarrage, car les autres types de pilotes ne sont généralement pas requis. Les pilotes qui ne sont pas requis augmentent inutilement la taille de l'image de démarrage.  
+
+-   Ajoutez uniquement les pilotes de périphérique pour Windows 10 à une image de démarrage, car la version requise de Windows PE est basée sur Windows 10.  
+
+-   Assurez-vous que vous utilisez le pilote de périphérique correct pour l'architecture de l'image de démarrage.  N'ajoutez pas un pilote de périphérique x86 à une image de démarrage x64.  
+
+ Pour ajouter ou supprimer des pilotes de périphérique dans une image de démarrage, procédez comme suit :  
+
+#### <a name="to-modify-the--device-drivers-associated-with-a-boot-image"></a>Pour modifier les pilotes de périphérique associés à une image de démarrage  
+
+1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
+
+2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Pilotes**.  
+
+3.  Dans le nœud **Pilotes** , sélectionnez les pilotes de périphérique que vous souhaitez ajouter au package de pilotes.  
+
+4.  Dans l'onglet **Accueil** , dans le groupe **Pilote** , cliquez sur **Modifier**, puis sur **Images de démarrage**.  
+
+5.  Pour ajouter un pilote de périphérique, activez la case à cocher de l'image de démarrage à laquelle vous souhaitez ajouter les pilotes de périphérique. Pour supprimer un pilote de périphérique, désactivez la case à cocher de l'image de démarrage de laquelle vous souhaitez supprimer le pilote de périphérique.  
+
+6.  Si vous ne souhaitez pas mettre à jour les points de distribution dans lesquels l'image de démarrage est stockée, désactivez la case à cocher **Mettre à jour les points de distribution une fois terminé** . Par défaut, les points de distribution sont mis à jour lorsque l'image de démarrage est mise à jour.  
+
+     Cliquez sur **OK** et tenez compte des points suivants :  
+
+    -   Cliquez sur **Oui** dans la boîte de dialogue pour mettre à jour les images de démarrage sur les points de distribution. Vous ne pouvez pas utiliser les pilotes de périphérique tant qu'ils ne sont pas distribués sur des points de distribution. Si vous cliquez sur **Non**, vous devez exécuter l'action **Mettre à jour les points de distribution** pour que l'image de démarrage contienne les pilotes mis à jour. Si le package de pilotes n'a jamais été distribué, vous devez cliquer sur **Distribuer du contenu** à partir du nœud **Packages de pilotes** .  
+
+    -   Configuration Manager vous avertit si l’architecture d’un ou plusieurs pilotes ne correspond pas à celle des images de démarrage que vous avez sélectionnées. Si elles ne correspondent pas, cliquez sur **OK** et revenez à la page **Détails du pilote** pour effacer les pilotes qui ne correspondent pas à l'architecture de l'image de démarrage sélectionnée. Par exemple, si vous sélectionnez une image de démarrage x64 et x86, tous les pilotes doivent prendre en charge les deux architectures. Si vous sélectionnez une image de démarrage x64, tous les pilotes doivent prendre en charge l'architecture x 64.  
+
+        > [!NOTE]  
+        >  -   L'architecture est basée sur l'architecture signalée dans le fichier .INF du fabricant.  
+        > -   Si un pilote indique qu'il prend en charge les deux architectures, vous pouvez l'importer dans l'une ou l'autre image de démarrage.  
+
+    -   Configuration Manager vous avertit si les pilotes de périphérique que vous ajoutez à une image de démarrage ne sont ni des pilotes réseau ni des pilotes de stockage, car dans la plupart des cas ils ne sont pas nécessaires pour l’image de démarrage. Cliquez sur **Oui** pour ajouter les pilotes à l'image de démarrage ou sur **Non** pour revenir en arrière et modifier votre sélection de pilote.  
+
+    -   Configuration Manager vous avertit si un ou plusieurs pilotes sélectionnés ne sont pas correctement signés numériquement. Cliquez sur **Oui** pour continuer ou sur **Non** pour revenir en arrière et apporter des modifications à votre sélection de pilote.  
+
+7.  Cliquez sur **OK**.  
+
+###  <a name="BKMK_DriverActions"></a> Actions supplémentaires concernant les pilotes de périphérique  
+ Vous pouvez effectuer des actions supplémentaires pour gérer les pilotes de périphérique lorsque vous sélectionnez un ou plusieurs pilotes de périphérique dans le nœud **Pilotes** . Ces actions incluent :  
+
+|Action|Description|  
 |------------|-----------------|  
-|**Kategorisieren**|Hiermit wird eine Verwaltungskategorie für die ausgewählten Gerätetreiber gelöscht, verwaltet oder festgelegt.|  
-|**Löschen**|Hiermit wird der Gerätetreiber aus dem Knoten **Treiber** entfernt. Außerdem wird der Treiber aus den zugeordneten Verteilungspunkten entfernt|  
-|**Deaktivieren**|Hiermit wird die Installation des Gerätetreibers verhindert. Sie können Gerätetreiber vorübergehend deaktivieren, damit sie nicht von Configuration Manager-Clientcomputern und Tasksequenzen installiert werden können, wenn Sie Betriebssysteme bereitstellen. **Hinweis:**  Die Aktion „Deaktivieren“ verhindert nur, dass Treiber mit dem Tasksequenzschritt „Treiber automatisch anwenden“ installiert werden.|  
-|**Aktivieren**|Hiermit wird es den Configuration Manager-Clientcomputern und Tasksequenzen gestattet, den Gerätetreiber zu installieren, wenn das Betriebssystem bereitgestellt wird.|  
-|**Verschieben**|Hiermit wird der Gerätetreiber im Knoten **Treiber** in einen anderen Ordner verschoben.|  
-|**Eigenschaften**|Hiermit wird das Dialogfeld **Eigenschaften** geöffnet, in dem Sie die Eigenschaften des Gerätetreibers prüfen und ändern können. Beispielsweise können Sie den Namen und die Beschreibung des Gerätetreibers ändern, den Gerätetreiber aktivieren sowie angeben, auf welchen Plattformen der Gerätetreiber ausgeführt werden kann.|  
+|**Catégoriser**|Efface, gère ou définit une catégorie administrative pour les pilotes de périphérique sélectionnés.|  
+|**Supprimer**|Supprime le pilote de périphérique du nœud **Pilotes** et supprime également le pilote des points de distribution associés.|  
+|**Désactiver**|Empêche l'installation du pilote de périphérique. Vous pouvez désactiver temporairement les pilotes de périphérique pour que les ordinateurs clients et les séquences de tâches Configuration Manager ne puissent pas les installer quand vous déployez des systèmes d’exploitation. **Remarque :**  L’action Désactiver empêche seulement les pilotes de s’installer en utilisant la séquence de tâches Appliquer automatiquement les pilotes.|  
+|**Activer**|Permet aux ordinateurs clients et aux séquences de tâches Configuration Manager d’installer le pilote de périphérique pendant le déploiement du système d’exploitation.|  
+|**Déplacer**|Déplace le pilote de périphérique vers un autre dossier dans le nœud **Pilotes** .|  
+|**Propriétés**|Ouvre la boîte de dialogue **Propriétés** dans laquelle vous pouvez examiner et modifier les propriétés du pilote de périphérique. Par exemple, vous pouvez modifier le nom et la description du pilote de périphérique, activer le pilote de périphérique et spécifier les plates-formes sur lesquelles le pilote de périphérique peut être exécuté.|  
 
-##  <a name="BKMK_TSDrivers"></a> Verwenden von Tasksequenzen zum Installieren von Gerätetreibern  
- Verwenden Sie Tasksequenzen, um die Art der Bereitstellung des Betriebssystems zu automatisieren. Von jedem Schritt in der Tasksequenz kann eine bestimmte Aktion ausgeführt werden, beispielsweise die Installation eines Gerätetreibers. Sie können die folgenden beiden Tasksequenzschritte verwenden, um Gerätetreiber zu installieren, während Sie Betriebssysteme bereitstellen:  
+##  <a name="BKMK_TSDrivers"></a> Utiliser des séquences de tâches pour installer des pilotes de périphérique  
+ Utilisez des séquences de tâches pour automatiser le déploiement du système d'exploitation. Chaque étape de la séquence de tâches peut exécuter une action spécifique, telle que l'installation d'un pilote de périphérique. Vous pouvez utiliser les étapes de séquence de tâches suivantes pour installer les pilotes de périphériques pendant que vous déployez des systèmes d'exploitation :  
 
--   [Auto Apply Drivers](../understand/task-sequence-steps.md#BKMK_AutoApplyDrivers): Mit diesem Schritt werden Gerätetreiber automatisch als Teil einer Betriebssystembereitstellung ausgewählt und installiert. Sie können den Tasksequenzschritt so konfigurieren, dass nur der am besten passende Treiber für jedes ermittelte Hardwaregerät installiert wird. Sie können auch angeben, dass alle kompatiblen Treiber für jedes ermittelte Hardwaregerät installiert werden und der am besten passenden Treiber von Windows Setup ausgewählt werden soll. Zusätzlich können Sie eine Kategorie von Gerätetreibern angeben, um die für diesen Schritt verfügbaren Treiber zu begrenzen.  
+-   [Appliquer automatiquement les pilotes](../understand/task-sequence-steps.md#BKMK_AutoApplyDrivers) : cette étape permet de faire correspondre et d’installer automatiquement des pilotes de périphérique pendant le déploiement d’un système d’exploitation. Vous pouvez configurer l'étape de la séquence de tâches de sorte que seul le meilleur pilote correspondant pour chaque périphérique matériel détecté soit installé ou bien spécifier que l'étape de la séquence de tâches installe tous les pilotes compatibles pour chaque périphérique matériel détecté et laisser ensuite le programme d'installation Windows choisir le pilote le mieux adapté. En outre, vous pouvez spécifier une catégorie de pilotes de périphérique pour limiter les pilotes qui sont disponibles pour cette étape.  
 
--   [Apply Driver Package](../understand/task-sequence-steps.md#BKMK_ApplyDriverPackage): Mit diesem Schritt können Sie alle Gerätetreiber in einem bestimmten Treiberpaket für Windows Setup zur Verfügung stellen. Die angegebenen Treiberpakete werden von Windows Setup nach den erforderlichen Gerätetreibern durchsucht. Beim Erstellen eigenständiger Medien müssen Sie diesen Schritt zum Installieren von Gerätetreibern ausführen.  
+-   [Appliquer le package de pilotes](../understand/task-sequence-steps.md#BKMK_ApplyDriverPackage) : cette étape permet de mettre tous les pilotes de périphérique contenus dans un package de pilotes spécifique à la disposition du programme d’installation de Windows. Dans les packages de pilotes spécifiés, le programme d'installation de Windows recherche les pilotes de périphérique qui sont nécessaires. Quand vous créez un média autonome, vous devez utiliser cette étape pour installer les pilotes de périphérique.  
 
- Wenn Sie diese Tasksequenzschritte verwenden, können Sie auch angeben, wie die Gerätetreiber auf dem Computer, auf dem Sie das Betriebssystem bereitstellen, installiert werden sollen. Weitere Informationen finden Sie unter [Verwalten von Tasksequenzen zum Automatisieren von Aufgaben](../deploy-use/manage-task-sequences-to-automate-tasks.md).  
+ Lorsque vous utilisez ces étapes de séquence de tâches, vous pouvez également spécifier la manière dont les pilotes de périphérique sont installés sur l'ordinateur où vous déployez le système d'exploitation. Pour plus d’informations, consultez [Gérer les séquences de tâches pour automatiser des tâches](../deploy-use/manage-task-sequences-to-automate-tasks.md).  
 
-##  <a name="BKMK_InstallingDeviceDiriversTS"></a> Verwenden von Tasksequenzen zum Installieren von Gerätetreibern auf Computern  
- Gehen Sie wie folgt vor, um Gerätetreiber als Teil der Betriebssystembereitstellung zu installieren.  
+##  <a name="BKMK_InstallingDeviceDiriversTS"></a> Utiliser des séquences de tâches pour installer des pilotes de périphérique sur des ordinateurs  
+ Utilisez la procédure suivante pour installer des pilotes de périphérique dans le cadre du déploiement de systèmes d'exploitation.  
 
-#### <a name="use-a-task-sequence-to-install-device-drivers"></a>Verwenden einer Tasksequenz zum Installieren von Gerätetreibern  
+#### <a name="use-a-task-sequence-to-install-device-drivers"></a>Utiliser une séquence de tâches pour installer des pilotes de périphérique  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Softwarebibliothek**.  
+1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
-2.  Erweitern Sie im Arbeitsbereich **Softwarebibliothek** den Bereich **Betriebssysteme**, und klicken Sie dann auf **Tasksequenzen**.  
+2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Séquences de tâches**.  
 
-3.  Wählen Sie im Knoten **Tasksequenzen** die Tasksequenz aus, die Sie ändern möchten, um den Gerätetreiber zu installieren, und klicken Sie dann auf **Bearbeiten**.  
+3.  Dans le nœud **Séquences de tâches** , sélectionnez la séquence de tâches que vous souhaitez modifier pour installer le pilote de périphérique, puis cliquez sur **Modifier**.  
 
-4.  Wechseln Sie zu dem Speicherort, an dem Sie die ****  Treiberschritte hinzufügen möchten, klicken Sie auf **Hinzufügen**, und wählen Sie dann **Treiber**aus.  
+4.  Rendez-vous à l'emplacement où vous souhaitez ajouter les étapes **Pilote** , cliquez sur **Ajouter**, puis sélectionnez **Pilotes**.  
 
-5.  Fügen Sie den Schritt **Treiber automatisch anwenden** hinzu, wenn von der Tasksequenz alle Gerätetreiber oder bestimmte angegebene Kategorien installiert werden sollen. Geben Sie auf der Registerkarte **Eigenschaften** die Optionen für den Schritt und ggf. auf der Registerkarte **Optionen** die Bedingungen für den Schritt an.  
+5.  Ajoutez l'étape **Appliquer automatiquement les pilotes** si vous souhaitez que la séquence de tâches installe tous les pilotes de périphérique ou les catégories spécifiques qui sont spécifiées. Spécifiez les options pour l'étape sous l'onglet **Propriétés** et les conditions pour l'étape sous l'onglet **Options** .  
 
-     Fügen Sie den Schritt **Treiberpaket anwenden** hinzu, wenn nur die im angegebenen Paket enthaltenen Gerätetreiber von der Tasksequenz installiert werden sollen. Geben Sie auf der Registerkarte **Eigenschaften** die Optionen für den Schritt und ggf. auf der Registerkarte **Optionen** die Bedingungen für den Schritt an.  
+     Ajoutez l'étape **Appliquer le package de pilotes** si vous souhaitez que la séquence de tâches installe uniquement ces pilotes de périphérique à partir du package spécifié. Spécifiez les options pour l'étape sous l'onglet **Propriétés** et les conditions pour l'étape sous l'onglet **Options** .  
 
     > [!IMPORTANT]  
-    >  Für eine Problembehandlung der Tasksequenz können Sie auf der Registerkarte **Optionen** das Kontrollkästchen **Diesen Schritt deaktivieren** aktivieren, um den Schritt zu deaktivieren.  
+    >  Vous pouvez sélectionner **Désactiver cette étape** sous l’onglet **Options** pour désactiver l’étape de dépannage de la séquence de tâches.  
 
-6.  Klicken Sie auf **OK** , um die Tasksequenz zu speichern.  
+6.  Cliquez sur **OK** pour enregistrer la séquence de tâches.  
 
- Weitere Informationen zum Erstellen einer Tasksequenz zum Installieren eines Betriebssystems finden Sie unter [Erstellen einer Tasksequenz zum Installieren eines Betriebssystems](../deploy-use/create-a-task-sequence-to-install-an-operating-system.md).  
+ Pour plus d’informations sur la création d’une séquence de tâches pour installer un système d’exploitation, consultez [Créer une séquence de tâches pour installer un système d’exploitation](../deploy-use/create-a-task-sequence-to-install-an-operating-system.md).  
 
-##  <a name="BKMK_DriverReports"></a> Berichte zur Treiberverwaltung  
- Sie können mehrere Berichte in der Berichtkategorie **Treiberverwaltung** verwenden, um allgemeine Informationen zu den Gerätetreibern im Treiberkatalog zu erhalten. Weitere Informationen zu Berichten finden Sie unter [Berichterstellung](../../core/servers/manage/reporting.md).
+##  <a name="BKMK_DriverReports"></a> Rapports de gestion de pilotes  
+ Vous pouvez utiliser plusieurs rapports dans la catégorie des rapports **Gestion des pilotes** pour déterminer des informations générales sur les pilotes de périphérique dans le catalogue de pilotes. Pour plus d’informations sur les rapports, consultez [Rapports](../../core/servers/manage/reporting.md).

@@ -1,6 +1,6 @@
 ---
-title: Inhaltsinfrastruktur | Microsoft-Dokumentation
-description: "Erfahren Sie, wie Sie Ihre Inhaltsverwaltungsinfrastruktur für System Center Configuration Manager bereitstellen und anschließend verwalten können."
+title: Infrastructure de contenu | Microsoft Docs
+description: "Apprenez à déployer et à gérer votre infrastructure de gestion de contenu pour System Center Configuration Manager."
 ms.custom: na
 ms.date: 2/7/2017
 ms.prod: configuration-manager
@@ -18,17 +18,17 @@ manager: angrobe
 ms.openlocfilehash: b0f297fddca4252f106dee9d3d5d8911a347825b
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-content-and-content-infrastructure-for-system-center-configuration-manager"></a>Verwalten von Inhalt und Inhaltsinfrastruktur für System Center Configuration Manager
+# <a name="manage-content-and-content-infrastructure-for-system-center-configuration-manager"></a>Gérer le contenu et l’infrastructure de contenu pour System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Wenn Sie zur Einrichtung und anschließenden Verwaltung Ihrer Inhaltsverwaltungsinfrastruktur für System Center Configuration Manager bereit sind, nutzen Sie die Informationen in den folgenden Themen:  
+Quand vous êtes prêt à configurer et à gérer votre infrastructure de gestion de contenu pour System Center Configuration Manager, aidez-vous des informations dans les rubriques suivantes :  
 
--   [Installieren und Konfigurieren von Verteilungspunkten für System Center Configuration Manager](../../../../core/servers/deploy/configure/install-and-configure-distribution-points.md). Bevor Sie Inhalt bereitstellen können, müssen Sie Verteilungspunkte installieren und einrichten. Anschließend können Sie Verteilungspunktgruppen einrichten, um die Verwaltung von Inhalten in der gesamten Infrastruktur zu vereinfachen. Die Informationen in diesem Thema helfen Ihnen beim Ausführen dieser Aufgaben. Außerdem werden die umfassenden und vielfältigen Einstellungen beschrieben, die für einzelne Verteilungspunkte unterstützt werden.  
+-   [Installer et configurer des points de distribution pour System Center Configuration Manager](../../../../core/servers/deploy/configure/install-and-configure-distribution-points.md). Avant de déployer du contenu, vous devez installer et configurer des points de distribution. Vous pouvez ensuite configurer des groupes de points de distribution pour simplifier la gestion de contenu dans votre infrastructure. Les informations de cette rubrique peuvent vous aider à effectuer ces tâches, et détaillent les paramètres approfondis et variés pris en charge par les points de distribution individuels.  
 
--   [Bereitstellen und Verwalten von Inhalt für System Center Configuration Manager](../../../../core/servers/deploy/configure/deploy-and-manage-content.md). Beim Bereitstellen von Inhalt werden Dateien und Software an die Verteilungspunktserver überall in Ihrem Netzwerk übertragen. Zusätzlich zur einfachen Übertragung können Sie Inhalt auch vorab bereitstellen. Durch diese Vorabbereitstellung vermeiden Sie eine übermäßige Beanspruchung der Netzwerkbandbreite. Die Informationen in diesem Thema helfen Ihnen bei den grundlegenden Aufgaben zum Senden von Inhalt und zum effektiven Verwenden vorab bereitgestellten Inhalts.  
+-   [Déployer et gérer du contenu pour System Center Configuration Manager](../../../../core/servers/deploy/configure/deploy-and-manage-content.md). Le déploiement de contenu transfère des fichiers et logiciels aux serveurs de point de distribution sur le réseau. En plus du transfert proprement dit, vous pouvez préparer le contenu, ce qui permet d’éviter une utilisation excessive de la bande passante réseau. Les informations contenues dans cette rubrique peuvent vous aider à exécuter les tâches de base liées à l’envoi de ce contenu ou à l’utilisation efficace d’un contenu préparé.  
 
--   [Überwachen von mit System Center Configuration Manager verteilten Inhalten](../../../../core/servers/deploy/configure/monitor-content-you-have-distributed.md). Während der Inhaltsbereitstellung können Sie deren Status in der gesamten Infrastruktur überwachen. Sie können auch Inhalt neu verteilen, wenn er Verteilungspunkte nicht erreicht, oder Verteilungen abbrechen, wenn sie für einen zu langen Zeitraum in Bearbeitung bleiben. Die Informationen in diesem Thema helfen Ihnen zu verstehen, wie Sie Ihre Inhalte überwachen können. Außerdem wird beschrieben, wie Sie einige mögliche Probleme und Fehler beim Übertragen von Inhalten beheben.  
+-   [Surveiller le contenu que vous avez distribué avec System Center Configuration Manager](../../../../core/servers/deploy/configure/monitor-content-you-have-distributed.md). À mesure que vous déployez du contenu, vous pouvez analyser son état dans votre infrastructure. Vous pouvez également redistribuer du contenu qui n’atteint pas des points de distribution, ou annuler les distributions en cours. Les informations contenues dans cette rubrique vous aident à comprendre comment analyser votre contenu et comment résoudre certains problèmes en cas d’échec du transfert de contenu.  

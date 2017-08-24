@@ -1,6 +1,6 @@
 ---
-title: Current Branch-Versionen | Microsoft-Dokumentation
-description: "Überprüfen Sie den Versionsverlauf von System Center Configuration Manager, und erfahren Sie mehr über die Phasen des angebotenen Diensts."
+title: Versions Current Branch | Microsoft Docs
+description: "Passez en revue l’historique des versions de System Center Configuration Manager et découvrez les phases de service proposées."
 ms.custom: na
 ms.date: 7/31/2017
 ms.prod: configuration-manager
@@ -18,37 +18,37 @@ robots: noindex,nofollow
 ms.openlocfilehash: 1c02d2c51964fed960ffab42175762c1b04e6445
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="support-for-system-center-configuration-manager-current-branch-versions"></a>Support für die Current Branch-Versionen von System Center Configuration Manager
+# <a name="support-for-system-center-configuration-manager-current-branch-versions"></a>Prise en charge des versions Current Branch de System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Microsoft plant mehrmals jährlich die Veröffentlichung von Updates für die Current Branch-Version von System Center Configuration Manager. Jede Updateversion wird dabei 12 Monate lang ab dem Datum der allgemeinen Verfügbarkeit unterstützt. Technischer Support wird für die gesamten 12 Monate zur Verfügung gestellt. Unsere Supportstruktur ist jetzt dynamisch und folgt zwei unterschiedlichen Wartungsphasen, die von der Verfügbarkeit der neuesten Current Branch-Version abhängig sind.  
+Microsoft prévoit de publier des mises à jour de System Center Configuration Manager Current Branch plusieurs fois par an. Chaque version de mise à jour reste prise en charge pendant 12 mois suivant sa date de publication de disponibilité générale (GA). Un support technique est assuré pendant les 12 mois. Toutefois, notre structure de prise en charge est désormais dynamique et évolue en deux phases de maintenance distinctes qui dépendent de la disponibilité de la dernière version Current Branch.  
 
--   Wartungsphase mit wichtigen Updates und Sicherheitsupdates: Wenn Sie die neueste Current Branch-Version von Configuration Manager ausführen, erhalten Sie Updates der Kategorien „Sicherheit“ und „Wichtig“.  
+-   Phase de maintenance Mises à jour de sécurité et mises à jour critiques : quand vous exécutez la dernière version Current Branch de Configuration Manager, vous recevez des mises à jour de sécurité et des mises à jour critiques.  
 
--   Wartungsphase nur mit Sicherheitsupdates: Nach der Veröffentlichung der neuesten Current Branch-Version beschränkt sich der Support für ältere Versionen über den verbleibenden Zeitraum des 12-monatigen Produktlebenszyklus (siehe Abb. 1) auf Sicherheitsupdates.  
+-   Phase de maintenance Mises à jour de sécurité (uniquement) : après la publication d’une nouvelle version Current Branch, la prise en charge des branches antérieures est réduite aux mises à jour de sécurité uniquement pendant le reste du cycle de vie de prise en charge de 12 mois (illustré à la figure 1).  
 
- ![CM_Servicing_support_timeline](../../../core/servers/manage/media/CM_Servicing_support_timeline.png "CM_Servicing_support_timeline")  
-Abbildung 1: Beispiel für die Überschneidung von Versionszyklen für die Current Branch-Wartungsunterstützung.
+ ![CM&#95;Servicing&#95;support&#95;timeline](../../../core/servers/manage/media/CM_Servicing_support_timeline.png "CM_Servicing_support_timeline")  
+Figure 1. Exemple de la superposition du cycle de publication pour la prise en charge de maintenance de Current Branch.
 
 > [!NOTE]  
->  Die neueste Current Branch-Version befindet sich immer in der Wartungsphase für Sicherheitsupdates und wichtige Updates. Das bedeutet, dass im Fall eines Codefehlers, der ein kritisches Update erfordert, die neueste Current Branch-Version installiert sein muss, damit Sie eine Problembehebung erhalten. Bei allen anderen unterstützten Current Branch-Versionen haben Sie lediglich Anspruch auf Sicherheitsupdates. Nach Ablauf des 12-monatigen Lebenszyklus der aktuellen Current Branch-Version endet jeglicher Support. Dann müssen Kunden auf eine unterstützte Current Branch-Version aktualisieren.  
+>  La dernière version Current Branch est toujours en phase de maintenance Mises à jour de sécurité et mises à jour critiques. Cela signifie que si vous rencontrez une erreur de code qui nécessite une mise à jour critique, vous devez avoir la dernière version Current Branch afin de recevoir un correctif. Toutes les autres versions Current Branch prises en charge sont autorisées à recevoir uniquement les mises à jour de sécurité. Toute prise en charge se termine après l’expiration du cycle de vie de 12 mois des versions Current Branch. À ce stade, les clients doivent effectuer une mise à jour vers une version Current Branch prise en charge.  
 
- **Versionsverlauf**  
+ **Historique des versions**  
 
-|Version|Verfügbarkeitsdatum|Supportenddatum|  
+|Version|Date de disponibilité|Date de fin de prise en charge|  
 |-------------|-----------------------|----------------------|  
-|1706|31. Juli 2017|31. Juli 2018|
-|1702|27. März 2017|27. März 2018|
-|1610|18. November 2016|18. November 2017|
-|1606|22. Juli 2016| 22. Juli 2017|
-|1602|11. März 2016|11. März 2017|
-|1511|8. Dezember 2015|8. Dezember 2016|  
+|1706|31 juillet 2017|31 juillet 2018|
+|1702|27 Mars 2017|27 mars 2018|
+|1610|18 novembre 2016|18 novembre 2017|
+|1606|22 juillet 2016| 22 juillet 2017|
+|1602|11 Mars 2016|11 Mars 2017|
+|1511|8 décembre 2015|8 décembre 2016|  
 
 
 
 
-Informationen zu Versionsnummern und Verfügbarkeit als konsoleninternes Update oder als Baseline finden Sie unter [Baseline- und Updateversionen](/sccm/core/servers/manage/updates#a-namebkmkbaselinesa-baseline-and-update-versions).
+Pour plus d’informations sur les numéros de version et la disponibilité sous forme de mise à jour dans la console ou d’une ligne de base, consultez [Versions de base et de mise à jour](/sccm/core/servers/manage/updates#a-namebkmkbaselinesa-baseline-and-update-versions).

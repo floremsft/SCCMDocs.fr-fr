@@ -1,6 +1,6 @@
 ---
-title: 'Hardwareinventur | Microsoft-Dokumentation | Linux und UNIX '
-description: "Erfahren Sie, wie Sie Hardwareinventur für Linux und UNIX in System Center Configuration Manager verwenden."
+title: "Inventaire matériel | Microsoft Docs | Linux et UNIX "
+description: "Découvrez comment utiliser l’inventaire matériel pour Linux et UNIX dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 02/22/2017
 ms.prod: configuration-manager
@@ -17,36 +17,36 @@ manager: angrobe
 ms.openlocfilehash: b6776fbe0cfca23244d767cffd554a2ef4567a2d
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="hardware-inventory-for-linux-and-unix-in-system-center-configuration-manager"></a>Hardwareinventur für Linux und UNIX in System Center Configuration Manager
+# <a name="hardware-inventory-for-linux-and-unix-in-system-center-configuration-manager"></a>Inventaire matériel pour Linux et UNIX dans System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Der System Center Configuration Manager-Client für Linux und UNIX unterstützt die Hardwareinventur. Nach dem Erfassen der Hardwareinventur können Sie den Bestand im Ressourcen-Explorer oder in Configuration Manager-Berichten anzeigen und diese Informationen dazu verwenden, um Abfragen und Sammlungen zu erstellen, die die folgenden Vorgänge ermöglichen:  
+Le client System Center Configuration Manager pour Linux et UNIX prend en charge l’inventaire matériel. Une fois l’inventaire matériel effectué, vous pouvez l’afficher dans l’Explorateur de ressources ou dans les rapports Configuration Manager, et utiliser ces informations pour créer des requêtes et des regroupements qui permettent d’effectuer les opérations suivantes :  
 
--   Softwarebereitstellung  
+-   Déploiement logiciel  
 
--   Erzwingen von Wartungsfenstern  
+-   Application de fenêtres de maintenance  
 
--   Bereitstellen benutzerdefinierter Clienteinstellungen  
+-   Déploiement de paramètres client personnalisés  
 
- Bei der Hardwareinventur für Linux- und UNIX-Server wird ein standardbasierter CIM-Server (Common Information Model) verwendet. Der CIM-Server wird als Softwaredienst (oder Daemon) ausgeführt und stellt eine Verwaltungsinfrastruktur bereit, die auf DMTF-Standards (Distributed Management Task Force) basiert. Der CIM-Server bietet ähnliche Funktionen wie die CIM-Funktionen der Windows-Verwaltungsinfrastruktur (Windows Management Infrastructure, WMI), die auf Windows-basierten Computern verfügbar sind.  
+ L’inventaire matériel pour les serveurs Linux et UNIX utilise un serveur CIM (Common Information Model) basé sur des normes. Le serveur CIM s’exécute en tant que service logiciel (ou démon) et fournit une infrastructure de gestion basée sur des normes DMTF (Distributed Management Task Force). Il fournit des fonctionnalités semblables aux fonctionnalités CIM de l’infrastructure de gestion Windows (WMI, Windows Management Infrastructure) disponibles sur les ordinateurs Windows.  
 
- Ab dem kumulativen Update 1 verwendet der Client für Linux und UNIX die Open Source-Version von **omiserver** , Version 1.0.6, der **Open Group**. (Vor dem kumulativen Update 1 hat der Client **nanowbem** als CIM-Server verwendet).  
+ À partir de la mise à jour cumulative 1, le client pour Linux et UNIX utilise l’ **omiserver** version 1.0.6 open source de l’ **Open Group**. (Avant la mise à jour cumulative 1, le client utilisait **nanowbem** comme serveur CIM).  
 
- Der CIM-Server wird im Rahmen des Clients für Linux und UNIX installiert. Der Client für Linux und UNIX kommuniziert direkt mit dem CIM-Server und verwendet nicht die WS-MAN-Schnittstelle des CIM-Servers. Der WS-MAN-Port auf dem CIM-Server ist deaktiviert, wenn der Client installiert wird. Microsoft hat den CIM-Server entwickelt, der jetzt über das OMI-Projekt (Open Management Infrastructure) als Open Source verfügbar ist. Weitere Informationen zum Open Management Infrastructure-Projekt finden Sie auf der [The Open Group](http://go.microsoft.com/fwlink/p/?LinkId=262317) -Website.  
+ Le serveur CIM est installé dans le cadre de l’installation du client pour Linux et UNIX. Le client pour Linux et UNIX communique directement avec le serveur CIM. Il n’utilise pas l’interface WS-MAN du serveur CIM. Le port WS-MAN sur le serveur CIM est désactivé lors de l’installation du client. Microsoft a développé le serveur CIM désormais disponible en tant qu’open source par l’intermédiaire du projet OMI (Open Management infrastructure). Pour plus d’informations sur le projet OMI, consultez le site web [The Open Group](http://go.microsoft.com/fwlink/p/?LinkId=262317) .  
 
- Die Hardwareinventur auf Linux- und UNIX-Servern erfolgt durch die Zuordnung von vorhandenen Win32-WMI-Klassen und -Eigenschaften zu entsprechenden Klassen und Eigenschaften für Linux- und UNIX-Server. Diese 1:1-Zuordnung von Klassen und Eigenschaften ermöglicht das Integrieren der Hardwareinventur für Linux und UNIX in Configuration Manager. Es werden Inventurdaten von Linux- und UNIX-Servern zusammen mit dem Bestand von Windows-basierten Computern in der Configuration Manager-Konsole und in Berichten angezeigt. Dadurch wird eine konsistente heterogene Verwaltung ermöglicht.  
+ L’inventaire matériel sur les serveurs Linux et UNIX fonctionne en mappant les classes et les propriétés WMI Win32 existantes aux classes et propriétés équivalentes des serveurs Linux et UNIX. Ce mappage un-à-un des classes et des propriétés permet d’intégrer l’inventaire matériel Linux et UNIX à Configuration Manager. Les données d’inventaire des serveurs Linux et UNIX sont affichées avec l’inventaire des ordinateurs Windows dans la console et les rapports Configuration Manager. Vous bénéficiez ainsi d’une expérience de gestion cohérente et hétérogène.  
 
 > [!TIP]  
->  Mit dem **Beschriftung** -Wert für die **Betriebssystem** -Klasse können Sie verschiedene Linux- und UNIX-Betriebssysteme in Abfragen und Sammlungen identifizieren.  
+>  Vous pouvez utiliser la valeur **Caption** pour la classe **Operating System** pour identifier différents systèmes d’exploitation Linux et UNIX dans les requêtes et les regroupements.  
 
-##  <a name="BKMK_ConfigHardwareforLnU"></a> Konfigurieren der Hardwareinventur für Linux- und UNIX-Server  
- Sie können die standardmäßigen Clienteinstellungen verwenden oder benutzerdefinierte Clienteinstellungen erstellen, um die Hardwareinventur zu konfigurieren. Wenn Sie benutzerdefinierte Clientgeräteeinstellungen verwenden, können Sie die Klassen und Eigenschaften konfigurieren, die Sie nur von Ihren Linux- und UNIX-Servern erfassen möchten. Sie können auch benutzerdefinierte Zeitpläne für die Erfassung von vollständigen und Deltainventuren von Ihren Linux- und UNIX-Servern verwenden.  
+##  <a name="BKMK_ConfigHardwareforLnU"></a> Configuration de l’inventaire matériel pour les serveurs Linux et UNIX  
+ Vous pouvez utiliser les paramètres client par défaut ou créer des paramètres d’appareil client personnalisés pour configurer l’inventaire matériel. Quand vous utilisez des paramètres d’appareil client personnalisés, vous pouvez configurer les classes et les propriétés que vous souhaitez collecter uniquement à partir de vos serveurs Linux et UNIX. Vous pouvez également spécifier des planifications personnalisées pour la collecte d’inventaires delta et complets à partir de vos serveurs Linux et UNIX.  
 
- Der Client für Linux und UNIX unterstützt die folgenden Hardwareinventurklassen, die auf Linux- und UNIX-Servern verfügbar sind:  
+ Le client pour Linux et UNIX prend en charge les classes d’inventaire matériel suivantes disponibles sur les serveurs Linux et UNIX :  
 
 -   Win32_BIOS  
 
@@ -72,54 +72,54 @@ Der System Center Configuration Manager-Client für Linux und UNIX unterstützt 
 
 -   SMS_Processor  
 
- Nicht alle Eigenschaften für diese Inventurklassen sind für Linux- und UNIX-Computer in Configuration Manager aktiviert.  
+ Les propriétés de ces classes d’inventaire ne sont pas toutes activées pour les ordinateurs Linux et UNIX dans Configuration Manager.  
 
-##  <a name="BKMK_OperationsforHardwareforLnU"></a> Vorgänge für die Hardwareinventur  
- Nachdem Sie die Hardwareinventur von den Linux- und UNIX-Servern erfasst haben, können Sie diese Informationen auf dieselbe Weise wie den Bestand anzeigen, den Sie von anderen Computern erfassen:  
+##  <a name="BKMK_OperationsforHardwareforLnU"></a> Opérations d’inventaire matériel  
+ Une fois la collecte de l’inventaire matériel sur vos serveurs Linux et UNIX terminée, vous pouvez afficher et utiliser ces informations comme s’il s’agissait d’autres ordinateurs, et effectuer les opérations suivantes :  
 
--   Verwenden des Ressourcen-Explorers zum Anzeigen von detaillierten Hardwareinventurinformationen von Linux- und UNIX-Servern  
+-   Utiliser l’Explorateur de ressources pour afficher des informations détaillées sur l’inventaire matériel collecté à partir de serveurs Linux et UNIX  
 
--   Erstellen von Abfragen auf Basis von bestimmten Hardwarekonfigurationen  
+-   Créer des requêtes basées sur des configurations matérielles spécifiques  
 
--   Erstellen von abfragebasierten Sammlungen, die auf bestimmten Hardwarekonfigurationen basieren  
+-   Créer des regroupements basés sur des requêtes qui reposent sur des configurations matérielles spécifiques  
 
--   Ausführen von Berichten, die bestimmte Details zu Hardwarekonfigurationen anzeigen  
+-   Exécuter des rapports qui affichent des détails spécifiques sur les configurations matérielles  
 
- Die Hardwareinventur auf einem Linux- oder UNIX-Server wird gemäß dem Zeitplan ausgeführt, den Sie in den Clienteinstellungen konfigurieren. Diese erfolgt standardmäßig alle sieben Tage. Der Client für Linux und UNIX unterstützt sowohl vollständige Inventurzyklen als auch Deltainventurzyklen.  
+ L’inventaire matériel sur un serveur Linux ou UNIX s’exécute conformément au calendrier que vous configurez dans les paramètres client. Par défaut, l’inventaire est exécuté tous les sept jours. Le client pour Linux et UNIX prend en charge les cycles d’inventaire complet et les cycles d’inventaire delta.  
 
- Sie können den Client auf einem Linux- oder UNIX-Server auch zwingen, die Hardwareinventur unmittelbar durchzuführen. Verwenden Sie zum Ausführen der Hardwareinventur auf einem Client die **Stamm** anmeldeinformationen, um den folgenden Befehl zum Starten eines Hardwareinventurzyklusses auszuführen: **/opt/microsoft/configmgr/bin/ccmexec -rs hinv**  
+ Vous pouvez également forcer le client sur un serveur Linux ou UNIX à exécuter immédiatement l’inventaire matériel. Pour exécuter l’inventaire matériel sur un client, utilisez des informations d’identification **racines** pour exécuter la commande suivante pour démarrer un cycle d’inventaire matériel : **/opt/microsoft/configmgr/bin/ccmexec -rs hinv**  
 
- Aktionen für die Hardwareinventur werden in die Clientprotokolldatei **scxcm.log**eingegebenen.  
+ Les actions d’inventaire matériel sont entrées dans le fichier journal du client, **scxcm.log**.  
 
-##  <a name="BKMK_CustomHINVforLinux"></a> Gewusst wie: Verwenden der Open Management Infrastructure zum Erstellen einer benutzerdefinierten Hardwareinventur  
- Der Client für Linux und UNIX unterstützt die benutzerdefinierte Hardwareinventur, die Sie mithilfe der Open Management Infrastructure (OMI) erstellen können. Führen Sie dazu die folgenden Schritte aus:  
+##  <a name="BKMK_CustomHINVforLinux"></a> Comment utiliser l’infrastructure OMI pour créer un inventaire matériel personnalisé  
+ Le client pour Linux et UNIX prend en charge l’inventaire matériel personnalisé que vous pouvez créer à l’aide de l’infrastructure OMI. Pour ce faire, vous devez procédez comme suit :  
 
-1.  Erstellen eines benutzerdefinierten Inventuranbieters mithilfe der OMI-Quelle  
+1.  Créer un fournisseur d’inventaire personnalisé à l’aide de la source OMI  
 
-2.  Konfigurieren von Computern für die Verwendung des neuen Anbieters zum Melden des Bestands  
+2.  Configurer les ordinateurs pour qu’ils utilisent le nouveau fournisseur pour les rapports d’inventaire  
 
-3.  Aktivieren von Configuration Manager zur Unterstützung des neuen Anbieters  
+3.  Activer Configuration Manager pour prendre en charge le nouveau fournisseur  
 
-###  <a name="BKMK_LinuxProvider"></a> Erstellen Sie einen benutzerdefinierten Hardwareinventuranbieter für Linux- und UNIX-Computer:  
- Verwenden Sie **OMI Source – v.1.0.6**, und befolgen Sie die Anweisungen im Handbuch für die ersten Schritte mit OMI, um einen benutzerdefinierten Hardwareinventuranbieter für den Configuration Manager-Client für Linux und UNIX zu erstellen. Dieser Prozess umfasst das Erstellen einer MOF-Datei (Managed Object Format), die das Schema für den neuen Anbieter definiert. Später importieren Sie die MOF-Datei in Configuration Manager, um die Unterstützung der neuen benutzerdefinierten Inventurklasse zu aktivieren.  
+###  <a name="BKMK_LinuxProvider"></a> Créer un fournisseur d’inventaire matériel personnalisé pour les ordinateurs Linux et UNIX :  
+ Pour créer un fournisseur d’inventaire matériel personnalisé pour le client Configuration Manager pour Linux et UNIX, utilisez **OMI Source - v.1.0.6** et suivez les instructions du guide de démarrage OMI. Ce processus comprend la création d’un fichier MOF (Managed Object Format) qui définit le schéma du nouveau fournisseur. Plus tard, vous importez le fichier MOF dans Configuration Manager pour activer la prise en charge de la nouvelle classe d’inventaire personnalisée.  
 
- Sowohl „OMI Source – v.1.0.6“ als auch das Handbuch für die ersten Schritte mit OMI können auf der [The Open Group](http://go.microsoft.com/fwlink/p/?LinkId=262317) -Website heruntergeladen werden. Sie finden diese Downloads auf der Registerkarte für **Dokumente** der folgenden Webseite der Website „OpenGroup.org“: [Open Management Infrastructure (OMI)](http://go.microsoft.com/fwlink/p/?LinkId=286805).  
+ Vous pouvez télécharger OMI Source - v.1.0.6 et le Guide de prise en main OMI à partir du site web [The Open Group](http://go.microsoft.com/fwlink/p/?LinkId=262317) . Ces téléchargements se trouvent sous l’onglet **Documents** de la page web suivante sur le site web OpenGroup.org : [Open Management Infrastructure (OMI)](http://go.microsoft.com/fwlink/p/?LinkId=286805).  
 
-###  <a name="BKMK_AddProvidertoLinux"></a> Konfigurieren Sie jeden Computer, der Linux oder UNIX ausführt, mit dem benutzerdefinierten Hardwareinventuranbieter:  
- Nachdem Sie einen benutzerdefinierten Inventuranbieter erstellt haben, müssen Sie die Anbieterbibliotheksdatei auf jeden Computer kopieren und dann registrieren, der über zu erfassendes Inventar verfügt.  
+###  <a name="BKMK_AddProvidertoLinux"></a> Configurer chaque ordinateur qui exécute Linux ou UNIX avec le fournisseur d’inventaire matériel personnalisé :  
+ Après avoir créé un fournisseur d’inventaire personnalisé, vous devez copier puis inscrire le fichier de bibliothèque du fournisseur sur chaque ordinateur dont vous souhaitez recueillir l’inventaire.  
 
-1.  Kopieren Sie die Anbieterbibliothek auf jeden Linux- und UNIX-Computer, von dem Sie Inventar erfassen möchten. Der Name des der Anbieterbibliothek ähnelt dem Folgenden: **XYZ_MyProvider.so**  
+1.  Copiez la bibliothèque du fournisseur sur chaque ordinateur Linux et UNIX dont vous souhaitez recueillir l’inventaire. Le nom de la bibliothèque du fournisseur ressemble à ceci : **XYZ_MyProvider.so**  
 
-2.  Dann wird auf jedem Linux- und UNIX-Computer die Anbieterbibliothek mit dem OMI-Server registriert. Der OMI-Server wird auf dem Computer installiert, wenn Sie den Configuration Manager-Client für Linux und UNIX installieren, aber Sie müssen benutzerdefinierte Anbieter manuell registrieren. Verwenden Sie die folgende Befehlszeile zum Registrieren des Anbieters: **/opt/microsoft/omi/bin/omireg XYZ_MyProvider.so**  
+2.  Ensuite, sur chaque ordinateur Linux et UNIX, inscrivez la bibliothèque du fournisseur auprès du serveur OMI. Le serveur OMI s’installe sur l’ordinateur quand vous installez le client Configuration Manager pour Linux et UNIX, mais vous devez inscrire manuellement les fournisseurs personnalisés. Exécutez la ligne de commande suivante pour inscrire le fournisseur : **/opt/microsoft/omi/bin/omireg XYZ_MyProvider.so**  
 
-3.  Nachdem Sie den neuen Anbieter registriert haben, testen Sie den Anbieter mithilfe des **omicli** -Tools. Das **omicli**-Tool wird auf jeden Linux- und UNIX-Computer installiert, wenn Sie den Configuration Manager-Client für Linux und UNIX installieren. Führen Sie z. B. den folgenden Befehl auf dem Computer aus, wobei **XYZ_MyProvider** den Namen des erstellten Anbieters angibt: **/opt/microsoft/omi/bin/omicli ei root/cimv2 XYZ_MyProvider**  
+3.  Une fois le nouveau fournisseur inscrit, testez-le à l’aide de l’outil **omicli** . L’outil **omicli** s’installe sur chaque ordinateur Linux et UNIX quand vous installez le client Configuration Manager pour Linux et UNIX. Par exemple, **XYZ_MyProvider** étant le nom du fournisseur que vous avez créé, exécutez la commande suivante sur l’ordinateur : **/opt/microsoft/omi/bin/omicli ei root/cimv2 XYZ_MyProvider**  
 
-     Informationen zu **omicli** und zum Testen von benutzerdefinierten Anbietern finden Sie im Handbuch zu den ersten Schritten mit OMI.  
+     Pour plus d’informations sur **omicli** et sur la façon de tester les fournisseurs personnalisés, consultez le Guide de prise en main OMI.  
 
 > [!TIP]  
->  Verwenden Sie die Softwareverteilung, um benutzerdefinierte Anbieter bereitzustellen und auf jedem Linux- und UNIX-Clientcomputer zu registrieren.  
+>  Utilisez la distribution de logiciels pour déployer les fournisseurs personnalisés et pour les inscrire sur chaque ordinateur client Linux et UNIX.  
 
-###  <a name="BKMK_AddLinuxProvidertoCM"></a> Aktivieren Sie die neue Inventurklasse in Configuration Manager:  
- Bevor Configuration Manager den Bestand melden kann, der vom neuen Anbieter auf Linux- und UNIX-Computern gemeldet wird, müssen Sie die MOF-Datei (Managed Object Format) importieren, die das Schema des benutzerdefinierten Anbieters definiert.  
+###  <a name="BKMK_AddLinuxProvidertoCM"></a> Activer la nouvelle classe d’inventaire dans Configuration Manager :  
+ Pour que Configuration Manager puisse créer un rapport d’inventaire avec les données fournies par le nouveau fournisseur sur les ordinateurs Linux et UNIX, vous devez importer le fichier MOF qui définit le schéma de votre fournisseur personnalisé.  
 
- Informationen zum Import einer benutzerdefinierte MOF-Datei in Configuration Manager finden Sie unter [Konfigurieren der Hardwareinventur in System Center Configuration Manager](../../../../core/clients/manage/inventory/configure-hardware-inventory.md).  
+ Pour importer un fichier MOF personnalisé dans Configuration Manager, consultez [Guide pratique pour configurer l’inventaire matériel dans System Center Configuration Manager](../../../../core/clients/manage/inventory/configure-hardware-inventory.md).  

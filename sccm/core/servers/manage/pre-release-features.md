@@ -1,6 +1,6 @@
 ---
-title: "Vorab veröffentlichte Funktionen | Microsoft-Dokumentation"
-description: Features der Vorabversion in System Center Configuration Manager
+title: "Fonctionnalités en préversion| Microsoft Docs"
+description: "Fonctionnalités en préversion dans System Center Configuration Manager"
 ms.custom: na
 ms.date: 7/31/2017
 ms.prod: configuration-manager
@@ -17,44 +17,44 @@ manager: angrobe
 ms.openlocfilehash: 7b594daeed81ef2d991ad06489f9184a69804117
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="pre-release-features-in-system-center-configuration-manager"></a>Features der Vorabversion in System Center Configuration Manager
-*Gilt für: System Center Configuration Manager (Current Branch)*
+# <a name="pre-release-features-in-system-center-configuration-manager"></a>Fonctionnalités en préversion dans System Center Configuration Manager
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Features der Vorabversion sind Features, die in Current Branch enthalten sind, um sie in einem frühen Stadium in einer Produktionsumgebung zu testen. Diese Features werden vollständig unterstützt, unterliegen aber noch der Entwicklung und könnten möglicherweise geändert werden, bis sie die Vorabversionskategorie verlassen.
+Les fonctionnalités de préversion sont des fonctions incluses dans la branche Current Branch à des fins de test préalable dans un environnement de production. Ces fonctionnalités sont entièrement prises en charge mais sont toujours en cours de développement. Elles peuvent donc être modifiées jusqu'à ce qu’elles passent en préversion.
 
- Bevor Sie Features der Vorabversion verwenden können, müssen Sie der Verwendung von Features der Vorabversion von der Configuration Manager-Konsole aus zustimmen, bevor Sie deren Verwendung auswählen und aktivieren können.  
+ Pour pouvoir sélectionner et utiliser ces fonctions, vous devez d’abord donner votre consentement via la console Configuration Manager.  
 
-Die Zustimmung ist eine einmalige Aktion pro Hierarchie, die nicht rückgängig gemacht werden kann. Sie können bis zu Ihrer Zustimmung keine neuen Features der Vorabversion aktivieren, die in Updates enthalten sind. Nachdem Sie ein Feature der Vorabversion aktiviert haben, können Sie es nicht wieder deaktivieren.
+Le consentement est une action à effectuer une seule fois par hiérarchie ; elle ne peut pas être annulée. Tant que vous n’avez pas accepté de les utiliser, vous ne pouvez pas activer les fonctions en préversion incluses avec les mises à jour. Après avoir activé une fonctionnalité en préversion, vous ne pouvez pas la désactiver.
 
-Sie geben Ihre Zustimmung, indem Sie in der Konsole zu **Verwaltung** > **Standortkonfiguration** > **Standorte**navigieren, und anschließend **Hierarchieeinstellungen**auswählen. Wählen Sie auf der Registerkarte **Allgemein** **Verwendung von Featurevorabversionen zustimmen** aus.
+Pour donner votre consentement, accédez à la console, sélectionnez **Administration** > **Configuration du site** > **Sites**, puis choisissez **Paramètres de hiérarchie**. Sous l’onglet **Général**, choisissez **Accepter d’utiliser les fonctionnalités en préversion**.
 
  > [!NOTE]
- > Wenn Sie die Features der Vorabversion von Update 1602 aktiviert haben, bevor Sie eine höhere Updateversion installiert haben, sind diese Features zur Verwendung aktiviert, auch wenn Sie keine Zustimmung zur Verwendung von Features der Vorabversion gegeben haben.
+ > Si vous avez activé des fonctionnalités en préversion à compter de la mise à jour 1602 avant d’installer une mise à jour ultérieure, ces fonctionnalités restent activées, même si vous ne donnez pas votre consentement pour utiliser les fonctionnalités en préversion.
 
-Wenn Sie ein Update installieren, das Features der Vorabversion enthält, sind diese Features im Assistenten für Updates und Wartung zusammen mit den regulären Funktionen sichtbar, die im Update enthalten sind:
-  - **Wenn Sie Ihre Zustimmung gegeben haben:** Sie können Featurevorabversionen innerhalb des Assistenten für Updates und Wartung aktivieren, wenn Sie das Update installieren. Wählen Sie dazu die Featurevorabversionen aus, so wie Sie jede andere Funktion auswählen würden.     
+Lorsque vous installez une mise à jour qui comprend des fonctionnalités de préversion, ces dernières sont affichées dans l’Assistant Maintenance et mises à jour, avec les fonctionnalités standard incluses dans la mise à jour :
+  - **Si vous avez donné votre consentement :** vous pouvez activer les fonctionnalités à partir de l’Assistant Maintenance et mises à jour quand vous installez la mise à jour. Pour ce faire, sélectionnez les fonctionnalités de préversion, comme vous le feriez pour toute autre fonctionnalité.     
 
-    Optional können Sie die Features der Vorabversionen auch später über den Knoten **Verwaltung** > **Updates und Wartung** > **Features** der Konsole aktivieren. Wählen Sie unter dem Knoten **Features** das Feature aus, und wählen Sie anschließend **Aktivieren** aus. Diese Option ist bis zu Ihrer Zustimmung deaktiviert. (Vor Version 1702 befand sich „Updates und Wartung“ unter **Verwaltung** > **Clouddienste**.)
-  -   **Wenn Sie nicht Ihre Zustimmung gegeben haben:** Beim Installieren eines Updates sind Features der Vorabversion im Assistenten für Updates und Wartung sichtbar; sie sind jedoch deaktiviert und können nicht aktiviert werden. Nachdem das Update installiert wurde, können Sie diese Features im Knoten **Features** anzeigen. Allerdings können Sie sie erst aktivieren, nachdem Sie die Zustimmung in den **Hierarchieeinstellungen** erteilt haben.
+    Si vous le souhaitez, vous pouvez attendre pour activer une fonctionnalité en préversion par la suite à partir du nœud **Administration** > **Mises à jour et maintenance** > **Fonctionnalités** de la console. Dans le nœud **Fonctionnalités**, sélectionnez la fonctionnalité, puis choisissez **Activer**. Cette option est grisée jusqu’à ce que vous donniez votre consentement. (Avant la version 1702, les mises à jour et la maintenance s’effectuaient via le menu **Administration** > **Services cloud**.)
+  -   **Si vous n’avez pas donné votre consentement :** lorsque vous installez une mise à jour, les fonctionnalités en préversion sont visibles dans l’Assistant Mises à jour et maintenance, mais elles sont grisées et ne peuvent pas être activées. Une fois la mise à jour installée, vous pouvez afficher ces fonctionnalités dans le nœud **Fonctionnalités**. Mais vous ne pouvez pas les activer tant que vous n’avez pas donné votre consentement dans **Paramètres de hiérarchie**.
 
-Wenn Sie an einem eigenständigen primären Standort Ihre Zustimmung erteilt haben und die Hierarchie durch die Installation eines neuen Standorts der zentralen Verwaltung erweitern, müssen Sie am Standort der zentralen Verwaltung erneut Ihre Zustimmung geben.
+Si vous avez donné votre consentement sur un site principal autonome, et si vous développez ensuite la hiérarchie en installant un nouveau site d’administration centrale, vous devez redonner votre consentement sur ce dernier.
 
- Wenn Sie ein Feature der Vorabversion aktivieren, muss der Hierarchie-Manager von Configuration Manager (HMAN) die Änderung verarbeiten, bevor Sie das Feature nutzen können. Das Verarbeiten der Änderung wird oftmals direkt abgeschlossen; es kann aber bis zu 30 Minuten in Anspruch nehmen, abhängig vom Verarbeitungszyklus des HMAN. Nachdem die Änderung verarbeitet wurde, müssen Sie Ihre Konsole neu starten, bevor die zu diesem Feature gehörige UI angezeigt wird.
+ Quand vous activez une fonctionnalité en préversion, le Gestionnaire de hiérarchie de Configuration Manager (HMAN) doit traiter le changement avant que cette fonctionnalité ne soit disponible. Le traitement du changement est souvent immédiat, mais il peut prendre jusqu’à 30 minutes en fonction du cycle de traitement HMAN. Une fois le changement traité, vous devez redémarrer la console pour voir la nouvelle interface utilisateur associée à cette fonctionnalité.
 
-**Die folgenden vorab veröffentlichten Features sind verfügbar:**
+**Les fonctionnalités en préversion disponibles sont les suivantes** :
 
- |Komponente          |Als Vorabversion hinzugefügt | Als vollständiges Feature hinzugefügt|  
+ |Fonctionnalité          |Ajoutée en préversion | Ajoutée en version complète|  
 |------------------|---------------------|---------------------|
-| Erstellen und Ausführen von PowerShell-Skripts über die Configuration Manager-Konsole |  [Version 1706](/sccm/apps/deploy-use/create-deploy-scripts)|![Noch nicht](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
-| Device Guard-Verwaltung mit Configuration Manager |  [Version 1702](/sccm/protect/deploy-use/use-device-guard-with-configuration-manager)|![Noch nicht](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
-| Prüfen Sie auf ausgeführte ausführbare Dateien, bevor Sie eine Anwendung installieren  |   [Version 1702](/sccm/apps/deploy-use/deploy-applications#how-to-check-for-running-executable-files-before-installing-an-application) |![Noch nicht](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
-| Data Warehouse-Dienstpunkt  |  [Version 1702](/sccm/core/servers/manage/data-warehouse) |[Version 1706](/sccm/core/servers/manage/data-warehouse)|
-| Peercache zur Verteilung von Inhalten an Clients |  [Version 1610](/sccm/core/plan-design/hierarchy/client-peer-cache) |![Noch nicht](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
-| Cloudverwaltungsgateway |  [Version 1610](/sccm/core/clients/manage/plan-cloud-management-gateway) |![Noch nicht](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
-| Dashboard „Clientdatenquellen“ |  [Version 1610](/sccm/core/servers/deploy/configure/monitor-content-you-have-distributed#client-data-sources-dashboard) |![Noch nicht](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
-| Microsoft Operations Management Suite-Connector  | [Version 1606](../../../core/clients/manage/sync-data-microsoft-operations-management-suite.md) |![Noch nicht](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
-| Warten einer clusterfähigen Sammlung (Warten einer Servergruppe)| [Version 1602](../../../core/get-started/capabilities-in-technical-preview-1605.md#BKMK_ServerGroups)|![Noch nicht](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
-|Bedingten Zugriffs für PCs, die von System Center Configuration Manager verwaltet werden | [Version 1602](../../../protect/deploy-use/manage-access-to-o365-services-for-pcs-managed-by-sccm.md)     | [Version 1702](/sccm/mdm/deploy-use/manage-access-to-services)                     |
+| Créer et exécuter des scripts PowerShell à partir de la console Configuration Manager |  [Version 1706](/sccm/apps/deploy-use/create-deploy-scripts)|![Pas encore](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
+| Gestion Device Guard avec Configuration Manager |  [Version 1702](/sccm/protect/deploy-use/use-device-guard-with-configuration-manager)|![Pas encore](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
+| Vérifier si des fichiers exécutables sont en cours d’exécution avant d’installer une application  |   [Version 1702](/sccm/apps/deploy-use/deploy-applications#how-to-check-for-running-executable-files-before-installing-an-application) |![Pas encore](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
+| Point de service de l’entrepôt de données  |  [Version 1702](/sccm/core/servers/manage/data-warehouse) |[Version 1706](/sccm/core/servers/manage/data-warehouse)|
+| Cache d’homologue pour la distribution de contenu aux clients |  [Version 1610](/sccm/core/plan-design/hierarchy/client-peer-cache) |![Pas encore](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
+| Passerelle de gestion cloud |  [Version 1610](/sccm/core/clients/manage/plan-cloud-management-gateway) |![Pas encore](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
+| Tableau de bord Sources de données du client |  [Version 1610](/sccm/core/servers/deploy/configure/monitor-content-you-have-distributed#client-data-sources-dashboard) |![Pas encore](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
+| Connecteur Microsoft Operations Management Suite  | [Version 1606](../../../core/clients/manage/sync-data-microsoft-operations-management-suite.md) |![Pas encore](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
+| Maintenance d’un regroupement prenant en charge les clusters (maintenance d’un groupe de serveurs)| [Version 1602](../../../core/get-started/capabilities-in-technical-preview-1605.md#BKMK_ServerGroups)|![Pas encore](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
+|Accès conditionnel pour les PC gérés par System Center Configuration Manager | [Version 1602](../../../protect/deploy-use/manage-access-to-o365-services-for-pcs-managed-by-sccm.md)     | [Version 1702](/sccm/mdm/deploy-use/manage-access-to-services)                     |

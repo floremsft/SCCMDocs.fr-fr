@@ -1,6 +1,6 @@
 ---
-title: Deinstallieren von Standorten | Microsoft-Dokumentation
-description: Verwenden Sie diese Informationen als Leitfaden, wenn Sie einen System Center Configuration Manager-Standort deinstallieren.
+title: "Désinstaller des sites | Microsoft Docs"
+description: "Utilisez ces informations comme référence pour désinstaller un site System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -18,122 +18,122 @@ manager: angrobe
 ms.openlocfilehash: 6ad06753dc0e1d0958f7131afbf3ecb75eecb2e3
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="uninstall-sites-and-hierarchies-in-system-center-configuration-manager"></a>Deinstallieren von Standorten und Hierarchien für System Center Configuration Manager
+# <a name="uninstall-sites-and-hierarchies-in-system-center-configuration-manager"></a>Désinstaller des sites et des hiérarchies dans System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Verwenden Sie die folgenden Informationen als Leitfaden, wenn Sie einen System Center Configuration Manager-Standort deinstallieren müssen.  
+Utilisez les informations suivantes comme référence si vous devez désinstaller un site System Center Configuration Manager.  
 
-Um eine Hierarchie mit mehreren Standorten aufzuheben, müssen die Standorte in einer bestimmten Reihenfolge entfernt werden. Beim Deinstallieren von Standorten beginnen Sie am unteren Ende der Hierarchie und arbeiten sich zum oberen Ende vor:  
+Pour retirer une hiérarchie comportant plusieurs sites, l’ordre de suppression est important. Commencez par désinstaller les sites en bas de la hiérarchie, puis remontez la hiérarchie :  
 
-1.  Entfernen Sie die mit den primären Standorten verbundenen sekundären Standorte.  
-2.  Entfernen Sie die primären Standorte.
-3.  Nachdem alle primären Standorte entfernt wurden, können Sie den Standort der zentralen Verwaltung deinstallieren.  
+1.  Supprimez les sites secondaires rattachés aux sites principaux.  
+2.  Supprimez les sites principaux.
+3.  Une fois tous les sites principaux supprimés, vous pouvez désinstaller le site d’administration centrale.  
 
 
-##  <a name="BKMK_RemoveSecondarysite"></a> Entfernen eines sekundären Standorts aus einer Hierarchie  
-Sekundäre Standorte können nicht verschoben bzw. an einem neuen übergeordneten primären Standort erneut zugewiesen werden. Damit ein sekundärer Standort aus einer Hierarchie entfernt werden kann, muss er am direkten übergeordneten Standort gelöscht werden. Verwenden Sie den Assistenten zum Löschen sekundärer Standorte aus der Configuration Manager-Konsole, um einen sekundären Standort zu entfernen. Wenn Sie einen sekundären Standort entfernen, müssen Sie auswählen, ob er gelöscht oder deinstalliert werden soll:  
+##  <a name="BKMK_RemoveSecondarysite"></a> Supprimer un site secondaire d’une hiérarchie  
+Vous ne pouvez pas déplacer ou réattribuer un site secondaire à un nouveau site principal parent. Pour supprimer un site secondaire d’une hiérarchie, vous devez le supprimer de son site parent direct. Pour ce faire, utilisez l’Assistant Suppression d’un site secondaire de la console Configuration Manager. Lors de la suppression d’un site secondaire, vous devez choisir entre le supprimer et le désinstaller :  
 
--   **Sekundären Standort deinstallieren**. Mit dieser Option können Sie einen funktionsfähigen sekundären Standort entfernen, auf den über das Netzwerk zugegriffen werden kann. Mit dieser Option wird Configuration Manager vom sekundären Standortserver deinstalliert. Anschließend werden alle Informationen über den Standort und seine Ressourcen aus der Configuration Manager-Standorthierarchie gelöscht. Wenn SQL Server Express von Configuration Manager als Teil der Installation des sekundären Standorts installiert wurde, wird SQL Server Express von Configuration Manager beim Deinstallieren des sekundären Standorts deinstalliert. Falls SQL Server Express vor der Installation des sekundären Standorts installiert wurde, wird SQL Server Express von Configuration Manager nicht deinstalliert.  
+-   **Désinstaller le site secondaire**. Utilisez cette option pour supprimer un site secondaire fonctionnel accessible à partir du réseau. Cette option désinstalle Configuration Manager du serveur de site secondaire et supprime toutes les informations relatives au site et ses ressources de la hiérarchie de sites Configuration Manager. Si Configuration Manager a installé SQL Server Express dans le cadre de l’installation du site secondaire, SQL Express est désinstallé en même temps que le site secondaire. En revanche, si SQL Server Express a été installé avant le site secondaire, Configuration Manager ne désinstalle pas SQL Server Express.  
 
--   **Sekundären Standort löschen**. Verwenden Sie diese Option, wenn eine der folgenden Aussagen zutrifft:  
+-   **Supprimer le site secondaire**. Utilisez cette option dans l'un des cas de figure suivants :  
 
-    -   Bei der Installation eines sekundären Standorts ist ein Fehler aufgetreten  
-    -   Nach der Deinstallation wird der sekundäre Standort weiterhin in der Configuration Manager-Konsole angezeigt
+    -   L’installation d’un site secondaire a échoué  
+    -   Le site secondaire continue de figurer dans la console Configuration Manager après sa désinstallation
 
-    Mit dieser Option werden alle Informationen über den Standort und die zugeordneten Ressourcen aus der Configuration Manager-Hierarchie gelöscht. Configuration Manager bleibt jedoch auf dem sekundären Standortserver installiert.  
+    Cette option supprime toutes les informations relatives au site et ses ressources de la hiérarchie Configuration Manager, mais laisse Configuration Manager installé sur le serveur de site secondaire.  
 
     > [!NOTE]  
-    >  Ein sekundärer Standort kann auch mit dem Hierarchieverwaltungstool und der Option **/DELSITE** gelöscht werden. Weitere Informationen finden Sie unter [Hierarchiewartungstool (Preinst.exe) für System Center Configuration Manager](../../../../core/servers/manage/hierarchy-maintenance-tool-preinst.exe.md).  
+    >  Vous pouvez également utiliser l’outil de maintenance hiérarchique et l’option **/DELSITE** pour supprimer un site secondaire. Pour plus d’informations, consultez [Outil de maintenance hiérarchique (Preinst.exe) pour System Center Configuration Manager](../../../../core/servers/manage/hierarchy-maintenance-tool-preinst.exe.md).  
 
-#### <a name="to-uninstall-or-delete-a-secondary-site"></a>So deinstallieren oder löschen Sie einen sekundären Standort  
+#### <a name="to-uninstall-or-delete-a-secondary-site"></a>Pour désinstaller ou supprimer un site secondaire  
 
-1.  Überprüfen Sie, ob der Administrator, der die Installation ausführt, über die folgenden Sicherheitsrechte verfügt:  
+1.  Vérifiez que l'utilisateur administratif exécutant le programme d'installation possède les droits de sécurité suivants :  
 
-    -   Administratorrechte auf dem sekundären Standortcomputer  
-    -   Lokale Administratorrechte auf dem Datenbankserver des Remotestandorts für den primären Standort, sofern dieser ein Remotestandort ist  
-    -   Sicherheitsrolle „Infrastrukturadministrator“ oder „Hauptadministrator“ am übergeordneten primären Standort  
-    -   Systemadministratorrechte auf der Standortdatenbank des sekundären Standorts  
+    -   Droits d’administration sur l’ordinateur de site secondaire  
+    -   Droits d’administrateur local sur le serveur de base de données de site distant pour le site principal, s’il est distant  
+    -   Rôle de sécurité d’administrateur d’infrastructure ou d’administrateur complet sur le site principal parent  
+    -   Droits d’administrateur système sur la base de données de site du site secondaire  
 
-2.  Klicken Sie in der Configuration Manager-Konsole auf **Verwaltung**.  
-3.  Erweitern Sie im Arbeitsbereich **Verwaltung** den Bereich **Standortkonfiguration**, und wählen Sie **Standorte** aus.  
-4.  Wählen Sie den sekundären Standortserver aus, der entfernt werden soll.  
-5.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Standort** auf **Löschen**.  
-6.  Wählen Sie auf der Seite **Allgemein** aus, ob der sekundäre Standort deinstalliert oder gelöscht werden soll. Klicken Sie dann auf **Weiter**.  
-7.  Überprüfen Sie auf der Seite **Zusammenfassung** die Einstellungen, und klicken Sie dann auf **Weiter**.  
-8.  Klicken Sie auf der Seite **Abschluss des Vorgangs** zum Beenden des Assistenten auf **Schließen**.  
+2.  Dans la console Configuration Manager, sélectionnez **Administration**.  
+3.  Dans l’espace de travail **Administration**, développez **Configuration du site**, puis sélectionnez **Sites**.  
+4.  Sélectionnez le serveur de site secondaire à supprimer.  
+5.  Sous l’onglet **Accueil**, dans le groupe **Site**, sélectionnez **Supprimer**.  
+6.  Dans la page **Général**, indiquez si vous souhaitez désinstaller ou supprimer le site secondaire, puis cliquez sur **Suivant**.  
+7.  Vérifiez les paramètres de la page **Résumé**, puis sélectionnez **Suivant**.  
+8.  Dans la page **Dernière étape**, sélectionnez **Fermer** pour quitter l’Assistant.  
 
-##  <a name="BKMK_UninstallPrimary"></a> Deinstallieren eines primären Standorts  
-Sie können das Configuration Manager-Setup ausführen, um einen primären Standort zu deinstallieren, dem kein sekundärer Standort zugeordnet ist. Beachten Sie vor der Deinstallation eines primären Standorts folgende Punkte:  
+##  <a name="BKMK_UninstallPrimary"></a> Désinstaller un site principal  
+Vous pouvez exécuter le programme d’installation de Configuration Manager pour désinstaller un site principal auquel aucun site secondaire n’est associé. Avant de désinstaller un site principal, prenez connaissance des remarques suivantes :  
 
--   Wenn sich die Configuration Manager-Clients innerhalb der am Standort konfigurierten Grenzen befinden und der primäre Standort Teil einer Configuration Manager-Hierarchie ist, kann es sinnvoll sein, die Grenzen einem anderen primären Standort in der Hierarchie hinzuzufügen, bevor der primäre Standort deinstalliert wird.  
--   Ist der primäre Standortserver nicht mehr verfügbar, müssen Sie das Hierarchieverwaltungstool am Standort der zentralen Verwaltung verwenden, um den primären Standort aus der Standortdatenbank zu löschen. Weitere Informationen finden Sie unter [Hierarchiewartungstool (Preinst.exe) für System Center Configuration Manager](../../../../core/servers/manage/hierarchy-maintenance-tool-preinst.exe.md).  
+-   Quand des clients Configuration Manager se trouvent dans les limites configurées au niveau du site et que le site principal fait partie d’une hiérarchie Configuration Manager, envisagez d’ajouter les limites à un autre site principal de la hiérarchie avant de désinstaller le site principal.  
+-   Lorsque le serveur de site principal n'est plus disponible, vous devez utiliser l'outil de maintenance hiérarchique au niveau du site d'administration centrale afin de supprimer le site principal de la base de données de site. Pour plus d’informations, consultez [Outil de maintenance hiérarchique (Preinst.exe) pour System Center Configuration Manager](../../../../core/servers/manage/hierarchy-maintenance-tool-preinst.exe.md).  
 
-Gehen Sie wie folgt vor, um einen primären Standort zu deinstallieren.  
+Pour désinstaller un site principal, suivez les instructions ci-dessous.  
 
-#### <a name="to-uninstall-a-primary-site"></a>So deinstallieren Sie einen primären Standort  
+#### <a name="to-uninstall-a-primary-site"></a>Pour désinstaller un site principal  
 
-1.  Überprüfen Sie, ob der Administrator, der die Installation ausführt, über die folgenden Sicherheitsrechte verfügt:  
+1.  Vérifiez que l'utilisateur administratif exécutant le programme d'installation possède les droits de sécurité suivants :  
 
-    -   Lokale Administratorrechte auf dem Server des Standorts der zentralen Verwaltung  
-    -   Lokale Administratorrechte auf dem Datenbankserver des Remotestandorts für den Standort der zentralen Verwaltung, sofern dieser ein Remotestandort ist
-    -   Systemadministratorrechte auf der Standortdatenbank des Standorts der zentralen Verwaltung  
-    -   Lokale Administratorrechte auf dem primären Standortcomputer  
-    -   Lokale Administratorrechte auf dem Datenbankserver des Remotestandorts für den primären Standort, sofern dieser ein Remotestandort ist  
-    -   Ein Benutzername, der der Sicherheitsrolle „Infrastrukturadministrator“ oder „Hauptadministrator“ am Standort der zentralen Verwaltung zugeordnet ist  
+    -   Droits d’administrateur local sur le serveur de site d’administration centrale  
+    -   Droits d’administrateur local sur le serveur de base de données de site distant pour le site d’administration centrale, s’il est distant
+    -   Droits d'administrateur système sur la base de données du site d'administration centrale  
+    -   Droits d’administrateur local sur l’ordinateur de site principal  
+    -   Droits d’administrateur local sur le serveur de base de données de site distant pour le site principal, s’il est distant  
+    -   Nom d’utilisateur associé au rôle de sécurité Administrateur d’infrastructure ou au rôle Administrateur complet sur le site d’administration centrale  
 
-2.  Starten Sie das Configuration Manager-Setup auf dem primären Standortserver mithilfe eines der folgenden Verfahren:  
+2.  Démarrez le programme d’installation de Configuration Manager sur le serveur de site principal en utilisant l’une des méthodes suivantes :  
 
-    -   Klicken Sie unter **Start** auf **Configuration Manager-Setup**.  
-    -   Öffnen Sie die Datei „Setup.exe“ im Verzeichnis &lt;*ConfigMgrInstallationMedia*>\SMSSETUP\BIN\X64.  
-    -   Öffnen Sie die Datei „Setup.exe“ im Verzeichnis &lt;*ConfigMgrInstallationPath*>\BIN\X64.  
+    -   Dans le menu **Démarrer**, sélectionnez **Installation de Configuration Manager**.  
+    -   Ouvrez Setup.exe à partir de &lt;*SupportInstallationConfigMgr*>\SMSSETUP\BIN\X64.  
+    -   Ouvrez Setup.exe à partir de &lt;*CheminInstallationConfigMgr*>\BIN\X64.  
 
-3.  Wählen Sie auf der Seite **Vorbereitung** die Option **Weiter**.  
-4.  Wählen Sie auf der Seite **Erste Schritte** die Option **Configuration Manager-Standort deinstallieren**, und klicken Sie dann auf **Weiter**.  
-5.  Geben Sie unter **Configuration Manager-Standort deinstallieren** an, ob die Standortdatenbank vom primären Standortserver und die Configuration Manager-Konsole entfernt werden sollen. Standardmäßig werden beide Komponenten entfernt.  
-
-    > [!IMPORTANT]  
-    >  Wenn dem primären Standort ein sekundärer Standort zugeordnet ist, müssen Sie den sekundären Standort entfernen, bevor Sie den primären Standort deinstallieren können.  
-
-6.  Klicken Sie auf **Ja**, um zu bestätigen, dass der primäre Configuration Manager-Standort deinstalliert werden soll.  
-
-##  <a name="BKMK_UninstallPrimaryDistViews"></a> Deinstallieren eines primären Standorts, der mit verteilten Ansichten konfiguriert ist  
- Sie müssen verteilte Ansichten in der Hierarchie deaktivieren, bevor Sie einen untergeordneten primären Standort deinstallieren, für dessen Replikationslink zum Standort der zentralen Verwaltung verteilte Ansichten aktiviert sind. Nutzen Sie die folgenden Informationen zum Deaktivieren von verteilten Ansichten, bevor Sie einen primären Standort deinstallieren.  
-
-#### <a name="to-uninstall-a-primary-site-that-is-configured-with-distributed-views"></a>So deinstallieren Sie einen primären Standort, für den verteilte Ansichten konfiguriert wurden  
-
-1.  Vor dem Deinstallieren primärer Standorte müssen Sie verteilte Ansichten für alle Links der Hierarchie zwischen dem Standort der zentralen Verwaltung und einem primären Standort deaktivieren.  
-2.  Nachdem Sie verteilte Ansichten für die einzelnen Links deaktiviert haben, müssen Sie sicherstellen, dass für die Daten des primären Standorts eine Neuinitialisierung am Standort der zentralen Verwaltung ausgeführt wird. Sie können die Initialisierung der Daten überwachen, wenn Sie den Link in der Configuration Manager-Konsole im Arbeitsbereich **Überwachung** im Knoten **Datenbankreplikation** anzeigen.  
-3.  Nachdem die Daten für den Standort der zentralen Verwaltung neu initialisiert wurden, können Sie den primären Standort deinstallieren. Informationen zum Deinstallieren eines primären Standorts finden Sie unter [Deinstallieren eines primären Standorts](#BKMK_UninstallPrimary).  
-4.  Nach der vollständigen Deinstallation des primären Standorts können Sie verteilte Ansichten für Links zu primären Standorten neu konfigurieren.  
+3.  Dans la page **Avant de commencer**, sélectionnez **Suivant**.  
+4.  Dans la page **Mise en route**, sélectionnez **Désinstaller le site Configuration Manager**, puis sélectionnez **Suivant**.  
+5.  Dans la page **Désinstaller le site Configuration Manager**, indiquez si vous souhaitez supprimer la base de données de site du serveur de site principal et si vous souhaitez supprimer la console Configuration Manager. Par défaut, le programme d'installation supprime les deux éléments.  
 
     > [!IMPORTANT]  
-    >  Wenn Sie den primären Standort vor dem Deaktivieren der verteilten Ansichten eines Standorts oder vor der erfolgreichen Neuinitialisierung der Daten am Standort der zentralen Verwaltung deinstallieren, kann bei der Replikation der Daten zwischen primären Standorten und dem Standort der zentralen Verwaltung ein Fehler auftreten. In diesem Fall müssen Sie die verteilten Ansichten für jeden Link der Standorthierarchie deaktivieren. Nachdem die Daten für den Standort der zentralen Verwaltung neu initialisiert wurden, können Sie die verteilten Ansichten neu konfigurieren.  
+    >  Lorsqu'un site secondaire est associé au site principal, vous devez au préalable supprimer le site secondaire pour pouvoir désinstaller le site principal.  
 
-##  <a name="BKMK_UninstallCAS"></a> Deinstallieren des Standorts der zentralen Verwaltung  
- Sie können das Configuration Manager-Setup ausführen, um einen Standort der zentralen Verwaltung ohne untergeordnete primäre Standorte zu deinstallieren. Wenden Sie das folgende Verfahren an, um den Standort der zentralen Verwaltung zu deinstallieren.  
+6.  Sélectionnez **Oui** pour confirmer la désinstallation du site principal Configuration Manager.  
 
-#### <a name="to-uninstall-a-central-administration-site"></a>So deinstallieren Sie einen Standort der zentralen Verwaltung  
+##  <a name="BKMK_UninstallPrimaryDistViews"></a> Désinstaller un site principal configuré avec des vues distribuées  
+ Pour pouvoir désinstaller un site principal enfant dont le lien de réplication vers le site d’administration centrale contient des vues distribuées, vous devez désactiver les vues distribuées dans votre hiérarchie. Avant de désinstaller un site principal, aidez-vous des informations ci-dessous pour désactiver les vues distribuées.  
 
-1.  Überprüfen Sie, ob der Administrator, der die Installation ausführt, über die folgenden Sicherheitsrechte verfügt:  
+#### <a name="to-uninstall-a-primary-site-that-is-configured-with-distributed-views"></a>Pour désinstaller un site principal configuré avec des vues distribuées  
 
-    -   Lokale Administratorrechte auf dem Server des Standorts der zentralen Verwaltung  
-    -   Lokale Administratorrechte auf dem Standortdatenbankserver für den Standort der zentralen Verwaltung, sofern der Standortdatenbankserver nicht auf dem Standortserver installiert ist 
-
-2.  Starten Sie das Configuration Manager-Setup auf dem Standortserver der zentralen Verwaltung mithilfe eines der folgenden Verfahren:  
-
-    -   Klicken Sie unter **Start**auf **Configuration Manager-Setup**.  
-    -   Öffnen Sie die Datei „Setup.exe“ im Verzeichnis &lt;*ConfigMgrInstallationMedia*>\SMSSETUP\BIN\X64.  
-    -   Öffnen Sie die Datei „Setup.exe“ im Verzeichnis &lt;*ConfigMgrInstallationPath*>\BIN\X64.  
-
-3.  Wählen Sie auf der Seite **Vorbereitung** die Option **Weiter**.  
-4.  Wählen Sie auf der Seite **Erste Schritte** die Option **Configuration Manager-Standort deinstallieren**, und klicken Sie dann auf **Weiter**.  
-5.  Geben Sie unter **Configuration Manager-Standort deinstallieren** an, ob die Standortdatenbank vom Standortserver der zentralen Verwaltung und die Configuration Manager-Konsole entfernt werden sollen. Standardmäßig werden beide Komponenten entfernt.  
+1.  Avant de désinstaller un site principal, vous devez désactiver les vues distribuées sur chaque lien de la hiérarchie reliant le site d’administration centrale et un site principal.  
+2.  Après avoir désactivé les vues distribuées sur chaque lien, vérifiez que les données du site principal sont bien réinitialisées au niveau du site d’administration centrale. Pour surveiller l’initialisation des données, dans la console Configuration Manager, dans l’espace de travail **Surveillance**, affichez le lien dans le nœud **Réplication de la base de données**.  
+3.  Une fois les données réinitialisées auprès du site d'administration centrale, vous pouvez désinstaller le site principal. Pour désinstaller un site principal, consultez [Désinstaller un site principal](#BKMK_UninstallPrimary).  
+4.  Une fois le site principal entièrement désinstallé, vous pouvez reconfigurer les vues distribuées sur les liens vers les sites principaux.  
 
     > [!IMPORTANT]  
-    >  Wenn dem Standort der zentralen Verwaltung ein primärer Standort zugeordnet ist, müssen Sie den primären Standort entfernen, bevor Sie den Standort der zentralen Verwaltung deinstallieren können.  
+    >  Si vous désinstallez le site principal avant de désactiver les vues distribuées de chaque site ou avant de réinitialiser les données du site principal au niveau du site d’administration centrale, la réplication des données entre les sites principaux et le site d’administration centrale risque d’échouer. Dans ce scénario, vous devez désactiver les vues distribuées pour chaque lien de la hiérarchie de sites, puis une fois que les données ont bien été réinitialisées au niveau du site d’administration centrale, vous pouvez reconfigurer les vues distribuées.  
 
-6.  Klicken Sie auf **Ja**, um zu bestätigen, dass der Configuration Manager-Standort der zentralen Verwaltung deinstalliert werden soll.  
+##  <a name="BKMK_UninstallCAS"></a> Désinstaller le site d’administration centrale  
+ Vous pouvez exécuter le programme d’installation de Configuration Manager pour désinstaller un site d’administration centrale qui n’a pas de sites principaux enfants. Pour désinstaller un site d'administration centrale, suivez les instructions ci-dessous.  
+
+#### <a name="to-uninstall-a-central-administration-site"></a>Pour désinstaller un site d'administration centrale  
+
+1.  Vérifiez que l'utilisateur administratif exécutant le programme d'installation possède les droits de sécurité suivants :  
+
+    -   Droits d’administrateur local sur le serveur de site d’administration centrale  
+    -   Droits d’administrateur local sur le serveur de base de données de site pour le site d’administration centrale, si le serveur de base de données de site n’est pas installé sur le serveur de site 
+
+2.  Démarrez le programme d’installation de Configuration Manager sur le serveur de site d’administration centrale en utilisant l’une des méthodes suivantes :  
+
+    -   Dans le menu **Démarrer**, cliquez sur **Installation de Configuration Manager**.  
+    -   Ouvrez Setup.exe à partir de &lt;*SupportInstallationConfigMgr*>\SMSSETUP\BIN\X64.  
+    -   Ouvrez Setup.exe à partir de &lt;*CheminInstallationConfigMgr*>\BIN\X64.  
+
+3.  Dans la page **Avant de commencer**, sélectionnez **Suivant**.  
+4.  Dans la page **Mise en route**, sélectionnez **Désinstaller le site Configuration Manager**, puis sélectionnez **Suivant**.  
+5.  Dans la page **Désinstaller le site Configuration Manager**, indiquez si vous souhaitez supprimer la base de données de site du serveur de site d’administration centrale et si vous souhaitez supprimer la console Configuration Manager. Par défaut, le programme d'installation supprime les deux éléments.  
+
+    > [!IMPORTANT]  
+    >  Si un site principal est associé au site d'administration centrale, vous devez désinstaller le site principal pour pouvoir désinstaller le site d'administration centrale.  
+
+6.  Sélectionnez **Oui** pour confirmer la désinstallation du site d’administration centrale Configuration Manager.  

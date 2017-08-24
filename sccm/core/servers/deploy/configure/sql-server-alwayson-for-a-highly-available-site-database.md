@@ -1,6 +1,6 @@
 ---
-title: SQL Server AlwaysOn | Microsoft-Dokumentation
-description: "Planen Sie die Verwendung einer SQL Server-AlwaysOn-Verfügbarkeitsgruppe mit SCCM."
+title: SQL Server Always On | Microsoft Docs
+description: "Planifiez l’utilisation d’un groupe de disponibilité SQL Server Always On avec SCCM."
 ms.custom: na
 ms.date: 7/31/2017
 ms.prod: configuration-manager
@@ -17,137 +17,137 @@ manager: angrobe
 ms.openlocfilehash: c746365238e1255d73387a9496521bb03a56b21b
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="prepare-to-use-sql-server-always-on-availability-groups-with-configuration-manager"></a>Vorbereiten der Verwendung von SQL Server AlwaysOn-Verfügbarkeitsgruppen mit Configuration Manager
+# <a name="prepare-to-use-sql-server-always-on-availability-groups-with-configuration-manager"></a>Se préparer à l’utilisation de groupes de disponibilité SQL Server Always On avec Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Bereiten Sie System Center Configuration Manager auf die Verwendung von SQL Server AlwaysOn-Verfügbarkeitsgruppen als Lösung für hohe Verfügbarkeit und Notfallwiederherstellung für die Standortdatenbank vor.  
-Configuration Manager unterstützt die Verwendung von Verfügbarkeitsgruppen:
--     An primären Standorten und am Standort der zentralen Verwaltung.
--     Lokal oder in Microsoft Azure.
+Préparez System Center Configuration Manager afin d’utiliser des groupes de disponibilité SQL Server Always On comme solution de haute disponibilité et de récupération d’urgence pour la base de données de site.  
+Configuration Manager prend en charge des groupes de disponibilité :
+-     Sur les sites principaux et sur le site d’administration centrale.
+-     Localement ou dans Microsoft Azure.
 
-Wenn Sie Verfügbarkeitsgruppen in Microsoft Azure verwenden, können Sie die Verfügbarkeit Ihrer Standortdatenbank weiter steigern, indem Sie *Azure-Verfügbarkeitsgruppen* einsetzen. Weitere Informationen zu Azure-Verfügbarkeitsgruppen finden Sie unter [Verwalten der Verfügbarkeit von virtuellen Computern](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-manage-availability/).
+Quand vous utilisez des groupes de disponibilité dans Microsoft Azure, vous pouvez encore augmenter la disponibilité de la base de données de votre site en utilisant des *groupes de disponibilité Azure*. Pour plus d’informations sur les groupes à haute disponibilité Azure, consultez [Gestion de la disponibilité des machines virtuelles](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-manage-availability/).
 
 >  [!Important]   
->  Machen Sie sich mit der Konfiguration von SQL Server und SQL Server-Verfügbarkeitsgruppen vertraut, bevor Sie fortfahren. In den folgenden Informationen wird auf die SQL Server-Dokumentationsbibliothek und entsprechende Verfahren verwiesen.
+>  Avant de continuer, familiarisez-vous avec la configuration de SQL Server et les groupes de disponibilité SQL Server. Les informations ci-dessous font référence à la bibliothèque de documentation et aux procédures SQL Server.
 
-## <a name="supported-scenarios"></a>Unterstützte Szenarien
-Die folgenden Szenarios werden für die Verwendung von Verfügbarkeitsgruppen mit Configuration Manager unterstützt. Ausführliche Informationen und Vorgehensweisen für die einzelnen Szenarien finden Sie unter [Konfigurieren von Verfügbarkeitsgruppen für Configuration Manager](/sccm/core/servers/deploy/configure/configure-aoag).
-
-
--      [Erstellen einer Verfügbarkeitsgruppe für die Verwendung mit Configuration Manager](/sccm/core/servers/deploy/configure/configure-aoag#create-and-configure-an-availability-group).
--     [Konfigurieren eines Standorts zur Verwendung einer Verfügbarkeitsgruppe](/sccm/core/servers/deploy/configure/configure-aoag#configure-a-site-to-use-the-database-in-the-availability-group).
--     [Add or remove synchronous replica members from an availability group that hosts a site database (Hinzufügen oder Entfernen von synchronen Replikationsmitgliedern zu einer Verfügbarkeitsgruppe, die eine Standortdatenbank hostet)](/sccm/core/servers/deploy/configure/configure-aoag#add-and-remove-synchronous-replica-members)
--     [Configure asynchronous commit replicas (Konfigurieren von Replikaten mit asynchronem Commit)](/sccm/core/servers/deploy/configure/configure-aoag#configure-an-asynchronous-commit-repilca) (Erfordert Configuration Manager Version 1706 oder höher.)
--     [Recover a site from an asynchronous commit replica (Wiederherstellen eines Standorts aus einem Replikat mit asynchronem Commit)](/sccm/core/servers/deploy/configure/configure-aoag#use-the-asynchronous-replica-to-recover-your-site) (Erfordert Configuration Manager Version 1706 oder höher.)
--     [Verschieben einer Standortdatenbank aus einer Verfügbarkeitsgruppe in eine Standardinstanz oder eine benannte Instanz einer eigenständigen SQL Server-Instanz](/sccm/core/servers/deploy/configure/configure-aoag#stop-using-an-availability-group).
+## <a name="supported-scenarios"></a>Scénarios pris en charge
+Voici les scénarios pris en charge pour l’utilisation de groupes de disponibilité avec Configuration Manager. Vous trouverez les détails et les procédures pour chaque scénario à la rubrique [Configurer des groupes de disponibilité pour Configuration Manager](/sccm/core/servers/deploy/configure/configure-aoag).
 
 
-## <a name="prerequisites"></a>Voraussetzungen
-Die folgenden Voraussetzungen gelten für alle Szenarien. Wenn zusätzliche Voraussetzungen für ein bestimmtes Szenario gelten, werden sie für das Szenario angegeben.   
+-      [Créez un groupe de disponibilité pour une utilisation avec Configuration Manager](/sccm/core/servers/deploy/configure/configure-aoag#create-and-configure-an-availability-group).
+-     [Configurez un site pour utiliser un groupe de disponibilité](/sccm/core/servers/deploy/configure/configure-aoag#configure-a-site-to-use-the-database-in-the-availability-group).
+-     [Ajouter ou supprimer des membres de réplica synchrone à partir d’un groupe de disponibilité qui héberge une base de données de site](/sccm/core/servers/deploy/configure/configure-aoag#add-and-remove-synchronous-replica-members).
+-     [Configurer des réplicas avec validation asynchrone](/sccm/core/servers/deploy/configure/configure-aoag#configure-an-asynchronous-commit-repilca) (nécessite Configuration Manager version 1706 ou ultérieure).
+-     [Récupérer un site à partir d’un réplica avec validation asynchrone](/sccm/core/servers/deploy/configure/configure-aoag#use-the-asynchronous-replica-to-recover-your-site) (nécessite Configuration Manager version 1706 ou ultérieure).
+-     [Déplacez une base de données de site d’un groupe de disponibilité vers une instance par défaut ou nommée d’un serveur SQL Server autonome](/sccm/core/servers/deploy/configure/configure-aoag#stop-using-an-availability-group).
 
-### <a name="configuration-manager-accounts-and-permissions"></a>Konten und Berechtigungen in Configuration Manager
-**Zugriff auf Standortserver und Replikationsmitglieder:**   
-Das Computerkonto des Standortservers muss Mitglied der Gruppe **Lokale Administratoren** auf allen Computern sein, die zur Verfügbarkeitsgruppe gehören.
+
+## <a name="prerequisites"></a>Prérequis
+Les conditions préalables suivantes s’appliquent à tous les scénarios. Si d’autres conditions préalables s’appliquent à un scénario spécifique, ces conditions seront détaillées dans ce scénario.   
+
+### <a name="configuration-manager-accounts-and-permissions"></a>Comptes et autorisations de Configuration Manager
+**Serveur de site pour l’accès à un membre réplica :**   
+Le compte d’ordinateur du serveur de site doit être membre du groupe **Administrateurs locaux** sur chaque ordinateur membre du groupe de disponibilité.
 
 ### <a name="sql-server"></a>SQL Server
-**Version:**  
-Jedes Replikat in der Verfügbarkeitsgruppe muss eine Version von SQL Server ausführen, die von Ihrer Configuration Manager-Version unterstützt wird. Wenn von SQL Server unterstützt, können die verschiedenen Knoten einer Verfügbarkeitsgruppe unterschiedliche Versionen von SQL Server ausführen.
+**Version :**  
+Chaque réplica du groupe de disponibilité doit exécuter une version de SQL Server prise en charge par votre version de Configuration Manager. S’ils sont pris en charge par SQL Server, les différents nœuds d’un groupe de disponibilité peuvent exécuter des versions différentes de SQL Server.
 
-**Edition:**  
-Sie müssen eine *Enterprise* Edition von SQL Server verwenden.
+**Édition :**  
+Vous devez utiliser une édition *Enterprise* de SQL Server.
 
-**Konto:**  
-Jede Instanz von SQL Server kann mit einem Domänenbenutzerkonto (**Dienstkonto**) oder mit einem Nicht-Domänenkonto ausgeführt werden. Jedes Replikat in einer Gruppe kann eine andere Konfiguration aufweisen. Die [bewährten Methoden für SQL Server](/sql/sql-server/install/security-considerations-for-a-sql-server-installation#before-installing-includessnoversionincludesssnoversion-mdmd) raten dazu, ein Konto mit möglichst geringen Berechtigungen zu verwenden.
+**Compte :**  
+Chaque instance de SQL Server peut s’exécuter sous un compte d’utilisateur de domaine (**compte de service**) ou un compte n’appartenant pas à un domaine. Chaque réplica d’un groupe peut avoir une configuration différente. Les [meilleures pratiques SQL Server](/sql/sql-server/install/security-considerations-for-a-sql-server-installation#before-installing-includessnoversionincludesssnoversion-mdmd) recommandent d’utiliser un compte avec les autorisations les plus basses possible.
 
--   Informationen zum Konfigurieren von Dienstkonten und Berechtigungen für SQL Server 2016 finden Sie unter [Configure Windows Service Accounts and Permissions (Konfigurieren von Windows-Dienstkonten und -Berechtigungen)](/sql/database-engine/configure-windows/configure-windows-service-accounts-and-permissions) auf MSDN.
--   Sie müssen Zertifikate verwenden, um ein Nicht-Domänenkonto zu verwenden. Weitere Informationen finden Sie unter [Use Certificates for a Database Mirroring Endpoint (Transact-SQL) (Verwenden von Zertifikaten für einen Datenbankspiegelungs-Endpunkt (Transact-SQL))](https://docs.microsoft.com/sql/database-engine/database-mirroring/use-certificates-for-a-database-mirroring-endpoint-transact-sql).
+-   Pour configurer les comptes de service et les autorisations pour SQL Server 2016, consultez [Configurer les comptes de service Windows et les autorisations](/sql/database-engine/configure-windows/configure-windows-service-accounts-and-permissions) sur MSDN.
+-   Pour utiliser un compte n’appartenant pas à un domaine, vous devez utiliser des certificats. Pour plus d’informations, consultez [Utiliser des certificats pour un point de terminaison de mise en miroir de bases de données (Transact-SQL)](https://docs.microsoft.com/sql/database-engine/database-mirroring/use-certificates-for-a-database-mirroring-endpoint-transact-sql).
 
 
-Weitere Informationen finden Sie unter [Erstellen eines Endpunkts für die Datenbankspiegelung für AlwaysOn-Verfügbarkeitsgruppen](/sql/database-engine/availability-groups/windows/database-mirroring-always-on-availability-groups-powershell).
+Pour plus d’informations, consultez [Créer un point de terminaison de mise en miroir de base de données pour les groupes de disponibilité Always On](/sql/database-engine/availability-groups/windows/database-mirroring-always-on-availability-groups-powershell).
 
-### <a name="availability-group-configurations"></a>Konfigurationen von Verfügbarkeitsgruppen
-**Replikationsmitglieder:**  
--   Die Verfügbarkeitsgruppe muss ein primäres Replikat besitzen.
--   Vor Version 1706 können Sie bis zu zwei synchrone sekundäre Replikate verwenden.
--   Ab Version 1706 können Sie die gleiche Anzahl und Art von Replikaten in einer Verfügbarkeitsgruppe nutzen, die von der von Ihnen verwendeten Version von SQL Server unterstützt wird.
+### <a name="availability-group-configurations"></a>Configurations du groupe de disponibilité
+**Membres du réplica :**  
+-   Le groupe de disponibilité doit avoir un réplica principal.
+-   Avant la version 1706, vous pouviez avoir jusqu’à deux réplicas secondaires synchrones.
+-   À compter de la version 1706, vous pouvez utiliser les mêmes nombre et type de réplicas dans un groupe de disponibilité pris en charge par la version de SQL Server que vous utilisez.
 
-    Sie können ein Replikat mit asynchronem Commit zum Wiederherstellen Ihres synchronen Replikats verwenden. Unter [Wiederherstellungsoptionen für die Standortdatenbank]( /sccm/protect/understand/backup-and-recovery#BKMK_SiteDatabaseRecoveryOption) finden Sie im Thema zu Sicherung und Wiederherstellung weiterführende Informationen dazu.
+    Vous pouvez utiliser un réplica avec validation asynchrone pour récupérer votre réplica synchrone. Consultez les [options de récupération de base de données de site]( /sccm/protect/understand/backup-and-recovery#BKMK_SiteDatabaseRecoveryOption) dans la rubrique Sauvegarde et récupération pour plus d’informations sur la façon d’y parvenir.
     > [!CAUTION]  
-    > Configuration Manager unterstützt kein Failover, um das Replikat mit asynchronem Commit als Standortdatenbank zu verwenden.
-Da Configuration Manager nicht den Status des Replikats mit asynchronem Commit dahingehend überprüft, ob es aktuell ist, und [ein solches Replikat asynchron sein kann]( https://msdn.microsoft.com/library/ff877884(SQL.120).aspx(d=robot)#Availability%20Modes), kann das Verwenden eines Replikats mit asynchronem Commit als Standortdatenbank die Integrität Ihres Standorts und Ihrer Daten gefährden.
+    > Configuration Manager ne prend pas en charge le basculement pour utiliser le réplica avec validation asynchrone comme base de données de votre site.
+Étant donné que Configuration Manager ne valide pas l’état du réplica avec validation asynchrone pour vérifier qu’il est à jour, et que, [par définition, un réplica de ce type peut être désynchronisé]( https://msdn.microsoft.com/library/ff877884(SQL.120).aspx(d=robot)#Availability%20Modes), l’utilisation d’un réplica avec validation asynchrone comme base de données de site risque de compromettre l’intégrité de votre site et de ses données.
 
-Jedes Replikationsmitglied muss:
--   die **Standardinstanz**verwenden.  
-    *Ab Version 1702 können Sie eine* ***benannte Instanz*** verwenden.
+Chaque membre du réplica doit :
+-   utiliser **l’instance par défaut**;  
+    *Depuis la version 1702, vous pouvez utiliser une* ***instance nommée***.
 
--     **Ja** für **Verbindungen in primärer Rolle** aufweisen.
--     **Ja** für **Lesbare sekundäre Rolle** aufweisen.  
--     auf **Manuelles Failover**festgelegt sein.      
+-     définir **Connexions dans le rôle principal** sur **Oui**
+-     définir **Secondaire accessible en lecture** sur **Oui**  
+-     être configuré pour le **basculement manuel**.      
 
     >  [!TIP]
-    >  Configuration Manager unterstützt bei Festlegung auf **Automatisches Failover** die Verwendung der synchronen Verfügbarkeitsgruppenreplikate. Ein **manuelles Failover** muss jedoch in folgenden Fällen festgelegt werden:
-    >  -  Sie führen das Setup aus, um die Verwendung der Standortdatenbank in der Verfügbarkeitsgruppe anzugeben.
-    >  -  Wenn Sie ein Update für Configuration Manager installieren (nicht nur Updates für die Standortdatenbank).  
+    >  Configuration Manager prend en charge l’utilisation de réplicas synchrones de groupe de disponibilité quand il est configuré pour le **Basculement automatique**. Toutefois, **Basculement manuel** doit être défini lorsque :
+    >  -  Vous exécutez le programme d’installation pour spécifier l’utilisation de la base de données de site dans le groupe de disponibilité.
+    >  -  Lorsque vous installez une mise à jour dans Configuration Manager (pas seulement les mises à jour qui s’appliquent à la base de données de site).  
 
-**Speicherort der Replikationsmitglieder:**  
-Alle Replikate in einer Verfügbarkeitsgruppe müssen lokal oder in Microsoft Azure gehostet werden. Eine Gruppe, die ein lokales Mitglied und ein Mitglied in Azure enthält, wird nicht unterstützt.     
+**Emplacement du membre du réplica :**  
+Tous les réplicas d’un groupe de disponibilité doivent être hébergés localement ou sur Microsoft Azure. Un groupe incluant un membre local et un membre dans Azure n’est pas pris en charge.     
 
-Wenn Sie eine Verfügbarkeitsgruppe in Azure einrichten und die Gruppe sich hinter einem internen oder externen Lastenausgleich befindet, müssen Sie die folgenden Standardports öffnen, damit das Setup auf jedes Replikat zugreifen kann:   
+Lorsque vous configurez un groupe de disponibilité dans Azure et que le groupe se situe derrière un équilibreur de charge interne ou externe, les éléments suivants constituent les ports par défaut que vous devez ouvrir pour permettre au programme d’installation d’accéder à chaque réplica :   
 
--     RCP-Endpunktzuordnung: **TCP 135**   
--     Server Message Block: **TCP 445**  
-    *Wenn das Verschieben der Datenbank abgeschlossen ist, können Sie diesen Port entfernen. Ab Version 1702 ist dieser Port nicht mehr erforderlich.*
--     SQL Server Service Broker: **TCP 4022**
--     SQL über TCP: **TCP 1433**   
+-     Mappeur de point de terminaison RCP - **TCP 135**   
+-     Server Message Block – **TCP 445**  
+    *Vous pouvez supprimer ce port après le déplacement de la base de données. Depuis la version 1702, ce port n’est plus nécessaire.*
+-     SQL Server Service Broker : **TCP 4022**
+-     SQL sur TCP : **TCP 1433**   
 
-Nach Abschluss des Setups müssen die folgenden Ports zugänglich bleiben:
--     SQL Server Service Broker: **TCP 4022**
--     SQL über TCP: **TCP 1433**
+Une fois l’installation terminée, les ports suivants doivent rester accessibles :
+-     SQL Server Service Broker : **TCP 4022**
+-     SQL sur TCP : **TCP 1433**
 
-Ab Version 1702 können Sie benutzerdefinierte Ports für diese Konfigurationen verwenden. Die gleichen Ports müssen vom Endpunkt und auf allen Replikaten in der Verfügbarkeitsgruppe verwendet werden.
+Depuis la version 1702, vous pouvez utiliser des ports personnalisés pour ces configurations. Les mêmes ports doivent être utilisés par le point de terminaison et sur tous les réplicas du groupe de disponibilité.
 
 
-**Listener:**   
-Die Verfügbarkeitsgruppe muss mindestens einen **Verfügbarkeitsgruppenlistener**besitzen. Der virtuelle Name dieses Listeners wird verwendet, wenn Sie Configuration Manager für die Verwendung der Standortdatenbank in der Verfügbarkeitsgruppe konfigurieren. Eine Verfügbarkeitsgruppe kann zwar mehrere Listener enthalten, Configuration Manager kann aber nur einen nutzen. Weitere Informationen finden Sie unter [Erstellen oder Konfigurieren eines Verfügbarkeitsgruppenlisteners (SQL Server)](/sql/database-engine/availability-groups/windows/create-or-configure-an-availability-group-listener-sql-server).
+**Écouteur :**   
+Le groupe de disponibilité doit avoir au moins un **écouteur de groupe de disponibilité**. Le nom virtuel de cet écouteur est utilisé quand vous configurez Configuration Manager pour utiliser la base de données du site dans le groupe de disponibilité. Bien qu’un groupe de disponibilité puisse contenir plusieurs écouteurs, Configuration Manager ne peut en utiliser qu’un seul. Consultez [Créer ou configurer un écouteur de groupe de disponibilité (SQL Server)](/sql/database-engine/availability-groups/windows/create-or-configure-an-availability-group-listener-sql-server) pour plus d’informations.
 
-**Dateipfade:**   
-Wenn Sie das Setup von Configuration Manager so ausführen, dass ein Standort für die Verwendung der Datenbank in einer Verfügbarkeitsgruppe konfiguriert wird, muss jeder sekundäre Replikatserver einen SQL Server-Dateipfad aufweisen, der identisch mit dem Dateipfad der Standortdatenbank-Dateien für das aktuelle primäre Replikat ist.
--   Wenn kein identischer Pfad vorhanden ist, kann das Setup die Instanz für die Verfügbarkeitsgruppe nicht als neuen Speicherort der Standortdatenbank hinzufügen.
--   Darüber hinaus muss das lokale SQL Server-Dienstkonto über die Berechtigung **Vollzugriff** für diesen Ordner verfügen.
+**Chemins d’accès au fichier :**   
+Quand vous exécutez le programme d’installation de Configuration Manager pour configurer un site afin d’utiliser la base de données dans un groupe de disponibilité, chaque serveur réplica secondaire doit avoir un chemin de fichier SQL Server identique à celui utilisé pour les fichiers de base de données du site figurant sur le réplica principal actuel.
+-   À défaut de chemin identique, le programme d’installation ne peut pas ajouter l’instance du groupe de disponibilité comme nouvel emplacement de la base de données du site.
+-   En outre, le compte de service SQL Server local doit avoir une autorisation **Contrôle total** sur ce dossier.
 
-Die sekundären Replikatserver benötigen diesen Dateipfad nur, während Sie Setup verwenden, um die Datenbankinstanz der Verfügbarkeitsgruppe anzugeben. Nachdem vom Setup die Konfiguration der Standortdatenbank in der Verfügbarkeitsgruppe durchgeführt wurde, können Sie den nicht verwendeten Pfad von sekundären Replikatservern löschen.
+Les serveurs de réplication secondaires doivent avoir ce chemin de fichier uniquement pendant que vous utilisez le programme d’installation pour spécifier l’instance de base de données dans le groupe de disponibilité. Une fois que le programme d’installation a configuré la base de données du site dans le groupe de disponibilité, vous pouvez supprimer le chemin inutilisé des serveurs de réplication secondaires.
 
-Betrachten Sie beispielsweise das folgende Szenario:
--   Sie erstellen eine Verfügbarkeitsgruppe, die drei SQL Server-Instanzen verwendet.
+Par exemple, examinez le scénario suivant :
+-   Vous créez un groupe de disponibilité qui utilise trois serveurs SQL Server.
 
--   Ihr primärer Replikatserver ist eine Neuinstallation von SQL Server 2014. Standardmäßig werden die Datenbankdateien der Typen MDF und LDF in „C:\Programme\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\DATA“ gespeichert.
+-   Votre serveur de réplication principal est une nouvelle installation de SQL Server 2014. Par défaut, les fichiers .MDF et .LDF de la base de données sont stockés dans C:\Program Files\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\DATA.
 
--   Ihre beiden sekundären Replikatserver wurden von früheren Versionen auf SQL Server 2014 aktualisiert, und Sie behalten den ursprünglichen Dateipfad zum Speichern von Datenbankdateien bei, nämlich: C:\Programme\Microsoft SQL Server\MSSQL10.MSSQLSERVER\MSSQL\DATA.
+-   Vos deux serveurs de réplication secondaires ont été mis à niveau vers SQL Server 2014 à partir de versions antérieures et conservent le chemin de fichier d’origine pour stocker les fichiers de base de données, à savoir C:\Program Files\Microsoft SQL Server\MSSQL10.MSSQLSERVER\MSSQL\DATA.
 
--   Bevor Sie versuchen, die Standortdatenbank in diese Verfügbarkeitsgruppe zu verschieben, müssen Sie auf allen sekundären Replikatservern den folgenden Dateipfad erstellen, auch wenn die sekundären Replikate diesen Dateispeicherort nicht nutzen: C:\Programme\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\DATA (ein Duplikat des Pfads, der für das primäre Replikat verwendet wird).
+-   Avant de tenter de déplacer la base de données du site vers ce groupe de disponibilité, sur chaque serveur de réplication secondaire, vous devez créer le prochain chemin de fichier, même si les réplicas secondaires n’utilisent pas cet emplacement de fichier, à savoir C:\Program Files\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\DATA (il s’agit du même chemin que celui en cours d’utilisation sur le réplica principal).
 
--   Anschließend gewähren Sie dem SQL Server-Dienstkonto für jedes sekundäre Replikat Vollzugriff auf den neu erstellten Speicherort auf dem Server.
+-   Vous accordez ensuite au compte de service SQL Server sur chaque réplica secondaire un accès en contrôle total à l’emplacement du fichier qui vient d’être créé sur ce serveur.
 
--   Sie können nun das Setup von Configuration Manager erfolgreich so ausführen, dass die Standortdatenbank in der Verfügbarkeitsgruppe verwendet wird.
+-   Vous pouvez désormais exécuter correctement le programme d’installation de Configuration Manager pour configurer le site afin qu’il utilise la base de données du site figurant dans le groupe de disponibilité.
 
-**Konfigurieren der Datenbank für ein neues Replikat:**   
- Die Datenbank der einzelnen Replikate muss mit folgenden Einstellungen festgelegt werden:
--   **CLR-Integration** muss *aktiviert* werden.
--     **Max text repl size** muss *2147483647* sein.
--     Der Datenbankbesitzer muss das *SA-Konto* sein.
--     **TRUSTWORTY** muss **ON** sein.
--     **Service Broker** muss *aktiviert* werden.
+**Configurer la base de données sur un nouveau réplica :**   
+ La base de données de chaque réplica doit être définie avec les éléments suivants :
+-   **Intégration du CLR** doit être *activé*
+-     **Max text repl size** doit être *2147483647*
+-     Le propriétaire de la base de données doit être le *compte SA*
+-     **TRUSTWORTY** doit être **ON**
+-     **Service Broker** doit être *activé*
 
-Sie können diese Konfigurationen nur für ein primäres Replikat festlegen. Um ein sekundäres Replikat zu konfigurieren, müssen Sie zuerst ein Failover des primären Replikats auf das sekundäre Replikat vornehmen, wodurch das sekundäre Replikat das neue primäre Replikat wird.   
+Vous pouvez appliquer ces configurations uniquement à un réplica principal. Pour configurer un réplica secondaire, vous devez d’abord basculer le réplica principal vers le réplica secondaire afin de définir ce dernier comme nouveau réplica principal.   
 
-Verwenden Sie bei Bedarf die SQL Server-Dokumentation, um die Einstellungen zu konfigurieren. Lesen Sie beispielsweise die Abschnitte [TRUSTWORTHY](/sql/relational-databases/security/trustworthy-database-property) oder [CLR-Integration](/sql/relational-databases/clr-integration/clr-integration-enabling) in der SQL Server-Dokumentation.
+Utilisez la documentation SQL Server lorsque cela est nécessaire pour vous aider à configurer les paramètres. Par exemple, consultez [TRUSTWORTHY](/sql/relational-databases/security/trustworthy-database-property) ou [Intégration du CLR](/sql/relational-databases/clr-integration/clr-integration-enabling) dans la documentation SQL Server.
 
-### <a name="verification-script"></a>Überprüfungsskript
-Sie können das folgende Skript ausführen, um die Datenbankkonfigurationen für primäre und sekundäre Replikate zu überprüfen. Bevor Sie für ein sekundäres Replikat ein Problem beheben können, müssen Sie dieses sekundäre Replikat zum primären Replikat machen.
+### <a name="verification-script"></a>Script de vérification
+Vous pouvez exécuter le script suivant afin de vérifier les configurations de base de données pour les réplicas principal et secondaire. Avant de pouvoir résoudre un problème sur un réplica secondaire, vous devez le modifier afin de le définir comme réplica principal.
 
     SET NOCOUNT ON
 
@@ -207,53 +207,53 @@ Sie können das folgende Skript ausführen, um die Datenbankkonfigurationen für
 
     Branch_Exit:
 
-## <a name="limitations-and-known-issues"></a>Einschränkungen und bekannte Probleme
-Die folgenden Einschränkungen gelten für alle Szenarien.   
+## <a name="limitations-and-known-issues"></a>Limitations et problèmes connus
+Les limitations suivantes s’appliquent à tous les scénarios.   
 
-**Basis-Verfügbarkeitsgruppen werden nicht unterstützt:**  
-[Basis-Verfügbarkeitsgruppen](https://msdn.microsoft.com/library/mt614935.aspx) wurden mit SQL Server 2016 Standard Edition eingeführt und unterstützen den Lesezugriff auf sekundäre Replikate – und somit eine Voraussetzung für die Verwendung mit Configuration Manager – nicht.
+**Les groupes de disponibilité de base ne sont pas pris en charge :**  
+Depuis l’édition standard de SQL Server 2016, les [groupes de disponibilité de base](https://msdn.microsoft.com/library/mt614935.aspx) ne prennent pas en charge les accès en lecture aux réplicas secondaires, ce qui est obligatoire pour une utilisation avec Configuration Manager.
 
-**SQL-Server, die zusätzliche Verfügbarkeitsgruppen hosten:**   
-Vor Configuration Manager, Version 1610, galt: Wenn eine Verfügbarkeitsgruppe auf einer SQL Server-Instanz neben der Gruppe für Configuration Manager eine oder mehrere Verfügbarkeitsgruppen hostet, muss jedes Replikat in jeder zusätzlichen Verfügbarkeitsgruppe zum Zeitpunkt der Ausführung des Configuration Manager-Setups oder der Installation eines Updates für Configuration Manager die folgenden Konfigurationen aufweisen:
--   **Manuelles Failover**
--   **Alle schreibgeschützten Verbindungen zulassen**
+**Serveurs SQL qui hébergent des groupes de disponibilité supplémentaires :**   
+Avant la version 1610 de Configuration Manager, si un groupe de disponibilité sur un serveur SQL Server héberge un ou plusieurs groupes de disponibilité en plus du groupe que vous utilisez pour Configuration Manager, chaque réplica de chacun des ces groupes de disponibilité supplémentaires doit disposer des configurations suivantes lorsque vous exécutez le programme d’installation de Configuration Manager ou installez une mise à jour pour Configuration Manager :
+-   **basculement manuel**
+-   **autoriser toute connexion en lecture seule**
 
-**Verwendung nicht unterstützter Datenbanken:**
--   **Configuration Manager unterstützt nur die Standortdatenbank in einer Verfügbarkeitsgruppe:** Folgende Datenbanken werden nicht unterstützt:
-    -   Reporting-Datenbank
-    -   WSUS-Datenbank
--   **Bereits vorhandene Datenbank:** Sie können keine neue Datenbank verwenden, die auf dem Replikat erstellt wurde. Stattdessen müssen Sie eine Kopie einer vorhandenen Configuration Manager-Datenbank auf dem primären Replikat wiederherstellen, wenn Sie eine Verfügbarkeitsgruppe konfigurieren.
+**Utilisation d’une base de données non prise en charge :**
+-   **Configuration Manager prend uniquement en charge la base de données de site dans un groupe de disponibilité :** Les éléments suivants ne sont pas pris en charge :
+    -   Base de données Rapports
+    -   Base de données WSUS
+-   **Base de données préexistante :** vous ne pouvez pas utiliser la nouvelle base de données créée sur le réplica. Au lieu de cela, vous devez restaurer une copie de base de données Configuration Manager existante vers le réplica principal lors de la configuration d’un groupe de disponibilité.
 
-**Setupfehler in „ConfigMgrSetup.log“:**  
-Beim Ausführen des Setups zum Verschieben einer Standortdatenbank in eine Verfügbarkeitsgruppe versucht das Setup, Datenbankrollen in den sekundären Replikaten der Verfügbarkeitsgruppe zu verarbeiten, und protokolliert z.B. den folgenden Fehler:
--   Fehler: SQL Server-Fehler: [25000] [3906] [Microsoft] [SQL Server Native Client 11.0] [SQL Server]-Fehler beim Aktualisieren der Datenbank „CM_AAA“, weil die Datenbank schreibgeschützt ist. Configuration Manager-Setup 1/21/2016 4:54:59 PM 7344 (0x1CB0)  
+**Erreurs d’installation dans le fichier ConfigMgrSetup.log :**  
+Lorsque vous exécutez le programme d’installation pour déplacer une base de données de site vers un groupe de disponibilité, le programme d’installation tente de traiter les rôles de la base de données sur les réplicas secondaires du groupe de disponibilité et consigne les erreurs comme suit :
+-   ERREUR : erreur SQL Server : [25000][3906][Microsoft][SQL Server Native Client 11.0][SQL Server]Échec de la mise à jour de la base de données « CM_AAA », car celle-ci est en lecture seule. Installation de Configuration Manager 21/1/2016 16:54:59 7344 (0x1CB0)  
 
-Solche Fehler können ignoriert werden.
+Ces erreurs peuvent être ignorées sans problème.
 
-## <a name="changes-for-site-backup"></a>Änderungen für die Standortsicherung
-**Sichern von Datenbankdateien**  
-Wenn eine Datenbank in einer Verfügbarkeitsgruppe ausgeführt wird, muss der integrierte Wartungstask **Standortserver sichern** ausgeführt werden, um allgemeine Configuration Manager-Einstellungen und -Dateien zu sichern. Verwenden Sie jedoch nicht die MDF-oder LDF-Dateien, die von dieser Sicherung erstellt werden. Erstellen Sie stattdessen mithilfe von SQL Server direkte Sicherungskopien dieser Datenbankdateien.
+## <a name="changes-for-site-backup"></a>Modifications pour la sauvegarde de site
+**Sauvegarder des fichiers de base de données :**  
+Quand une base de données du site s’exécute dans un groupe de disponibilité, vous devez exécuter la tâche intégrée de maintenance de serveur **Sauvegarder le site** pour sauvegarder les paramètres et fichiers Configuration Manager courants. Toutefois, évitez d’utiliser les fichiers .MDF ou .LDF créés par cette sauvegarde. Au lieu de cela, effectuez des sauvegardes directes de ces fichiers de base de données à l’aide de SQL Server.
 
-**Transaktionsprotokoll:**  
-Das Wiederherstellungsmodell der Standortdatenbank muss auf **Vollständig** festgelegt werden (eine Voraussetzung für die Verwendung in einer Verfügbarkeitsgruppe). Planen Sie mit dieser Konfiguration das Überwachen und Verwalten der Größe des Transaktionsprotokolls für die Standortdatenbank. Beim Wiederherstellungsmodell „Vollständig“ werden Transaktionen erst festgeschrieben, nachdem eine vollständige Sicherung der Datenbank oder des Transaktionsprotokolls erfolgt ist. Weitere Informationen finden Sie unter [Sichern und Wiederherstellen von SQL Server-Datenbanken](/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases) in der SQL Server-Dokumentation.
+**Journal de transactions :**  
+Le mode de récupération de la base de données de site doit être défini sur **Complète** (condition requise pour une utilisation dans un groupe de disponibilité). Avec cette configuration, planifiez le monitorage et la gestion de la taille du journal de transactions de la base de données de site. Dans le mode de récupération complète, les transactions ne sont pas renforcées tant qu’une sauvegarde complète de la base de données ou du journal des transactions n’a pas été effectuée. Consultez [Sauvegarde et restauration des bases de données SQL Server](/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases) pour plus d’informations.
 
-## <a name="changes-for-site-recovery"></a>Änderungen für die Standortwiederherstellung
-Sie können die Wiederherstellungsoption **Datenbankwiederherstellung überspringen (diese Option verwenden, wenn die Standortdatenbank nicht betroffen war)** verwenden, wenn zumindest ein Knoten der Verfügbarkeitsgruppe funktionsfähig bleibt.
+## <a name="changes-for-site-recovery"></a>Modifications pour la récupération de site
+Vous pouvez utiliser l’option de récupération de site **Ignorer la récupération de base de données (Utiliser cette option si la base de données de site n’était pas affectée)** si au moins un nœud du groupe de disponibilité reste fonctionnel.
 
- Bevor Sie den Standort wiederherstellen können, wenn alle Knoten einer Verfügbarkeitsgruppe verloren gegangen sind, müssen Sie die Verfügbarkeitsgruppe neu erstellen. Configuration Manager kann den Verfügbarkeitsknoten nicht neu erstellen oder wiederherstellen. Nachdem die Gruppe neu erstellt und eine Sicherung wiederhergestellt und neu konfiguriert wurde, können Sie die Wiederherstellungsoption für den Standort **Datenbankwiederherstellung überspringen (diese Option verwenden, wenn die Standortdatenbank nicht betroffen war)** verwenden.
+ Avant de pouvoir récupérer le site si tous les nœuds d’un groupe de disponibilité ont été perdus, vous devez recréer le groupe de disponibilité. Configuration Manager ne peut pas reconstruire ni restaurer le nœud de disponibilité. Une fois le groupe recréé et une sauvegarde restaurée et reconfigurée, vous pouvez utiliser l’option de récupération de site  **Ignorer la récupération de base de données (Utiliser cette option si la base de données de site n’était pas affectée)**.
 
-Weitere Informationen finden Sie unter [Sicherung und Wiederherstellung für System Center Configuration Manager](/sccm/protect/understand/backup-and-recovery).
+Pour plus d’informations, consultez [Sauvegarde et récupération pour System Center Configuration Manager](/sccm/protect/understand/backup-and-recovery).
 
-## <a name="changes-for-reporting"></a>Änderungen für die Berichterstattung
-**Installieren des Reporting Services-Punkts:**  
-Der Reporting Services-Punkt unterstützt die Verwendung des virtuellen Listenernamens der Verfügbarkeitsgruppe oder das Hosting der Reporting Services-Datenbank in einer SQL Server AlwaysOn-Verfügbarkeitsgruppe nicht:
--   Standardmäßig wird durch die Installation des Reporting Services-Punkts der **Name des Standortdatenbankservers** auf den virtuellen Namen festgelegt, der als Listener angegeben ist. Ändern Sie diese Option, um einen Computernamen und die Instanz eines Replikats in der Verfügbarkeitsgruppe anzugeben.
--   Um die Last durch die Berichterstattung zu verlagern und die Verfügbarkeit zu erhöhen, wenn ein Replikatknoten offline ist, könnten Sie zusätzliche Reporting Services-Punkte auf jedem Replikatknoten installieren und jeden Reporting Services-Punkt so konfigurieren, dass er auf seinen eigenen Computernamen verweist.
+## <a name="changes-for-reporting"></a>Modifications pour la création de rapports
+**Installez le point de Reporting Services :**  
+Le point de Reporting Services ne prend pas en charge l’utilisation du nom virtuel d’écouteur du groupe de disponibilité ni l’hébergement de la base de données Reporting services dans un groupe de disponibilité SQL Server Always On :
+-   Par défaut, l’installation du point de Reporting Services utilise le nom virtuel spécifié en tant qu’écouteur comme **nom du serveur de base de données de site** . Modifiez cette option pour spécifier un nom d’ordinateur et une instance d’un réplica dans le groupe de disponibilité.
+-   Pour décharger la création de rapports et augmenter la disponibilité lorsqu’un nœud de réplica est en mode hors ligne, vous pouvez installer d’autres points de Reporting Services sur chaque nœud de réplica et configurer chaque point de Reporting Services afin qu’il pointe vers son propre nom d’ordinateur.
 
-Bei der Installation eines Reporting Services-Punkts in jedem Replikat der Verfügbarkeitsgruppe kann zur Berichterstattung immer eine Verbindung mit einem aktiven Server mit einem Berichterstattungspunkt hergestellt werden.
+Lorsque vous installez un point de Reporting Services sur chaque réplica du groupe de disponibilité, la création de rapports peut toujours se connecter à un serveur de point de rapport actif.
 
-**Wechseln des Reporting Services-Punkts, der von der Konsole verwendet wird:**  
-Wechseln Sie zum Ausführen von Berichten in der Konsole zu **Überwachung** > **Übersicht** > **Berichterstellung** > **Berichte**, und wählen Sie dann **Berichtsoptionen** aus. Wählen Sie im Dialogfeld „Berichtoptionen“ den gewünschten Reporting Services-Punkt aus.
+**Basculer le point de Reporting Services utilisé par la console :**  
+Pour exécuter des rapports, dans la console, accédez à **Surveillance** > **Vue d’ensemble** > **reporting** > **Rapports**, puis choisissez **Options de rapport**. Dans la boîte de dialogue Options de rapport, sélectionnez le point de Reporting Services souhaité.
 
-## <a name="next-steps"></a>Nächste Schritte
-Wenn Sie die Voraussetzungen, Einschränkungen und Änderungen an allgemeinen Aufgaben verstehen, die für die Verwendung von Verfügbarkeitsgruppen erforderlich sind, finden Sie unter [Konfigurieren von Verfügbarkeitsgruppen für Configuration Manager](/sccm/core/servers/deploy/configure/configure-aoag) Verfahren zum Einrichten und Konfigurieren Ihres Standorts zur Nutzung von Verfügbarkeitsgruppen.
+## <a name="next-steps"></a>Étapes suivantes
+Après avoir assimilé les conditions préalables, les limitations et les modifications apportées aux tâches requises lorsque vous utilisez des groupes de disponibilité, consultez [Configurer des groupes de disponibilité pour Configuration Manager](/sccm/core/servers/deploy/configure/configure-aoag) afin de connaître les procédures d’installation et de configuration de votre site pour utiliser des groupes de disponibilité.

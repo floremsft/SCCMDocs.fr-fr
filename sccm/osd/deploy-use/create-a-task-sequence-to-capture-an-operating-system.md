@@ -1,6 +1,6 @@
 ---
-title: Erstellen einer Tasksequenz zum Erfassen eines Betriebssystems | Microsoft-Dokumentation
-description: Eine Tasksequenz zum Erstellen und Erfassen erstellt einen Referenzcomputer, der spezifische Treiber und Softwareupdates zusammen mit dem Betriebssystem enthalten kann.
+title: "Créer une séquence de tâches pour capturer un système d’exploitation | Microsoft Docs"
+description: "Une séquence de tâches de création et de capture génère un ordinateur de référence qui peut inclure des pilotes et des mises à jour logicielles spécifiques en même temps que le système d’exploitation."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -18,216 +18,216 @@ manager: angrobe
 ms.openlocfilehash: e9320e40b8e5031ffa3da5e5149c7da718cc87d5
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-a-task-sequence-to-capture-an-operating-system-in-system-center-configuration-manager"></a>Erstellen einer Tasksequenz zum Erfassen eines Betriebssystems in System Center Configuration Manager
+# <a name="create-a-task-sequence-to-capture-an-operating-system-in-system-center-configuration-manager"></a>Créer une séquence de tâches pour capturer un système d’exploitation dans System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Wenn Sie zum Bereitstellen eines Betriebssystems auf einem Computer in System Center Configuration Manager eine Tasksequenz verwenden, installiert der Computer das Betriebssystemimage, das Sie in der Tasksequenz angeben. Um das Betriebssystemimage anzupassen, damit es bestimmte Treiber, Anwendungen, Softwareupdates usw. einbezieht, verwenden Sie eine Tasksequenz zum Erstellen und Erfassen, um einen Referenzcomputer zu erstellen und dann das Betriebssystemimage von diesem Referenzcomputer zu erfassen. Wenn Sie bereits über einen Referenzcomputer für die Erfassung verfügen, können Sie eine benutzerdefinierte Tasksequenz erstellen, um das Betriebssystem zu erfassen. Verwenden Sie die folgenden Abschnitte, um ein benutzerdefiniertes Betriebssystem zu erfassen.  
+Quand vous utilisez une séquence de tâches pour déployer un système d’exploitation sur un ordinateur dans System Center Configuration Manager, l’ordinateur installe l’image du système d’exploitation que vous spécifiez dans la séquence de tâches. Pour personnaliser l’image de système d’exploitation pour qu’elle comporte entre autres des pilotes, applications ou mises à jour logicielles spécifiques, vous utilisez une séquence de tâches de création et de capture pour créer un ordinateur de référence, puis vous capturez l’image du système d’exploitation à partir de cet ordinateur de référence. Si vous avez déjà un ordinateur de référence disponible pour la capture, vous pouvez créer une séquence de tâches pour capturer le système d’exploitation. Utilisez les sections suivantes pour capturer un système d’exploitation personnalisé.  
 
-##  <a name="BKMK_BuildCaptureTS"></a> Verwenden einer Tasksequenz zum Erstellen und Erfassen eines Referenzcomputers  
- Die Tasksequenz für die Erstellung und Erfassung partitioniert und formatiert den Referenzcomputer, installiert das Betriebssystem sowie den Configuration Manager-Client, Anwendungen und Softwareupdates. Anschließend erfasst er das Betriebssystem vom Referenzcomputer. Die Pakete, die der Tasksequenz zugeordnet sind, z. B. Anwendungen, müssen auf Verteilungspunkten verfügbar sein, bevor Sie die Tasksequenz für die Erstellung und Erfassung erstellen.  
+##  <a name="BKMK_BuildCaptureTS"></a> Utiliser une séquence de tâches pour créer et capturer un ordinateur de référence  
+ La séquence de tâches de création et de capture partitionne et formate l’ordinateur de référence, installe le système d’exploitation, ainsi que le client, les applications et les mises à jour logicielles Configuration Manager, puis capture le système d’exploitation à partir de l’ordinateur de référence. Les packages associés à la séquence de tâches, tels que les applications, doivent être disponibles sur les points de distribution avant la création de la séquence de tâches de création et de capture.  
 
-###  <a name="BKMK_CreatePackages"></a> Vorbereiten auf Betriebssystembereitstellungen  
- Es gibt eine Vielzahl von Szenarien zum Bereitstellen eines Betriebssystems auf Computern in Ihrer Umgebung. In den meisten Fällen erstellen Sie eine Tasksequenz und wählen **Bestehendes Abbildpaket installieren** im Tasksequenzerstellungs-Assistenten aus, um das Betriebssystem zu installieren, die Benutzereinstellungen zu migrieren, Softwareupdates anzuwenden und Anwendungen zu installieren. Bevor Sie eine Tasksequenz zum Installieren eines Betriebssystems erstellen, muss Folgendes vorhanden sein:  
+###  <a name="BKMK_CreatePackages"></a> Préparer des déploiements de système d’exploitation  
+ Il existe de nombreux scénarios pour déployer un système d’exploitation sur les ordinateurs de votre environnement. Dans la plupart des cas, vous créez une séquence de tâches et vous sélectionnez **Installer un package d’images existant** dans l’Assistant Création d’une séquence de tâches pour installer le système d’exploitation, migrer des paramètres utilisateur, appliquer des mises à jour logicielles et installer des applications. Avant de créer une séquence de tâches pour installer un système d’exploitation, les conditions suivantes doivent être remplies :  
 
--   **Erforderlich**  
+-   **Obligatoire**  
 
-    -   Das [Startimage](../get-started/manage-boot-images.md) muss in der Configuration Manager-Konsole verfügbar sein.  
+    -   L’[image de démarrage](../get-started/manage-boot-images.md) doit être disponible dans la console Configuration Manager.  
 
-    -   Ein [Betriebssystemimage](../get-started/manage-operating-system-images.md) muss in der Configuration Manager-Konsole verfügbar sein.  
+    -   Une [image de système d’exploitation](../get-started/manage-operating-system-images.md) doit être disponible dans la console Configuration Manager.  
 
--   **Erforderlich (sofern verwendet)**  
+-   **Obligatoire (si utilisé)**  
 
-    -   [Treiberpakete](../get-started/manage-drivers.md), die die erforderlichen Windows-Treiber zur Unterstützung von Hardware auf dem Referenzcomputer enthalten, müssen in der Configuration Manager-Konsole verfügbar sein. Weitere Informationen zu Tasksequenzschritten zum Verwalten von Treibern finden Sie unter [Verwenden von Tasksequenzen zum Installieren von Gerätetreibern](../get-started/manage-drivers.md#BKMK_TSDrivers).  
+    -   Les[packages de pilotes](../get-started/manage-drivers.md) qui contiennent les pilotes Windows nécessaires à la prise en charge du matériel sur l’ordinateur de référence doivent être disponibles dans la console Configuration Manager. Pour plus d’informations sur les étapes de séquence de tâches liées à la gestion des pilotes, consultez [Utiliser des séquences de tâches pour installer des pilotes de périphérique](../get-started/manage-drivers.md#BKMK_TSDrivers).  
 
-    -   [Softwareupdates](../../sum/get-started/synchronize-software-updates.md) müssen in der Configuration Manager-Konsole synchronisiert werden.  
+    -   Les[mises à jour logicielles](../../sum/get-started/synchronize-software-updates.md) doivent être synchronisées dans la console Configuration Manager.  
 
-    -   [Anwendungen](../../apps/deploy-use/create-applications.md) müssen zur Configuration Manager-Konsole hinzugefügt werden.  
+    -   Les [applications](../../apps/deploy-use/create-applications.md) doivent être ajoutées à la console Configuration Manager.  
 
-###  <a name="BKMK_CreateBuildCaptureTS"></a> Erstellen einer Tasksequenz zum Erstellen und Erfassen  
- Gehen Sie wie folgt vor, um eine Tasksequenz zum Erstellen eines Referenzcomputers und zum Erfassen eines Betriebssystems zu verwenden.  
+###  <a name="BKMK_CreateBuildCaptureTS"></a> Créer une séquence de tâches de création et de capture  
+ Appliquez la procédure suivante pour utiliser une séquence de tâches pour créer un ordinateur de référence et capturer le système d’exploitation.  
 
-#### <a name="to-create-a-task-sequence-that-builds-and-captures-an-operating-system-image"></a>So erstellen Sie eine Tasksequenz zum Erstellen und Erfassen eines Betriebssystemabbilds  
+#### <a name="to-create-a-task-sequence-that-builds-and-captures-an-operating-system-image"></a>Pour créer une séquence de tâches qui crée et capture une image du système d'exploitation  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Softwarebibliothek**.  
+1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
-2.  Erweitern Sie im Arbeitsbereich **Softwarebibliothek** den Bereich **Betriebssysteme**, und klicken Sie dann auf **Tasksequenzen**.  
+2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Séquences de tâches**.  
 
-3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** auf **Tasksequenz erstellen** , um den Tasksequenzerstellungs-Assistenten zu starten.  
+3.  Sous l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer une séquence de tâches** pour démarrer l'Assistant Création d'une séquence de tâches.  
 
-4.  Wählen Sie auf der Seite **Neue Tasksequenz erstellen** die Option **Referenz-Betriebssystemabbild erstellen und erfassen**aus.  
+4.  Sur la page **Créer une séquence de tâches** , sélectionnez **Créez et capturez une image de système d'exploitation de référence**.  
 
-5.  Geben Sie auf der Seite **Informationen zur Tasksequenz** die folgenden Einstellungen an, und klicken Sie dann auf **Weiter**.  
+5.  Sur la page **Informations sur la séquence de tâches** , spécifiez les paramètres suivants et cliquez sur **Suivant**.  
 
-    -   **Tasksequenzname**: Geben Sie einen Namen zur Identifikation der Tasksequenz an.  
+    -   **Nom de la séquence de tâches**: spécifiez un nom qui identifie la séquence de tâches.  
 
-    -   **Beschreibung**: Geben Sie eine Beschreibung der Aufgabe an, die von der Tasksequenz erfüllt wird, beispielsweise eine Beschreibung des Betriebssystems, das von der Tasksequenz erstellt wird.  
+    -   **Description**: spécifiez une description de la tâche effectuée par la séquence de tâches, telle qu’une description du système d’exploitation créé par la séquence de tâches.  
 
-    -   **Startabbild**: Geben Sie das Startabbild an, von dem das Betriebssystemabbild installiert wird.  
-
-        > [!IMPORTANT]  
-        >  Die Architektur des Startabbilds muss kompatibel mit der Hardwarearchitektur des Zielcomputers sein.  
-
-6.  Geben Sie auf der Seite **Windows installieren** die folgenden Einstellungen an, und klicken Sie dann auf **Weiter**.  
-
-    -   **Abbildpaket**: Geben Sie das Paket mit dem Betriebssystemabbild an, das die Dateien enthält, die zum Installieren des Betriebssystems erforderlich sind.  
-
-    -   **Abbildindex**: Geben Sie das zu installierende Betriebssystem an. Wenn das Betriebssystemabbild mehrere Versionen enthält, wählen Sie die Version aus, die Sie installieren möchten.  
-
-    -   **Product key**: Geben Sie den Product Key für das zu installierende Windows-Betriebssystem an. Sie können codierte Volumenlizenzschlüssel und standardmäßige Product Keys angeben. Wenn Sie einen nicht codierten Product Key verwenden, muss jede Gruppe aus 5 Zeichen mit einen Bindestrich (-) getrennt werden. Beispiel: *XXXXX-XXXXX-XXXXX-XXXXX-XXXXX*  
-
-    -   **Serverlizenzierungsmodus**: Geben Sie an, ob die Serverlizenz **Pro Arbeitsplatz**oder **Pro Server**bzw. dass keine Lizenz angegeben ist. Wenn die Serverlizenz **Pro Server**gilt, geben Sie auch die maximale Anzahl von Serververbindungen an.  
-
-    -   Geben Sie an, wie das Administratorkonto verarbeitet werden soll, das bei der Bereitstellung des Betriebssystems verwendet wird.  
-
-        -   **Lokales Administratorkennwort zufällig erstellen und das Konto auf allen unterstützten Plattformen deaktivieren**: Geben Sie an, ob Configuration Manager ein zufälliges Kennwort für das lokale Administratorkonto erstellen und das Konto deaktivieren soll, wenn das Betriebssystem bereitgestellt wurde.  
-
-        -   **Konto aktivieren und lokales Administratorkennwort angeben**: Geben Sie an, ob während der Bereitstellung des Betriebssystems auf allen Computern das gleiche Kennwort für das lokale Administratorkonto verwendet werden soll.  
-
-7.  Geben Sie auf der Seite **Netzwerkeinstellungen konfigurieren** die folgenden Einstellungen an, und klicken Sie dann auf **Weiter**.  
-
-    -   **Einer Arbeitsgruppe beitreten**: Geben Sie an, ob der Zielcomputer einer Arbeitsgruppe hinzugefügt werden soll, wenn das Betriebssystem bereitgestellt wird.  
-
-    -   **Einer Domäne beitreten**: Geben Sie an, ob der Zielcomputer einer Domäne hinzugefügt werden soll, wenn das Betriebssystem bereitgestellt wird. Geben Sie unter **Domäne**den Namen der Domäne an.  
+    -   **Images de démarrage**: spécifiez l’image de démarrage qui installe l’image du système d’exploitation.  
 
         > [!IMPORTANT]  
-        >  Domänen in der lokalen Gesamtstruktur können Sie suchen, doch bei Domänen in remoten Gesamtstrukturen müssen Sie den Domänennamen angeben.  
+        >  L'architecture de l'image de démarrage doit être compatible avec l'architecture matérielle de l'ordinateur de destination.  
 
-         Sie können auch eine Organisationseinheit angeben. Dies ist eine optionale Einstellung, mit welcher der LDAP X.500-definierte Name der Organisationseinheit angegeben wird, in der das Computerkonto erstellt werden soll, sofern das Konto noch nicht vorhanden ist.  
+6.  Sur la page **Installer Windows** , spécifiez les paramètres suivants et cliquez sur **Suivant**.  
 
-    -   **Konto**: Geben Sie Benutzernamen und Kennwort für das Konto an, das die Berechtigungen hat, um der angegebenen Domäne beizutreten. Beispiel: *Domäne\Benutzer* oder *%Variable%*.  
+    -   **Package d’images**: spécifiez le package d’images du système d’exploitation, qui contient les fichiers nécessaires à l’installation du système d'exploitation.  
+
+    -   **Index d’images**: spécifiez le système d’exploitation à installer. Si l’image du système d’exploitation contient plusieurs versions, sélectionnez la version que vous souhaitez installer.  
+
+    -   **Clé du produit**: spécifiez la clé de produit pour le système d’exploitation Windows à installer. Vous pouvez spécifier des clés de licence en volume codées et des clés de produit standard. Si vous utilisez une clé de produit non codée, chaque groupe de 5 caractères doit être séparé par un tiret (-). Par exemple : *XXXXX-XXXXX-XXXXX-XXXXX-XXXXX*  
+
+    -   **Mode de licence serveur :**spécifiez que la licence serveur est **Par siège**, **Par serveur**ou qu’aucune licence n’est spécifiée. Si la licence serveur est **Par serveur**, spécifiez également le nombre maximal de connexions au serveur.  
+
+    -   Spécifiez comment gérer le compte administrateur qui est utilisé lors du déploiement du système d'exploitation.  
+
+        -   **Générer de façon aléatoire le mot de passe de l’administrateur local et désactiver le compte sur toutes les plates-formes prises en charge** : spécifiez s’il faut que Configuration Manager crée un mot de passe aléatoire pour le compte administrateur local et désactive le compte quand le système d’exploitation est déployé.  
+
+        -   **Activer le compte et spécifier le mot de passe administrateur local**: spécifiez si le même mot de passe est utilisé pour le compte d’administrateur local sur tous les ordinateurs où est déployé le système d’exploitation.  
+
+7.  Sur la page **Configurer le réseau** , spécifiez les paramètres suivants et cliquez sur **Suivant**.  
+
+    -   **Joindre un groupe de travail**: spécifiez si vous souhaitez ajouter l’ordinateur de destination à un groupe de travail lors du déploiement du système d’exploitation.  
+
+    -   **Joindre un domaine**: spécifiez si vous souhaitez ajouter l’ordinateur de destination à un domaine lors du déploiement du système d’exploitation. Dans **Domaine**, spécifiez le nom du domaine.  
 
         > [!IMPORTANT]  
-        >  Sie müssen die richtigen Domänenanmeldeinformationen eingeben, wenn Sie entweder die Domäneneinstellungen oder die Arbeitsgruppeneinstellungen migrieren möchten.  
+        >  Vous pouvez rechercher des domaines dans la forêt locale, mais vous devez spécifier le nom de domaine d'une forêt distante.  
 
-8.  Geben Sie auf der Seite **Configuration Manager installieren** das Configuration Manager-Clientpaket an, das die Quelldateien zum Installieren des Configuration Manager-Clients enthält, sowie alle zusätzlichen Eigenschaften, die für die Installation erforderlich sind. Klicken Sie anschließend auf **Weiter**.  
+         Vous pouvez également spécifier une unité d'organisation (UO). Il s'agit d'un paramètre facultatif qui spécifie le nom unique LDAP X.500 de l'UO dans laquelle vous créez le compte d'ordinateur s'il n'existe pas déjà.  
 
-     Weitere Informationen zu den Eigenschaften, die zur Installation eines Clients verwendet werden können, finden Sie unter [Informationen zu Clientinstallationseigenschaften](../../core/clients/deploy/about-client-installation-properties.md).  
+    -   **Compte**: spécifiez le nom d’utilisateur et le mot de passe du compte qui dispose des autorisations pour joindre le domaine spécifié. Par exemple : *domaine\utilisateur* ou *%variable%*.  
 
-9. Geben Sie auf der Seite **Updates einschließen** an, ob erforderliche Softwareupdates, alle Softwareupdates oder keine Softwareupdates installiert werden sollen, und klicken Sie dann auf **Weiter**. Wenn Sie angeben, dass Softwareupdates installiert werden sollen, werden von Configuration Manager nur Softwareupdates installiert, die für Sammlungen bestimmt sind, in denen der Zielcomputer Mitglied ist.  
+        > [!IMPORTANT]  
+        >  Vous devez entrer les informations d'identification de domaine appropriées si vous prévoyez de migrer les paramètres du domaine ou les paramètres du groupe de travail.  
 
-10. Geben Sie auf der Seite **Anwendungen installieren** die Anwendungen an, die auf dem Zielcomputer installiert werden sollen, und klicken Sie dann auf **Weiter**. Wenn Sie mehrere Anwendungen angeben, können Sie auch angeben, dass die Tasksequenz fortgesetzt werden soll, wenn bei der Installation einer bestimmten Anwendung ein Fehler auftritt.  
+8.  Dans la page **Installer Configuration Manager**, spécifiez le package client Configuration Manager qui contient les fichiers sources pour installer le client Configuration Manager, ajoutez toutes les propriétés supplémentaires nécessaires à l’installation du client, puis cliquez sur **Suivant**.  
 
-11. Geben Sie auf der Seite **Systemvorbereitung** die folgenden Einstellungen an, und klicken Sie dann auf **Weiter**.  
+     Pour plus d’informations sur les propriétés qui peuvent être utilisées pour installer un client, consultez [À propos des propriétés d’installation du client](../../core/clients/deploy/about-client-installation-properties.md).  
 
-    -   **Paket**: Geben Sie das Configuration Manager-Paket an, das die entsprechende Version von Sysprep zum Erfassen der Einstellungen des Referenzcomputers enthält.  
+9. Sur la page **Inclure les mises à jour** , spécifiez si vous souhaitez installer les mises à jour logicielles requises, toutes les mises à jour logicielles ou aucune mise à jour logicielle, puis cliquez sur **Suivant**. Si vous spécifiez l’installation des mises à jour logicielles, Configuration Manager installe uniquement les mises à jour logicielles ciblant les regroupements auxquels l’ordinateur de destination appartient.  
 
-         Wenn Sie Windows Vista oder eine höhere Version als Betriebssystemversion verwenden, wird Sysprep automatisch auf dem Computer installiert, und es muss kein Paket angegeben werden.  
+10. Sur la page **Installer les applications** , spécifiez les applications à installer sur l'ordinateur de destination, puis cliquez sur **Suivant**. Si vous spécifiez plusieurs applications, vous pouvez également spécifier que la séquence de tâches continue si l'installation d'une application spécifique échoue.  
 
-12. Geben Sie auf der Seite **Abbildeigenschaften** die folgenden Einstellungen für das Betriebssystemabbild an, und klicken Sie dann auf **Weiter**.  
+11. Sur la page **Préparation du système** , spécifiez les paramètres suivants et cliquez sur **Suivant**.  
 
-    -   **Erstellt von**: Geben Sie den Namen des Benutzers an, der das Betriebssystemabbild erstellt hat.  
+    -   **Package** : spécifiez le package Configuration Manager qui contient la version appropriée de Sysprep à utiliser pour capturer les paramètres de l’ordinateur de référence.  
 
-    -   **Version**: Geben Sie eine benutzerdefinierte Versionsnummer an, die dem Betriebssystemabbild zugeordnet ist.  
+         Si la version du système d'exploitation que vous utilisez est Windows Vista ou version ultérieure, Sysprep est automatiquement installé sur l'ordinateur et il n'est pas nécessaire de spécifier de package.  
 
-    -   **Beschreibung**: Geben Sie eine benutzerdefinierte Beschreibung des Betriebssystemabbilds an.  
+12. Sur la page **Propriétés de l'image** , spécifiez les paramètres suivants pour l'image du système d'exploitation, puis cliquez sur **Suivant**.  
 
-13. Geben Sie auf der Seite **Abbild erfassen** die folgenden Einstellungen an, und klicken Sie dann auf **Weiter**.  
+    -   **Créé par**: spécifiez le nom de l’utilisateur qui a créé l’image du système d’exploitation.  
 
-    -   **Pfad**: Geben Sie einen freigegebenen Netzwerkordner an, in dem die WIM-Ausgabedatei gespeichert ist. Diese Datei enthält das Betriebssystemabbild auf Basis der Einstellungen, die Sie mithilfe dieses Assistenten festlegen. Wenn Sie einen Ordner angeben, der eine vorhandene WIM-Datei enthält, wird die vorhandene Datei überschrieben.  
+    -   **Version**: spécifiez un numéro de version défini par l’utilisateur qui est associé à l’image du système d’exploitation.  
 
-    -   **Konto**: Geben Sie ein Windows-Konto mit Berechtigungen für die Netzwerkfreigabe an, in der das Abbild gespeichert wird.  
+    -   **Description**: spécifiez une description définie par l’utilisateur de l’image du système d’exploitation de l’ordinateur.  
 
-14. Schließen Sie den Assistenten ab.  
+13. Sur la page **Capturer l'image** , spécifiez les paramètres suivants et cliquez sur **Suivant**.  
 
-15. Wenn Sie der Tasksequenz weitere Schritte hinzufügen möchten, wählen Sie die von Ihnen erstellte Tasksequenz aus, und klicken Sie dann auf **Bearbeiten**. Weitere Informationen zum Bearbeiten einer Tasksequenz finden Sie unter [Bearbeiten einer Tasksequenz](manage-task-sequences-to-automate-tasks.md#BKMK_ModifyTaskSequence).  
+    -   **Chemin d’accès**: spécifiez un dossier réseau partagé où est stocké le fichier .WIM de sortie. Ce fichier contient l'image du système d'exploitation basée sur les paramètres que vous spécifiez à l'aide de cet Assistant. Si vous spécifiez un dossier qui contient un fichier .WIM existant, ce fichier est remplacé.  
 
- Verwenden Sie eine der folgenden Methoden, um die Tasksequenz auf einem Referenzcomputer bereitzustellen:  
+    -   **Compte**: spécifiez le compte Windows qui dispose des autorisations d’accès au partage réseau où l’image est stockée.  
 
--   Wenn es sich beim Referenzcomputer um einen Configuration Manager-Client handelt, können Sie die Tasksequenz zum Erstellen und Erfassen für die Sammlung bereitstellen, die den Referenzcomputer enthält. Weitere Informationen zum Bereitstellen des Betriebssystemimages finden Sie unter [Erstellen einer Tasksequenz zum Installieren eines Betriebssystems](create-a-task-sequence-to-install-an-operating-system.md).  
+14. Effectuez toutes les étapes de l'Assistant.  
+
+15. Pour ajouter des étapes supplémentaires à la séquence de tâches, sélectionnez la séquence de tâches que vous avez créée et cliquez sur **Modifier**. Pour plus d’informations sur la modification d’une séquence de tâches, consultez [Modifier une séquence de tâches](manage-task-sequences-to-automate-tasks.md#BKMK_ModifyTaskSequence).  
+
+ Déployez la séquence de tâches sur un ordinateur de référence de l’une des manières suivantes :  
+
+-   Si l’ordinateur de référence est un client Configuration Manager, vous pouvez déployer la séquence de tâches de création et de capture dans le regroupement qui contient l’ordinateur de référence. Pour plus d’informations sur le déploiement de l’image du système d’exploitation, consultez [Créer une séquence de tâches pour installer un système d’exploitation](create-a-task-sequence-to-install-an-operating-system.md).  
 
     > [!NOTE]  
-    >  Wenn die Tasksequenz einen Schritt zur Laufwerkpartitionierung umfasst, wählen Sie bei der Bereitstellung der Tasksequenz nicht die Option **Programm herunterladen** aus.  
+    >  Si la séquence de tâches est une étape d'une séquence de tâches de partitionnement de disque, ne sélectionnez pas l'option **Télécharger le programme** lorsque vous déployez la séquence de tâches.  
 
--   Wenn es sich beim Referenzcomputer nicht um einen Configuration Manager-Client handelt oder Sie die Tasksequenz auf dem Referenzcomputer manuell ausführen möchten, führen Sie den **Assistenten zum Erstellen von Tasksequenzmedien** aus, um startbare Medien zu erstellen. Informationen zum Erstellen von startbaren Medien finden Sie unter [Erstellen startbarer Medien](create-bootable-media.md).  
+-   Si l’ordinateur de référence n’est pas un client Configuration Manager ou si vous souhaitez exécuter manuellement la séquence de tâches sur l’ordinateur de référence, exécutez l’**Assistant Création d’un média de séquence de tâches** pour créer un média de démarrage. Pour plus d’informations sur la création d’un média de démarrage, consultez [Créer un média de démarrage](create-bootable-media.md).  
 
-##  <a name="BKMK_CaptureExistingRefComputer"></a> Erfassen eines Betriebssystemabbilds von einem vorhandenen Referenzcomputer  
- Wenn Sie bereits über einen Referenzcomputer für die Erfassung verfügen, können Sie eine Tasksequenz erstellen, die das Betriebssystem vom Referenzcomputer erfasst. Sie verwenden den Tasksequenzschritt **Betriebssystemabbild erfassen** , um mindestens ein Abbild von einem Referenzcomputer zu erfassen und in einer Abbilddatei (WIM) auf der angegebenen Netzwerkfreigabe zu speichern. Der Referenzcomputer wird mithilfe eines Startabbilds in Windows PE gestartet. Jede Festplatte des Referenzcomputers wird in der WIM-Datei als separates Abbild erfasst. Wenn der Referenzcomputer über mehrere Laufwerke verfügt, enthält die erstellte WIM-Datei für jedes Volume ein separates Abbild. Es werden nur als NTFS oder FAT32 formatierte Volumes erfasst. Volumes in anderen Formaten sowie USB-Volumes werden nicht berücksichtigt.  
+##  <a name="BKMK_CaptureExistingRefComputer"></a> Capturer une image de système d’exploitation à partir d’un ordinateur de référence existant  
+ Quand vous avez déjà un ordinateur de référence prêt à capturer, vous pouvez créer une séquence de tâches qui capture le système d’exploitation à partir de l’ordinateur de référence. Vous utiliserez l’étape de séquence de tâches **Capturer l’image du système d’exploitation** pour capturer une ou plusieurs images à partir d’un ordinateur de référence et les stocker dans un fichier image (.wim) sur le partage réseau spécifié. L’ordinateur de référence est démarré dans Windows PE à l’aide d’une image de démarrage, chaque disque dur sur l’ordinateur de référence étant capturé comme image distincte dans le fichier .wim. Si l’ordinateur référencé comporte plusieurs volumes, le fichier .wim obtenu contient une image distincte pour chaque volume. Seuls les volumes formatés au format NTFS ou FAT32 sont capturés. Les volumes d'un autre format et les volumes USB sont ignorés.  
 
- Mit dem folgenden Verfahren können Sie ein Betriebssystemabbild von einem vorhandenen Referenzcomputer erfassen.  
+ Appliquez la procédure suivante pour capturer une image de système d’exploitation à partir d’un ordinateur de référence existant.  
 
-#### <a name="to-capture-an-operating-system-from-an-existing-reference-computer"></a>So erfassen Sie ein Betriebssystemabbild von einem vorhandenen Referenzcomputer  
+#### <a name="to-capture-an-operating-system-from-an-existing-reference-computer"></a>Pour capturer un système d’exploitation à partir d’un ordinateur de référence existant  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Softwarebibliothek**.  
+1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
-2.  Erweitern Sie im Arbeitsbereich **Softwarebibliothek** den Bereich **Betriebssysteme**, und klicken Sie dann auf **Tasksequenzen**.  
+2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Séquences de tâches**.  
 
-3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** auf **Tasksequenz erstellen** , um den Tasksequenzerstellungs-Assistenten zu starten.  
+3.  Sous l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer une séquence de tâches** pour démarrer l'Assistant Création d'une séquence de tâches.  
 
-4.  Wählen Sie auf der Seite **Neue Tasksequenz erstellen** die Option **Neue benutzerdefinierte Tasksequenz erstellen**aus.  
+4.  Sur la page **Créer une nouvelle séquence de tâches** , sélectionnez **Créez une séquence de tâches personnalisée**.  
 
-5.  Geben Sie auf der Seite **Informationen zur Tasksequenz** einen Namen für die Tasksequenz und eine Beschreibung der Tasksequenz an.  
+5.  Dans la page **Informations sur la séquence de tâches** , spécifiez le nom et la description de la séquence de tâches.  
 
-6.  Geben Sie ein Startabbild für die Tasksequenz an. Dieses Startabbild wird zum Starten des Referenzcomputers mit Windows PE verwendet.  Weitere Informationen finden Sie unter [Verwalten von Startimages](../get-started/manage-boot-images.md).  
+6.  Spécifiez une image de démarrage pour la séquence de tâches. Cette image de démarrage est utilisée pour démarrer l’ordinateur de référence avec Windows PE.  Pour plus d’informations, consultez [Gérer les images de démarrage](../get-started/manage-boot-images.md).  
 
-7.  Schließen Sie den Assistenten ab.  
+7.  Effectuez toutes les étapes de l'Assistant.  
 
-8.  Wählen Sie in **Tasksequenzen**die benutzerdefinierte Tasksequenz aus, und klicken Sie dann auf der Registerkarte **Start** der Gruppe **Tasksequenz** auf **Bearbeiten** , um den Tasksequenz-Editor zu öffnen.  
+8.  Dans **Séquences de tâches**, sélectionnez la séquence de tâches personnalisée puis, sous l’onglet **Accueil** , dans le groupe **Séquence de tâches** , cliquez sur **Modifier** pour ouvrir l’Éditeur de séquence de tâches.  
 
-9. Verwenden Sie diesen Schritt nur, wenn der Configuration Manager-Client auf dem Referenzcomputer installiert ist.  
+9. Effectuez cette étape uniquement si le client Configuration Manager est installé sur l’ordinateur de référence.  
 
-     Klicken Sie nacheinander auf **Hinzufügen**, **Images**, und [ConfigMgr-Client für Erfassung vorbereiten](../understand/task-sequence-steps.md#BKMK_PrepareConfigMgrClientforCapture). In diesem Tasksequenzschritt wird der Configuration Manager-Client auf dem Referenzcomputer ausgewählt und im Rahmen des Imageerstellungsprozesses für die Erfassung vorbereitet.  
+     Cliquez sur **Ajouter**, sur **Images**, puis sur [Préparer le client ConfigMgr pour capture](../understand/task-sequence-steps.md#BKMK_PrepareConfigMgrClientforCapture). Cette étape de séquence de tâches prend le client Configuration Manager sur l’ordinateur de référence et le prépare pour la capture pendant le processus de création d’images.  
 
-10. Klicken Sie nacheinander auf **Hinzufügen**, **Images**, und [Windows für die Erfassung vorbereiten](../understand/task-sequence-steps.md#BKMK_PrepareWindowsforCapture). Mit dieser Tasksequenzaktion wird Sysprep ausgeführt. Der Computer wird anschließend über das für die Tasksequenz angegebene Windows PE-Startabbild neu gestartet. Damit diese Aktion erfolgreich abgeschlossen werden kann, darf der Referenzcomputer keiner Domäne angehören.  
+10. Cliquez sur **Ajouter**, sur **Images**, puis sur [Préparer Windows pour capture](../understand/task-sequence-steps.md#BKMK_PrepareWindowsforCapture). Cette action de séquence de tâches exécute Sysprep, puis redémarre l'ordinateur dans l'image de démarrage Windows PE spécifiée pour la séquence de tâches. L'ordinateur de référence ne doit pas être lié à un domaine pour que cette action s'effectue correctement.  
 
-11. Klicken Sie nacheinander auf **Hinzufügen**, **Images**, und [Erfassung des Betriebssystemimages](../understand/task-sequence-steps.md#BKMK_CaptureOperatingSystemImage).  Dieser Tasksequenzschritt wird nur von Windows PE ausgeführt, um die Festplatten auf dem Referenzcomputer zu erfassen. Konfigurieren Sie die folgenden Einstellungen für den Tasksequenzschritt.  
+11. Cliquez sur **Ajouter**, sur **Images**, puis sur [Capturer l’image du système d’exploitation](../understand/task-sequence-steps.md#BKMK_CaptureOperatingSystemImage).  Cette étape de séquence de tâches s’exécute uniquement à partir de Windows PE pour capturer les disques durs sur l’ordinateur de référence. Configurez les paramètres suivants pour l’étape de séquence de tâches.  
 
-    -   **Name** und **Beschreibung**: Sie können den Namen des Tasksequenzschritts optional ändern und eine Beschreibung bereitstellen.  
+    -   **Nom** et **Description**: si vous le souhaitez, vous pouvez modifier le nom de l’étape de séquence de tâches et fournir une description.  
 
-    -   **Ziel**: Geben Sie einen freigegebenen Netzwerkordner an, in dem die WIM-Ausgabedatei gespeichert ist. Diese Datei enthält das Betriebssystemabbild auf Basis der Einstellungen, die Sie mithilfe dieses Assistenten festlegen. Wenn Sie einen Ordner angeben, der eine vorhandene WIM-Datei enthält, wird die vorhandene Datei überschrieben.  
+    -   **Destination**: spécifiez un dossier réseau partagé où est stocké le fichier .WIM. Ce fichier contient l'image du système d'exploitation basée sur les paramètres que vous spécifiez à l'aide de cet Assistant. Si vous spécifiez un dossier qui contient un fichier .WIM existant, ce fichier est remplacé.  
 
-    -   **Beschreibung**, **Version**und **Erstellt von**: Stellen Sie optional Informationen zum zu erfassenden Abbild bereit.  
+    -   **Description**, **Version**et **Créé par**: si vous le souhaitez, fournissez des détails sur l’image que vous allez capturer.  
 
-    -   **Konto für die Erfassung des Betriebssystemabbilds**: Geben Sie das Windows-Konto an, das über die Berechtigungen für die angegebene Netzwerkfreigabe verfügt. Klicken Sie auf **Festlegen** , um den Namen dieses Windows-Kontos anzugeben.  
+    -   **Compte de capture de l’image du système d’exploitation**: spécifiez le compte Windows qui dispose des autorisations d’accès au partage réseau que vous avez spécifié. Cliquez sur **Définir** pour indiquer le nom de ce compte Windows.  
 
-     Klicken Sie auf **OK** , um den Tasksequenz-Editor zu schließen.  
+     Cliquez sur **OK** pour fermer l’Éditeur de séquence de tâches.  
 
- Verwenden Sie eine der folgenden Methoden, um die Tasksequenz auf einem Referenzcomputer bereitzustellen:  
+ Déployez la séquence de tâches sur un ordinateur de référence de l’une des manières suivantes :  
 
--   Wenn es sich beim Referenzcomputer um einen Configuration Manager-Client handelt, können Sie die Tasksequenz für die Sammlung bereitstellen, die den Referenzcomputer enthält. Weitere Informationen zum Bereitstellen des Betriebssystemimages finden Sie unter [Erstellen einer Tasksequenz zum Installieren eines Betriebssystems](create-a-task-sequence-to-install-an-operating-system.md).  
+-   Si l’ordinateur de référence est un client Configuration Manager, vous pouvez déployer la séquence de tâches dans le regroupement qui contient l’ordinateur de référence. Pour plus d’informations sur le déploiement de l’image du système d’exploitation, consultez [Créer une séquence de tâches pour installer un système d’exploitation](create-a-task-sequence-to-install-an-operating-system.md).  
 
--   Wenn es sich beim Referenzcomputer nicht um einen Configuration Manager-Client handelt oder Sie die Tasksequenz auf dem Referenzcomputer manuell ausführen möchten, führen Sie den **Assistenten zum Erstellen von Tasksequenzmedien** aus, um startbare Medien zu erstellen. Informationen zum Erstellen von startbaren Medien finden Sie unter [Erstellen startbarer Medien](create-bootable-media.md).  
+-   Si l’ordinateur de référence n’est pas un client Configuration Manager ou si vous souhaitez exécuter manuellement la séquence de tâches sur l’ordinateur de référence, exécutez l’**Assistant Création d’un média de séquence de tâches** pour créer un média de démarrage. Pour plus d’informations sur la création d’un média de démarrage, consultez [Créer un média de démarrage](create-bootable-media.md).  
 
-##  <a name="BKMK_BuildandCaptureTSExample"></a> Tasksequenzbeispiel zum Erstellen und Erfassen eines Betriebssystemabbilds  
- Orientieren Sie sich an der folgenden Tabelle, während Sie eine Tasksequenz zum Erstellen und Erfassen eines Betriebssystemabbilds erstellen. Mithilfe dieser Tabelle können Sie die allgemeine Sequenz für Ihre Tasksequenzschritte festlegen und diese Tasksequenzschritte in logischen Gruppen organisieren. Die von Ihnen erstellte Tasksequenz kann von diesem Beispiel abweichen und eine andere Anzahl von Tasksequenzschritten und Tasksequenzgruppen enthalten.  
+##  <a name="BKMK_BuildandCaptureTSExample"></a> Exemple de séquence de tâches de création et de capture d’une image de système d’exploitation  
+ Utilisez le tableau suivant comme référence lorsque vous créez une séquence de tâches visant à générer et capturer l'image d'un système d'exploitation. Ce tableau vous aidera à définir la séquence générale des étapes de votre séquence de tâches. Il vous permettra également d'organiser et de structurer ces étapes en groupes logiques. La séquence de tâches que vous créez peut être différente de celle de cet exemple et elle peut contenir un nombre de groupes et d'étapes de séquence de tâches plus ou moins important.  
 
 > [!IMPORTANT]  
->  Erstellen Sie diese Art von Tasksequenz stets mithilfe des Tasksequenzerstellungs-Assistenten.  
+>  Utilisez toujours l’Assistant Création d’une séquence de tâches pour créer ce type de séquence de tâches.  
 
- Wenn Sie diese neue Tasksequenz über die Option **Neue Tasksequenz** erstellen, haben einige Tasksequenzschritte andere Namen, als wenn Sie diese Tasksequenzschritte manuell zu einer vorhandenen Tasksequenz hinzufügen. In der folgenden Tabelle sind die Namensunterschiede angezeigt:  
+ Quand vous utilisez l’ **Assistant Nouvelle séquence de tâches** pour créer cette séquence de tâches, les noms de certaines étapes diffèrent de ce qu’ils seraient normalement si vous ajoutiez manuellement ces étapes à une séquence de tâches existante. Le tableau suivant présente les différences de dénomination :  
 
-|Neuer Name des Tasksequenzschritts im Tasksequenzerstellungs-Assistenten|Name des entsprechenden Schritts im Tasksequenz-Editor|  
+|Nom de l'étape de séquence de tâches de l'Assistant Nouvelle séquence de tâches|Nom équivalent de l'étape dans l'Éditeur de séquence de tâches|  
 |------------------------------------------------------|-----------------------------------------------|  
-|Neustart mit Windows PE|Neustart mit Windows PE oder Festplatte ausführen|  
-|Festplatte 0 partitionieren|Datenträger formatieren und partitionieren|  
-|Gerätetreiber anwenden|Treiber automatisch anwenden|  
-|Updates installieren|Softwareupdates installieren|  
-|Arbeitsgruppe beitreten|Einer Domäne oder Arbeitsgruppe beitreten|  
-|ConfigMgr-Client vorbereiten|Prepare ConfigMgr Client for Capture|  
-|Betriebssystem vorbereiten|Prepare Windows for Capture|  
-|Referenzcomputer erfassen|Betriebssystemabbild erfassen|  
+|Redémarrer dans Windows PE|Redémarrer sur Windows PE ou disque dur|  
+|Partitionner le disque 0|Formater et partitionner le disque|  
+|Appliquer les pilotes de périphériques|Appliquer automatiquement les pilotes|  
+|Installer les mises à jour|Installer les mises à jour logicielles|  
+|Joindre le groupe de travail|Joindre le domaine ou le groupe de travail|  
+|Préparer le client ConfigMgr|Prepare ConfigMgr Client for Capture|  
+|Préparer le système d'exploitation|Prepare Windows for Capture|  
+|Capturer la machine de référence|Capturer l’image du système d’exploitation|  
 
-|Tasksequenzgruppe/-schritt|Reference|  
+|Groupe/étape de la séquence de tâches|Référence|  
 |-------------------------------|---------------|  
-|Referenzcomputer erstellen – **(Neue Tasksequenzgruppe)**|Erstellen Sie eine Tasksequenzgruppe. Mithilfe einer Tasksequenzgruppe können Sie ähnliche Tasksequenzschritte zur besseren Organisation und Fehlersteuerung gruppieren.<br /><br /> Diese Gruppe enthält die für das Erstellen eines Referenzcomputers erforderlichen Aktionen.|  
-|Neustart mit Windows PE|Mithilfe dieses Tasksequenzschritts können Sie die Neustartoptionen für den Zielcomputer angeben. In diesem Schritt wird eine Meldung angezeigt, dass der Computer neu gestartet wird, um die Installation fortzusetzen.<br /><br /> In diesem Schritt wird die schreibgeschützte Tasksequenzvariable **_SMSTSInWinPE** verwendet. Wenn der zugeordnete Wert **false** ist, wird der Tasksequenzschritt fortgesetzt.|  
-|Festplatte 0 partitionieren|Mithilfe dieses Tasksequenzschritts können Sie die zum Formatieren der Festplatte auf dem Zielcomputer erforderlichen Aktionen angeben. Die standardmäßige Datenträgernummer ist **0**.<br /><br /> In diesem Schritt wird die schreibgeschützte Tasksequenzvariable **_SMSTSClientCache** verwendet. Der Schritt wird ausgeführt, wenn kein Configuration Manager-Clientcache vorhanden ist.|  
-|Betriebssystem anwenden|Mithilfe dieses Tasksequenzschritts können Sie ein angegebenes Betriebssystemabbild auf dem Zielcomputer installieren. In diesem Schritt werden alle in der WIM-Datei enthaltenen Volumeimages auf das entsprechende sequenzielle Datenträgervolume auf dem Bereitstellungszielcomputer angewendet, nachdem zuerst alle Dateien auf diesem Volume gelöscht wurden (mit Ausnahme Configuration Manager-spezifischer Steuerdateien).|  
-|Windows-Einstellungen anwenden|Mithilfe dieses Tasksequenzschritts können Sie die Konfigurationsinformationen für die Windows-Einstellungen des Zielcomputers angeben.|  
-|Netzwerkeinstellungen anwenden|Mithilfe dieses Tasksequenzschritts können Sie die Konfigurationsinformationen für das Netzwerk oder die Arbeitsgruppe des Zielcomputers angeben.|  
-|Gerätetreiber anwenden|Mithilfe dieses Tasksequenzschritts können Sie geeigneten Gerätetreiber als Teil der Betriebssystembereitstellung auswählen und installieren. Sie können durch Auswahl von **Treiber aller Kategorien berücksichtigen** zulassen, dass alle vorhandenen Treiberkategorien von Windows Setup durchsucht werden, oder die von Windows Setup zu durchsuchenden Treiberkategorien durch Auswahl von **Nur Treiber in bestimmten Kategorien berücksichtigen**einschränken.<br /><br /> In diesem Schritt wird die schreibgeschützte Tasksequenzvariable **_SMSTSMediaType** verwendet. Dieser Tasksequenzschritt wird ausgeführt, wenn der zugeordnete Wert nicht **FullMedia** ist.|  
-|Windows und ConfigMgr einrichten|Mit diesem Tasksequenzschritt können Sie die Configuration Manager-Clientsoftware installieren. Mit dem Configuration Manager wird die GUID des Configuration Manager-Clients installiert und registriert. Sie können die erforderlichen Installationsparameter im Fenster **Installationseinstellungen** zuweisen.|  
-|Updates installieren|Mithilfe dieses Tasksequenzschritts können Sie angeben, wie Softwareupdates auf dem Zielcomputer installiert werden. Der Zielcomputer wird erst beim Ausführen dieses Tasksequenzschritts hinsichtlich anwendbarer Softwareupdates ausgewertet. An diesem Punkt wird der Zielcomputer ähnlich wie jeder andere von Configuration Manager verwaltete Client hinsichtlich Softwareupdates ausgewertet.<br /><br /> In diesem Schritt wird die schreibgeschützte Tasksequenzvariable **_SMSTSMediaType** verwendet. Dieser Tasksequenzschritt wird ausgeführt, wenn der zugeordnete Wert nicht **FullMedia** ist.|  
-|Referenzcomputer erfassen – **(Neue Tasksequenzgruppe)**|Erstellen Sie eine weitere Tasksequenzgruppe. Diese Gruppe enthält die für das Vorbereiten und Erfassen eines Referenzcomputers erforderlichen Schritte.|  
-|Arbeitsgruppe beitreten|Mithilfe dieses Tasksequenzschritts können Sie die für den Beitritt des Zielcomputers in einer Arbeitsgruppe erforderlichen Informationen angeben.|  
-|Prepare ConfigMgr Client for Capture|Mithilfe dieses Tasksequenzschritts können Sie den Configuration Manager-Client auf dem Referenzcomputer im Rahmen des Imageerstellungsprozesses für die Erfassung vorbereiten.|  
-|Betriebssystem vorbereiten|Mit diesem Tasksequenzschritt geben Sie die Sysprep-Optionen an, mit denen die Windows-Einstellungen auf dem Referenzcomputer erfasst werden sollen. Dieser Tasksequenzschritt führt Sysprep aus und startet dann den Computer über das für die Tasksequenz angegebene Windows PE-Startabbild.|  
-|Betriebssystemabbild erfassen|Geben Sie mithilfe dieses Tasksequenzschritts beim Speichern des Abbilds eine bestimmte vorhandene Netzwerkfreigabe sowie eine zu verwendende WIM-Datei an. Dieser Speicherort wird als Paketquellpfad verwendet, wenn mithilfe des **Assistenten zum Hinzufügen eines Betriebssystemabbilds**ein Betriebssystemabbildpaket hinzugefügt wird.|  
+|Créer l'ordinateur de référence - **(nouveau groupe de séquence de tâches)**|Créez un groupe de séquences de tâches. Un groupe de séquences de tâches regroupe des étapes de séquence de tâches similaires pour une meilleure organisation et un contrôle plus efficace des erreurs.<br /><br /> Ce groupe contient les actions nécessaires à la création d'un ordinateur de référence.|  
+|Redémarrer dans Windows PE|Utilisez cette étape de séquence de tâches pour spécifier les options de redémarrage pour l'ordinateur de destination. Cette étape affichera un message notifiant l'utilisateur que l'ordinateur sera redémarré afin de poursuivre l'installation.<br /><br /> Cette étape utilise la variable de séquence de tâches **_SMSTSInWinPE** en lecture seule. Si la valeur associée est **false,** l'étape de la séquence de tâches se poursuivra.|  
+|Partitionner le disque 0|Utilisez cette étape de séquence de tâches pour déterminer les actions nécessaires au formatage du disque dur sur l'ordinateur de destination. Le numéro de disque par défaut est **0**.<br /><br /> Cette étape utilise la variable de séquence de tâches **_SMSTSMediaType** en lecture seule. Elle sera exécutée en l’absence de mémoire cache du client Configuration Manager.|  
+|Appliquer le système d'exploitation|Utilisez cette étape de séquence de tâches pour installer une image de système d'exploitation spécifiée sur l'ordinateur de destination. Cette étape applique toutes les images de volume contenues dans le fichier WIM au volume de disque séquentiel correspondant sur l’ordinateur cible après avoir d’abord supprimé tous les fichiers sur ce volume (à l’exception des fichiers de contrôle propres à Configuration Manager).|  
+|Appliquer les paramètres Windows|Utilisez cette étape de séquence de tâches pour configurer les informations de configuration des paramètres Windows pour l'ordinateur de destination.|  
+|Appliquer les paramètres réseau|Utilisez cette étape de séquence de tâches pour spécifier les informations de configuration du réseau ou du groupe de travail pour l'ordinateur de destination.|  
+|Appliquer les pilotes de périphériques|Utilisez cette étape de séquence de tâches pour faire correspondre et installer des pilotes dans le cadre du déploiement d'un système d'exploitation. Vous pouvez autoriser le programme d'installation Windows à rechercher toutes les catégories de pilotes existantes en sélectionnant **Considérer les pilotes de toutes les catégories** . Vous pouvez également limiter les catégories de pilotes que le programme d'installation Windows doit rechercher en sélectionnant **Limiter la correspondance des pilotes aux pilotes des catégories sélectionnées uniquement**.<br /><br /> Cette étape utilise la variable de séquence de tâches **_SMSTSMediaType** en lecture seule. Si la valeur associée n'est pas **FullMedia** , cette étape de la séquence de tâches s'exécute.|  
+|Configurer Windows et ConfigMgr|Cette étape de séquence de tâches permet d’installer le logiciel client Configuration Manager. Configuration Manager installe et inscrit le GUID du client Configuration Manager. Vous pouvez définir les paramètres d'installation nécessaires à partir de la fenêtre **Propriétés d'installation** .|  
+|Installer les mises à jour|Utilisez cette étape de séquence de tâches pour spécifier la façon dont sont installées les mises à jour logicielles sur l'ordinateur de destination. L'ordinateur de destination n'est pas évalué pour déterminer les mises à jour logicielles applicables avant l'exécution de cette séquence de tâches. À ce stade, l’ordinateur de destination est évalué pour déterminer les mises à jour logicielles comme n’importe quel autre client géré par Configuration Manager.<br /><br /> Cette étape utilise la variable de séquence de tâches **_SMSTSMediaType** en lecture seule. Si la valeur associée n'est pas **FullMedia** , cette étape de la séquence de tâches s'exécute.|  
+|Capturer l'ordinateur de référence - **(nouveau groupe de séquence de tâches)**|Créez un autre groupe de séquences de tâches. Ce groupe contient les étapes nécessaires pour préparer et capturer un ordinateur de référence.|  
+|Joindre le groupe de travail|Utilisez cette étape de séquence de tâches pour spécifier les informations requises pour que l'ordinateur de destination rejoigne un groupe de travail.|  
+|Prepare ConfigMgr Client for Capture|Utilisez cette étape pour prendre le client Configuration Manager sur l’ordinateur de référence et le préparer pour la capture pendant le processus de création d’image.|  
+|Préparer le système d'exploitation|Utilisez cette étape de séquence de tâches pour spécifier les options Sysprep à utiliser lors de la capture des paramètres Windows sur l'ordinateur de référence. Cette étape de séquence de tâches exécute Sysprep puis redémarre l'ordinateur dans l'image de démarrage Windows PE spécifiée pour la séquence de tâches.|  
+|Capturer l’image du système d’exploitation|Utilisez cette étape de séquence de tâches pour entrer un partage réseau existant et un fichier .WIM à utiliser lors de l'enregistrement de l'image. Cet emplacement est utilisé comme emplacement source du package lors de l'ajout d'un package d'images de système d'exploitation via l' **Assistant Ajout d'un package d'image de système d'exploitation**.|  
 
- Nachdem Sie ein Abbild von einem Referenzcomputer erfasst haben, dürfen Sie kein weiteres Betriebssystemabbild vom Referenzcomputer erfassen, da bei der ersten Konfiguration Registrierungseinträge erstellt werden. Erstellen Sie bei jedem Erfassen des Betriebssystemabbilds einen neuen Referenzcomputer. Wenn Sie den gleichen Referenzcomputer für das Erstellen zukünftiger Betriebssystemimages verwenden möchten, deinstallieren Sie zunächst den Configuration Manager-Client, und installieren Sie dann den Configuration Manager-Client erneut.  
+ Après avoir capturé une image à partir d'un ordinateur de référence, ne capturez pas une autre image du système d'exploitation à partir de l'ordinateur de référence car des entrées de Registre sont créées pendant la configuration initiale. Créez un ordinateur de référence chaque fois que vous capturez l'image du système d'exploitation. Si vous prévoyez d’utiliser le même ordinateur de référence pour créer de futures images du système d’exploitation, commencez par désinstaller le client Configuration Manager, puis réinstallez-le.  
 
-## <a name="next-steps"></a>Nächste Schritte  
-[Methoden zum Bereitstellen von Unternehmensbetriebssystemen](methods-to-deploy-enterprise-operating-systems.md)
+## <a name="next-steps"></a>Étapes suivantes  
+[Méthodes de déploiement de systèmes d’exploitation d’entreprise](methods-to-deploy-enterprise-operating-systems.md)

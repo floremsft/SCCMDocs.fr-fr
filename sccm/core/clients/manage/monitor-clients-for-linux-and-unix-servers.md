@@ -1,6 +1,6 @@
 ---
-title: "Überwachen von Linux-/UNIX-Clients – Configuration Manager | Microsoft-Dokumentation"
-description: "Clients auf Linux- und UNIX-Servern können in System Center Configuration Manager überwacht werden."
+title: Surveiller des clients Linux/UNIX - Configuration Manager | Microsoft Docs
+description: Surveillez les clients sur des serveurs Linux et UNIX dans System Center Configuration Manager.
 ms.custom: na
 ms.date: 08/04/2017
 ms.prod: configuration-manager
@@ -17,38 +17,38 @@ manager: angrobe
 ms.openlocfilehash: 62843bd544217734c4566d656a7c3a35bd5613cb
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-monitor-clients-for-linux-and-unix-servers-in-system-center-configuration-manager"></a>Überwachen von Clients für Linux- und UNIX-Server in System Center Configuration Manager
+# <a name="how-to-monitor-clients-for-linux-and-unix-servers-in-system-center-configuration-manager"></a>Guide pratique pour surveiller les clients pour des serveurs Linux et UNIX dans System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Sie können in der System Center Configuration Manager-Konsole Informationen von Linux- und UNIX-Servern mithilfe derselben Methoden anzeigen, die Sie auch zum Anzeigen von Informationen von Windows-basierten Clients verwenden.  
+Vous pouvez afficher des informations sur les serveurs Linux et UNIX dans la console System Center Configuration Manager selon les mêmes méthodes que vous employez pour afficher des informations sur des clients Windows.  
 
- Die Informationen, die Sie anzeigen können, umfassen Folgendes:  
+ Vous pouvez notamment afficher les informations suivantes :  
 
--   Statusdetails von Clients in den Dashboards der Configuration Manager-Konsole  
+-   Détails de l’état des clients, dans les tableaux de bord de la console Configuration Manager  
 
--   Details zu Clients in den Configuration Manager-Standardberichten  
+-   Détails sur les clients dans les rapports par défaut de Configuration Manager  
 
--   Inventurdetails im Ressourcen-Explorer  
+-   Détails de l’inventaire dans l’Explorateur de ressources  
 
- In den folgenden Abschnitten wird beschrieben, wie Sie diese Details aus dem Ressourcen-Explorer und den Berichten erhalten.  
+ Les sections suivantes décrivent comment obtenir ces informations à partir de l’Explorateur de ressources et des rapports.  
 
-##  <a name="BKMK_UseResourceExpforLnU"></a> Verwenden des Ressourcen-Explorers zur Anzeige von Inventuren für Linux- und UNIX-Server  
+##  <a name="BKMK_UseResourceExpforLnU"></a> Utiliser l’Explorateur de ressources pour afficher l’inventaire des serveurs Linux et UNIX  
 
- Nachdem ein Configuration Manager-Client die Hardwareinventur an den Configuration Manager-Standort gesendet hat, können Sie Ressourcen-Explorer zum Anzeigen dieser Informationen verwenden. Der Configuration Manager-Client für Linux und UNIX fügt keine neuen Klassen oder Ansichten für die Inventur zu Ressourcen-Explorer hinzu. Die Linux- und UNIX-Inventurdaten werden vorhandenen WMI-Klassen zugeordnet. Mit dem Ressourcen-Explorer können Sie die Inventurdetails für Ihre Linux- und UNIX-Server in den Windows-basierten Klassifikationen anzeigen.  
+ Quand un client Configuration Manager envoie un inventaire matériel au site Configuration Manager, vous pouvez par la suite utiliser l’Explorateur de ressources pour consulter ces informations. Le client Configuration Manager pour Linux et UNIX n’ajoute pas de nouvelles classes ou vues d’inventaire dans l’Explorateur de ressources. Les données d’inventaire Linux et UNIX sont mappées aux classes WMI existantes. Vous pouvez afficher les détails d’inventaire de vos serveurs Linux et UNIX dans des classifications Windows à l’aide de l’Explorateur de ressources.  
 
- Beispielsweise können Sie die Liste aller systemeigen installierten Programme zusammenstellen, die auf den Linux- und UNIX-Servern gefunden werden. Beispiele für systemeigen installierte Programme umfassen **RPMS** in Linux oder **PKGS** in Solaris. Nachdem die Inventur von einem Linux- oder UNIX-Client gesendet wurde, können Sie die Liste aller nativ installierten Linux- oder UNIX-Programme im Ressourcen-Explorer in der Configuration Manager-Konsole anzeigen.  
+ Par exemple, vous pouvez collecter la liste de tous les programmes installés en mode natif sur vos serveurs Linux et UNIX, tels que les programmes **.rpms** dans Linux ou **.pkgs** dans Solaris. Une fois que l’inventaire a été envoyé par un client UNIX ou Linux, vous pouvez afficher la liste de tous les programmes UNIX ou Linux installés en mode natif dans l’Explorateur de ressources de la console Configuration Manager.  
 
- Informationen zur Verwendung von Ressourcen-Explorer finden Sie unter [How to use Resource Explorer to view hardware inventory in System Center Configuration Manager (Verwenden von Ressourcen-Explorer zum Anzeigen des Hardwarebestands in System Center Configuration Manager)](../../../core/clients/manage/inventory/use-resource-explorer-to-view-hardware-inventory.md).  
+ Pour plus d’informations sur l’utilisation de l’Explorateur de ressources, consultez [Guide pratique pour utiliser l’Explorateur de ressources pour afficher l’inventaire matériel dans System Center Configuration Manager](../../../core/clients/manage/inventory/use-resource-explorer-to-view-hardware-inventory.md).  
 
-##  <a name="BKMK_UseReportsforLnU"></a> Verwenden von Berichten zur Anzeige von Informationen für Linux- und UNIX-Server  
- Berichte für Configuration Manager enthalten Informationen von Linux- und UNIX-Servern zusammen mit Informationen von Windows-basierten Computern. Es sind keine zusätzlichen Konfigurationen erforderlich, um die Linux- und UNIX-Daten in die Berichte zu integrieren.  
+##  <a name="BKMK_UseReportsforLnU"></a> Utiliser des rapports pour afficher des informations sur les serveurs Linux et UNIX  
+ Les rapports Configuration Manager contiennent des informations sur les serveurs Linux et UNIX, ainsi que des informations sur les ordinateurs Windows. Aucune configuration supplémentaire n’est nécessaire pour intégrer les données des serveurs Linux et UNIX dans les rapports.  
 
- Wenn Sie beispielsweise den Bericht zur Anzahl der Betriebssystemversionen ausführen, wird die Liste der verschiedenen Betriebssysteme und die Anzahl der Clients, auf denen das jeweilige Betriebssystem ausgeführt wird, angezeigt. Der Bericht basiert auf den Hardwareinventurinformationen, die von den verschiedenen Configuration Manager-Clients, auf denen die unterschiedlichen Betriebssysteme ausgeführt werden, gesendet wurden.  
+ Par exemple, si vous générez le rapport Nombre de versions du système d’exploitation, ce rapport affiche la liste des différents systèmes d’exploitation utilisés et le nombre de clients qui exécutent chaque système d’exploitation. Le rapport est créé sur la base des informations d’inventaire matériel envoyées par les différents clients Configuration Manager qui s’exécutent sur les différents systèmes d’exploitation.  
 
- Es können auch benutzerdefinierte Berichte erstellt werden, die für Linux- und UNIX-Serverdaten spezifisch sind. Die Eigenschaft **Caption** der Hardwareinventurklasse **Operating System** ist ein nützliches Attribut, mit dem Sie bestimmte Betriebssysteme in der Berichtsabfrage ermitteln können.  
+ Vous pouvez aussi créer des rapports personnalisés contenant des données propres aux serveurs Linux et UNIX. Vous pouvez utiliser la propriété **Légende** de la classe d’inventaire matériel **Système d’exploitation** pour identifier les systèmes d’exploitation spécifiques dans la demande de rapport.  
 
- Informationen zu Berichten in Configuration Manager finden Sie unter [Reporting in System Center Configuration Manager (Berichterstellung in System Center Configuration Manager)](../../../core/servers/manage/reporting.md).  
+ Pour plus d’informations sur les rapports dans Configuration Manager, consultez [Génération de rapports dans System Center Configuration Manager](../../../core/servers/manage/reporting.md).  

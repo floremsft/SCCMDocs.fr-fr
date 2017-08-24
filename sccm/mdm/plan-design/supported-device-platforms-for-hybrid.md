@@ -1,6 +1,6 @@
 ---
-title: "Unterstützte Geräteplattformen für die hybride Verwaltung mobiler Geräte | Microsoft-Dokumentation"
-description: "Unterstützte Geräteplattformen für die hybride Verwaltung mobiler Geräte."
+title: "Plates-formes d’appareils prises en charge pour la gestion des appareils mobiles hybride | Microsoft Docs"
+description: "Plates-formes d’appareils prises en charge pour la gestion des appareils mobiles hybride."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -18,15 +18,15 @@ manager: angrobe
 ms.openlocfilehash: 8e7caef5b7271a9c850513cad26b49426bc0c7a2
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="supported-device-platforms-for-hybrid-mdm"></a>Unterstützte Geräteplattformen für die hybride Verwaltung mobiler Geräte
+# <a name="supported-device-platforms-for-hybrid-mdm"></a>Plates-formes d’appareils prises en charge pour la gestion des appareils mobiles hybride
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Für die Verwaltung mobiler Geräte in Configuration Manager mithilfe von Microsoft Intune werden die folgenden Plattformen für mobile Geräte unterstützt:
+La gestion des appareils mobiles avec Configuration Manager et Microsoft Intune prend en charge les plateformes d’appareils mobiles suivantes :
 
 [!INCLUDE[../includes/mdm-supported-devices](../includes/mdm-supported-devices.md)]
 
-Sie können nur eine Verwaltungslösung verwenden: die Autorität für die Verwaltung mobiler Geräte. Vor dem Einrichten dieser Einstellung sollten Sie sich [zwischen einer Microsoft Intune standalone-Bereitstellung und der hybriden Verwaltung mobiler Geräte in Configuration Manager](../understand/choose-between-standalone-intune-and-hybrid-mobile-device-management.md) entscheiden.
+Vous pouvez utiliser une seule solution de gestion, l’autorité de gestion des appareils mobiles, pour gérer vos appareils mobiles. Avant de choisir ce paramètre, vous devez [choisir entre Microsoft Intune autonome et une gestion hybride des appareils mobiles avec Configuration Manager](../understand/choose-between-standalone-intune-and-hybrid-mobile-device-management.md).

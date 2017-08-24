@@ -1,6 +1,6 @@
 ---
-title: "Funktionen in Technical Preview 1511 für Configuration Manager"
-description: "Erfahren Sie mehr über Funktionen, die in System Center Configuration Manager Technical Preview 1511 zur Verfügung stehen."
+title: "Fonctionnalités de Technical Preview 1511 Configuration Manager"
+description: "Découvrez les fonctionnalités disponibles dans la version d’évaluation technique 1511 pour System Center Configuration Manager."
 ms.custom: na
 ms.date: 01/23/2017
 ms.prod: configuration-manager
@@ -18,170 +18,170 @@ robots: noindex,nofollow
 ms.openlocfilehash: d0bde2c085cc9b330bc772e68081d629ca9e2f11
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="capabilities-in-technical-preview-1511-for-system-center-configuration-manager"></a>Funktionen in System Center Configuration Manager Technical Preview 1511
+# <a name="capabilities-in-technical-preview-1511-for-system-center-configuration-manager"></a>Fonctionnalités de la version d’évaluation technique 1511 pour System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Technical Preview)*
+*S’applique à : System Center Configuration Manager (version d’évaluation technique)*
 
-In diesem Artikel werden die Funktionen erläutert, die in System Center Configuration Manager Technical Preview 1511 verfügbar sind. Bei dieser Version handelt es sich um eine Basisinstallation für die Technical Preview, die Sie verwenden können, um einen neuen Technical Preview-Standort zu installieren oder um ein Upgrade von einer früheren Version der Technical Preview durchzuführen.   Bevor Sie diese Version der Technical Preview installieren, lesen Sie das einführende Thema [Technical Preview für System Center Configuration Manager](/sccm/core/get-started/technical-preview), um sich mit den allgemeinen Anforderungen und Einschränkungen bei der Verwendung einer Technical Preview vertraut zu machen, und zu erfahren, wie Sie Updates zwischen Versionen durchführen und Feedback zu den Features in einer Technical Preview geben können.  
+Cet article présente les fonctionnalités qui sont disponibles dans la version d’évaluation technique 1511 pour System Center Configuration Manager. Cette version est une installation de base de référence pour la version d’évaluation technique que vous pouvez utiliser pour installer un nouveau site de version d’évaluation technique ou pour effectuer la mise à niveau à partir d’une version antérieure de la version d’évaluation technique.   Avant d’installer cette version de la version d’évaluation technique, passez en revue la rubrique de présentation, [Version d’évaluation technique pour System Center Configuration Manager](/sccm/core/get-started/technical-preview), pour vous familiariser avec les conditions générales et limitations d’utilisation d’une version d’évaluation technique, la mise à jour entre les versions et l’envoi de commentaires sur les fonctionnalités dans une version d’évaluation technique.  
 
-Im Folgenden werden neue Funktionen aufgelistet, die Sie mit dieser Version ausprobieren können.  
+Vous trouverez ci-dessous les nouvelles fonctionnalités propres à cette version.  
 
-##  <a name="BKMK_WUfB"></a> Integration mit Windows Update für Unternehmen in Windows 10  
- Configuration Manager verfügt jetzt über die Möglichkeit, einen Windows 10-Computer, der direkt über Windows Update für Unternehmen (WUfB, Windows Update for Business) verbunden ist, von solchen zu unterscheiden, die mit WSUS verbunden sind, um Windows 10-Updates und -Upgrades abzurufen.  Bei Computern, die über WUfB verbunden sind, können die Updates und Upgrades in dem vom administrativen Benutzer mittels Gruppenrichtlinien oder MDM-Richtlinien festgelegten Rhythmus verwaltet werden, und diese Updates/Upgrades können direkt aus WUfB installiert werden.    
-Für Computer, die über WUfB verbunden sind, kann Configuration Manager keine Meldungen zum Kompatibilitätsstatus abgeben (einschließlich Windows Updates oder Definitionsupdates). Außerdem kann Configuration Manager auf diesen Computern weder Microsoft-Updates noch Updates von Drittanbietern bereitstellen.  
+##  <a name="BKMK_WUfB"></a> Intégration à Windows Update for Business dans Windows 10  
+ Configuration Manager peut désormais différencier un ordinateur Windows 10 directement connecté par le biais de Windows Update for Business (WUfB) de ceux connectés à WSUS pour obtenir les mises à jour et mises à niveau Windows 10.  Pour les ordinateurs connectés via WUFB, les mises à jour et les mises à niveau peuvent être gérées à la cadence définie par un utilisateur administratif via des stratégies de groupe ou des stratégies MDM. Par ailleurs, ces mises à jour/mises à niveau peuvent être installées directement à partir de WUFB.    
+Pour les ordinateurs connectés via WUfB, Configuration Manager ne peut pas créer de rapports sur l’état de conformité (dont les mises à jour Windows ou les mises à jour de définition). De plus, Configuration Manager ne peut pas déployer des mises à jour Microsoft ni tierces sur ces ordinateurs.  
 
- **Voraussetzungen für dieses Szenario:**  
+ **Conditions requises pour ce scénario :**  
 
--   Windows 10 Desktop Pro oder Windows 10 Enterprise Edition, Version 1511 oder höher  
+-   Windows 10 Desktop Pro ou Windows 10 Édition Entreprise version 1511 ou ultérieure  
 
--   Computer, die über [Windows Update für Unternehmen](https://technet.microsoft.com/library/mt622730\(v=vs.85\).aspx)verwaltet werden sollen.  
+-   Ordinateurs à gérer via [Windows Update for Business](https://technet.microsoft.com/library/mt622730\(v=vs.85\).aspx).  
 
-### <a name="try-it-out"></a>Probieren Sie es aus!  
- Versuchen Sie, die folgende Aufgabe auszuführen, und verwenden Sie dann die Feedbackinformationen oben in diesem Thema, um uns Ihre Erfahrungen mitzuteilen:  
+### <a name="try-it-out"></a>Essayez !  
+ Essayez d'exécuter la tâche suivante, puis utilisez les informations fournies au début de cette rubrique pour nous dire si tout a fonctionné comme prévu :  
 
-1.  Deaktivieren Sie den Windows Update-Agent, damit er nicht auf WSUS sucht, wenn er zuvor aktiviert war.   
-    Der Registrierungsschlüssel **HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU\useWSUSServer** kann so festgelegt werden, dass er anzeigt, ob der Computer auf WSUS oder Windows Update sucht.  Wenn der Wert „2“ ist, sucht er nicht auf WSUS.  
+1.  Désactivez l’Agent Windows Update, s’il était précédemment activé, afin qu’il n’effectue pas l’analyse par rapport à WSUS.   
+    La clé de Registre **HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU\useWSUSServer** peut être définie pour indiquer si l’ordinateur effectue l’analyse par rapport à Windows Update ou à WSUS.  Lorsque la valeur est 2, il n’effectue pas l’analyse par rapport à WSUS.  
 
-2.  Notieren Sie sich das neue Attribut **UseWUServer**unter dem Knoten **Windows Update** im Ressourcen-Explorer von Configuration Manager.  
+2.  Notez le nouvel attribut **UseWUServer**, sous le nœud **Windows Update** dans l’Explorateur de ressources Configuration Manager.  
 
-3.  Erstellen Sie eine Sammlung auf Basis des **UseWUServer** -Attributs für alle Computer, die für Updates und Upgrades über WUfB verbunden sind.  
+3.  Créez un regroupement basé sur l’attribut **UseWUServer** pour tous les ordinateurs connectés via WUFB pour les mises à jour et les mises à niveau.  
 
-4.  Erstellen Sie eine Client-Agent-Einstellung, um den Softwareupdate-Workflow zu deaktivieren, und stellen Sie die Einstellung in der Sammlung von Computern bereit, die direkt mit WUfB verbunden sind.  
+4.  Créez un paramètre d’agent du client pour désactiver le flux de travail des mises à jour logicielles et déployer le paramètre sur le regroupement d’ordinateurs connectés directement à WUFB.  
 
-5.  Die Computer, die über WUfB verwaltet werden, zeigen als Kompatibilitätsstatus **Unbekannt** an und werden im Gesamtprozentsatz der Kompatibilität nicht berücksichtigt.  
+5.  Les ordinateurs qui sont gérés via WUFB affichent **Inconnu** dans l’état de conformité et ne sont pas comptabilisés dans le pourcentage de conformité global.  
 
-##  <a name="BKMK_Office365ProPlus"></a> Verwalten von Office 365 ProPlus-Clientupdates über den System Center Configuration Manager  
- Configuration Manager verfügt jetzt über die Möglichkeit zum Verwalten von Office 365-Desktopclientupdates mithilfe des Softwareupdateverwaltungs-Workflows von Configuration Manager.    
-Wenn Microsoft ein neues Office 365-Desktopclientupdate in Windows Server Updates Services (WSUS) veröffentlicht, kann Configuration Manager das Update mit seinem Katalog synchronisieren, wenn das Office 365-Update als Teil der Katalogsynchronisierung konfiguriert ist.  Der Configuration Manager-Standortserver lädt dann die Office 365-Clientupdates herunter, und verteilt das Paket an die Configuration Manager-Verteilungspunkte.  Der Configuration Manager-Client informiert dann die Office 365-Desktopclients, wo sie die Updates abrufen können und wann der Installationsvorgang gestartet werden soll.  
+##  <a name="BKMK_Office365ProPlus"></a> Gestion des mises à jour du client Office 365 ProPlus via System Center Configuration Manager  
+ Configuration Manager peut désormais gérer les mises à jour du client du bureau Office 365 à l’aide du flux de travail de gestion des mises à jour logicielles de Configuration Manager.    
+Quand Microsoft publie une nouvelle mise à jour du client de bureau Office 365 pour WSUS (Windows Server Updates Services), Configuration Manager peut synchroniser la mise à jour avec son catalogue si la mise à jour d’Office 365 est configurée pour faire partie de la synchronisation du catalogue.  Le serveur de site Configuration Manager télécharge les mises à jour du client Office 365 et distribue le package aux points de distribution Configuration Manager.  Le client Configuration Manager indique ensuite aux clients du bureau Office 365 où obtenir les mises à jour et quand commencer le processus d’installation des mises à jour.  
 
-**Voraussetzungen für dieses Szenario:**  
+**Conditions requises pour ce scénario :**  
 
-### <a name="try-it-out"></a>Probieren Sie es aus!  
- Versuchen Sie, die folgende Aufgabe auszuführen, und verwenden Sie dann die Feedbackinformationen oben in diesem Thema, um uns Ihre Erfahrungen mitzuteilen:  
+### <a name="try-it-out"></a>Essayez !  
+ Essayez d'exécuter la tâche suivante, puis utilisez les informations fournies au début de cette rubrique pour nous dire si tout a fonctionné comme prévu :  
 
-1.  Sie können Office 365-Updates mit dem Configuration Manager-Standortserver synchronisieren und sie über die Configuration Manager-Konsole anzeigen.  
+1.  Vous pouvez synchroniser les mises à jour d’Office 365 avec le serveur de site Configuration Manager et les afficher à partir de la console Configuration Manager.  
 
-2.  Sie können Office 365-Updates genehmigen und erfolgreich bereitstellen.  
+2.  Vous pouvez approuver et déployer avec succès les mises à jour d’Office 365.  
 
-3.  Sie können Office 365-Updates herunterladen und erfolgreich für Clients bereitstellen.  
+3.  Vous pouvez télécharger et installer correctement les mises à jour d’Office 365 sur les clients.  
 
-4.  Sie können die Kompatibilität für Office 365-Updates mithilfe der Überwachung und Berichte in der Konsole überprüfen.  
+4.  Vous pouvez vérifier la compatibilité pour les mises à jour d’Office 365 à l’aide de rapports ou de la surveillance dans la console.  
 
- Detaillierte Anweisungen finden Sie unter [Verwalten von Office 365-Clientupdates mit System Center Configuration Manager Technical Preview](https://technet.microsoft.com/library/mt628083.aspx).  
+ Pour une procédure détaillée, consultez [Gérer les mises à jour du client Office 365 avec System Center Configuration Manager Technical Preview](https://technet.microsoft.com/library/mt628083.aspx).  
 
-##  <a name="BKMK_AlwasyOn"></a> Unterstützung für SQL Server AlwaysOn für hoch verfügbare Datenbanken  
- Configuration Manager unterstützt jetzt die Verwendung einer SQL Server Always On-Verfügbarkeitsgruppe zum Hosten der Standortdatenbank.  Wenn Sie einen neuen Standort installieren, können Sie das Setup anweisen, anstatt einer normalen Instanz von SQL Server die Verfügbarkeitsgruppe zu verwenden.  
+##  <a name="BKMK_AlwasyOn"></a> Prise en charge de SQL Server AlwaysOn pour les bases de données à haute disponibilité  
+ Configuration Manager prend désormais en charge l’utilisation d’un groupe de disponibilité SQL Server AlwaysOn pour héberger la base de données de site.  Quand vous installez un nouveau site, vous pouvez indiquer au programme d’installation d’utiliser le groupe de disponibilité au lieu d’une instance normale de SQL Server.  
 
 > [!NOTE]  
->  Eine erfolgreiche Konfiguration und Verwendung von Verfügbarkeitsgruppen setzt voraus, dass Sie mit der Konfiguration von SQL Server-Verfügbarkeitsgruppen vertraut sind, und basiert auf der Dokumentation und den Verfahren in der SQL Server-Dokumentationsbibliothek.  
+>  Pour pouvoir configurer et utiliser des groupes de disponibilité, vous devez savoir comment configurer des groupes de disponibilité SQL Server et vous appuyer sur la documentation et les procédures fournies dans la bibliothèque de documentation de SQL Server.  
 
-Das allgemeine Vorgehen beim Konfigurieren und Verwenden von Verfügbarkeitsgruppen umfasst folgende Schritte:  
+Le processus de haut niveau pour configurer et utiliser des groupes de disponibilité comprend les tâches suivantes :  
 
-1.  Konfigurieren Sie die Verfügbarkeitsgruppe in SQL Server.  
+1.  Configurer le groupe de disponibilité dans SQL Server.  
 
-2.  Installieren Sie einen neuen Configuration Manager-Standort, und weisen Sie den Standort während des Setups an, die Verfügbarkeitsgruppe zu verwenden, indem Sie den Endpunkt der Gruppe angeben.  
+2.  Installez un nouveau site Configuration Manager et, lors de l’installation, indiquez au site d’utiliser le groupe de disponibilité en spécifiant le point de terminaison du groupe.  
 
-**Voraussetzungen für dieses Szenario:**  
+**Conditions requises pour ce scénario :**  
 
--   Eine Version von SQL Server ist erforderlich, die von der Configuration Manager Technical Preview unterstützt wird.  
+-   Nécessite une version de SQL Server prise en charge par Configuration Manager Technical Preview.  
 
--   Sie müssen die SQL Server-Verfügbarkeitsgruppe vor der Installation von Configuration Manager erstellen und konfigurieren.  
+-   Vous devez créer et configurer le groupe de disponibilité SQL Server avant d’installer Configuration Manager  
 
--   Die Verfügbarkeitsgruppe muss ein primäres Replikat und kann bis zu zwei synchrone sekundäre Replikate enthalten.  
+-   Le groupe de disponibilité doit avoir un réplica principal et peut avoir jusqu'à deux réplicas secondaires synchrones.  
 
--   Die Verfügbarkeitsgruppe muss mindestens einen Endpunkt besitzen.  
+-   Le groupe de disponibilité doit avoir au moins un point de terminaison.  
 
--   Sie benötigen einen Speicherort im Netzwerk, auf den jede SQL Server-Instanz in der Verfügbarkeitsgruppe zugreifen kann. Dieser Speicherort wird von Setup bei der Konfiguration der Verfügbarkeitsgruppe verwendet und kann nach Abschluss des Setups entfernt werden.  
+-   Vous devez avoir un emplacement réseau accessible par chaque serveur SQL Server du groupe de disponibilité. Cet emplacement est utilisé par le programme d'installation lors de la configuration du groupe de disponibilité. Vous pouvez le supprimer une fois l'installation terminée.  
 
-**Bekannte Probleme in diesem Release:**  
+**Problèmes connus pour cette version :**  
 
--   Sie können zu einer Verfügbarkeitsgruppe, die bereits als Standortdatenbank verwendet wird, kein neues Replikatmitglied erfolgreich hinzufügen. Stattdessen müssen Sie den Standort neu installieren, nachdem das neue Replikatmitglied hinzugefügt wurde.  
+-   Vous ne pouvez pas ajouter un nouveau membre de réplica à un groupe de disponibilité qui est déjà utilisé comme base de données de site. Au lieu de cela, vous devez réinstaller le site après avoir ajouté le nouveau membre de réplica.  
 
--   In diesem Szenario müssen Sie möglicherweise **SQL Server 2012 Native Client** ([aus dem SQL Server 2012 Feature Pack](http://www.microsoft.com/download/details.aspx?id=29065)) auf dem Verwaltungspunktserver installieren. Dadurch werden SQL-Verbindungsfehler verhindert (die in der Datei **mp_getauth.log** auf dem Verwaltungspunktserver protokolliert werden).  
+-   Pour ce scénario, vous devrez peut-être installer le **client natif SQL Server 2012** ([à partir de SQL Server 2012 Feature Pack](http://www.microsoft.com/download/details.aspx?id=29065)) sur le serveur de point de gestion. Cela empêche toute erreur de connexion SQL (qui sont enregistrées dans le fichier **mp_getauth.log** sur le serveur de point de gestion).  
 
-### <a name="try-it-out"></a>Probieren Sie es aus!  
-Versuchen Sie, die folgende Aufgabe auszuführen, und verwenden Sie dann die Feedbackinformationen oben in diesem Thema, um uns Ihre Erfahrungen mitzuteilen:  
+### <a name="try-it-out"></a>Essayez !  
+Essayez d'exécuter les tâches suivantes, puis utilisez les informations fournies au début de cette rubrique pour nous dire si tout a fonctionné comme prévu :  
 
--   Ich kann einen primären Standort installieren, der einen für SQL AlwaysOn-Verfügbarkeitsgruppen konfigurierten Datenbankserver verwendet.  
+-   Je peux installer un site principal qui utilise un serveur de bases de données configuré pour les groupes de disponibilité AlwaysOn.  
 
--   Ich konnte ein Failover meiner SQL AlwaysOn-Verfügbarkeitsgruppe auf ein neues Replikat in der Gruppe ausführen, und der primäre Standort ist immer noch betriebsbereit.  
+-   J'ai réussi à faire basculer mon groupe de disponibilité SQL AlwaysOn vers un nouveau réplica dans le groupe et le site principal est toujours opérationnel.  
 
-### <a name="configuring-sql-server-alwayson-for-configuration-manager"></a>Konfigurieren von SQL Server AlwaysOn für Configuration Manager  
- Verwenden Sie die folgenden Verfahren, um zuerst die Verfügbarkeitsgruppe zu erstellen und zu konfigurieren, und installieren Sie dann einen neuen Configuration Manager-Standort, der die Verfügbarkeitsgruppe verwendet.  
+### <a name="configuring-sql-server-alwayson-for-configuration-manager"></a>Configuration de SQL Server AlwaysOn pour Configuration Manager  
+ Appliquez les procédures suivantes pour tout d’abord créer et configurer le groupe de disponibilité, puis installez un nouveau site Configuration Manager qui utilise le groupe de disponibilité.  
 
-#### <a name="to-create-a-sql-server-alwayson-availability-group"></a>So erstellen Sie eine SQL Server AlwaysOn-Verfügbarkeitsgruppe  
-Das Verfahren zum [Erstellen einer SQL Server-Verfügbarkeitsgruppe](https://technet.microsoft.com/library/ff878265\(v=sql.120\).aspx) wird in der SQL Server-Dokumentationsbibliothek beschrieben.  Wenn Sie eine Verfügbarkeitsgruppe erstellen, vergewissern Sie sich, dass die folgenden Anforderungen für die Verwendung mit Configuration Manager erfüllt sind:  
+#### <a name="to-create-a-sql-server-alwayson-availability-group"></a>Pour créer un groupe de disponibilité SQL Server AlwaysOn  
+Le processus de [création d'un groupe de disponibilité SQL Server](https://technet.microsoft.com/library/ff878265\(v=sql.120\).aspx) est documenté dans la bibliothèque de documentation de SQL Server.  Quand vous créez le groupe de disponibilité, vérifiez que les conditions suivantes pour une utilisation avec Configuration Manager sont remplies :  
 
--   Maximal drei Mitglieder:  
+-   Un maximum de trois membres :  
 
-    -   Ein primäres Replikat und bis zu zwei sekundäre Replikate  
+    -   un réplica principal et deux réplicas secondaires ;  
 
-    -   Sekundäre Replikate müssen synchron sein.  
+    -   les réplicas secondaires doivent être synchrones.  
 
         > [!TIP]  
-        >  Es wird empfohlen, dass sekundäre Replikate als schreibgeschützt konfiguriert werden. Dadurch können Sie ein sekundäres Replikat für Funktionen wie Berichterstellung verwenden ohne die Leistung des primären Replikats für Standortvorgänge zu beeinträchtigen.  
+        >  Nous recommandons de configurer les réplicas secondaires en lecture seule. Cela vous permet d'utiliser un réplica secondaire pour des fonctions telles que la création de rapports tout en préservant les performances du réplica principal pour les opérations de site.  
 
--   Mindestens ein Endpunkt. Der virtuelle Name dieses Endpunkts wird bei der Installation des Configuration Manager-Standorts verwendet.  
-
-    > [!TIP]  
-    >  Die Gruppe kann zwar mehrere Endpunkte enthalten, Configuration Manager kann aber nur einen Endpunkt nutzen.  
-
-#### <a name="to-install-a-configuration-manager-site-that-uses-the-availability-group"></a>So installieren Sie einen Configuration Manager-Standort, der die Verfügbarkeitsgruppe verwendet  
-So installieren Sie einen Standort, der eine SQL Server-Verfügbarkeitsgruppe verwendet:  
-
-1.  Ersetzen Sie Folgendes, wenn Sie vom Configuration Manager-Setup dazu aufgefordert werden:  
-
-    -   **SQL Server-Name**: Geben Sie den virtuellen Namen für den Endpunkt ein, den Sie beim Erstellen der Verfügbarkeitsgruppe konfiguriert haben. Der virtuelle Name sollte ein vollständiger DNS-Name sein, wie z.B. **&lt;Endpunktserver\>.fabrikam.com**.  
-
-    -   **Instanz**: Dieser Wert sollte leer bleiben. In dieser Konfiguration ist keine Instanz vorhanden.  
-
-    -   **Datenbank**: Geben Sie den Namen der Datenbank ein, die Sie im primären Replikat der Verfügbarkeitsgruppe erstellt haben.  
-
-2.  Als Nächstes müssen Sie einen Speicherort im Netzwerk angeben, auf den jede SQL Server-Instanz in der Gruppe zugreifen kann.  
-
-    -   Das Computerkonto und das Dienstkonto jeder SQL Server-Instanz benötigen den Vollzugriff auf diesen Speicherort.  
-
-    -   Dieser Speicherort wird nur während des Setups verwendet. Nachdem das Setup abgeschlossen und der Standort installiert ist, kann die Freigabe des Speicherorts entfernt oder der Speicherort gelöscht werden.  
-
-3.  Nachdem Sie diese Informationen bereitgestellt haben, schließen Sie das Setup mit der üblichen Vorgehensweise und den normalen Konfigurationen ab.  
-
-##  <a name="BKMK_ClusterServerUpdates"></a> Wartung eines Serverclusters  
-Sie können jetzt eine Sammlung mit Servern in einem Cluster erstellen und anschließend die Clustereinstellungen konfigurieren, die beim Bereitstellen von Updates für den Cluster verwendet werden. Sie können den Prozentsatz der Server steuern, die zu jedem beliebigen Zeitpunkt online sind, und Sie können PowerShell-Skripts mit den vor und nach der Bereitstellung auszuführenden benutzerdefinierten Aktionen konfigurieren.  
-
-**Bekannte Probleme in diesem Release:**  
-
--   Es ist keine Berichterstellung zur Überprüfung des Status der Bereitstellung von Softwareupdates für Clusterserver verfügbar.  
-
--   Die Wartungssequenzoption auf der Seite **Clustereinstellungen** ist deaktiviert und in dieser Version nicht verfügbar.  
-
-### <a name="try-it-out"></a>Probieren Sie es aus!  
-Versuchen Sie, die folgende Aufgabe auszuführen, und verwenden Sie dann die Feedbackinformationen oben in diesem Thema, um uns Ihre Erfahrungen mitzuteilen:  
-
--   Ich kann eine Sammlung erstellen, die einen Cluster von Servern darstellt. Für diesen Test können Sie Ihre Sammlungsmitgliedschaftsregeln  für zwei Computer in dieser Sammlung konfigurieren.  
-
--   Ich kann festlegen, dass zu jedem Zeitpunkt des Clusterbetriebs nur 50 % der Server im Cluster offline sein dürfen. Verwenden Sie die Beispielskripts in der Prozedur, um die Skripts für die vor und nach der Bereitstellung auszuführenden Aktionen festzulegen.  
-
--   Stellen Sie ein Update für diese Sammlung bereit. Überprüfen Sie die in den Dateien "start.txt" und "end.txt" in "C:\temp" angegebenen Start- und Endzeiten für die Bereitstellung auf den Servern im Cluster. In der Protokolldatei "UpdatesDeployment.log" finden Sie weitere Informationen.  
-
-#### <a name="to-create-a-collection-for-a-server-cluster"></a>So erstellen Sie eine Sammlung für einen Servercluster  
-
-1.  [Erstellen Sie eine Gerätesammlung](https://technet.microsoft.com/library/gg712295.aspx), die die Server im Cluster enthält.  
-
-2.  Klicken Sie im Arbeitsbereich **Bestand und Kompatibilität** auf **Gerätesammlungen**, klicken Sie mit der rechten Maustaste auf die Sammlung mit den Servern im Cluster, und klicken Sie dann auf **Eigenschaften**.  
-
-3.  Wählen Sie auf der Registerkarte **Allgemein** die Option **All devices are part of the same server cluster** (Alle Geräte sind Teil des gleichen Serverclusters) aus, und klicken Sie dann auf **Einstellungen**.  
-
-4.  Wählen Sie auf der Seite **Clustereinstellungen** aus, wie viel Prozent der Server zum Installieren von Softwareupdates gleichzeitig offline geschaltet werden dürfen. Unabhängig von dem hier angegebenen Prozentwert darf immer nur ein Clusterserver offline geschaltet werden. Bei der Auswahl der Anzahl der Server, die gleichzeitig gewartet werden, wird von Configuration Manager abgerundet. Wenn Sie beispielsweise 51 % auswählen, und im Cluster 4 Server vorhanden sind, werden gleichzeitig 2 Server offline geschaltet.  
-
-5.  Geben Sie an, ob ein Skript vor der Bereitstellung (Knoten sperren) oder ein Skript nach der Bereitstellung (Knoten fortsetzen) verwendet werden soll.  
+-   Au moins un point de terminaison. Le nom virtuel de ce point de terminaison est utilisé quand vous installez le site Configuration Manager.  
 
     > [!TIP]  
-    >  Die folgenden Beispiele können Sie beim Testen für Skripts vor und nach der Bereitstellung verwenden, die die aktuelle Uhrzeit in eine Textdatei schreiben:  
+    >  Bien que le groupe puisse contenir plusieurs points de terminaison, Configuration Manager ne peut en utiliser qu’un seul.  
+
+#### <a name="to-install-a-configuration-manager-site-that-uses-the-availability-group"></a>Pour installer un site Configuration Manager qui utilise le groupe de disponibilité  
+Pour installer un site qui utilise un groupe de disponibilité SQL Server  
+
+1.  Remplacez les éléments suivants quand le programme d’installation de Configuration Manager vous y invite :  
+
+    -   **Nom SQL Server**: entrez le nom virtuel du point de terminaison que vous avez configuré lors de la création du groupe de disponibilité. Le nom virtuel doit être un nom DNS complet, comme **&lt;serveur_point_de_terminaison\>.fabrikam.com**.  
+
+    -   **Instance**: cette valeur doit rester vierge. Il n'y a aucune instance dans cette configuration.  
+
+    -   **Base de données**: entrez le nom de la base de données que vous avez créée sur le réplica principal du groupe de disponibilité.  
+
+2.  Ensuite, vous devez fournir un emplacement réseau accessible par chaque serveur SQL Server du groupe :  
+
+    -   Le compte d'ordinateur et le compte de service de chaque serveur SQL Server nécessitent un accès en contrôle total à cet emplacement.  
+
+    -   Cet emplacement est utilisé uniquement lors de l'installation. Vous pouvez annuler son partage ou le supprimer une fois l'installation terminée et le site installé.  
+
+3.  Après avoir fourni ces informations, terminez l'installation avec vos processus et configurations ordinaires.  
+
+##  <a name="BKMK_ClusterServerUpdates"></a> Assurer la maintenance d’un cluster de serveurs  
+Vous pouvez maintenant créer un regroupement qui contient des serveurs dans un cluster, puis configurer les paramètres de cluster à utiliser lorsque vous déployez des mises à jour sur le cluster. Vous pouvez contrôler le pourcentage de serveurs qui sont en ligne à un moment donné et configurer l'exécution de scripts PowerShell de prédéploiement et de post-déploiement pour exécuter des actions personnalisées.  
+
+**Problèmes connus pour cette version :**  
+
+-   La création de rapports n'est pas disponible pour vérifier l'état du déploiement des mises à jour logicielles pour les serveurs de cluster.  
+
+-   L'option de séquence de maintenance dans la page **Paramètres du cluster** est désactivée et non disponible dans cette version.  
+
+### <a name="try-it-out"></a>Essayez !  
+Essayez d'exécuter la tâche suivante, puis utilisez les informations fournies au début de cette rubrique pour nous dire si tout a fonctionné comme prévu :  
+
+-   Je peux créer un regroupement qui représente un cluster de serveurs. Pour ce test, vous pouvez configurer vos règles d'appartenance pour avoir deux ordinateurs dans ce regroupement.  
+
+-   Je peux spécifier que seuls 50 % des serveurs du cluster puissent être hors connexion à tout moment dans le service de cluster. Utilisez les exemples de scripts dans la procédure pour spécifier les scripts de prédéploiement et de post-déploiement.  
+
+-   Déployez une mise à jour vers ce regroupement. Examinez les fichiers start.txt et end.txt dans C:\temp et vérifiez les heures de début et de fin du déploiement sur les serveurs du cluster. Examinez le fichier UpdatesDeployment.log pour obtenir plus d'informations.  
+
+#### <a name="to-create-a-collection-for-a-server-cluster"></a>Pour créer un regroupement pour un cluster de serveurs  
+
+1.  [Créez un regroupement d’appareils](https://technet.microsoft.com/library/gg712295.aspx) contenant les serveurs du cluster.  
+
+2.  Dans l’espace de travail **Ressources et Conformité**, cliquez sur **Regroupements d’appareils**, cliquez avec le bouton droit sur le regroupement qui contient les serveurs du cluster, puis cliquez sur **Propriétés**.  
+
+3.  Sous l’onglet **Général**, sélectionnez **Tous les appareils font partie du même cluster de serveurs**, puis cliquez sur **Paramètres**.  
+
+4.  Dans la page **Paramètres du cluster**, sélectionnez le pourcentage de serveurs pouvant être mis hors connexion simultanément pour que les mises à jour logicielles soient installées. Un seul serveur de cluster peut être mis hors connexion à la fois, quel que soit le pourcentage que vous fournissez. Configuration Manager arrondit à la valeur inférieure lors de la sélection du nombre de serveurs à traiter en même temps. Par exemple, si vous choisissez 51 % et que le cluster contient 4 serveurs, 2 serveurs sont mis hors connexion en même temps.  
+
+5.  Indiquez s’il convient d’utiliser un script de prédéploiement (drainage de nœud) ou un script de post-déploiement (relance de nœud).  
+
+    > [!TIP]  
+    >  Voici des exemples que vous pouvez utiliser dans des tests de scripts de prédéploiement et de post-déploiement qui enregistrent l’heure actuelle dans un fichier texte :  
     >   
-    >  **Vor der Bereitstellung**  
+    >  **Prédéploiement**  
     >   
     >  `#Start`  
     >   
@@ -191,7 +191,7 @@ Versuchen Sie, die folgende Aufgabe auszuführen, und verwenden Sie dann die Fee
     >   
     >  `Out-File C:\temp\start.txt`  
     >   
-    >  **Nach der Bereitstellung**  
+    >  **Post-déploiement**  
     >   
     >  `#End`  
     >   
@@ -201,8 +201,8 @@ Versuchen Sie, die folgende Aufgabe auszuführen, und verwenden Sie dann die Fee
     >   
     >  `Out-File C:\temp\end.txt`  
 
-#### <a name="to-deploy-software-updates-to-the-server-cluster"></a>So stellen Sie Softwareupdates für den Servercluster bereit  
+#### <a name="to-deploy-software-updates-to-the-server-cluster"></a>Pour déployer des mises à jour logicielles sur le cluster de serveurs  
 
-1.  [Stellen Sie Softwareupdates](https://technet.microsoft.com/library/gg712304.aspx) für die Serverclustersammlung bereit.  
+1.  [Déployez les mises à jour logicielles](https://technet.microsoft.com/library/gg712304.aspx) sur le regroupement du cluster de serveurs.  
 
-2.  [Überwachen Sie die Softwareupdatebereitstellung](https://technet.microsoft.com/library/gg712304.aspx).  
+2.  [Surveillez le déploiement des mises à jour logicielles](https://technet.microsoft.com/library/gg712304.aspx).  

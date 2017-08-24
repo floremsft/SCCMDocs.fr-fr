@@ -1,6 +1,6 @@
 ---
-title: "Erstellen einer Tasksequenz für Nicht-Betriebssystembereitstellungen | Microsoft-Dokumentation"
-description: "Erstellen von Tasksequenzen, die nicht mit Systemen zur Betriebssystembereitstellung verknüpft sind, z.B. Verteilen von Software, Aktualisieren von Treibern, Bearbeiten von Benutzerzuständen, usw."
+title: "Créer une séquence de tâches pour des déploiements autres que des déploiements de systèmes d’exploitation | Microsoft Docs"
+description: "Créez des séquences de tâches qui ne sont pas liées au déploiement de systèmes d’exploitation, telles que la distribution de logiciels, la mise à jour de pilotes, la modification des états utilisateur, etc."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,40 +17,40 @@ manager: angrobe
 ms.openlocfilehash: b4b04907f2cd48d81e864e46ca47c14a0b98a9f7
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-a-task-sequence-for-non-operating-system-deployments-with-system-center-configuration-manager"></a>Erstellen einer Tasksequenz für Nicht-Betriebssystembereitstellungen mit System Center Configuration Manager
+# <a name="create-a-task-sequence-for-non-operating-system-deployments-with-system-center-configuration-manager"></a>Créer une séquence de tâches pour des déploiements autres que des déploiements de systèmes d’exploitation dans System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Tasksequenzen in System Center Configuration Manager dienen zum Automatisieren einer Vielzahl von Aufgaben in Ihrer Umgebung. Diese Tasks wurden in erster Linie für die Bereitstellung von Betriebssystemen konzipiert und getestet.  Configuration Manager bietet viele weitere Features für den Einsatz als primäre Technologie in Szenarios wie [Anwendungsinstallation](../../apps/understand/introduction-to-application-management.md), [Installation von Softwareupdates](../../sum/understand/software-updates-introduction.md), [Konfiguration von Einstellungen](../../compliance/understand/ensure-device-compliance.md) oder benutzerdefinierte Automatisierung. Es gibt noch weitere Microsoft System Center-Automatisierungstechnologien wie [Orchestrator](https://technet.microsoft.com/library/hh237242.aspx) und [Service Management Automation](https://technet.microsoft.com/library/dn469260.aspx) , die Sie auch in Erwägung ziehen sollten.  
+Dans System Center Configuration Manager, les séquences de tâches permettent d’automatiser diverses tâches au sein de votre environnement. Ces tâches visent essentiellement à déployer des systèmes d’exploitation et sont testées à cet effet.  Configuration Manager offre bien d’autres fonctionnalités, des technologies essentielles à utiliser dans certains scénarios, comme l’[installation d’applications](../../apps/understand/introduction-to-application-management.md), l’[installation de mises à jour logicielles](../../sum/understand/software-updates-introduction.md), la [configuration de paramètres](../../compliance/understand/ensure-device-compliance.md) ou l’automatisation personnalisée. Vous devez aussi considérer d’autres technologies d’automatisation Microsoft System Center, notamment [Orchestrator](https://technet.microsoft.com/library/hh237242.aspx) et [Service Management Automation](https://technet.microsoft.com/library/dn469260.aspx) .  
 
-Tasksequenzen sind ein mächtiges Werkzeug, weil sie flexibel sind und Ihnen dabei helfen, Clienteinstellungen zu konfigurieren, Software zu verteilen, Treiber zu aktualisieren, den Status von Benutzern zu bearbeiten und andere Tasks auszuführen, die nicht mit der Betriebssystembereitstellung in Zusammenhang stehen. Sie können eine benutzerdefinierte Tasksequenz erstellen, der Sie beliebig viele Tasks hinzufügen können. Für Bereitstellungen, bei denen kein Betriebssystem bereitgestellt wird, lassen sich in Configuration Manager benutzerdefinierte Tasksequenzen verwenden. Sollte eine Tasksequenz jedoch ungewollte oder inkonsistente Ergebnisse liefern, versuchen Sie den Vorgang zu vereinfachen. Dies erreichen Sie, indem Sie einfachere Schritte verwenden und die Aktionen auf mehrere Tasksequenzen aufteilen oder indem Sie das Erstellen und Testen der Tasksequenz in Phasen aufteilen.
+Le principal intérêt des séquences de tâches réside dans leur flexibilité et dans la façon dont vous pouvez les utiliser pour configurer les paramètres des clients, distribuer les logiciels, mettre à jour les pilotes, modifier les états utilisateur et effectuer d’autres tâches indépendantes du déploiement de systèmes d’exploitation. Vous pouvez créer une séquence de tâches personnalisée pour ajouter un nombre quelconque de tâches. L’utilisation de séquences de tâches personnalisées pour un déploiement autre que celui d’un système d’exploitation est prise en charge dans Configuration Manager. Toutefois, si une séquence de tâches entraîne des résultats incohérents ou indésirables, essayez de simplifier l’opération. Pour cela, vous pouvez suivre des étapes plus simples, en répartissant les actions entre plusieurs séquences de tâches, ou en adoptant une approche par étapes pour la création et le test de séquences de tâches.
 
- Folgende Schritte können in einer benutzerdefinierten Tasksequenz verwendet werden, die nicht für die Bereitstellung eines Betriebssystems gedacht ist:  
+ Les étapes suivantes peuvent être utilisées dans une séquence personnalisée de tâches de déploiement, autre qu’un déploiement de système d’exploitation :  
 
--   [Bereitschaft überprüfen](../understand/task-sequence-steps.md#BKMK_CheckReadiness)  
+-   [Vérifier la préparation](../understand/task-sequence-steps.md#BKMK_CheckReadiness)  
 
--   [Verbindung mit Netzwerkordner herstellen](../understand/task-sequence-steps.md#BKMK_ConnectToNetworkFolder)  
+-   [Se connecter à un dossier réseau](../understand/task-sequence-steps.md#BKMK_ConnectToNetworkFolder)  
 
--   [Paketinhalt herunterladen](../understand/task-sequence-steps.md#BKMK_DownloadPackageContent)  
+-   [Télécharger le contenu du package](../understand/task-sequence-steps.md#BKMK_DownloadPackageContent)  
 
--   [Anwendung installieren](../understand/task-sequence-steps.md#BKMK_InstallApplication)  
+-   [Installer l’application](../understand/task-sequence-steps.md#BKMK_InstallApplication)  
 
--   [Paket installieren](../understand/task-sequence-steps.md#BKMK_InstallPackage)  
+-   [Installer le package](../understand/task-sequence-steps.md#BKMK_InstallPackage)  
 
--   [Softwareupdates installieren](../understand/task-sequence-steps.md#BKMK_InstallSoftwareUpdates)  
+-   [Installer les mises à jour logicielles](../understand/task-sequence-steps.md#BKMK_InstallSoftwareUpdates)  
 
--   [Computer neu starten](../understand/task-sequence-steps.md#a-namebkmkrestartcomputera-restart-computer)  
+-   [Redémarrer l’ordinateur](../understand/task-sequence-steps.md#a-namebkmkrestartcomputera-restart-computer)  
 
--   [Befehlszeile ausführen](../understand/task-sequence-steps.md#BKMK_RunCommandLine)  
+-   [Exécuter la ligne de commande](../understand/task-sequence-steps.md#BKMK_RunCommandLine)  
 
--   [PowerShell-Skript ausführen](../understand/task-sequence-steps.md#BKMK_RunPowerShellScript)  
+-   [Exécuter le script PowerShell](../understand/task-sequence-steps.md#BKMK_RunPowerShellScript)  
 
--   [Dynamische Variablen festlegen](../understand/task-sequence-steps.md#BKMK_SetDynamicVariables)  
+-   [Définir des variables dynamiques](../understand/task-sequence-steps.md#BKMK_SetDynamicVariables)  
 
--   [Tasksequenzvariable festlegen](../understand/task-sequence-steps.md#BKMK_SetTaskSequenceVariable)  
+-   [Définir la variable de séquence de tâches](../understand/task-sequence-steps.md#BKMK_SetTaskSequenceVariable)  
 
-## <a name="next-steps"></a>Nächste Schritte
-[Deploy the task sequence (Bereitstellen der Tasksequenz)](manage-task-sequences-to-automate-tasks.md#a-namebkmkdeploytsa-deploy-a-task-sequence)
+## <a name="next-steps"></a>Étapes suivantes
+[Déployer la séquence de tâches](manage-task-sequences-to-automate-tasks.md#a-namebkmkdeploytsa-deploy-a-task-sequence)

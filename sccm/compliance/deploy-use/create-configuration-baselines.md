@@ -1,6 +1,6 @@
 ---
-title: Erstellen von Konfigurationsbaselines | Microsoft-Dokumentation
-description: "Erstellen Sie in System Center Configuration Manager Konfigurationsbaselines, die Sie in einer Sammlung bereitstellen können."
+title: "Créer des bases de référence de configuration | Microsoft Docs"
+description: "Créez des bases de référence de configuration dans System Center Configuration Manager pour les déployer ensuite dans un regroupement."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -18,54 +18,54 @@ manager: angrobe
 ms.openlocfilehash: 649942d3d468ec35c7246e08f741cdebd22fb3ac
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-configuration-baselines-in-system-center-configuration-manager"></a>Erstellen von Konfigurationsbaselines in System Center Configuration Manager
+# <a name="create-configuration-baselines-in-system-center-configuration-manager"></a>Créer des bases de référence de configuration dans System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
-Konfigurationsbaselines in System Center Configuration Manager enthalten vordefinierte Konfigurationselemente und gegebenenfalls andere Konfigurationsbaselines. Nachdem eine Konfigurationsbasislinie erstellt wurde, können Sie sie für eine Sammlung bereitstellen. Auf diese Weise wird die Konfigurationsbasislinie von Geräten in dieser Sammlung heruntergeladen und deren Kompatibilität mit der Konfigurationsbasislinie ausgewertet.  
+Les bases de référence de configuration System Center Configuration Manager contiennent des éléments de configuration prédéfinis et, éventuellement, d’autres bases de référence de configuration. Après avoir créé une base de référence de configuration, vous pouvez la déployer vers un regroupement afin que les périphériques de ce regroupement puissent la télécharger et évaluer leur compatibilité avec elle.  
 
- Konfigurationsbaselines können in Configuration Manager bestimmte Revisionen von Konfigurationselementen enthalten, oder sie können so konfiguriert werden, dass sie immer die neueste Version eines Konfigurationselements verwenden. Weitere Informationen zu Konfigurationselementrevisionen finden Sie unter [Verwaltungstasks für Konfigurationsdaten](../../compliance/deploy-use/management-tasks-for-configuration-data.md).  
+ Les bases de référence de configuration dans Configuration Manager peuvent contenir des révisions spécifiques des éléments de configuration, ou être configurées pour toujours utiliser la dernière version d’un élément de configuration. Pour plus d’informations sur les révisions des éléments de configuration, consultez [Tâches de gestion des données de configuration](../../compliance/deploy-use/management-tasks-for-configuration-data.md).  
 
- Es gibt zwei Methoden, mit denen Sie Konfigurationsbaselines erstellen können:  
+ Vous pouvez créer des bases de référence de configuration selon deux méthodes différentes :  
 
--   Importieren Sie Konfigurationsdaten aus einer Datei. Klicken Sie zum Starten des **Assistenten zum Importieren von Konfigurationsdaten**im Arbeitsbereich **Bestand und Kompatibilität** auf den Knoten **Konfigurationselemente** oder **Konfigurationsbasislinien** , und klicken Sie dann auf **Konfigurationsdaten importieren**.  
+-   Importer des données de configuration depuis un fichier. Pour démarrer l’ **Assistant Importer des données de configuration**, dans le nœud **Éléments de configuration** ou **Lignes de base de configuration** de l’espace de travail **Biens et conformité** , cliquez sur **Importer des données de configuration**.  
 
--   Verwenden Sie zum Erstellen einer neuen Konfigurationsbasislinie das Dialogfeld **Konfigurationsbasislinie erstellen** .  
+-   Utilisez la boîte de dialogue **Créer une ligne de base de configuration** pour créer une nouvelle ligne de base de configuration.  
 
- Gehen Sie wie folgt vor, um eine Konfigurationsbasislinie mithilfe des Dialogfelds **Konfigurationsbasislinie erstellen** zu erstellen.  
+ Procédez comme suit pour créer une ligne de base de configuration à l'aide de la boîte de dialogue **Créer une ligne de base de configuration** .  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Bestand und Kompatibilität** > **Kompatibilitätseinstellungen** > **Konfigurationsbaselines**.  
+1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité** > **Paramètres de compatibilité** > **Lignes de base de configuration**.  
 
-3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** auf **Konfigurationsbasislinie erstellen**.  
+3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer une ligne de base de configuration**.  
 
-4.  Geben Sie im Dialogfeld **Konfigurationsbasislinie erstellen** einen eindeutigen Namen und eine Beschreibung für die Konfigurationsbasislinie ein. Sie können für den Namen maximal 255 Zeichen verwenden, für die Beschreibung sind maximal 512 Zeichen zulässig.  
+4.  Dans la boîte de dialogue **Créer une ligne de base de configuration** , entrez un nom unique et une description pour la ligne de base de configuration. Vous pouvez utiliser un maximum de 255 caractères pour le nom et de 512 caractères pour la description.  
 
-5.  In der Liste **Konfigurationsdaten** werden alle Konfigurationselemente oder Konfigurationsbasislinien angezeigt, die in dieser Konfigurationsbasislinie enthalten sind. Klicken Sie auf **Hinzufügen** , um der Liste ein neues Konfigurationselement oder eine neue Konfigurationsbasislinie hinzuzufügen. Folgende Optionen stehen Ihnen zur Auswahl:  
+5.  La liste **Données de configuration** affiche tous les éléments de configuration ou toutes les bases de référence de configuration qui sont inclus dans cette base de référence de configuration. Cliquez sur **Ajouter** pour ajouter à la liste un nouvel élément de configuration ou une nouvelle ligne de base de configuration. Vous pouvez choisir parmi les priorités suivantes :  
 
-    -   **Bestand und Kompatibilität**  
+    -   **Éléments de configuration**  
 
-    -   **Softwareupdates**  
+    -   **Mises à jour logicielles**  
 
-    -   **Konfigurationselemente**  
+    -   **Lignes de base de configuration**  
       > [!IMPORTANT]
-      > Sie müssen jede Konfigurationsbaseline auf nicht mehr als 1.000 Softwareupdates begrenzen.
-6.  Verwenden Sie zum Angeben des Verhaltens eines Konfigurationselements, das Sie in der Liste **Konfigurationsdaten** angegeben haben, die Liste **Zweck ändern** . Folgende Optionen stehen Ihnen zur Auswahl:  
+      > Vous devez limiter chaque base de référence de configuration à 1 000 mises à jour logicielles.
+6.  Utilisez la liste **Changer d’objet** pour spécifier le comportement d’un élément de configuration que vous avez sélectionné dans la liste **Données de configuration** . Vous pouvez choisir parmi les options suivantes  
 
-    -   **Erforderlich** Die Konfigurationsbasislinie wird als nicht kompatibel ausgewertet, wenn das Konfigurationselement nicht auf einem Clientgerät erkannt wird. Wenn es erkannt wird, wird es als kompatibel ausgewertet.  
+    -   **Obligatoire** La base de référence de configuration est évaluée comme non compatible si l’élément de configuration n’est pas détecté sur un périphérique client. S’il est détecté, sa conformité est évaluée.  
 
-    -   **Optional** Das Konfigurationselement wird nur auf Kompatibilität ausgewertet, wenn die Anwendung, auf die es verweist, auf Clientcomputern gefunden wird. Wird die Anwendung nicht gefunden, wird die Konfigurationsbasislinie nicht als nicht kompatibel markiert (gilt nur für Anwendungskonfigurationselemente).  
+    -   **Facultatif** La conformité de l’élément de configuration n’est évaluée que si l’application à laquelle il fait référence se trouve sur des ordinateurs client. Si l’application est introuvable, la base de référence de configuration n’est pas marquée comme non compatible (applicable uniquement aux éléments de configuration d’application).  
 
-    -   **Nicht zugelassen** Die Konfigurationsbasislinie wird als nicht kompatibel ausgewertet, wenn das Konfigurationselement auf Clientcomputern erkannt wird (gilt nur für Anwendungskonfigurationselemente).  
+    -   **Interdit** La base de référence de configuration est évaluée comme non compatible si l’élément de configuration est détecté sur des ordinateurs client (applicable uniquement aux éléments de configuration d’application).  
 
     > [!NOTE]
-    >  Die Liste **Zweck ändern** ist nur verfügbar, wenn Sie auf der Seite **Allgemein** des **Assistenten zum Erstellen von Konfigurationselementen** auf die Option **Dieses Konfigurationselement enthält Anwendungseinstellungen**geklickt haben.  
+    >  La liste **Changer d’objet** est disponible uniquement si vous avez cliqué sur l’option **Cet élément de configuration contient des paramètres d’application** dans la page **Général** de l’Assistant **Création d’élément de configuration**.  
 
-7.  Verwenden Sie die Liste **Revision ändern** , um eine bestimmte oder die aktuelle Revision des Konfigurationselements für die Auswertung der Kompatibilität auf Clientgeräten auszuwählen, oder wählen Sie **Immer aktuelle verwenden** aus, damit immer die aktuelle Revision verwendet wird. Weitere Informationen zu Konfigurationselementrevisionen finden Sie unter [Verwaltungstasks für Konfigurationsdaten](../../compliance/deploy-use/management-tasks-for-configuration-data.md).  
+7.  Utilisez la liste **Changer de révision** pour sélectionner une révision spécifique ou la dernière révision de l’élément de configuration afin d’évaluer la conformité sur des périphériques client ou sélectionnez **Toujours utiliser le dernier** pour toujours utiliser la dernière révision. Pour plus d’informations sur les révisions des éléments de configuration, consultez [Tâches de gestion des données de configuration](../../compliance/deploy-use/management-tasks-for-configuration-data.md).  
 
-8.  Wählen Sie zum Entfernen eines Konfigurationselements aus der Konfigurationsbaseline ein Konfigurationselement aus, und klicken Sie auf **Entfernen**.  
+8.  Pour supprimer un élément de configuration de la base de référence de configuration, sélectionnez un élément de configuration, puis cliquez sur **Supprimer**.  
 
-9. Klicken Sie auf **OK** , um das Dialogfeld **Konfigurationsbasislinie erstellen** zu schließen und die Konfigurationsbasislinie zu erstellen.  
+9. Cliquez sur **OK** pour fermer la boîte de dialogue **Créer une ligne de base de configuration** et pour créer la ligne de base de configuration.  

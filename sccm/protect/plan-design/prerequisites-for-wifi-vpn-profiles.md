@@ -1,6 +1,6 @@
 ---
-title: "Voraussetzungen für WLAN- und VPN-Profile | Microsoft-Dokumentation"
-description: Erfahren sie mehr zu den Sicherheitsberechtigungen, die zum Verwalten von Zertifikat-, WLAN- und VPN-Profilen in System Center Configuration Manager erforderlich sind.
+title: "Prérequis des profils Wi-Fi et VPN | Microsoft Docs"
+description: "Découvrez les autorisations de sécurité nécessaires pour gérer des profils de certificat, des profils Wi-Fi et des profils VPN dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 11/23/2016
 ms.prod: configuration-manager
@@ -18,35 +18,35 @@ manager: angrobe
 ms.openlocfilehash: 309b0363f9b3ec4a31b8323b9e64c9f73060c281
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="prerequisites-for-wi-fi-and-vpn-profiles-in-system-center-configuration-manager"></a>Voraussetzungen für WLAN- und VPN-Profile in System Center Configuration Manager
+# <a name="prerequisites-for-wi-fi-and-vpn-profiles-in-system-center-configuration-manager"></a>Prérequis des profils Wi-Fi et VPN dans System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-WLAN- und VPN-Profile in System Center Configuration Manager weisen nur Abhängigkeiten innerhalb des Produkts auf.  
+Les profils Wi-Fi et VPN dans System Center Configuration Manager ont uniquement des dépendances au sein du produit.  
 
- Sie müssen über die folgenden Sicherheitsberechtigungen verfügen, um Einstellungen für den Zugriff auf Unternehmensressourcen wie Zertifikatprofile, WLAN-Profile und VPN-Profile zu verwalten:  
+ Vous devez disposer des autorisations de sécurité suivantes pour gérer les paramètres d'accès aux ressources de l'entreprise, par exemple, les profils de certificat, les profils Wi-Fi et les profils VPN :  
 
--   Zum Anzeigen und Verwalten von Warnungen und Berichte für WLAN- und VPN-Profile: **Erstellen**, **Löschen**, **Ändern**, **Bericht ändern**, **Lesen** und **Bericht ausführen** für das Objekt **Warnungen**.  
+-   Pour afficher et gérer les alertes et les rapports pour les profils Wi-Fi : autorisations **Créer**, **Supprimer**, **Modifier**, **Modifier le rapport**, **Lecture** et **Exécuter le rapport** sur l’objet **Alertes**.  
 
--   So erstellen und verwalten Sie Zertifikatprofile: **Richtlinie erstellen**, **Bericht ändern**, **Lesen**und **Bericht ausführen** für das Objekt **Zertifikatprofil** .  
+-   Pour créer et gérer des profils de certificat : **Créer une stratégie**, **Modifier le rapport**, **Lecture**et **Exécuter le rapport** pour l’objet **Profil de certificat** .  
 
--   So verwalten Sie Bereitstellungen von WLAN-, Zertifikat- und VPN-Profilen: **Konfigurationsrichtlinien bereitstellen**, **Warnung zu Clientstatus ändern**, **Lesen**und **Ressource lesen** für das Objekt **Sammlung** .  
+-   Pour gérer les déploiements de profil Wi-Fi, VPN et de certificat : **Déployer des stratégies de configuration**, **Modifier l’alerte relative à l’état du client**, **Lecture**et **Lire la ressource** pour l’objet **Regroupement** .  
 
--   So verwalten Sie alle Konfigurationsrichtlinien: **Erstellen**, **Löschen**, **Ändern**, **Lesen**und **Sicherheitsbereich festlegen** für das Objekt **Konfigurationsrichtlinie** .  
+-   Pour gérer toutes les stratégies de configuration : **Créer**, **Supprimer**, **Modifier**, **Lecture**et **Définir l’étendue de sécurité** pour l’objet **Stratégie de configuration** .  
 
--   Zum Ausführen von Abfragen zu WLAN- und VPN-Profilen: Berechtigung **Lesen** für das Objekt **Abfrage**.  
+-   Pour exécuter des requêtes liées aux profils Wi-Fi et VPN : autorisation **Lecture** sur l’objet **Requête**.  
 
--   Zum Anzeigen von Informationen zu WLAN- und VPN-Profilen in der System Center Configuration Manager-Konsole: Berechtigung **Lesen** für das Objekt **Standort**.  
+-   Pour afficher les informations sur les profils Wi-Fi et VPN dans la console System Center Configuration Manager : autorisation **Lecture** sur l’objet **Site**.  
 
--   Zum Anzeigen von Statusmeldungen für WLAN- und VPN-Profile: Berechtigung **Lesen** für das Objekt **Statusmeldungen**.  
+-   Pour afficher des messages d’état pour les profils Wi-Fi et VPN : autorisation **Lecture** sur l’objet **Messages d’état** .  
 
--   So erstellen und verwalten Sie das Zertifikatprofil der vertrauenswürdigen Zertifizierungsstelle: **Richtlinie erstellen**, **Bericht ändern**, **Lesen**und **Bericht ausführen** für das Objekt **Zertifikatprofil der vertrauenswürdigen Zertifizierungsstelle** .  
+-   Pour créer et modifier le profil de certificat d’Autorité de certification approuvé : **Créer une stratégie**, **Modifier le rapport**, **Lecture**et **Exécuter le rapport** pour l’objet **Profil de certificat d’Autorité de certification approuvé** .  
 
--   So erstellen und verwalten Sie VPN-Profile: **Richtlinie erstellen**, **Bericht ändern**, **Lesen**und **Bericht ausführen** für das Objekt **VPN-Profil** .  
+-   Pour créer et gérer les profils VPN : **Créer une stratégie**, **Modifier le rapport**, **Lecture**et **Exécuter le rapport** pour l’objet **Profil VPN** .  
 
--   So erstellen und verwalten Sie WLAN-Profile: **Richtlinie erstellen**, **Bericht ändern**, **Lesen**und **Bericht ausführen** für das Objekt **WLAN-Profil** .  
+-   Pour créer et gérer les profils Wi-Fi : **Créer une stratégie**, **Modifier le rapport**, **Lecture**et **Exécuter le rapport** pour l’objet **Profil Wi-Fi** .  
 
- In der Sicherheitsrolle **Zugriffs-Manager für Unternehmensressourcen** sind diese Berechtigungen zum Verwalten der WLAN-Profile in System Center Configuration Manager enthalten. Weitere Informationen finden Sie unter [Configure security in System Center Configuration Manager (Konfigurieren der Sicherheit in System Center Configuration Manager)](../../core/plan-design/security/configure-security.md).
+ Le rôle de sécurité **Gestionnaire d’accès aux ressources de l’entreprise** intègre les autorisations permettant de gérer les profils Wi-Fi dans System Center Configuration Manager. Pour plus d’informations, consultez [Configurer la sécurité dans System Center Configuration Manager](../../core/plan-design/security/configure-security.md).

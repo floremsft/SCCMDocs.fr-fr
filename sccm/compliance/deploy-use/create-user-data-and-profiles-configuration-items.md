@@ -1,6 +1,6 @@
 ---
-title: "Erstellen von Konfigurationselementen für Benutzerdaten und -profile | Microsoft-Dokumentation"
-description: "Verwenden Sie Konfigurationselemente für Benutzerdaten und -profile in System Center Configuration Manager, um Ordnerumleitung, Offlinedateien und servergespeicherte Benutzerprofile zu verwalten."
+title: "Créer des éléments de configuration des données et profils utilisateur | Microsoft Docs"
+description: "Utilisez des éléments de configuration des données et profils dans System Center Configuration Manager pour gérer la redirection de dossiers, les fichiers hors connexion et les profils itinérants."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -18,100 +18,100 @@ manager: angrobe
 ms.openlocfilehash: 85b984d739dc9f9d2046186b381eff54ba687c66
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-user-data-and-profiles-configuration-items-in-system-center-configuration-manager"></a>Erstellen von Konfigurationselementen für Benutzerdaten und -profile in System Center Configuration Manager
+# <a name="create-user-data-and-profiles-configuration-items-in-system-center-configuration-manager"></a>Créer des éléments de configuration des données et profils utilisateur dans System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Konfigurationselemente für Benutzerdaten und -profile in System Center Configuration Manager enthalten Einstellungen, mit denen Ordnerumleitung, Offlinedateien und servergespeicherte Benutzerprofile auf Computern mit Windows 8 und höher für Benutzer in einer Hierarchie verwaltet werden können. Beispielsweise können Sie folgende Aktionen ausführen:  
+Les éléments de configuration des données et profils utilisateur dans System Center Configuration Manager contiennent des paramètres permettant de gérer la redirection de dossiers, les fichiers hors connexion et les profils itinérants sur les ordinateurs qui exécutent Windows 8 et versions ultérieures pour les utilisateurs de votre hiérarchie. Par exemple, vous pouvez :  
 
--   Umleiten des Ordners „Dokumente“ eines Benutzers an eine Netzwerkfreigabe  
+-   rediriger le dossier Documents d’un utilisateur vers un partage réseau ;  
 
--   Sicherstellen, dass angegebene Dateien, die im Netzwerk gespeichert sind, auf dem Computer eines Benutzers verfügbar sind, wenn keine Netzwerkverbindung besteht  
+-   vous assurer que des fichiers spécifiques stockés sur le réseau sont disponibles sur l’ordinateur d’un utilisateur quand la connexion réseau n’est pas disponible ;  
 
--   Konfigurieren, welche Dateien im servergespeicherten Profil eines Benutzers bei dessen An- und Abmeldung mit einer Netzwerkfreigabe synchronisiert werden  
+-   configurer les fichiers du profil itinérant d’un utilisateur qui doivent être synchronisés avec un partage réseau quand l’utilisateur se connecte et se déconnecte.  
 
- Im Unterschied zu anderen Konfigurationselementen in Configuration Manager fügen Sie Konfigurationselemente für Benutzerdaten und -profile keiner Konfigurationsbaseline hinzu, die anschließend bereitgestellt wird. Stattdessen stellen Sie das Konfigurationselement direkt über das Dialogfeld **Konfigurationselemente für Benutzerdaten und Profile bereitstellen** bereit.  
+ Contrairement à d’autres éléments de configuration dans Configuration Manager, vous n’ajoutez pas d’éléments de configuration des données et profils utilisateur à une base de référence de configuration que vous déployez ensuite. Au lieu de cela, vous déployez l’élément de configuration directement à l’aide de la boîte de dialogue **Déployer un élément de configuration des données et profils utilisateur** .  
 
 > [!IMPORTANT]  
->  Sie können Konfigurationselemente für Benutzerdaten und Profile nur für Benutzersammlungen bereitstellen.  
+>  Vous pouvez uniquement déployer des éléments de configuration des données et profils utilisateur dans des regroupements d’utilisateurs.  
 
-## <a name="enable-user-data-and-profiles-for-compliance-settings"></a>Aktivieren von Benutzerdaten und Profilen für Kompatibilitätseinstellungen  
- Verwenden Sie das folgende Verfahren, um die Clientstandardeinstellung für Kompatibilitätseinstellungen der Benutzerdaten und Profile zu konfigurieren, die auf alle Computern in Ihrer Hierarchie angewendet wird. Wenn Sie diese Einstellung nur auf manche Computer anwenden möchten, erstellen Sie eine benutzerdefinierte Geräteclienteinstellung, und weisen Sie sie einer Sammlung mit den Computern zu, für die Sie Kompatibilitätseinstellungen der Benutzerdaten und Profile verwenden möchten. Weitere Informationen zum Erstellen von benutzerdefinierten Geräteeinstellungen finden Sie unter [How to configure client settings (Konfigurieren von Clienteinstellungen)](../../core/clients/deploy/configure-client-settings.md).  
+## <a name="enable-user-data-and-profiles-for-compliance-settings"></a>Activer les données et profils utilisateur pour les paramètres de compatibilité  
+ Utilisez la procédure suivante pour définir la configuration cliente par défaut des paramètres de compatibilité des données et profils utilisateur qui doit s’appliquer à tous les ordinateurs de votre hiérarchie. Si vous voulez appliquer ce paramétrage à certains ordinateurs seulement, créez un paramètre client d’appareil personnalisé et affectez-le à un regroupement qui contient les ordinateurs pour lesquels vous souhaitez utiliser des paramètres de compatibilité des données et profils utilisateur. Pour plus d’informations sur la création de paramètres d’appareil personnalisés, consultez [Guide pratique pour configurer les paramètres client](../../core/clients/deploy/configure-client-settings.md).  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Verwaltung** > **Clienteinstellungen** > **Standardeinstellungen**.  
+1.  Dans la console Configuration Manager, cliquez sur **Administration** > **Paramètres client** > **Paramètres par défaut**.  
 
-4.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Eigenschaften** auf **Eigenschaften**.  
+4.  Dans l'onglet **Accueil** , dans le groupe **Propriétés** , cliquez sur **Propriétés**.  
 
-5.  Klicken Sie im Dialogfeld **Standardeinstellungen** auf **Kompatibilitätseinstellungen**.  
+5.  Dans la boîte de dialogue **Paramètres par défaut** , cliquez sur **Paramètres de compatibilité**.  
 
-6.  Wählen Sie in der Dropdownliste **Benutzerdaten und -profile aktivieren** die Option **Ja**aus.  
+6.  Dans la liste déroulante **Activer les données et profils utilisateurs** , sélectionnez **Oui**.  
 
-7.  Klicken Sie auf **OK** , um das Dialogfeld **Standardeinstellungen** zu schließen.  
+7.  Cliquez sur **OK** pour fermer la boîte de dialogue **Paramètres par défaut** .  
 
-## <a name="create-a-user-data-and-profiles-configuration-item"></a>Erstellen von Konfigurationselementen für Benutzerdaten und -profile  
+## <a name="create-a-user-data-and-profiles-configuration-item"></a>Créer un élément de configuration des données et profils utilisateur  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Bestand und Kompatibilität** > **Kompatibilitätseinstellungen** > **Benutzerdaten und -profile**.  
+1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité** > **Paramètres de compatibilité** > **Données et profils utilisateur**.  
 
-3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** auf **Konfigurationselement für Benutzerdaten und Profil erstellen**.  
+3.  Dans l’onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer l’élément de configuration Données et profils utilisateur**.  
 
-4.  Geben Sie auf der Seite **Allgemein** des **Assistenten zum Erstellen von Konfigurationselementen für Benutzerdaten und Profile**die folgenden Informationen an:  
+4.  Dans la page **Général** de l’ **Assistant Création d’un élément de configuration des données et profils utilisateur**, spécifiez les informations suivantes :  
 
-    -   **Name:** Geben Sie einen eindeutigen Namen für das Konfigurationselement ein. Sie können maximal 256 Zeichen verwenden.  
+    -   **Nom :** entrez un nom unique pour l’élément de configuration. Vous pouvez utiliser jusqu'à 256 caractères.  
 
-    -   **Beschreibung:** Geben Sie eine Beschreibung, die vermittelt einen Überblick über das Konfigurationselement und andere relevante Informationen, die in der Configuration Manager-Konsole Identifikation. Sie können maximal 256 Zeichen verwenden.  
+    -   **Description :** Fournissez une description qui donne un aperçu de l'élément de configuration et d'autres informations pertinentes qui permettent son identification dans la console Configuration Manager. Vous pouvez utiliser jusqu'à 256 caractères.  
 
-    -   **Ordnerumleitung:** Aktivieren Sie dieses Kontrollkästchen, wenn Sie Ordnerumleitungseinstellungen für dieses Konfigurationselement konfigurieren möchten.  
+    -   **Redirection de dossiers :** cochez cette case pour configurer les paramètres de redirection de dossiers pour cet élément de configuration.  
 
-    -   **Offlinedateien:** Aktivieren Sie dieses Kontrollkästchen, wenn Sie Offlinedateieinstellungen für dieses Konfigurationselement konfigurieren möchten.  
+    -   **Fichiers hors connexion :** cochez cette case pour configurer les paramètres des fichiers hors connexion pour cet élément de configuration.  
 
-    -   **Servergespeicherte Benutzerprofile:** Aktivieren Sie dieses Kontrollkästchen, wenn Sie Einstellungen für servergespeicherte Benutzerprofile für dieses Konfigurationselement konfigurieren möchten.  
+    -   **Profils utilisateur d’itinérance :** cochez cette case pour configurer les paramètres des profils utilisateur d’itinérance pour cet élément de configuration.  
 
-5.  Geben Sie auf der Seite **Ordnerumleitung** des **Assistenten zum Erstellen von Konfigurationselementen für Benutzerdaten und Profile**an, wie die Ordnerumleitung von Benutzerclientcomputern, die dieses Konfigurationselement erhalten, verwaltet werden soll. Sie können die Einstellungen für jedes Gerät konfigurieren, bei dem sich der Benutzer anmeldet, oder nur für die primären Geräte des Benutzers. Weitere Informationen zur Ordnerumleitung finden Sie in der Windows Server-Dokumentation.  
-
-    > [!NOTE]  
-    >  Diese Seite wird nur angezeigt, wenn Sie auf der Seite **Allgemein** des Assistenten die Option **Ordnerumleitung** aktiviert haben.  
-
-6.  Auf der Seite **Offlinedateien** des **Assistenten zum Erstellen von Konfigurationselementen für Benutzerdaten und Profile**können Sie die Nutzung von Offlinedateien für Benutzer, die dieses Konfigurationselement erhalten, aktivieren oder deaktivieren und Einstellungen für das Verhalten der Offlinedateien konfigurieren. Darüber hinaus können Sie Offlinedateien angeben, die immer auf jedem Computer verfügbar sind, bei dem sich der Benutzer anmeldet. Weitere Informationen zu Offlinedateien finden Sie in der Windows Server-Dokumentation.  
+5.  Dans la page **Redirection de dossiers** de l’ **Assistant Création d’un élément de configuration des données et profils utilisateur**, spécifiez comment vous souhaitez que les ordinateurs clients des utilisateurs qui reçoivent cet élément de configuration gèrent la redirection des dossiers. Vous pouvez configurer les paramètres de n’importe quel appareil auquel l’utilisateur se connecte ou uniquement des appareils principaux de l’utilisateur. Pour plus d’informations sur la redirection de dossiers, consultez la documentation de Windows Server.  
 
     > [!NOTE]  
-    >  Diese Seite wird nur angezeigt, wenn Sie auf der Seite **Allgemein** des Assistenten das Kontrollkästchen **Offlinedateien** aktiviert haben.  
+    >  Cette page s’affiche uniquement si vous avez coché la case **Redirection de dossiers** dans la page **Général** de l’Assistant.  
 
-7.  Auf der Seite **Servergespeicherte Profile** des **Assistenten zum Erstellen von Konfigurationselementen für Benutzerdaten und Profile**können Sie konfigurieren, ob servergespeicherte Profile auf den Computern verfügbar sind, bei denen sich der Benutzer anmeldet, und darüber hinaus das Verhalten dieser Profile genauer festlegen. Weitere Informationen zu servergespeicherten Profilen finden Sie in der Windows Server-Dokumentation.  
+6.  Dans la page **Fichiers hors connexion** de l’ **Assistant Création d’un élément de configuration des données et profils utilisateur**, vous pouvez activer ou désactiver l’utilisation des fichiers hors connexion pour les utilisateurs qui reçoivent cet élément de configuration et configurer les paramètres pour le comportement des fichiers hors connexion. Vous pouvez également spécifier les fichiers hors connexion qui seront toujours disponibles sur tout ordinateur auquel l’utilisateur se connecte. Pour plus d’informations sur les fichiers hors connexion, consultez la documentation de Windows Server.  
 
     > [!NOTE]  
-    >  Diese Seite wird nur angezeigt, wenn Sie auf der Seite **Allgemein** des Assistenten das Kontrollkästchen **Servergespeicherte Benutzerprofile** aktiviert haben.  
+    >  Cette page s’affiche uniquement si vous avez coché la case **Fichiers hors connexion** dans la page **Général** de l’Assistant.  
 
-8.  Schließen Sie den Assistenten ab.  
+7.  Dans la page **Profils d’itinérance** de l’ **Assistant Création d’un élément de configuration des données et profils utilisateur**, vous pouvez configurer si les profils d’itinérance sont disponibles sur les ordinateurs auxquels l’utilisateur se connecte et également configurer d’autres informations sur le comportement de ces profils. Pour plus d’informations sur les profils d’itinérance, consultez la documentation de Windows Server.  
 
- Das neue Konfigurationselement für Benutzerdaten und Profile wird im Knoten **Benutzerdaten und Profile** des Arbeitsbereichs **Bestand und Kompatibilität** angezeigt.  
+    > [!NOTE]  
+    >  Cette page s’affiche uniquement si vous avez coché la case **Profils utilisateur d’itinérance** dans la page **Général** de l’Assistant.  
 
-## <a name="deploy-a-user-data-and-profiles-configuration-item"></a>Bereitstellen von Konfigurationselementen für Benutzerdaten und -profile  
+8.  Effectuez toutes les étapes de l'Assistant.  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Bestand und Kompatibilität** > **Kompatibilitätseinstellungen** > **Benutzerdaten und -profile**.  
+ Le nouvel élément de configuration des données et profils utilisateur est indiqué dans le nœud **Données et profils utilisateur** de l’espace de travail **Ressources et Conformité** .  
 
-3.  Wählen Sie das Konfigurationselement für Benutzerdaten und Profile aus, das Sie bereitstellen möchten, und klicken Sie dann auf der Registerkarte **Startseite** in der Gruppe **Bereitstellung** auf **Bereitstellen**.  
+## <a name="deploy-a-user-data-and-profiles-configuration-item"></a>Déployer un élément de configuration des données et profils utilisateur  
 
-4.  Geben Sie im Dialogfeld **Konfigurationselemente für Benutzerdaten und Profile bereitstellen** die folgenden Informationen an.  
+1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité** > **Paramètres de compatibilité** > **Données et profils utilisateur**.  
 
-    -   **Sammlung:** Klicken Sie auf **Durchsuchen** , um die Benutzersammlung auszuwählen, in der Sie das Konfigurationselement bereitstellen möchten.  
+3.  Sélectionnez l’élément de configuration des données et profils utilisateur que vous souhaitez déployer, puis, dans l’onglet **Accueil** , dans le groupe **Déploiement** , cliquez sur **Déployer**.  
+
+4.  Dans la boîte de dialogue **Déployer un élément de configuration des données et profils utilisateur** , spécifiez les informations ci-dessous.  
+
+    -   **Regroupement** : cliquez sur **Parcourir** pour sélectionner le regroupement d’utilisateurs dans lequel vous souhaitez déployer l’élément de configuration.  
 
         > [!IMPORTANT]  
-        >  Sie können Konfigurationselemente für Benutzerdaten und Profile nur für Benutzersammlungen bereitstellen.  
+        >  Vous pouvez uniquement déployer des éléments de configuration des données et profils utilisateur dans des regroupements d’utilisateurs.  
 
-    -   **Nicht kompatible Regeln wiederherstellen, falls dies unterstützt wird:** Aktivieren Sie diese Option, um automatisch Regeln wiederherzustellen, die auf Clientcomputern als nicht kompatibel ausgewertet werden.  
+    -   **Résoudre les règles non compatibles lorsqu’elles sont prises en charge** : activez cette option pour résoudre automatiquement toutes les règles qui sont évaluées comme étant non conformes sur les ordinateurs clients.  
 
-    -   **Wiederherstellung außerhalb des Wartungsfensters zulassen:** Wenn ein Wartungsfenster für die Sammlung konfiguriert wurde, für die Sie das Konfigurationselement bereitstellen, aktivieren Sie diese Option, um Kompatibilitätseinstellungen zum Wiederherstellen des Werts außerhalb des Wartungsfensters zuzulassen. Weitere Informationen zu Wartungsfenstern finden Sie unter [Verwenden von Wartungsfenstern](../../core/clients/manage/collections/use-maintenance-windows.md).  
+    -   **Autoriser les corrections en dehors de la fenêtre de maintenance** : si une fenêtre de maintenance a été configurée pour le regroupement vers lequel vous déployez l’élément de configuration, activez cette option pour laisser les paramètres de compatibilité résoudre la valeur en dehors de la fenêtre de maintenance. Pour plus d’informations sur les fenêtres de maintenance, consultez [Comment utiliser les fenêtres de maintenance](../../core/clients/manage/collections/use-maintenance-windows.md).  
 
-    -   **Warnung generieren:** Aktivieren Sie diese Option zum Konfigurieren einer Warnung, die generiert wird, sobald die Kompatibilität eines Konfigurationselements zu einem bestimmten Datum und einer bestimmten Uhrzeit unterhalb eines angegebenen Prozentsatzes liegt. Sie können außerdem angeben, ob eine Warnung an System Center Operations Manager gesendet werden soll.  
+    -   **Générer une alerte** : activez cette option pour configurer une alerte qui est générée si la compatibilité de l’élément de configuration est inférieure à un pourcentage spécifié par une date et une heure spécifiques. Vous pouvez également spécifier si vous souhaitez qu'une alerte soit envoyée à System Center Operations Manager.  
 
-    -   **Geben Sie den Zeitplan für die Kompatibilitätsauswertung dieses Konfigurationselements an:** Gibt den Zeitplan an, nach dem das bereitgestellte Konfigurationselement auf Clientcomputern ausgewertet wird. Dabei kann es sich um einen einfachen oder benutzerdefinierten Zeitplan handeln.  
+    -   **Spécifier le calendrier d’évaluation de la conformité pour cet élément de configuration** : spécifie le calendrier d’évaluation de l’élément de configuration déployé sur des ordinateurs clients. Il peut s'agir d'un calendrier simple ou d'un calendrier personnalisé.  
 
-5.  Klicken Sie auf **OK** , um das Dialogfeld **Konfigurationselemente für Benutzerdaten und Profile bereitstellen** zu schließen und die Bereitstellung zu erstellen.  
+5.  Cliquez sur **OK** pour fermer la boîte de dialogue **Déployer un élément de configuration des données et profils utilisateur** et pour créer le déploiement.  
 
-## <a name="monitor-a-user-data-and-profiles-configuration-item"></a>So überwachen Sie ein Konfigurationselement für Benutzerdaten und Profile  
- Sie überwachen diesen Konfigurationselementtyp auf die gleiche Weise wie andere Kompatibilitätseinstellungen.  
+## <a name="monitor-a-user-data-and-profiles-configuration-item"></a>Surveiller un élément de configuration des données et profils utilisateur  
+ Vous surveillez ce type d’élément de configuration de la même façon que vous surveillez les autres paramètres de compatibilité.  
 
- Weitere Informationen finden Sie unter [How to monitor compliance settings (Überwachen von Kompatibilitätseinstellungen)](../../compliance/deploy-use/monitor-compliance-settings.md).  
+ Pour plus d’informations, consultez [Comment surveiller les paramètres de compatibilité](../../compliance/deploy-use/monitor-compliance-settings.md).  

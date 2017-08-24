@@ -1,6 +1,6 @@
 ---
-title: SQL Server-Cluster | Microsoft-Dokumentation
-description: "Hosten Sie mithilfe eines SQL Server-Clusters die Standortdatenbank von System Center Configuration Manager. Enthält Informationen zu unterstützten Optionen."
+title: Cluster SQL Server | Microsoft Docs
+description: "Utilisez un cluster SQL Server pour héberger la base de données du site System Center Configuration Manager. Inclut des informations sur les options prises en charge."
 ms.custom: na
 ms.date: 2/28/2017
 ms.prod: configuration-manager
@@ -18,85 +18,85 @@ manager: angrobe
 ms.openlocfilehash: 53f119bbb1f8827a9c23c8b747840350bbb92790
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="use-a-sql-server-cluster-for-the-system-center-configuration-manager-site-database"></a>Verwenden eines SQL Server-Clusters für die Standortdatenbank von System Center Configuration Manager
+# <a name="use-a-sql-server-cluster-for-the-system-center-configuration-manager-site-database"></a>Utiliser un cluster SQL Server pour la base de données du site System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
- Sie können mithilfe eines SQL Server-Clusters die Standortdatenbank von System Center Configuration Manager verwalten. Die Standortdatenbank wird als einzige Standortsystemrolle in einem Servercluster unterstützt.  
+ Vous pouvez utiliser un cluster SQL Server pour héberger la base de données du site System Center Configuration Manager. La base de données du site est le seul rôle de système de site pris en charge sur un cluster de serveurs.  
 
 > [!IMPORTANT]  
->  Erfolgreiche Einrichtung von SQL Server-Clustern beruht auf Dokumentation und Verfahren in der SQL Server-Dokumentationsbibliothek.  
+>  La configuration réussie des clusters SQL Server s’appuie sur la documentation et les procédures fournies dans la bibliothèque de documentation de SQL Server.  
 
- Ein Cluster kann Failoverunterstützung ermöglichen und die Zuverlässigkeit der Standortdatenbank verbessern. Er bietet allerdings keine zusätzlichen Vorteile in puncto Verarbeitung oder Lastenausgleich. Die Leistung kann sogar beeinträchtigt werden, da der Standortserver den aktiven Knoten des SQL Server-Clusters suchen muss, bevor eine Verbindung mit der Standortdatenbank hergestellt werden kann.  
+ Un cluster permet de prendre en charge le basculement et d’améliorer la fiabilité de la base de données de site. Toutefois, il n’offre pas d’autres avantages en matière de traitement ou d’équilibrage de la charge. En fait, une détérioration des performances peut survenir car le serveur de site doit trouver le nœud actif du cluster SQL Server avant de se connecter à la base de données de site.  
 
- Bevor Sie Configuration Manager installieren, müssen Sie den SQL Server-Cluster so konfigurieren, dass er Configuration Manager unterstützt. (Siehe die Voraussetzungen weiter unten in diesem Abschnitt.)  
+ Avant d’installer Configuration Manager, vous devez préparer le cluster SQL Server pour prendre en charge Configuration Manager. (Voir les prérequis plus loin dans cette section.)  
 
- Beim Configuration Manager-Setup wird der Windows VSS Writer auf jedem physischen Computerknoten des Microsoft Windows Server-Clusters installiert. Dies unterstützt die Wartungsaufgabe **Standortserver sichern**.  
+ Au cours de l’installation de Configuration Manager, l’enregistreur du service VSS (service de cliché instantané des volumes) est installé sur chaque nœud d’ordinateur physique du cluster Microsoft Windows Server. Cela permet de prendre en charge la tâche de maintenance **Serveur de site de sauvegarde**.  
 
- Nach der Installation des Standorts überprüft Configuration Manager den Clusterknoten stündlich auf Änderungen. Configuration Manager verwaltet automatisch alle gefundenen Änderungen, die sich auf die Installation von Configuration Manager-Komponenten auswirken (wie z.B. ein Knotenfailover oder das Hinzufügen eines neuen Knotens zum SQL Server-Cluster).  
+ Après l’installation du site, Configuration Manager vérifie toutes les heures la présence de modifications apportées au nœud de cluster. Configuration Manager gère automatiquement toutes les modifications éventuellement détectées qui affectent les installations des composants Configuration Manager (comme un basculement de nœud ou l’ajout d’un nouveau nœud au cluster SQL Server).  
 
-## <a name="supported-options-for-using-a-sql-server-failover-cluster"></a>Unterstützte Optionen für das Verwenden eines SQL Server-Failoverclusters
+## <a name="supported-options-for-using-a-sql-server-failover-cluster"></a>Options prises en charge pour l’utilisation d’un cluster de basculement SQL Server
 
-Die folgenden Optionen werden für SQL Server-Failovercluster unterstützt, die als Standortdatenbank verwendet werden:
+Les options suivantes sont prises en charge pour les clusters de basculement SQL Server utilisés comme base de données de site :
 
--   Cluster mit Einzelinstanz  
+-   Cluster d’instance unique  
 
--   Konfiguration mit mehreren Instanzen  
+-   Configuration d’instances multiples  
 
--   Mehrere aktive Knoten  
+-   Nœuds actifs multiples  
 
--   Sowohl eine benannte als auch eine Standardinstanz  
+-   Instance nommée ou par défaut  
 
-Beachten Sie die folgenden Voraussetzungen:  
+Tenez compte des prérequis suivants :  
 
--   Die Standortdatenbank muss remote vom Standortserver installiert werden. (Der Cluster kann nicht den Standortsystemserver enthalten.)  
+-   La base de données du site doit être distante du serveur du site. (Le cluster ne peut pas inclure le serveur système du site.)  
 
--   Sie müssen der Gruppe „Lokale Administratoren“ jedes Servers im Cluster das Computerkonto des Standortservers hinzufügen.  
+-   Vous devez ajouter le compte d’ordinateur du serveur de site au groupe Administrateurs local de chaque serveur dans le cluster.  
 
--   Zur Unterstützung der Kerberos-Authentifizierung muss das Netzwerkkommunikationsprotokoll **TCP/IP** für die Netzwerkverbindung jedes SQL Server-Clusterknotens aktiviert sein. **Named Pipes** ist nicht erforderlich, kann jedoch zur Behandlung von Problemen bei der Kerberos-Authentifizierung verwendet werden. Die Netzwerkprotokolleinstellungen werden im **SQL Server-Konfigurations-Manager** unter **SQL Server-Netzwerkkonfiguration** konfiguriert.  
+-   Pour prendre en charge l’authentification Kerberos, le protocole de communication réseau **TCP/IP** doit être activé pour la connexion réseau de chaque nœud de cluster SQL Server. L’utilisation de**canaux nommés** n’est pas obligatoire, mais peut faciliter la résolution des problèmes d’authentification Kerberos. Les paramètres de protocole réseau sont configurés dans le **Gestionnaire de configuration SQL Server**, sous **Configuration du réseau SQL Server**.  
 
--   Wenn Sie eine PKI nutzen und für die Standortdatenbank einen SQL Server-Cluster verwenden, finden Sie Informationen zu spezifischen Zertifikatanforderungen unter „PKI-Zertifikatanforderungen für Configuration Manager“.  
+-   Si vous utilisez une infrastructure PKI, consultez Configuration requise des certificats PKI pour Configuration Manager, afin de connaître les conditions de certificat quand vous utilisez un cluster SQL Server pour la base de données de site.  
 
-Beachten Sie die folgenden Einschränkungen:  
+Tenez compte des limitations suivantes :  
 
--   **Installation und Konfiguration:**  
+-   **Installation et configuration :**  
 
-    -   Sekundäre Standorte können keinen SQL Server-Cluster verwenden.  
+    -   Des sites secondaires ne peuvent pas utiliser un cluster SQL Server.  
 
-    -   Die Option zur Angabe nicht standardmäßiger Dateispeicherorte für die Standortdatenbank ist nicht verfügbar, wenn Sie einen SQL Server-Cluster angeben.  
+    -   Vous n’avez pas la possibilité de spécifier des emplacements de fichier autres que les emplacements par défaut pour la base de données du site quand vous utilisez un cluster SQL Server.  
 
--   **SMS-Anbieter:**  
+-   **Fournisseur SMS :**  
 
-    -   Die Installation einer Instanz des SMS-Anbieters in einem SQL Server-Cluster oder auf einem Computer, der als gruppierter SQL Server-Knoten ausgeführt wird, wird nicht unterstützt.  
+    -   L’installation d’une instance du fournisseur SMS n’est pas prise en charge sur un cluster SQL Server ou sur un ordinateur utilisé comme nœud SQL Server en cluster.  
 
--   **Optionen für die Replikation von Daten:**  
+-   **Options de réplication de données :**  
 
-    -   Wenn Sie **Verteilte Ansichten**verwenden, können Sie zum Hosten der Standortdatenbank keinen SQL Server-Cluster verwenden.  
+    -   Si vous envisagez d’utiliser des **vues distribuées**, vous ne pouvez pas utiliser un cluster SQL Server pour héberger la base de données de site.  
 
--   **Sicherung und Wiederherstellung:**  
+-   **Sauvegarde et récupération :**  
 
-    -   Configuration Manager unterstützt nicht die Data Protection Manager (DPM)-Sicherung für einen SQL Server-Cluster, der eine benannte Instanz verwendet. Er unterstützt jedoch die DPM-Sicherung auf einem SQL Server-Cluster, der die Standardinstanz von SQL Server verwendet.  
+    -   Configuration Manager ne prend pas en charge la sauvegarde DPM (Data Protection Manager) d’un cluster SQL Server qui utilise une instance nommée. Par contre, il prend en charge la sauvegarde DPM sur un cluster SQL Server qui utilise l’instance par défaut de SQL Server.  
 
-## <a name="prepare-a-clustered-sql-server-instance-for-the-site-database"></a>So bereiten Sie eine gruppierte SQL Server-Instanz als Standortdatenbank vor  
+## <a name="prepare-a-clustered-sql-server-instance-for-the-site-database"></a>Préparer une instance SQL Server en cluster pour la base de données de site  
 
-Hier die wichtigsten Aufgaben, um die Standortdatenbank vorzubereiten:
+Voici les tâches principales à effectuer afin de préparer votre base de données de site :
 
--   Erstellen Sie den virtuellen SQL Server-Cluster, der die Standortdatenbank hosten soll, in einer vorhandenen Windows Server-Clusterumgebung. Spezifische Informationen zum Installieren und Konfigurieren eines SQL Server-Clusters finden Sie in der Dokumentation zu Ihrer SQL Server-Version. Wenn Sie beispielsweise SQL Server 2008 R2 verwenden, lesen Sie [Installieren eines SQL Server 2008 R2-Failoverclusters](http://go.microsoft.com/fwlink/p/?LinkId=240231).  
+-   Créez le cluster virtuel SQL Server pour héberger la base de données du site dans un environnement de cluster Windows Server existant. Pour connaître la procédure d’installation et de configuration d’un cluster SQL Server, consultez la documentation spécifique à votre version de SQL Server. Par exemple, si vous utilisez SQL Server 2008 R2, consultez [Installation d’un cluster de basculement SQL Server 2008 R2](http://go.microsoft.com/fwlink/p/?LinkId=240231).  
 
--   Sie können bei jedem Computer im SQL Server-Cluster eine Datei im Stammordner jedes Laufwerks ablegen, auf dem Configuration Manager keine Standortkomponenten installieren soll. Die Datei sollte **NO_SMS_ON_DRIVE.SMS** genannt werden. Standardmäßig installiert Configuration Manager an jedem physischen Knoten einige Komponenten, um Vorgänge wie Sicherungen zu unterstützen.  
+-   Sur chaque ordinateur du cluster SQL Server, vous pouvez placer un fichier dans le dossier racine de chaque lecteur sur lequel vous ne voulez pas que Configuration Manager installe les composants du site. Ce fichier doit être nommé **NO_SMS_ON_DRIVE.SMS**. Par défaut, Configuration Manager installe certains composants sur chaque nœud physique pour prendre en charge des opérations telles que la sauvegarde.  
 
--   Fügen Sie der Gruppe **Lokale Administratoren** jedes Windows Server-Clusterknotencomputers das Computerkonto des Standortservers hinzu.  
+-   Ajoutez le compte ordinateur du serveur de site au groupe **Administrateurs locaux** de chaque ordinateur du nœud de cluster Windows Server.  
 
--   Weisen Sie in der virtuellen SQL Server-Instanz dem Benutzerkonto, das das Configuration Manager-Setup ausführt, die SQL Server-Rolle **sysadmin** zu.  
+-   Dans l’instance SQL Server virtuelle, attribuez le rôle SQL Server **administrateur système** au compte d’utilisateur qui exécutera le programme d’installation de Configuration Manager.  
 
-### <a name="to-install-a-new-site-using-a-clustered-sql-server"></a>So installieren Sie einen neuen Standort mithilfe eines SQL Server-Clusters  
- Führen Sie zum Installieren eines Standorts, der eine gruppierte Standortdatenbank verwendet, das Configuration Manager-Setup gemäß Ihrem normalen Prozess für die Installation eines Standorts mit der folgenden Änderung durch:  
+### <a name="to-install-a-new-site-using-a-clustered-sql-server"></a>Pour installer un nouveau site avec un serveur SQL Server en cluster  
+ Pour installer un site qui utilise une base de données de site en cluster, exécutez le programme d’installation de Configuration Manager en suivant votre processus habituel pour installer un site, mais en apportant la modification suivante :  
 
--   Geben Sie auf der Seite **Datenbankinformationen** den Namen der virtuellen SQL Server-Clusterinstanz an, von der die Standortdatenbank gehostet wird. Die virtuelle Instanz ersetzt den Namen des Computers, auf dem SQL Server ausgeführt wird.  
+-   Dans la page **Informations sur la base de données** , spécifiez le nom de l’instance de cluster SQL Server virtuelle qui doit héberger la base de données du site. L’instance virtuelle remplace le nom de l’ordinateur qui exécute SQL Server.  
 
     > [!IMPORTANT]  
-    >  Wenn Sie den Namen der virtuellen SQL Server-Clusterinstanz eingeben, geben Sie nicht den vom Windows Server-Cluster erstellten virtuellen Windows Server-Namen ein. Wenn Sie den virtuellen Windows Server-Namen verwenden, wird die Standortdatenbank auf der lokalen Festplatte des aktiven Windows Server-Clusterknotens installiert. Dies verhindert ein erfolgreiches Failover, sollte der Knoten ausfallen.  
+    >  Lorsque vous entrez le nom de l’instance de cluster SQL Server virtuelle, n’entrez pas le nom du serveur Windows Server virtuel créé par le cluster Windows Server. Si vous utilisez le nom du serveur Windows Server virtuel, la base de données de site est installée sur le disque dur local du nœud de cluster Windows Server actif. Cela empêche le basculement en cas d’échec de ce nœud.  

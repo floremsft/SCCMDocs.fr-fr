@@ -1,6 +1,6 @@
 ---
-title: "Verwalten von Apps aus dem Windows Store für Unternehmen | Microsoft-Dokumentation"
-description: "Verwalten Sie Apps aus dem Windows Store für Unternehmen, und stellen Sie sie mithilfe von System Center Configuration Manager bereit."
+title: "Gérer les applications à partir du Windows Store pour Entreprises | Microsoft Docs"
+description: "Gérez et déployez les applications à partir du Windows Store pour Entreprises en utilisant System Center Configuration Manager."
 ms.custom: na
 ms.date: 7/31/2017
 ms.prod: configuration-manager
@@ -17,128 +17,128 @@ manager: angrobe
 ms.openlocfilehash: 369b6a82a20a90ca534f9484c0be71096dd35a30
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-apps-from-the-windows-store-for-business-with-system-center-configuration-manager"></a>Verwalten von Apps aus dem Windows Store für Unternehmen mit System Center Configuration Manager
-Im [Windows Store für Unternehmen](https://www.microsoft.com/business-store) können Sie Windows-Apps für Ihre Organisation finden, und entweder einzeln oder per Volumenlizenz erwerben. Indem Sie den Store mit Configuration Manager verbinden, können Sie die Liste der erworbenen Apps mit Configuration Manager synchronisieren. Sie können anschließend diese Apps in der Configuration Manager-Konsole anzeigen und sie bereitstellen, wie Sie jede andere App bereitstellen würden.
+# <a name="manage-apps-from-the-windows-store-for-business-with-system-center-configuration-manager"></a>Gérer les applications à partir du Windows Store pour Entreprises avec System Center Configuration Manager
+Le [Windows Store pour Entreprises](https://www.microsoft.com/business-store) vous donne accès à des applications Windows pour votre organisation que vous pouvez acheter individuellement ou en volume. En connectant le Store à Configuration Manager, vous pouvez synchroniser la liste des applications que vous avez achetées avec Configuration Manager. Vous pouvez ensuite voir ces applications dans la console Configuration Manager et les déployer comme toute autre application.
 
 
-## <a name="online-and-offline-apps"></a>Online- und Offline-Apps
+## <a name="online-and-offline-apps"></a>Applications en ligne et hors connexion
 
-Der Windows Store für Unternehmen unterstützt zwei Typen von Apps:
+Le Windows Store pour Entreprises prend en charge deux types d’application :
 
-- **Online** – Dieser Lizenztyp setzt voraus, dass Benutzer und Geräte mit dem Store verbunden sind, um eine App und ihre Lizenz zu erhalten. Windows 10-Geräte müssen in die Azure Active Directory-Domäne eingebunden sein.
-- **Offline** – Sie können Apps und Lizenzen zwischenspeichern und sie direkt in ihren lokalen Netzwerken bereitstellen, ohne eine Verbindung zum Store herzustellen oder ohne eine Internetverbindung.
+- **En ligne** : ce type de licence exige que les utilisateurs et les appareils se connectent au Windows Store pour obtenir une application et sa licence. Les appareils Windows 10 doivent être joints au domaine Azure Active Directory.
+- **Hors connexion** : Vous permet de mettre en cache les applications et les licences à déployer directement dans votre réseau local, sans avoir à se connecter au Windows Store ni à disposer d’une connexion Internet.
 
-[Erfahren Sie mehr](https://technet.microsoft.com/itpro/windows/whats-new/windows-store-for-business-overview?f=255&MSPPError=-2147217396) über den Windows Store für Unternehmen.
+[En savoir](https://technet.microsoft.com/itpro/windows/whats-new/windows-store-for-business-overview?f=255&MSPPError=-2147217396) plus sur le Windows Store pour Entreprises.
 
-Configuration Manager unterstützt die Verwaltung von Apps aus dem Windows Store für Unternehmen sowohl auf Windows 10-Geräten, auf denen der Configuration Manager-Client ausgeführt wird, als auch auf Windows 10-Geräten, die bei Microsoft Intune registriert sind (sogenannte Mischkonfiguration). Configuration Manager bietet die folgenden Funktionen für Online- und Offline-Apps.
+Configuration Manager prend en charge la gestion des applications du Windows Store pour Entreprises sur les appareils Windows 10 exécutant le client Configuration Manager, ainsi que sur les appareils Windows 10 inscrits auprès de Microsoft Intune (ce que l’on appelle une configuration hybride). Les fonctionnalités offertes par Configuration Manager pour les applications en ligne et hors connexion sont répertoriées ci-dessous.
 
 > [!IMPORTANT]
-> Um diese Funktion verwenden zu können, muss auf den Windows 10-Geräten das Release vom November 2015 (1511) oder höher ausgeführt werden.
+> Pour utiliser cette fonctionnalité, les appareils Windows 10 doivent exécuter la version de novembre 2015 (1511) ou une version ultérieure.
 
 
-|Funktion|Offline-Apps|Online-Apps|
+|Fonctionnalité|Applications hors connexion|Applications en ligne|
 |------------|------------|------------|
-|Synchronisieren von App-Daten mit Configuration Manager<br>(Synchronisierung erfolgt alle 24 Stunden)|Ja|Ja|
-|Erstellen von Configuration Manager-Anwendungen aus Store-Apps|Ja|Ja|
-|Unterstützung für kostenlose Apps aus dem Store|Ja|Ja|
-|Unterstützung für kostenpflichtige Apps aus dem Store|Nein|Ja|
-|Unterstützen von erforderlichen Bereitstellungen für Benutzer- oder Gerätesammlungen|Ja|Ja|
-|Unterstützen von verfügbaren Bereitstellungen für Benutzer- oder Gerätesammlungen|Ja|Ja|
-|Unterstützung von branchenspezifischen Apps aus dem Store|Ja|Ja|
+|Synchronisation des données d’application dans Configuration Manager<br>(la synchronisation a lieu toutes les 24 heures)|Oui|Oui|
+|Création d’applications Configuration Manager à partir d’applications du Windows Store|Oui|Oui|
+|Prise en charge des applications gratuites du Windows Store|Oui|Oui|
+|Prise en charge des applications payantes du Windows Store|Non|Oui|
+|Prise en charge des déploiements obligatoires sur les regroupements d’utilisateurs ou d’appareils|Oui|Oui|
+|Prise en charge des déploiements disponibles sur les regroupements d’utilisateurs ou d’appareils|Oui|Oui|
+|Prise en charge des applications métier à partir du Store|Oui|Oui|
 
-Um online-lizenzierte Apps für Windows 10-PCs mit dem Configuration Manager-Client bereitzustellen, müssen sie Windows 10 Creators Update oder höher ausführen.
+Pour déployer des applications sous licence en ligne sur des PC Windows 10 avec le client Configuration Manager, ces PC doivent exécuter la mise à jour Windows 10 Creators Update ou une version ultérieure.
 
-## <a name="deploying-online-apps-using-the-windows-store-for-business-with-pcs-that-run-the-configuration-manager-client"></a>Bereitstellen von Online-Apps mithilfe von Windows Store für Unternehmen mit PCs, die den Configuration Manager-Client ausführen
-Vor der Bereitstellung von Windows Store für Unternehmen-Apps auf PCs, die den vollständigen Configuration Manager-Client ausführen, ist Folgendes zu beachten:
+## <a name="deploying-online-apps-using-the-windows-store-for-business-with-pcs-that-run-the-configuration-manager-client"></a>Déploiement d’applications en ligne à l’aide du Windows Store pour Entreprises avec des PC exécutant le client Configuration Manager
+Avant de déployer des applications Windows Store pour Entreprise sur des PC exécutant le client Configuration Manager complet, prenez en considération les points suivants :
 
-- Für die vollständige Funktionalität muss auf PCs Windows 10 Creators Update oder höher ausgeführt werden.
-- PCs müssen mit dem Arbeitsplatz Azure Active Directory verknüpft sein und sich im gleichen AAD-Mandanten befinden, in dem Sie Windows Store für Unternehmen als Verwaltungstool registriert haben.
-- Wenn PCs mit dem integrierten Administratorkonto angemeldet sind, können sie nicht auf Windows Store für Unternehmen-Apps zugreifen.
-- PCs benötigen eine aktive Internetverbindung zum Windows Store für Unternehmen.
+- Pour bénéficier de fonctionnalités complètes, les PC doivent exécuter la mise à jour Windows 10 Creators Update ou une version ultérieure.
+- Les PC doivent être associés à l’espace de travail Azure Active Directory et se trouver dans le même client AAD où vous avez enregistré le Windows Store pour Entreprises comme outil de gestion.
+- Lorsque les PC sont connectés avec le compte administrateur intégré, ils ne peut pas accéder aux applications Windows Store pour Entreprises.
+- Les PC doivent disposer d’une connexion Internet active vers le Windows Store pour Entreprises.
 
-### <a name="notes-for-pcs-running-earlier-versions-of-windows-10"></a>Hinweise für PCs mit früheren Versionen von Windows 10
-Auf PCs mit einer früheren Version von Windows 10 als Creators Update (mit dem Configuration Manager-Client) gelten die folgenden Funktionen:
-
-
-- Wenn die Installation erzwungen wird, entweder vom Benutzer, der die Anwendung installiert, von der Anwendung, die ihren Stichtag für die Installation erreicht, oder durch eine erneute Bewertung nach der Installation für erforderliche Bereitstellungen:
-    - Die Anwendung wird durch den Start der Windows Store für Unternehmen-App „erzwungen“. 
-    - Endbenutzer müssen dann die Installation aus dem Store abschließen, bevor die App installiert wird.
-    - Der Status der Anwendung in der Configuration Manager-Konsole meldet den Fehler „Die Windows Store-App wurde auf dem Client-PC geöffnet und wartet auf den Abschluss der Installation durch den Benutzer“.
-- Im nächsten Evaluierungszyklus für die Anwendung:
-    - Wenn die Anwendung vom Endbenutzer aus dem Store installiert wurde, meldet die Anwendung den Status **Erfolg**. 
-    - Wenn der Endbenutzer nicht versucht hat, die Anwendung aus dem Store zu installieren:
-        - Erforderliche Bereitstellungen versuchen, den Store zu starten und die Installation der Anwendung erneut zu erzwingen.
-        - Verfügbare Bereitstellungen werden nicht erneut erzwungen.
-
-#### <a name="further-notes-for-pcs-running-earlier-versions-of-windows-10"></a>Weitere Hinweise für PCs mit früheren Versionen von Windows 10:
-
-- Sie können keine branchenspezifischen Apps aus dem Windows Store für Unternehmen bereitstellen.
-- Wenn Sie kostenpflichtige Apps aus dem Store bereitstellen, müssen Endbenutzer sich im Store anmelden und die App selbst erwerben.
-- Wenn Sie eine Gruppenrichtlinie bereitgestellt haben, die den Zugriff auf die Benutzerversion von Windows Store deaktiviert, funktionieren Bereitstellungen aus dem Windows Store für Unternehmen nicht, auch wenn der Windows Store für Unternehmen aktiviert ist.
+### <a name="notes-for-pcs-running-earlier-versions-of-windows-10"></a>Notes concernant les PC exécutant des versions antérieures de Windows 10
+Sur les PC exécutant une version de Windows 10 antérieure à la mise à jour Creators Update (avec le client Configuration Manager), les fonctionnalités suivantes s’appliquent :
 
 
-## <a name="set-up-windows-store-for-business-synchronization"></a>Einrichten der Synchronisierung mit Windows Store für Unternehmen
+- Lorsque l’installation est appliquée par l’utilisateur qui installe l’application, par l’application qui atteint son échéance d’installation ou en cas de réévaluation post-installation des déploiements obligatoires :
+    - L’application est « appliquée » en lançant l’application Windows Store pour Entreprises. 
+    - L’utilisateur final doit ensuite effectuer l’installation à partir du Store avant que l’application ne soit installée.
+    - L’état de l’application dans la console Configuration Manager indique un échec avec l’erreur « L'application Windows Store a été ouverte sur le PC client et attend que l'utilisateur termine l'installation. »
+- Au prochain cycle d’évaluation de l’application :
+    - Si l’application a été installée par l’utilisateur final à partir du Store, l’application affiche l’état **Réussite**. 
+    - Si l’utilisateur final n’a pas essayé d’installer l’application à partir du Store :
+        - Les déploiements obligatoires tentent de lancer le Store et de réappliquer l’installation de l’application.
+        - Les déploiements disponibles ne sont pas réappliqués.
 
-### <a name="for-configuration-manager-versions-prior-to-1706"></a>Für Versionen des Configuration Manager vor 1706
+#### <a name="further-notes-for-pcs-running-earlier-versions-of-windows-10"></a>Notes supplémentaires concernant les PC exécutant des versions antérieures de Windows 10 :
 
-**Registrieren Sie Configuration Manager über „Webanwendung und/oder Web-API“ als Verwaltungstool in Azure Active Directory. Durch diese Aktion erhalten Sie eine Client-ID, die Sie später benötigen.**
-1. Wählen Sie im Active Directory-Knoten, [https://manage.windowsazure.com](https://manage.windowsazure.com), Ihr Azure Active Directory aus, und klicken Sie anschließend auf **Anwendungen** > **Hinzufügen**.
-2.  Klicken Sie auf **Eine von meinem Unternehmen entwickelte Anwendung hinzufügen**.
-3.  Geben Sie einen Namen für die Anwendung ein, wählen Sie **Webanwendung** und/oder **Web-API** aus, und klicken Sie anschließend auf den Pfeil **Weiter**.
-4.  Geben Sie die gleiche URL für die **Registrierungs-URL** und die **App-ID-URI** ein. Dabei kann es sich um eine beliebige URL handeln, die nicht in eine reale Adresse aufgelöst werden muss. Sie können z.B. *https://yourdomain/sccm* eingeben.
-5.  Schließen Sie den Assistenten ab.
-
-**Erstellen eines Clientschlüssels für das registrierte Verwaltungstool in Azure Active Directory**
-1.  Markieren Sie die Anwendung, die Sie erstellt haben, und klicken Sie auf **Konfigurieren**.
-2.  Wählen Sie unter **Schlüssel** eine Dauer aus der Liste aus, und klicken Sie anschließend auf **Speichern**. Diese Aktion erstellt einen neuen Clientschlüssel. Verlassen Sie diese Seite nicht, bevor Sie Windows Store für Unternehmen erfolgreich in Configuration Manager eingebunden haben.
-
-**Konfigurieren von Configuration Manager als Speicherverwaltungstool im Windows Store für Unternehmen**
-1.  Öffnen Sie [https://businessstore.microsoft.com/en-us/managementtools](https://businessstore.microsoft.com/en-us/managementtools), und melden Sie sich nach entsprechender Aufforderung an.
-2.  Akzeptieren Sie gegebenenfalls die Nutzungsbedingungen.
-3.  Klicken Sie unter **Verwaltungstools** auf **Verwaltungstool hinzufügen**.
-4.  Geben Sie unter **Tool nach Namen suchen** den Namen der App ein, die Sie zuvor in AAD erstellt haben, und klicken Sie anschließend auf **Hinzufügen**.
-5.  Klicken Sie neben der Anwendung, die Sie importiert haben, auf **Aktivieren**.
-6.  Wählen Sie auf der Seite **Verwalten > Kontoinformationen** die Option **Offline lizenzierte Apps anzeigen** aus, wenn Sie den Einkauf offline lizenzierter Anwendungen zulassen möchten.
-
-**Hinzufügen des Store-Kontos zu Configuration Manager**
-
-1. Stellen Sie sicher, dass Sie mindestens eine App aus dem Windows Store für Unternehmen erworben haben. Erweitern Sie in der Configuration Manager-Konsole im Arbeitsbereich **Verwaltung** den Eintrag **Clouddienste**, und klicken Sie dann auf **Windows Store für Unternehmen**.
-2.  Klicken Sie auf der Registerkarte **Start** in der Gruppe **Windows Store für Unternehmen** auf **Windows Store für Unternehmen-Konto hinzufügen**. 
-3.  Fügen Sie Mandanten-ID, Client-ID und Clientschlüssel aus Azure Active Directory hinzu, und schließen Sie den Assistenten ab.
-4. Sobald Sie fertig sind, wird das von Ihnen konfigurierte Konto in der Liste **Windows Store für Unternehmen** der Configuration Manager-Konsole aufgeführt.
-
-### <a name="for-configuration-manager-version-1706-and-later"></a>Für Versionen des Configuration Manager ab 1706 und höher
-
-1. Wechseln Sie in der Konsole zu **Verwaltung** > **Übersicht** > **Cloud Services Management** (Verwaltung der Clouddienste) > **Azure** > **Azure-Dienste**, und wählen Sie dann **Configure Azure Services** (Azure-Dienste konfigurieren) aus, um den **Azure-Dienste-Assistenten** zu starten.
-2. Wählen Sie auf der Seite **Azure-Dienste** den Dienst aus, den Sie konfigurieren möchten, und klicken Sie dann auf **Weiter**.
-3. Geben Sie auf der Seite **Allgemein** einen Anzeigenamen für den Azure-Dienstnamen und eine optionale Beschreibung ein, und klicken Sie dann auf **Weiter**.
-4. Auf der **App** Seite geben Sie Ihre Azure-Umgebung an und klicken dann auf **Durchsuchen**, um das Fenster **Server-App** zu öffnen.
-5. Wählen Sie im Fenster **Server-App** die Server-App aus, die Sie verwenden möchten, und klicken Sie dann auf **OK**. Server-Apps sind Azure-Web-Apps, die Konfigurationen für Ihr Azure-Konto enthalten, einschließlich Ihrer Mandanten-ID, Client-ID und eines geheimen Schlüssels für Clients. Wenn Sie nicht über eine verfügbare Server-App verfügen, verwenden Sie eine der folgenden:
-    - **Erstellen**: Um eine neue Server-App zu erstellen, klicken Sie auf **Erstellen**. Geben Sie einen Anzeigenamen für die App und den Mandanten an. Nachdem Sie sich bei Azure angemeldet haben, erstellt Configuration Manager daraufhin die Web-App in Azure für Sie, einschließlich der Client-ID und des geheimen Schlüssels für den Gebrauch mit der Web-App. Später können Sie diese im Azure-Portal anzeigen.
-    - **Importieren**: Um eine Web-App zu verwenden, die in Ihrem Azure-Abonnement bereits vorhanden ist, klicken Sie auf **Importieren**. Stellen Sie einen Anzeigenamen für die App und den Mandanten bereit, und geben Sie dann die Mandanten-ID, Client-ID und den geheimen Schlüssel für die Web-App an, die Configuration Manager verwenden soll. Nachdem Sie die Informationen **überprüft** haben, klicken Sie auf **OK**, um fortzufahren. 
-6. Überprüfen Sie die Seite **Informationen**, und schließen Sie alle zusätzlichen Schritte und Konfigurationen so wie angegeben ab. Diese Konfigurationen sind erforderlich, um den Dienst mit Configuration Manager zu verwenden. Beispielsweise um den Windows Store für Unternehmen zu konfigurieren:
-    - In Azure müssen Sie Configuration Manager als eine Web-Anwendung oder eine Web-API registrieren und die Client-ID notieren. Außerdem geben Sie einen Clientschlüssel für die Verwendung durch das Verwaltungstool (das ist Configuration Manager) an.
-    - In der Konsole des Windows Store für Unternehmen müssen Sie Configuration Manager als Speicherverwaltungstool angeben, Unterstützung für Offline-lizenzierte Apps aktivieren und anschließen mindestens eine App kaufen. 
-7. Klicken Sie zum Fortfahren auf **Weiter**.
-8. Schließen Sie auf der Seite **App Configurations** (App-Konfigurationen) die Konfigurationen für den App-Katalog und die Sprache für diesen Dienst ab, und klicken Sie dann auf **Weiter**.
-9. Nach Abschluss des Assistenten zeigt die Configuration Manager-Konsole, dass Sie **Windows Store for Business** als **Clouddiensttyp** konfiguriert haben.
+- Vous ne pouvez pas déployer des applications métier à partir du Windows Store pour Entreprises
+- Lorsque vous déployez des applications payantes à partir du Store, les utilisateurs finaux doivent se connecter au Store et acheter eux-mêmes l’application.
+- Si vous avez déployé une stratégie de groupe qui désactive l’accès à la version grand public de Windows Store, les déploiements à partir du Windows Store pour Entreprises ne fonctionnent pas, même si le Windows Store pour Entreprises est activé.
 
 
+## <a name="set-up-windows-store-for-business-synchronization"></a>Configurer la synchronisation du Windows Store pour Entreprises
+
+### <a name="for-configuration-manager-versions-prior-to-1706"></a>Pour les versions de Configuration Manager antérieures à 1706
+
+**Dans Azure Active Directory, inscrivez Configuration Manager en tant qu’outil de gestion « Application web et/ou API web ». Cette action vous donne un ID de client dont vous aurez besoin plus tard.**
+1. Dans le nœud Active Directory de [https://manage.windowsazure.com](https://manage.windowsazure.com), sélectionnez votre Azure Active Directory, puis cliquez sur **Applications** > **Ajouter**.
+2.  Cliquez sur **Ajouter une application développée par mon organisation**.
+3.  Attribuez un nom à l’application, sélectionnez **Application web** et/ou **API web**, puis cliquez sur la flèche **Suivant**.
+4.  Entrez la même URL pour **URL de connexion** et pour **URI ID d’application**. L’URL peut être une chaîne quelconque qui ne doit pas nécessairement correspondre à une adresse réelle. Par exemple, vous pouvez entrer *https://votredomaine/sccm*.
+5.  Effectuez toutes les étapes de l'Assistant.
+
+**Dans Azure Active Directory, créez une clé de client pour l’outil de gestion inscrit**.
+1.  Sélectionnez l’application que vous venez de créer et cliquez sur **Configurer**.
+2.  Sous **Clés**, sélectionnez une durée dans la liste, puis cliquez sur **Enregistrer**. Cette action crée une nouvelle clé de client. Ne quittez pas cette page tant que vous n’avez pas correctement intégré Windows Store pour Entreprises à Configuration Manager.
+
+**Dans le Windows Store pour Entreprises, configurez Configuration Manager en tant qu’outil de gestion de Store**.
+1.  Ouvrez [https://businessstore.microsoft.com/fr-fr/managementtools](https://businessstore.microsoft.com/en-us/managementtools) et connectez-vous si vous y êtes invité.
+2.  Acceptez les conditions d’utilisation si cela vous est demandé.
+3.  Sous **Outils de gestion**, cliquez sur **Ajouter un outil de gestion**.
+4.  Dans **Rechercher l’outil par son nom**, tapez le nom de l’application que vous avez créée précédemment dans AAD, puis cliquez sur **Ajouter**.
+5.  Cliquez sur **Activer** en regard de l’application que vous avez importée.
+6.  Dans la page **Gérer > Informations de compte**, sélectionnez **Afficher les applications sous licence hors connexion** si vous souhaitez autoriser l’achat d’applications sous licence hors connexion.
+
+**Ajouter le compte Windows Store à Configuration Manager**
+
+1. Vérifiez que vous avez acheté au moins une application sur le Windows Store pour Entreprises. Dans l’espace de travail **Administration** de la console Configuration Manager, développez **Services cloud**, puis cliquez sur **Windows Store pour Entreprises**.
+2.  Sous l’onglet **Accueil**, dans le groupe **Windows Store pour Entreprises**, cliquez sur **Ajouter un compte Windows Store pour Entreprises**. 
+3.  Ajoutez vos ID de locataire, ID de client et clé de client à partir d’Azure Active Directory, puis fermez l’Assistant.
+4. À la fin de l’opération, le compte que vous avez configuré apparaît dans la liste **Windows Store pour Entreprises** de la console Configuration Manager.
+
+### <a name="for-configuration-manager-version-1706-and-later"></a>Pour Configuration Manager version 1706 et ultérieures
+
+1. Dans la console, accédez à **Administration** > **Présentation** > **Gestion des services cloud** > **Azure** > **Services Azure**, puis choisissez **Configurer les services Azure** pour démarrer l’**Assistant Services Azure**.
+2. Dans la page **Services Azure**, sélectionnez le service à configurer, puis cliquez sur **Suivant**.
+3. Dans la page **Général**, entrez un nom convivial comme nom de service Azure et une description facultative, puis cliquez sur **Suivant**.
+4. Dans la page **Application**, spécifiez votre environnement Azure, puis cliquez sur **Parcourir** pour ouvrir la fenêtre **Server App**.
+5. Dans la fenêtre **Server App**, sélectionnez l’application serveur à utiliser, puis cliquez sur **OK**. Les applications serveur sont des applications web Azure qui contiennent les configurations pour votre compte Azure, notamment l’ID de locataire, l’ID de client et une clé secrète pour les clients. Si vous ne disposez pas d’une application serveur disponible, choisissez l’une des méthodes suivantes :
+    - **Créer** : pour créer une application serveur, cliquez sur **Créer**. Fournissez un nom convivial pour l’application et le locataire. Une fois que vous êtes connecté à Azure, Configuration Manager crée l’application web dans Azure, notamment l’ID de client et la clé secrète à utiliser avec l’application web. Ces informations sont ensuite disponibles dans le portail Azure.
+    - **Importer** : pour utiliser une application web qui existe déjà dans votre abonnement Azure, cliquez sur **Importer**. Indiquez un nom convivial pour l’application et le locataire, puis spécifiez l’ID de locataire, l’ID de client et la clé secrète de l’application web Azure que Configuration Manager doit utiliser. Après avoir **vérifié** les informations, cliquez sur **OK** pour continuer. 
+6. Passez en revue la page **Informations**, puis effectuez les étapes et configurations supplémentaires indiquées. Ces configurations sont nécessaires pour utiliser le service avec Configuration Manager. Par exemple, pour configurer Windows Store pour Entreprises :
+    - Dans Azure, vous devez inscrire Configuration Manager comme application web ou API web et enregistrer l’ID de client. Vous devez aussi spécifier une clé de client que doit utiliser l’outil de gestion (c’est-à-dire, Configuration Manager).
+    - Dans la console Windows Store pour Entreprises, vous devez configurer Configuration Manager comme outil de gestion du Store, activer la prise en charge pour les applications sous licence en mode hors connexion, puis acheter au moins une application. 
+7. Cliquez sur **Suivant** quand vous êtes prêt à continuer.
+8. Dans la page **Configurations d’application**, configurez le catalogue d’applications et la langue de ce service, puis cliquez sur **Suivant**.
+9. Une fois l’Assistant terminé, la console Configuration Manager indique que vous avez configuré **Windows Store pour Entreprises** comme **Type de service cloud**.
 
 
-## <a name="create-and-deploy-a-configuration-manager-application-from-a-windows-store-for-business-app"></a>Erstellen und Bereitstellen einer Configuration Manager-Anwendung aus einer App aus dem Windows Store für Unternehmen
-1.  Erweitern Sie im Arbeitsbereich **Softwarebibliothek** der Configuration Manager-Konsole **Anwendungsmanagement**, und klicken Sie anschließend auf **Lizenzinformationen für Store-Apps**.
-2.  Wählen Sie zunächst die App aus, die Sie bereitstellen möchten. Klicken Sie anschließend auf der Registerkarte **Start** in der Gruppe **Erstellen** auf **Anwendung erstellen**.
-Eine Configuration Manager-App wird erstellt, die eine App aus dem Windows Store für Unternehmen enthält. Sie können diese Anwendung wie jede andere Configuration Manager-Anwendung bereitstellen und überwachen.
+
+
+## <a name="create-and-deploy-a-configuration-manager-application-from-a-windows-store-for-business-app"></a>Créer et déployer une application Configuration Manager à partir d’une application du Windows Store pour Entreprises
+1.  Dans l’espace de travail **Bibliothèque de logiciels** de la console Configuration Manager, développez **Gestion des applications**, puis cliquez sur **Informations de licence pour les applications du Store**.
+2.  Choisissez l’application que vous voulez déployer, puis, sous l’onglet **Accueil**, dans le groupe **Créer**, cliquez sur **Créer une application**.
+Une application Configuration Manager contenant l’application du Windows Store pour Entreprises est alors créée. Vous pouvez ensuite déployer et surveiller cette application comme n’importe quelle autre application Configuration Manager.
 
 > [!IMPORTANT]
-> Für Geräte, die bei Intune registriert sind, stehen bereitgestellte Apps nur für diejenigen Benutzer zur Verfügung, die sie ursprünglich registriert haben. Andere Benutzer können nicht auf die App zugreifen.
+> Pour les appareils inscrits auprès d’Intune, les applications déployées sont uniquement accessibles à l’utilisateur qui est à l’origine de l’inscription de l’appareil. Aucun autre utilisateur ne peut accéder à l’application.
 
-## <a name="next-steps"></a>Nächste Schritte
+## <a name="next-steps"></a>Étapes suivantes
 
-Erweitern Sie im Arbeitsbereich **Softwarebibliothek** die Option **Anwendungsmanagement**, und klicken Sie anschließend auf **Lizenzinformationen für Store-Apps**.
+Dans l’espace de travail **Bibliothèque de logiciels**, développez **Gestion des applications**, puis cliquez sur **Informations de licence pour les applications du Store**.
 
-Sie können für jede von Ihnen verwaltete Store-App Informationen anzeigen, wie den Namen, die Plattform, die Anzahl der Lizenzen, die Sie für diese App besitzen, sowie die Anzahl der Lizenzen, die Ihnen zur Verfügung stehen.
+Pour chaque application du Windows Store que vous gérez, vous pouvez afficher des informations la concernant, notamment le nom, la plateforme et le nombre de licences que vous possédez pour l’application, ainsi que le nombre de licences disponibles.

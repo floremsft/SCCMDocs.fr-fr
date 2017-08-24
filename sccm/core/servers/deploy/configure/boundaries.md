@@ -1,6 +1,6 @@
 ---
-title: Definieren von Grenzen | Microsoft-Dokumentation
-description: "Hier erfahren Sie, wie Sie Netzwerkadressen in Ihrem Internet festlegen können. Diese können Geräte umfassen, die Sie verwalten möchten"
+title: "Définir des limites | Microsoft Docs"
+description: "Découvrez comment définir les emplacements réseau sur votre intranet pouvant contenir des appareils que vous souhaitez gérer."
 ms.custom: na
 ms.date: 3/27/2017
 ms.prod: configuration-manager
@@ -17,70 +17,70 @@ manager: angrobe
 ms.openlocfilehash: bed70809008fde5e2b0215f4dce049402edf83ba
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="define-network-locations-as-boundaries-for-system-center-configuration-manager"></a>Definieren von Netzwerkpfaden als Begrenzungsgruppen für System Center Configuration Manager
+# <a name="define-network-locations-as-boundaries-for-system-center-configuration-manager"></a>Définir des emplacements réseau comme limites pour System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Grenzen von Configuration Manager sind Netzwerkpfade in Ihrem Netzwerk, die Geräte enthalten können, die Sie verwalten möchten. Die Grenze, auf der sich ein Gerät befindet, entspricht dem Standort von Active Directory oder der IP-Adresse des Netzwerks, die vom Configuration Manager-Client erkannt wird, der auf dem Gerät installiert ist.
- - Sie können einzelne Grenzen manuell erstellen. In Configuration Manager wird allerdings die direkte Eingabe eines Supernetzes als Grenze nicht unterstützt. Verwenden Sie stattdessen den Grenztyp IP-Adressbereich.
- - Sie können die Methode [Active Directory-Gesamtstrukturermittlung](../../../../core/servers/deploy/configure/about-discovery-methods.md#bkmk_aboutForest) für die automatische Erkennung und Erstellung von Grenzen für jeden erkannten IP-Subnetz- und Active Directory-Standort konfigurieren. Wenn von der Active Directory-Gesamtstrukturermittlung ein Supernetz identifiziert wird, das einem Active Directory-Standort zugewiesen ist, konvertiert Configuration Manager das Supernetz in eine Grenze vom Typ IP-Adressbereich.  
+Les limites de Configuration Manager sont des emplacements sur votre réseau contenant des appareils que vous souhaitez gérer. La limite sur laquelle se trouve un appareil est équivalente au site Active Directory ou à l’adresse IP réseau identifiée par le client Configuration Manager installé sur l’appareil.
+ - Vous pouvez créer manuellement des limites individuelles. Cependant, Configuration Manager ne prend pas en charge l’entrée directe d’un sur-réseau en tant que limite. À la place, utilisez le type de limite de la plage d'adresses IP.
+ - Vous pouvez configurer la méthode de [découverte de forêts Active Directory](../../../../core/servers/deploy/configure/about-discovery-methods.md#bkmk_aboutForest) afin de détecter automatiquement et de créer des limites pour chaque sous-réseau IP et site Active Directory ainsi découverts. Lorsque la fonctionnalité de découverte de forêts Active Directory identifie un sur-réseau attribué à un site Active Directory, Configuration Manager convertit le sur-réseau en limite de plage d'adresses IP.  
 
-Es ist nicht ungewöhnlich, dass ein Client eine IP-Adresse verwendet, die dem Configuration Manager-Administrator unbekannt ist. Wenn der Netzwerkpfad des Geräts zweifelhaft ist, prüfen Sie, was das Gerät als seinen Pfad angibt, indem Sie den Befehl **IPCONFIG** auf dem Gerät aufrufen.  
+Il n’est pas rare qu’un appareil utilise une adresse IP dont l’administrateur Configuration Manager n’a pas connaissance. En cas de doute sur l’emplacement réseau d’un appareil, confirmez l’emplacement signalé par l’appareil en exécutant la commande **IPCONFIG** sur l’appareil.  
 
-Wenn Sie eine Grenze erstellen, erhält sie automatisch einen Namen, der auf dem Typ und Bereich der Grenze basiert. Dieser Name kann nicht geändert werden. Stattdessen können Sie beim Konfigurieren der Grenze eine Beschreibung angeben, anhand derer Sie die Grenze in der Configuration Manager-Konsole identifizieren können.  
+Quand vous créez une limite, elle reçoit automatiquement un nom basé sur son type et son étendue. Ce nom ne peut pas être modifié. Au lieu de cela, vous pouvez spécifier une description permettant de l’identifier dans la console Configuration Manager.  
 
-Jede Grenze kann von jedem Standort in Ihrer Hierarchie verwendet werden. Sie können die Eigenschaften einer vorhandenen Grenze zu folgenden Zwecken ändern:  
--   Hinzufügen der Grenze zu einer oder mehreren Begrenzungsgruppen  
--   Ändern des Typs oder des Bereichs der Grenze  
--   Anzeigen der Registerkarte **Standortsysteme** für die Grenze, um festzustellen, welche Standortsystemserver (Verteilungspunkte, Zustandsmigrationspunkte und Verwaltungspunkte) der Grenze zugeordnet sind.  
+Chaque limite est utilisable par tous les sites de votre hiérarchie. Après avoir créé une limite, vous pouvez modifier ses propriétés pour effectuer les opérations suivantes :  
+-   Ajouter la limite à un ou plusieurs groupes de limites.  
+-   Changer le type ou la portée de la limite.  
+-   Afficher l’onglet **Systèmes de site** des limites pour savoir quels serveurs de système de site (points de distribution, points de migration d’état et points de gestion) sont associés à la limite.  
 
-## <a name="to-create-a-boundary"></a>So erstellen Sie eine Grenze  
+## <a name="to-create-a-boundary"></a>Pour créer une limite  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf**Verwaltung** > **Hierarchiekonfiguration** > **Grenzen**.  
+1.  Dans la console Configuration Manager, cliquez sur **Administration** > **Configuration de la hiérarchie** > **Limites**  
 
-2.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** auf **Erstellen Boundary.**  
+2.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer Boundary.**  
 
-3.  Auf der Registerkarte **Allgemein** des Dialogfelds **Grenze erstellen** können Sie eine Beschreibung angeben, um die Grenze anhand eines Anzeigenamens oder einer Referenz zu identifizieren.  
+3.  Dans l'onglet **Général** de la boîte de dialogue Créer une limite, vous pouvez spécifier une **Description** pour identifier une limite par un nom convivial ou une référence.  
 
-4.  Wählen Sie einen **Typ** für diese Grenze aus:  
+4.  Sélectionnez un **Type** pour cette limite :  
 
-    -   Bei Auswahl von **IP-Subnetz**müssen Sie eine **Subnetz-ID** für diese Grenze angeben.  
+    -   Si vous sélectionnez **Sous-réseau IP**, vous devez spécifier un **ID de sous-réseau** pour cette limite.  
         > [!TIP]  
-        >  Sie können **Netzwerk** und **Subnetzmaske** angeben, um die **Subnetz-ID** automatisch zuordnen zu lassen. Wenn Sie die Grenze speichern, wird nur der Wert für die Subnetz-ID gespeichert.  
+        >  Vous pouvez spécifier le **Réseau** et le **Masque de sous-réseau** pour que l' **ID de sous-réseau** soit automatiquement spécifié. Lorsque vous enregistrez la limite, seule la valeur d'ID de sous-réseau est enregistrée.  
 
-    -   Bei Auswahl von **Active Directory-Standort**müssen Sie in der lokalen Gesamtstruktur des Standortservers einen Active Directory-Standort angeben oder durch Klicken auf **Durchsuchen** auswählen.  
+    -   Si vous sélectionnez **Site Active Directory**, vous devez spécifier ou **Parcourir** vers un site Active Directory dans la forêt locale du serveur de site.  
 
         > [!IMPORTANT]  
-        >  Wenn Sie einen Active Directory-Standort für eine Grenze angeben, umfasst die Grenze alle IP-Subnetze, die Mitglieder dieses Active Directory-Standorts sind. Wenn die Konfiguration des Active Directory-Standorts in Active Directory geändert wird, werden auch die in dieser Grenze enthaltenen Netzwerkorte geändert.  
+        >  Lorsque vous spécifiez un site Active Directory pour une limite, la limite inclut chaque sous-réseau IP membre de ce site Active Directory. Si la configuration du site Active Directory est modifiée dans Active Directory, les emplacements réseau inclus dans cette limite sont également modifiés.  
 
-    -   Bei Auswahl von **IPv6-Präfix**müssen Sie ein **Präfix** im IPv6-Präfixformat angeben.  
+    -   Si vous sélectionnez **Préfixe IPv6**, vous devez spécifier un **Préfixe** au format de préfixe IPv6.  
 
-    -   Bei Auswahl von **IP-Adressbereich**müssen Sie eine **IP-Startadresse** und eine **IP-Endadresse** angeben, die einen Teil eines IP-Subnetzes oder mehrere IP-Subnetze abdeckt.    
+    -   Si vous sélectionnez **Plage d'adresses IP**, vous devez spécifier une **Adresse IP de début** et une **Adresse IP de fin** qui inclut la partie d'un sous-réseau IP ou inclut plusieurs sous-réseaux IP.    
 
-5.  Klicken Sie auf **OK** , um die neue Grenze zu speichern.  
+5.  Cliquez sur **OK** pour enregistrer la nouvelle limite.  
 
-## <a name="to-configure-a-boundary"></a>So konfigurieren Sie eine Grenze  
+## <a name="to-configure-a-boundary"></a>Pour configurer une limite  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf**Verwaltung** > **Hierarchiekonfiguration** > **Grenzen**.  
+1.  Dans la console Configuration Manager, cliquez sur **Administration** > **Configuration de la hiérarchie** > **Limites**  
 
-2.  Wählen Sie die Grenze aus, die Sie ändern möchten.  
+2.  Sélectionnez la limite à modifier.  
 
-3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Eigenschaften** auf **Eigenschaften**.  
+3.  Dans l'onglet **Accueil** , dans le groupe **Propriétés** , cliquez sur **Propriétés**.  
 
-4.  Wählen Sie im Dialogfeld **Eigenschaften** für die Grenze die Registerkarte **Allgemein** aus, um die **Beschreibung** oder den **Typ** der Grenze zu bearbeiten. Sie können darüber hinaus den Bereich einer Grenze ändern, indem Sie die Netzwerkorte für die Grenze bearbeiten. Sie können beispielsweise für eine Active Directory-Standortgrenze einen neuen Active Directory-Standortnamen angeben.  
+4.  Dans la boîte de dialogue **Propriétés** de la limite, sélectionnez l'onglet **Général** pour modifier la **Description** ou le **Type** de la limite. Vous pouvez également modifier l'étendue d'une limite en modifiant les emplacements réseau pour la limite. Par exemple, pour une limite de site Active Directory, vous pouvez spécifier un nouveau nom de site Active Directory.  
 
-5.  Wählen Sie die Registerkarte **Standortsysteme** aus, um die Standortsysteme anzuzeigen, die dieser Grenze zugeordnet sind. Diese Konfiguration kann nicht über die Eigenschaften einer Grenze geändert werden.  
+5.  Sélectionnez l'onglet **Systèmes de site** pour afficher les systèmes de site associés à cette limite. Vous ne pouvez pas modifier cette configuration à partir des propriétés d'une limite.  
 
     > [!TIP]  
-    >  Ein Standortsystemserver wird nur dann als Standortsystem für eine Grenze aufgelistet, wenn der Standortsystemserver als solcher mindestens einer Begrenzungsgruppe zugeordnet ist, in der diese Grenze enthalten ist. Dies wird auf der Registerkarte **Referenzen** einer Begrenzungsgruppe konfiguriert.  
+    >  Pour qu'un serveur de système de site soit référencé comme système de site pour une limite, il faut que le serveur de système de site soit associé en tant que serveur de système de site pour au moins un groupe de limites comportant cette limite. Vous pouvez configurer cela sous l'onglet **Références** d'un groupe de limites.  
 
-6.  Wählen Sie die Registerkarte **Begrenzungsgruppen** aus, um die Begrenzungsgruppenmitgliedschaft für diese Grenze zu ändern:  
+6.  Sélectionnez l'onglet **Groupes de limites** pour modifier l'appartenance au groupe de limites pour cette limite :  
 
-    -   Wenn Sie Begrenzungsgruppen diese Grenze hinzufügen möchten, klicken Sie auf **Hinzufügen**, aktivieren Sie das Kontrollkästchen für die betreffende(n) Begrenzungsgruppe(n), und klicken Sie dann auf **OK**.  
+    -   Pour ajouter cette limite à un ou plusieurs groupes de limites, cliquez sur **Ajouter**, cochez la case d'un ou plusieurs groupes de limites, puis cliquez sur **OK**.  
 
-    -   Wenn Sie diese Grenze aus einer Begrenzungsgruppe entfernen möchten, wählen Sie die Begrenzungsgruppe aus, und klicken Sie auf **Entfernen**.  
+    -   Pour supprimer cette limite d'un groupe de limites, sélectionnez le groupe de limites, puis cliquez sur **Supprimer**.  
 
-7.  Klicken Sie auf **OK** , um die Eigenschaften der Grenze zu schließen und die Konfiguration zu speichern.  
+7.  Cliquez sur **OK** pour fermer les propriétés de la limite et enregistrer la configuration.  

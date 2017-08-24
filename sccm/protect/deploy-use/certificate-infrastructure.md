@@ -1,6 +1,6 @@
 ---
-title: Konfigurieren der Zertifikatinfrastruktur | Microsoft-Dokumentation
-description: Erfahren Sie mehr zum Konfigurieren der Zertifikatregistrierung in System Center Configuration Manager.
+title: "Configurer l’infrastructure de certificats | Microsoft Docs"
+description: "Découvrez comment configurer l’inscription de certificats dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 07/25/2017
 ms.prod: configuration-manager
@@ -18,191 +18,191 @@ manager: angrobe
 ms.openlocfilehash: 640eb1df9d53fc83d93c39a7ecbaf2668e176805
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="configure-certificate-infrastructure"></a>Konfigurieren der Zertifikatinfrastruktur
+# <a name="configure-certificate-infrastructure"></a>Configurer l’infrastructure de certificats
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Erfahren Sie, wie Sie die Zertifikatinfrastruktur in System Center Configuration Manager konfigurieren. Überprüfen Sie, bevor Sie beginnen, die in [Voraussetzungen für Zertifikatprofile in System Center Configuration Manager](../../protect/plan-design/prerequisites-for-certificate-profiles.md) aufgeführten Voraussetzungen.  
+Découvrez comment configurer une infrastructure de certificats dans System Center Configuration Manager. Avant de commencer, examinez les conditions requises répertoriées dans [Configuration requise pour les profils de certificat dans System Center Configuration Manager](../../protect/plan-design/prerequisites-for-certificate-profiles.md).  
 
-Folgen Sie diesen Schritten, um Ihre Infrastruktur für SCEP- oder PFX-Zertifikate zu konfigurieren.
+Suivez ces étapes pour configurer votre infrastructure pour les certificats SCEP ou PFX.
 
-## <a name="step-1---install-and-configure-the-network-device-enrollment-service-and-dependencies-for-scep-certificates-only"></a>Schritt 1: Installieren und Konfigurieren des Registrierungsdiensts für Netzwerkgeräte und der Abhängigkeiten (nur für SCEP-Zertifikate)
+## <a name="step-1---install-and-configure-the-network-device-enrollment-service-and-dependencies-for-scep-certificates-only"></a>Étape 1 : Installer et configurer le service d’inscription de périphérique réseau et les dépendances (pour les certificats SCEP uniquement)
 
- Sie müssen den Rollendienst „Registrierungsdienst für Netzwerkgeräte“ für Active Directory-Zertifikatdienste (AD CS) installieren und konfigurieren, die Sicherheitsberechtigungen für die Zertifikatvorlagen ändern, ein PKI-Zertifikat (Public Key Infrastructure) zur Clientauthentifizierung bereitstellen und die Registrierung bearbeiten, um das standardmäßige URL-Größenlimit für IIS anzuheben. Bei Bedarf müssen Sie zudem die ausstellende Zertifizierungsstelle so konfigurieren, dass ein benutzerdefinierter Gültigkeitszeitraum zulässig ist.  
+ Vous devez installer et configurer le service de rôle du service d'inscription d'appareils réseau pour les services de certificat Active Directory (AD CS), modifier les autorisations de sécurité sur les modèles de certificat, déployer un certificat d'authentification de client PKI et modifier le Registre pour augmenter la taille limite des URL IIS par défaut. Si nécessaire, vous devez aussi configurer l'Autorité de certification (CA) émettrice pour autoriser une période de validité personnalisée.  
 
 > [!IMPORTANT]  
->  Überprüfen Sie die Installation und Konfiguration des Registrierungsdiensts für Netzwerkgeräte, bevor Sie System Center Configuration Manager für den Registrierungsdienst für Netzwerkgeräte konfigurieren. Wenn diese Abhängigkeiten nicht ordnungsgemäß funktionieren, wird die Problembehandlung der Zertifikatregistrierung mit System Center Configuration Manager erschwert.  
+>  Avant de configurer System Center Configuration Manager pour fonctionner avec le service d’inscription d’appareils réseau, vérifiez l’installation et la configuration de ce dernier. Si ces dépendances ne fonctionnent pas correctement, vous aurez des difficultés à résoudre les problèmes d’inscription de certificats à l’aide de System Center Configuration Manager.  
 
-### <a name="to-install-and-configure-the-network-device-enrollment-service-and-dependencies"></a>So installieren und konfigurieren Sie den Registrierungsdienst für Netzwerkgeräte und die Abhängigkeiten  
+### <a name="to-install-and-configure-the-network-device-enrollment-service-and-dependencies"></a>Pour installer et configurer le service d'inscription d'appareils réseau et les dépendances  
 
-1.  Installieren und konfigurieren Sie auf einem Server unter Windows Server 2012 R2 den Rollendienst „Registrierungsdienst für Netzwerkgeräte“ für die Serverrolle „Active Directory-Zertifikatdienste“. Weitere Informationen finden Sie im [Leitfaden für den Registrierungsdienst für Netzwerkgeräte](http://go.microsoft.com/fwlink/p/?LinkId=309016) in der Bibliothek zu Active Directory-Zertifikatdiensten in TechNet.  
+1.  Sur un serveur exécutant Windows Server 2012 R2, installez et configurez le service de rôle du service d'inscription d'appareils réseau pour le rôle de serveur des services de certificats Active Directory. Pour plus d'informations, voir [Network Device Enrollment Service Guidance (Guide du service d'inscription d'appareils réseau)](http://go.microsoft.com/fwlink/p/?LinkId=309016) dans la bibliothèque des services de certificats Microsoft Active Directory sur TechNet.  
 
-2.  Überprüfen Sie die Sicherheitsberechtigungen für die Zertifikatvorlagen, die vom Registrierungsdienst für Netzwerkgeräte verwendet werden, und ändern Sie sie bei Bedarf:  
+2.  Vérifiez et, si nécessaire, modifiez les autorisations de sécurité des modèles de certificat utilisés par le service d'inscription d'appareils réseau :  
 
-    -   Für das Konto, das die System Center Configuration Manager-Konsole ausführt: die Berechtigung **Lesen**.  
+    -   Pour le compte qui exécute la console System Center Configuration Manager : droit d’accès en **lecture**.  
 
-         Diese Berechtigung ist erforderlich, damit Sie während der Ausführung des Assistenten zum Erstellen von Zertifikatprofilen die Zertifikatvorlage suchen und auswählen können, die Sie bei der Erstellung eines SCEP-Einstellungsprofils verwenden möchten. Durch die Auswahl einer Zertifikatvorlage werden einige Einstellungen im Assistenten automatisch festgelegt. Sie müssen also weniger Einstellungen konfigurieren, und die Gefahr, dass Sie Einstellungen auswählen, die mit den vom Registrierungsdienst für Netzwerkgeräte verwendeten Zertifikatvorlagen nicht kompatibel sind, wird verringert.  
+         Cette autorisation est requise afin que vous puissiez rechercher et sélectionner le modèle de certificat à utiliser pour créer un profil de paramètres SCEP lorsque vous exécutez l'Assistant de création d'un profil de certificat. La sélection d'un modèle de certificat signifie que certains paramètres dans l'Assistant sont automatiquement renseignés pour vous. Les tâches de configuration sont réduites, ainsi que les risques de sélection de paramètres non compatibles avec les modèles de certificat utilisés par le service d'inscription d'appareils réseau.  
 
-    -   Für das SCEP-Dienstkonto, das vom Anwendungspool des Registrierungsdiensts für Netzwerkgeräte verwendet wird: Berechtigungen **Lesen** und **Anmelden** .  
+    -   Pour le compte de service SCEP que le pool d'applications du service d'inscription d'appareils réseau utilise : Autorisations **Lecture** et **Inscription** .  
 
-         Diese Anforderung gilt nicht nur für System Center Configuration Manager, sondern ist Bestandteil der Konfiguration des Registrierungsdiensts für Netzwerkgeräte. Weitere Informationen finden Sie im [Leitfaden für den Registrierungsdienst für Netzwerkgeräte](http://go.microsoft.com/fwlink/p/?LinkId=309016) in der Bibliothek zu Active Directory-Zertifikatdiensten in TechNet.  
+         Cette exigence n’est pas spécifique à System Center Configuration Manager, mais elle fait partie de la configuration du service d’inscription d’appareils réseau. Pour plus d'informations, voir [Network Device Enrollment Service Guidance (Guide du service d'inscription d'appareils réseau)](http://go.microsoft.com/fwlink/p/?LinkId=309016) dans la bibliothèque des services de certificats Microsoft Active Directory sur TechNet.  
 
     > [!TIP]  
-    >  Zeigen Sie auf dem Server, auf dem der Registrierungsdienst für Netzwerkgeräte ausgeführt wird, den folgenden Registrierungsschlüssel an, um die vom Registrierungsdienst für Netzwerkgeräte verwendeten Zertifikatvorlagen zu ermitteln: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Cryptography\MSCEP.  
+    >  Pour identifier les modèles de certificat utilisés par le service d’inscription de périphérique réseau, affichez la clé de Registre suivante sur le serveur exécutant le service d’inscription de périphérique réseau : HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Cryptography\MSCEP.  
 
     > [!NOTE]  
-    >  Dies sind die standardmäßigen Sicherheitsberechtigungen, die für die meisten Umgebungen geeignet sind. Sie können auch eine alternative Sicherheitskonfiguration verwenden. Weitere Informationen finden Sie unter [Planen der Berechtigungen von Zertifikatvorlagen für Zertifikatprofile in System Center Configuration Manager](../../protect/plan-design/planning-for-certificate-template-permissions.md).  
+    >  Ces autorisations de sécurité sont les valeurs par défaut appropriées pour la plupart des environnements. Toutefois, vous pouvez utiliser une autre configuration de sécurité. Pour plus d’informations, consultez [Planification d’autorisations de modèles de certificat pour les profils de certificat dans System Center Configuration Manager](../../protect/plan-design/planning-for-certificate-template-permissions.md).  
 
-3.  Stellen Sie auf diesem Server ein PKI-Zertifikat bereit, das die Clientauthentifizierung unterstützt. Es ist möglich, dass bereits ein geeignetes Zertifikat auf dem Computer installiert ist, das Sie verwenden können. Möglicherweise müssen (oder möchten) Sie aber auch ein Zertifikat speziell für diesen Zweck bereitstellen. Weitere Informationen zu den Anforderungen für dieses Zertifikat finden Sie in den Details für Server, auf denen das System Center Configuration Manager-Richtlinienmodul mit dem Rollendienst „Registrierungsdienst für Netzwerkgeräte“ ausgeführt wird. Diese finden Sie im Abschnitt **PKI-Zertifikate für Server** des Themas [PKI-Zertifikatanforderungen für System Center Configuration Manager](../../core/plan-design/network/pki-certificate-requirements.md).  
+3.  Déployez vers ce serveur un certificat PKI prenant en charge l'authentification du client. Vous disposez peut-être déjà d'un certificat adapté installé sur l'ordinateur, que vous pouvez utiliser, ou vous devez (ou préférez) déployer un certificat spécifique. Pour plus d’informations sur la configuration requise de ce certificat, consultez « Serveurs exécutant le module de stratégie de Configuration Manager avec le service de rôle du service d’inscription d’appareils réseau » dans la section **Certificats PKI pour serveurs** de la rubrique [Configuration requise des certificats PKI pour System Center Configuration Manager](../../core/plan-design/network/pki-certificate-requirements.md).  
 
     > [!TIP]  
-    >  Falls Sie Hilfe bei der Bereitstellung dieses Zertifikats benötigen, können Sie die Anweisungen unter [Bereitstellen des Clientzertifikats für Verteilungspunkte](/sccm/core/plan-design/network/example-deployment-of-pki-certificates#BKMK_clientdistributionpoint2008_cm2012) verwenden, da die Zertifikatanforderungen mit einer einzigen Ausnahme identisch sind:  
+    >  Pour obtenir de l’aide pour le déploiement de ce certificat, suivez les instructions dans la section [Déploiement du certificat client pour les points de distribution](/sccm/core/plan-design/network/example-deployment-of-pki-certificates#BKMK_clientdistributionpoint2008_cm2012), car les exigences relatives au certificat sont identiques, à une exception près :  
     >   
-    >  -   Aktivieren Sie nicht das Kontrollkästchen **Exportieren von privatem Schlüssel zulassen** auf der Registerkarte **Anforderungsverarbeitung** der Eigenschaften der Zertifikatvorlage.  
+    >  -   N'activez pas la case à cocher **Autoriser l'exportation de la clé privée** dans l'onglet **Traitement de la demande** des propriétés du modèle de certificat.  
     >   
-    >  Sie müssen dieses Zertifikat nicht mit dem privaten Schlüssel exportieren, da Sie danach im lokalen Computerspeicher suchen und es auswählen können, wenn Sie das System Center Configuration Manager-Richtlinienmodul konfigurieren.  
+    >  Vous n’avez pas à exporter ce certificat avec la clé privée, car vous pouvez le rechercher dans le magasin de l’ordinateur local et le sélectionner lors de la configuration du module de stratégie de System Center Configuration Manager.  
 
-4.  Suchen Sie das Stammzertifikat, mit dem das Clientauthentifizierungszertifikat verkettet ist. Exportieren Sie dann dieses Zertifikat der Stammzertifizierungsstelle in eine CER-Zertifikatdatei. Speichern Sie diese Datei an einem sicheren Speicherort, auf den Sie sicher zugreifen können, wenn Sie zu einem späteren Zeitpunkt den Standortsystemserver für den Zertifikatregistrierungspunkt installieren und konfigurieren.  
+4.  Localisez le certificat racine auquel est lié le certificat d'authentification. Exportez ensuite ce certificat d'Autorité de certification racine dans un fichier de certificat (.cer). Enregistrez ce fichier dans un emplacement sécurisé auquel vous pouvez accéder en toute sécurité lorsque plus tard vous installez et configurez le serveur de système de site du point d'enregistrement de certificat.  
 
-5.  Verwenden Sie auf dem gleichen Server den Registrierungs-Editor, um das standardmäßige URL-Größenlimit für IIS anzuheben. Hierzu legen Sie die DWORD-Werte des folgenden Registrierungsschlüssels unter HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\HTTP\Parameters fest:  
+5.  Sur le même serveur, utilisez l’Éditeur du Registre pour augmenter la taille limite des URL IIS par défaut en définissant les valeurs DWORD de clés de Registre suivantes dans HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\HTTP\Parameters :  
 
-    -   Legen Sie den Schlüssel **MaxFieldLength** auf **65534**fest.  
+    -   Définissez la clé **MaxFieldLength** à **65534**.  
 
-    -   Legen Sie den Schlüssel **MaxRequestBytes** auf **16777216**fest.  
+    -   Définissez la clé **MaxRequestBytes** à **16777216**.  
 
-     Weitere Informationen finden Sie im Artikel [820129: Http.sys-Registrierungseinstellungen für IIS](http://go.microsoft.com/fwlink/?LinkId=309013) in der Microsoft Knowledge Base.  
+     Pour plus d'informations, consultez l'article [820129 : Paramètres de Registre Http.sys pour Windows](http://go.microsoft.com/fwlink/?LinkId=309013) dans la Base de connaissances Microsoft.  
 
-6.  Ändern Sie auf dem gleichen Server im IIS-Manager (Internet Information Services, Internetinformationsdienste) die Einstellungen für die Anforderungsfilterung für die Anwendung /certsrv/mscep. Starten Sie dann den Server neu. Im Dialogfeld **Einstellungen für die Anforderungsfilterung bearbeiten** sollten die Einstellungen unter **Anforderungslimits** wie folgt lauten:  
+6.  Sur le même serveur, dans le Gestionnaire des services Internet (IIS), modifiez les paramètres de filtrage des demandes pour l'application /certsrv/mscep, puis redémarrez le serveur. Dans la boîte de dialogue **Modifier les paramètres de filtrage des demandes** , les paramètres **Limites des demandes** doivent se présenter comme suit :  
 
-    -   **Maximal zulässige Inhaltslänge (Bytes)**: **30000000**  
+    -   **Longueur maximale autorisée du contenu (octets)**: **30 000 000**  
 
-    -   **Maximale URL-Länge (Bytes)**: **65534**  
+    -   **Longueur maximale des URL (octets)**: **65 534**  
 
-    -   **Maximale Länge einer Abfragezeichenfolge (Bytes)**: **65534**  
+    -   **Longueur maximale des chaînes de requête (octets)**: **65 534**  
 
-     Weitere Informationen zu diesen Einstellungen und deren Konfiguration finden Sie im Thema [Requests Limits (Anforderungslimits)](http://go.microsoft.com/fwlink/?LinkId=309014) der Bibliothek mit IIS-Referenzen.  
+     Pour plus d'informations sur ces paramètres et sur la façon de les configurer, voir [Limites des demandes](http://go.microsoft.com/fwlink/?LinkId=309014) dans la bibliothèque de référence IIS.  
 
-7.  Wenn Sie ein Zertifikat mit einem kürzeren Gültigkeitszeitraum als dem der verwendeten Zertifikatvorlage anfordern möchten: Diese Konfiguration ist für eine Unternehmenszertifizierungsstelle standardmäßig deaktiviert. Sie können diese Option für eine Unternehmenszertifizierungsstelle mit dem Befehlszeilentool „Certutil“ aktivieren. Verwenden Sie dann die folgenden Befehle, um den Zertifikatdienst zu beenden und neu zu starten:  
+7.  Si vous souhaitez pouvoir demander un certificat avec une durée de validité inférieure à celle du modèle de certificat que vous utilisez : Cette configuration est désactivée par défaut pour une Autorité de certification d'entreprise. Pour activer cette option pour une Autorité de certification d'entreprise, utilisez l'outil de ligne de commande Certutil, puis arrêtez et redémarrez le service de certificats à l'aide des commandes suivantes :  
 
-    1.  **certutil ‒ setreg Richtlinie\EditFlags +EDITF_ATTRIBUTEENDDATE**  
+    1.  **certutil - setreg Policy\EditFlags +EDITF_ATTRIBUTEENDDATE**  
 
     2.  **net stop certsvc**  
 
     3.  **net start certsvc**  
 
-     Weitere Informationen finden Sie unter [Certificate Services Tools and Settings (Tools und Einstellungen für Zertifikatdienste)](http://go.microsoft.com/fwlink/p/?LinkId=309015) in der PKI-Technologiebibliothek auf TechNet.  
+     Pour plus d'informations, voir [Outils et paramètres des services de certificat](http://go.microsoft.com/fwlink/p/?LinkId=309015) dans la bibliothèque des technologies PKI sur TechNet.  
 
-8.  Verwenden Sie den folgenden Link als Beispiel, um zu überprüfen, ob der Registrierungsdienst für Netzwerkgeräte funktioniert: **https://server.contoso.com/certsrv/mscep/mscep.dll**. Es sollte die integrierte Webseite „Registrierungsdienst für Netzwerkgeräte“ angezeigt werden. Auf dieser Webseite wird der Dienst erläutert, und Sie erfahren, dass Netzwerkdienste die URL zum Übermitteln von Zertifikatanforderungen verwenden.  
+8.  Vérifiez que le service d'inscription d'appareils réseau fonctionne en utilisant le lien suivant comme exemple : **https://server.contoso.com/certsrv/mscep/mscep.dll**. Vous devriez voir la page Web intégrée Service d'inscription d'appareils réseau. Cette page explique ce qu'est le service et explique que les appareils réseau utilisent l'URL pour soumettre des demandes de certificat.  
 
- Nachdem Sie den Registrierungsdienst für Netzwerkgeräte und die Abhängigkeiten konfiguriert haben, können Sie den Zertifikatregistrierungspunkt installieren und konfigurieren.
+ Maintenant que le service d'inscription d'appareils réseau et les dépendances sont configurés, vous êtes prêt à installer et à configurer le point d'enregistrement de certificat.
 
 
-## <a name="step-2---install-and-configure-the-certificate-registration-point"></a>Schritt 2: Installieren und Konfigurieren des Zertifikatregistrierungspunkts.
+## <a name="step-2---install-and-configure-the-certificate-registration-point"></a>Étape 2 : Installer et configurer le point d’enregistrement de certificat
 
-Sie müssen mindestens einen Zertifikatregistrierungspunkt in der System Center Configuration Manager-Hierarchie installieren und konfigurieren. Dann können Sie diese Standortsystemrolle wahlweise am Standort der zentralen Verwaltung oder an einem primären Standort installieren.  
+Vous devez installer et configurer au moins un point d’enregistrement de certificat dans la hiérarchie System Center Configuration Manager et vous pouvez installer ce rôle de système de site dans le site d’administration centrale ou dans un site principal.  
 
 > [!IMPORTANT]  
->  Lesen Sie vor der Installation des Zertifikatregistrierungspunkts die Informationen zu Betriebssystemanforderungen und -abhängigkeiten für den Zertifikatregistrierungspunkt im Abschnitt **Anforderungen für Standortsysteme** im Thema [Supported configurations for System Center Configuration Manager](../../core/plan-design/configs/supported-configurations.md) .  
+>  Avant d'installer le point d'enregistrement de certificat, consultez la section **Configuration requise pour le système de site** de la rubrique [Configurations prises en charge pour System Center Configuration Manager](../../core/plan-design/configs/supported-configurations.md) pour la configuration de système d'exploitation requise et les dépendances du point d'enregistrement de certificat.  
 
-##### <a name="to-install-and-configure-the-certificate-registration-point"></a>So installieren und konfigurieren Sie den Zertifikatregistrierungspunkt  
+##### <a name="to-install-and-configure-the-certificate-registration-point"></a>Pour installer et configurer le point d'enregistrement de certificat  
 
-1.  Klicken Sie in der System Center Configuration Manager-Konsole auf **Verwaltung**.  
+1.  Dans la console System Center Configuration Manager, cliquez sur **Administration**.  
 
-2.  Erweitern Sie im Arbeitsbereich **Verwaltung** den Bereich **Standortkonfiguration**, klicken Sie auf **Server und Standortsystemrollen**, und wählen Sie dann den Server aus, den Sie als Zertifikatregistrierungspunkt verwenden möchten.  
+2.  Dans l'espace de travail **Administration** , développez **Configuration du site**, cliquez sur **Serveurs et rôles de système de site**, puis sélectionnez le serveur à utiliser pour le point d'enregistrement de certificat.  
 
-3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Server** auf **Standortsystemrollen hinzufügen**.  
+3.  Sous l'onglet **Accueil** , dans le groupe **Serveur** , cliquez sur **Ajouter des rôles de système de site**.  
 
-4.  Geben Sie auf der Seite **Allgemein** die allgemeinen Einstellungen für den Standortsystemserver an, und klicken Sie dann auf **Weiter**.  
+4.  Sur la page **Général** , spécifiez les paramètres généraux du système de site, puis cliquez sur **Suivant**.  
 
-5.  Klicken Sie auf der Seite **Proxy** auf **Weiter**. Für den Zertifikatregistrierungspunkt werden keine Internetproxyeinstellungen verwendet.  
+5.  Sur la page **Proxy** , cliquez sur **Suivant**. Le point d'enregistrement de certificat n'utilise pas les paramètres de proxy Internet.  
 
-6.  Wählen Sie auf der Seite **Systemrollenauswahl** in der Liste der verfügbaren Rollen **Zertifikatregistrierungspunkt** aus, und klicken Sie dann auf **Weiter**. 
+6.  Sur la page **Sélection du rôle système** , sélectionnez **Point d'enregistrement de certificat** dans la liste des rôles disponibles, puis cliquez sur **Suivant**. 
 
-7. Legen Sie auf der Seite **Zertifikatregistrierungsmodus** fest, ob der Zertifikatregistrierungspunkt **SCEP-Zertifikatanforderungen verarbeiten** oder **PFX-Zertifikatanforderungen verarbeiten** soll. Ein Zertifikatregistrierungspunkt kann nicht beide Arten von Anforderungen verarbeiten, aber Sie können mehrere Zertifikatregistrierungspunkte erstellen, wenn Sie mit beiden Zertifikattypen arbeiten.
+7. Sur la page **Mode d’enregistrement du certificat**, choisissez si vous souhaitez que cet enregistrement de certificat pointe vers **Traiter les demandes de certificat SCEP** ou **Traiter les demandes de certificat PFX**. Un point d’enregistrement de certificat ne peut pas traiter les deux types de requêtes, mais vous pouvez créer plusieurs points d’enregistrement de certificat si vous travaillez avec les deux types de certificats.
 
-   Wenn Sie PFX-Zertifikate verarbeiten, müssen Sie als Zertifizierungsstelle entweder Microsoft oder Entrust auswählen.
+   Si vous traitez des certificats PFX, vous devez choisir une autorité de certification Microsoft ou Entrust.
 
-8.  Die Seite **Einstellungen für den Zertifikatregistrierungspunkt** ist je nach Zertifikatstyp unterschiedlich aufgebaut:
-    -   Wenn Sie **SCEP-Zertifikatanforderungen verarbeiten** ausgewählt haben, nehmen Sie folgende Konfiguration vor:
-        -   **Websitename**, **HTTPS-Portnummer** und **Name der virtuellen Anwendung** für den Zertifikatregistrierungspunkt. Diese Felder werden automatisch mit Standardwerten ausgefüllt. 
-        -   **URL für Registrierungsdienst für Netzwerkgeräte und Zertifikat der Stammzertifizierungsstelle**: Klicken Sie auf **Hinzufügen**, und geben Sie anschließend im Dialogfeld **URL und Zertifikat der Stammzertifizierungsstelle hinzufügen** Folgendes an:
-            - **URL für den Registrierungsdienst für Netzwerkgeräte:** Geben Sie die URL im folgenden Format an: https://*<FQDN des Servers>*/certsrv/mscep/mscep.dll. Beispiel: Wenn der FQDN des Servers mit dem Registrierungsdienst für Netzwerkgeräte server1.contoso.com ist, geben Sie **https://server1.contoso.com/certsrv/mscep/mscep.dll**ein.
-            - **Zertifikat der Stammzertifizierungsstelle**: Navigieren Sie zur CER-Zertifikatdatei, die Sie in **Schritt 1: Installieren und Konfigurieren des Registrierungsdiensts für Netzwerkgeräte und der Abhängigkeiten**erstellt und gespeichert haben, und wählen Sie sie aus. Mit diesem Zertifikat der Stammzertifizierungsstelle kann das Clientauthentifizierungszertifikat, das vom System Center Configuration Manager-Richtlinienmodul verwendet wird, durch den Zertifikatregistrierungspunkt überprüft werden.  
+8.  La page **Paramètres du point d’enregistrement de certificat** varie selon le type de certificat :
+    -   Si vous avez sélectionné **Traiter les demandes de certificat SCEP**, configurez les éléments suivants :
+        -   **Nom du site web**, **Numéro de port HTTPS** et **Nom de l’application virtuelle** du point d’enregistrement de certificat. Ces champs sont automatiquement renseignés avec les valeurs par défaut. 
+        -   **URL du service d’inscription de périphérique réseau et certificat d’autorité de certification racine** : cliquez sur **Ajouter**, puis, dans la boîte de dialogue **Ajouter l’URL et le certificat d’autorité de certification racine**, spécifiez les éléments suivants :
+            - **URL du service d’inscription de périphériques réseau** : spécifiez l’URL au format suivant : https://*<FQDN_serveur>*/certsrv/mscep/mscep.dll. Par exemple, si le nom de domaine complet de votre serveur exécutant le service d'inscription d'appareils réseau est server1.contoso.com, entrez **https://server1.contoso.com/certsrv/mscep/mscep.dll**.
+            - **Certificat d'Autorité de certification racine**: Recherchez et sélectionnez le fichier de certificat (.cer) que vous avez créé et enregistré à l' **Étape 1 : Installer et configurer le service d'inscription d'appareils réseau et les dépendances**. Ce certificat d’autorité de certification racine permet au point d’enregistrement de certificat de valider le certificat d’authentification client que le module de stratégie de System Center Configuration Manager va utiliser.  
 
-    - Wenn Sie **PFX-Zertifikatanforderungen verarbeiten** ausgewählt haben, konfigurieren Sie die Verbindungsdetails und die Anmeldeinformationen für die ausgewählte Zertifizierungsstelle.
+    - Si vous avez sélectionné **Traiter les demandes de certificats PFX**, vous configurez les détails de la connexion et les informations d’identification pour l’autorité de certification sélectionnée.
 
-        - Um Microsoft als Zertifizierungsstelle zu verwenden, klicken Sie auf **Hinzufügen**, und geben Sie anschließend im Dialogfeld **Zertifizierungsstelle und Konto hinzufügen** Folgendes an:
-            - **Name des Zertifizierungsstellenservers**: Geben Sie den Namen Ihres Zertifizierungsstellenservers ein.
-            - **Konto der Zertifizierungsstelle**: Klicken Sie auf **Festlegen**, um das Konto auszuwählen oder zu erstellen, das Berechtigungen für die Registrierung in Vorlagen an der Zertifizierungsstelle hat.
-            - **Verbindungskonto für Zertifikatregistrierungspunkt**: Wählen Sie das Konto aus, das den Zertifikatregistrierungspunkt mit der Configuration Manager-Datenbank verbindet, oder erstellen Sie dieses. Alternativ können Sie auch das lokale Computerkonto des Computers verwenden, auf dem der Zertifikatregistrierungspunkt gehostet wird.
-            - **Konto für Active Directory-Zertifikatveröffentlichung**: Wählen Sie ein Konto aus, das zur Veröffentlichung von Zertifikaten für Benutzerobjekte in Active Directory verwendet werden soll, oder erstellen Sie ein neues Konto.
+        - Pour utiliser Microsoft comme autorité de certification, cliquez sur **Ajouter**, puis, dans la boîte de dialogue **Ajouter une autorité de certification et un compte de certificat**, spécifiez les éléments suivants :
+            - **Nom du serveur de l’autorité de certification** : entrez le nom de votre serveur d’autorité de certification.
+            - **Compte de l’autorité de certification** : cliquez sur **Définir** pour sélectionner ou créer le compte qui dispose des autorisations d’inscription des modèles sur l’autorité de certification.
+            - **Compte de connexion du point d’enregistrement du certificat** : sélectionnez ou créez le compte qui connecte le point d’enregistrement du certificat à la base de données Configuration Manager. Vous pouvez également utiliser le compte de l’ordinateur local qui héberge le point d’enregistrement de certificat.
+            - **Compte de publication du certificat Active Directory** : sélectionnez un compte ou créez-en un nouveau qui servira à publier des certificats pour des objets utilisateur dans Active Directory.
 
-            - Geben Sie im Dialogfeld **URL for the Network Device Enrollment and root CA certificate (URL für Registrierung für Netzwerkdienste und Zertifikat der Stammzertifizierungsstelle)** Folgendes an, und klicken Sie anschließend auf **OK**:  
+            - Dans la boîte de dialogue **URL du service d’inscription des périphériques réseau et du certificat d’Autorité de certification racine**, spécifiez les options suivantes, puis cliquez sur **OK** :  
 
-        - Um Entrust als Zertifizierungsstelle zu verwenden, geben Sie Folgendes an:
+        - Pour utiliser Entrust comme autorité de certification, spécifiez les éléments suivants :
 
-           - die **MDM-Webdienst-URL**
-           - den Benutzernamen und das Kennwort für die URL.
+           - **L’URL du service web MDM**
+           - Les informations d’identification (nom d’utilisateur et mot de passe) pour l’URL.
 
-           Wenn Sie bei der Angabe der Entrust-Webdienst-URL die MDM-API benutzen, müssen Sie mindestens Version 9 der API verwenden, wie im folgenden Beispiel gezeigt wird:
+           Quand vous utilisez l’API MDM pour définir l’URL du service web Entrust, veillez à utiliser au moins la version 9 de l’API, comme illustré dans l’exemple suivant :
 
            `https://entrust.contoso.com:19443/mdmws/services/AdminServiceV9`
 
-           Entrust wird nicht von früheren Versionen der API unterstützt.
+           Les versions antérieures de l’API ne prennent pas en charge Entrust.
 
-9. Klicken Sie auf **Weiter** , und schließen Sie den Assistenten ab.  
+9. Cliquez sur **Suivant** pour terminer l'Assistant.  
 
-10. Warten Sie einige Minuten, bis die Installation abgeschlossen ist. Überprüfen Sie dann mit einer der folgenden Methoden, ob der Zertifikatregistrierungspunkt erfolgreich installiert wurde:  
+10. Attendez quelques minutes pour permettre à l'installation de se terminer, puis vérifiez que le point d'enregistrement de certificat est installé correctement, en utilisant l'une des méthodes suivantes :  
 
-    -   Erweitern Sie im Arbeitsbereich **Überwachung** die Option **Systemstatus**, klicken Sie auf **Komponentenstatus**, und suchen Sie nach Statusmeldungen der Komponente **SMS_CERTIFICATE_REGISTRATION_POINT** .  
+    -   Dans l'espace de travail **Surveillance** , développez **État du système**, cliquez sur **État du composant**, puis recherchez des messages d'état provenant du composant **SMS_CERTIFICATE_REGISTRATION_POINT** .  
 
-    -   Verwenden Sie auf dem Standortsystemserver die Datei „*<Configuration Manager-Installationspfad\>*\Logs\crpsetup.log“ und die Datei „*<Configuration Manager-Installationspfad\>*\Logs\crpmsi.log“. Bei einer erfolgreichen Installation wird der Exitcode 0 zurückgegeben.  
+    -   Sur le serveur de système de site, utilisez le fichier *<chemin_installation_ConfigMgr\>*\Logs\crpsetup.log et le fichier *<chemin_installation_ConfigMgr\>*\Logs\crpmsi.log. Une installation réussie renvoie un code de sortie 0.  
 
-    -   Überprüfen Sie mit einem Browser, ob Sie eine Verbindung mit der URL des Zertifikatregistrierungspunkts herstellen können. Beispiel: https://server1.contoso.com/CMCertificateRegistration. Es sollte eine Seite mit einem **Serverfehler** für den Anwendungsnamen mit einer HTTP 404-Beschreibung angezeigt werden.  
+    -   À l’aide d’un navigateur, vérifiez que vous pouvez vous connecter à l’URL du point d’enregistrement de certificat, par exemple https://server1.contoso.com/CMCertificateRegistration. Vous devez voir une page **Erreur de serveur** pour le nom de l'application, avec une description HTTP 404.  
 
-11. Suchen Sie nach der exportierten Zertifikatdatei für die Stammzertifizierungsstelle, die vom Zertifikatregistrierungspunkt automatisch im folgenden Ordner auf dem primären Standortservercomputer erstellt wurde: *<Configuration Manager-Installationspfad\>*\inboxes\certmgr.box. Speichern Sie diese Datei an einem sicheren Speicherort, auf den Sie zu einem späteren Zeitpunkt während der Installation des System Center Configuration Manager-Richtlinienmoduls auf dem Server mit dem Registrierungsdienst für Netzwerkgeräte sicher zugreifen können.  
+11. Recherchez le fichier de certificat exporté pour l’autorité de certification racine, créé automatiquement par le point d’enregistrement de certificat dans le dossier suivant sur l’ordinateur du serveur de site principal : *<chemin_installation_ConfigMgr\>*\inboxes\certmgr.box. Enregistrez ce fichier à un emplacement sécurisé auquel vous pouvez accéder en toute sécurité si vous installez plus tard le module de stratégie de System Center Configuration Manager sur le serveur exécutant le service d’inscription d’appareils réseau.  
 
     > [!TIP]  
-    >  Dieses Zertifikat steht nicht sofort in diesem Ordner zur Verfügung. Möglicherweise müssen Sie eine Weile warten (beispielsweise eine halbe Stunde), bis System Center Configuration Manager die Datei in diesen Speicherort kopiert.  
+    >  Ce certificat n'est pas immédiatement disponible dans ce dossier. Vous devrez peut-être attendre un certain temps (par exemple, une demi-heure) avant que System Center Configuration Manager ne copie le fichier à cet emplacement.  
 
 
-## <a name="step-3----install-the-system-center-configuration-manager-policy-module-for-scep-certificates-only"></a>Schritt 3: Installieren des System Center Configuration Manager-Richtlinienmoduls (nur für SCEP-Zertifikate).
+## <a name="step-3----install-the-system-center-configuration-manager-policy-module-for-scep-certificates-only"></a>Étape 3 : Installer le module de stratégie de System Center Configuration Manager (pour les certificats SCEP uniquement)
 
-Sie müssen das System Center Configuration Manager-Richtlinienmodul auf jedem Server installieren und konfigurieren, den Sie unter **Schritt 2: Installieren und Konfigurieren des Zertifikatregistrierungspunkts** in den Eigenschaften des Zertifikatregistrierungspunkts als **URL für den Registrierungsdienst für Netzwerkgeräte** angegeben haben.  
+Vous devez installer et configurer le module de stratégie de System Center Configuration Manager sur chaque serveur que vous avez spécifié à l’**étape 2 : Installer et configurer le point d’enregistrement de certificat** en tant qu’**URL du service d’inscription d’appareils réseau** dans les propriétés du point d’enregistrement de certificat.  
 
-##### <a name="to-install-the-policy-module"></a>So installieren Sie das Richtlinienmodul  
+##### <a name="to-install-the-policy-module"></a>Pour installer le module de stratégie  
 
-1.  Melden Sie sich auf dem Server mit dem Registrierungsdienst für Netzwerkgeräte als Domänenadministrator an, und kopieren Sie die folgenden Dateien aus dem Ordner „<Configuration Manager-Installationsmedium\>\SMSSETUP\POLICYMODULE\X64“ auf dem System Center Configuration Manager-Installationsmedium in einen temporären Ordner:  
+1.  Sur le serveur qui exécute le service d’inscription d’appareils réseau, connectez-vous en tant qu’administrateur de domaine et copiez les fichiers suivants du dossier <support_installation_ConfigMgr\>\SMSSETUP\POLICYMODULE\X64 sur le support d’installation System Center Configuration Manager vers un dossier temporaire :  
 
     -   PolicyModule.msi  
 
     -   PolicyModuleSetup.exe  
 
-    Wenn das Installationsmedium den Ordner LanguagePack enthält, kopieren Sie auch diesen Ordner und seinen Inhalt.  
+    En outre, si vous avez un dossier LanguagePack sur le support d'installation, copiez ce dossier et son contenu.  
 
-2.  Führen Sie über den temporären Ordner „PolicyModuleSetup.exe“ aus, um den Setup-Assistenten für das System Center Configuration Manager-Richtlinienmodul zu starten.  
+2.  À partir du dossier temporaire, exécutez le fichier PolicyModuleSetup.exe pour démarrer l’Assistant Installation du module de stratégie de System Center Configuration Manager.  
 
-3.  Klicken Sie auf der ersten Seite des Assistenten auf **Weiter**, nehmen Sie die Lizenzbedingungen an, und klicken Sie dann auf **Weiter**.  
+3.  Sur la page initiale de l'Assistant, cliquez sur **Suivant**, acceptez le termes du contrat de licence, puis cliquez sur **Suivant**.  
 
-4.  Übernehmen Sie auf der Seite **Installationsordner** den standardmäßigen Installationsordner für das Richtlinienmodul, oder geben Sie einen anderen Ordner an, und klicken Sie dann auf **Weiter**.  
+4.  Sur la page **Dossier d'installation** , acceptez le dossier d'installation par défaut pour le module de stratégie ou spécifiez un autre dossier, puis cliquez sur **Suivant**.  
 
-5.  Geben Sie auf der Seite **Zertifikatregistrierungspunkt** die URL des Zertifikatregistrierungspunkts an, indem Sie den FQDN des Standortsystemservers und den Namen der virtuellen Anwendung verwenden, der in den Eigenschaften des Zertifikatregistrierungspunkts aufgeführt ist. Der Standardname der virtuellen Anwendung lautet „CMCertificateRegistration“. Beispiel: Wenn der Standortsystemserver den FQDN server1.contoso.com aufweist und Sie den Standardnamen der virtuellen Anwendung verwendet haben, geben Sie **https://server1.contoso.com/CMCertificateRegistration**an.  
+5.  Sur la page **Point d'enregistrement de certificat** , spécifiez l'URL du point d'enregistrement de certificat en utilisant le nom de domaine complet du serveur de système de site et le nom de l'application virtuelle qui est indiqué dans les propriétés du point d'enregistrement de certificat. Le nom de l'application virtuelle par défaut est CMCertificateRegistration. Par exemple, si le nom de domaine complet du serveur de système de site est server1.contoso.com et que vous avez utilisé le nom de l'application virtuelle par défaut, spécifiez **https://server1.contoso.com/CMCertificateRegistration**.  
 
-6.  Übernehmen Sie den Standardport **443** , oder geben Sie die alternative Portnummer an, die vom Zertifikatregistrierungspunkt verwendet wird. Klicken Sie dann auf **Weiter**.  
+6.  Acceptez le port par défaut **443** ou spécifiez l'autre numéro de port utilisé par le point d'enregistrement de certificat, puis cliquez sur **Suivant**.  
 
-7.  Navigieren Sie auf der Seite **Clientzertifikat für das Richtlinienmodul**zum Clientauthentifizierungszertifikat, das Sie in **Schritt 1: Installieren und Konfigurieren des Registrierungsdiensts für Netzwerkgeräte und der Abhängigkeiten**bereitgestellt haben, und geben Sie es an. Klicken Sie dann auf **Weiter**.  
+7.  Dans la page **Certificat client du module de stratégie**, recherchez et spécifiez le certificat d'authentification client que vous avez déployé à l' **Étape 1 : Installer et configurer le service d'inscription d'appareils réseau et les dépendances**, puis cliquez sur **Suivant**.  
 
-8.  Klicken Sie auf der Seite **Zertifikat für Zertifikatregistrierungspunkt** auf **Durchsuchen** , um die exportierte Zertifikatdatei für die Stammzertifizierungsstelle auszuwählen, die Sie am Ende von **Schritt 2: Installieren und Konfigurieren des Zertifikatregistrierungspunkts**gesucht und gespeichert haben.  
+8.  Dans la page **Certificat du point d'enregistrement de certificat** , cliquez sur **Parcourir** pour sélectionner le fichier de certificat exporté pour l'autorité de certification racine que vous avez localisé et enregistré à la fin de l' **Étape 2 : Installer et configurer le point d'enregistrement de certificat**.  
 
     > [!NOTE]  
-    >  Wenn Sie diese Zertifikatdatei zuvor nicht gespeichert haben, befindet sie sich im Ordner „<Configuration Manager-Installationspfad\>\inboxes\certmgr.box“ auf dem Standortservercomputer.  
+    >  Si vous n’avez pas enregistré ce fichier de certificat précédemment, il se trouve dans <chemin_installation_ConfigMgr\>\inboxes\certmgr.box sur l’ordinateur du serveur de site.  
 
-9. Klicken Sie auf **Weiter** , und schließen Sie den Assistenten ab.  
+9. Cliquez sur **Suivant** pour terminer l'Assistant.  
 
- Wenn Sie das System Center Configuration Manager-Richtlinienmodul deinstallieren möchten, verwenden Sie hierzu die Option **Programme und Features** in der Systemsteuerung. 
+ Si vous souhaitez désinstaller le module de stratégie de System Center Configuration Manager, utilisez **Programmes et fonctionnalités** dans le Panneau de configuration. 
 
  
-Nachdem Sie die Konfigurationsschritte abgeschlossen haben, sind Sie für die Bereitstellung von Zertifikaten für Benutzer und Geräte mit dem Erstellen und Bereitstellen von Zertifikatprofilen bereit. Weitere Informationen zum Erstellen von Zertifikatprofilen finden Sie unter [Erstellen von Zertifikatprofilen in System Center Configuration Manager](../../protect/deploy-use/create-certificate-profiles.md).  
+Maintenant que vous avez suivi les étapes de configuration, vous êtes prêt à déployer des certificats aux utilisateurs et aux appareils en créant et en déployant des profils de certificat. Pour plus d’informations sur la création de profils de certificat, consultez [Comment créer des profils de certificat dans System Center Configuration Manager](../../protect/deploy-use/create-certificate-profiles.md).  

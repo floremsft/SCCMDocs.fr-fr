@@ -1,6 +1,6 @@
 ---
-title: Bereitstellen von Softwareupdates | Microsoft-Dokumentation
-description: "Wählen Sie die Softwareupdates in der Configuration Manager-Konsole aus, um den Bereitstellungsprozess manuell zu starten oder Updates manuell bereitzustellen."
+title: "Déployer des mises à jour logicielles | Microsoft Docs"
+description: "Choisissez les mises à jour logicielles dans la console Configuration Manager pour démarrer manuellement le processus de déploiement ou déployer automatiquement des mises à jour."
 keywords: 
 author: dougeby
 ms.author: dougeby
@@ -14,59 +14,59 @@ ms.assetid: 04536d51-3bf7-45e5-b4af-36ceed10583d
 ms.openlocfilehash: 70a0ad1da03a7ca88df206fec683ab1df2b531e1
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-#  <a name="BKMK_SUMDeploy"></a> Bereitstellen von Softwareupdates  
+#  <a name="BKMK_SUMDeploy"></a> Déployer des mises à jour logicielles  
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-In der Softwareupdate-Bereitstellungsphase werden Softwareupdates bereitgestellt. Unabhängig davon, wie Sie Softwareupdates bereitstellen, werden die Updates in der Regel zu einer Softwareupdategruppe hinzugefügt. Die Softwareupdates werden auf Verteilungspunkte heruntergeladen, und die Updategruppe wird für Clients bereitgestellt. Beim Erstellen der Bereitstellung wird eine zugehörige Softwareupdaterichtlinie an Clientcomputer gesendet. Dann werden die Inhaltsdateien für das Softwareupdate von einem Verteilungspunkt in den lokalen Cache auf Clientcomputer heruntergeladen. Die Softwareupdates sind damit für die Installation auf dem Client verfügbar. Von Clients, die sich im Internet befinden, wird Inhalt von Microsoft Update heruntergeladen.  
-
-> [!NOTE]  
->  Sie können einen Client im Intranet zum Herunterladen von Softwareupdates von Microsoft Update für den Fall konfigurieren, dass ein Verteilungspunkt nicht verfügbar ist.  
+La phase de déploiement de mises à jour logicielles consiste à déployer les mises à jour logicielles. Quelle que soit la façon dont vous déployez des mises à jour logicielles, les mises à jour sont généralement ajoutées à un groupe de mises à jour logicielles, les mises à jour logicielles sont téléchargées vers les points de distribution, et le groupe de mises à jour est déployé sur les clients. Lorsque vous créez le déploiement, une stratégie de mise à jour logicielle associée est envoyée aux ordinateurs clients, les fichiers de contenu des mises à jour logicielles sont téléchargés à partir d’un point de distribution vers le cache local sur les ordinateurs clients, puis les mises à jour logicielles peuvent être installées à partir du client. Les clients sur Internet téléchargent le contenu auprès de Microsoft Update.  
 
 > [!NOTE]  
->  Im Gegensatz zu anderen Bereitstellungstypen werden alle Softwareupdates unabhängig von der auf dem Client festgelegten maximalen Cachegröße in den Clientcache heruntergeladen. Weitere Informationen zu den Einstellungen des Clientcaches finden Sie unter [Configure the Client Cache for Configuration Manager Clients](../../core/clients/manage/manage-clients.md#BKMK_ClientCache).  
+>  Vous pouvez configurer un client sur l’intranet pour télécharger les mises à jour logicielles à partir de Microsoft Update si aucun point de distribution n’est disponible.  
 
-Wenn Sie eine erforderliche Softwareupdatebereitstellung konfigurieren, werden die Softwareupdates automatisch am geplanten Stichtag installiert. Alternativ kann der Benutzer die Softwareupdateinstallation auf dem Clientcomputer auch vor dem Stichtag einplanen oder initiieren. Nach dem Installationsversuch werden von den Clientcomputern Zustandsmeldungen zurück an den Standortserver gesendet, aus denen hervorgeht, ob die Softwareupdateinstallation erfolgreich war. Weitere Informationen zu Softwareupdatebereitstellungen  finden Sie unter [Software update deployment workflows](../understand/software-updates-introduction.md#BKMK_DeploymentWorkflows).  
+> [!NOTE]  
+>  Contrairement à d'autres types de déploiement, toutes les mises à jour logicielles sont téléchargées dans le cache client, indépendamment du paramètre relatif à la taille maximale du cache sur le client. Pour plus d’informations sur le paramètre de cache du client, consultez [Configure the Client Cache for Configuration Manager Clients](../../core/clients/manage/manage-clients.md#BKMK_ClientCache).  
 
-Die Bereitstellung von Softwareupdates in einer Umgebung erfolgt entweder manuell oder automatisch. In der Regel beginnen Sie damit, dass Sie Softwareupdates manuell bereitstellen, um eine Baseline für die Clientcomputer zu erstellen. Die Verwaltung der Softwareupdates auf Clients erfolgt dann durch die automatische Bereitstellung.  
+Si vous configurez un déploiement de mises à jour logicielles requises, celles-ci sont automatiquement installées à l'échéance prévue. L'utilisateur sur l'ordinateur client peut également planifier ou lancer l'installation des mises à jour logicielles avant l'échéance. Après la tentative d'installation, les ordinateurs clients renvoient des messages d'état au serveur de site pour indiquer si l'installation des mises à jour logicielles a réussi. Pour plus d’informations sur les déploiements de mises à jour logicielles, consultez [Software update deployment workflows](../understand/software-updates-introduction.md#BKMK_DeploymentWorkflows).  
 
-## <a name="BKMK_ManualDeployment"></a> Manuelles Bereitstellen von Softwareupdates
-Sie können Softwareupdates in der Configuration Manager-Konsole auswählen und den Bereitstellungsprozess manuell starten. Mit dieser Bereitstellungsmethode sorgen Sie in der Regel dafür, dass die aktuell erforderlichen Softwareupdates auf den Clientcomputern vorhanden sind, bevor Sie automatische Bereitstellungsregeln zur Verwaltung der laufenden monatlichen Softwareupdatebereitstellungen erstellen. Diese Methode dient auch dazu, Out-of-Band-Anforderungen für Softwareupdates bereitzustellen. Der allgemeine Workflow für die manuelle Bereitstellung von Softwareupdates umfasst die folgenden Schritte:  
+Il existe deux principaux scénarios de déploiement des mises à jour logicielles : le déploiement manuel et le déploiement automatique. En règle générale, vous allez commencer par déployer manuellement les mises à jour logicielles pour créer une référence pour vos ordinateurs clients, puis vous allez gérer les mises à jour logicielles sur les clients à l’aide d’un déploiement automatique.  
 
-1. Filtern Sie Softwareupdates mit bestimmten Anforderungen heraus. Beispielsweise könnten Sie anhand geeigneter Kriterien angeben, dass alle Softwareupdates abgerufen werden sollen, die auf mehr als 50 Clientcomputern benötigt werden und deren Klassifizierung Sicherheit oder Kritisch lautet.  
-2. Erstellen Sie eine Softwareupdategruppe, die die Softwareupdates enthält.  
-3. Laden Sie den Inhalt für die Softwareupdates in der Softwareupdategruppe herunter.  
-4. Stellen Sie die Softwareupdategruppe manuell bereit.
+## <a name="BKMK_ManualDeployment"></a> Déployer manuellement des mises à jour logicielles
+Vous pouvez sélectionner les mises à jour logicielles dans la console Configuration Manager et démarrer manuellement le processus de déploiement. Généralement, vous utilisez cette méthode de déploiement pour mettre à jour les ordinateurs clients avec les mises à jour logicielles requises avant de créer des règles de déploiement automatique qui gèrent les déploiements de mises à jour logicielles mensuelles en continu ; vous pouvez également déployer des mises à jour logicielles requises hors bande. La liste suivante fournit le flux de travail général pour le déploiement manuel de mises à jour logicielles :  
 
-Ausführliche Schritte finden Sie unter [Manuelles Bereitstellen von Softwareupdates](manually-deploy-software-updates.md).
+1. filtre pour les mises à jour logicielles qui utilisent des configurations spécifiques. Par exemple, vous pouvez fournir des critères qui récupèrent toutes les mises à jour logicielles critiques ou de sécurité qui sont requises sur plus de 50 ordinateurs clients.  
+2. Créez un groupe de mises à jour logicielles contenant les mises à jour logicielles.  
+3. Téléchargez le contenu pour les mises à jour logicielles dans le groupe de mises à jour logicielles.  
+4. Déployez manuellement le groupe de mises à jour logicielles.
 
-## <a name="automatically-deploy-software-updates"></a>Automatisches Bereitstellen von Softwareupdates
-Die automatische Bereitstellung von Softwareupdates wird mithilfe einer automatischen Bereitstellungsregel (ADR) konfiguriert. Diese Bereitstellungsmethode eignet sich insbesondere für monatliche Softwareupdates (in der Regel bekannt als „Patch-Dienstag“) und für die Verwaltung von Definitionsupdates. Bei der Ausführung der Regel werden Softwareupdates aus der Softwareupdategruppe entfernt (bei Verwendung einer vorhandenen Updategruppe), Softwareupdates, die einem angegebenen Kriterium entsprechen (z.B. alle im letzten Monat veröffentlichten Sicherheitsupdates), zu einer Softwareupdategruppe hinzugefügt, die Inhaltsdateien für die Softwareupdates heruntergeladen und auf Verteilungspunkte kopiert und die Softwareupdates für Clients in der Zielsammlung bereitgestellt. Die folgende Liste bietet den allgemeinen Workflow, um Softwareupdates automatisch bereitzustellen:  
+Pour obtenir des instructions détaillées, consultez [Déployer manuellement des mises à jour logicielles](manually-deploy-software-updates.md).
 
-1.  Erstellen Sie eine automatische Bereitstellungsregel, die Bereitstellungseinstellungen angibt.
-2.  Die Softwareupdates werden einer Softwareupdategruppe hinzugefügt.  
-3.  Die Softwareupdategruppe wird auf den Clientcomputern in der Zielsammlung bereitgestellt, sofern diese angegeben ist.  
+## <a name="automatically-deploy-software-updates"></a>Déployer automatiquement des mises à jour logicielles
+La configuration du déploiement automatique de mises à jour logicielles s’effectue à l'aide d’une règle de déploiement automatique. Il s’agit d’une méthode courante pour le déploiement des mises à jour logicielles mensuelles (généralement appelées « Patch Tuesday ») et pour la gestion des mises à jour de définitions. Quand la règle s’exécute, les mises à jour logicielles sont supprimées du groupe de mises à jour logicielles (le cas échéant), celles qui répondent aux critères spécifiés (par exemple, toutes les mises à jour logicielles publiées au cours du dernier mois) sont ajoutées à un groupe de mises à jour logicielles, les fichiers de contenu des mises à jour logicielles sont téléchargés et copiés aux points de distribution, et les mises à jour logicielles sont déployées sur les clients du regroupement cible. La liste suivante fournit le flux de travail général pour le déploiement automatique des mises à jour logicielles :  
 
-Sie müssen eine Bereitstellungsstrategie für Ihre Umgebung auswählen. Beispielsweise könnten Sie eine automatische Bereitstellungsregel erstellen und eine Sammlung mit Testclients als Ziel angeben. Nachdem Sie sich vergewissert haben, dass die Softwareupdates in der Testgruppe installiert werden, können Sie eine neue Bereitstellung zur Regel hinzufügen oder in der vorhandenen Bereitstellung eine andere Zielsammlung angeben, die mehr Clients enthält. Die von den automatischen Bereitstellungsregeln erstellten Softwareupdateobjekte sind interaktiv.  
+1.  Créez une règle de déploiement automatique qui spécifie les paramètres de déploiement.
+2.  Les mises à jour logicielles sont ajoutées à un groupe de mises à jour logicielles.  
+3.  Le groupe de mises à jour logicielles est déployé sur les ordinateurs clients du regroupement cible, s'il est spécifié.  
 
--   Die mithilfe einer automatischen Bereitstellungsregel bereitgestellten Softwareupdates werden neuen Clients, die der Zielsammlung hinzugefügt werden, automatisch bereitgestellt.  
--   Neue Softwareupdates, die einer Softwareupdategruppe hinzugefügt werden, werden den Clients in der Zielsammlung automatisch bereitgestellt.  
--   Sie können Bereitstellungen für die automatische Bereitstellungsregel jederzeit aktivieren oder deaktivieren.  
+Vous devez déterminer quelle stratégie de déploiement utiliser dans votre environnement. Par exemple, vous pouvez créer la règle de déploiement automatique et cibler un regroupement de clients test. Après avoir vérifié que les mises à jour logicielles sont installées sur le groupe test, vous pouvez ajouter un nouveau déploiement à la règle ou modifier le regroupement dans le déploiement existant et le remplacer par un regroupement cible qui comprend un ensemble plus important de clients. Les objets de mise à jour logicielle qui sont créés par les règles de déploiement automatique sont interactifs.  
 
-Nach der Erstellung einer automatischen Bereitstellungsregel können Sie zusätzliche Bereitstellungen zur Regel hinzufügen. Dies hilft Ihnen dabei, die Komplexität der Bereitstellung verschiedener Updates für verschiedene Sammlungen zu verwalten. Jede neue Bereitstellung verfügt über sämtliche Funktionen und die Bereitstellungsüberwachungsumgebung, und in jeder neu hinzugefügten Bereitstellung:  
+-   Les mises à jour logicielles qui ont été déployées à l'aide d'une règle de déploiement automatique sont déployées automatiquement sur les nouveaux clients ajoutés au regroupement cible.  
+-   Les nouvelles mises à jour logicielles ajoutées à un groupe de mises à jour logicielles sont déployées automatiquement sur les clients du regroupement cible.  
+-   Vous pouvez activer ou désactiver les déploiements à tout moment pour la règle de déploiement automatique.  
 
--   Werden die gleiche Upgradegruppe und das gleiche Upgradepaket verwendet, die bzw. das bei der ersten Ausführung der ADR erstellt wurde.  
--   Kann eine andere Sammlung angegeben werden.  
--   Werden eindeutige Bereitstellungseigenschaften unterstützt, einschließlich:  
-   -   Aktivierungszeitpunkt  
-   -   Stichtag  
-   -   Endbenutzeroberfläche ein- oder ausblenden  
-   -   Warnungen für diese Bereitstellung trennen  
+Après avoir créé une règle de déploiement automatique, vous pouvez y ajouter des déploiements supplémentaires. Cela peut vous aider à gérer la complexité liée au déploiement de différentes mises à jour vers différents regroupements. Chaque nouveau déploiement possède la gamme complète de fonctionnalités et d'expérience de surveillance de déploiement, et chaque nouveau déploiement que vous ajoutez :  
 
-Ausführliche Schritte finden Sie unter [Automatisches Bereitstellen von Softwareupdates](automatically-deploy-software-updates.md).
+-   utilise les mêmes packages et groupes de mise à jour que ceux créés lors de la première exécution de la règle de déploiement automatique ;  
+-   peut spécifier un regroupement différent ;  
+-   prend en charge des propriétés de déploiement uniques, notamment :  
+   -   Heure d'activation  
+   -   Échéance  
+   -   Afficher ou masquer l'expérience utilisateur  
+   -   Séparer les alertes pour ce déploiement  
+
+Pour obtenir des instructions détaillées, consultez [Déployer automatiquement des mises à jour logicielles](automatically-deploy-software-updates.md).
 
 <!-- ###  <a name="BKMK_ClientCache"></a> Client cache setting  
 The Configuration Manager client downloads the content for required software updates to the local client cache soon after it receives the deployment. However, the client waits to download the content until after the **Software available time** setting for the deployment. The client does not download software updates in optional deployments (deployments that do not have a scheduled installation deadline) until the user manually starts the installation. When the configured deadline passes, the software updates client agent performs a scan to verify that the software update is still required, then the software updates client agent checks the local cache on the client computer to verify that the software update source file is still available, and then installs the software update. If the content was deleted from the client cache to make room for another deployment, the client downloads the software updates to the cache. Software updates are always downloaded to the client cache regardless of the configured maximum client cache size. For other deployments, such as applications or packages, the client only downloads content that is within the maximum cache size that you configure for the client. Cached content is not automatically deleted, but it remains in the cache for at least one day after the client used that content.  -->

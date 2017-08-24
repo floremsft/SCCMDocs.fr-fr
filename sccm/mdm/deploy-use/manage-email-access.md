@@ -1,6 +1,6 @@
 ---
-title: Verwalten des E-Mail-Zugriffs | Microsoft-Dokumentation
-description: Hier erfahren Sie, wie mit dem bedingten Zugriff in System Center Configuration Manager der Zugriff auf Exchange-E-Mail verwaltet wird.
+title: "Gérer l’accès à la messagerie | Microsoft Docs"
+description: "Apprenez à utiliser l’accès conditionnel System Center Configuration Manager pour gérer l’accès à la messagerie Exchange."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -17,345 +17,345 @@ manager: angrobe
 ms.openlocfilehash: a5c2a8912cd2ef95a778b81d0b7f1f98315b8413
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-email-access-in-system-center-configuration-manager"></a>Verwalten des E-Mail-Zugriffs in System Center Configuration Manager
+# <a name="manage-email-access-in-system-center-configuration-manager"></a>Gérer l’accès à la messagerie dans System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Verwenden Sie den bedingten Zugriff von System Center Configuration Manager, um den Zugriff auf Exchange-E-Mail basierend auf den von Ihnen festgelegten Bedingungen zu verwalten.  
+L’accès conditionnel System Center Configuration Manager permet de gérer l’accès à la messagerie Exchange selon les conditions que vous spécifiez.  
 
-Sie können den Zugriff auf folgende Module verwalten:  
+Vous pouvez gérer l'accès à :  
 
--   Microsoft Exchange lokal  
+-   Microsoft Exchange sur site  
 
 -   Microsoft Exchange Online  
 
 -   Exchange Online Dedicated
 
-Sie können den Zugriff auf Exchange Online und Exchange On-Premises über den integrierten E-Mail-Client auf den folgenden Plattformen steuern:  
+Vous pouvez contrôler l'accès à Exchange Online et Exchange sur site à partir du client de messagerie intégré sur les plateformes suivantes :  
 
--   Android 4.0 und höher, Samsung KNOX Standard 4.0 und höher  
+-   Android 4.0 et ultérieur, Samsung Knox Standard 4.0 et ultérieur  
 
--   iOS 7.1 und höher  
+-   iOS 7.1 et versions ultérieures  
 
--   Windows Phone 8.1 und höher  
+-   Windows Phone 8.1 et versions ultérieures  
 
--   E-Mail-Anwendung unter Windows 8.1 und höher
+-   Application de messagerie sur Windows 8.1 et versions ultérieures
 
-Office-Desktopanwendungen können auf PCs, auf denen Folgendes ausgeführt wird, auf Exchange Online zugreifen:  
+Les applications de bureau Office peuvent accéder à Exchange Online sur les PC exécutant :  
 
--   Office-Desktop 2013 und höher mit aktivierter [moderner Authentifizierung](https://support.office.com/en-US/article/Using-Office-365-modern-authentication-with-Office-clients-776c0036-66fd-41cb-8928-5495c0f9168a) .  
+-   Office 2013 et ultérieur pour ordinateur avec [l’authentification moderne](https://support.office.com/en-US/article/Using-Office-365-modern-authentication-with-Office-clients-776c0036-66fd-41cb-8928-5495c0f9168a) activée.  
 
--   Windows 7.0 oder Windows 8.1  
+-   Windows 7.0 ou Windows 8.1  
 
 > [!NOTE]  
->  PCs müssen in eine Domäne eingebunden oder mit den in Intune festgelegten Richtlinien kompatibel sein.  
+>  Les PC doivent être joints au domaine ou être conformes aux stratégies définies dans Intune.  
 
 
-## <a name="device-requirements"></a>Geräteanforderungen
- Wenn Sie den bedingten Zugriff konfigurieren, bevor Benutzer ihre E-Mails abrufen können, muss das Gerät folgende Voraussetzungen erfüllen:  
+## <a name="device-requirements"></a>Exigences relatives aux appareils
+ Si vous configurez l'accès conditionnel, l'appareil dont l'utilisateur se sert pour se connecter à sa messagerie doit :  
 
--   Es muss bei Intune oder einem in die Domäne eingebundenen PC registriert sein.  
+-   Être inscrit auprès d’Intune ou d’un PC joint à un domaine.  
 
--   Das Gerät muss in Azure Active Directory registriert sein (dies erfolgt automatisch bei der Registrierung des Geräts in Intune – nur für Exchange Online). Darüber hinaus muss die Client-ID für Exchange ActiveSync bei Azure Active Directory registriert sein (gilt nicht für Windows- und Windows Phone-Geräten, die mit Exchange lokal verknüpft sind).  
+-   Inscrire l’appareil dans Azure Active Directory. Ceci se fait automatiquement quand l’appareil est inscrit auprès d’Intune (pour Exchange Online uniquement). Par ailleurs, l'ID Exchange ActiveSync du client doit être inscrite auprès d'Azure Active Directory (ceci ne s'applique pas aux appareils Windows et Windows Phone se connectant à Exchange sur site).  
 
-     Für einen in die Domäne eingebundenen PC müssen Sie es für eine automatische Registrierung bei Azure Active Directory festlegen.  Im Abschnitt **Bedingter Zugriff für PCs** im Thema [Verwalten des Zugriffs auf Dienste in System Center Configuration Manager](../../protect/deploy-use/manage-access-to-services.md) ist der vollständige Satz von Anforderungen zum Aktivieren des bedingten Zugriff für PCs aufgelistet.  
+     Pour un PC joint à un domaine, vous devez le configurer de manière à ce qu'il s'inscrive automatiquement auprès d'Azure Active Directory.  La section **Accès conditionnel pour les PC** de la rubrique [Gérer l’accès aux services dans System Center Configuration Manager](../../protect/deploy-use/manage-access-to-services.md) répertorie l’ensemble des conditions requises pour activer l’accès conditionnel pour les PC.  
 
--   Sie müssen mit allen für das Gerät bereitgestellten Kompatibilitätsrichtlinien von Configuration Manager kompatibel sein.  
+-   Être conforme à toutes les stratégies de conformité Configuration Manager déployées sur cet appareil.  
 
- Wenn eine Bedingung für den bedingten Zugriff nicht erfüllt wird, erhält der Benutzer bei der Anmeldung eine der folgenden Meldungen:  
+ Si une condition d'accès conditionnel n'est pas remplie, l'utilisateur reçoit un des messages suivants quand il se connecte :  
 
--   Wenn das Gerät nicht bei Intune oder in Azure Active Directory registriert ist, wird eine Meldung mit Anweisungen zum Installieren der Unternehmensportal-App, zum Registrieren des Geräts und (für Android und iOS-Geräte) zum Aktivieren des E-Mail-Zugriffs angezeigt. Bei Letzterem wird die Exchange ActiveSync-ID des Geräts mit dem Gerätedatensatz in Azure Active Directory verknüpft.  
+-   Si l’appareil n’est pas inscrit auprès d’Intune ou qu’il n’est pas energistré dans Azure Active Directory, l’utilisateur reçoit un message contenant des instructions pour installer l’application Portail d’entreprise, inscrire l’appareil et, pour les appareils Android et iOS, activer la messagerie, ce qui entraîne l’association de l’ID Exchange ActiveSync de l’appareil à l’enregistrement de l’appareil dans Azure Active Directory.  
 
--   Wenn das Gerät nicht kompatibel ist, wird eine Meldung angezeigt, die den Benutzer zum Intune-Webportal weiterleitet. Hier finden Sie Informationen über das Problem und dessen Lösung.  
+-   Si l’appareil n’est pas conforme, l’utilisateur reçoit un message le dirigeant vers le portail web Intune, où il peut trouver des informations sur le problème et des solutions pour y remédier.  
 
-**Für mobile Geräte:**
+**Pour les appareils mobiles :**
 
-Sie können den Zugriff auf **Outlook Web Access (OWA)** auf Exchange Online verweigern, wenn der Zugriff von einem Browser von **iOS** - und **Android** -Geräten erfolgt.  Der Zugriff wird nur von unterstützten Browsern auf kompatiblen Geräten gewährt:
+Vous pouvez restreindre l’accès à **Outlook Web Access (OWA)** sur Exchange Online par le biais d’un navigateur sur des appareils **iOS** et **Android** .  L’accès sera autorisé uniquement à partir des navigateurs pris en charge sur les appareils compatibles :
 
 * Safari (iOS)
 * Chrome (Android)
-* Managed Browser (iOS und Android)
+* Managed Browser (iOS et Android)
 
-Nicht unterstützte Browser werden blockiert. Die OWA-Apps für iOS und Android werden nicht unterstützt.  Sie müssen über AD FS-Anspruchsregeln blockiert werden:
-* Setup-ADFS beansprucht Regeln zum Blockieren von nicht moderner Authentifizierungsprotokolle. Detaillierte Anweisungen werden in Szenario 3 beschrieben: [Blockieren des gesamten Zugriffs auf Office 365 außer durch browserbasierte Anwendungen](https://technet.microsoft.com/library/dn592182.aspx).
+Les navigateurs non pris en charge seront bloqués. Les applications OWA pour iOS et Android ne sont pas prises en charge.  Elles doivent être bloquées par les règles de revendications AD FS :
+* Configurez des règles de revendications AD FS pour bloquer les protocoles autres que l'authentification moderne. Des instructions détaillées sont fournies dans le scénario 3 : [bloquer tout accès à Office 365, à l’exception des applications basées sur un navigateur](https://technet.microsoft.com/library/dn592182.aspx).
 
- **Für PCs:**  
+ **Pour les PC :**  
 
--   Wenn die Richtlinienanforderung für bedingten Zugriff das Zulassen von **In die Domäne eingebunden** oder **Kompatibel**vorsieht, wird eine Meldung mit Anweisungen zum Registrieren des Geräts angezeigt. Wenn der PC keine der Anforderungen erfüllt, wird der Benutzer aufgefordert, das Gerät bei Intune zu registrieren.  
+-   Si l'exigence de la stratégie d'accès conditionnel est d'autoriser la **jonction à un domaine** ou la **conformité**, un message contenant des instructions sur la façon d'inscrire l'appareil s'affiche. Si le PC ne remplit pas l’une des conditions requises, l’utilisateur doit inscrire l’appareil auprès d’Intune.  
 
--   Wenn die Richtlinienanforderung für bedingten Zugriff nur das Zulassen von in die Domäne eingebundenen Windows-Geräten vorsieht, wird das Gerät blockiert und die Meldung angezeigt, dass der IT-Administrator kontaktiert werden sollte.  
+-   Si l'exigence de la stratégie d'accès conditionnel est configurée pour autoriser uniquement les appareils Windows joints à un domaine, l'appareil est bloqué et un message invitant l'utilisateur à contacter l'administrateur informatique s'affiche.  
 
- Sie können den Zugriff auf Exchange-E-Mails auf den folgenden Plattformen über den geräteinternen Exchange ActiveSync-E-Mail-Client blockieren:  
+ Vous pouvez bloquer l'accès à la messagerie Exchange à partir du client de messagerie Exchange ActiveSync intégré aux appareils sur les plateformes suivantes :  
 
--   Android 4.0 und höher, Samsung KNOX Standard 4.0 und höher  
+-   Android 4.0 et ultérieur, Samsung Knox Standard 4.0 et ultérieur  
 
--   iOS 7.1 und höher  
+-   iOS 7.1 et versions ultérieures  
 
--   Windows Phone 8.1 und höher  
+-   Windows Phone 8.1 et versions ultérieures  
 
--   **E-Mail-Anwendung** unter Windows 8.1 und höher  
+-   Application **Courrier** sur Windows 8.1 et versions ultérieures  
 
- Die Outlook-App für iOS und Android und Outlook Desktop 2013 und höher werden nur für Exchange Online unterstützt.  
+ L’application Outlook pour iOS et Android, ainsi que l’application de bureau Outlook 2013 et versions ultérieures, sont prises en charge uniquement pour Exchange Online.  
 
- Damit der bedingte Zugriff unterstützt wird, ist der **lokale Exchange Connector** zwischen Configuration Manager und Exchange erforderlich.  
+ Le **connecteur Exchange local** entre Configuration Manager et Exchange est nécessaire au fonctionnement de l’accès conditionnel.  
 
- Sie können eine Richtlinie für den bedingten Zugriff für Exchange lokal über die Configuration Manager-Konsole konfigurieren. Wenn Sie eine Richtlinie für den bedingten Zugriff für Exchange Online konfigurieren, können Sie den Vorgang in der Configuration Manager-Konsole starten, wodurch die Intune-Konsole gestartet wird, in der Sie den Vorgang abschließen können.  
+ Vous pouvez configurer une stratégie d’accès conditionnel pour Exchange sur site à partir de la console Configuration Manager. Quand vous configurez une stratégie d’accès conditionnel pour Exchange Online, vous pouvez commencer le processus dans la console Configuration Manager, ce qui lance la console Intune, dans laquelle vous pouvez terminer le processus.  
 
-## <a name="configure-conditional-access"></a>Konfigurieren des bedingten Zugriffs
-### <a name="step-1-evaluate-the-effect-of-the-conditional-access-policy"></a>Schritt 1: Bewerten der Auswirkungen der Richtlinie für bedingten Zugriff  
- Nachdem Sie den **lokale Exchange Connector**konfiguriert haben, können Sie mithilfe des Configuration Manager-Berichts **Geräteliste nach bedingtem Zugriffsstatus** die Geräte identifizieren, deren Exchange-Zugriff nach der Konfiguration der Richtlinie für den bedingten Zugriff blockiert wird. Dieser Bericht erfordert zusätzlich:  
+## <a name="configure-conditional-access"></a>Configurer un accès conditionnel
+### <a name="step-1-evaluate-the-effect-of-the-conditional-access-policy"></a>Étape 1 : Évaluer l’impact de la stratégie d’accès conditionnel  
+ Une fois que vous avez configuré le **connecteur Exchange local**, vous pouvez utiliser le rapport **Liste des appareils par état d’accès conditionnel** de Configuration Manager pour identifier les appareils dont l’accès à Exchange sera bloqué suite à la configuration de la stratégie d’accès conditionnel. Ce rapport requiert également les éléments suivants :  
 
--   Ein Abonnement für Intune  
+-   Un abonnement à Intune.  
 
--   Die Konfiguration und Bereitstellung eines Dienstverbindungspunkts  
+-   Le point de connexion de service doit être configuré et déployé.  
 
- Wählen Sie in den Berichtsparametern die auszuwertende Intune-Gruppe sowie gegebenenfalls die Geräteplattformen aus, auf die Sie die Richtlinie beschränken möchten.  
+ Dans les paramètres du rapport, sélectionnez le groupe Intune à évaluer et, si nécessaire, les plateformes d’appareils auxquelles la stratégie doit être appliquée.  
 
- Weitere Informationen zum Ausführen von Berichten finden Sie unter [Berichterstellung in System Center Configuration Manager](../../core/servers/manage/reporting.md).  
+ Pour plus d’informations sur la façon d’exécuter des rapports, consultez [Génération de rapports dans System Center Configuration Manager](../../core/servers/manage/reporting.md).  
 
- Überprüfen Sie nach der Ausführung des Berichts die folgenden vier Spalten auf blockierte Benutzer:  
+ Après avoir exécuté le rapport, examinez ces quatre colonnes pour déterminer si un utilisateur sera bloqué :  
 
--   **Verwaltungskanal** – Gibt an, ob das Gerät durch Intune und/oder Exchange ActiveSync verwaltet wird.  
+-   **Canal de gestion** : indique si l’appareil est géré par Intune, Exchange ActiveSync ou les deux à la fois.  
 
--   **Bei AAD registriert** – Gibt an, ob das Gerät bei Azure Active Directory registriert ist (wird als Arbeitsbereichsverknüpfung bezeichnet).  
+-   **Inscrit auprès d’AAD** : indique si l’appareil est inscrit auprès d’Azure Active Directory (ce qui s’appelle une « jonction d’espace de travail »).  
 
--   **Kompatibel** – Gibt an, ob das Gerät mit den von Ihnen bereitgestellten Kompatibilitätsrichtlinien kompatibel ist.  
+-   **Conforme** : indique si l’appareil est conforme aux stratégies de conformité que vous avez déployées.  
 
--   **EAS-aktiviert** – Bei iOS- und Android-Geräten muss die Exchange ActiveSync-ID mit dem Geräteregistrierungsdatensatz in Azure Active Directory verknüpft sein. Dies erfolgt, wenn der Benutzer in der Quarantäne-E-Mail auf den Link zum **Aktivieren von E-Mails** klickt.  
+-   **EAS activé** : l’ID ActiveSync Exchange des appareils iOS et Android doit être associé à l’enregistrement d’inscription de l’appareil dans Azure Active Directory. Ceci se produit quand l'utilisateur clique sur le lien **Activer la messagerie** dans l'e-mail de mise en quarantaine.  
 
     > [!NOTE]  
-    >  Für Windows Phone-Geräte wird in dieser Spalte immer ein Wert angezeigt.  
+    >  Les appareils Windows Phone affichent toujours une valeur dans cette colonne.  
 
- Bei Geräten, die Teil einer Zielgruppe oder Sammlung sind, ist der Zugriff auf Exchange blockiert, sofern die Spaltenwerte nicht mit den in der folgenden Tabelle aufgeführten Werten übereinstimmen:  
+ Les appareils qui font partie d'un groupe ou d'un regroupement ciblé verront leur accès à Exchange bloqué, sauf si les valeurs de colonne correspondent à celles qui sont répertoriées dans le tableau suivant :  
 
-|Verwaltungskanal|Bei AAD registriert|Kompatibel|EAS-aktiviert|Resultierende Aktion|  
+|Canal de gestion|Enregistré avec AAD|conformité|EAS activé|Action résultante|  
 |------------------------|--------------------|---------------|-------------------|----------------------|  
-|**Von Microsoft Intune und Exchange ActiveSync verwaltet**|Ja|Ja|**Ja** oder **Nein** wird angezeigt.|E-Mail-Zugriff erlaubt|  
-|Beliebiger anderer Wert|Nein|Nein|Es wird kein Wert angezeigt.|E-Mail-Zugriff blockiert|  
+|**Géré par Microsoft Intune et Exchange ActiveSync**|Oui|Oui|**Oui** ou **Non** s'affiche.|Accès à la messagerie accordé|  
+|Toute autre valeur|Non|Non|Aucune valeur affichée|Accès à la messagerie bloqué|  
 
- Sie können den Inhalt des Berichts exportieren und die Benutzer über die in der Spalte **E-Mail-Adresse** enthaltene Adresse informieren, dass sie blockiert werden.  
+ Vous pouvez exporter le contenu du rapport et utiliser la colonne **Adresse de messagerie** pour informer les utilisateurs qu'ils ne pourront pas accéder à la messagerie.  
 
-### <a name="step-2-configure-user-groups-or-collections-for-the-conditional-access-policy"></a>Schritt 2: Konfigurieren von Benutzergruppen oder Sammlungen für die Richtlinie für bedingten Zugriff  
- Je nach Art der Richtlinie weisen Sie unterschiedlichen Benutzergruppen oder -sammlungen spezielle Richtlinien für den bedingten Zugriff zu. Die Gruppen beinhalten die Benutzer, für die die Richtlinie gelten soll oder die davon ausgeschlossen sind. Bei Benutzern, für die eine Richtlinie gelten soll, muss jedes von ihnen verwendete Gerät die Richtlinie erfüllen, damit sie auf ihre E-Mails zugreifen können.  
+### <a name="step-2-configure-user-groups-or-collections-for-the-conditional-access-policy"></a>Étape 2 : Configurer des groupes ou des regroupements d’utilisateurs pour la stratégie d’accès conditionnel  
+ Vous ciblez les stratégies d'accès conditionnel vers différents groupes ou regroupements d'utilisateurs en fonction du type de stratégie. Ces groupes contiennent les utilisateurs qui seront ciblés par la stratégie ou exemptés de celle-ci. Quand un utilisateur est ciblé par une stratégie, chaque appareil qu'il utilise doit être conforme à cette stratégie pour qu'il puisse accéder à la messagerie.  
 
--   **Richtlinie für Exchange Online** – Richtet sich an Azure Active Directory-Sicherheitsbenutzergruppen. Sie können diese Gruppen in der **Office 365 Admin Center**oder im **Intune-Kontenportal**konfigurieren.  
+-   **Stratégie Exchange Online** : cible des groupes de sécurité Azure Active Directory. Vous pouvez configurer ces groupes dans le **Centre d'administration Office 365**ou dans le **Portail de compte Intune**.  
 
--   **Richtlinie für lokales Exchange** – Richtet sich an Configuration Manager-Benutzersammlungen. Diese können im Arbeitsbereich **Bestand und Kompatibilität** konfiguriert werden.  
+-   **Stratégie Exchange sur site** : cible des regroupements d’utilisateurs Configuration Manager. Vous pouvez les configurer dans l'espace de travail **Ressources et Conformité** .  
 
- Sie können für jede Richtlinie zwei Arten von Gruppen angeben:  
+ Vous pouvez spécifier deux types de groupes dans chaque stratégie :  
 
--   **Zielgruppen** – Benutzergruppen oder Sammlungen, auf die die Richtlinie angewendet wird  
+-   **Groupes ciblés** : groupes ou regroupements d’utilisateurs auxquels la stratégie est appliquée.  
 
--   **Ausgenommene Gruppen** – Benutzergruppen oder Sammlungen, die von der Richtlinie ausgenommen sind (optional)  
+-   **Groupes exemptés** : groupes ou regroupements d’utilisateurs exempts de la stratégie (facultatif).  
 
- Benutzer, die in beiden Gruppen enthalten sind, werden von der Richtlinie ausgenommen.  
+ Si un utilisateur se trouve dans les deux, il est exempté de la stratégie.  
 
- Es werden nur die Gruppen oder Sammlungen, für die die Richtlinie für bedingten Zugriff gilt, für den Exchange-Zugriff ausgewertet.  
+ Seuls les groupes ou les regroupements qui sont ciblés par la stratégie d'accès conditionnel sont évalués pour l'accès à Exchange.  
 
-### <a name="step-3-configure-and-deploy-a-compliance-policy"></a>Schritt 3: Konfigurieren und Bereitstellen einer Kompatibilitätsrichtlinie  
- Wichtig ist, dass Sie für alle Geräte, auf die die Exchange-Richtlinie für bedingten Zugriff angewendet wird, eine Konformitätsrichtlinie erstellen und bereitstellen.  
+### <a name="step-3-configure-and-deploy-a-compliance-policy"></a>Étape 3 : Configurer et déployer une stratégie de conformité  
+ Vérifiez que vous avez créé et déployé une stratégie de conformité pour tous les appareils qui seront ciblés par la stratégie d'accès conditionnel Exchange.  
 
- Ausführliche Informationen zum Konfigurieren der Kompatibilitätsrichtlinie finden Sie unter [Verwalten von Kompatibilitätsrichtlinien für Geräte in System Center Configuration Manager](device-compliance-policies.md).  
+ Pour plus d’informations sur la configuration de la stratégie de conformité, consultez [Gérer des stratégies de conformité d’appareils dans System Center Configuration Manager](device-compliance-policies.md).  
 
 > [!IMPORTANT]  
->  Wenn Sie keine Konformitätsrichtlinie bereitgestellt haben und dann die Exchange-Richtlinie für bedingten Zugriff aktivieren, erhalten alle betreffenden Geräte Zugriff.  
+>  Si vous n'avez pas déployé de stratégie de conformité et que vous activez la stratégie d'accès conditionnel Exchange, l'accès sera autorisé à tous les appareils ciblés.  
 
- Fahren Sie mit **Schritt 4**fort.  
+ Quand vous êtes prêt, passez à l' **Étape 4**.  
 
-### <a name="step-4-configure-the-conditional-access-policy"></a>Schritt 4: Konfigurieren der Richtlinie für bedingten Zugriff  
+### <a name="step-4-configure-the-conditional-access-policy"></a>Étape 4 : Configurer la stratégie d’accès conditionnel  
 
-#### <a name="for-exchange-online-and-tenants-in-the-new-exchange-online-dedicated-environment"></a>Für Exchange Online (und Mandanten in der neuen Exchange Online Dedicated-Umgebung)
+#### <a name="for-exchange-online-and-tenants-in-the-new-exchange-online-dedicated-environment"></a>Pour Exchange Online (et les locataires dans le nouvel environnement Exchange Online Dedicated)
 
 >[!NOTE]
->Richtlinien für den bedingten Zugriff können auch in der Azure AD-Verwaltungskonsole erstellt werden. Mithilfe der Azure AD-Verwaltungskonsole können neben den anderen Richtlinien für den bedingten Zugriff wie die Multi-Factor Authentication auch die Richtlinien für den bedingten Zugriff für Intune-Geräte (als Richtlinie für den gerätebasierten bedingten Zugriff in Azure AD bezeichnet) erstellt werden. Es können auch Richtlinien für den bedingten Zugriff für von Azure AD unterstützte Unternehmensanwendungen von Drittanbietern wie Salesforce und Box festgelegt werden. Weitere Informationen finden Sie unter [How to set Azure Active Directory device-based conditional access policy for access control to Azure Active Directory connected applications (Festlegen von Azure Active Directory-Richtlinien für den gerätebasierten bedingten Zugriff zur Zugriffssteuerung bei Anwendungen, die mit Azure Active Directory verbunden sind)](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-policy-connected-applications/).
+>Vous pouvez aussi créer une stratégie d’accès conditionnel dans la console de gestion Azure AD. Celle-ci vous permet de créer les stratégies d’accès conditionnel aux appareils (appelées dans Azure AD « stratégies d’accès conditionnel en fonction de l’appareil ») en plus des autres stratégies d’accès conditionnel comme l’authentification multifacteur. Vous pouvez aussi définir des stratégies d’accès conditionnel pour des applications d’entreprise tierces comme Salesforce et Box prises en charge par Azure AD. Pour plus d’informations, consultez [Guide pratique pour définir la stratégie d’accès conditionnel en fonction de l’appareil Azure Active Directory pour contrôler l’accès aux applications connectées Azure Active Directory](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-policy-connected-applications/).
 
- Bei Richtlinien für bedingten Zugriff wird für Exchange Online mithilfe des folgenden Ablaufs bewertet, ob Geräte Zugriff erhalten.  
+ Le flux suivant est utilisé par les stratégies d'accès conditionnel pour Exchange Online pour évaluer s'il faut autoriser ou bloquer des appareils.  
 
- ![ConditionalAccess8&#45;1](media/ConditionalAccess8-1.png)  
+ ![Accès conditionnel8&#45;1](media/ConditionalAccess8-1.png)  
 
- Für den E-Mail-Zugriff müssen Geräte die folgenden Voraussetzungen erfüllen:  
+ Pour accéder à la messagerie, l'appareil doit :  
 
--   Es muss bei Intune registriert sein.  
+-   Être inscrit dans Intune.  
 
--   PCs müssen entweder in die Domäne eingebunden oder registriert und mit den in Intune festgelegten Richtlinien kompatibel sein.  
+-   Les PC doivent être joints à un domaine ou inscrits et conformes aux stratégies définies dans Intune.  
 
--   Das Gerät muss in Azure Active Directory registriert sein (dies erfolgt automatisch bei der Registrierung des Geräts in Intune).  
+-   Inscrire l’appareil dans Azure Active Directory (cela se produit automatiquement quand l’appareil est inscrit auprès d’Intune).  
 
-     Für in die Domäne eingebundene PCs müssen Sie [das Gerät für eine automatische Registrierung](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-automatic-device-registration/) bei Azure Active Directory einrichten.  
+     Pour les PC joints à un domaine, vous devez le configurer pour qu’il [s’inscrive automatiquement](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-automatic-device-registration/) auprès d’Azure Active Directory.  
 
--   Ihr E-Mail-Dienst muss aktiviert sein, damit die Exchange ActiveSync-ID des Geräts mit dem Gerätedatensatz in Azure Active Directory verknüpft wird (gilt nur für iOS- und Android-Geräte).  
+-   Activer la messagerie, ce qui entraîne l’association de l’ID Exchange ActiveSync de l’appareil à l’enregistrement de l’appareil dans Azure Active Directory (s’applique uniquement aux appareils iOS et Android).  
 
--   Sie müssen mit allen bereitgestellten Kompatibilitätsrichtlinien kompatibel sein.  
+-   Être conforme à toutes les stratégies de conformité déployées  
 
- Der Gerätestatus wird in Azure Active Directory gespeichert. Die Anwendung gewährt oder blockiert den Zugriff auf E-Mails entsprechend den ausgewerteten Bedingungen.  
+ L'état de l'appareil est stocké dans Azure Active Directory, qui autorise ou bloque l'accès à la messagerie en fonction des conditions évaluées.  
 
- Wenn eine Bedingung nicht erfüllt wird, erhält der Benutzer bei der Anmeldung eine der folgenden Meldungen:  
+ Si une condition n'est pas remplie, l'utilisateur reçoit l'un des messages suivants quand il tente de se connecter :  
 
--   Wenn das Gerät nicht oder in Azure Active Directory registriert ist, wird eine Meldung mit Anweisungen zum Installieren der Unternehmensportal-App und zum Registrieren des Geräts angezeigt.  
+-   Si l'appareil n'est pas inscrit ou qu'il n'est pas inscrit dans Azure Active Directory, l'utilisateur reçoit un message contenant des instructions pour installer l'application Portail d'entreprise, inscrire l'appareil.  
 
--   Wenn das Gerät nicht kompatibel ist, wird eine Meldung angezeigt, die den Benutzer zum Intune-Unternehmensportal oder zur Unternehmensportal-App weiterleitet. Hier finden sie Informationen zum Problem und zu dessen Lösung.  
+-   Si l’appareil n’est pas conforme, l’utilisateur reçoit un message le dirigeant vers le site web ou l’application Portail d’entreprise, où il peut trouver des informations sur le problème et des solutions pour y remédier.  
 
--   Für PCs:  
+-   Sur un PC :  
 
-    -   Wenn die Richtlinie das Beitreten zu einer Domäne erfordert und der PC nicht in die Domäne eingebunden ist, wird die Meldung angezeigt, dass der IT-Administrator kontaktiert werden sollte.  
+    -   Si la stratégie est définie de manière à exiger la jonction à un domaine et que le PC n'est pas joint à un domaine, un message invitant l'utilisateur à contacter l'administrateur informatique s'affiche.  
 
-    -   Wenn die Richtlinie das Beitreten zu einer Domäne oder Kompatibilität erfordert und der PC keine der Anforderungen erfüllt, wird eine Meldung mit einer Anleitung zum Installieren der Unternehmensportal-App und zur Registrierung angezeigt.  
+    -   Si la stratégie définie exige la jonction à un domaine ou la conformité, le PC ne répond pas aux conditions et un message contenant des instructions sur la façon d'installer l'application Portail d'entreprise et d'inscrire l'appareil s'affiche.  
 
- Die Meldung wird für Exchange Online-Benutzer und Mandanten in der neuen Umgebung von Exchange Online Dedicated auf dem Gerät angezeigt. Auf Geräten, die Exchange lokal und ältere Exchange Online Dedicated-Umgebungen verwenden, wird sie zudem an den E-Mail-Posteingang gesendet.  
-
-> [!NOTE]  
->  Mit den Regeln für den bedingten Zugriff von Configuration Manager werden in der Exchange Online-Verwaltungskonsole definierte Regeln überschrieben, zugelassen, blockiert und unter Quarantäne gestellt.  
+ Le message s'affiche sur l'appareil à l'attention des utilisateurs et des locataires Exchange Online dans le nouvel environnement Exchange Online Dedicated, ainsi que dans la boîte de réception des utilisateurs d'appareils Exchange Online Dedicated hérités et Exchange sur site.  
 
 > [!NOTE]  
->  Die Richtlinie für bedingten Zugriff muss in der Intune-Konsole konfiguriert werden. Die folgenden Schritte beginnen mit dem Zugriff auf die Intune-Konsole über den Configuration Manager. Wenn Sie dazu aufgefordert werden, melden Sie sich mit denselben Anmeldeinformationen an, die zum Einrichten des Dienstverbindungspunkts zwischen Configuration Manager und Intune verwendet wurden.  
+>  Les règles d’accès conditionnel Configuration Manager permettent de remplacer, autoriser, bloquer et mettre en quarantaine les règles définies dans la console d’administration Exchange Online.  
 
-##### <a name="to-enable-the-exchange-online-policy"></a>So aktivieren Sie die Exchange Online-Richtlinie  
+> [!NOTE]  
+>  La stratégie d’accès conditionnel doit être configurée dans la console Intune. Les étapes suivantes commencent en accédant à la console Intune via Configuration Manager. Si vous y êtes invité, connectez-vous en utilisant les informations d’identification que vous avez utilisées pour configurer le point de connexion de service entre Configuration Manager et Intune.  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Bestand und Kompatibilität**.  
+##### <a name="to-enable-the-exchange-online-policy"></a>Pour activer la stratégie Exchange Online  
 
-2.  Erweitern Sie **Kompatibilitätseinstellungen**und **Bedingter Zugriff**, und klicken Sie dann auf **Exchange Online**.  
+1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.  
 
-3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Links** auf **Richtlinie für bedingten Zugriff in der Intune-Konsole konfigurieren**. Sie müssen ggf. den Benutzernamen und das Kennwort des Kontos bereitstellen, das zum Verbinden von Configuration Manager mit einem beliebigen globalen Administrator für den Intune-Dienst verwendet wurde.  
+2.  Développez **Paramètres de conformité**, développez **Accès conditionnel**, puis cliquez sur **Exchange Online**.  
 
-     Die Intune-Verwaltungskonsole wird geöffnet.  
+3.  Sous l'onglet **Accueil** , dans le groupe **Liens** , cliquez sur **Configurer la stratégie d'accès conditionnel dans la console Intune**. Vous pouvez être amené à fournir le nom d’utilisateur et le mot de passe du compte utilisé pour connecter Configuration Manager à un administrateur général du service Intune.  
 
-4.  Klicken Sie in der [Microsoft Intune-Verwaltungskonsole](https://manage.microsoft.com)auf **Richtlinie** > **Bedingter Zugriff** > **Exchange Online Richtlinie**.  
+     La console d’administration Intune s’ouvre.  
+
+4.  Dans la console [console d'administration Microsoft Intune](https://manage.microsoft.com), cliquez sur **Stratégie** > **Accès conditionnel** > **Exchange Online Stratégie**.  
 
      ![HybridOnlineSetupIntune](media/HybridOnlineSetupIntune.png)  
 
-5.  Aktivieren Sie auf der Seite **Exchange Online-Richtlinie** die Option **Bedingte Zugriffsrichtlinie für Exchange Online aktivieren**. Wenn Sie diese Option aktivieren, muss das Gerät kompatibel sein. Wenn diese Option nicht aktiviert ist, wird der bedingte Zugriff nicht angewendet.  
+5.  Dans la page **Stratégie Exchange Online** , sélectionnez **Activer la stratégie d'accès conditionnel pour Exchange Online**. Si vous activez cette option, l'appareil doit être conforme à la stratégie. Si elle n'est pas activée, l'accès conditionnel n'est pas appliqué.  
 
     > [!NOTE]  
-    >  Wenn Sie keine Konformitätsrichtlinie bereitgestellt haben und dann die Exchange Online-Richtlinie aktivieren, werden alle Zielgeräte als konform gemeldet.  
+    >  Si vous n'avez pas déployé de stratégie de conformité et que vous activez la stratégie Exchange Online, tous les appareils ciblés sont signalés comme conformes.  
     >   
-    >  Unabhängig vom Kompatibilitätsstatus müssen alle Benutzer, denen die Richtlinie zugewiesen ist, ihre Geräte bei Intune registrieren.  
+    >  Quel que soit l’état de conformité, tous les utilisateurs ciblés par la stratégie doivent inscrire leurs appareils auprès d’Intune.  
 
-6.  Unter **Anwendungszugriff**können Sie für Outlook und andere Apps mit moderner Authentifizierung den Zugriff auf ausschließlich Geräte beschränken, die für jede Plattform kompatibel sind.  Windows-Geräte müssen entweder in die Domäne eingebunden oder in Intune registriert und kompatibel sein.  
+6.  Sous **Accès à l’application**, pour Outlook et d’autres applications utilisant une authentification moderne, vous pouvez choisir de restreindre l’accès aux appareils conformes pour chaque plateforme.  Les appareils Windows doivent être soit joints à un domaine, soit inscrits dans Intune et conformes.  
 
     > [!TIP]  
-    >  Die**moderne Authentifizierung** ermöglicht das ADAL-basierte (Active Directory Authentication Library) Anmelden für Office-Clients.  
+    >  L'**authentification moderne** permet aux clients Office de bénéficier de la connexion basée sur la bibliothèque ADAL (Active Directory Authentication Library).  
     >   
-    >  -   Die ADAL-basierte Authentifizierung ermöglicht Office-Clients die Einbindung in die browserbasierte Authentifizierung (auch als passive Authentifizierung bekannt).  Der Benutzer wird zur Authentifizierung zu einer Anmeldewebseite umgeleitet.  
-    > -   Diese neue Anmeldemethode ermöglicht neue Szenarien, z. B. den bedingten Zugriff, auf Grundlage der **Gerätekompatibilität** und in Abhängigkeit davon, ob eine **mehrstufige Authentifizierung** erfolgt ist.  
+    >  -   L'authentification ADAL permet aux clients Office de procéder à une authentification basée sur un navigateur (également appelée authentification passive).  Pour s'authentifier, l'utilisateur est dirigé vers une page web de connexion.  
+    > -   Cette nouvelle méthode de connexion autorise de nouveaux scénarios tels que l'accès conditionnel basé sur la **compatibilité des appareils** et sur l'exécution préalable de l' **authentification multifacteur** .  
     >   
-    >  Dieser [Artikel](https://support.office.com/en-US/article/How-modern-authentication-works-for-Office-2013-and-Office-2016-client-apps-e4c45989-4b1a-462e-a81b-2a13191cf517) enthält ausführlichere Informationen zur Funktionsweise der modernen Authentifizierung.  
+    >  Cet [article](https://support.office.com/en-US/article/How-modern-authentication-works-for-Office-2013-and-Office-2016-client-apps-e4c45989-4b1a-462e-a81b-2a13191cf517) contient des informations plus détaillées sur le fonctionnement de l’authentification moderne.  
 
-     Wenn Sie Exchange Online mit Configuration Manager und Intune verwenden, können Sie nicht nur mobile Geräte mit bedingtem Zugriff verwalten, sondern auch Desktopcomputer. PCs müssen entweder in die Domäne eingebunden oder in Intune registriert und kompatibel sein. Sie können die folgenden Anforderungen festlegen:  
+     En utilisant Exchange Online avec Configuration Manager et Intune, vous pouvez non seulement gérer les appareils mobiles avec un accès conditionnel, mais aussi les ordinateurs de bureau. Les PC doivent être soit joints à un domaine, soit inscrits dans Intune et conformes. Vous pouvez définir les conditions suivantes :  
 
-    -   **Geräte müssen in eine Domäne eingebunden oder kompatibel sein.** PCs müssen entweder in die Domäne eingebunden oder mit den Richtlinien kompatibel sein. Wenn ein PC keine der Anforderungen erfüllt, wird der Benutzer aufgefordert, das Gerät bei Intune zu registrieren.  
+    -   **Les appareils doivent être joints à un domaine ou conformes.** Les PC doivent être joints à un domaine ou conformes aux stratégies. Si un PC ne remplit pas l’une de ces conditions requises, l’utilisateur est invité à inscrire l’appareil auprès d’Intune.  
 
-    -   **Geräte müssen in eine Domäne eingebunden sein.** PCs müssen für den Zugriff auf Exchange Online in eine Domäne eingebunden sein. Wenn ein Computer in keine Domäne eingebunden ist, wird der E-Mail-Zugriff blockiert und der Benutzer aufgefordert, den IT-Administrator zu kontaktieren.  
+    -   **Les appareils doivent être joints à un domaine** . Les PC doivent être joints à un domaine pour accéder à Exchange Online. Si un PC n’est pas joint à un domaine, l’accès à la messagerie électronique est bloqué et l’utilisateur est invité à contacter l’administrateur informatique.  
 
-    -   **Geräte müssen kompatibel sein.** PCs müssen bei Intune registriert und kompatibel sein. Wenn ein PC nicht registriert ist, wird eine Meldung mit Anweisungen zur Registrierung angezeigt.  
+    -   **Les appareils doivent être conformes** Les PC doivent être inscrits auprès d’Intune et être conformes. Si un PC n’est pas inscrit, un message contenant des instructions sur la procédure d’inscription à suivre s’affiche.  
 
-7.  Unter **Outlook Web Access (OWA)**können Sie Zugriff auf Exchange Online nur über die unterstützten Browser gewähren: Safari (iOS) und Chrome (Android). Der Zugriff über andere Browser wird blockiert. Die gleichen Plattformbeschränkungen, die Sie für den Anwendungszugriff für Outlook ausgewählt haben, gelten auch hier.
+7.  Sous **Outlook Web Access (OWA)**, vous pouvez choisir d’autoriser l’accès à Exchange Online uniquement par le biais des navigateurs pris en charge : Safari (iOS) et Chrome (Android). L’accès à partir d’autres navigateurs sera bloqué. Les mêmes restrictions de plateforme que celles que vous avez sélectionnées pour l’accès aux applications pour Outlook s’appliquent également ici.
 
-    Benutzer müssen auf **Android** -Geräten den Browserzugriff aktivieren.  Der Endbenutzer muss hierzu die Option „Browserzugriff aktivieren“ wie folgt auf dem registrierten Gerät aktivieren:
-     1. Starten Sie die **Unternehmensportal-App**.
-     2. Rufen Sie die Seite **Einstellungen** über die Schaltfläche mit den drei Punkten (…) oder über die physische Menütaste auf.
-      3.    Drücken Sie die Schaltfläche **Browserzugriff aktivieren** .
-      4.    Melden Sie sich im Chrome-Browser von Office 365 ab, und starten Sie Chrome erneut.
+    Sur les appareils **Android** , les utilisateurs doivent activer l’accès du navigateur.  Pour cela, l’utilisateur final doit activer l’option « Activer l’accès du navigateur » sur l’appareil inscrit en procédant comme suit :
+     1. Lancez **l’application Portail d’entreprise**.
+     2. Accédez à la page **Paramètres** via les trois points (...) ou le bouton de menu matériel.
+      3.    Appuyez sur le bouton **Activer l’accès du navigateur** .
+      4.    Dans le navigateur Chrome, déconnectez-vous d’Office 365 et redémarrez Chrome.
 
-     Azure Active Directory führt ein TLS-Zertifikat (Transport Layer Security) auf dem Gerät aus, um auf **iOS und Android** -Plattformen das Gerät zu identifizieren, das für den Zugriff auf den Dienst verwendet wird.  Das Gerät zeigt das Zertifikat zusammen mit einer Aufforderung an den Endbenutzer an, der das Zertifikat auswählen muss, so wie in den folgenden Screenshots gezeigt. Der Endbenutzer muss dieses Zertifikat auswählen, bevor der Browser weiterhin verwendet werden kann.
+     Sur les plateformes **iOS et Android** , pour identifier l’appareil utilisé pour accéder au service, Azure Active Directory émet un certificat TLS (Transport Layer Security) pour l’appareil.  L’appareil affiche le certificat et invite l’utilisateur final à le sélectionner, comme indiqué dans les captures d’écran ci-dessous. L’utilisateur final doit sélectionner ce certificat pour pouvoir continuer à utiliser le navigateur.
 
      **iOS**
 
-     ![Screenshot der Zertifikataufforderung auf einem iPad](media/mdm-browser-ca-ios-cert-prompt_v2.png)
+     ![capture d’écran de l’invite de certificat sur un ipad](media/mdm-browser-ca-ios-cert-prompt_v2.png)
 
     **Android**
 
-    ![Screenshot der Zertifikataufforderung auf einem Android-Gerät](media/mdm-browser-ca-android-cert-prompt.png)
+    ![capture d’écran de l’invite de certificat sur un appareil Android](media/mdm-browser-ca-android-cert-prompt.png)
 
-7.  Für**Exchange ActiveSync-E-Mail-Apps**können Sie E-Mails am Zugriff auf Exchange Online hindern, wenn das Gerät nicht kompatibel ist. Außerdem können Sie auswählen, ob der Zugriff auf E-Mail zugelassen oder blockiert wird, wenn Intune das Gerät nicht verwalten kann.  
+7.  Pour**Applications de messagerie Exchange ActiveSync**, vous pouvez choisir de bloquer l’accès de la messagerie à Exchange Online si l’appareil n’est pas conforme. Vous pouvez aussi autoriser ou bloquer l’accès à la messagerie quand Intune ne peut pas gérer l’appareil.  
 
-8.  Wählen Sie unter **Zielgruppen**die Active Directory-Sicherheitsgruppen der Benutzer aus, auf die die Richtlinie angewendet wird.  
-
-    > [!NOTE]  
-    >  Für Benutzer in den Zielgruppen werden die Exchange-Regeln und -Richtlinien durch Intune-Richtlinien ersetzt.  
-    >   
-    >  Exchange erzwingt nur in den folgenden Situationen die Exchange-Regeln zum Zulassen, Blockieren und für die Quarantäne sowie Exchange-Richtlinien:  
-    >   
-    >  -   Der Benutzer ist nicht für Intune lizenziert.  
-    > -   Der Benutzer ist für Intune lizenziert, gehört aber keiner Sicherheitsgruppe an, die in der Richtlinie für den bedingten Zugriff angegeben ist.  
-
-9. Wählen Sie unter **Ausgenommene Gruppen**die Active Directory-Sicherheitsgruppen der Benutzer aus, die von dieser Richtlinie ausgenommen werden. Wenn ein Benutzer sowohl in den Zielgruppen als auch in den ausgenommenen Gruppen enthalten ist, wird er von der Richtlinie ausgenommen und hat Zugriff auf deren E-Mail.  
-
-10. Wenn Sie fertig sind, klicken Sie auf **Speichern**.  
-
--   Die Richtlinie für bedingten Zugriff wird sofort wirksam und muss nicht explizit bereitgestellt werden.  
-
--   Nachdem ein Benutzer ein E-Mail-Konto erstellt hat, wird das Gerät sofort blockiert.  
-
--   Sobald ein blockierter Benutzer das Gerät bei Intune registriert (oder die Nichtkompatibilität behebt), wird der E-Mail-Zugriff innerhalb von 2 Minuten entsperrt.  
-
--   Wenn der Benutzer die Registrierung seines Geräts aufhebt, wird der E-Mail-Zugriff nach ca. 6 Stunden blockiert.  
-
-### <a name="for-exchange-on-premises-and-tenants-in-the-legacy-exchange-online-dedicated-environment"></a>Für Exchange lokal (und Mandanten in der älteren Exchange Online Dedicated-Umgebung)  
- Bei Richtlinien für bedingten Zugriff wird für Exchange lokal und Mandanten in der älteren Exchange Online Dedicated-Umgebung über den folgenden Ablauf bewertet, ob Geräten Zugriff erhalten.  
-
- ![ConditionalAccess8&#45;2](media/ConditionalAccess8-2.png)  
-
-##### <a name="to-enable-the-exchange-on-premises-policy"></a>So aktivieren Sie die Richtlinie für lokales Exchange  
-
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Bestand und Kompatibilität**.  
-
-2.  Erweitern Sie **Kompatibilitätseinstellungen**und **Bedingter Zugriff**, und klicken Sie dann auf **Exchange lokal**.  
-
-3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Exchange lokal** auf **Richtlinie für bedingten Zugriff konfigurieren**.  
-
-4.  **Ab Version 1602 von Configuration Manager**können Sie auf der Seite **Allgemein** des **Assistenten zur Konfiguration der Richtlinie zum bedingten Zugriff**angeben, ob Sie die Exchange Active Sync-Standardregel außer Kraft setzen möchten. Aktivieren Sie diese Option, wenn Sie möchten, dass registrierte und kompatible Geräte stets Zugriff auf E-Mail haben, auch wenn die Standardregel auf Quarantäne oder Blockieren des Zugriffs festgelegt ist.  
+8.  Sous **Groupes ciblés**, sélectionnez les groupes de sécurité Active Directory auxquels la stratégie sera appliquée.  
 
     > [!NOTE]  
-    >  Es gibt ein Problem mit der standardmäßigen Außerkraftsetzung für Android-Geräte. Wenn die Standardzugriffsregel des Exchange-Servers auf **Blockieren** festgelegt ist und die Exchange-Richtlinie für bedingten Zugriff mit der standardmäßigen Option zur Außerkraftsetzung der Regel aktiviert ist, wird die Blockierung der Android-Geräte der Zielbenutzer ggf. nicht aufgehoben, auch nachdem die Geräte bei Intune registriert wurden und kompatibel sind.  Zur Umgehung dieses Problem legen Sie die Exchange-Standardzugriffsregel auf **Quarantäne**fest. Das Gerät erhält nicht standardmäßig Zugriff auf Exchange. Der Administrator kann einen Bericht vom Exchange-Server mit der Liste der Geräte in Quarantäne abrufen.  
+    >  Pour les utilisateurs qui figurent dans les groupes cibles, les stratégies Intune remplacent les stratégies et les règles Exchange.  
+    >   
+    >  Exchange applique les règles d'autorisation, de blocage et de mise en quarantaine d'Exchange, ainsi que les stratégies Exchange, si :  
+    >   
+    >  -   L'utilisateur n'a pas de licence Intune.  
+    > -   L'utilisateur a une licence Intune, mais n'appartient à aucun groupe de sécurité ciblé dans la stratégie d'accès conditionnel.  
 
-     Wenn Sie bei der Einrichtung des Exchange-Connectors kein Benachrichtigungs-E-Mail-Konto eingerichtet haben, wird eine Warnung auf dieser Seite angezeigt, und die Schaltfläche **Weiter** ist deaktiviert.  Bevor Sie fortfahren können, müssen Sie zunächst im Exchange-Connector die E-Mail-Benachrichtigungseinstellungen konfigurieren und dann zum **Assistenten zur Konfiguration der Richtlinie zum bedingten Zugriff** zurückkehren.  
+9. Sous **Groupes exemptés**, sélectionnez les groupes de sécurité Active Directory exemptés de cette stratégie. Si un utilisateur figure à la fois dans les groupes ciblés et dans les groupes exemptés, il est exempté de la stratégie et a accès à sa messagerie électronique.  
+
+10. Une fois terminé, cliquez sur **Enregistrer**.  
+
+-   La stratégie d’accès conditionnel prend effet immédiatement. Il est donc inutile de la déployer.  
+
+-   Quand un utilisateur crée un compte de messagerie, l’appareil est bloqué immédiatement.  
+
+-   Si un utilisateur bloqué inscrit l’appareil auprès d’Intune (ou remédie à la non-conformité), l’accès à la messagerie est débloqué dans les 2 minutes.  
+
+-   Si l’utilisateur annule l’inscription de son appareil, la messagerie électronique est bloquée après environ 6 heures.  
+
+### <a name="for-exchange-on-premises-and-tenants-in-the-legacy-exchange-online-dedicated-environment"></a>Pour Exchange sur site (et les locataires dans l’environnement Exchange Online Dedicated hérité)  
+ Le flux suivant est utilisé par les stratégies d’accès conditionnel pour Exchange sur site et les locataires dans l’environnement Exchange Online Dedicated hérité pour évaluer s’il faut autoriser ou bloquer des appareils.  
+
+ ![Accès conditionnel8&#45;2](media/ConditionalAccess8-2.png)  
+
+##### <a name="to-enable-the-exchange-on-premises-policy"></a>Pour activer la stratégie Exchange sur site  
+
+1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.  
+
+2.  Développez **Paramètres de conformité**, développez **Accès conditionnel**, puis cliquez sur **Exchange local**.  
+
+3.  Sous l'onglet **Accueil** , dans le groupe **Exchange local** , cliquez sur **Configurer la stratégie d'accès conditionnel**.  
+
+4.  **Depuis la version 1602 de Configuration Manager**, dans la page **Général** de **l’Assistant Configuration de la stratégie d’accès conditionnel**, spécifiez si vous souhaitez remplacer la règle par défaut d’Exchange Active Sync. Cliquez sur cette option si vous souhaitez que les appareils inscrits et conformes aient toujours accès à la messagerie, même si la règle par défaut est définie pour mettre en quarantaine ou bloquer l’accès.  
+
+    > [!NOTE]  
+    >  Il existe un problème avec le remplacement par défaut pour les appareils Android. Si la règle d’accès par défaut du serveur Exchange a la valeur **Bloquer** et si la stratégie d’accès conditionnel Exchange est activée avec l’option de remplacement de la règle par défaut, les appareils Android des utilisateurs ciblés risquent de ne pas être débloqués même si les appareils sont inscrits auprès d’Intune et conformes.  Pour contourner ce problème, affectez à la règle d’accès par défaut d’Exchange la valeur **Quarantaine**. L’appareil n’obtient pas l’accès à Exchange par défaut, et l’administrateur peut recevoir d’Exchange Server un rapport sur la liste des appareils en quarantaine.  
+
+     Si vous n’avez pas défini de compte pour le courrier électronique de notification lors de la configuration du connecteur Exchange, un avertissement s’affiche dans cette page et le bouton **Suivant** est désactivé.  Pour pouvoir continuer, vous devez configurer les paramètres d’e-mail de notification dans le connecteur Exchange, puis revenir à **l’Assistant Configuration de la stratégie d’accès conditionnel** pour terminer la procédure.  
 
      ![HybridCondAccessWiz1](media/HybridCondAccessWiz1.PNG)  
 
-     Klicken Sie auf **Weiter**.  
+     Cliquez sur **Suivant**.  
 
-5.  Fügen Sie auf der Seite für **Zielsammlungen** mindestens eine Benutzersammlung hinzu. Für den Zugriff auf Exchange müssen Benutzer in diesen Sammlungen ihre Geräte bei Intune registrieren und zusätzlich die von Ihnen bereitgestellten Kompatibilitätsrichtlinien einhalten.  
+5.  Dans la page **Regroupements ciblés** , ajoutez un ou plusieurs regroupements d'utilisateurs. Pour accéder à Exchange, les utilisateurs de ces regroupements doivent inscrire leurs appareils auprès d’Intune et être conformes aux stratégies de conformité que vous avez déployées.  
 
      ![HybridCondAccessWiz2](media/HybridCondAccessWiz2.PNG)  
 
-     Klicken Sie auf **Weiter**.  
+     Cliquez sur **Suivant**.  
 
-6.  Fügen Sie auf der Seite für **Ausgenommene Sammlungen** Benutzersammlungen hinzu, die von der Richtlinie für bedingten Zugriff ausgenommen werden sollen. Benutzer in diesen Gruppen müssen ihre Geräte nicht bei Intune registrieren und die bereitgestellten Kompatibilitätsrichtlinien nicht einhalten, um auf Exchange zuzugreifen.  
+6.  Dans la page **Regroupements exemptés** , ajoutez les regroupements d'utilisateurs que vous voulez exempter de la stratégie d'accès conditionnel. Les utilisateurs de ces groupes n’ont pas besoin d’inscrire leurs appareils auprès d’Intune ni d’être conformes aux stratégies de conformité déployées pour accéder à Exchange.  
 
      ![HybridCondAccessWiz3](media/HybridCondAccessWiz3.png)  
 
-     Wenn ein Benutzer sowohl in der Zielliste als auch in der Ausnahmeliste enthalten ist, wird er aus der Richtlinie für den bedingten Zugriff ausgenommen.  
+     Si un utilisateur figure à la fois dans les listes des groupes ciblés et des groupes exemptés, il est exempté de la stratégie d'accès conditionnel.  
 
-     Klicken Sie auf **Weiter**.  
+     Cliquez sur **Suivant**.  
 
-7.  Konfigurieren Sie auf der Seite **Benutzerbenachrichtigung bearbeiten** die E-Mail, die Intune mit Anweisungen an Benutzer sendet, wie das Gerät entsperrt wird (und außerdem die von Exchange gesendete E-Mail).  
+7.  Dans la page **Modifier la notification à l’utilisateur**, configurez le message électronique qu’envoie Intune aux utilisateurs avec des instructions sur la procédure pour débloquer leur appareil (en plus du message envoyé par Exchange).  
 
-     Sie können die Standardnachricht bearbeiten und den Text mithilfe von HTML-Tags formatieren. Sie können auch eine E-Mail im Voraus an Ihre Mitarbeiter senden, in der diese über die bevorstehenden Änderungen informiert werden und Anleitungen für die Registrierung ihrer Geräte erhalten.  
+     Vous pouvez modifier le message par défaut et utiliser des balises HTML pour mettre en forme le texte. Vous pouvez également envoyer un courrier électronique à l’avance à vos employés pour les informer des modifications à venir et leur fournir des instructions sur l’inscription de leurs appareils.  
 
      ![HybridCondAccessWiz4](media/HybridCondAccessWiz4.PNG)  
 
     > [!NOTE]  
-    >  Da die Benachrichtigungs-E-Mail von Intune mit den Lösungsanweisungen an das Exchange-Postfach des Benutzers gesendet wird, kann es vorkommen, dass das Gerät blockiert wird, bevor der Benutzer die E-Mail-Nachricht erhält. In diesem Fall besteht die Möglichkeit, die Nachricht über ein freigeschaltetes Gerät oder eine andere Exchange-Zugriffsmethode anzuzeigen.  
+    >  Le message électronique de notification Intune contenant les instructions de correction est remis dans la boîte aux lettres Exchange de l’utilisateur. Par conséquent, si l’appareil de l’utilisateur est bloqué avant la réception du message électronique, l’utilisateur peut utiliser un appareil non bloqué ou recourir à une autre méthode pour accéder à Exchange et consulter le message.  
 
     > [!NOTE]  
-    >  Damit die Benachrichtigungs-E-Mail in Exchange gesendet werden kann, müssen Sie das dafür verwendete Konto entsprechend konfigurieren. Dies geschieht, wenn Sie die Eigenschaften des Exchange Server-Connectors konfigurieren.  
+    >  Pour que le message électronique de notification puisse être envoyé par Exchange, vous devez configurer le compte utilisé pour l'envoyer. Vous faites cela quand vous configurez les propriétés du connecteur Exchange Server.  
     >   
-    >  Weitere Informationen finden Sie unter [Verwalten von mobilen Geräten mit System Center Configuration Manager und Exchange](../../mdm/deploy-use/manage-mobile-devices-with-exchange-activesync.md).  
+    >  Pour plus d’informations, consultez [Gérer les appareils mobiles avec System Center Configuration Manager et Exchange](../../mdm/deploy-use/manage-mobile-devices-with-exchange-activesync.md).  
 
-     Klicken Sie auf **Weiter**.  
+     Cliquez sur **Suivant**.  
 
-8.  Überprüfen Sie auf der Seite  **Zusammenfassung** die Einstellungen, und schließen Sie dann den Assistenten ab.  
+8.  Sur la page  **Résumé** , vérifiez les paramètres, puis terminez l'Assistant.  
 
--   Die Richtlinie für bedingten Zugriff wird sofort wirksam und muss nicht explizit bereitgestellt werden.  
+-   La stratégie d'accès conditionnel prend effet immédiatement. Il est donc inutile de la déployer.  
 
--   Nachdem ein Benutzer ein Exchange ActiveSync-Profil eingerichtet hat, kann es 1 bis 3 Stunden dauern, bis das Gerät blockiert wird (wenn es nicht von Intune verwaltet wird).  
+-   Une fois qu’un utilisateur a configuré un profil Exchange ActiveSync, le blocage de son appareil peut prendre entre une et trois heures (s’il n’est pas géré par Intune).  
 
--   Wenn ein blockierter Benutzer das Gerät anschließend bei Intune registriert (oder die Nichtkompatibilität behebt), wird der E-Mail-Zugriff innerhalb von zwei Minuten entsperrt.  
+-   Si un utilisateur bloqué inscrit alors l’appareil auprès d’Intune (ou remédie à la non-conformité), l’accès à la messagerie électronique est débloqué dans les deux minutes.  
 
--   Wenn der Benutzer die Registrierung des Geräts bei Intune aufhebt, kann es 1 bis 3 Stunden dauern, bis das Gerät blockiert wird.  
+-   Si l’utilisateur annule l’inscription auprès d’Intune, le blocage de son appareil peut prendre entre une et trois heures.  
 
-### <a name="see-also"></a>Weitere Informationen:  
- [Verwalten des Zugriffs auf Dienste in System Center Configuration Manager](../../protect/deploy-use/manage-access-to-services.md)
+### <a name="see-also"></a>Voir aussi  
+ [Gérer l’accès aux services dans System Center Configuration Manager](../../protect/deploy-use/manage-access-to-services.md)

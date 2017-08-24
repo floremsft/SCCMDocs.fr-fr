@@ -1,6 +1,6 @@
 ---
-title: Dienstverbindungspunkt | Microsoft-Dokumentation
-description: "Erfahren Sie mehr über diese Standortsystemrolle von Configuration Manager, und verstehen und planen Sie den Verwendungsbereich."
+title: Point de connexion de service | Microsoft Docs
+description: "Découvrez ce rôle système de site Configuration Manager, puis comprenez et planifiez sa plage d’utilisations."
 ms.custom: na
 ms.date: 6/28/2017
 ms.prod: configuration-manager
@@ -18,74 +18,74 @@ manager: angrobe
 ms.openlocfilehash: e3d41dc1bb732e887d722f39ee86deaf0aae3240
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="about-the-service-connection-point-in-system-center-configuration-manager"></a>Informationen zum Dienstverbindungspunkt in System Center Configuration Manager
+# <a name="about-the-service-connection-point-in-system-center-configuration-manager"></a>À propos du point de connexion de service dans System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Der System Center Configuration Manager-Dienstverbindungspunkt ist eine Standortsystemrolle, die mehrere wichtige Funktionen für die Hierarchie übernimmt. Bevor Sie den Dienstverbindungspunkt einrichten, sollten Sie seinen Verwendungsbereich kennen und planen, da dies Auswirkungen auf die Einrichtung dieser Standortsystemrolle haben kann:  
+Le point de connexion de service System Center Configuration Manager est un rôle système de site qui remplit plusieurs fonctions importantes pour la hiérarchie. Avant de configurer le point de connexion, évaluez et planifiez dans quelle mesure son utilisation peut influer sur la façon dont vous configurez ce rôle de système de site :  
 
--   **Verwalten mobiler Geräte mit Microsoft Intune**: Diese Rolle ersetzt den Windows Intune-Connector, der von früheren Configuration Manager-Versionen verwendet wurde, und kann mit Ihren Intune-Abonnementdetails konfiguriert werden. Informationen hierzu finden Sie unter [Hybride Verwaltung mobiler Geräte (MDM) mit System Center Configuration Manager und Microsoft Intune](../../../../mdm/understand/hybrid-mobile-device-management.md).  
+-   **Gérer les appareils mobiles avec Microsoft Intune** : ce rôle remplace le connecteur Windows Intune utilisé par les versions précédentes de Configuration Manager et peut être configuré avec les détails de votre abonnement Intune. Consultez [Gestion des appareils mobiles (MDM) hybride avec System Center Configuration Manager et Microsoft Intune](../../../../mdm/understand/hybrid-mobile-device-management.md).  
 
--   **Verwalten mobiler Geräte mit lokaler Verwaltung mobiler Geräte**: Diese Rolle bietet Unterstützung für lokale Geräte, die von Ihnen verwaltet werden und die keine Verbindung mit dem Internet herstellen. Informationen hierzu finden Sie unter [Verwalten mobiler Geräte mit lokaler Infrastruktur in System Center Configuration Manager](../../../../mdm/understand/manage-mobile-devices-with-on-premises-infrastructure.md).  
+-   **Gérer les appareils mobiles avec la gestion MDM locale** : ce rôle assure la prise en charge des appareils locaux que vous gérez et qui ne se connectent pas à Internet. Consultez [Gérer des appareils mobiles avec une infrastructure locale dans System Center Configuration Manager](../../../../mdm/understand/manage-mobile-devices-with-on-premises-infrastructure.md).  
 
--   **Hochladen von Nutzungsdaten aus Ihrer Configuration Manager-Infrastruktur**: Sie können die Ebene oder die Menge der hochgeladenen Details steuern. Hochgeladene Daten geben uns folgende Möglichkeiten:  
+-   **Charger les données d’utilisation à partir de votre infrastructure Configuration Manager** : vous pouvez contrôler le niveau ou la quantité de détails que vous chargez. Les données chargées nous aide à :  
 
-    -   Proaktives Erkennen und Beheben von Problemen  
+    -   identifier et résoudre les problèmes de manière proactive ;  
 
-    -   Verbesserung unserer Produkte und Dienste  
+    -   améliorer nos produits et services ;  
 
-    -   Ermitteln von Updates für Configuration Manager, die für die von Ihnen verwendete Configuration Manager-Version gelten  
+    -   identifier les mises à jour pour Configuration Manager applicables à la version de Configuration Manager que vous utilisez.  
 
-  Informationen zu den auf den einzelnen Ebenen gesammelten Daten und zum Ändern der Sammlungsebene nach der Installation der Rolle finden Sie unter [Diagnose- und Nutzungsdaten](/sccm/core/plan-design/diagnostics/diagnostics-and-usage-data). Klicken Sie anschließend auf den Link der verwendeten Configuration Manager-Version.  
+  Pour plus d’informations sur les données collectées par chaque niveau et sur la façon de modifier le niveau de regroupement après l’installation du rôle, consultez [Données d’utilisation et de diagnostics](/sccm/core/plan-design/diagnostics/diagnostics-and-usage-data), puis suivez le lien correspondant à la version de Configuration Manager que vous utilisez.  
 
-  Weitere Informationen finden Sie unter [Ebenen und Einstellungen für Nutzungsdaten](../../../../core/servers/deploy/install/setup-reference.md#bkmk_usage).  
+  Pour plus d’informations, consultez [Paramètres et niveaux de données d’utilisation](../../../../core/servers/deploy/install/setup-reference.md#bkmk_usage).  
 
--   **Herunterladen von Updates, die auf Ihre Configuration Manager-Infrastruktur zutreffen**: Auf Grundlage der von Ihnen hochgeladenen Nutzungsdaten werden nur Updates verfügbar gemacht, die für Ihre Infrastruktur relevant sind.  
+-   **Télécharger les mises à jour applicables à votre infrastructure Configuration Manager** : seules les mises à jour appropriées pour votre infrastructure sont disponibles, en fonction des données d’utilisation que vous chargez.  
 
-- **Jede Hierarchie unterstützt eine einzelne Instanz dieser Rolle:**  
+- **Chaque hiérarchie prend en charge une seule instance de ce rôle :**  
 
- -   Die Standortsystemrolle kann nur am Standort der obersten Ebene Ihrer Hierarchie installiert werden. Dabei handelt es sich um einen Standort der zentralen Verwaltung oder einen eigenständigen primären Standort.  
+ -   Ce rôle de système de site ne peut être installé que sur le site de niveau supérieur de votre hiérarchie (site d’administration centrale ou site principal autonome).  
 
-  -   Wenn Sie einen eigenständigen primären Standort auf eine größere Hierarchie erweitern, müssen Sie diese Rolle am primären Standort deinstallieren und können sie dann am Standort der zentralen Verwaltung installieren.  
+  -   Si vous étendez un site principal autonome à une hiérarchie plus importante, vous devez désinstaller ce rôle du site principal pour pouvoir l’installer ensuite sur le site d’administration centrale.  
 
 
-##  <a name="bkmk_modes"></a> Betriebsmodi  
- Der Dienstverbindungspunkt unterstützt zwei Betriebsmodi:  
+##  <a name="bkmk_modes"></a> Modes opératoires  
+ Le point de connexion de service prend en charge deux modes de fonctionnement :  
 
--   Im **Onlinemodus** sucht der Dienstverbindungspunkt automatisch alle 24 Stunden nach Updates und lädt dann neue Updates herunter, die für Ihre aktuelle Infrastruktur und Produktversion verfügbar sind. Diese werden dann in der Configuration Manager-Konsole bereitgestellt.  
+-   En **mode en ligne**, le point de connexion de service vérifie automatiquement l’existence de mises à jour toutes les 24 heures et télécharge dans la console Configuration Manager les mises à jour disponibles pour la version actuelle de vos infrastructure et produits.  
 
--   Im **Offlinemodus** stellt der Dienstverbindungspunkt keine Verbindung mit dem Microsoft-Clouddienst her, und Sie müssen das [Dienstverbindungstool für System Center Configuration Manager](../../../../core/servers/manage/use-the-service-connection-tool.md) manuell ausführen, um verfügbare Updates zu importieren.  
+-   En **mode hors connexion**, le point de connexion de service ne se connecte pas au service cloud Microsoft et vous devez manuellement [utiliser l’outil de connexion de service pour System Center Configuration Manager](../../../../core/servers/manage/use-the-service-connection-tool.md) pour importer les mises à jour disponibles.  
 
-Wenn Sie nach der Installation des Dienstverbindungspunkts zwischen dem Online- und Offline-Modus wechseln möchten, müssen Sie anschließend den SMS_DMP_DOWNLOADER-Thread des SMS_Executive-Diensts von Configuration Manager neu starten, damit diese Änderung wirksam wird. Verwenden Sie hierzu den Dienst-Manager von Configuration Manager, um nur den SMS_DMP_DOWNLOADER-Thread des SMS_Executive-Diensts neu zu starten. Sie können auch den SMS_Executive-Dienst für Configuration Manager neu starten (wodurch die meisten Standortkomponenten neu gestartet werden) oder auf einen Zeitplantask wie z.B. eine Standortsicherung warten, der den SMS_Executive-Dienst für Sie beendet und später neu startet.  
+Quand vous basculez entre le mode en ligne ou hors connexion après avoir installé le point de connexion de service, vous devez redémarrer le thread SMS_DMP_DOWNLOADER du service SMS_Executive Configuration Manager pour appliquer cette modification. Pour ce faire, utilisez le Gestionnaire de service de Configuration Manager pour redémarrer uniquement le thread SMS_DMP_DOWNLOADER du service SMS_Executive. Vous pouvez également redémarrer le service SMS_Executive pour Configuration Manager (qui redémarre la plupart des composants de site), ou attendre une tâche planifiée comme une sauvegarde de site, qui arrête puis redémarre ultérieurement le service SMS_Executive pour vous.  
 
-Wechseln Sie zum Verwenden des Dienst-Managers von Configuration Manager in der Konsole zu **Überwachung** > **Systemstatus** > **Komponentenstatus**, wählen Sie **Starten**, und wählen Sie anschließend **Dienst-Manager für Configuration Manager**. Gehen Sie im Dienst-Manager folgendermaßen vor:  
+Pour utiliser le Gestionnaire de service de Configuration Manager, dans la console, accédez à **Surveillance** > **État du système** > **État du composant**, choisissez **Démarrer**, puis **Gestionnaire de service de Configuration Manager**. Dans le Gestionnaire de service :  
 
--   Erweitern Sie im Navigationsbereich den Standort und dann **Komponenten**, und wählen Sie anschließend die Komponente aus, die neu gestartet werden soll.  
+-   Dans le volet de navigation, développez le site, développez **Composants**, puis choisissez le composant à redémarrer.  
 
--   Klicken Sie im Detailbereich mit der rechten Maustaste auf die Komponente, und wählen Sie dann **Abfrage**.  
+-   Dans le volet d’informations, cliquez avec le bouton droit sur le composant, puis choisissez **Requête**.  
 
--   Wenn der Status der Komponente bestätigt wurde, klicken Sie erneut mit der rechten Maustaste auf die Komponente, und wählen Sie **Beenden**.  
+-   Une fois l’état du composant confirmé, recliquez avec le bouton droit sur le composant, puis choisissez **Arrêter**.  
 
--   Führen Sie die **Abfrage** für die Komponente erneut aus, um sicherzustellen, dass sie beendet wurde. Klicken Sie mit der rechten Maustaste noch einmal auf die Komponente, und wählen Sie **Starten**.  
+-   Envoyez une nouvelle **requête** au composant pour confirmer qu’il est arrêté, recliquez avec le bouton droit sur le composant, puis choisissez **Démarrer**.  
 
 > [!IMPORTANT]  
->  Der Prozess, der dem Dienstverbindungspunkt ein Microsoft Intune-Abonnement hinzufügt, legt die Standortsystemrolle automatisch auf „Online“ fest. Der Dienstverbindungspunkt unterstützt den Offlinemodus nicht, wenn er mit einem Intune-Abonnement eingerichtet wird.  
+>  Le processus qui ajoute un abonnement Microsoft Intune au point de connexion de service définit automatiquement le rôle de système de site en ligne. Le point de connexion de service ne prend pas en charge le mode hors connexion en cas de configuration avec un abonnement Intune.  
 
-**Wenn die Rolle auf einem Computer installiert wird, der sich an einem vom Standortserver entfernten Ort befindet:**  
+**Quand le rôle s’installe sur un ordinateur distant du serveur de site :**  
 
--   Das Computerkonto des Standortservers muss ein lokaler Administrator auf dem Computer sein, der eine Remotedienstverbindung hostet.
+-   Le compte d’ordinateur du serveur de site doit être un administrateur local sur l’ordinateur qui héberge une connexion de service distant.
 
--   Sie müssen den Standortsystemserver, der die Rolle hostet, mit einem Standortsystem-Installationskonto einrichten.  
+-   Vous devez configurer le serveur de système de site qui héberge le rôle avec un compte d’installation du système de site.  
 
--   Der Verteilungs-Manager auf dem Standortserver verwendet das Standortsystem-Installationskonto zum Übertragen von Updates vom Dienstverbindungspunkt.
+-   Le gestionnaire de distribution sur le serveur de site le compte d’installation du système de site pour transférer les mises à jour à partir du point de connexion de service.
 
-##  <a name="bkmk_urls"></a> Erforderliche Berechtigungen für den Internetzugriff  
-Der Computer, der den Dienstverbindungspunkt und alle Firewalls zwischen dem Computer und dem Internet hostet, muss die Kommunikation über den **TCP-Port 443** und den **TCP-Port 443** an die folgenden Internet-URLs übergeben, um den Vorgang zu aktivieren. Der Dienstverbindungspunkt unterstützt auch Webproxys (mit oder ohne Authentifizierung) für die Verwendung dieser URLs.  Informationen zur Konfiguration eines Web Proxy Accounts finden Sie unter [Unterstützung von Proxyservern in System Center Configuration Manager](/sccm/core/plan-design/network/proxy-server-support).
+##  <a name="bkmk_urls"></a> Conditions requises pour l’accès Internet  
+L’ordinateur qui héberge le point de connexion de service et les éventuels pare-feu entre cet ordinateur et Internet doivent transmettre les communications par le biais du **port TCP 443** et du **port TCP 443** aux emplacements Internet suivants. Le point de connexion de service prend également en charge l’utilisation d’un proxy web (avec ou sans authentification) pour utiliser ces emplacements.  Si vous devez configurer un compte de proxy web, consultez [rise en charge du serveur proxy dans System Center Configuration Manager](/sccm/core/plan-design/network/proxy-server-support).
 
-**Updates und Wartung**  
+**Mises à jour et maintenance**  
 
 -   *.akamaiedge.net  
 
@@ -110,20 +110,20 @@ Der Computer, der den Dienstverbindungspunkt und alle Firewalls zwischen dem Com
 -   https://login.microsoftonline.com/{TenantID}
 
 
-**Windows 10-Wartung**  
+**Maintenance de Windows 10**  
 
 -   download.microsoft.com  
 
 -   https://go.microsoft.com/fwlink/?LinkID=619849  
 
-## <a name="install-the-service-connection-point"></a>Installieren des Dienstverbindungspunkts
-Beim Ausführen von **Setup** zum Installieren des Standorts der obersten Ebene einer Hierarchie haben Sie die Möglichkeit, den Dienstverbindungspunkt zu installieren.
+## <a name="install-the-service-connection-point"></a>Installer le point de connexion de service
+Quand vous exécutez le **programme d’installation** pour installer le site de plus haut niveau d’une hiérarchie, vous avez la possibilité d’installer le point de connexion de service.
 
-Nachdem Sie Setup ausgeführt haben oder wenn Sie die Standortsystemrolle neu installieren, verwenden Sie den **Assistenten zum Hinzufügen von Standortsystemrollen** oder den **Assistenten zum Erstellen von Standortsystemservern**, um das Standortsystem auf einem Server am Standort der obersten Ebene der Hierarchie (dem Standort der zentralen Verwaltung oder einem eigenständigen primären Standort) zu installieren. Beide Assistenten befinden sich auf der Registerkarte **Startseite** in der Konsole unter **Verwaltung** > **Standortkonfiguration** > **Server und Standortsystemrollen**.
+Après l’exécution du programme d’installation ou si vous réinstallez le rôle de système de site, utilisez l’Assistant **Ajout des rôles de système de site** ou l’Assistant **Créer un serveur de système de Site** pour installer le système de site sur un serveur au plus haut niveau de votre hiérarchie (c’est-à-dire le site d’administration centrale ou un site principal autonome). Les deux Assistants se trouvent sous l’onglet **Accueil** dans la console, dans **Administration** > **Configuration du site** > **Serveurs et rôles de système de Site**.
 
-## <a name="log-files-used-by-the-service-connection-point"></a>Vom Dienstverbindungspunkt verwendete Protokolldateien
-Zeigen Sie **Dmpuploader.log** auf dem Computer an, auf dem der Dienstverbindungspunkt ausgeführt wird, um Informationen zu Uploads in Microsoft anzuzeigen.  Sehen Sie sich **Dmpdownloader.log** an für Informationen zu Downloads und dem Downloadfortschritt von Updates. Die vollständige Liste der mit dem Dienstverbindungspunkt verknüpften Protokolle finden Sie unter [Service Connection Point (Dienstverbindungspunkt)](/sccm/core/plan-design/hierarchy/log-files#BKMK_WITLog) im Thema „log files“ (Protokolldateien) von Configuration Manager.
+## <a name="log-files-used-by-the-service-connection-point"></a>Fichiers journaux utilisés par le point de connexion de service
+Pour consulter des informations sur les chargements vers Microsoft, affichez **Dmpuploader.log** sur l’ordinateur qui exécute le point de connexion de service.  Pour voir les téléchargements, y compris la progression du téléchargement des mises à jour, affichez **Dmpdownloader.log**. Pour obtenir la liste complète des journaux liés au point de connexion de service, consultez la page [Point de connexion de service](/sccm/core/plan-design/hierarchy/log-files#BKMK_WITLog) dans la rubrique de fichiers journaux de Configuration Manager.
 
-Die folgendes Flussdiagramme veranschaulichen den Prozessfluss und Protokolleinträge für die Downloads von Updates und die Replikation von Updates an anderen Standorten:
- - [Flussdiagramm: Herunterladen von Updates](/sccm/core/servers/manage/download-updates-flowchart)
- - [Flussdiagramm: Aktualisieren von Replikationen](/sccm/core/servers/manage/update-replication-flowchart)
+Vous pouvez également utiliser les organigrammes suivants pour comprendre le flux des processus et les entrées du journal principales pour le téléchargement et la réplication des mises à jour vers d’autres sites :
+ - [Organigramme - Téléchargement des mises à jour](/sccm/core/servers/manage/download-updates-flowchart)
+ - [Organigramme - Réplication de mise à jour](/sccm/core/servers/manage/update-replication-flowchart)

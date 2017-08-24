@@ -1,6 +1,6 @@
 ---
-title: Empfohlene Hardware | Microsoft-Dokumentation
-description: "Hier finden Sie Informationen über empfohlene Hardware, mit deren Hilfe Sie Ihre System Center Configuration Manager-Umgebung über eine einfache Bereitstellung hinaus skalieren können."
+title: "Matériel recommandé | Microsoft Docs"
+description: "Consultez les recommandations de matériel pour mieux assurer la scalabilité de votre environnement System Center Configuration Manager après son déploiement de base."
 ms.custom: na
 ms.date: 05/04/2017
 ms.prod: configuration-manager
@@ -18,166 +18,166 @@ manager: angrobe
 ms.openlocfilehash: 8dac6df60b07461d6410d305723b3f03fb09fa16
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="recommended-hardware-for-system-center-configuration-manager"></a>Empfohlene Hardware für System Center Configuration Manager
+# <a name="recommended-hardware-for-system-center-configuration-manager"></a>Matériel recommandé pour System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Die folgenden Empfehlungen sind Leitlinien zur Unterstützung der Skalierung Ihrer System Center Configuration Manager-Umgebung, um mehr als eine sehr grundlegende Bereitstellung von Standorten, Standortsystemen und Clients zu unterstützen. Sie sollen nicht jede denkbare Standort- und Hierarchiekonfiguration abdecken.  
+Les recommandations suivantes sont des indications destinées à vous aider à adapter votre environnement System Center Configuration Manager pour qu’il prenne en charge un déploiement plus complexe de sites, de systèmes de site et de clients. Elles ne sont pas prévues pour couvrir toutes les configurations possibles de site et de hiérarchie.  
 
- Verwenden Sie diese Informationen in den folgenden Abschnitten als Leitfaden zur Unterstützung bei der Auswahl von Hardware, mit der Clients und Standorte die Verarbeitungslasten für die verfügbaren Configuration Manager-Features mit den Standardkonfigurationen bewältigen können.  
+ Aidez-vous des informations des sections suivantes pour prévoir le matériel capable de répondre aux charges de traitement des clients et des sites qui utilisent les fonctionnalités de Configuration Manager disponibles avec les configurations par défaut.  
 
 
-##  <a name="bkmk_ScaleSieSystems"></a> Standortsysteme  
- In diesem Abschnitt werden die empfohlenen Hardwarekonfigurationen für Configuration Manager-Standortsysteme für Bereitstellungen beschrieben, von denen die maximale Anzahl von Clients unterstützt wird und von denen die meisten oder alle Configuration Manager-Features genutzt werden. Für Bereitstellungen, die weniger als die maximale Anzahl von Clients unterstützen und nicht alle verfügbare Features verwenden, werden unter Umständen weniger Computerressourcen benötigt. Im Allgemeinen beschränken unter anderem folgende Hauptfaktoren in dieser Reihenfolge die Gesamtleistung des Systems:  
+##  <a name="bkmk_ScaleSieSystems"></a> Systèmes de site  
+ Cette section présente les configurations matérielles recommandées pour les systèmes de site Configuration Manager pour les déploiements prenant en charge le nombre maximal de clients et utilisant la plupart ou l’ensemble des fonctionnalités de Configuration Manager. Les déploiements qui ne prennent pas en charge le nombre maximal de clients et qui n’utilisent pas toutes les fonctionnalités disponibles nécessitent généralement moins de ressources informatiques. En règle générale, les facteurs clés qui limitent les performances de l'ensemble du système sont les suivants, par ordre d'importance :  
 
-1.  E/A-Festplattenleistung  
+1.  Performances d'E/S du disque  
 
-2.  Verfügbarer Arbeitsspeicher  
+2.  Mémoire disponible  
 
-3.  CPU  
+3.  Processeur  
 
-Verwenden Sie zur Leistungsoptimierung RAID 10-Konfigurationen für alle Datenlaufwerke und 1 GBit/s-Ethernet-Netzwerkverbindungen.  
+Pour des performances optimales, utilisez des configurations RAID 10 pour tous les lecteurs de données et une connectivité réseau Ethernet 1 Gbit/s.  
 
-###  <a name="bkmk_ScaleSiteServer"></a> Standortserver  
+###  <a name="bkmk_ScaleSiteServer"></a> Serveurs de site  
 
-|Eigenständiger primärer Standort|CPU (Kerne)|Arbeitsspeicher (GB)|Speicherbelegung für SQL Server (%)|  
+|Site principal autonome|Cœurs de processeur|Mémoire (Go)|% d’allocation de mémoire pour SQL Server|  
 |-------------------------------|---------------|---------------|----------------------------------------|  
-|Eigenständiger primärer Standortserver mit einer Datenbankstandortrolle auf dem gleichen Server<sup>1</sup>|16|96|80|  
-|Eigenständiger primärer Standortserver mit einer Remotestandortdatenbank|8|16|-|  
-|Remotedatenbankserver für einen eigenständigen primären Standort|16|72|90|  
-|Standortserver der zentralen Verwaltung mit einer Datenbankstandortrolle auf dem gleichen Server<sup>1</sup>|20|128|80|  
-|Standortserver der zentralen Verwaltung mit einer Remotestandortdatenbank|8|16|-|  
-|Remotedatenbankserver für einen Standort der zentralen Verwaltung|16|96|90|  
-|Untergeordneter primärer Standort mit einer Datenbankstandortrolle auf dem gleichen Server|16|96|80|  
-|Untergeordneter primärer Standortserver mit einer Remotestandortdatenbank|8|16|-|  
-|Remotedatenbankserver für einen untergeordneten primären Standort|16|72|90|  
-|Sekundärer Standortserver|8|16|-|  
+|Serveur de site principal autonome avec un rôle site de base de données sur le même serveur<sup>1</sup>|16|96|80|  
+|Serveur de site principal autonome avec une base de données de site distante|8|16|-|  
+|Serveur de bases de données distant pour un site principal autonome|16|72|90|  
+|Serveur de site d’administration centrale avec un rôle site de base de données sur le même serveur<sup>1</sup>|20|128|80|  
+|Serveur de site d’administration centrale avec une base de données de site distante|8|16|-|  
+|Serveur de bases de données distant pour un site d’administration centrale|16|96|90|  
+|Site principal enfant avec un rôle site de base de données sur le même serveur|16|96|80|  
+|Serveur de site principal enfant avec une base de données de site distante|8|16|-|  
+|Serveur de bases de données distant pour un site principal enfant|16|72|90|  
+|Serveur de site secondaire|8|16|-|  
 
- <sup>1</sup> Wenn Standortserver und SQL Server auf demselben Computer installiert sind, unterstützt die Bereitstellung eine maximale [Größe und Anzahl](/sccm/core/plan-design/configs/size-and-scale-numbers) für Standorte und Clients. Diese Konfiguration kann [Hochverfügbarkeitsoptionen für System Center Configuration Manager](/sccm/protect/understand/high-availability-options) wie die Verwendung eines SQL Server-Clusters begrenzen. Darüber hinaus sollten Benutzer mit größeren Installationen die Verwendung einer Konfiguration mit einem SQL Server-Remotecomputer in Betracht ziehen, weil zur Unterstützung des SQL Server- und Configuration Manager-Standortservers höhere E/A-Anforderungen erforderlich sind, wenn beide auf demselben Computer ausgeführt werden.  
+ <sup>1</sup> Quand le serveur de site et SQL Server sont installés sur le même ordinateur, le déploiement prend en charge les [tailles et échelles](/sccm/core/plan-design/configs/size-and-scale-numbers) maximales pour les sites et les clients. Toutefois, cette configuration peut limiter les [options de haute disponibilité pour System Center Configuration Manager](/sccm/protect/understand/high-availability-options), comme l’utilisation d’un cluster SQL Server. De plus, en raison d’un plus grand nombre d’E/S nécessaire pour prendre en charge l’exécution de SQL Server et du serveur de site Configuration Manager sur le même ordinateur, nous vous conseillons d’utiliser une configuration avec une machine SQL Server distante dans les déploiements de plus grande taille.  
 
-###  <a name="bkmk_RemoteSiteSystem"></a> Remote-Standortsystemserver  
- Der folgende Leitfaden gilt für Computer, die eine einzelne Standortsystemrolle innehaben. Planen Sie Anpassungen ein, wenn Sie mehrere Standortsystemrollen auf demselben Computer installieren.  
+###  <a name="bkmk_RemoteSiteSystem"></a> Serveurs de système de site distants  
+ Les indications ci-dessous concernent les ordinateurs qui ont un seul rôle de système de site. Ajustez les valeurs indiquées si vous installez plusieurs rôles de système de site sur le même ordinateur.  
 
-|Standortsystemrolle|CPU (Kerne)|Arbeitsspeicher (GB)|Speicherplatz (GB)|  
+|Rôle de système de site|Cœurs de processeur|Mémoire (Go)|Espace disque (Go)|  
 |----------------------|---------------|---------------|--------------------|  
-|Verwaltungspunkt|4|8|50|  
-|Verteilungspunkt|2|8|Je nach Bedarf des Betriebssystems und zum Speichern von bereitgestelltem Inhalt erforderlich|  
-|Anwendungskatalog mit Webdienst und Website auf dem Standortsystemcomputer|4|16|50|  
-|Softwareupdatepunkt<sup>1</sup>|8|16|Je nach Bedarf des Betriebssystems und zum Speichern von bereitgestellten Updates erforderlich|  
-|Alle anderen Standortsystemrollen|4|8|50|  
+|Point de gestion|4|8|50|  
+|Point de distribution|2|8|Espace disque exigé par le système d’exploitation et pour stocker le contenu que vous déployez|  
+|Catalogue d'applications, avec le service Web et le site Web sur l'ordinateur du système de site|4|16|50|  
+|Point de mise à jour logicielle<sup>1</sup>|8|16|Espace disque exigé par le système d’exploitation et pour stocker les mises à jour que vous déployez|  
+|Tous les autres rôles de système de site|4|8|50|  
 
- <sup>1</sup> Der Computer, auf dem ein Softwareupdatepunkt gehostet wird, erfordert die folgenden Konfigurationen für IIS-Anwendungspools:  
+ <sup>1</sup> L’ordinateur qui héberge un point de mise à jour logicielle nécessite les configurations suivantes pour les pools d’applications IIS :  
 
--   Erhöhen Sie die **WsusPool-Warteschlangenlänge** auf **2000**.  
+-   Augmenter la **longueur de file d’attente WsusPool** à **2000**.  
 
--   Erhöhen Sie die **Begrenzung des privaten Speichers für WsusPool** auf das Vierfache, oder legen Sie den Wert auf **0** (unbegrenzt) fest.  
+-   Multiplier par quatre la **limite de mémoire privée WsusPool**, ou lui affecter la valeur **0** (illimitée).  
 
-###  <a name="bkmk_DiskSpace"></a> Speicherplatz für Standortsysteme  
- Die Datenträgerzuordnung und -konfiguration trägt zur Leistung von Configuration Manager bei. Da jede Configuration Manager-Umgebung anders ist, können die gewählten Werte vom folgenden Leitfaden abweichen.  
+###  <a name="bkmk_DiskSpace"></a> Espace disque pour les systèmes de site  
+ L’allocation et la configuration de disque contribuent aux performances de Configuration Manager. Comme chaque environnement Configuration Manager est différent, ajustez les valeurs indiquées ci-dessous en fonction de vos besoins.  
 
- Platzieren Sie jedes Objekt zur Leistungsoptimierung auf einem separaten, dedizierten RAID-Volume. Verwenden Sie zur Leistungsoptimierung für alle Datenvolumes (Configuration Manager und Datenbankdateien) RAID 10.  
+ Pour des performances optimales, placez chaque objet sur un volume RAID séparé et dédié. Pour tous les volumes de données (Configuration Manager et ses fichiers de base de données), utilisez RAID 10 pour des performances optimales.  
 
-|Datennutzung|Mindesspeicherplatz auf dem Datenträger|25.000 Clients|50.000 Clients|100.000 Clients|150.000 Clients|700.000 Clients (Standort der zentralen Verwaltung)|  
+|Utilisation des données|Espace disque minimum|25 000 clients|50 000 clients|100 000 clients|150 000 clients|700 000 clients (site d’administration centrale)|  
 |----------------|------------------------|--------------------|--------------------|---------------------|---------------------|-----------------------------------------------------|  
-|Betriebssystem|Siehe Leitfaden für das Betriebssystem|Siehe Leitfaden für das Betriebssystem|Siehe Leitfaden für das Betriebssystem|Siehe Leitfaden für das Betriebssystem|Siehe Leitfaden für das Betriebssystem|Siehe Leitfaden für das Betriebssystem|  
-|Configuration Manager-Anwendung und Protokolldateien|25 GB|50 GB|100 GB|200 GB|300 GB|200 GB|  
-|MDF-Standortdatenbankdatei|75 GB je 25.000 Clients|75 GB|150 GB|300 GB|500 GB|2 TB|  
-|LDF-Standortdatenbankdatei|25 GB je 25.000 Clients|25 GB|50 GB|100 GB|150 GB|100 GB|  
-|Temporäre Datenbankdateien (MDF und LDF)|Nach Bedarf|Nach Bedarf|Nach Bedarf|Nach Bedarf|Nach Bedarf|Nach Bedarf|  
-|Inhalt (Verteilungspunktfreigaben)|Nach Bedarf<sup>1</sup>|Nach Bedarf<sup>1</sup>|Nach Bedarf<sup>1</sup>|Nach Bedarf<sup>1</sup>|Nach Bedarf<sup>1</sup>|Nach Bedarf<sup>1</sup>|  
+|Système d'exploitation|Consultez les conseils pour le système d'exploitation.|Consultez les conseils pour le système d'exploitation.|Consultez les conseils pour le système d'exploitation.|Consultez les conseils pour le système d'exploitation.|Consultez les conseils pour le système d'exploitation.|Consultez les conseils pour le système d'exploitation.|  
+|Fichiers journaux et d’application de Configuration Manager|25 Go|50 Go|100 Go|200 Go|300 Go|200 Go|  
+|Fichier .mdf de base de données du site|75 Go par tranche de 25 000 clients|75 Go|150 Go|300 Go|500 Go|2 To|  
+|Fichier .ldf de base de données du site|25 Go par tranche de 25 000 clients|25 Go|50 Go|100 Go|150 Go|100 Go|  
+|Fichiers de base de données temporaires (.mdf et .ldf)|En fonction des besoins|En fonction des besoins|En fonction des besoins|En fonction des besoins|En fonction des besoins|En fonction des besoins|  
+|Contenu (partages de point de distribution)|En fonction des besoins<sup>1</sup>|En fonction des besoins<sup>1</sup>|En fonction des besoins<sup>1</sup>|En fonction des besoins<sup>1</sup>|En fonction des besoins<sup>1</sup>|En fonction des besoins<sup>1</sup>|  
 
- <sup>1</sup> Die Speicherplatzrichtlinien für Datenträger verstehen sich ausschließlich des für Inhalte in der Inhaltsbibliothek auf dem Standortserver oder an Verteilungspunkten erforderlichen Speicherplatzes. Informationen zur Planung der Inhaltsbibliothek finden Sie unter [The content library in System Center Configuration Manager](../../../core/plan-design/hierarchy/the-content-library.md) (Inhaltsbibliothek in System Center Configuration Manager).  
+ <sup>1</sup> Les instructions relatives à l’espace disque n’incluent pas l’espace requis pour le contenu situé dans la bibliothèque de contenu sur le serveur de site ou les points de distribution. Pour plus d’informations sur la planification de la bibliothèque de contenu, consultez [Bibliothèque de contenu](../../../core/plan-design/hierarchy/the-content-library.md).  
 
- Beachten Sie bei der Planung für Speicherplatzanforderungen zusätzlich zu diesem Leitfaden die folgenden Leitlinien:  
+ En plus des indications précédentes, prenez en compte les recommandations suivantes pour prévoir l’espace disque nécessaire :  
 
--   Für jeden Client sind ca. 5 MB Speicherplatz erforderlich.  
+-   Chaque client nécessite environ 5 Mo d’espace.  
 
--   Planen Sie für die temporäre Datenbank eines primären Standorts 25 % bis 30 % der Größe der MDF-Standortdatenbankdatei ein. Der tatsächliche Platzbedarf kann erheblich geringer oder höher sein. Dies ist von der Leistung des Standortservers und der Menge kurz- und langfristig eingehender Daten abhängig.  
+-   Quand vous planifiez la taille de la base de données temporaire pour un site principal, prévoyez une taille combinée de 25 à 30 % du fichier .mdf de la base de données du site. La taille réelle peut être beaucoup plus petite ou plus grande en fonction des performances du serveur de site et du volume de données entrantes sur de courtes et longues périodes.  
 
     > [!NOTE]  
-    >  Wenn Sie über 50.000 oder mehr Clients an einem Standort verfügen, planen Sie die Verwendung von vier oder mehr MDF-Dateien für die temporäre Datenbank ein.  
+    >  Quand vous avez 50 000 clients ou plus sur un site, prévoyez d’utiliser au moins quatre fichiers .mdf de base de données temporaire.  
 
--   Die temporäre Datenbank für einen Standort der zentralen Verwaltung ist in der Regel deutlich kleiner als die Datenbank für einen primären Standort.  
+-   La taille de la base de données temporaire pour un site d’administration centrale est généralement beaucoup plus petite que celle d'un site principal.  
 
--   Die Datenbankgröße für den sekundären Standort ist durch folgende Faktoren eingeschränkt:  
+-   La base de données d'un site secondaire est limitée en taille pour les éléments suivants :  
 
-    -   SQL Server 2012 Express: 10 GB  
+    -   SQL Server 2012 Express : 10 Go  
 
-    -   SQL Server 2014 Express: 10 GB  
+    -   SQL Server 2014 Express : 10 Go  
 
 ##  <a name="bkmk_ScaleClient"></a> Clients  
- In diesem Abschnitt werden die empfohlenen Hardwarekonfigurationen für Computer bestimmt, die durch die Verwendung von Configuration Manager-Clientsoftware verwaltet werden.  
+ Cette section présente les configurations matérielles recommandées pour les ordinateurs que vous gérez à l’aide du logiciel client Configuration Manager.  
 
-### <a name="client-for-windows-computers"></a>Client für Windows-Computer  
- Nachfolgend sind die Mindestanforderungen für Windows-Computer aufgeführt, die Sie mit Configuration Manager verwalten, einschließlich Embedded-Betriebssysteme:  
+### <a name="client-for-windows-computers"></a>Client pour les ordinateurs Windows  
+ Le tableau suivant indique la configuration minimale requise pour les ordinateurs Windows gérés à l’aide de Configuration Manager, y compris les systèmes d’exploitation embarqués :  
 
--   **Prozessor und Arbeitsspeicher:** Informationen hierzu entnehmen Sie den Prozessor- und Arbeitsspeicheranforderungen für das Betriebssystem des jeweiligen Computers.  
+-   **Processeur et mémoire :** reportez-vous à la configuration de processeur et mémoire RAM requise pour le système d’exploitation de l’ordinateur.  
 
--   **Speicherplatz:** 500 MB verfügbarer Speicherplatz (5 GB empfohlen) für den Configuration Manager-Clientcache. Weniger Speicherplatz ist erforderlich, wenn Sie benutzerdefinierte Einstellungen zur Installation des Configuration Manager-Clients verwenden:  
+-   **Espace disque :** 500 Mo d’espace disque disponible, avec 5 Go recommandés pour le cache du client Configuration Manager. L’espace disque requis est moindre si vous utilisez des paramètres personnalisés pour installer le client Configuration Manager :  
 
-    -   Verwenden Sie die CCMSetup-Befehlszeileneigenschaft „/skipprereq“, um die Installation von Dateien zu vermeiden, die vom Client nicht benötigt werden. Beispiel: **CCMSetup.exe /skipprereq:silverlight.exe**, falls der Client den Anwendungskatalog nicht verwendet.  
+    -   Utilisez la propriété /skipprereq de la ligne de commande de CCMSetup pour éviter d’installer des fichiers dont le client n’a pas besoin. Par exemple, exécutez **CCMSetup.exe /skipprereq:silverlight.exe** si le client n’utilise pas le catalogue d’applications.  
 
-    -   Verwenden Sie die Client.msi-Eigenschaft SMSCACHESIZE, um eine Cachedatei festzulegen, die kleiner als die Standardgröße von 5.120 MB ist. Die Mindestgröße beträgt 1 MB. Beispiel: Durch **CCMSetup.exe SMSCachesize=2** wird ein Cache von 2 MB erstellt.  
+    -   Utilisez la propriété SMSCACHESIZE de Client.msi pour définir un fichier de cache d'une taille inférieure à la taille par défaut de 5 120 Mo. La taille minimale est de 1 Mo. Par exemple, **CCMSetup.exe SMSCachesize=2** crée un cache d’une taille de 2 Mo.  
 
-    Weitere Informationen zu diesen Clientinstallationseinstellungen finden Sie unter [Informationen zu Clientinstallationseigenschaften in System Center Configuration Manager](../../../core/clients/deploy/about-client-installation-properties.md).  
+    Pour plus d’informations sur les paramètres d’installation du client, consultez [À propos des propriétés d’installation du client dans System Center Configuration Manager](../../../core/clients/deploy/about-client-installation-properties.md).  
 
     > [!TIP]  
-    >  Die Clientinstallation mit minimalem Speicherplatz ist hilfreich für Windows Embedded-Geräte, die in der Regel über kleinere Datenträgergrößen als Windows-Standardcomputer verfügen.  
+    >  L'installation du client avec un minimum d'espace disque est utile pour les appareils Windows Embedded qui ont généralement des tailles de disque plus petites que les ordinateurs Windows standard.  
 
 
 
- Nachfolgend sind zusätzliche Mindestanforderungen an die Hardware für optionale Funktionen in Configuration Manager aufgeführt.  
+ Voici des configurations matérielles minimales supplémentaires pour les fonctionnalités facultatives dans Configuration Manager.  
 
--   **Betriebssystembereitstellung:** 384 MB Arbeitsspeicher  
+-   **Déploiement du système d’exploitation :** 384 Mo de RAM  
 
--   **Softwarecenter:** Prozessor mit 500 MHz  
+-   **Centre logiciel :** processeur 500 MHz  
 
--   **Remotesteuerung:** Pentium 4 mit Hyperthreading 3 GHz (Single Core) oder vergleichbare CPU mit mindestens 1 GB RAM für optimale Leistung  
+-   **Contrôle à distance :** Pentium 4 Hyper-Threaded 3 GHz (simple cœur) ou processeur comparable, avec au moins 1 Go de RAM pour une expérience optimale  
 
-### <a name="client-for-linux-and-unix"></a>Client für Linux und UNIX  
- Nachfolgend sind die Mindestanforderungen für Linux- und UNIX-Server aufgeführt, die Sie mit Configuration Manager verwalten.  
+### <a name="client-for-linux-and-unix"></a>Client pour Linux et UNIX  
+ Le tableau suivant indique la configuration minimale requise pour les ordinateurs Linux et UNIX que vous gérez avec Configuration Manager.  
 
-|Anforderungen|Details|  
+|Exigence|Détails|  
 |-----------------|-------------|  
-|Prozessor und Arbeitsspeicher|Weitere Informationen entnehmen Sie den Prozessor- und Arbeitsspeicheranforderungen des Computerbetriebssystems.|  
-|Speicherplatz|500 MB verfügbarer Speicherplatz (5 GB empfohlen) für den Configuration Manager-Clientcache|  
-|Netzwerkverbindungen|Configuration Manager-Clientcomputer müssen über eine Netzwerkverbindung mit Configuration Manager-Standortsystemen verfügen, um die Verwaltung zu ermöglichen.|  
+|Processeur et mémoire|Reportez-vous à la configuration de processeur et mémoire RAM requise pour le système d'exploitation de l'ordinateur.|  
+|Espace disque|500 Mo d’espace disque disponible, avec 5 Go recommandés pour le cache du client Configuration Manager.|  
+|Connectivité réseau|Les ordinateurs clients Configuration Manager doivent disposer d’une connexion réseau aux systèmes de site Configuration Manager pour en permettre la gestion.|  
 
-##  <a name="bkmk_ScaleConsole"></a> Configuration Manager-Konsole  
- Die Anforderungen in der folgenden Tabelle gelten für alle Computer, auf denen die Configuration Manager-Konsole ausgeführt wird.  
+##  <a name="bkmk_ScaleConsole"></a> Console Configuration Manager  
+ La configuration requise indiquée dans le tableau ci-dessous s’applique à chaque ordinateur qui exécute la console Configuration Manager.  
 
- **Mindestkonfiguration der Hardware:**  
+ **Configuration matérielle minimale :**  
 
--   Intel i3 oder vergleichbare CPU  
+-   Intel i3 ou processeur comparable  
 
--   2 GB RAM  
+-   2 Go de RAM  
 
--   2 GB Speicherplatz  
+-   2 Go d’espace disque  
 
-|DPI-Einstellung|Mindestauflösung|  
+|Paramètre PPP|Résolution minimale|  
 |-----------------|------------------------|  
 |96 / 100 %|1024 x 768|  
 |120 /125 %|1280 x 960|  
 |144 / 150 %|1600 x 1200|  
 |196 / 200 %|2500 x 1600|  
 
- **Unterstützung für PowerShell:**  
+ **Prise en charge de PowerShell :**  
 
- Wenn Sie PowerShell-Unterstützung auf einem Computer installieren, auf dem die Configuration Manager-Konsole ausgeführt wird, können Sie PowerShell-Cmdlets auf diesem Computer ausführen, um Configuration Manager zu verwalten.
+ Quand vous installez la prise en charge de PowerShell sur un ordinateur qui exécute la console Configuration Manager, vous pouvez exécuter des applets de commande PowerShell sur cet ordinateur pour gérer Configuration Manager.
 
- - PowerShell 3.0 oder höher wird unterstützt.
+ - PowerShell 3.0 ou ultérieur est pris en charge
 
-Zusätzlich zu PowerShell wird die Windows Management Framework-Version (WMF) 3.0 unterstützt.   
+En plus de PowerShell, WMF (Windows Management Framework) version 3.0 ou ultérieure est pris en charge.   
 
 
-##  <a name="bkmk_ScaleLab"></a> Laborbereitstellungen  
- Verwenden Sie die folgenden Hardwaremindestempfehlungen für Labor- und Testbereitstellungen von Configuration Manager. Diese Empfehlungen gelten für alle Standorttypen mit bis zu 100 Clients:  
+##  <a name="bkmk_ScaleLab"></a> Déploiements de laboratoire  
+ Utilisez les recommandations de configuration matérielle suivantes pour les déploiements de laboratoire et de test de Configuration Manager. Ces recommandations s’appliquent à tous les types de sites, avec un maximum de 100 clients :  
 
-|Rolle|CPU (Kerne)|Arbeitsspeicher (GB)|Speicherplatz (GB)|  
+|Rôle|Cœurs de processeur|Mémoire (Go)|Espace disque (Go)|  
 |----------|---------------|-------------------|-----------------------|  
-|Standort- und Datenbankserver|2 - 4|7 - 12|100|  
-|Standortsystemserver|1 - 4|2 - 4|50|  
+|Serveur de site et de bases de données|2 - 4|7 - 12|100|  
+|Serveur de système de site|1 - 4|2 - 4|50|  
 |Client|1 - 2|1 - 3|30|  

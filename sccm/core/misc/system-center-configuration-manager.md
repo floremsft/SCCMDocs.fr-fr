@@ -1,5 +1,5 @@
 ---
-title: System Center Configuration Manager | Microsoft-Dokumentation
+title: System Center Configuration Manager | Microsoft Docs
 ms.custom: na
 ms.date: 10/06/2016
 ms.reviewer: na
@@ -18,13 +18,13 @@ robots: noindex,nofollow
 ms.openlocfilehash: 10fb029b4e3f9d3386df616a1a238674443d2c76
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
 # <a name="system-center-configuration-manager"></a>System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Willkommen bei Microsoft System Center Configuration Manager. Mit Configuration Manager können Sie effizientere IT-Dienste anbieten, indem Sie die sichere und skalierbare Bereitstellung von Software, die Verwaltung von Kompatibilitätseinstellungen sowie eine umfassende Assetverwaltung für Server, Desktops und mobile Geräte ermöglichen.  
+Bienvenue dans Microsoft System Center Configuration Manager. Utilisez Configuration Manager pour offrir des services informatiques plus efficaces via le déploiement de logiciels sécurisés et évolutifs, la gestion des paramètres de conformité et une meilleure administration des serveurs, des ordinateurs de bureau et des appareils mobiles.  
 
- Die neuesten Inhalte zu dieser Version von Configuration Manager finden Sie in der [Onlinedokumentation zu System Center Configuration Manager](https://go.microsoft.com/fwlink/?LinkID=533344).
+ Recherchez le contenu en ligne le plus récent pour cette version de Configuration à l’adresse suivante : [Documentation en ligne de System Center Configuration Manager](https://go.microsoft.com/fwlink/?LinkID=533344)

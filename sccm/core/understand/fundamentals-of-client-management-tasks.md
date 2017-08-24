@@ -1,6 +1,6 @@
 ---
-title: Grundlagen der Clientverwaltung | Microsoft-Dokumentation
-description: "Erfahren Sie mehr über Tasks, die Sie für die Verwaltung von System Center Configuration Manager-Clients ausführen können."
+title: Principes de base de la gestion de clients | Microsoft Docs
+description: "Découvrez les tâches que vous exécutez pour gérer les clients System Center Configuration Manager."
 ms.custom: na
 ms.date: 12/30/2016
 ms.prod: configuration-manager
@@ -17,48 +17,48 @@ manager: angrobe
 ms.openlocfilehash: 0fee4f4ba462e59859ac93c4218b67cb26bdd6f6
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="fundamentals-of-client-management-tasks-for-system-center-configuration-manager"></a>Grundlagen der Clientverwaltungsaufgaben für System Center Configuration Manager
+# <a name="fundamentals-of-client-management-tasks-for-system-center-configuration-manager"></a>Principes de base des tâches de gestion des clients pour System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Nach der Installation von System Center Configuration Manager-Clients können Sie verschiedene Tasks zur Verwaltung der Clients ausführen.  Einige dieser Tasks werden über die Configuration Manager-Konsole ausgeführt. Andere Tasks werden über die Configuration Manager-Clientanwendung ausgeführt. Die Configuration Manager-Clientanwendung wird mit der Configuration Manager-Clientsoftware installiert.
+Après avoir installé les clients System Center Configuration Manager, vous les gérez en exécutant plusieurs tâches.  Certaines tâches sont exécutées à partir de la console Configuration Manager. D’autres sont exécutées à partir de l’application cliente Configuration Manager. L’application cliente Configuration Manager est installée avec le logiciel client Configuration Manager.
 
-## <a name="configuration-manager-console-tasks"></a>Tasks der Configuration Manager-Konsole
- In der Configuration Manager-Konsole können Sie verschiedene Clientverwaltungstasks ausführen:  
+## <a name="configuration-manager-console-tasks"></a>Tâches de la console Configuration Manager
+ Dans la console Configuration Manager, vous pouvez effectuer diverses tâches de gestion de clients :  
 
--   Bereitstellen von Anwendungen, Softwareupdates, Wartungsskripts und Betriebssystemen. Konfigurieren der Installation zur Ausführung zu einem bestimmten Termin, Bereitstellen der Software für die Installation an Benutzer auf Anforderung, oder Konfigurieren von Anwendungen zur Deinstallation.  
+-   Déployer des applications, des mises à jour logicielles, des scripts de maintenance et des systèmes d'exploitation. Configurer l’installation à une date et une heure précises, rendre le logiciel disponible pour que les utilisateurs l’installent sur demande ou configurer la désinstallation des applications.  
 
--   Schutz der Computer vor Schadsoftware und Sicherheitsrisiken sowie Ausgeben einer Warnung, wenn Probleme erkannt werden  
+-   Protéger les ordinateurs contre les logiciels malveillants et menaces de sécurité, et recevoir un avertissement lorsque des problèmes sont détectés.  
 
--   Definieren von Clientkonfigurationseinstellungen, die Sie überwachen und bei fehlender Konformität wiederherstellen möchten.  
+-   Définir les paramètres de configuration client que vous voulez surveiller et corriger s’ils ne sont pas conformes.  
 
--   Sammeln von Hardware- und Softwareinventurinformationen, darunter die Überwachung und Abstimmung von Lizenzinformationen von Microsoft  
+-   Recueillir des informations d'inventaire matériel et logiciel, qui comprennent la surveillance et le rapprochement des informations de licence de Microsoft.  
 
--   Problembehandlung auf Computern mit der Remotesteuerung.  
+-   Dépanner des ordinateurs à l’aide d’un contrôle à distance.  
 
--   Implementieren von Energieverwaltungseinstellungen zum Verwalten und Überwachen des Stromverbrauchs von Computern  
+-   Implémenter des paramètres de gestion de l'alimentation pour gérer et surveiller la consommation d'énergie des ordinateurs.  
 
-Die Configuration Manager-Konsole überwacht die vorherigen Tasks nahezu in Echtzeit. In der Configuration Manager-Konsole sind Benachrichtigungen und Statusinformationen zu jedem Task verfügbar. Verwenden Sie zum Erfassen von Daten und Auswerten historischer Trends die integrierten Berichterstattungsfunktionen von SQL Reporting Services. Clients senden Informationen als Clientstatus an den Standort.  Clientstatusinformationen liefern Daten über die Integrität des Clients sowie die Clientaktivität, und werden in der Konsole oder mithilfe der integrierten Berichte für Configuration Manager angezeigt. Mithilfe dieser Daten können Sie Computer identifizieren, die nicht reagieren, und in einigen Fällen Probleme automatisch beheben.  
+La console Configuration Manager surveille les tâches précédentes presqu’en temps réel. Les informations sur l’état et les notifications pour chaque tâche sont disponibles dans la console Configuration Manager. Pour capturer des données et des tendances historiques, utilisez les fonctions de rapport intégrées de SQL Server Reporting Services. Les clients envoient des détails au site en tant qu’état du client.  Les informations d’état du client fournissent des indications sur l’intégrité et l’activité du client ; elles sont visibles dans la console ou à l’aide de rapports intégrés pour Configuration Manager. Ces données permettent d’identifier les ordinateurs qui ne répondent pas. Dans certains cas, les problèmes sont résolus automatiquement.  
 
- Weitere Informationen zu den Verwaltungsaufgaben für Clients finden Sie unter [Verwalten von Clients in System Center Configuration Manager](../../core/clients/manage/manage-clients.md) und [Verwalten von Clients für Linux- und UNIX-Server in System Center Configuration Manager](../../core/clients/manage/manage-clients-for-linux-and-unix-servers.md). Informationen zur Verwendung von Berichten finden Sie unter   
-            [Einführung in die Berichterstellung in System Center Configuration Manager](../../core/servers/manage/introduction-to-reporting.md).  
+ Pour plus d’informations sur les tâches de gestion pour les clients, consultez [Comment gérer les clients dans System Center Configuration Manager](../../core/clients/manage/manage-clients.md) et [Comment gérer les clients pour des serveurs Linux et UNIX dans System Center Configuration Manager](../../core/clients/manage/manage-clients-for-linux-and-unix-servers.md). Pour en savoir plus sur l’utilisation de rapports, consultez   
+            [Présentation des rapports dans System Center Configuration Manager](../../core/servers/manage/introduction-to-reporting.md).  
 
-## <a name="configuration-manager-client-application"></a>Configuration Manager-Clientanwendung  
- Wenn Sie die Configuration Manager-Clientsoftware installieren, wird die Configuration Manager-Clientanwendung ebenfalls installiert. Im Gegensatz zum Softwarecenter ist die Configuration Manager-Clientanwendung nicht für Endbenutzer bestimmt, sondern für den Helpdesk. Einige Konfigurationsoptionen erfordern lokale Administratorberechtigungen, und für die meisten Optionen sind technische Kenntnisse der Funktionsweise der Configuration Manager-Clientanwendung erforderlich. Sie können diese Anwendung verwenden, um auf einem Client die folgenden Aufgaben auszuführen:  
+## <a name="configuration-manager-client-application"></a>Application cliente Configuration Manager  
+ Quand vous installez le logiciel client Configuration Manager, l’application cliente Configuration Manager est également installée. Contrairement au Centre logiciel, l’application cliente Configuration Manager s’adresse plus au service de support technique qu’aux utilisateurs finaux. Certaines options de configuration nécessitent des autorisations administratives locales et la plupart des options requièrent des connaissances techniques sur le fonctionnement de l’application cliente Configuration Manager. Vous pouvez utiliser cette application pour effectuer les tâches suivantes sur un client :  
 
--   Anzeigen von Eigenschaften des Clients, z.B. die Buildnummer, der zugewiesene Standort, mit welchem Verwaltungspunkt der Client kommuniziert, und ob ein Public Key Infrastructure-Zertifikat (PKI) oder ein selbstsigniertes Zertifikat verwendet wird.  
+-   Consulter les propriétés sur le client : numéro de version, site attribué, point de gestion avec lequel il communique et certificat utilisé, à savoir certificat d’infrastructure à clé publique (PKI) ou certificat auto-signé.  
 
--   Bestätigen Sie, dass der Client erfolgreich eine Clientrichtlinie heruntergeladen hat, nachdem der Client zum ersten Mal installiert wurde. Bestätigen Sie ebenfalls, dass die Clienteinstellungen wie erwartet aktiviert oder deaktiviert sind, entsprechend den Clienteinstellungen, die in der Configuration Manager-Konsole konfiguriert wurden.  
+-   Vérifier que le client a correctement téléchargé une stratégie client après son installation initiale. Vérifier également que les paramètres client sont activés ou désactivés comme prévu, en fonction des paramètres client configurés dans la console Configuration Manager.  
 
--   Starten Sie die Clientaktionen. Laden Sie z.B. die Clientrichtlinie herunter, wenn eine Änderung der Konfiguration in der Configuration Manager-Konsole vorgenommen wurde, und Sie nicht auf den nächsten geplanten Download warten möchten.  
+-   Démarrer les actions du client, par exemple télécharger la stratégie client si une modification a été récemment apportée à la configuration dans la console Configuration Manager et que vous ne souhaitez pas attendre la prochaine heure planifiée.  
 
--   Weisen Sie manuell einen Client zu einem Configuration Manager-Standort zu, oder suchen Sie nach einem Standort. Geben Sie dann das Domain Name System-Suffix (DNS) für Verwaltungspunkte an, die in DNS veröffentlichen.  
+-   Affecter manuellement un client à un site Configuration Manager ou essayer de trouver un site. Spécifier ensuite le suffixe DNS pour les points de gestion qui publient sur DNS.  
 
--   Konfigurieren Sie den Clientcache, in dem Dateien vorübergehend gespeichert werden. Löschen Sie anschließend Dateien im Cache, wenn Sie mehr Speicherplatz zum Installieren von Software benötigen.  
+-   Configurer le cache du client qui stocke temporairement les fichiers. Supprimer ensuite les fichiers du cache si vous avez besoin de plus d’espace disque pour installer les logiciels.  
 
--   Konfigurieren von Einstellungen für die internetbasierte Clientverwaltung  
+-   Configurer les paramètres de gestion des clients basés sur Internet.  
 
--   Anzeigen von Konfigurationsbasislinien, die auf dem Client bereitgestellt wurden, Initiieren der Kompatibilitätsauswertung und Anzeigen von Kompatibilitätsberichten  
+-   Consulter les lignes de base de configuration qui ont été déployées sur le client, lancer une évaluation de la compatibilité et consulter les rapports de compatibilité.  

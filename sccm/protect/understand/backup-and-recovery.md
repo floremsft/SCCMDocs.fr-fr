@@ -1,6 +1,6 @@
 ---
-title: Sichern von Standorten | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie Standorte vor einen Ausfall oder Datenverlust in System Center Configuration Manager sichern.
+title: Sauvegarder des sites | Microsoft Docs
+description: "Découvrez comment sauvegarder vos sites en cas défaillance ou de perte de données dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 6/5/2017
 ms.prod: configuration-manager
@@ -17,191 +17,191 @@ manager: angrobe
 ms.openlocfilehash: 7deb00d4b67eabf3238907b337a9d0367c3d99cc
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="back-up-a-configuration-manager-site"></a>Sichern eines Configuration Manager-Standorts
+# <a name="back-up-a-configuration-manager-site"></a>Sauvegarde d'un site Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Bereiten Sie Sicherungs- und Wiederherstellungs-Ansätze vor, um Datenverluste zu vermeiden. Für Configuration Manager-Standorte kann ein Ansatz für die Sicherung und Wiederherstellung dazu beitragen, Standorte und Hierarchien schneller und mit geringstem Datenverlust wiederherzustellen.  
+Préparez les approches de sauvegarde et de récupération pour éviter la perte de données. Pour les sites Configuration Manager, une approche de sauvegarde et de récupération peut vous permettre de récupérer des sites et des hiérarchies plus rapidement avec une moindre perte de données.  
 
-Die Abschnitte in diesem Thema können Ihnen beim Sichern Ihrer Standorte helfen. Informationen zur Wiederherstellung eines Standorts finden Sie unter [Wiederherstellung für Configuration Manager](/sccm/protect/understand/recover-sites).  
+Les sections de cette rubrique peuvent vous aider à sauvegarder vos sites. Pour récupérer un site, consultez [Récupération pour Configuration Manager](/sccm/protect/understand/recover-sites).  
 
-## <a name="considerations-before-creating-a-backup"></a>Überlegungen vor dem Erstellen einer Sicherung  
--   **Wenn Sie eine SQL Server AlwaysOn-Verfügbarkeitsgruppe zum Hosten der Standortdatenbank verwenden:** Ändern Sie Ihre Sicherungs- und Wiederherstellungspläne gemäß der Anleitung unter [Vorbereiten zur Verwendung von SQL Server AlwaysOn](/sccm/core/servers/deploy/configure/sql-server-alwayson-for-a-highly-available-site-database#changes-for-site-backup).
+## <a name="considerations-before-creating-a-backup"></a>Éléments à prendre en considération avant de créer une sauvegarde  
+-   **Si vous utilisez un groupe de disponibilité SQL Server Always On pour héberger la base de données du site :** modifiez vos plans de sauvegarde et de récupération comme décrit dans la rubrique [Se préparer à utiliser SQL Server Always On](/sccm/core/servers/deploy/configure/sql-server-alwayson-for-a-highly-available-site-database#changes-for-site-backup).
 
--   Configuration Manager kann die Standortdatenbank aus dem Configuration Manager-Sicherungswartungstask oder aus der Standortdatenbanksicherung wiederherstellen, die Sie mit einem anderen Prozess erstellen.   
+-   Configuration Manager peut récupérer la base de données de site à partir de la tâche de maintenance de sauvegarde Configuration Manager ou à partir d'une sauvegarde de base de données de site que vous avez créée avec un autre processus.   
 
-    Beispielsweise können Sie die Standortdatenbank anhand einer Sicherung wiederherstellen, die im Rahmen des Microsoft SQL Server-Wartungsplans erstellt wurde. Sie können auch eine Sicherung, die mithilfe von Data Protection Manager (DPM) erstellt wurde, zur Sicherung Ihrer Standortdatenbank verwenden.
+    Par exemple, vous pouvez restaurer la base de données de site à partir d'une sauvegarde créée dans le cadre du plan de maintenance de Microsoft SQL Server. Vous pouvez également utiliser une sauvegarde créée à l’aide de la rubrique Utilisation de Data Protection Manager pour sauvegarder votre base de données de site (DPM).
 
-####  <a name="using-data-protection-manager-to-back-up-your-site-database"></a>Verwenden von Data Protection Manager zur Sicherung der Standortdatenbank
-Sie können die Standortdatenbank mit System Center 2012 Data Protection Manager (DPM) sichern.
+####  <a name="using-data-protection-manager-to-back-up-your-site-database"></a>Utilisation de Data Protection Manager pour sauvegarder votre base de données de site
+Vous pouvez utiliser System Center 2012 Data Protection Manager (DPM) pour sauvegarder votre base de données de site.
 
-Sie müssen in DPM eine neue Schutzgruppe für den Standortdatenbankcomputer erstellen. Auf der Seite **Gruppenmitglieder auswählen** des Assistenten zum Erstellen einer neuen Schutzgruppe wählen Sie den SMS-Writer-Dienst aus der Datenquellenliste und anschließend die Standortdatenbank als geeignetes Mitglied aus. Weitere Informationen zur Verwendung DPM zur Sicherung Ihrer Standortdatenbank finden Sie in der [Data Protection Manager-Dokumentationsbibliothek](http://go.microsoft.com/fwlink/?LinkId=272772) auf der TechNet-Webseite.  
+Vous devez créer un nouveau groupe de protection dans DPM pour l'ordinateur de base de données de site. Sur la page **Sélectionner les membres du groupe** de l'Assistant Création d'un nouveau groupe de protection, sélectionnez le service Enregistreur SMS dans la liste des sources de données, puis sélectionnez la base de données de site comme membre approprié. Pour plus d'informations sur l'utilisation de DPM pour sauvegarder votre base de données de site, voir [Bibliothèque de documentation de Data Protection Manager](http://go.microsoft.com/fwlink/?LinkId=272772) sur TechNet.  
 
 > [!IMPORTANT]  
->  Configuration Manager unterstützt die DPM-Sicherung für einen SQL Server-Cluster nicht, der eine benannte Instanz verwendet, wohl aber eine DPM-Sicherung auf einem SQL Server-Cluster, der die Standardinstanz von SQL Server verwendet.  
+>  Configuration Manager ne prend pas en charge la sauvegarde DPM pour un cluster SQL Server qui utilise une instance nommée, mais il prend en charge la sauvegarde DPM sur un cluster SQL Server qui utilise l'instance par défaut de SQL Server.  
 
- Nachdem Sie die Standortdatenbank wiederhergestellt haben, befolgen Sie die Schritte im Setup, um den Standort wiederherzustellen. Wählen Sie die Wiederherstellungsoption **Manuell wiederhergestellte Standortdatenbank verwenden** aus, um die Standortdatenbank zu verwenden, die Sie mithilfe von Data Protection Manager wiederhergestellt haben.  
+ Après la restauration de la base de données de site, suivez les étapes décrites dans le processus d'installation pour récupérer le site. Sélectionnez l'option de récupération **Utiliser une base de données de site qui a été récupérée manuellement** pour utiliser la base de données de site que vous avez récupérée avec Data Protection Manager.  
 
-## <a name="backup-maintenance-task"></a>Sicherungswartungstask
-Durch Planen des vordefinierten Wartungstasks „Standortserver sichern“ können Sie die Sicherung von Configuration Manager-Standorten automatisieren. Dieser Task:
+## <a name="backup-maintenance-task"></a>Tâche de maintenance de sauvegarde
+Il est possible d'automatiser la sauvegarde des sites Configuration Manager en planifiant une tâche de maintenance de sauvegarde du serveur de site prédéfinie. Cette tâche :
 
--   Wird nach einem Zeitplan ausgeführt
--   Sichert die Standortdatenbank
--   Sichert bestimmte Registrierungsschlüssel
--   Sichert bestimmte Ordner und Dateien
--   Sichert den Ordner [CD.Latest](/sccm/core/servers/manage/the-cd.latest-folder)   
+-   s’exécute selon un calendrier ;
+-   sauvegarde la base de données du site ;
+-   sauvegarde des clés de Registre spécifiques ;
+-   sauvegarde des dossiers et fichiers spécifiques ;
+-   sauvegarde le [dossier CD.Latest](/sccm/core/servers/manage/the-cd.latest-folder)   
 
-Planen Sie die Ausführung des Standardtasks für die Standortsicherung mindestens alle 5 Tage. Der Grund dafür ist, dass Configuration Manager einen Zeitraum für die *Beibehaltungsdauer der Änderungsnachverfolgung für SQL Server* von fünf Tagen verwendet.  (Siehe [Beibehaltungsdauer der SQL Server-Änderungsnachverfolgung](/sccm/protect/understand/recover-sites#bkmk_SQLretention) im Thema zum Wiederherstellen von Standorten.)
+Planifiez l’exécution de la tâche de sauvegarde de site par défaut au minimum tous les cinq jours. La raison en est que Configuration Manager utilise une période de 5 jours comme *Période de rétention du suivi des modifications SQL Server*.  (Consultez la section [Période de rétention du suivi des modifications SQL Server](/sccm/protect/understand/recover-sites#bkmk_SQLretention) dans la rubrique Récupérer des sites.)
 
-Zur Vereinfachung des Sicherungsprozesses können Sie eine Datei **AfterBackup.bat** erstellen, um nach der erfolgreichen Ausführung des Sicherungswartungstasks weitere Aktionen automatisch auszuführen. Die Datei „AfterBackup.bat“ wird normalerweise zur Archivierung der Sicherungsmomentaufnahme an einem sicheren Speicherort verwendet. Sie können mit der Datei „AfterBackup.bat“ auch Dateien in den Sicherungsordner kopieren und andere zusätzliche Sicherungstasks starten.  
+Pour simplifier le processus de sauvegarde, vous pouvez créer un fichier **AfterBackup.bat** pour accomplir automatiquement des actions postérieures à la sauvegarde une fois la tâche de maintenance de sauvegarde correctement exécutée. Le fichier AfterBackup.bat est généralement utilisé pour archiver l'instantané de sauvegarde à un emplacement sécurisé. Vous pouvez également utiliser le fichier AfterBackup.bat pour copier des fichiers vers votre dossier de sauvegarde et démarrer d'autres tâches de sauvegarde supplémentaires.  
 
-Sie können einen Standort der zentralen Verwaltung und einen primären Standort sichern. Bei sekundären Standorten oder Standortsystemservern hingegen wird eine Sicherung nicht unterstützt.
+Vous pouvez sauvegarder un site d'administration centrale et un site principal, mais il n'existe pas de prise en charge de la sauvegarde des sites secondaires ou des serveurs de système de site.
 
-Wenn der Configuration Manager-Sicherungsdienst ausgeführt wird, läuft dieser Vorgang den in der Sicherungssteuerungsdatei (**&lt;Configuration Manager-Installationsordner\>\Inboxes\Smsbkup.box\Smsbkup.ctl**) definierten Anweisungen entsprechend ab. Sie können die Sicherungssteuerungsdatei ändern, um das Verhalten des Sicherungsdienstes zu ändern.  
+Quand le service de sauvegarde de Configuration Manager est en cours d’exécution, il suit les instructions définies dans le fichier de contrôle de sauvegarde (**&lt;dossier_installation_ConfigMgr\>\Inboxes\Smsbkup.box\Smsbkup.ctl**). Vous pouvez apporter des modifications à ce fichier de contrôle de la sauvegarde afin de changer le comportement du service de sauvegarde.  
 
-Informationen zum Status der Standortsicherung werden in die Datei **Smsbkup.log** geschrieben. Diese Datei wird in dem Zielordner erstellt, den Sie in den Eigenschaften des Wartungstasks „Standortserver sichern“ angeben.  
+Les informations sur l’état de la sauvegarde du site sont enregistrées dans le fichier **Smsbkup.log** . Ce fichier est créé dans le dossier de destination spécifié dans les propriétés de la tâche de maintenance de sauvegarde du serveur de site.  
 
-#### <a name="to-enable-the-site-backup-maintenance-task"></a>So aktivieren Sie den Wartungstask zur Standortsicherung  
+#### <a name="to-enable-the-site-backup-maintenance-task"></a>Pour activer la tâche de maintenance de sauvegarde de site  
 
-1.  Öffnen Sie in der Configuration Manager-Konsole **Verwaltung** > **Standortkonfiguration** > **Standorte**.  
+1.  Dans la console Configuration Manager, ouvrez **Administration** > **Configuration de site** > **Sites**.  
 
-2.  Wählen Sie den Standort aus, an dem Sie den Wartungstask zur Standortsicherung aktivieren möchten.  
+2.  Sélectionnez le site dans lequel vous souhaitez activer la tâche de maintenance de sauvegarde de site.  
 
-3.  Wählen Sie auf der Registerkarte **Startseite** in der Gruppe **Einstellungen** die **Standortwartungstasks**.  
+3.  Dans l'onglet **Accueil**, dans le groupe **Paramètres**, cliquez sur **Tâches de maintenance de site**.  
 
-4.  Wählen Sie **Standortserver sichern**  >  **Bearbeiten** aus.  
+4.  Choisissez **Serveur de site de sauvegarde**  >  **Modifier**.  
 
-5.  Wählen Sie **Diese Aufgabe aktivieren** > **Pfade festlegen** aus, um das Sicherungsziel anzugeben. Hierzu stehen Ihnen folgende Optionen zur Verfügung:  
+5.  Choisissez **Activer cette tâche** > **Définir les chemins** pour spécifier la destination de la sauvegarde. Les options suivantes sont disponibles :  
 
     > [!IMPORTANT]  
-    >  Speichern Sie die Dateien an einem sicheren Ort, um einer Manipulation der Sicherungsdateien vorzubeugen. Der sicherste Pfad für eine Sicherung ist ein lokales Laufwerk, sodass Sie NTFS-Dateisystemberechtigungen für den Ordner einrichten können. Configuration Manager verschlüsselt nicht die Sicherungsdaten, die im den Sicherungspfad gespeichert sind.  
+    >  Pour empêcher la falsification des fichiers de sauvegarde, stockez les fichiers dans un emplacement sécurisé. Le chemin de sauvegarde vers un lecteur local est le plus sûr pour pouvoir définir des autorisations de système de fichiers NTFS sur le dossier. Quelle que soit l'option que vous sélectionnez, Configuration Manager ne chiffre pas les données de sauvegarde stockées dans le chemin de sauvegarde.  
 
-    -   **Lokales Laufwerk auf Standortserver für Standortdaten und -datenbank**: Bei Auswahl dieser Option werden die Sicherungsdateien für den Standort und die Standortdatenbank im angegebenen Pfad auf dem lokalen Laufwerk des Standortservers gespeichert. Sie müssen den lokalen Ordner erstellen, bevor der Sicherungstask ausgeführt wird. Das lokale Systemkonto auf dem Standortserver muss über die NTFS-Dateisystemberechtigung **Schreiben** für den lokalen Ordner verfügen, der für die Sicherung des Standorts vorgesehen ist. Das lokale Systemkonto auf dem Computer, auf dem SQL Server ausgeführt wird, muss über die NTFS-Berechtigung **Schreiben** für den Ordner verfügen, der für die Sicherung der Standortdatenbank vorgesehen ist.  
+    -   **Lecteur local sur le serveur de site pour les données de site et la base de données**: spécifie que les fichiers de sauvegarde pour le site et la base de données de site sont stockés dans le chemin spécifié sur le disque local du serveur de site. Vous devez créer le dossier local avant d'exécuter la tâche de sauvegarde. Le compte système local sur le serveur de site doit disposer des autorisations de système de fichiers NTFS en **écriture** sur le dossier local pour la sauvegarde de serveur de site. Le compte système local sur l'ordinateur qui exécute SQL Server doit disposer des autorisations NTFS en **écriture** sur le dossier pour la sauvegarde de base de données de site.  
 
-    -   **Netzwerkpfad (UNC-Name) für Standortdaten und -datenbank**: Bei Auswahl dieser Option werden die Sicherungsdateien für den Standort und die Standortdatenbank im angegebenen UNC-Pfad gespeichert. Sie müssen die Freigabe erstellen, bevor der Sicherungstask ausgeführt wird. Das Computerkonto des Standortservers sowie das Computerkonto von SQL Server, so SQL Server auf einem anderen Computer installiert ist, müssen die NTFS-Berechtigung **Schreiben** sowie Freigabeberechtigungen für den freigegebenen Netzwerkordner aufweisen.  
+    -   **Chemin d’accès réseau (nom UNC) aux données de site et à la base de données**: spécifie que les fichiers de sauvegarde pour le site et la base de données de site sont stockés dans le chemin UNC spécifié. Vous devez créer le partage avant l'exécuter la tâche de sauvegarde. Le compte d'ordinateur du serveur de site et le compte d'ordinateur de SQL Server, si SQL server est installé sur un autre ordinateur, doivent disposer des autorisations NTFS en **écriture** et de partage sur le dossier réseau partagé.  
 
-    -   **Lokale Laufwerke auf dem Standortserver und SQL Server**: Bei Auswahl dieser Option werden die Sicherungsdateien für den Standort im angegebenen Pfad auf dem lokalen Laufwerk des Standortservers gespeichert, und die Sicherungsdateien für die Standortdatenbank werden im angegebenen Pfad auf dem lokalen Laufwerk des Standortdatenbankservers gespeichert. Sie müssen die lokalen Ordner erstellen, bevor der Sicherungstask ausgeführt wird. Für das Computerkonto des Standortservers müssen die NTFS-Berechtigungen **Schreiben** für den Ordner vorliegen, den Sie auf dem Standortserver erstellen. Für das Computerkonto des SQL Servers müssen die NTFS-Berechtigungen **Schreiben** für den Ordner vorliegen, den Sie auf dem Standortdatenbankserver erstellen. Diese Option ist nur verfügbar, wenn die Standortdatenbank nicht auf dem Standortserver installiert ist.  
+    -   **Lecteurs locaux sur le serveur de site et SQL Server**: spécifie que les fichiers de sauvegarde pour le site sont stockés dans le chemin spécifié sur le disque local du serveur de site, et les fichiers de sauvegarde pour la base de données de site sont stockés sur le chemin spécifié sur le disque local du serveur de base de données de site. Vous devez créer les dossiers locaux avant d'exécuter la tâche de sauvegarde. Le compte d'ordinateur du serveur de site doit disposer des autorisations NTFS en **écriture** sur le dossier créé sur le serveur de site. Le compte d'ordinateur de SQL Server doit disposer des autorisations NTFS en **écriture** sur le dossier créé sur le serveur de base de données de site. Cette option est disponible uniquement lorsque la base de données de site n'est pas installée sur le serveur de site.  
 
     > [!NOTE]  
-    >   Die Option zum Durchsuchen des Sicherungsziels ist nur verfügbar, wenn Sie den UNC-Pfad des Sicherungsziels angeben.
+    >   L'option d'accès à la destination de sauvegarde n'est disponible que lorsque vous spécifiez le chemin UNC de la destination de sauvegarde.
 
-    > Der Ordner- oder Freigabename, der für das Sicherungsziel verwendet wird, darf keine Unicode-Zeichen enthalten.  
+    > Le nom de dossier ou le nom de partage utilisé pour la destination de sauvegarde ne prend pas en charge les caractères Unicode.  
 
-6.  Konfigurieren Sie einen Zeitplan für den Standortsicherungstask. Empfehlenswert ist ein Sicherungszeitplan, der außerhalb der Arbeitszeit liegt. Falls Sie über eine Hierarchie verfügen, empfiehlt sich ein Zeitplan, der mindestens zweimal pro Woche ausgeführt wird. Auf diese Weise bleibt bei einem Standortausfall ein Maximum an Daten erhalten.  
+6.  Configurez une planification pour la tâche de sauvegarde de site. Comme bonne pratique, considérez une planification de sauvegarde en dehors des heures de travail. Si vous disposez d'une hiérarchie, pensez à une planification qui s'exécute au moins deux fois par semaine pour assurer une conservation maximale des données en cas de défaillance du site.  
 
-    Wenn Sie die Configuration Manager-Konsole auf dem gleichen Standortserver ausführen, den Sie für die Sicherung konfigurieren, wird vom Wartungstask „Standortserver sichern“ die lokale Zeit für den Zeitplan verwendet. Wenn Sie die Configuration Manager-Konsole auf einem Computer außerhalb des Standorts ausführen, den Sie für die Sicherung konfigurieren, wird vom Wartungstask „Standortserver sichern“ UTC (Coordinated Universal Time, koordinierte Weltzeit) für den Zeitplan verwendet.  
+    Lorsque vous exécutez la console Configuration Manager sur le même serveur de site que vous configurez pour la sauvegarde, la tâche de maintenance de sauvegarde du serveur de site utilise l'heure locale pour la planification. Lorsque vous exécutez la console Configuration Manager à partir d'un ordinateur distant du site que vous configurez pour la sauvegarde, la tâche de maintenance de sauvegarde du serveur de site utilise le temps universel coordonné (UTC) pour la planification.  
 
-7.  Geben Sie an, ob eine Warnung generiert werden soll, wenn beim Standortsicherungstask ein Fehler auftritt, und klicken Sie auf **OK**. Klicken Sie anschließend auf **OK**. Wenn diese Option ausgewählt ist, wird von Configuration Manager bei einem Sicherungsfehler eine kritische Warnung generiert. Details zu dieser Warnung können Sie im Arbeitsbereich **Überwachung** im Knoten **Warnungen** einsehen.  
+7.  Indiquez si vous souhaitez créer une alerte en cas d'échec de la tâche de sauvegarde de site, cliquez sur **OK**, puis cliquez de nouveau sur **OK**. Lorsqu'il est sélectionné, Configuration Manager crée une alerte critique pour l'échec de sauvegarde, que vous pouvez consulter dans le nœud **Alertes** de l'espace de travail **Surveillance**.  
 
- Überprüfen Sie als nächstes, ob der Wartungstask „Standortserver sichern“ ausgeführt wird, um sicherzustellen, dass die Sicherungen erstellt werden.  
+ Ensuite, vérifiez que la tâche de maintenance de sauvegarde du serveur de site est en cours d’exécution afin de vous assurer que les sauvegardes sont créées.  
 
-#### <a name="to-verify-that-the-backup-site-server-maintenance-task-is-running"></a>So überprüfen Sie, ob der Wartungstask „Standortserver sichern“ ausgeführt wird  
-Überprüfen Sie wie folgt, ob der Wartungstask zur Standortsicherung ausgeführt wird:  
+#### <a name="to-verify-that-the-backup-site-server-maintenance-task-is-running"></a>Pour vérifier que la tâche de maintenance de sauvegarde du serveur de site est en cours d’exécution  
+Vérifiez que la tâche de maintenance de sauvegarde de site est en cours d’exécution en examinant les éléments suivants :  
 
--   Überprüfen Sie den Zeitstempel auf den Dateien im Sicherungszielordner, die vom Task erstellt wurden. Überprüfen Sie, ob der Zeitstempel aktualisiert wurde und die Zeitangabe mit der Zeit übereinstimmt, zu der die Ausführung des Tasks laut Zeitplan zuletzt vorgesehen war.  
+-   Vérifiez l'horodatage sur les fichiers dans le dossier de destination de sauvegarde qui a été créé par la tâche. Vérifiez que l'horodatage a été mis à jour avec l'heure de la dernière exécution de la tâche.  
 
--   Prüfen Sie im Arbeitsbereich **Überwachung** im Knoten **Komponentenstatus** die Statusmeldungen für SMS_SITE_BACKUP. Wenn die Standortsicherung erfolgreich abgeschlossen ist, wird die Meldungs-ID 5035 angezeigt. Dies bedeutet, dass die Standortsicherung ohne Fehler abgeschlossen wurde.  
+-   Dans le nœud **État du composant** de l'espace de travail **Surveillance** , consultez les messages d'état pour SMS_SITE_BACKUP. Lorsque la sauvegarde de site est terminée, le message ID 5035 s'affiche, indiquant que la sauvegarde de site a été effectuée sans erreurs.  
 
--   Wenn vom Wartungstask „Standortserver sichern“ bei einem Sicherungsfehler konfigurationsgemäß eine Warnung generiert wird, können Sie die Systemfehler im Arbeitsbereich **Überwachung** im Knoten **Warnungen** überprüfen.  
+-   Lorsque la tâche de maintenance de sauvegarde du serveur de site est configurée pour créer une alerte en cas d'échec de la sauvegarde, vous pouvez vérifier les échecs de sauvegarde dans le nœud **Alertes** de l'espace de travail **Surveillance** .  
 
--   Prüfen Sie die Datei „Smsbkup.log“ unter „&lt;*Configuration Manager-Installationsordner*>\Logs“ auf Warnungen und Fehler. Wenn die Standortsicherung erfolgreich abgeschlossen ist, wird `Backup completed` zusammen mit einem Zeitstempel und der Meldungs-ID `STATMSG: ID=5035`angezeigt.  
+-   Dans &lt;*dossier_installation_ConfigMgr*>\Logs, recherchez les avertissements et les erreurs dans le fichier smsbkup.log. Une fois la sauvegarde de site terminée, `Backup completed` s'affiche avec un horodateur et un ID de message `STATMSG: ID=5035`.  
 
     > [!TIP]  
-    >  Wenn beim Sicherungswartungstask ein Fehler auftritt, können Sie den Task durch Anhalten und Neustarten des Dienstes SMS_SITE_BACKUP neu starten.  
+    >  Lorsque la tâche de maintenance de la sauvegarde échoue, vous pouvez redémarrer la tâche de sauvegarde en arrêtant, puis en redémarrant le service SMS_SITE_BACKUP.  
 
-## <a name="archive-the-backup-snapshot"></a>Archivieren der Sicherungsmomentaufnahme  
-Bei der ersten Ausführung des Wartungstasks „Standortserver sichern“ wird eine Sicherungsmomentaufnahme erstellt, mit der Sie Ihren Standortserver nach einem Fehler wiederherstellen können. Wenn der Sicherungstask im Verlauf späterer Zyklen erneut ausgeführt wird, erstellt er jeweils einen neuen Sicherungssnapshot, mit dem der vorherige Snapshot überschrieben wird. Für einen Standort gibt es daher immer nur eine Sicherungsmomentaufnahme, und es ist nicht möglich, eine frühere Sicherungsmomentaufnahme abzurufen.  
+## <a name="archive-the-backup-snapshot"></a>Archiver l'instantané de sauvegarde  
+La première fois que la tâche de maintenance de sauvegarde du serveur de site est exécutée, elle génère un instantané de sauvegarde que vous pouvez utiliser pour récupérer votre serveur de site en cas de défaillance. Lorsque la tâche de sauvegarde est réexécutée au cours des cycles suivants, un nouvel instantané de sauvegarde est créé et remplace l'instantané précédent. Ainsi, le site n'a qu'un seul instantané de sauvegarde, et vous n'avez aucun moyen de récupérer un instantané de sauvegarde antérieur.  
 
-Aus den folgenden Gründen wird empfohlen, mehrere Archive der Sicherungsmomentaufnahme aufzubewahren:  
+Il est également recommandé d'effectuer plusieurs archives d'instantanés de sauvegarde pour les raisons suivantes :  
 
--   Es kommt häufig vor, dass Sicherungsmedien ausfallen, verlegt werden oder nur eine unvollständige Sicherung enthalten. Das Wiederherstellen eines ausgefallenen eigenständigen primären Standorts anhand einer älteren Sicherung ist besser als das Wiederherstellen ohne Sicherung. Bei einem Standortserver in einer Hierarchie muss die Sicherung innerhalb der Beibehaltungsdauer der Änderungsnachverfolgung für SQL Server liegen. Andernfalls ist die Sicherung nicht erforderlich.  
+-   Il arrive souvent que le média de sauvegarde soit défectueux, égaré ou ne contienne qu'une partie de la sauvegarde. La récupération d'un site principal autonome défaillant à partir d'une sauvegarde ancienne est un moindre mal. Pour un serveur de site dans une hiérarchie, la sauvegarde doit être dans la période de rétention des modifications de suivi de SQL Server, ou bien la sauvegarde n'est pas requise.  
 
--   Eine Beschädigung im Standort kann über mehrere Sicherungszyklen hinweg unentdeckt bleiben. Sie müssen möglicherweise eine Sicherungsmomentaufnahme verwenden, die vor der Beschädigung des Standorts erstellt wurde. Dies gilt für einen eigenständigen primären Standort und Standorte in einer Hierarchie, bei denen die Sicherung innerhalb der Beibehaltungsdauer der Änderungsnachverfolgung für SQL Server liegt.  
+-   La corruption des données sur un site peut passer inaperçue pendant plusieurs cycles de sauvegarde. Vous devrez peut-être utiliser un instantané de sauvegarde antérieur à la corruption du site. Cela s'applique à un site primaire autonome et aux sites dans une hiérarchie où la sauvegarde se trouve dans la période de rétention des modifications de suivi de SQL Server.  
 
--   Für den Standort gibt es möglicherweise keine Sicherungsmomentaufnahme, beispielsweise weil beim Wartungstask „Standortserver sichern“ ein Fehler aufgetreten ist. Da der Sicherungstask den vorherigen Sicherungssnapshot entfernt, bevor er mit dem Sichern der aktuellen Daten beginnt, gibt es zeitweise keinen gültigen Sicherungssnapshot.  
+-   Le site ne dispose peut-être d'aucun instantané de sauvegarde si, par exemple, la tâche de maintenance de sauvegarde du serveur de site échoue. Comme la tâche de sauvegarde supprime l'instantané de sauvegarde précédent avant de démarrer la sauvegarde des données en cours, aucun instantané de sauvegarde valide ne sera disponible.  
 
-## <a name="using-the-afterbackupbat-file"></a>Verwenden der Datei „AfterBackup.bat“  
-Nach der erfolgreichen Sicherung des Standorts wird vom Task „Standortserver sichern“ automatisch versucht, eine Datei namens AfterBackup.bat auszuführen. Sie müssen die Datei „AfterBackup.bat“ manuell in „&lt;*Configuration Manager-Installationsordner*>\Inboxes\Smsbkup“ erstellen. Wenn eine Datei „AfterBackup.bat“ vorhanden ist und sich im richtigen Ordner befindet, wird sie nach Abschluss des Sicherungstasks automatisch ausgeführt.
+## <a name="using-the-afterbackupbat-file"></a>Utilisation du fichier AfterBackup.bat  
+Après avoir sauvegardé le site, la tâche de sauvegarde du serveur de site tente automatiquement d'exécuter un fichier nommé AfterBackup.bat. Vous devez créer manuellement le fichier AfterBackup.bat dans &lt;*dossier_installation_ConfigMgr*>\Inboxes\Smsbkup. Si un fichier AfterBackup.bat existe et est stocké dans le dossier approprié, il est exécuté automatiquement à l'issue de l'exécution de la tâche de sauvegarde.
 
-Mit der Datei AfterBackup.bat können Sie die Sicherungsmomentaufnahme am Ende jedes Sicherungsvorgangs archivieren und automatisch andere nach der Sicherung erforderliche Tasks ausführen, die nicht zum Wartungstask „Standortserver sichern“ gehören. Mit der Datei AfterBackup.bat werden die Archivierungs- und Sicherungsvorgänge integriert. Dadurch wird sichergestellt, dass jede neue Sicherungsmomentaufnahme archiviert wird.
+Le fichier AfterBackup.bat permet d'archiver l'instantané de sauvegarde à la fin de chaque opération de sauvegarde, et d'effectuer automatiquement d'autres tâches postérieures à la sauvegarde, qui ne font pas partie de la tâche de maintenance de sauvegarde du serveur de site. Le fichier AfterBackup.bat intègre les opérations d'archivage et de sauvegarde, permettant ainsi d'archiver chaque nouvel instantané de sauvegarde.
 
-Wenn die Datei AfterBackup.bat nicht vorhanden ist, wird sie vom Sicherungstask übersprungen. Dies hat keine Auswirkungen auf den Sicherungsvorgang. Prüfen Sie im Arbeitsbereich **Überwachung** im Knoten **Komponentenstatus** die Statusmeldungen für SMS_SITE_BACKUP. Daran erkennen Sie, ob die Datei "AfterBackup.bat" vom Standortsicherungstask erfolgreich ausgeführt wurde. Wenn die Befehlsdatei „AfterBackup.bat“ erfolgreich gestartet wurde, wird die Meldungs-ID 5040 angezeigt.  
+Lorsque le fichier AfterBackup.bat n'est pas présent, la tâche de sauvegarde l'ignore sans effet sur l'opération de sauvegarde. Pour vérifier que la tâche de sauvegarde de site a exécuté avec succès le fichier AfterBackup.bat, consultez le nœud **État du composant** dans l'espace de travail **Surveillance** et vérifiez les messages d'état pour SMS_SITE_BACKUP. Lorsque la tâche démarre avec succès le fichier de commande AfterBackup.bat, le message ID 5040 s'affiche.  
 
 > [!TIP]  
->  Sie müssen ein Kopierbefehlstool wie [Robocopy](http://go.microsoft.com/fwlink/p/?LinkId=228408) in der Batchdatei verwenden, um die Datei „AfterBackup.bat“ zum Archivieren der Sicherungsdateien für den Standortserver zu erstellen. Beispielsweise können Sie die Datei „AfterBackup.bat“ erstellen und der ersten Zeile Folgendes hinzufügen: `Robocopy E:\ConfigMgr_Backup \\ServerName\ShareName\ConfigMgr_Backup /MIR`  
+>  Pour créer le fichier AfterBackup.bat afin d'archiver vos fichiers de sauvegarde de serveur de site, vous devez utiliser un outil de commande de copie, tel que [Robocopy](http://go.microsoft.com/fwlink/p/?LinkId=228408), dans le fichier de commandes. Par exemple, vous pouvez créer le fichier AfterBackup.bat et, sur la première ligne, ajouter une instruction similaire à la suivante : `Robocopy E:\ConfigMgr_Backup \\ServerName\ShareName\ConfigMgr_Backup /MIR`  
 
- Die Datei AfterBackup.bat ist zwar zum Archivieren von Sicherungsmomentaufnahmen vorgesehen, Sie aber können auch eine Datei AfterBackup.bat erstellen, um am Ende jedes Sicherungsvorgangs zusätzliche Tasks auszuführen.  
+ Même si le but premier du fichier AfterBackup.bat est d'archiver des instantanés de sauvegarde, vous pouvez créer un fichier AfterBackup.bat pour exécuter d'autres tâches à la fin de chaque opération de sauvegarde.  
 
-##  <a name="supplemental-backup-tasks"></a>Zusätzliche Sicherungstasks  
-Mit dem Wartungstask „Standortserver sichern“ wird eine Sicherungsmomentaufnahme für die Standortserverdateien und die Standortdatenbank erstellt. Beim Erstellen einer Sicherungsstrategie müssen Sie aber noch andere Elemente berücksichtigen, die nicht gesichert werden. In den folgenden Abschnitten erfahren Sie, wie Sie eine Configuration Manager-Sicherungsstrategie vervollständigen.  
+##  <a name="supplemental-backup-tasks"></a>Tâches de sauvegarde supplémentaires  
+La tâche de maintenance de sauvegarde du serveur de site fournit un instantané de sauvegarde pour les fichiers de serveur de site et la base de données de site, mais il existe certains autres éléments non sauvegardés que vous devez considérer lorsque vous créez votre stratégie de sauvegarde. Utilisez les sections suivantes pour définir votre stratégie de sauvegarde Configuration Manager.  
 
-### <a name="back-up-custom-reporting-services-reports"></a>Sichern benutzerdefinierter Reporting Services-Berichte  
-Wenn Sie vordefinierte Reporting Services-Berichte geändert oder benutzerdefinierte Reporting Services-Berichte erstellt haben, stellt die Sicherung der Berichtsserver-Datenbankdateien eine wichtige Komponente Ihrer Sicherungsstrategie dar. Die Berichtsserver-Sicherung muss eine Sicherung der Quelldateien für Berichte und Modelle, Verschlüsselungsschlüssel, benutzerdefinierte Assemblys oder Erweiterungen, Konfigurationsdateien, in benutzerdefinierten Berichten verwendete benutzerdefinierte SQL Server-Ansichten, benutzerdefinierte gespeicherte Prozeduren usw. umfassen.  
+### <a name="back-up-custom-reporting-services-reports"></a>Sauvegarde des rapports Reporting Services personnalisés  
+Lorsque vous avez modifié des rapports Reporting Services personnalisés prédéfinis ou créés, la création d'une sauvegarde pour les fichiers de base de données de serveur du rapport est une partie importante de votre stratégie de sauvegarde. La sauvegarde du serveur de rapports doit inclure une sauvegarde des fichiers sources pour les rapports et les modèles, des clés de cryptage, des assemblys ou des extensions personnalisés, des fichiers de configuration, des vues SQL Server personnalisées, des procédures stockées personnalisées, etc.  
 
 > [!IMPORTANT]  
->  Wenn Configuration Manager auf eine neuere Version aktualisiert wird, werden die vordefinierten Berichte möglicherweise von neuen Berichten überschrieben. Wenn Sie einen vordefinierten Bericht ändern, sichern Sie ihn, und stellen Sie den Bericht dann in Reporting Services wieder her.  
+>  Quand Configuration Manager est mis à niveau vers une version plus récente, les rapports prédéfinis peuvent être remplacés par de nouveaux rapports. Si vous modifiez un rapport prédéfini, sauvegardez le rapport avant d’effectuer la mise à jour, puis restaurez-le dans Reporting Services.  
 
- Weitere Informationen zum Sichern benutzerdefinierter Berichte in Reporting Services finden Sie unter [Sicherungs- und Wiederherstellungsvorgänge für eine Reporting Services-Installation](https://technet.microsoft.com/library/ms155814\(v=sql.120\).aspx) in der Onlinedokumentation zu SQL Server 2014.  
+ Pour plus d’informations sur la sauvegarde de vos rapports personnalisés dans Reporting Services, consultez [Opérations de sauvegarde et de restauration pour Reporting Services](https://technet.microsoft.com/library/ms155814\(v=sql.120\).aspx) dans la documentation en ligne de SQL Server 2014.  
 
-### <a name="back-up-content-files"></a>Sichern von Inhaltsdateien  
-Die Inhaltsbibliothek in Configuration Manager ist der Ort, an dem alle Inhaltsdateien für Softwareupdates, Anwendungen, Betriebssystembereitstellungen usw. gespeichert werden. Sie befindet sich auf dem Standortserver und an jedem Verteilungspunkt. Vom Wartungstask „Standortserver sichern“ wird keine Sicherung der Inhaltsbibliothek oder der Paketquelldateien ausgeführt. Beim Ausfall eines Standortservers werden die Informationen zu den Dateien der Inhaltsbibliothek in der Standortdatenbank wiederhergestellt. Sie müssen jedoch die Inhaltsbibliothek sowie die Paketquelldateien auf dem Standortserver wiederherstellen.  
+### <a name="back-up-content-files"></a>Sauvegarder des fichiers de contenu  
+La bibliothèque de contenu dans Configuration Manager correspond à l'emplacement dans lequel sont enregistrés tous les fichiers de contenu pour le déploiement des mises à jour logicielles, des applications, du système d'exploitation, etc. La bibliothèque de contenu se trouve sur le serveur de site et sur chaque point de distribution. La tâche de maintenance de sauvegarde du serveur de site n'inclut pas une sauvegarde de la bibliothèque de contenu ou des fichiers sources du package. Lors de la défaillance d'un serveur de site, les informations sur les fichiers de la bibliothèque de contenu sont restaurées vers la base de données de site, mais vous devez restaurer la bibliothèque de contenu et les fichiers sources des packages sur le serveur de site.  
 
--   **Inhaltsbibliothek**: Die Inhaltsbibliothek muss wiederhergestellt werden, damit Sie Inhalt erneut an Verteilungspunkte verteilen können. Wenn Sie die Neuverteilung des Inhalts starten, werden die Dateien von Configuration Manager aus der Inhaltsbibliothek auf dem Standortserver auf die Verteilungspunkte kopiert. Die Inhaltsbibliothek für den Standortserver befindet sich im Ordner „SCCMContentLib“. Dieser Ordner wiederum befindet sich in der Regel auf dem Laufwerk, auf dem zum Zeitpunkt der Standortinstallation am meisten freier Speicher verfügbar war.  
+-   **Bibliothèque de contenu**: la bibliothèque de contenu doit être restaurée avant que vous puissiez redistribuer le contenu vers des points de distribution. Lorsque vous démarrez la redistribution du contenu, Configuration Manager copie les fichiers depuis la bibliothèque de contenu sur le serveur de site vers les points de distribution. La bibliothèque de contenu pour le serveur de site se trouve dans le dossier SCCMContentLib, qui est généralement situé sur le lecteur qui dispose de la plus grande quantité d'espace libre au moment de l'installation du site.  
 
--   **Paketquelldateien**: Die Paketquelldateien müssen wiederhergestellt werden, damit Sie ein Update des Inhalts an Verteilungspunkten ausführen können. Wenn Sie ein Inhaltsupdate starten, werden neue oder geänderte Dateien von Configuration Manager aus der Paketquelle in die Inhaltsbibliothek kopiert. Von dort werden die Dateien auf die zugeordneten Verteilungspunkte kopiert. Sie können die folgende Abfrage in SQL Server ausführen, um den Quellspeicherort für alle Pakete und Anwendungen zu ermitteln: `SELECT * FROM v_Package`. Sie können den Paketquellstandort anhand der ersten drei Zeichen der Paket-ID identifizieren. Wenn beispielsweise die Paket-ID „CEN00001“ lautet, ist „CEN“ der Standortcode für den Quellstandort. Paketquelldateien müssen an den gleichen Speicherort wiederhergestellt werden wie vor dem Fehler.  
+-   **Fichiers sources d’un package**: les fichiers sources d’un package doivent être restaurés avant que vous puissiez mettre à jour le contenu sur des points de distribution. Lorsque vous démarrez la mise à jour d'un contenu, Configuration Manager copie les fichiers nouveaux ou modifiés depuis la source du package vers la bibliothèque de contenu, qui à son tour copie les fichiers vers des points de distribution associés. Vous pouvez exécuter la requête suivante dans SQL Server pour trouver l'emplacement source du package pour tous les packages et applications : `SELECT * FROM v_Package`. Vous pouvez identifier le site source du package en examinant les trois premiers caractères de l'ID de package. Par exemple, si l'ID de package est CEN00001, le code de site pour le site source est CEN. Lorsque vous restaurez les fichiers sources du package, ceux-ci doivent être restaurés vers le même emplacement que celui dans lequel ils se trouvaient avant la défaillance.  
 
- Achten Sie darauf, bei der Dateisystemsicherung für den Standortserver sowohl die Inhaltsbibliothek als auch die Paketquellspeicherorte einzuschließen.  
+ Vérifiez que vous incluez à la fois la bibliothèque de contenu et les emplacements sources du package dans la sauvegarde de votre système de fichiers pour le serveur de site.  
 
-### <a name="back-up-custom-software-updates"></a>Sichern benutzerdefinierter Softwareupdates  
- System Center Updates Publisher 2011 ist ein eigenständiges Tool, mit dem Sie benutzerdefinierte Softwareupdates in Windows Server Update Services (WSUS) veröffentlichen, die Softwareupdates mit Configuration Manager synchronisieren, die Konformität der Softwareupdates bewerten sowie die benutzerdefinierten Softwareupdates für Clients bereitstellen können. Updates Publisher verwendet eine lokale Datenbank für das Softwareupdaterepository. Wenn Sie den Updates Publisher zur Verwaltung benutzerdefinierter Softwareupdates verwenden, legen Sie fest, ob die Updates Publisher-Datenbank in Ihrem Sicherungsplan enthalten sein muss. Weitere Informationen zu Updates Publisher finden Sie unter [System Center Updates Publisher 2011](http://go.microsoft.com/fwlink/p/?LinkId=228726) in der System Center TechNet-Bibliothek.  
+### <a name="back-up-custom-software-updates"></a>Sauvegarder les mises à jour logicielles personnalisées  
+ System Center Updates Publisher 2011 est un outil autonome qui vous permet de publier des mises à jour logicielles personnalisées vers Windows Server Update Services (WSUS), de synchroniser les mises à jour logicielles vers Configuration Manager, d’évaluer la compatibilité des mises à jour logicielles et de déployer des mises à jour logicielles personnalisées sur des clients. L’éditeur de mise à jour utilise une base de données locale pour son espace de stockage des mises à jour logicielles. Quand vous utilisez l’éditeur de mise à jour pour gérer les mises à jour logicielles personnalisées, déterminez si vous devez inclure la base de données de l’éditeur de mise à jour dans votre plan de sauvegarde. Pour plus d'informations sur l'éditeur de mise à jour, voir [Éditeur de mise à jour System Center 2011](http://go.microsoft.com/fwlink/p/?LinkId=228726) dans la bibliothèque TechCenter de System Center.  
 
- Gehen Sie wie folgt vor, um die Updates Publisher-Datenbank zu sichern.  
+ Utilisez la procédure suivante pour sauvegarder la base de données de l'éditeur de mise à jour.  
 
-#### <a name="to-back-up-the-updates-publisher-2011-database"></a>So sichern Sie die Updates Publisher 2011-Datenbank  
+#### <a name="to-back-up-the-updates-publisher-2011-database"></a>Pour sauvegarder la base de données de l'éditeur de mise à jour 2011  
 
-1.  Suchen Sie auf dem Computer, auf dem Updates Publisher ausgeführt wird, die Updates Publisher-Datenbankdatei („Scupdb.sdf“) in „%*USERPROFILE*%\AppData\Local\Microsoft\System Center Updates Publisher 2011\5.00.1727.0000\\“. Für jeden Benutzer, der Updates Publisher ausführt, gibt es eine eigene Datenbankdatei.  
+1.  Sur l’ordinateur qui exécute l’éditeur de mise à jour, accédez au fichier de base de données de l’éditeur de mise à jour (Scupdb.sdf) dans %*USERPROFILE*%\AppData\Local\Microsoft\System Center Updates Publisher 2011\5.00.1727.0000\\\. Il existe un fichier de base de données différent pour chaque utilisateur qui exécute l’éditeur de mise à jour.  
 
-2.  Kopieren Sie die Datenbankdatei in das Sicherungsziel. Wenn das Sicherungsziel beispielsweise „E:\ConfigMgr_Backup“ lautet, können Sie die Updates Publisher-Datenbankdatei nach „E:\ConfigMgr_Backup\SCUP2011“ kopieren.  
+2.  Copiez le fichier de base de données vers votre destination de sauvegarde. Par exemple, si votre destination de sauvegarde est E:\ConfigMgr_Backup, vous pouvez copier le fichier de base de données de l’éditeur de mise à jour vers E:\ConfigMgr_Backup\SCUP2011.  
 
     > [!TIP]  
-    >  Wenn es auf einem Computer mehrere Datenbankdateien gibt, empfiehlt es sich, die Datei in einem Unterordner zu speichern, der den Namen des mit der Datenbankdatei verbundenen Benutzerprofils trägt. Beispielsweise kann sich eine Datenbankdatei in E:\ConfigMgr_Backup\SCUP2011\User1 befinden und eine andere Datenbankdatei in E:\ConfigMgr_Backup\SCUP2011\User2.  
+    >  Lorsqu'il existe plusieurs fichiers de base de données sur un ordinateur, envisagez de stocker le fichier dans un sous-dossier qui indique le profil utilisateur associé au fichier de base de données. Par exemple, vous pourriez avoir un seul fichier de base de données dans E:\ConfigMgr_Backup\SCUP2011\User1 et un autre fichier de base de données dans E:\ConfigMgr_Backup\SCUP2011\User2.  
 
-## <a name="user-state-migration-data"></a>Daten zur Benutzerzustandsmigration  
-Mit Configuration Manager-Tasksequenzen können Sie bei der Betriebssystembereitstellung die Benutzerstatusdaten erfassen und wiederherstellen, wenn Sie den Benutzerstatus des aktuellen Betriebssystems beibehalten möchten. Die Ordner, in denen die Benutzerzustandsdaten gespeichert werden, werden in den Eigenschaften des Zustandsmigrationspunkts aufgeführt. Diese Daten zur Benutzerzustandsmigration werden vom Wartungstask „Standortserver sichern“ nicht gesichert. Im Rahmen Ihres Sicherungsplans müssen Sie die Ordner, in denen die Daten zur Benutzerzustandsmigration gespeichert werden, manuell sichern.   
+## <a name="user-state-migration-data"></a>Données de migration de l'état utilisateur  
+Vous pouvez utiliser des séquences de tâches Configuration Manager pour capturer et restaurer les données d’état utilisateur dans les scénarios de déploiement de système d’exploitation où vous souhaitez conserver l’état utilisateur du système d’exploitation actuel. Les dossiers qui stockent les données d'état utilisateur sont répertoriés dans les propriétés du point de migration d'état. Ces données de migration d'état utilisateur ne sont pas sauvegardées dans le cadre de la tâche de maintenance de sauvegarde du serveur de site. Dans le cadre de votre plan de sauvegarde, vous devez sauvegarder manuellement les dossiers que vous spécifiez pour stocker les données de migration d'état utilisateur.   
 
-### <a name="to-determine-the-folders-used-to-store-user-state-migration-data"></a>So bestimmen Sie die Ordner, in denen die Daten zur Benutzerzustandsmigration gespeichert werden  
+### <a name="to-determine-the-folders-used-to-store-user-state-migration-data"></a>Pour déterminer les dossiers utilisés pour stocker les données de migration d'état utilisateur  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Verwaltung**.  
+1.  Dans la console Configuration Manager, cliquez sur **Administration**.  
 
-2.  Erweitern Sie im Arbeitsbereich **Verwaltung** den Knoten **Standortkonfiguration**, und wählen Sie anschließend **Server und Standortsystemrollen**.  
+2.  Dans l'espace de travail **Administration** , développez **Configuration du site**, puis choisissez **Serveurs et rôles de système de site**.  
 
-3.  Wählen Sie das Standortsystem aus, auf dem die Rolle „Zustandsmigration“ gehostet wird. Wählen Sie anschließend in **Standortsystemrollen** die Option **Zustandsmigrationspunkt**aus.  
-
-
-4.  Klicken Sie auf der Registerkarte **Standortrolle** in der Gruppe **Eigenschaften** auf **Eigenschaften**.  
-5.  Die Ordner, in denen die Daten zur Benutzerzustandsmigration gespeichert werden, werden auf der Registerkarte **Allgemein** im Abschnitt **Ordnerdetails** aufgeführt.  
+3.  Sélectionnez le système de site qui héberge le rôle de migration d'état, puis choisissez **Point de migration de l'état** dans **Rôles de système de site**.  
 
 
+4.  Dans l'onglet **Rôle du site** , dans le groupe **Propriétés** , cliquez sur **Propriétés**.  
+5.  Les dossiers qui stockent les données de migration d'état utilisateur sont répertoriés dans la section **Détails du dossier** de l'onglet **Général** .  
 
-## <a name="about-the-sms-writer-service"></a>Informationen zum SMS-Writer-Dienst  
-Während des Sicherungsprozesses findet zwischen dem SMS-Writer-Dienst und dem Volumeschattenkopie-Dienst (Volume Shadow Copy Service, VSS) eine Interaktion statt. Der SMS-Writer-Dienst muss ausgeführt werden, damit die Configuration Manager-Standortsicherung erfolgreich abgeschlossen werden kann.  
 
-### <a name="purpose"></a>Zweck  
-SMS-Writer wird beim VSS registriert und an dessen Schnittstellen und Ereignissse gebunden. Wenn vom VSS Ereignisse übertragen oder bestimmte Benachrichtigungen an SMS-Writer gesendet werden, wird von SMS-Writer daraufhin eine entsprechende Aktion ausgeführt. Zunächst wird die Sicherungssteuerungsdatei „smsbkup.ctl“, die sich unter „&lt;*Configuration Manager-Installationspfad*>\inboxes\smsbkup.box“ befindet, von SMS-Writer gelesen, und dann werden die zu sichernden Dateien und Daten ermittelt. Anschließend werden von SMS-Writer Metadaten erstellt, die sich aus verschiedenen Komponenten zusammensetzen. Dabei dienen die ermittelten Informationen sowie bestimmte Daten aus den SMS-Registrierungsschlüsseln und Unterschlüsseln als Grundlage. Die Metadaten werden an den VSS gesendet, wenn sie angefordert werden. Vom VSS werden die Metadaten wiederum an die anfordernde Anwendung gesendet (Configuration Manager-Sicherungs-Manager). Vom Sicherungs-Manager werden die zu sichernden Daten ausgewählt und über den VSS an SMS-Writer gesendet. Von SMS-Writer werden geeignete Maßnahmen zur Vorbereitung der Sicherung ergriffen. Vom VSS wird ein Ereignis gesendet, wenn er für die Momentaufnahme bereit ist. Daraufhin werden von SMS-Write sämtliche Configuration Manager-Dienste angehalten, und es wird sichergestellt, dass die Configuration Manager-Aktivitäten während der Erstellung der Momentaufnahme gesperrt sind. Nachdem die Momentaufnahme erstellt wurde, werden die Dienste und Aktivitäten von SMS-Writer neu gestartet.  
 
-Der SMS-Writer-Dienst wird automatisch installiert. Dieser Dienst muss ausgeführt werden, wenn eine Sicherungs- oder Wiederherstellungsanforderung von der VSS-Anwendung eingeht.  
+## <a name="about-the-sms-writer-service"></a>À propos du service Enregistreur SMS  
+L'Enregistreur SMS est un service qui interagit avec le service de cliché instantané du volume (VSS, Volume Shadow copy Service) pendant le processus de sauvegarde. Le service Enregistreur SMS doit être en cours d'exécution pour mener à bien la sauvegarde de site Configuration Manager.  
 
-### <a name="writer-id"></a>Writer-ID  
-Die Writer-ID für SMS-Writer lautet: 03ba67dd-dc6d-4729-a038-251f7018463b.  
+### <a name="purpose"></a>Fonction  
+L'Enregistreur SMS s'enregistre auprès du service VSS et établit une liaison à ses interfaces et événements. Lorsque le service VSS diffuse des événements, ou s'il envoie une notification spécifique à l'Enregistreur SMS, ce dernier répond à la notification et entreprend les mesures appropriées. L’Enregistreur SMS lit le fichier de contrôle de sauvegarde (smsbkup.ctl), situé dans &lt;*chemin_installation_ConfigMgr*>\inboxes\smsbkup.box, puis détermine les fichiers et les données à sauvegarder. L'Enregistreur SMS génère des métadonnées, consistant de différents composants, en se basant sur ces informations ainsi que sur des données spécifiques à partir de la clé de Registre SMS et des sous-clés. Il envoie les métadonnées vers le service VSS lorsqu'elles sont demandées. Le service VSS envoie ensuite les métadonnées à l'application faisant la demande ; le Gestionnaire de sauvegarde Configuration Manager. sélectionne les données à sauvegarder et les envoie à l'Enregistreur SMS via le service VSS. L'Enregistreur SMS prend les mesures appropriées pour préparer la sauvegarde. Plus tard, lorsque le service VSS est prêt à prendre l'instantané, il envoie un événement ; l'Enregistreur SMS arrête tous les services Configuration Manager et s'assure que toutes les activités Configuration Manager sont figées pendant la création de l'instantané. Une fois le processus d'instantané terminé, l'Enregistreur SMS redémarre les services et les activités.  
 
-### <a name="permissions"></a>Berechtigungen  
-Der SMS-Writer-Dienst muss unter dem lokalen Systemkonto ausgeführt werden.  
+Le service Enregistreur SMS est installé automatiquement. Il doit être en cours d'exécution lorsque l'application VSS demande une sauvegarde ou une restauration.  
 
-### <a name="volume-shadow-copy-service"></a>Volumeschattenkopie-Dienst  
-Der Volumeschattenkopie-Dienst (Volume Shadow Copy Service, VSS) ist ein Satz COM APIs, mit denen ein Framework implementiert wird. Dank dieses Frameworks können Volumesicherungen ausgeführt werden, während von Anwendungen auf einem System weiterhin auf die Volumes geschrieben wird. Mit dem VSS wird eine konsistente Schnittstelle bereitgestellt, mit der Benutzeranwendungen, die zum Ausführen eines Updates für Daten auf einem Datenträger dienen (SMS-Writer-Dienst), und Benutzeranwendungen, die zur Anwendungssicherung verwendet werden (Sicherungs-Manager-Dienst), koordiniert werden können. Weitere Informationen finden Sie im Thema [Volume Shadow Copy Service](http://go.microsoft.com/fwlink/p/?LinkId=241968) (Volumeschattenkopie-Dienst) im Windows Server TechCenter.  
+### <a name="writer-id"></a>ID du rédacteur  
+L’ID d’enregistreur pour l’Enregistreur SMS est le suivant : 03ba67dd-dc6d-4729-a038-251f7018463b.  
 
-## <a name="next-steps"></a>Nächste Schritte
-Üben Sie nach der Erstellung einer Sicherung die [Standortwiederherstellung](/sccm/protect/understand/recover-sites) mit dieser Sicherung. Dadurch können Sie sich mit dem Wiederherstellungsprozess vertraut machen, bevor Sie ihn verwenden müssen, und können so überprüfen, ob die Sicherung für den beabsichtigten Zweck erfolgreich ausgeführt wurde.  
+### <a name="permissions"></a>Autorisations  
+Le service Enregistreur SMS doit s'exécuter sous le compte système local.  
+
+### <a name="volume-shadow-copy-service"></a>Service de cliché instantané du volume  
+Le service de cliché instantané du volume (VSS) est un ensemble d'API COM qui implémente une structure permettant de réaliser des sauvegardes de volumes en même temps que les applications sur un système continuent d'écrire dans les volumes. Le service VSS fournit une interface cohérente pour la coordination entre les applications de l'utilisateur qui mettent à jour des données sur le disque (le service Enregistreur SMS) et celles qui sauvegardent des applications (le service Gestionnaire de sauvegarde). Pour plus d'informations, consultez la rubrique [Volume Shadow Copy Service (Service de cliché instantané du volume)](http://go.microsoft.com/fwlink/p/?LinkId=241968) dans Windows Server TechCenter.  
+
+## <a name="next-steps"></a>Étapes suivantes
+Après avoir créé une sauvegarde, exercez-vous à [récupérer un site](/sccm/protect/understand/recover-sites) avec cette sauvegarde. Cela vous aidera à vous familiariser avec le processus de récupération avant d’y recourir en cas de besoin et à confirmer que la sauvegarde créée correspond à son usage prévu.  

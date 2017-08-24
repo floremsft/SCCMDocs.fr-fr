@@ -1,6 +1,6 @@
 ---
-title: "Funktionen in Technical Preview 1704 für Configuration Manager"
-description: "Erfahren Sie mehr über Funktionen, die in System Center Configuration Manager Technical Preview 1704 zur Verfügung stehen."
+title: "Fonctionnalités de la version d’évaluation technique 1704 de Configuration Manager"
+description: "Découvrez les fonctionnalités disponibles dans la version d’évaluation technique 1704 de System Center Configuration Manager."
 ms.custom: na
 ms.date: 4/21/2017
 ms.prod: configuration-manager
@@ -16,58 +16,58 @@ manager: angrobe
 ms.openlocfilehash: d7caee47ca74064630e09c1bdb94187af256d4b4
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="capabilities-in-technical-preview-1704-for-system-center-configuration-manager"></a>Funktionen in Technical Preview 1704 für System Center Configuration Manager
+# <a name="capabilities-in-technical-preview-1704-for-system-center-configuration-manager"></a>Fonctionnalités de la version d’évaluation technique 1704 de System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Technical Preview)*
+*S’applique à : System Center Configuration Manager (version d’évaluation technique)*
 
-In diesem Artikel werden die Funktionen erläutert, die in Technical Preview für System Center Configuration Manager, Version 1704, zur Verfügung stehen. Sie können diese Version installieren, um neue Funktionen für Ihren Configuration Manager Technical Preview-Standort zu aktualisieren oder hinzuzufügen. Bevor Sie diese Version der Technical Preview installieren, lesen Sie das einführende Thema [Technical Preview für System Center Configuration Manager](../../core/get-started/technical-preview.md), um sich mit den allgemeinen Anforderungen und Einschränkungen bei der Verwendung einer Technical Preview vertraut zu machen, und zu erfahren, wie Sie Updates zwischen Versionen durchführen und Feedback zu den Features in einer Technical Preview geben können.    
+Cet article présente les fonctionnalités disponibles dans la version d’évaluation technique 1704 de System Center Configuration Manager. Vous pouvez installer cette version pour mettre à jour et ajouter de nouvelles fonctionnalités à votre site de version d’évaluation technique Configuration Manager. Avant d’installer cette version d’évaluation technique, passez en revue la rubrique de présentation, [Technical Preview pour System Center Configuration Manager](../../core/get-started/technical-preview.md), pour vous familiariser avec les conditions générales et les limitations d’utilisation d’une version d’évaluation technique, la mise à jour entre les versions et l’envoi de commentaires sur les fonctionnalités dans une version d’évaluation technique.    
 
 
-**Im Folgenden werden neue Features aufgelistet, die Sie mit dieser Version ausprobieren können.**  
+**Vous trouverez ci-dessous les nouvelles fonctionnalités propres à cette version.**  
 
-## <a name="configure-android-apps-with-app-configuration-policies"></a>Konfigurieren von Android-Apps mit Konfigurationsrichtlinien für Apps
-Sie können Konfigurationsrichtlinien für Apps in System Center Configuration Manager verwenden, um Einstellungen bereitzustellen, die beim Ausführen einer App auf Android for Work-Geräten durch den Benutzer erforderlich sein können. Konfigurationsrichtlinien für Android-Apps stehen nur auf Geräten zur Verfügung, die Android for Work ausführen, und gelten für genehmigte Apps aus dem Play for Work-Store.
+## <a name="configure-android-apps-with-app-configuration-policies"></a>Configurer des applications Android avec des stratégies de configuration des applications
+Vous pouvez utiliser des stratégies de configuration des applications disponibles dans System Center Configuration Manager (Configuration Manager) pour distribuer les paramètres pouvant être nécessaires quand un utilisateur exécute une application sur des appareils Android for Work. Les stratégies de configuration des applications Android sont disponibles uniquement sur les appareils Android for Work et s’appliquent aux applications approuvées du magasin Play for Work.
 
-### <a name="try-it-out"></a>Probieren Sie es aus                 
+### <a name="try-it-out"></a>Essayer                 
 
-Wählen Sie in der Configuration Manager-Konsole **Softwarebibliothek** > **Anwendungsverwaltung** > **App-Konfigurationsrichtlinien** aus, und wählen Sie **Richtlinie für die App-Konfiguration erstellen**. Auf der Seite **Allgemein** des Assistenten können Sie jetzt einen **Konfigurationsrichtlinientyp auswählen:**. Geben Sie die Plattform an, für die die App-Konfigurationsrichtlinie bestimmt ist: **Konfigurationsrichtlinie für Android for Work-Apps**. Sie können dann zwischen zwei Optionen wählen: **Name/Wert-Paare angeben** oder **Zu Eigenschaftenlisten-JSON-Datei wechseln**. Die neue App-Konfigurationsrichtlinie wird im Knoten **App-Konfigurationsrichtlinien** des Arbeitsbereichs **Softwarebibliothek** angezeigt. Um eine App-Konfigurationsrichtlinie mit der Bereitstellung einer Android for Work-App zuzuordnen, stellen Sie die Anwendung wie gewohnt bereit, indem Sie die Vorgehensweise im Thema [Bereitstellen von Anwendungen](/sccm/apps/deploy-use/deploy-applications) durchführen.
+Dans la console Configuration Manager, choisissez **Bibliothèque de logiciels** > **Gestion des applications** > **Stratégies de configuration des applications** puis **Créer une stratégie de configuration d'application**. Sur la page **Général** de l’Assistant, vous pouvez à présent **sélectionner un type de stratégie de configuration**. Spécifiez la plateforme ciblée par la stratégie de configuration des applications : **stratégie de configuration pour les applications Android for Work**. Vous pouvez ensuite **spécifier des paires nom/valeur** ou **accéder à un fichier JSON de liste de propriétés**. La nouvelle stratégie de configuration des applications s’affiche dans le nœud **Stratégies de configuration des applications** de l’espace de travail **Bibliothèque de logiciels**. Pour associer une stratégie de configuration des applications au déploiement d’une application Android for Work, déployez l’application comme vous le faites habituellement, en suivant la procédure décrite dans la rubrique [Déployer des applications](/sccm/apps/deploy-use/deploy-applications).
 
-## <a name="hardware-inventory-collects-secure-boot-information"></a>Die Hardwareinventur sammelt Sicherer Start-Informationen
-Die Hardwareinventur sammelt jetzt Informationen darüber, ob Sicherer Start auf Clients aktiviert ist. Diese Informationen werden in der **SMS_Firmware**-Klasse (eingeführt in Version 1702) gespeichert und standardmäßig in der Hardwareinventur aktiviert. Weitere Informationen zur Hardwareinventur finden Sie unter [How to configure hardware inventory (Konfigurieren der Hardwareinventur)](/sccm/core/clients/manage/inventory/configure-hardware-inventory).
+## <a name="hardware-inventory-collects-secure-boot-information"></a>L’inventaire matériel collecte des informations sur le démarrage sécurisé
+L’inventaire matériel collecte désormais des informations indiquant si le démarrage sécurisé est activé sur les clients. Ces informations sont stockées dans la classe **SMS_Firmware** (introduite dans la version 1702) et activées dans l’inventaire matériel par défaut. Pour plus d’informations sur l’inventaire matériel, consultez [Guide pratique pour configurer l’inventaire matériel](/sccm/core/clients/manage/inventory/configure-hardware-inventory).
 
-## <a name="add-child-task-sequences-to-a-task-sequence"></a>Hinzufügen von untergeordneten Tasksequenzen zu einer Tasksequenz
-In dieser Version können Sie einen neuen Tasksequenzschritt hinzufügen, der eine andere Tasksequenz ausführt, die eine Beziehung zwischen übergeordnetem/untergeordnetem Objekt zwischen den Tasksequenzen erstellt. Dadurch können Sie modularere Tasksequenzen erstellen, die Sie wiederverwenden können.  
+## <a name="add-child-task-sequences-to-a-task-sequence"></a>Ajouter des séquences de tâches enfants à une séquence de tâches
+Dans cette version, vous pouvez ajouter une nouvelle étape de séquence de tâches qui exécute une autre séquence de tâches, créant ainsi une relation parent/enfant entre les séquences de tâches. Cela vous permet de créer et d’utiliser des séquences de tâches plus modulaires.  
 
-Berücksichtigen Sie Folgendes, wenn Sie eine untergeordnete Tasksequenz einer Tasksequenz hinzufügen:
+Lorsque vous ajoutez une séquence de tâches enfant à une séquence de tâches, considérez les éléments suivants :
 
-- Die über- und untergeordneten Tasksequenzen werden effektiv in einer einzigen Richtlinie kombiniert, die der Client ausführt.
-- Es wird nicht unterstützt, eine untergeordnete Tasksequenz hinzuzufügen, die einer anderen Tasksequenz übergeordnet ist.
-- Die Umgebung ist global. Wenn eine Variable beispielsweise von der übergeordneten Tasksequenz festgelegt und dann von der untergeordneten Tasksequenz geändert wird, bleibt die Änderung der Variablen im weiteren Verlauf bestehen. Wenn die untergeordnete Tasksequenz eine neue Variable erstellt, ist die Variable ebenso für die restlichen Schritte in der übergeordneten Tasksequenz verfügbar.
-- Statusmeldungen werden in der Regel für einen einzelnen Tasksequenzvorgang gesendet.
-- Die Tasksequenzen schreiben Einträge in die Datei „smsts.log“, mit neuen Protokolleinträgen, die den Start einer untergeordneten Tasksequenz deutlich machen.
-- Wenn untergeordnete Tasksequenzen in Technical Preview für Configuration Manager, Version 1704, auf ein Paket verweisen, und Sie die übergeordnete Tasksequenz vom Software Center aus ausführen, findet der Client den Paketinhalt nicht, wenn die untergeordnete Tasksequenz ausgeführt wird. In diesem Szenario müssen Sie die Tasksequenz von Medien aus ausführen (Startmedien, PXE usw.).  
+- Les séquences de tâches parent et enfant sont en fait combinées en une stratégie unique exécutée par le client.
+- Il n’est pas possible d’ajouter une séquence de tâches enfant qui est un parent d’une autre séquence de tâches.
+- L’environnement est global. Par exemple, si une variable est définie par la séquence de tâches parent avant d’être modifiée par la séquence de tâches enfant, la variable restera modifiée. De même, si la séquence de tâches enfant crée une nouvelle variable, la variable est disponible pour les étapes restantes de la séquence de tâches parent.
+- Les messages d’état sont envoyés normalement pour une opération de séquence de tâches unique.
+- Les séquences de tâches inscrivent des entrées dans le fichier smsts.log et le nouveau journal écritures indique clairement lorsqu’une séquence de tâches enfant démarre.
+- Dans la version d’évaluation technique 1704 de Configuration Manager, si les séquences de tâches enfants font référence à un package et que vous exécutez la séquence de tâches parent depuis le Centre logiciel, le client ne trouvera pas le contenu du package lors de l’exécution de la séquence de tâches enfant. Dans ce scénario, vous devez exécuter la séquence de tâches à partir du support (support de démarrage, PXE, etc.).  
 
-    Wenn die untergeordnete Tasksequenz Schritte wie **Befehlszeile ausführen** (ohne Paketreferenz), **Format**, **BitLocker** usw. verwendet, wird die Tasksequenz erfolgreich vom Software Center aus ausgeführt.
+    Si la séquence de tâches enfant utilise des étapes comme **Exécuter la ligne de commande** (sans aucune référence de package), **Format**, **BitLocker**, etc., la séquence de tâches est exécutée avec succès depuis le Centre logiciel.
 
-### <a name="to-add-a-child-task-sequence-to-a-task-sequence"></a>So fügen Sie eine untergeordnete Tasksequenz einer Tasksequenz hinzu
-1. Klicken Sie im Tasksequenz-Editor auf **Hinzufügen**, wählen Sie **Allgemein** aus, und klicken Sie auf **Tasksequenz ausführen**.
-2. Klicken Sie auf **Durchsuchen**, um die untergeordnete Tasksequenz auszuwählen.  
+### <a name="to-add-a-child-task-sequence-to-a-task-sequence"></a>Pour ajouter une séquence de tâches enfant à une séquence de tâches
+1. Dans l’Éditeur de séquence de tâches, cliquez sur **Ajouter**, sélectionnez **Général**, puis cliquez sur **Exécuter la séquence de tâches**.
+2. Cliquez sur **Parcourir** pour sélectionner la séquence de tâches enfant.  
 
-## <a name="reload-boot-images-with-current-windows-pe-version"></a>Neuladen von Startimages mit der aktuellen Version von Windows PE
-Beim Ausführen von **Verteilungspunkte aktualisieren** auf einem ausgewählten Startimage können Sie jetzt wahlweise die neueste Version von Windows PE neu in das Startimage laden (aus dem Installationsverzeichnis von Windows ADK). Die Seite **Allgemein** des Assistenten enthält Informationen über die auf dem Standortserver installierte Windows ADK-Version, die Windows ADK-Version, von der aus Windows PE im Startimage verwendet wurde, und die Version des Configuration Manager-Clients. Anhand dieser Informationen können Sie entscheiden, ob Sie das Startimage erneut laden möchten. Darüber hinaus wurde eine neue Spalte hinzugefügt (**Clientversion**), die angezeigt wird, wenn Sie Startimages im Knoten **Startimages** anzeigen, damit Sie wissen, welche Version des Configuration Manager-Clients jedes Startimage verwendet.
+## <a name="reload-boot-images-with-current-windows-pe-version"></a>Recharger les images de démarrage avec la version actuelle de Windows PE
+Lorsque vous exécutez l’option **Mise à jour des points de distribution** sur une image de démarrage sélectionnée, vous pouvez maintenant choisir de recharger la dernière version de Windows PE (depuis le répertoire d’installation de Windows ADK) dans l’image de démarrage. La page **Général** de l’Assistant fournit des informations sur la version de Windows ADK installée sur le serveur du site, la version de Windows ADK à partir de laquelle Windows PE a été utilisé dans l’image de démarrage, et la version du client Configuration Manager. Vous pouvez utiliser ces informations pour vous aider à décider s’il faut recharger l’image de démarrage. En outre, une nouvelle colonne (**Version du client**) a été ajoutée lorsque vous affichez des images de démarrage dans le nœud **Images de démarrage** et vous indique la version du client Configuration Manager utilisée par chaque image de démarrage.
 
-### <a name="to-reload-a-boot-image-with-the-current-windows-pe-version"></a>So laden Sie ein Startimage mit der aktuellen Version von Windows PE neu
+### <a name="to-reload-a-boot-image-with-the-current-windows-pe-version"></a>Pour recharger une image de démarrage avec la version actuelle de Windows PE
 
-1. Navigieren Sie in der Configuration Manager-Konsole zu **Softwarebibliothek** > **Betriebssysteme** > **Startimages**.
-2. Wählen Sie ein Startimage aus, und klicken Sie auf **Verteilungspunkte aktualisieren**.
-3. Wählen Sie auf der Seite **Allgemein** des Assistenten die Option **Reload boot image using the current version of Windows PE from the installed Windows ADK** (Startimage mit der aktuellen Version von Windows PE aus dem installierten Windows ADK neu laden).
+1. Dans la console Configuration Manager, accédez à **Bibliothèque de logiciels** > **Systèmes d’exploitation** > **Images de démarrage**.
+2. Sélectionnez une image de démarrage, puis cliquez sur **Mise à jour des points de distribution**.
+3. Sur la page **Général** de l’Assistant, sélectionnez l’option pour **recharger l’image à l’aide de la version actuelle de Windows PE à partir de Windows ADK installé**.
 
-## <a name="improvements-to-operating-system-deployment"></a>Verbesserungen bei der Betriebssystembereitstellung
-Basierend auf dem Feedback von Benutzern haben wir die folgenden Verbesserungen an der Betriebssystembereitstellung vorgenommen.
+## <a name="improvements-to-operating-system-deployment"></a>Améliorations apportées au déploiement des systèmes d’exploitation
+Les améliorations suivantes, inspirées par vos commentaires, ont été apportées au déploiement des systèmes d’exploitation.
 
-- [Neue Spalte **Betriebssystemversion** für Betriebssystemimages](https://configurationmanager.uservoice.com/forums/300492-ideas/suggestions/17558407-add-a-column-to-the-operating-system-images-node-f): Wir haben eine neue Spalte namens **Betriebssystemversion** hinzugefügt, um die Version des Betriebssystems für das Image anzuzeigen, wenn Sie Informationen in den Knoten **Betriebssystemabbilder** und **Betriebssystemaktualisierungspakete** anzeigen. Nur die Version des ersten Indexes in der WIM-Datei wird angezeigt. Wechseln Sie zur Registerkarte **Details** für das Image, um Betriebssystemversionen für andere Indizes zu überprüfen.
+- [Nouvelle colonne **Version du système d’exploitation** pour les images de système d’exploitation](https://configurationmanager.uservoice.com/forums/300492-ideas/suggestions/17558407-add-a-column-to-the-operating-system-images-node-f) : nous avons ajouté une nouvelle colonne nommée **Version du système d’exploitation** pour afficher la version du système d’exploitation de l’image lorsque vous affichez des informations dans les nœuds **Images du système d’exploitation** et **Packages de mise à niveau du système d’exploitation**. Seule la version du premier index du fichier .WIM s’affiche. Accédez à l’onglet **Détails** de l’image pour vérifier les versions du système d’exploitation des autres index.
 
-- [Effizientere Anmeldung bei „Smsts.log“](https://configurationmanager.uservoice.com/forums/300492-ideas/suggestions/16791919-stop-filling-smsts-log-with-useless): Ab dieser Version schreiben wir keine Einträge mehr in die Datei „smsts.log“ für CCM_CIVersionInfo.PolicyID-Informationen. Vor dieser Version konnte es viele Einträge mit diesen Informationen geben, wodurch es schwierig war, relevantere Informationen in der Protokolldatei zu finden.
+- [Journalisation plus efficace dans Smsts.log](https://configurationmanager.uservoice.com/forums/300492-ideas/suggestions/16791919-stop-filling-smsts-log-with-useless) : à compter de cette version, les entrées ne sont plus inscrites dans le fichier smsts.log pour les informations CCM_CIVersionInfo.PolicyID. Avant cette version, un grand nombre d’entrées pouvaient contenir ces informations, ce qui compliquait la recherche d’informations plus pertinentes dans le fichier journal.

@@ -1,6 +1,6 @@
 ---
-title: Aktualisieren eines vorhandenen Computers mit einer neuen Version von Windows | Microsoft-Dokumentation
-description: "Zum Partitionieren und Formatieren (Zurücksetzen) eines vorhandenen Computers und zum Installieren eines neuen Betriebssystems auf dem Computer können verschiedene Methoden in Configuration Manager verwendet werden."
+title: Actualiser un ordinateur existant avec une nouvelle version de Windows | Microsoft Docs
+description: "Vous pouvez utiliser plusieurs méthodes dans Configuration Manager pour partitionner et formater (réinitialiser) un ordinateur existant afin d’y installer un nouveau système d’exploitation."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,72 +17,72 @@ manager: angrobe
 ms.openlocfilehash: b247cbb68ed63a8eb99715a248686d68a28c53e2
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="refresh-an-existing-computer-with-a-new-version-of-windows-using-system-center-configuration-manager"></a>Aktualisieren eines vorhandenen Computers mit einer neuen Version von Windows unter Verwendung von System Center Configuration Manager
+# <a name="refresh-an-existing-computer-with-a-new-version-of-windows-using-system-center-configuration-manager"></a>Actualiser un ordinateur existant avec une nouvelle version de Windows à l’aide de System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Dieses Thema enthält die allgemeinen Schritte in System Center Configuration Manager zum Partitionieren und Formatieren (Zurücksetzen) eines vorhandenen Computers und zum Installieren eines neuen Betriebssystems auf dem Computer. In diesem Szenario können Sie aus vielen unterschiedlichen Bereitstellungsmethoden auswählen, z. B. PXE, startbare Medien oder Softwarecenter. Sie können auch einen Zustandsmigrationspunkt installieren, um Einstellungen zu speichern, und diese Einstellungen dann nach der Installation im neuen Betriebssystem wiederherstellen. Wenn Sie nicht sicher sind, ob dies das richtige Szenario der Betriebssystembereitstellung für Sie ist, ziehen Sie [Scenarios to deploy enterprise operating systems with System Center Configuration Manager (Szenarios für die Bereitstellung von Unternehmensbetriebssystemen)](scenarios-to-deploy-enterprise-operating-systems.md) zurate.  
+Cette rubrique indique les étapes générales à effectuer dans System Center Configuration Manager pour partitionner et formater (réinitialiser) un ordinateur existant afin d’y installer un nouveau système d’exploitation. Pour ce scénario, vous pouvez choisir parmi de nombreuses méthodes de déploiement différentes, telles que PXE, média de démarrage ou Centre logiciel. Vous pouvez aussi choisir d’installer un point de migration d’état pour stocker les paramètres, puis les restaurer sur le nouveau système d’exploitation après son installation. Pour vous aider à déterminer si ce scénario de déploiement de système d’exploitation est adapté à votre cas, consultez [Scénarios de déploiement de systèmes d’exploitation d’entreprise](scenarios-to-deploy-enterprise-operating-systems.md).  
 
- Verwenden Sie die folgenden Abschnitte, um einen vorhandenen Computer mit einer neuen Version von Windows zu aktualisieren.  
+ Utilisez les sections suivantes pour actualiser un ordinateur existant avec une nouvelle version de Windows.  
 
 ##  <a name="BKMK_Plan"></a> Plan  
 
--   **Planen und Implementieren von Anforderungen an die Infrastruktur**  
+-   **Planifier et implémenter la configuration requise pour l’infrastructure**  
 
-     Vor der Bereitstellung von Betriebssystemen müssen verschiedene Anforderungen an die Infrastruktur erfüllt sein, z. B. Windows ADK, User State Migration Tool (USMT), Windows Deployment Services (WDS) unterstützte Festplattenkonfigurationen usw. Weitere Informationen finden Sie unter [Infrastructure requirements for operating system deployment (Anforderungen an die Infrastruktur für die Betriebssystembereitstellung)](../plan-design/infrastructure-requirements-for-operating-system-deployment.md).  
+     Plusieurs éléments d’infrastructure doivent être installés et configurés avant de déployer des systèmes d’exploitation, tels que Windows ADK, l’outil de migration utilisateur (USMT), les services de déploiement Windows (WDS), la prise en charge des configurations de disque dur, etc. Pour plus d’informations, consultez [Configuration requise de l’infrastructure pour le déploiement de système d’exploitation](../plan-design/infrastructure-requirements-for-operating-system-deployment.md).  
 
--   **Installieren eines Zustandsmigrationspunkts (nur erforderlich, wenn Sie Einstellungen übertragen)**  
+-   **Installer un point de migration d’état (obligatoire uniquement si vous transférez des paramètres)**  
 
-     Wenn Sie Einstellungen eines vorhandenen Computers erfassen und dann im neuen Betriebssystem wiederherstellen möchten, müssen Sie einen Zustandsmigrationspunkt installieren. Weitere Informationen finden Sie unter [Statusmigrationspunkt](../get-started/prepare-site-system-roles-for-operating-system-deployments.md#BKMK_StateMigrationPoints).  
+     Quand vous allez capturer les paramètres de l’ordinateur existant et restaurer les paramètres sur le nouveau système d’exploitation, vous devez installer un point de migration d’état. Pour plus d’informations, consultez [Point de migration d’état](../get-started/prepare-site-system-roles-for-operating-system-deployments.md#BKMK_StateMigrationPoints).  
 
-##  <a name="BKMK_Configure"></a> Konfigurieren  
+##  <a name="BKMK_Configure"></a> Configurerr  
 
-1.  **Vorbereiten eines Startabbilds**  
+1.  **Préparer une image de démarrage**  
 
-     Ein Startabbild startet einen Computer in einer Windows PE-Umgebung (ein minimales Betriebssystem mit begrenzten Komponenten und Diensten), die dann ein vollständiges Windows-Betriebssystem auf dem Computer installieren kann.   Wenn Sie Betriebssysteme bereitstellen, müssen Sie das zu verwendende Startimage auswählen und das Image auf einen Verteilungspunkt verteilen. Bereiten Sie das Startimage unter Berücksichtigung folgender Informationen vor:  
+     Les images de démarrage démarrent un ordinateur dans un environnement Windows PE (système d’exploitation minimal doté de composants et services limités), qui peut ensuite installer un système d’exploitation Windows complet sur l’ordinateur.   Quand vous déployez des systèmes d’exploitation, vous devez sélectionner une image de démarrage à utiliser et distribuer cette image sur un point de distribution. Pour préparer l’image de démarrage, utilisez les éléments suivants :  
 
-    -   Weitere Informationen zu Startimages finden Sie unter [Manage boot images (Verwalten von Startimages)](../get-started/manage-boot-images.md).  
+    -   Pour en savoir plus sur les images de démarrage, consultez [Gérer les images de démarrage](../get-started/manage-boot-images.md).  
 
-    -   Weitere Informationen zum Anpassen eines Startimages [Anpassen von Startimages mit System Center Configuration Manager](../get-started/customize-boot-images.md).  
+    -   Pour plus d’informations sur la personnalisation d’une image de démarrage, consultez [Personnaliser des images de démarrage](../get-started/customize-boot-images.md).  
 
-    -   Verteilen Sie das Startabbild an Verteilungspunkte. Weitere Informationen finden Sie unter [Distribute content (Verteilen von Inhalt)](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkdistributea-distribute-content).  
+    -   Distribuez l’image de démarrage à des points de distribution. Pour plus d’informations, consultez [Distribuer du contenu](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkdistributea-distribute-content).  
 
-2.  **Vorbereiten eines Betriebssystemabbilds**  
+2.  **Préparer une image de système d’exploitation**  
 
-     Das Betriebssystemimage enthält die erforderlichen Dateien zum Installieren des Betriebssystems auf dem Zielcomputer. Bereiten Sie das Betriebssystemimage unter Berücksichtigung folgender Informationen vor:  
+     L’image de système d’exploitation contient les fichiers nécessaires pour installer le système d’exploitation sur l’ordinateur de destination. Pour préparer l’image du système d’exploitation, utilisez les éléments suivants :  
 
-    -   Weitere Informationen zum Erstellen eines Betriebssystemimages finden Sie unter [Manage operating system images (Verwalten von Betriebssystemimages)](../get-started/manage-operating-system-images.md).  
+    -   Pour en savoir plus sur la création d’une image de système d’exploitation, consultez [Gérer les images de système d’exploitation](../get-started/manage-operating-system-images.md).  
 
-    -   Verteilen Sie die Betriebssystemimages an Verteilungspunkte. Weitere Informationen finden Sie unter [Distribute content (Verteilen von Inhalt)](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkdistributea-distribute-content).  
+    -   Distribuez l’image du système d’exploitation à des points de distribution. Pour plus d’informations, consultez [Distribuer du contenu](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkdistributea-distribute-content).  
 
-3.  **Erstellen einer Tasksequenz zum Bereitstellen von Betriebssystemen über das Netzwerk**  
+3.  **Créer une séquence de tâches pour déployer des systèmes d’exploitation sur le réseau**  
 
-     Verwenden Sie eine Tasksequenz, um die Installation des Betriebssystems über das Netzwerk zu automatisieren. Führen Sie die Schritte im Artikel [Erstellen einer Tasksequenz zum Installieren eines Betriebssystems](create-a-task-sequence-to-install-an-operating-system.md) aus, um die Tasksequenz zum Bereitstellen des Betriebssystems zu erstellen. Abhängig von der gewählten Bereitstellungsmethode sind möglicherweise zusätzliche Aspekte zur Tasksequenz zu berücksichtigen.  
+     Utilisez une séquence de tâches pour automatiser l’installation du système d’exploitation sur le réseau. Utilisez les étapes indiquées dans [Créer une séquence de tâches pour installer un système d’exploitation](create-a-task-sequence-to-install-an-operating-system.md) pour créer la séquence de tâches permettant de déployer le système d’exploitation. En fonction de la méthode de déploiement choisie, des considérations supplémentaires peuvent s’appliquer à la séquence de tâches.  
 
     > [!NOTE]  
-    >  In diesem Szenario werden die Festplatten auf dem Computer durch die Tasksequenz formatiert und partitioniert. Verwenden Sie den Zustandsmigrationspunkt, um Benutzereinstellungen zu erfassen, und wählen Sie auf der Seite **Zustandsmigration** des Assistenten zum Erstellen einer Tasksequenz die Option **Benutzereinstellungen und Dateien auf einem Zustandsmigrationspunkt speichern** aus. Wenn Sie die Benutzereinstellungen und Dateien lokal speichern, gehen diese beim Formatieren der Festplatte verloren und können von Configuration Manager nicht wiederhergestellt werden. Weitere Informationen finden Sie unter [Verwalten des Benutzerstatus](../get-started/manage-user-state.md).  
+    >  Dans ce scénario, la séquence de tâches formate et partitionne les disques durs sur l’ordinateur. Pour capturer les paramètres utilisateur, vous devez utiliser le point de migration d’état et sélectionner **Enregistrer les paramètres et fichiers utilisateur sur un point de migration d’état** dans la page **Migration de l’état** de l’Assistant Création d’une séquence de tâches. Si vous enregistrez les paramètres et fichiers utilisateur localement, ils seront perdus quand le disque dur sera formaté et Configuration Manager ne pourra pas restaurer les paramètres. Pour plus d’informations, consultez [Gérer l’état utilisateur](../get-started/manage-user-state.md).  
 
-##  <a name="BKMK_Deploy"></a> Bereitstellen  
+##  <a name="BKMK_Deploy"></a> Déployer  
 
--   Verwenden Sie eine der folgenden Bereitstellungsmethoden, um das Betriebssystem bereitzustellen:  
+-   Pour déployer le système d’exploitation, appliquez l’une des méthodes de déploiement suivantes :  
 
-    -   [Verwenden von PXE zum Bereitstellen von Windows über das Netzwerk](use-pxe-to-deploy-windows-over-the-network.md)  
+    -   [Utiliser PXE pour déployer Windows sur le réseau](use-pxe-to-deploy-windows-over-the-network.md)  
 
-    -   [Verwenden von Multicast zum Bereitstellen von Windows über das Netzwerk](use-multicast-to-deploy-windows-over-the-network.md)  
+    -   [Utiliser la multidiffusion pour déployer Windows sur le réseau](use-multicast-to-deploy-windows-over-the-network.md)  
 
-    -   [Erstellen eines Images für ein OEM-Vorinstallations- oder lokales Depot](create-an-image-for-an-oem-in-factory-or-a-local-depot.md)  
+    -   [Créer une image pour un fabricant OEM en usine ou un dépôt local](create-an-image-for-an-oem-in-factory-or-a-local-depot.md)  
 
-    -   [Verwenden eigenständiger Medien zum Bereitstellen von Windows ohne Verwendung des Netzwerks](use-stand-alone-media-to-deploy-windows-without-using-the-network.md)  
+    -   [Utiliser un média autonome pour déployer Windows sans utiliser le réseau](use-stand-alone-media-to-deploy-windows-without-using-the-network.md)  
 
-    -   [Verwenden startbarer Medien zum Bereitstellen von Windows über das Netzwerk](use-bootable-media-to-deploy-windows-over-the-network.md)  
+    -   [Utiliser un média de démarrage pour déployer Windows sur le réseau](use-bootable-media-to-deploy-windows-over-the-network.md)  
 
-    -   [Verwenden des Softwarecenters zum Bereitstellen von Windows über das Netzwerk](use-software-center-to-deploy-windows-over-the-network.md)  
+    -   [Utiliser le Centre logiciel pour déployer Windows sur le réseau](use-software-center-to-deploy-windows-over-the-network.md)  
 
-## <a name="monitor"></a>Monitor  
+## <a name="monitor"></a>Analyse  
 
--   **Überwachen der Tasksequenzbereitstellung**  
+-   **Surveiller le déploiement de la séquence de tâches**  
 
-     Weitere Informationen zum Überwachen der Tasksequenzbereitstellung zum Installieren des Betriebssystems finden Sie unter [Überwachen von Betriebssystembereitstellungen](monitor-operating-system-deployments.md).  
+     Pour surveiller le déploiement de la séquence de tâches permettant d’installer le système d’exploitation, consultez [Surveiller les déploiements de système d’exploitation](monitor-operating-system-deployments.md).  

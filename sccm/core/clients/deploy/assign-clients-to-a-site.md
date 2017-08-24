@@ -1,6 +1,6 @@
 ---
-title: Zuweisen von Clients zu einem Standort | Microsoft-Dokumentation
-description: Zuweisen von Clients zu einem Standort in System Center Configuration Manager.
+title: "Affecter des clients à un site | Microsoft Docs"
+description: "Affecter des clients à un site dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
@@ -17,148 +17,148 @@ manager: angrobe
 ms.openlocfilehash: a0ccd453fbe346c239eb6e37bc3ed557487b1e27
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-assign-clients-to-a-site-in-system-center-configuration-manager"></a>Zuweisen von Clients zu einem Standort in System Center Configuration Manager
+# <a name="how-to-assign-clients-to-a-site-in-system-center-configuration-manager"></a>Comment affecter des clients à un site dans System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Nachdem ein System Center Configuration Manager-Client installiert wurde, muss er einem primären Configuration Manager-Standort beitreten, bevor er verwaltet werden kann. Der Standort, mit dem ein Client verbunden wird, wird als sein *zugewiesener Standort* bezeichnet. Clients können weder einem Standort der zentralen Verwaltung noch einem sekundären Standort zugewiesen werden.  
+Une fois un client System Center Configuration Manager installé, il doit rejoindre un site principal Configuration Manager avant de pouvoir être géré. Le site qu’un client rejoint est appelé le *site attribué*. Les clients ne peuvent pas être attribués à un site d'administration centrale ou à un site secondaire.  
 
-Die Zuweisung erfolgt nach der erfolgreichen Installation des Clients. Durch sie wird bestimmt, von welchem Standort der Clientcomputer verwaltet wird. Sie können den Client entweder direkt einem Standort zuweisen oder die automatische Standortzuweisung verwenden, bei der automatisch ein geeigneter Standort für den Client basierend auf seinem aktuellen Netzwerkspeicherort oder ein für die Hierarchie konfigurierter Fallbackstandort ermittelt wird.
+Le processus d’attribution se produit une fois le client installé et détermine le site qui gère l’ordinateur client. Vous avez le choix entre une attribution directe à un site et une attribution automatique de site. Dans ce cas, le client trouve automatiquement un site approprié, en fonction de son emplacement réseau actuel, ou un site de secours qui a été configuré pour la hiérarchie.
 
-Wenn Sie den Client des mobilen Geräts während der Configuration Manager-Anmeldung installieren, wird das Gerät stets automatisch einem Standort zugewiesen. Wenn Sie den Client auf einem Computer installieren, können Sie auswählen, ob der Client einem Standort zugewiesen werden soll oder nicht. Wenn der Client jedoch installiert aber nicht zugewiesen ist, kann der Client nicht verwaltet werden, bis die Standortzuweisung erfolgreich vorgenommen wurde.  
+Quand vous installez le client d’appareil mobile lors de l’inscription de Configuration Manager, l’appareil est toujours attribué automatiquement à un site. Quand vous installez le client sur un ordinateur, vous pouvez choisir d’attribuer ou non le client à un site. Toutefois, lorsque le client est installé mais pas attribué, client n'est pas géré tant que l'attribution de site n'a pas été menée à bien.  
  
 
 > [!NOTE]  
->  Weisen Sie Clients stets Standorten zu, auf denen dieselbe Version von Configuration Manager ausgeführt wird. Weisen Sie einem Standort eines älteren Releases keinen Configuration Manager-Client eines neueren Releases zu.   Aktualisieren Sie gegebenenfalls den primären Standort auf dieselbe Configuration Manager-Version, die Sie für die Clients verwenden.  
+>  Attribuez toujours des clients à des sites exécutant la même version de Configuration Manager. Évitez d’attribuer un client Configuration Manager d’une version plus récente à un site d’une version antérieure.   Si nécessaire, mettez à jour le site principal vers la même version de Configuration Manager que vous utilisez pour les clients.  
 
-Nachdem der Client einem Standort zugewiesen wurde, bleibt er auch dann diesem Standort zugewiesen, wenn seine IP-Adresse geändert wird und er zu einem anderen Standort wechselt. Nur ein Administrator kann den Client manuell einem anderen Standort zuweisen oder die Clientzuweisung entfernen.  
+Une fois le client attribué à un site, il y reste associé même dans les cas où il modifie son adresse IP ou se déplace vers un autre site. Seul un administrateur peut attribuer manuellement le client à un autre site ou supprimer l’attribution du client.  
 
 > [!WARNING]  
->  Eine Ausnahme zu einem dem Standort zugewiesenen Client ist die Zuweisung des Clients zu einem Windows Embedded-Gerät bei aktivierten Schreibfiltern. Wenn Sie nicht zuerst die Schreibfilter deaktivieren, bevor Sie den Client zuordnen, dann wechselt der Standortzuweisungsstatus des Clients beim nächsten Neustart des Geräts in seinen ursprünglichen Zustand zurück.  
+>  Le client ne reste pas attribué à un site si vous attribuez ce client sur un appareil Windows Embedded et que les filtres d'écriture sont activés, ce qui constitue une exception. Si vous ne désactivez pas les filtres d'écriture avant d'attribuer le client, celui-ci retrouve son état d'attribution de site initial au prochain redémarrage de l’appareil.  
 >   
->  Wenn der Client beispielsweise für die automatische Standortzuweisung konfiguriert ist, wird er beim Start neu zugewiesen und möglicherweise zu einem anderen Standort zugewiesen. Wenn der Client nicht für die automatische Standortzuweisung konfiguriert ist, sondern eine manuelle Standortzuweisung erfordert, müssen Sie den Client nach dem Start manuell erneut zuweisen, bevor Sie diesen Client mit Configuration Manager erneut verwalten können.  
+>  Par exemple, si le client est configuré pour l'attribution automatique de site, il fera l'objet d'une réattribution au démarrage et pourra être attribué à un site différent. Si le client n'est pas configuré pour l'attribution automatique de site, mais qu'il nécessite une attribution de site manuelle, vous devez le réattribuer manuellement après le démarrage pour pouvoir le gérer à nouveau à l'aide de Configuration Manager.  
 >   
->  Deaktivieren Sie zum Vermeiden dieses Verhaltens die Schreibfilter, bevor Sie den Client auf Embedded-Geräten zuweisen, und aktivieren Sie die Filter, nachdem Sie sichergestellt haben, dass die Standortzuweisung erfolgreich war.  
+>  Pour éviter ce comportement, désactivez les filtres d'écriture avant d'attribuer le client sur des appareils embarqués, puis activez-les après avoir vérifié que l'attribution de site a abouti.  
 
-Tritt bei der Zuweisung des Clients ein Fehler auf, bleibt die Clientsoftware weiterhin installiert, der Client wird allerdings nicht verwaltet. Ein Client wird als nicht verwaltet betrachtet, wenn er installiert, aber keinem Standort zugewiesen ist, oder wenn er einem Standort zugewiesen ist, aber die Kommunikation mit einem Verwaltungspunkt nicht möglich ist.  
+En cas d’échec de l’attribution du client, le logiciel client reste installé, mais il n’est pas géré. Un client est considéré non géré lorsqu'il est installé mais pas attribué à un site ou lorsqu'il est attribué à un site, mais ne peut pas communiquer avec un point de gestion.  
 
-##  <a name="using-manual-site-assignment-for-computers"></a>Verwenden der manuellen Standortzuweisung für Computer  
- Die manuelle Zuweisung von Clientcomputern zu einem Standort kann über folgenden zwei Methoden erfolgen:  
+##  <a name="using-manual-site-assignment-for-computers"></a>Utilisation de l'attribution manuelle de site pour les ordinateurs  
+ Vous pouvez attribuer des ordinateurs clients à un site manuellement en employant l'une des deux méthodes suivantes :  
 
--   Durch Angabe des Standortcodes mithilfe einer Clientinstallationseigenschaft  
+-   Utilisez une propriété d'installation du client qui spécifie le code de site.  
 
--   Durch Angabe des Standortcodes über die Systemsteuerung im Modul **Configuration Manager**  
-
-> [!NOTE]  
->  Wird ein Clientcomputer manuell einem nicht vorhandenen Configuration Manager-Standortcode zugewiesen, tritt bei der Standortzuweisung ein Fehler auf.   
-
-##  <a name="BKMK_AutomaticAssignment"></a> Verwenden der automatischen Standortzuweisung für Computer  
- Die automatische Standortzuweisung kann im Rahmen der Clientbereitstellung stattfinden oder, indem Sie in der Systemsteuerung in **Configuration Manager-Eigenschaften** auf der Registerkarte **Erweitert** auf **Standortsuche** klicken. Der Netzwerkpfad des Configuration Manager-Clients wird mit den in der Configuration Manager-Hierarchie konfigurierten Grenzen verglichen. Fällt der Netzwerkpfad des Clients in eine Begrenzungsgruppe, die für die Standortzuweisung aktiviert ist, oder ist die Hierarchie für einen Fallbackstandort konfiguriert, dann wird der Client automatisch diesem Standort zugewiesen, ohne dass Sie einen Standortcode angeben müssen.  
-
- Sie können Grenzen über die folgenden Elemente konfigurieren:  
-
--   IP-Subnetz  
-
--   Active Directory-Standort  
-
--   IPv6-Präfix  
-
--   IP-Adressbereich  
+-   Dans le panneau de configuration, dans **Configuration Manager**, indiquez le code de site.  
 
 > [!NOTE]  
->  Wenn ein Configuration Manager-Client über mehrere Netzwerkadapter und somit über mehrere IP-Adressen verfügt, wird die IP-Adresse, die zum Auswerten der Clientstandortzuweisung verwendet wird, nach dem Zufallsprinzip zugewiesen.  
+>  Si vous attribuez manuellement un ordinateur client à un code de site Configuration Manager qui n'existe pas, l'attribution de site échoue.   
 
- Informationen dazu, wie Sie Begrenzungsgruppen für die Standortzuweisung konfigurieren und wie Sie einen Fallbackstandort für die automatische Standortzuweisung konfigurieren, finden Sie unter [Define site boundaries and boundary groups for System Center Configuration Manager](../../../core/servers/deploy/configure/define-site-boundaries-and-boundary-groups.md).  
+##  <a name="BKMK_AutomaticAssignment"></a> Utilisation de l'attribution automatique de site pour les ordinateurs  
+ L'attribution automatique de site peut se produire lors du déploiement du client ou lorsque vous cliquez sur **Rechercher un site** sous l'onglet **Avancé** des **Propriétés du Configuration Manager** dans le panneau de configuration. Le client Configuration Manager compare son propre emplacement réseau avec les limites qui sont configurées dans la hiérarchie Configuration Manager. Lorsque l'emplacement réseau du client se situe dans un groupe de limites qui est activé pour l'attribution de site ou lorsque la hiérarchie est configurée pour un site de secours, le client est automatiquement affecté à ce site sans que vous deviez spécifier un code de site.  
 
- Configuration Manager-Clients, die die automatische Zuweisung verwenden, versuchen, Standortbegrenzungsgruppen zu finden, die in Active Directory Domain Services veröffentlicht wurden. Tritt hierbei ein Fehler auf (z.B., wenn das Active Directory-Schema nicht für Configuration Manager erweitert ist oder es sich bei Clients um Arbeitsgruppencomputer handelt), können die Informationen zu Begrenzungsgruppen für Clients über einen Verwaltungspunkt gesucht werden.  
+ Vous pouvez configurer des limites à l'aide de l'un ou de plusieurs des éléments suivants :  
 
- Sie können einen Verwaltungspunkt zur Verwendung durch installierte Clientcomputer angeben, oder Clients die Suche eines Verwaltungspunkts mithilfe von DNS-Veröffentlichung oder WINS ermöglichen.  
+-   Sous-réseau IP  
 
- Wenn die Suche nach einem Standort, der einer Begrenzungsgruppe zugeordnet ist, die den Netzwerkpfad des Clients enthält, erfolglos ist und die Hierarchie nicht über einen Fallbackstandort verfügt, wird die Suche vom Client alle zehn Minuten wiederholt, bis er einem Standort zugewiesen werden kann.  
+-   Site Active Directory  
 
- Falls eine der folgenden Bedingungen zutrifft, können Configuration Manager-Clientcomputer nicht automatisch einem Standort zugewiesen werden, sondern sie müssen dann manuell zugewiesen werden:  
+-   Préfixe IP v6  
 
--   Sie sind momentan einem Standort zugewiesen.  
-
--   Sie befinden sich im Internet oder sind nur für Internetverbindungen konfiguriert.  
-
--   Ihr Netzwerkpfad liegt nicht innerhalb einer der konfigurierten Begrenzungsgruppen in der Configuration Manager-Hierarchie, und es ist kein Fallbackstandort für die Hierarchie definiert.  
-
-##  <a name="completing-site-assignment-by-checking-site-compatibility"></a>Abschließen der Standortzuweisung durch Überprüfen der Standortkompatibilität  
- Nachdem der zugewiesene Standort für einen Client gefunden wurde, werden Version und Betriebssystem des Clients überprüft, um sicherzustellen, dass er von einem Configuration Manager-Standort verwaltet werden kann. Configuration Manager kann z.B. keine Configuration Manager 2007-Clients, System Center 2012 Configuration Manager-Clients oder Clients, auf denen Windows 2000 ausgeführt wird, verwalten.  
-
- Die Standortzuweisung schlägt fehl, wenn Sie einen Client, auf dem Windows 2000 ausgeführt wird, einem Configuration Manager-Standort zuweisen. Wenn Sie einen Configuration Manager 2007-Client oder einen System Center 2012 Configuration Manager-Client zu einem Configuration Manager-Standort (Current Branch) zuweisen, unterstützt die Standortzuweisung automatische Clientupgrades. Bis für Clients der älteren Generation jedoch ein Upgrade auf den Configuration Manager-Client (Current Branch) ausgeführt wird, kann dieser Client von Configuration Manager nicht über Clienteinstellungen, Anwendungen oder Softwareupdates verwaltet werden.  
+-   Plage d'adresses IP  
 
 > [!NOTE]  
->  Um die Standortzuweisung eines Configuration Manager 2007- oder eines System Center 2012 Configuration Manager-Clients zu einem Configuration Manager-Standort (Current Branch) zu unterstützen, müssen Sie das automatische Clientupgrade für die Hierarchie konfigurieren. Weitere Informationen finden Sie unter [Aktualisieren von Clients für Windows-Computer in System Center Configuration Manager](../../../core/clients/manage/upgrade/upgrade-clients-for-windows-computers.md).  
+>  Si un client Configuration Manager a plusieurs cartes réseau et donc plusieurs adresses IP, l’adresse IP utilisée pour évaluer l’attribution de site client est attribuée de façon aléatoire.  
 
-Configuration Manager prüft darüber hinaus, ob der Configuration Manager-Client (Current Branch) einem Standort zugewiesen wurde, der den Client unterstützt. Die folgenden Szenarios können bei einer Migration von früheren Versionen von Configuration Manager auftreten.  
+ Pour plus d’informations sur la configuration de groupes de limites pour l’attribution de site et sur la configuration d’un site de secours pour l’attribution automatique de site, consultez [Définir des limites de site et les groupes de limites pour System Center Configuration Manager](../../../core/servers/deploy/configure/define-site-boundaries-and-boundary-groups.md).  
 
--   Szenario: Sie haben die automatische Standortzuweisung verwendet, und die Grenzen überschneiden sich mit den in einer vorherigen Version von Configuration Manager definierten Grenzen.  
+ Les clients Configuration Manager qui utilisent l'attribution automatique de site tentent de trouver les groupes de limites qui sont publiés dans les services de domaine Active Directory. En cas d’échec (par exemple, le schéma Active Directory n’est pas étendu pour Configuration Manager ou les clients sont des ordinateurs de groupes de travail), les clients peuvent obtenir les informations sur les groupes de limites à partir d’un point de gestion.  
 
-     In diesem Fall versucht der Client automatisch, einen Configuration Manager-Standort (Current Branch) zu finden.  
+ Vous pouvez spécifier un point de gestion pour les ordinateurs clients lorsqu'ils sont installés, ou les clients peuvent localiser un point de gestion à l'aide de la publication DNS ou WINS.  
 
-     Zunächst wird Active Directory Domain Services vom Client überprüft, und wenn ein veröffentlichter Configuration Manager-Standort (Current Branch) gefunden wird, wird die Standortzuweisung erfolgreich durchgeführt. Schlägt dies fehl (der Configuration Manager-Standort wird beispielsweise nicht veröffentlicht, oder der Computer ist ein Arbeitsgruppenclient), wird vom Client nach Standortinformationen von seinem zugewiesenen Verwaltungspunkt gesucht.  
+ Si le client ne trouve pas de site associé à un groupe de limites qui contient son emplacement réseau et que la hiérarchie ne dispose pas d'un site de secours, le client essaie de nouveau toutes les 10 minutes jusqu'à ce qu'il puisse être attribué à un site.  
+
+ Les ordinateurs clients Configuration Manager ne peuvent pas être attribués automatiquement à un site si l’un des scénarios suivants s’applique et doivent être attribués manuellement :  
+
+-   Ils sont actuellement attribués à un site.  
+
+-   Ils se trouvent sur Internet ou sont configurés comme des clients Internet uniquement.  
+
+-   Leur emplacement réseau ne tombe pas dans l'un des groupes de limites configurés dans la hiérarchie de Configuration Manager et il n'existe aucun site de secours pour la hiérarchie.  
+
+##  <a name="completing-site-assignment-by-checking-site-compatibility"></a>Fin de l'attribution de site par la vérification de la compatibilité du site  
+ Dès lors qu'un client a trouvé le site auquel il est attribué, la version et le système d'exploitation du client sont vérifiés pour s'assurer qu'un site Configuration Manager peut le gérer. Par exemple, Configuration Manager ne peut pas gérer les clients Configuration Manager 2007, System Center 2012 Configuration Manager ou les clients qui exécutent Windows 2000.  
+
+ L’attribution de site échoue si vous attribuez un client Windows 2000 à un site Configuration Manager. Quand vous attribuez un client Configuration Manager 2007 ou un client System Center 2012 Configuration Manager à un site Configuration Manager (Current Branch), l’attribution de site parvient à prendre en charge la mise à niveau automatique du client. Toutefois, tant qu’un client de génération antérieure n’est pas mis à niveau vers un client Configuration Manager (Current Branch), Configuration Manager ne peut pas gérer ce client en utilisant des paramètres, applications ou mises à jour logicielles du client.  
+
+> [!NOTE]  
+>  Pour prendre en charge l’attribution de site d’un site Configuration Manager 2007 ou d’un client System Center 2012 Configuration Manager à un site Configuration Manager (Current Branch), vous devez configurer la mise à niveau automatique des clients pour la hiérarchie. Pour plus d’informations, consultez [Comment mettre à niveau les clients pour les ordinateurs Windows dans System Center Configuration Manager](../../../core/clients/manage/upgrade/upgrade-clients-for-windows-computers.md).  
+
+Configuration Manager vérifie également que vous avez attribué le client Configuration Manager (Current Branch) à un site qui le prend en charge. Les scénarios suivants peuvent se produire durant une migration à partir de versions précédentes de Configuration Manager.  
+
+-   Scénario : Vous avez utilisé une attribution automatique de site et vos limites chevauchent celles définies dans une version précédente de Configuration Manager.  
+
+     Dans ce cas, le client essaie automatiquement de trouver un site Configuration Manager (Current Branch).  
+
+     Le client vérifie d’abord les services de domaine Active Directory et, s’il trouve un site Configuration Manager (Current Branch) publié, l’attribution de site réussit. En cas d’échec (par exemple le site Configuration Manager n’est pas publié ou l’ordinateur est un client de groupe de travail), le client recherche les informations de site sur le point de gestion qui lui est attribué.  
 
     > [!NOTE]  
-    >  Während der Clientinstallation können Sie dem Client einen Verwaltungspunkt zuordnen, indem Sie die Client.msi-Eigenschaft **SMSMP=&lt;server_name>** verwenden.  
+    >  Vous pouvez attribuer un point de gestion au client lors de l’installation de celui-ci en utilisant la propriété Client.msi **SMSMP=&lt;nom_serveur**.  
 
-     Wenn beide Methoden fehlschlagen, dann schlägt auch die Standortzuweisung fehl und Sie müssen den Client manuell zuweisen.  
+     Si ces deux méthodes échouent, l'attribution de site échoue et vous devez attribuer le client manuellement.  
 
--   Szenario: Sie haben den Configuration Manager-Client (Current Branch) mithilfe eines spezifischen Standortcodes anstelle der automatischen Standortzuweisung zugewiesen und versehentlich einen Standortcode für eine Configuration Manager-Version vor System Center 2012 R2 Configuration Manager angegeben.  
+-   Scénario : Vous avez attribué le client Configuration Manager (Current Branch) en utilisant un code de site spécifique au lieu d’utiliser l’attribution automatique de site, et spécifié par erreur un code de site pour une version de Configuration Manager antérieure à System Center 2012 R2 Configuration Manager.  
 
-     In diesem Fall ist die Standortzuweisung nicht erfolgreich, und Sie müssen den Client manuell einem Configuration Manager-Standort (Current Branch) neu zuweisen.  
+     Dans ce cas, l’attribution de site échoue et vous devez réattribuer manuellement le client à un site Configuration Manager (Current Branch).  
 
- Zur Überprüfung der Standortkompatibilität muss eine der folgenden Bedingungen erfüllt sein:  
+ La vérification de la compatibilité du site requiert l'une des conditions suivantes :  
 
--   Der Client kann auf Standortinformationen zugreifen, die in Active Directory-Domänendiensten veröffentlicht sind.  
+-   Le client peut accéder aux informations de site publiées dans les services de domaine Active Directory.  
 
--   Der Client kann mit einem Verwaltungspunkt auf dem Standort kommunizieren.  
+-   Le client peut communiquer avec un point de gestion du site.  
 
- Wenn die Überprüfung der Standortkompatibilität nicht vollständig abgeschlossen werden kann, schlägt die Standortzuweisung fehl, und der Client wird so lange nicht verwaltet, bis die Überprüfung der Standortkompatibilität wiederholt und erfolgreich abgeschlossen wurde.  
+ Si la vérification de la compatibilité du site échoue avant la fin de l’opération, l’attribution de site échoue et le client reste non géré, jusqu’à ce que la vérification de la compatibilité du site se termine sans problème lors de l’exécution suivante.  
 
- Eine Ausnahme bei der Durchführung dieser Standortkompatibilitätsprüfung tritt dann ein, wenn ein Client für einen internetbasierten Verwaltungspunkt konfiguriert wird. In diesem Fall findet keine Standortkompatibilitätsprüfung statt. Wenn Sie Clients einem Standort mit internetbasierten Standortsystemen zuweisen und einen internetbasierten Verwaltungspunkt angeben, achten Sie darauf, dass Sie den Client dem richtigen Standort zuweisen. Wenn Sie den Client fälschlicherweise einem Configuration Manager 2007-Standort, einem System Center 2012 Configuration Manager-Standort oder einem Configuration Manager-Standort zuweisen, der keine internetbasierten Standortsystemrollen aufweist, wird der Client nicht verwaltet.  
+ La seule exception à cette vérification de la compatibilité du site survient lorsqu'un client est configuré pour un point de gestion Internet. Dans ce cas, aucune vérification de la compatibilité du site n’est effectuée. Si vous attribuez des clients à un site qui contient des systèmes de site Internet et que vous spécifiez un point de gestion Internet, assurez-vous d'attribuer le client au site approprié. Si vous attribuez le client à un site Configuration Manager 2007, un site System Center 2012 Configuration Manager ou un site Configuration Manager qui n’a pas de rôle de système de site basé sur Internet, le client n’est pas géré.  
 
-##  <a name="locating-management-points"></a>Suchen von Verwaltungspunkten  
- Nachdem ein Client erfolgreich einem Standort zugewiesen wurde, wird von diesem ein Verwaltungspunkt am Standort geortet.  
+##  <a name="locating-management-points"></a>Localisation de points de gestion  
+ Une fois qu'un client est correctement attribué à un site, il localise un point de gestion dans le site.  
 
- Durch Clientcomputer wird eine Liste von Verwaltungspunkten heruntergeladen, mit denen am Standort eine Verbindung hergestellt werden kann. Dies passiert bei jedem Neustart des Clients, alle 25 Stunden oder wenn vom Client eine Netzwerkänderung festgestellt wird (z.B. wenn der Computer die Verbindung zum Netzwerk unterbricht und neu aufbaut oder wenn er eine neue IP-Adresse bezieht). Zur Liste gehören Verwaltungspunkte im Intranet und Informationen dazu, ob von diesen Clientverbindungen über HTTP oder HTTPS akzeptiert werden. Wenn für einen Clientcomputer, der sich im Internet befindet, noch keine Liste von Verwaltungspunkten verfügbar ist, wird eine Verbindung mit dem angegebenen internetbasierten Verwaltungspunkt hergestellt, um eine Liste von Verwaltungspunkten abzurufen. Wenn für den Client eine Liste von Verwaltungspunkten für dessen zugewiesenen Standort verfügbar ist, wird ein Verwaltungspunkt für die Verbindung ausgewählt:  
+ Les ordinateurs clients téléchargent la liste des points de gestion auxquels ils peuvent se connecter dans le site. Cette opération se produit à chaque redémarrage du client, c’est-à-dire toutes les 25 heures, ou quand le client détecte un changement sur le réseau (par exemple, déconnexion et reconnexion de l’ordinateur sur le réseau ou attribution d’une nouvelle adresse IP). La liste répertorie les points de gestion présents sur l'intranet et indique s'ils acceptent les connexions client via HTTP ou HTTPS. Lorsque l'ordinateur client est sur Internet et qu'il ne dispose pas encore d'une liste de points de gestion, il se connecte au point de gestion Internet spécifié pour obtenir une liste de points de gestion. Lorsque le client dispose d'une liste de points de gestion pour son site attribué, il en sélectionne un auquel se connecter :  
 
--   Wenn der Client sich im Intranet befindet und über ein gültiges PKI-Zertifikat verfügt, wird HTTPS-Verwaltungspunkten Vorrang vor HTTP-Verwaltungspunkten gegeben. Dann wird der nächste Verwaltungspunkt basierend auf seiner Gesamtstrukturmitgliedschaft gesucht.  
+-   Lorsque le client se trouve sur l'intranet et qu'il possède un certificat PKI valide qu'il peut utiliser, il choisit les points de gestion HTTPS avant les points de gestion HTTP. Il localise ensuite le point de gestion le plus proche, en fonction de son appartenance à une forêt.  
 
--   Wenn sich der Client im Internet befindet, wählt er nach dem Zufallsprinzip einen der internetbasierten Verwaltungspunkte aus.  
+-   Quand le client se trouve sur Internet, il choisit de façon aléatoire l’un des points de gestion basés sur Internet.  
 
-Von Clients mobiler Geräte, die von Configuration Manager angemeldet wurden, wird nur eine Verbindung mit einem Verwaltungspunkt an ihrem zugewiesenen Standort hergestellt, und niemals mit Verwaltungspunkten an sekundären Standorten. Von diesen Clients wird immer eine Verbindung über HTTPS hergestellt und der Verwaltungspunkt muss so konfiguriert sein, dass Clientverbindungen über das Internet zugelassen werden. Wenn am primären Standort für Clients mobiler Geräte mehrere Verwaltungspunkte zur Verfügung stehen, wird von Configuration Manager während der Zuweisung einer dieser Verwaltungspunkte nach dem Zufallsprinzip ausgewählt, und dieser Verwaltungspunkt wird ab diesem Zeitpunkt vom Client des mobilen Geräts verwendet.  
+Les clients d'appareil mobile inscrits par Configuration Manager se connectent à un seul point de gestion du site auquel ils sont attribués et ne se connectent jamais aux points de gestion de sites secondaires. Ces clients se connectent toujours via HTTPS et le point de gestion doit être configuré pour accepter les connexions client sur Internet. Quand le site principal propose plusieurs points de gestion pour les clients d’appareil mobile, Configuration Manager en choisit un de façon aléatoire pendant l’attribution et le client d’appareil mobile continue d’utiliser le même point de gestion.  
 
-Wenn der Client die Clientrichtlinie von einem Verwaltungspunkt seines Standorts heruntergeladen hat, ist der Client ein verwalteter Client.  
+Une fois que le client a téléchargé la stratégie du client depuis un point de gestion du site, il devient un client géré.  
 
-##  <a name="downloading-site-settings"></a>Herunterladen von Standorteinstellungen  
- Nachdem der Client erfolgreich einem Standort zugewiesen und ein Verwaltungspunkt gefunden wurde, werden von einem Clientcomputer, auf dem Active Directory-Domänendienste für die Standortkompatibilitätsprüfung verwendet werden, clientrelevante Standorteinstellungen für den zugewiesenen Standort heruntergeladen. Zu diesen Einstellungen zählen die Auswahlkriterien für das Clientzertifikat, Informationen dazu, ob eine Zertifikatsperrliste verwendet werden soll, und die Anforderungsportnummern für den Client. Der Client überprüft diese Einstellungen weiterhin regelmäßig.  
+##  <a name="downloading-site-settings"></a>Téléchargement des paramètres du site  
+ Une fois que le site est attribué et que le client a trouvé un point de gestion, un ordinateur client utilisant les services de domaine Active Directory pour la vérification de sa compatibilité avec le site télécharge les paramètres client du site auquel il est attribué. Ces paramètres incluent les critères de sélection de certificat du client, s'il faut utiliser une liste de révocation de certificat et les numéros de port de demande de client. Le client continue de vérifier régulièrement ces paramètres.  
 
- Wenn es Clientcomputern nicht möglich ist, die Standorteinstellungen von den Active Directory-Domänendiensten abzurufen, werden diese von ihren Verwaltungspunkten heruntergeladen. Es ist auch möglich, den Clientcomputern die Standorteinstellungen bei ihrer Installation mithilfe der Clientpushinstallation bereitzustellen oder sie mithilfe von CCMSetup.exe und den Clientinstallationseigenschaften manuell anzugeben. Weitere Informationen zu den Clientinstallationseigenschaften finden Sie unter [Informationen zu Clientinstallationseigenschaften in System Center Configuration Manager](../../../core/clients/deploy/about-client-installation-properties.md).  
+ Lorsque les ordinateurs clients ne peuvent pas obtenir les paramètres du site auprès des services de domaine Active Directory, ils les téléchargent à partir de leur point de gestion. Les ordinateurs clients peuvent également obtenir les paramètres du site quand ils sont installés à l’aide de l’installation Push du client, ou vous pouvez les spécifier manuellement à l’aide de CCMSetup.exe et des propriétés d’installation du client. Pour plus d’informations sur les propriétés d’installation du client, consultez [À propos des propriétés d’installation du client dans System Center Configuration Manager](../../../core/clients/deploy/about-client-installation-properties.md).  
 
-##  <a name="downloading-client-settings"></a>Herunterladen von Clienteinstellungen  
- Die standardmäßige Clienteinstellungsrichtlinie sowie jede relevante benutzerdefinierte Clienteinstellungsrichtlinie wird von allen Clients heruntergeladen. Das Softwarecenter ist von diesen Clientkonfigurationsrichtlinien für Windows-Computer abhängig, und Benutzer werden benachrichtigt, dass das Softwarecenter erst erfolgreich ausgeführt werden kann, wenn diese Konfigurationsinformationen heruntergeladen wurden. Je nachdem, welche Clienteinstellungen konfiguriert wurden, kann das erste Herunterladen der Clienteinstellungen einige Zeit in Anspruch nehmen, und möglicherweise können einige Clientverwaltungstasks erst nach Abschluss dieses Prozesses ausgeführt werden.  
+##  <a name="downloading-client-settings"></a>Téléchargement des paramètres du client  
+ Tous les clients téléchargent la stratégie de paramètres client par défaut, ainsi que toute stratégie de paramètres client personnalisée. Le Centre logiciel repose sur ces stratégies de configuration du client pour les ordinateurs Windows et informe les utilisateurs que le Centre logiciel ne peut pas fonctionner correctement tant que ces informations de configuration ne sont pas téléchargées. En fonction des paramètres client configurés, le téléchargement initial des paramètres client peut prendre un certain temps et certaines tâches de gestion risquent de ne pas s'exécuter tant que ce processus n'est pas terminé.  
 
-##  <a name="verifying-site-assignment"></a>Überprüfen der Standortzuweisung  
- Mithilfe der folgenden Methoden können Sie überprüfen, ob die Standortzuweisung erfolgreich war:  
+##  <a name="verifying-site-assignment"></a>Vérification de l'attribution de site  
+ Vous pouvez vérifier que l’attribution de site a abouti en employant l’une des méthodes suivantes :  
 
--   Verwenden Sie für Clients auf Windows-Computern Configuration Manager in der Systemsteuerung und stellen Sie sicher, dass der Standortcode auf der Registerkarte **Standort** korrekt angezeigt wird.  
+-   Pour les clients sur ordinateurs Windows, utilisez Configuration Manager dans le Panneau de configuration et vérifiez que le code de site est correctement affiché sous l'onglet **Site**.  
 
--   Verwenden Sie für Clientcomputer im Arbeitsbereich **Bestand und Konformität** den Knoten **Geräte**, um sicherzustellen, dass vom Computer für die Spalte **Client** die Option **Ja** und für die Spalte **Standortcode** der korrekte Code des primären Standorts angezeigt wird.  
+-   Pour les ordinateurs clients, dans l’espace de travail **Actifs et Conformité** > nœud **Appareils**, vérifiez que l’ordinateur affiche **Oui** pour la colonne **Client** et le code de site principal correct pour la colonne **Code de site**.  
 
--   Verwenden Sie für Clients von mobilen Geräten im Arbeitsbereich **Bestand und Kompatibilität** den Knoten **Alle Mobilgeräte** , um sicherzustellen, dass vom Computer für die Spalte **Client** die Option **Ja** sowie der korrekter Code des primären Standorts für die Spalte **Standortcode** angezeigt wird.  
+-   Pour les clients d'appareil mobile, dans l'espace de travail **Ressources et compatibilité** , utilisez le nœud **Tous les périphériques mobiles** pour vérifier que l'appareil mobile affiche **Oui** pour la colonne **Client** et le code de site principal correct pour la colonne **Code de site** .  
 
--   Verwenden Sie die Berichte für Clientzuweisung und die Anmeldung von mobilen Geräten.  
+-   Utilisez les rapports pour l'attribution de client et l'inscription d'appareil mobile.  
 
--   Verwenden Sie für Clientcomputer die LocationServices.log-Datei auf dem Client.  
+-   Pour les ordinateurs clients, utilisez le fichier LocationServices.log sur le client.  
 
-##  <a name="roaming-to-other-sites"></a>Roaming an andere Standorte  
- Wenn Clientcomputer im Intranet zu einem primären Standort zugewiesen sind, deren Netzwerkort aber so geändert wird, dass er in einer für einen anderen Standort konfigurierten Begrenzungsgruppe liegt, dann wechseln sie per Roaming an einen anderen Standort. Wenn dieser Standort ein sekundärer Standort für ihren zugewiesenen Standort ist, kann von Clients ein Verwaltungspunkt am sekundären Standort verwendet werden, um eine Clientrichtlinie herunterzuladen und Clientdaten hochzuladen. So wird vermieden, dass die Daten über ein möglicherweise langsames Netzwerk versendet werden. Wenn diese Clients jedoch per Roaming in die Begrenzungen für einen anderen primären Standort gelangen oder an einen sekundären Standort, der kein untergeordneter Standort ihres zugewiesenen Standorts ist, dann wird für diese Clients immer ein Verwaltungspunkt an deren zugewiesenem Standort verwendet, um eine Clientrichtlinie herunterzuladen oder Daten auf ihren Standort hochzuladen.  
+##  <a name="roaming-to-other-sites"></a>Itinérance vers d'autres sites  
+ Lorsque des ordinateurs clients de l'intranet sont attribués à un site principal, mais que leur emplacement réseau change au profit d'un groupe de limites configuré pour un autre site, ils ont été déplacés vers un autre site (itinérance). Lorsque ce site est un site secondaire du site auquel ils sont attribués, les clients peuvent utiliser un point de gestion du site secondaire pour télécharger la stratégie client et les données client, ce qui évite l'envoi de ces données via un réseau potentiellement lent. Toutefois, si ces clients itinérants sont déplacés dans les limites d'un autre site principal ou d'un site secondaire qui n'est pas un site enfant du site auquel ils sont attribués, ces clients utilisent toujours un point de gestion du site auquel ils sont attribués pour télécharger la stratégie client et les données vers leur site.  
 
- Für diese Clientcomputer, für die per Roaming ein Wechsel an andere Standorte vorgenommen wird (alle primären und alle sekundären Standorte), können immer Verwaltungspunkte an anderen Standorten für Anfragen zum Inhaltsort verwendet werden. Über die Verwaltungspunkte am aktuellen Standort kann Clients eine Liste an Verteilungspunkten zur Verfügung gestellt werden, an denen der von Clients angeforderte Inhalt verfügbar ist.  
+ Ces ordinateurs clients itinérants qui sont déplacés vers d'autres sites (tous les sites principaux et tous les sites secondaires) peuvent toujours utiliser les points de gestion d'autres sites pour les demandes d'emplacement du contenu. Les points de gestion du site actuel peuvent fournir aux clients une liste des points de distribution qui disposent du contenu demandé par les clients.  
 
- Bei Clientcomputern, die für eine Clientverwaltung ausschließlich über das Internet konfiguriert wurden, sowie bei mobilen Geräten und Macintosh-Computern, die von Configuration Manager angemeldet wurden, können diese Clients nur mit Verwaltungspunkten an ihrem zugewiesenen Standort kommunizieren. Für diese Clients ist keine Verbindung mit Verwaltungspunkten an sekundären Standorten oder an anderen primären Standorten hergestellt werden.  
+ Pour les ordinateurs clients configurés pour être gérés uniquement par le biais d’Internet et pour les appareils mobiles et les ordinateurs Mac inscrits par Configuration Manager, ces clients communiquent uniquement avec les points de gestion du site auxquels ils sont attribués. Ces clients ne communiquent jamais avec les points de gestion de sites secondaires ou d'autres sites principaux.  

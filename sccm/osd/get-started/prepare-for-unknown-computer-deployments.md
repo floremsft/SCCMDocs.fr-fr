@@ -1,6 +1,6 @@
 ---
-title: "Vorbereiten auf Bereitstellungen für unbekannte Computer | Microsoft-Dokumentation"
-description: Erfahren Sie, wie Sie Betriebssysteme auf Computern bereitstellen, die nicht von Configuration Manager in der System Center Configuration Manager-Umgebung verwaltet werden.
+title: "Préparer les déploiements d’ordinateurs inconnus | Microsoft Docs"
+description: "Découvrez comment déployer des systèmes d’exploitation sur des ordinateurs qui ne sont pas gérés par Configuration Manager dans votre environnement System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -18,68 +18,68 @@ manager: angrobe
 ms.openlocfilehash: 445e76950f0605da917f3d0e7e71557d969e3c2d
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="prepare-for-unknown-computer-deployments-in-system-center-configuration-manager"></a>Vorbereiten auf Bereitstellungen für unbekannte Computer in System Center Configuration Manager
+# <a name="prepare-for-unknown-computer-deployments-in-system-center-configuration-manager"></a>Préparer les déploiements sur des ordinateurs inconnus dans System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Verwenden Sie die Informationen in diesem Thema, um Betriebssysteme für unbekannte Computer in Ihrer System Center Configuration Manager-Umgebung bereitzustellen. Ein unbekannter Computer ist ein Computer, der nicht von Configuration Manager verwaltet wird. Für diese Computer gibt es in der Configuration Manager-Datenbank keine Einträge. Zu unbekannten Computern gehören die folgenden:  
+Aidez-vous des informations de cette rubrique pour déployer des systèmes d’exploitation sur des ordinateurs inconnus dans votre environnement System Center Configuration Manager. Un ordinateur inconnu est un ordinateur qui n’est pas géré par Configuration Manager. Autrement dit, il n’existe aucun enregistrement pour cet ordinateur dans la base de données Configuration Manager. Les ordinateurs inconnus sont les suivants :  
 
--   Computer, auf denen kein Configuration Manager-Client installiert ist  
+-   Un ordinateur sur lequel le client Configuration Manager n’est pas installé  
 
--   Computer, die nicht in Configuration Manager importiert wurden  
+-   Un ordinateur qui n’est pas importé dans Configuration Manager.  
 
--   Computer, die von Configuration Manager nicht ermittelt wurden  
+-   Un ordinateur qui n’a pas été découvert par Configuration Manager.  
 
- Sie können Betriebssysteme mit den folgenden Bereitstellungsmethoden für unbekannte Computer bereitstellen:  
+ Vous pouvez déployer des systèmes d’exploitation sur des ordinateurs inconnus avec les méthodes de déploiement suivantes :  
 
--   [Verwenden von PXE zum Bereitstellen von Windows über das Netzwerk](../deploy-use/use-pxe-to-deploy-windows-over-the-network.md)  
+-   [Utiliser PXE pour déployer Windows sur le réseau](../deploy-use/use-pxe-to-deploy-windows-over-the-network.md)  
 
--   [Verwenden startbarer Medien zum Bereitstellen eines Betriebssystems](../deploy-use/create-bootable-media.md)  
+-   [Utiliser un média de démarrage pour déployer un système d’exploitation](../deploy-use/create-bootable-media.md)  
 
--   [Verwenden vorab bereitgestellter Medien zum Bereitstellen eines Betriebssystems](../deploy-use/create-prestaged-media.md)  
+-   [Utiliser un média préparé pour déployer un système d’exploitation](../deploy-use/create-prestaged-media.md)  
 
-## <a name="unknown-computer-deployment-workflow"></a>Bereitstellungsworkflow bei unbekannten Computern  
- Im Folgenden wird der grundlegende Workflow zum Bereitstellen eines Betriebssystems für einen unbekannten Computer beschrieben:  
+## <a name="unknown-computer-deployment-workflow"></a>Flux de travail de déploiement d’ordinateur inconnu  
+ Voici le flux de travail de base pour déployer un système d’exploitation sur un ordinateur inconnu :  
 
--   Wählen Sie ein unbekanntes Computerobjekt aus, das Sie für die Bereitstellung verwenden möchten. Sie können das Betriebssystem einem der unbekannten Computerobjekte in der Sammlung **Alle unbekannten Computer** hinzufügen, oder Sie können die Objekte in der Sammlung **Alle unbekannten Computer** einer anderen Sammlung hinzufügen. In Configuration Manager gibt es in der Sammlung **Alle unbekannten Computer** zwei unbekannte Computerobjekte. Eins davon ist für x86-Computer, das andere für x64-Computer.  
+-   Sélectionnez l'objet d'un ordinateur inconnu à utiliser dans le déploiement. Vous pouvez déployer le système d'exploitation sur l'un des objets des ordinateurs inconnus du regroupement **Tous les ordinateurs inconnus** ou vous pouvez ajouter les objets du regroupement **Tous les ordinateurs inconnus** à un autre regroupement. Configuration Manager fournit deux objets ordinateurs inconnus dans le regroupement **Tous les ordinateurs inconnus**. Un objet est destiné aux ordinateurs x86 et l'autre objet aux ordinateurs x64.  
 
     > [!NOTE]  
-    >  Das Objekt **x 86 unbekannter Computer** ist für Computer, die nur x86-fähig sind. Das Objekt **x64 Unbekannter Computer** ist für Computer bestimmt, die x86- und x64-fähig sind. Mit anderen Worten, diese Objekte beschreiben die Architektur des Zielcomputers. Es wird nicht das Betriebssystem beschrieben, das Sie auf dem Zielcomputer bereitstellen möchten.  
+    >  L'objet **Ordinateur x86 inconnu** est destiné aux ordinateurs qui sont uniquement compatibles x86. L’objet **Ordinateur x64 inconnu** est destiné aux ordinateurs qui sont compatibles x86 et x64. En d’autres termes, ces objets décrivent l’architecture de l’ordinateur de destination. Ils ne décrivent pas le système d’exploitation que vous souhaitez déployer sur l’ordinateur de destination.  
 
--   Konfigurieren Sie einen PXE-fähigen Verteilungspunkt, oder erstellen Sie ein Medium zur Unterstützung von Bereitstellungen für unbekannte Computer.  
+-   Créez un média ou configurez un point de distribution PXE pour prendre en charge les déploiements sur des ordinateurs inconnus.  
 
--   Stellen Sie die Tasksequenz zum Installieren des Betriebssystems bereit.  
+-   Déployez la séquence de tâches pour installer le système d’exploitation.  
 
-## <a name="unknown-computer-installation-process"></a>Installationsprozess eines unbekannten Computers  
- Wenn ein Computer erstmals von PXE oder Medien gestartet wird, wird von Configuration Manager geprüft, ob in der Configuration Manager-Datenbank ein Eintrag für diesen Computer besteht. Ist dies der Fall, wird von Configuration Manager geprüft, ob Tasksequenzen für diesen Eintrag bereitgestellt wurden. Besteht kein Eintrag, wird von Configuration Manager geprüft, ob Tasksequenzen für ein unbekanntes Computerobjekt bereitgestellt wurden. In beiden Fällen wird von Configuration Manager eine der folgenden Aktionen ausgeführt:  
+## <a name="unknown-computer-installation-process"></a>Processus d'installation d'un ordinateur inconnu  
+ Quand un ordinateur est démarré pour la première fois à partir de PXE ou d’un média, Configuration Manager vérifie s’il existe un enregistrement pour cet ordinateur dans la base de données Configuration Manager. S’il en trouve un, Configuration Manager vérifie ensuite s’il existe des séquences de tâches déployées sur l’enregistrement. S’il ne trouve pas d’enregistrement, Configuration Manager vérifie s’il existe des séquences de tâches déployées sur un objet ordinateur inconnu. Dans les deux cas, Configuration Manager effectue ensuite l’une des actions suivantes :  
 
--   Wenn eine Tasksequenz verfügbar ist, wird der Benutzer von Configuration Manager dazu aufgefordert, die Tasksequenz auszuführen.  
+-   S’il existe une séquence de tâches disponible, Configuration Manager invite l’utilisateur à l’exécuter.  
 
--   Wenn eine erforderliche Tasksequenz verfügbar ist, wird die Tasksequenz von Configuration Manager automatisch ausgeführt.  
+-   S’il existe une séquence de tâches obligatoire, Configuration Manager l’exécute automatiquement.  
 
--   Wenn für einen Eintrag keine Tasksequenz bereitgestellt wurde, wird von Configuration Manager eine entsprechende Fehlermeldung generiert.  
+-   Si aucune séquence de tâches n’est déployée pour l’enregistrement, Configuration Manager génère une erreur indiquant qu’il n’existe pas de séquence de tâches déployée sur l’ordinateur de destination.  
 
- Wenn ein unbekannter Computer gestartet wird, wird er von Configuration Manager nicht als unbekannter Computer, sondern als nicht bereitgestellter Computer erkannt. Das bedeutet, dass der Computer nun die Tasksequenzen erhalten kann, die dem unbekannten Computerobjekt bereitgestellt wurden. Von der bereitgestellten Tasksequenz wird anschließend ein Betriebssystemimage installiert, das den Configuration Manager-Client enthalten muss.  
+ Quand un ordinateur inconnu est démarré, Configuration Manager le reconnaît comme un ordinateur non préparé plutôt que comme un ordinateur inconnu. Cela signifie que l'ordinateur peut maintenant recevoir les séquences de tâches qui ont été déployées sur l'objet d'ordinateur inconnu. La séquence de tâches déployée installe ensuite une image de système d’exploitation qui doit inclure le client Configuration Manager.  
 
- Nach der Installation des Configuration Manager-Clients wird ein Eintrag für den Computer erstellt, und der Computer wird in der entsprechenden Configuration Manager-Sammlung angezeigt. Wenn beim Installieren des Betriebssystemimages oder des Configuration Manager-Clients ein Fehler auftritt, wird für den Computer ein Eintrag „Unbekannt“ erstellt, und der Computer wird in der Sammlung **Alle Systeme** angezeigt.  
+ Une fois que le client Configuration Manager a été installé, un enregistrement est créé pour l’ordinateur, lequel s’affiche alors dans le regroupement approprié de Configuration Manager. Si l’ordinateur ne parvient pas à installer l’image du système d’exploitation ou le client Configuration Manager, un enregistrement « Inconnu » est créé pour l’ordinateur. Cet ordinateur est affiché dans le regroupement **Tous les systèmes** de Configuration Manager.  
 
 > [!NOTE]  
->  Beim Installieren des Betriebssystemabbilds können Variablen der Sammlung, nicht jedoch Computervariablen von diesem Computer durch die Tasksequenz abgerufen werden.  
+>  Pendant l'installation de l'image du système d'exploitation, la séquence de tâches peut récupérer les variables de regroupement, mais non les variables d'ordinateur à partir de cet ordinateur.  
 
-##  <a name="BKMK_EnablingUnknown"></a> Aktivieren der Unterstützung für unbekannte Computer  
- Verwenden Sie die folgenden Angaben, um die Unterstützung für unbekannte Computer zu aktivieren, wenn Sie ein Betriebssystem unter Verwendung von PXE, startbaren Medien und vorab bereitgestellten Medien bereitstellen:  
+##  <a name="BKMK_EnablingUnknown"></a> Activation de la prise en charge d'ordinateur inconnu  
+ Utilisez les informations suivantes pour activer la prise en charge des ordinateurs inconnus quand vous déployez un système d’exploitation à l’aide de PXE, d’un média de démarrage et d’un média préparé.  
 
--   **PXE**  
+-   **Environnement Environnement PXE**  
 
-     Aktivieren Sie bei einem PXE-fähigen Verteilungspunkt auf der Registerkarte **PXE** das Kontrollkästchen **Unterstützung für unbekannte Computer aktivieren** . Weitere Informationen finden Sie unter [Configuring distribution points to accept PXE requests](prepare-site-system-roles-for-operating-system-deployments.md#BKMK_PXEDistributionPoint) (Konfigurieren von Verteilungspunkten zur Annahme von PXE-Anforderungen).  
+     Cochez la case **Activer la prise en charge d’ordinateur inconnu** sous l’onglet **PXE** pour un point de distribution qui est activé pour PXE. Pour plus d’informations, consultez [Configuration de points de distribution pour accepter des requêtes PXE](prepare-site-system-roles-for-operating-system-deployments.md#BKMK_PXEDistributionPoint).  
 
--   **Startbare Medien**  
+-   **Média de démarrage**  
 
-     Wählen Sie im Assistenten zum Erstellen von Tasksequenzmedien auf der Seite **Sicherheit** das Kontrollkästchen **Unterstützung für unbekannte Computer aktivieren** . Weitere Informationen finden Sie unter [Configuring distribution points to accept PXE requests](prepare-site-system-roles-for-operating-system-deployments.md#BKMK_PXEDistributionPoint) (Konfigurieren von Verteilungspunkten zur Annahme von PXE-Anforderungen) und [Verwenden von PXE zum Bereitstellen von Windows über das Netzwerk mit System Center Configuration Manager](../deploy-use/use-pxe-to-deploy-windows-over-the-network.md).  
+     Cochez la case **Activer la prise en charge d'ordinateur inconnu** sur la page **Sécurité** de l'Assistant Création d'un média de séquence de tâches. Pour plus d’informations, consultez [Configuration de points de distribution pour accepter des requêtes PXE](prepare-site-system-roles-for-operating-system-deployments.md#BKMK_PXEDistributionPoint) et [Utiliser PXE pour déployer Windows sur le réseau avec System Center Configuration Manager](../deploy-use/use-pxe-to-deploy-windows-over-the-network.md).  
 
--   **Vorab bereitgestellte Medien**  
+-   **Média préparé**  
 
-     Wählen Sie im Assistenten zum Erstellen von Tasksequenzmedien auf der Seite **Sicherheit** das Kontrollkästchen **Unterstützung für unbekannte Computer aktivieren** . Weitere Informationen finden Sie unter [Create prestaged media with System Center Configuration Manager](../deploy-use/create-prestaged-media.md).  
+     Cochez la case **Activer la prise en charge d'ordinateur inconnu** sur la page **Sécurité** de l'Assistant Création d'un média de séquence de tâches. Pour plus d’informations, consultez [Créer un média préparé avec System Center Configuration Manager](../deploy-use/create-prestaged-media.md).  

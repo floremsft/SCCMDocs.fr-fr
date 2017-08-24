@@ -1,6 +1,6 @@
 ---
-title: Neue Version 1610 | Microsoft-Dokumentation
-description: "Enthält Details zu Änderungen und neuen Funktionen, die in Version 1610 von System Center Configuration Manager eingeführt wurden."
+title: "Nouvelle version 1610 | Microsoft Docs"
+description: "Obtenez des détails sur les modifications et les nouvelles fonctionnalités introduites dans la version 1610 de System Center Configuration Manager."
 ms.custom: na
 ms.date: 11/23/2016
 ms.reviewer: na
@@ -17,300 +17,300 @@ ROBOTS: NOINDEX, NOFOLLOW
 ms.openlocfilehash: 8b80f4d14eafa4cbbfb083178a118bc0e71f4019
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="what39s-new-in-version-1610-of-system-center-configuration-manager"></a>Neuerungen in Version 1610 von System Center Configuration Manager
+# <a name="what39s-new-in-version-1610-of-system-center-configuration-manager"></a>Nouveautés dans la version 1610 de System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Das Update 1610 für System Center Configuration Manager (Current Branch) ist als konsoleninternes Update für zuvor installierte Standorte verfügbar, die Version 1511, 1602 oder 1606 ausführen.
+La mise à jour 1610 de la version Current Branch de System Center Configuration Manager est une mise à jour dans la console des sites déjà installés qui exécutent la version 1511, 1602 ou 1606.
 
 
 > [!TIP]  
-> Sie müssen eine Baselineversion von Configuration Manager verwenden, um einen neuen Standort zu installieren.  
->  Weitere Informationen:    
->  -   [Installieren von neuen Standorten](https://technet.microsoft.com/library/mt590197.aspx)  
->  -   [Installieren von Updates an Standorten](https://technet.microsoft.com/library/mt607046.aspx)  
->  -   [Baseline- und Updateversionen](/sccm/core/servers/manage/updates#a-namebkmkbaselinesa-baseline-and-update-versions)  
+> Pour installer un nouveau site, vous devez utiliser une version de base de Configuration Manager.  
+>  Informations supplémentaires :    
+>  -   [Installation de nouveaux sites](https://technet.microsoft.com/library/mt590197.aspx)  
+>  -   [Installation de mises à jour sur les sites](https://technet.microsoft.com/library/mt607046.aspx)  
+>  -   [Versions de base et de mise à jour](/sccm/core/servers/manage/updates#a-namebkmkbaselinesa-baseline-and-update-versions)  
 
-Die folgenden Abschnitte enthalten Details zu Änderungen und neue Funktionen, die in Version 1610 von Configuration Manager eingeführt wurden.  
-
-
-## <a name="in-console-monitoring-of-update-installation-status"></a>Überwachung des Updateinstallationsstatus in der Konsole  
-Ab Version 1610 gibt es eine neue Phase, wenn Sie ein Updatepaket installieren, und die Installation in der Konsole überwachen: **Post Installation** (Nach der Installation). Diese Phase enthält den Status für Aufgaben wie das Neustarten wichtiger Dienste und die Initialisierung der Replikationsüberwachung. (Diese Phase ist erst in der Konsole enthalten, wenn Ihr Standort auf Version 1610 aktualisiert wurde.) Weitere Informationen über den Updateinstallationsstatus finden Sie unter [Installieren konsoleninterner Updates](/sccm/core/servers/manage/install-in-console-updates#a-namebkmkinstalla-install-in-console-updates).
+Les sections suivantes fournissent des détails sur les modifications et les nouvelles fonctionnalités introduites dans la version 1610 de Configuration Manager.  
 
 
-## <a name="exclude-clients-from-automatic-upgrade"></a>Clients von einem automatischen Upgrade ausschließen
-Sie können Windows-Clients von der Aktualisierung mit neuen Versionen der Clientsoftware ausschließen. Fügen Sie dafür Clientcomputer zu einer Sammlung hinzu, die von Upgrades ausgeschlossen wird. Clients in der ausgeschlossenen Sammlung ignorieren Anfragen zum Aktualisieren der Clientsoftware.  Weitere Informationen finden Sie unter [Exclude Windows clients from upgrades (Ausschließen von Windows-Clients von Upgrades)](../../clients/manage/upgrade/exclude-clients-windows.md).
+## <a name="in-console-monitoring-of-update-installation-status"></a>Surveillance de l’état d’installation des mises à jour dans la console  
+À partir de la version 1610, quand vous installez un pack de mises à jour et surveillez l’installation dans la console, une nouvelle phase est disponible : **Après l’installation**. Cette phase inclut l’état des tâches comme le redémarrage des services principaux et le lancement de la surveillance de la réplication. (Cette phase n’est pas disponible dans la console tant que votre site n’est pas mis à jour vers la version 1610.) Pour plus d’informations sur l’état d’installation des mises à jour, consultez [Installer des mises à jour dans la console](/sccm/core/servers/manage/install-in-console-updates#a-namebkmkinstalla-install-in-console-updates).
 
 
-## <a name="improvements-for-boundary-groups"></a>Verbesserungen für Begrenzungsgruppen
-Version 1610 umfasst wichtige Änderungen an Begrenzungsgruppen und deren Zusammenarbeit mit Verteilungspunkten. Diese Änderungen können zur Vereinfachung des Entwurfs Ihrer Inhaltsinfrastruktur beitragen, wobei Sie mehr Kontrolle darüber erhalten, wie und wann ein Fallback der Clients erfolgt, um zusätzliche Verteilungspunkte als Quellspeicherorte für Inhalt zu suchen. Dies schließt sowohl lokale als auch cloudbasierte Verteilungspunkte ein.
-Diese Verbesserungen ersetzen Konzepte und Verhaltensweisen, mit denen Sie möglicherweise vertraut sind (z.B. das Konfigurieren von Verteilungspunkten als schnell oder langsam). Das neue Modell ist einfacher einzurichten und zu verwalten. Diese Änderungen stellen auch die Grundlage für zukünftige Änderungen dar, die andere Standortsystemrollen verbessern, die Sie Begrenzungsgruppen zuordnen.
-
-Wenn Sie eine Aktualisierung auf Version 1610 durchführen, konvertiert das Update Ihre aktuellen Begrenzungsgruppenkonfigurationen so, dass sie an das neue Modell angepasst ist, damit diese Änderungen Ihre bestehende Inhaltsverteilungskonfigurationen nicht stören.
-
-Weitere Informationen finden Sie unter [Begrenzungsgruppen](/sccm/core/servers/deploy/configure/define-site-boundaries-and-boundary-groups#a-namebkmkboundarygroupsa-boundary-groups).
+## <a name="exclude-clients-from-automatic-upgrade"></a>Exclure les clients de la mise à niveau automatique
+Vous pouvez empêcher la mise à niveau de clients Windows avec les nouvelles versions du logiciel client. Pour ce faire, vous incluez les ordinateurs clients dans un regroupement spécifié comme devant être exclu de la mise à niveau. Les clients du regroupement exclu ignorent les demandes de mise à jour du logiciel client.  Pour plus d’informations, consultez [Exclure les clients Windows des mises à niveau](../../clients/manage/upgrade/exclude-clients-windows.md).
 
 
-## <a name="peer-cache-for-content-distribution-to-clients"></a>Peercache zur Verteilung von Inhalten an Clients
-Ab Version 1610 unterstützt **Client-Peercache** Sie beim Verwalten von Bereitstellungen von Inhalten an Clients an Remotestandorten. Peercache ist eine integrierte Configuration Manager-Lösung für Clients, um Inhalte für andere Clients direkt aus ihrem lokalen Cache freizugeben.
+## <a name="improvements-for-boundary-groups"></a>Améliorations pour les groupes de limites
+La version 1610 apporte des modifications importantes aux groupes de limites et à leur fonctionnement avec les points de distribution. Ces modifications permettent de simplifier la conception de votre infrastructure de contenu tout en vous donnant davantage de contrôle sur quand et comment les clients doivent se tourner vers d’autres points de distribution comme emplacements sources de contenu. Cela inclut à la fois les points de distribution cloud et locaux.
+Ces améliorations remplacent des concepts et des comportements que vous connaissez peut-être déjà, comme la configuration de la vitesse des points de distribution. Le nouveau modèle est plus facile à configurer et à gérer. Ces modifications servent aussi de base aux futurs changements qui vont améliorer les autres rôles de système de site que vous associez à des groupes de limites.
 
-Nachdem Sie Clienteinstellungen bereitgestellt haben, die Peercache für eine Sammlung aktivieren, können Mitglieder dieser Sammlung als Peerinhaltsquelle für andere Clients in der gleichen Begrenzungsgruppe fungieren.
+Quand vous effectuez la mise à jour vers la version 1610, cette dernière convertit les configurations de votre groupe de limites actuel pour les adapter au nouveau modèle, afin que ces modifications ne perturbent pas les configurations de distribution de contenu existantes.
 
-Sie können auch das neue Dashboard **Clientdatenquellen** verwenden, um mehr über die Verwendung von Inhaltsquellen von Peercache in Ihrer Umgebung zu erfahren.
+Pour plus d’informations, consultez [Groupes de limites](/sccm/core/servers/deploy/configure/define-site-boundaries-and-boundary-groups#a-namebkmkboundarygroupsa-boundary-groups).
+
+
+## <a name="peer-cache-for-content-distribution-to-clients"></a>Cache d’homologue pour la distribution de contenu aux clients
+À partir de la version 1610, le **cache d’homologue** vous permet de gérer le déploiement de contenu sur les clients distants. Le cache de pair est une solution Configuration Manager intégrée pour permettre aux clients de partager du contenu avec d’autres clients directement à partir de leur cache local.
+
+Une fois que vous avez déployé des paramètres du client qui activent le cache d’homologue sur un regroupement, les membres de ce regroupement peuvent agir comme source de contenu homologue pour d’autres clients du même groupe de limites.
+
+Vous pouvez également utiliser le nouveau tableau de bord **Sources de données du client** pour comprendre l’utilisation des sources de contenu du cache d’homologue dans votre environnement.
 
 > [!TIP]  
-> Peercache und das Dashboard „Clientdatenquellen“ sind vorab veröffentliche Features in Version 1610. Informationen zum Aktivieren dieser Funktionen finden Sie unter [Verwenden von vorab veröffentlichten Features von Updates](/sccm/core/servers/manage/install-in-console-updates#bkmk_prerelease).
+> Avec la version 1610, le cache d’homologue et le tableau de bord Sources de données du client sont des fonctionnalités en préversion. Pour les activer, consultez [Utiliser des fonctionnalités de préversion des mises à jour](/sccm/core/servers/manage/install-in-console-updates#bkmk_prerelease).
 
-Weitere Informationen finden Sie unter [Peercache für Configuration Manager-Clients](/sccm/core/plan-design/hierarchy/client-peer-cache) und [Dashboard „Clientdatenquellen“](/sccm/core/servers/deploy/configure/monitor-content-you-have-distributed#client-data-sources-dashboard).
+Pour plus d’informations, consultez [Cache de pair pour les clients Configuration Manager](/sccm/core/plan-design/hierarchy/client-peer-cache) et [Tableau de bord Sources de données du client](/sccm/core/servers/deploy/configure/monitor-content-you-have-distributed#client-data-sources-dashboard).
 
 
-## <a name="migrate-multiple-shared-distribution-points-at-the-same-time"></a>Gleichzeitiges Migrieren mehrerer freigegebener Verteilungspunkte
-Sie können die Option jetzt verwenden, um **Verteilungspunkte neu zuzuweisen**, damit Configuration Manager die Neuzuweisung von bis zu 50 freigegebenen Verteilungspunkten parallel zur selben Zeit ausführen kann. Vor dieser Version wurden neu zugewiesene Punkte nacheinander verarbeitet. Weitere Informationen finden Sie unter [Migrate multiple shared distribution points at the same time (Gleichzeitiges Migrieren von mehreren freigegebenen Verteilungspunkten)](/sccm/core/migration/planning-a-content-deployment-migration-strategy#migrate-multiple-shared-distribution-points-at-the-same-time).
+## <a name="migrate-multiple-shared-distribution-points-at-the-same-time"></a>Migrer plusieurs points de distribution partagés en même temps
+Vous pouvez maintenant utiliser l’option permettant de **Réattribuer un point de distribution** pour que Configuration Manager traite en parallèle la réattribution simultanée de 50 points de distribution partagés. Avant cette version, les points de distribution réattribués étaient traités un par un. Pour plus d’informations, consultez [Migrer plusieurs points de distribution partagés en même temps](/sccm/core/migration/planning-a-content-deployment-migration-strategy#migrate-multiple-shared-distribution-points-at-the-same-time).
 
-## <a name="cloud-management-gateway-for-managing-internet-based-clients"></a>Cloudverwaltungsgateway zum Verwalten internetbasierter Clients
+## <a name="cloud-management-gateway-for-managing-internet-based-clients"></a>Passerelle de gestion cloud pour la gestion des clients sur Internet
 
-Das Cloudverwaltungsgateway bietet eine einfache Möglichkeit zum Verwalten von Configuration Manager-Clients im Internet. Der Cloudverwaltungsgateway-Dienst, der in Microsoft Azure bereitgestellt wird und ein Azure-Abonnement erfordert, stellt mithilfe einer neuen Rolle namens „cloud management gateway connection point“ (Verbindungspunkt für Cloudverwaltungsgateway) eine Verbindung mit Ihrer lokalen Configuration Manager-Infrastruktur her. Nachdem er bereitgestellt und konfiguriert wurde, können Clients mit lokalen Configuration Manager-Standortsystemrollen und cloudbasierten Verteilungspunkten kommunizieren, unabhängig davon, ob sie mit dem internen, dem privaten Netzwerk oder über das Internet verbunden sind. Weitere Informationen und einen Vergleich zwischen dem Cloudverwaltungsgateway und der internetbasierten Clientverwaltung finden Sie unter [Manage Clients on the Internet (Verwalten von Clients im Internet)](/sccm/core/clients/manage/manage-clients-internet).
+La passerelle de gestion cloud fournit un moyen simple de gérer les clients Configuration Manager sur Internet. Le service de passerelle de gestion cloud, qui est déployé sur Microsoft Azure et nécessite un abonnement Azure, se connecte à votre infrastructure Configuration Manager locale à l’aide d’un nouveau rôle appelé « point de connexion de la passerelle de gestion cloud ». Après son déploiement et sa configuration, les clients peuvent communiquer avec les rôles de système de site Configuration Manager locaux et les points de distribution cloud, qu’ils soient connectés au réseau privé interne ou à Internet. Pour plus d’informations et pour comparer la passerelle de gestion cloud à la gestion des clients sur Internet, consultez [Gérer des clients sur Internet](/sccm/core/clients/manage/manage-clients-internet).
 
-## <a name="improvements-to-the-windows-10-edition-upgrade-policy"></a>Verbesserungen an der Richtlinie für Windows 10-Editionsupgrades
-In diesem Release wurden die folgenden Verbesserungen an diesem Richtlinientyp vorgenommen:
+## <a name="improvements-to-the-windows-10-edition-upgrade-policy"></a>Améliorations de la stratégie de mise à niveau de l’édition Windows 10
+Dans cette version, les améliorations suivantes ont été apportées à ce type de stratégie :
 
-- Sie können nun die Richtlinie für Editionsupgrades mit Windows 10-PCs, die den Configuration Manager-Client ausführen, zusätzlich zu Windows 10-PCs verwenden, die in Microsoft Intune registriert sind.
-- Sie können von Windows 10 Professional auf beliebige Plattformen im Assistenten aktualisieren, die mit Ihrer Hardware kompatibel sind.
+- Vous pouvez maintenant utiliser la stratégie de mise à niveau d’édition avec des PC Windows 10 qui exécutent le client Configuration Manager en plus des PC Windows 10 inscrits avec Microsoft Intune.
+- Vous pouvez effectuer la mise à niveau à partir de Windows 10 Professionnel vers l’une des plateformes de l’Assistant qui sont compatibles avec votre matériel.
 
-## <a name="manage-hardware-identifiers"></a>Verwalten von Hardware-IDs
-Sie können nun eine Liste der Hardware-IDs angeben, die Configuration Manager für den PXE-Start und die Clientregistrierung ignoriert. Es gibt zwei häufige Probleme, die dadurch behandelt werden können:
+## <a name="manage-hardware-identifiers"></a>Gérer les identificateurs de matériel
+Vous pouvez désormais fournir la liste des ID de matériel que Configuration Manager doit ignorer dans le cadre du démarrage PXE et de l’inscription des clients. Cette fonctionnalité permet de résoudre deux problèmes courants :
 
-1. Viele Geräte wie Surface Pro 3 haben keinen integrierten Ethernet-Anschluss. Ein USB-zu-Ethernet-Adapter wird im Allgemeinen verwendet, um eine Kabelverbindung für die Bereitstellung eines Betriebssystems einzurichten. Allerdings handelt es sich hierbei aus Kostengründen und Gründen der allgemeinen Nutzbarkeit oft um gemeinsame Adapter. Nachdem die MAC-Adresse des Adapters zur Identifizierung des Geräts verwendet wird, ist es problematisch, den Adapter ohne zusätzliche Aktionen eines Administrators zwischen den Bereitstellungen wiederzuverwenden. Sie können nun in Configuration Manager, Version 1610, die MAC-Adresse dieses Adapters ausschließen, damit er in diesem Szenario einfach wiederverwendet werden kann.
-2. Bei der SMBIOS-ID sollte es sich um eine eindeutige Hardware-ID handeln, aber einige spezielle Hardwaregeräte werden mit doppelten IDs gebaut. Dieses Problem tritt vielleicht nicht so häufig auf wie das zuvor beschriebene Szenario der USB-zu-Ethernet-Adapter, aber Sie können es mithilfe der Liste ausgeschlossener Hardware-IDs beheben.
+1. De nombreux appareils, comme la Surface Pro 3, n’intègrent pas de port Ethernet. Une carte USB-Ethernet est généralement utilisée pour établir une connexion filaire afin de déployer un système d’exploitation. Toutefois, en raison du coût et de la facilité d’utilisation, il s’agit souvent de cartes partagées. Étant donné que l’adresse MAC de cette carte est utilisée pour identifier l’appareil, la réutilisation de cette carte nécessite l’intervention supplémentaire d’un administrateur entre chaque déploiement. La version 1610 de Configuration Manager permet désormais d’exclure l’adresse MAC de cette carte pour faciliter sa réutilisation dans ce scénario.
+2. L’ID SMBIOS est supposé être un identificateur de matériel unique, mais certains appareils spécialisés sont créés avec des ID dupliqués. Ce problème n’est peut-être pas aussi fréquent que le scénario relatif à l’adaptateur USB-Ethernet décrit ci-dessus, mais vous pouvez le résoudre à l’aide de la liste des ID de matériel exclus.
 
-Weitere Informationen finden Sie unter [Verwalten von in Konflikt stehenden Datensätzen bei Configuration Manager-Clients](/sccm/core/clients/manage/manage-clients#manage-duplicate-hardware-identifiers).
+Pour plus d’informations, consultez [Gérer les identificateurs de matériel dupliqués](/sccm/core/clients/manage/manage-clients#manage-duplicate-hardware-identifiers).
 
-## <a name="enhancements-to-windows-store-for-business-integration-with-configuration-manager"></a>Verbesserungen der Integration von Windows Store für Unternehmen in Configuration Manager
-Änderungen in diesem Release:
-- Bisher konnten nur kostenlose Apps aus dem Windows Store für Unternehmen bereitgestellt werden. Configuration Manager unterstützt darüber hinaus jetzt die Bereitstellung von kostenpflichtigen online-lizenzierten Apps (nur für Geräte, die bei Intune registriert sind).
-- Sie können nun eine sofortige Synchronisierung zwischen Windows Store für Unternehmen und Configuration Manager einleiten.
-- Sie können jetzt den geheimen Clientschlüssel ändern, den Sie von Azure Active Directory erhalten haben.
-- Sie können ein Abonnement für den Store löschen.
+## <a name="enhancements-to-windows-store-for-business-integration-with-configuration-manager"></a>Améliorations de l’intégration du Windows Store pour Entreprises à Configuration Manager
+Modifications de cette version :
+- Auparavant, vous pouviez uniquement déployer des applications gratuites à partir du Windows Store pour Entreprises. Configuration Manager prend maintenant aussi en charge le déploiement d’applications sous licence en ligne payantes (pour les appareils Intune inscrits uniquement).
+- Vous pouvez désormais lancer une synchronisation immédiate entre le Windows Store pour Entreprises et Configuration Manager.
+- Vous pouvez maintenant modifier la clé secrète du client que vous avez obtenue à partir d’Azure Active Directory.
+- Vous pouvez supprimer un abonnement au Windows Store.
 
-Einzelheiten finden Sie unter [ (Verwalten von Apps aus dem Windows Store für Unternehmer mit System Center Configuration Manager)](/sccm/apps/deploy-use/manage-apps-from-the-windows-store-for-business).
+Pour plus d’informations, consultez [Gérer les applications à partir du Windows Store pour Entreprises avec System Center Configuration Manager](/sccm/apps/deploy-use/manage-apps-from-the-windows-store-for-business).
 
 
-## <a name="policy-sync-for-intune-enrolled-devices"></a>Richtliniensynchronisierung bei Intune-registrierten Geräten
-Sie können nun eine Richtliniensynchronisierung auf einem Intune-registrierten Gerät über die Configuration Manager-Konsole anfordern, anstatt die Synchronisierung in der Unternehmensportal-App auf dem Gerät selbst anzufordern. Informationen zum Status der Synchronisierungsanforderung stehen nun in Geräteansichten als neue Spalte **Remote Sync State** (Remotesynchronisierungsstatus) zur Verfügung. Die Informationen sind auch im Dialogfeld **Eigenschaften** für jedes Gerät im Abschnitt mit den Ermittlungsdaten verfügbar.
-Weitere Informationen finden Sie unter [Remotesynchronisierung von Richtlinien auf Intune-registrierten Geräten von der Configuration Manager-Konsole](/sccm/mdm/deploy-use/sync-intune-device).
+## <a name="policy-sync-for-intune-enrolled-devices"></a>Synchronisation de la stratégie pour les appareils inscrits dans Intune
+Vous pouvez désormais demander une synchronisation de la stratégie pour un appareil inscrit dans Intune à partir de la console Configuration Manager au lieu de demander une synchronisation dans l’application Portail d’entreprise sur l’appareil. Les informations sur l’état de la demande de synchronisation sont disponibles dans une nouvelle colonne, appelée **État de la synchronisation à distance** dans la vue des appareils. Les informations sont également disponibles dans la section de données de découverte de la boîte de dialogue **Propriétés** pour chaque appareil.
+Pour plus d’informations, consultez [Synchroniser à distance la stratégie sur des appareils inscrits dans Intune à partir de la console Configuration Manager](/sccm/mdm/deploy-use/sync-intune-device).
 
 
-## <a name="use-compliance-settings-to-configure-windows-defender-settings"></a>Verwenden von Konformitätseinstellungen zum Konfigurieren von Windows Defender-Einstellungen
-Sie können Windows Defender-Clienteinstellungen auf Intune-registrierten Windows 10-Computern mithilfe von Konfigurationselementen in der Configuration Manager-Konsole konfigurieren.
-Einzelheiten finden Sie im Bereich **Windows Defender** unter [Erstellen von Konfigurationselementen für Windows 8.1- und Windows 10-Geräte, die ohne den System Center Configuration Manager-Client verwaltet werden](/sccm/compliance/deploy-use/create-configuration-items-for-windows-8.1-and-windows-10-devices-managed-without-the-client).
+## <a name="use-compliance-settings-to-configure-windows-defender-settings"></a>Utiliser les paramètres de compatibilité pour configurer les paramètres de Windows Defender
+Vous pouvez maintenant configurer les paramètres du client Windows Defender sur des ordinateurs Windows 10 inscrits auprès d’Intune à l’aide d’éléments de configuration de la console Configuration Manager.
+Pour plus d’informations, consultez la section **Windows Defender** dans [Créer des éléments de configuration pour des appareils Windows 8.1 et Windows 10 gérés sans le client System Center Configuration Manager](/sccm/compliance/deploy-use/create-configuration-items-for-windows-8.1-and-windows-10-devices-managed-without-the-client).
 
 
 
-## <a name="general-improvements-to-software-center"></a>Allgemeine Verbesserungen für Softwarecenter
-- Benutzer können Apps jetzt aus dem Softwarecenter und dem Anwendungskatalog anfordern.
-- Verbesserungen mit denen die Benutzer besser verstehen, welche Software neu und relevant ist.
+## <a name="general-improvements-to-software-center"></a>Améliorations générales apportées au Centre logiciel
+- Les utilisateurs peuvent désormais demander des applications dans le Centre logiciel, ainsi que le catalogue d’applications.
+- Améliorations pour aider les utilisateurs à identifier les logiciels nouveaux et pertinents.
 
-## <a name="new-columns-in-device-collection-views"></a>Neue Spalten in Gerätesammlungsansichten
-Sie können nun auch Spalten für **IMEI** und **Seriennummer** (bei iOS-Geräten) in Gerätesammlungsansichten anzeigen.
-Einzelheiten finden Sie unter [Predeclare devices with IMEI or iOS serial numbers (Vorabdeklarieren von Geräten mit IMEI- oder iOS-Seriennummern)](https://docs.microsoft.com/sccm/mdm/deploy-use/predeclare-devices-with-hardware-id).
+## <a name="new-columns-in-device-collection-views"></a>Nouvelles colonnes dans les affichages de regroupement d’appareils
+Vous pouvez désormais afficher les colonnes **IMEI** et **Numéro de série** (pour les appareils iOS) dans les affichages de regroupement d’appareils.
+Pour plus d’informations, consultez [Prédéclarer des appareils avec des numéros IMEI ou numéros de série iOS](https://docs.microsoft.com/sccm/mdm/deploy-use/predeclare-devices-with-hardware-id).
 
-## <a name="customizable-branding-for-software-center-dialogs"></a>Anpassbares Branding für Software Center-Dialogfelder
-Benutzerdefiniertes Branding für das Softwarecenter wurde in Configuration Manager-Version 1602 eingeführt. In Version 1610 wird dieses Branding jetzt auf alle zugehörigen Dialogfelder ausgeweitet, um eine konsistentere Erfahrung für Softwarecenter-Benutzer zu bieten.
+## <a name="customizable-branding-for-software-center-dialogs"></a>Personnalisation des boîtes de dialogue du Centre logiciel
+Une marque personnalisée pour le Centre logiciel a été introduite dans Configuration Manager version 1602. Dans la version 1610, cette marque est désormais étendue à toutes les boîtes de dialogue associées pour fournir une expérience plus cohérente aux utilisateurs du Centre logiciel.
 
-Benutzerdefiniertes Branding für das Softwarecenter wird gemäß den folgenden Regeln angewendet:
+Une marque personnalisée pour le Centre logiciel est appliquée selon les règles suivantes :
 
-- Wenn die Standortserverrolle „Anwendungskatalog-Websitepunkt“ nicht installiert ist, zeigt das Softwarecenter den Organisationsnamen an, der in der **Computer-Agent**-Clienteinstellung **Im Softwarecenter angezeigter Organisationsname** angegeben ist. Eine Anleitung hierzu finden Sie unter [Konfigurieren von Clienteinstellungen](../../clients/deploy/configure-client-settings.md).
+- Si le rôle de serveur de site du point du site web du catalogue des applications n’est pas installé, le Centre logiciel affiche le nom d’organisation spécifié dans le paramètre client de l’**Agent ordinateur** **Nom d’organisation affiché dans le Centre logiciel**. Pour obtenir des instructions, consultez [Guide pratique pour configurer les paramètres client](../../clients/deploy/configure-client-settings.md).
 
-- Wenn die Standortserverrolle „Anwendungskatalog-Websitepunkt“ installiert ist, zeigt das Softwarecenter den Organisationsnamen und die Farbe an, der bzw. die in den Eigenschaften der Standortserverrolle „Anwendungskatalog-Websitepunkt“ angegeben sind. Weitere Informationen finden Sie unter [Konfigurationsoptionen für den Anwendungskatalog-Websitepunkt](/sccm/core/servers/deploy/configure/configuration-options-for-site-system-roles#Application-Catalog-website-point).
+- Si le rôle de serveur site de point du site web du catalogue des applications est installé, le Centre logiciel affiche le nom d’organisation et la couleur spécifiés dans les propriétés du rôle de serveur de site du point du site web du catalogue des applications. Pour plus d’informations, consultez [Options de configuration pour le point du site web du catalogue des applications](/sccm/core/servers/deploy/configure/configuration-options-for-site-system-roles#Application-Catalog-website-point).
 
-- Wenn ein Microsoft Intune-Abonnement konfiguriert und mit der Configuration Manager-Umgebung verbunden ist, zeigt das Softwarecenter den Organisationsnamen, die Farbe und das Unternehmenslogo entsprechend den Angaben in den Eigenschaften des Intune-Abonnements an. Weitere Informationen finden Sie unter [Configuring the Microsoft Intune subscription](/sccm/mdm/deploy-use/setup-hybrid-mdm#step-3-configure-intune-subscription).
+- Si un abonnement Microsoft Intune est configuré et connecté à l’environnement Configuration Manager, le Centre logiciel affiche le nom d’organisation, la couleur et le logo de l’entreprise spécifiés dans les propriétés de l’abonnement Intune. Pour plus d’informations, consultez [Configuration de l’abonnement Microsoft Intune](/sccm/mdm/deploy-use/setup-hybrid-mdm#step-3-configure-intune-subscription).
 
 
-## <a name="enforcement-grace-period-for-required-application-and-software-update-deployments"></a>Erzwingung der Karenzzeit für erforderliche Anwendungen und Bereitstellungen von Softwareupdates
-In einigen Fällen empfiehlt es sich, Benutzern über die von Ihnen angegebenen Fristen hinaus mehr Zeit zum Installieren von erforderlichen Anwendungsbereitstellungen oder Softwareupdates zu geben. Dies ist beispielsweise dann erforderlich, wenn ein Computer für einen längeren Zeitraum ausgeschaltet war und eine große Anzahl von Anwendungs- oder Updatebereitstellungen installiert werden muss. Wenn z.B. ein Endbenutzer gerade aus dem Urlaub zurückgekehrt ist, muss er möglicherweise sehr lange warten, bis überfällige Anwendungsbereitstellungen installiert werden. Sie können jetzt eine zwingende Toleranzperiode definieren, um dieses Problem zu lösen. Dafür müssen Sie die Configuration Manager-Clienteinstellungen für eine Sammlung bereitstellen. 
+## <a name="enforcement-grace-period-for-required-application-and-software-update-deployments"></a>Période de grâce d’application pour les déploiements de mises à jour logicielles et d’applications obligatoires
+Dans certains cas, vous pouvez accorder plus de temps aux utilisateurs pour installer les mises à jour logicielles ou les déploiements d’applications obligatoires au-delà des échéances que vous avez définies. Par exemple, cela peut être nécessaire lorsqu’un ordinateur a été éteint pendant une période de temps prolongée et qu’il doit installer un grand nombre de déploiements d’applications ou de mises à jour. Par exemple, si un utilisateur final vient de rentrer de congés, il peut être amené à patienter longtemps pendant l’installation des déploiements d’applications en retard. Pour résoudre ce problème, vous pouvez désormais définir une période de grâce de mise en œuvre en déployant des paramètres du client Configuration Manager sur un regroupement. 
 
-Führen Sie folgende Aktionen aus, um die Karenzzeit zu konfigurieren:
-1.      Auf der Seite **Computer-Agent** der Clienteinstellungen müssen Sie die neue Eigenschaft **Karenzzeit für Erzwingung nach Bereitstellungsfrist (Stunden)** mit einem Wert zwischen **1** und **120** Stunden konfigurieren.
-2.      Aktivieren Sie in einer neuen erforderlichen Anwendungsbereitstellung oder in den Eigenschaften einer vorhandenen Bereitstellung auf der Seite **Planung** das Kontrollkästchen **Erzwingung dieser Bereitstellung entsprechend den Benutzervoreinstellungen verzögern**, bis zu der Toleranzperiode, die in den Clienteinstellungen definiert ist. Alle Bereitstellungen, für die dieses Kontrollkästchen ausgewählt ist, und die für Geräte vorgesehen sind, für die Sie ebenfalls die Clienteinstellungen bereitgestellt haben, werden die Toleranzperiode verwenden.
+Pour configurer la période de grâce, procédez comme suit :
+1.      Dans la page **Agent ordinateur** des paramètres du client, configurez la nouvelle propriété **Période de grâce pour la mise en œuvre après l’échéance du déploiement (en heures)** avec une valeur comprise entre **1** et **120** heures.
+2.      Dans un nouveau déploiement d’application exigé, ou dans les propriétés d’un déploiement existant, dans la page **Planification**, cochez la case **Différer la mise en œuvre de ce déploiement selon les préférences de l’utilisateur, dans la limite de la période de grâce définie dans les paramètres client**. Tous les déploiements pour lesquels cette case est cochée et qui sont destinés à des appareils sur lesquels vous avez également déployé le paramètre du client utilisent la période de grâce de mise en œuvre.
 
-Wenn Sie eine Toleranzperiode konfigurieren und das Kontrollkästchen aktivieren, wird die Anwendung im ersten, nicht geschäftlichen Fenster installiert werden, das der Benutzer nach Ablauf der Frist konfiguriert. Der Benutzer kann jedoch weiterhin das Software Center öffnen und die Anwendung zu einem beliebigen Zeitpunkt installieren. Nach Ablauf der Toleranzperiode wird die Erzwingung auf normales Verhalten für überfällige Bereitstellungen zurückgesetzt. Ähnliche Optionen wurden zum Bereitstellungsassistenten für Softwareupdates, zum Assistenten für automatische Bereitstellungsregeln und den Eigenschaftenseiten hinzugefügt.
+Si vous configurez une période de grâce de mise en œuvre et cochez la case, une fois que l’échéance d’installation d’application est atteinte, l’application est installée dans la première fenêtre non professionnelle que l’utilisateur a configurée jusqu’à cette période de grâce. Toutefois, l’utilisateur peut toujours ouvrir le Centre logiciel et installer l’application à tout moment, s’il le souhaite. Une fois que la période de grâce a expiré, le comportement de mise en œuvre redevient normal pour les déploiements en retard. Des options similaires ont été ajoutées dans l’Assistant de déploiement de mises à jour logicielles, dans l’Assistant des règles de déploiement automatique et dans les pages de propriétés.
 
 
 
-## <a name="improved-functionality-in-dialog-boxes-about-required-software"></a>Verbesserte Funktionalität in Dialogfeldern zur erforderlichen Software
-Wenn ein Benutzer erforderliche Software von der Einstellung **Warten und erinnern:** erhält, kann er sie aus der folgenden Dropdownliste von Werten auswählen: 
-- **Später**. Gibt an, dass Benachrichtigungen basierend auf den in den Client-Agent-Einstellungen konfigurierten Benachrichtigungseinstellungen geplant sind.
-- **Feste Zeit**. Gibt an, dass die Benachrichtigung nach der ausgewählten Zeit erneut angezeigt wird (beispielsweise in 30 Minuten).
+## <a name="improved-functionality-in-dialog-boxes-about-required-software"></a>Fonctionnalités améliorées dans les boîtes de dialogue concernant les logiciels exigés
+Quand un utilisateur reçoit des logiciels requis, dans le paramètre **Répéter et me le rappeler :**, il peut choisir parmi les valeurs suivantes de la liste déroulante : 
+- **Ultérieurement**. Indique que les notifications sont planifiées selon les paramètres de notification configurés dans les paramètres de l’agent du client.
+- **Heure fixe**. Indique que la notification sera programmée pour s’afficher de nouveau après l’heure sélectionnée (par exemple, dans les 30 minutes).
 
-![Computer-Agentseite in den Client-Agenteinstellungen](media/client-notification-settings.png)
+![Page Agent ordinateur dans les paramètres de l’agent du client](media/client-notification-settings.png)
 
-Die maximale Erinnerungszeit basiert auf Benachrichtigungswerten, die in den Client-Agent-Einstellungen konfiguriert sind. Wenn zum Beispiel die Einstellung **Bereitstellungsstichtag in mehr als 24 Stunden, Benutzer erinnern alle (Stunden)** auf der Seite des Computer-Agents auf 10 Stunden festgelegt ist und es sind mehr als 24 Stunden bis zum Stichtag, erhält der Benutzer einen Satz an Warteoptionen von bis zu, aber nie mehr als 10 Stunden. Wenn sich der Stichtag nähert, stehen weniger Optionen zur Verfügung. Dies stimmt mit den entsprechenden Client-Agent-Einstellungen für jede Komponente der Bereitstellungszeit überein.
+L’heure de répétition maximale est basée sur les valeurs de notification dans les paramètres de l’agent du client. Par exemple, si le paramètre **Échéance du déploiement supérieure à 24 heures, effectuer un rappel à l’utilisateur toutes les (heures)** dans la page Agent ordinateur est configuré pour 10 heures et qu’il reste plus de 24 heures avant l’échéance, l’utilisateur se voit proposer un ensemble d’options de répétition toujours inférieures ou égales à 10 heures. Au fur et à mesure que l’échéance approche, le nombre d’options disponibles diminue, conformément aux paramètres appropriés de l’agent du client, pour chaque composant de la chronologie du déploiement.
 
-Darüber hinaus fällt bei Bereitstellungen mit hohem Risiko, z.B. einer Tasksequenz, die ein Betriebssystem bereitstellen, die Benachrichtigung des Benutzers deutlicher aus. Immer wenn der Benutzer benachrichtigt wird, dass eine kritische Softwarewartung erforderlich ist, wird anstatt einer vorübergehenden Benachrichtigung in der Taskleiste ein Dialogfeld wie das folgende auf dem Computer des Benutzers angezeigt:
+Par ailleurs, pour un déploiement à haut risque, comme une séquence de tâches déployant un système d’exploitation, l’expérience de notification à l’utilisateur final est désormais plus intrusive. Au lieu d’une notification temporaire sur la barre des tâches, chaque fois que l’utilisateur est averti qu’une maintenance logicielle critique est nécessaire, une boîte de dialogue similaire à la suivante s’affiche sur l’ordinateur de l’utilisateur :
 
-![Erforderlicher Softwaredialog](media/client-toast-notification.png)
+![Boîte de dialogue Logiciel requis](media/client-toast-notification.png)
 
 
-Weitere Informationen:
-- [Einstellungen zum Verwalten von Bereitstellungen mit hohem Risiko](../../../protect/understand/settings-to-manage-high-risk-deployments.md)
-- [Konfigurieren von Clienteinstellungen](../../clients/deploy/configure-client-settings.md)
+Pour plus d’informations :
+- [Paramètres de gestion des déploiements à haut risque](../../../protect/understand/settings-to-manage-high-risk-deployments.md)
+- [Guide pratique pour configurer les paramètres client](../../clients/deploy/configure-client-settings.md)
 
-## <a name="software-updates-dashboard"></a>Dashboard „Softwareupdatepunkt“
-Verwenden Sie das neue Dashboard für Softwareupdates, um den aktuellen Kompatibilitätsstatus von Geräten in Ihrer Organisation anzuzeigen, und führen Sie eine schnelle Datenanalyse durch, um zu ermitteln, welche Geräte gefährdet sind. Navigieren Sie zum Anzeigen des Dashboards zu **Überwachung** > **Überblick** > **Sicherheit** > **Software Updates Dashboard** (Dashboard „Softwareupdatepunkt“).
+## <a name="software-updates-dashboard"></a>Tableau de bord des mises à jour logicielles
+Utilisez le nouveau tableau de bord des mises à jour logicielles pour afficher l’état de compatibilité actuel des appareils de votre organisation et analyser rapidement les données pour identifier les appareils vulnérables. Pour afficher le tableau de bord, accédez à **Surveillance** > **Vue d’ensemble** > **Sécurité** > **Tableau de bord des mises à jour logicielles**.
 
-Mehr Informationen finden Sie unter [Überwachen von Softwareupdates](/sccm/sum/deploy-use/monitor-software-updates).
+Pour plus d’informations, consultez [Surveiller les mises à jour logicielles](/sccm/sum/deploy-use/monitor-software-updates).
 
 
-## <a name="improvements-to-the-application-request-process"></a>Verbesserungen am Prozess der Anwendungsanforderung
-Nachdem Sie eine Anwendung für die Installation genehmigt haben, können Sie anschließend auswählen, die Anforderung zu verweigern, indem Sie in der Configuration Manager-Konsole auf **Verweigern** klicken. Bisher war diese Schaltfläche nach der Genehmigung ausgegraut.
+## <a name="improvements-to-the-application-request-process"></a>Améliorations apportées au processus de demande d’application
+Une fois que vous avez approuvé l’installation d’une application, vous pouvez ensuite choisir de refuser la demande en cliquant sur **Refuser** dans la console Configuration Manager. Avant, ce bouton était grisé après l’approbation.
 
-Diese Aktion bewirkt nicht, dass die Anwendung auf Geräten deinstalliert wird. Allerdings werden Benutzer daran gehindert, neue Kopien der Anwendung aus Softwarecenter zu installieren.
+Cette action n’entraîne pas la désinstallation de l’application de tous les appareils. Toutefois, elle empêche les utilisateurs d’installer de nouvelles copies de l’application à partir du Centre logiciel.
 
-## <a name="filter-by-content-size-in-automatic-deployment-rules"></a>Filtern Sie nach Größe des Inhalts in Regeln zur automatischen Bereitstellung
-Sie können jetzt nach Inhaltsgrößen für Softwareupdates in automatischen Bereitstellungsregeln filtern. Um nur Softwareupdates herunterzuladen, die kleiner als 2 MB sind, können Sie z.B. den Filter **Inhaltsgröße (KB)** auf **< 2048** festlegen. Mit diesem Filter wird verhindert, dass große Softwareupdates automatisch heruntergeladen werden. So wird die vereinfachte Windows-Wartung vorheriger Versionen unterstützt, wenn die Bandbreite eingeschränkt ist. Details finden Sie unter:
-- [Configuration Manager and Simplified Windows Servicing on Down Level Operating Systems](https://blogs.technet.microsoft.com/enterprisemobility/2016/10/07/configuration-manager-and-simplified-windows-servicing-on-down-level-operating-systems/) (Configuration Manager und vereinfachte Windows-Wartung auf vorherigen Betriebssystemen)
-- [Automatisches Bereitstellen von Softwareupdates](/sccm/sum/deploy-use/automatically-deploy-software-updates)
+## <a name="filter-by-content-size-in-automatic-deployment-rules"></a>Filtrer par taille de contenu dans les règles de déploiement automatique
+Vous pouvez désormais filtrer sur la taille du contenu des mises à jour logicielles dans les règles de déploiement automatique. Par exemple, pour télécharger uniquement les mises à jour logicielles inférieures à 2 Mo, vous pouvez définir le filtre **Taille du contenu (Ko)** sur **< 2048**. Ce filtre empêche le téléchargement automatique des mises à jour logicielles volumineuses, d’où une meilleure prise en charge de la maintenance de bas niveau Windows simplifiée quand la bande passante du réseau est limitée. Pour plus d’informations, consultez :
+- [Configuration Manager et maintenance Windows simplifiée sur des systèmes d’exploitation de bas niveau](https://blogs.technet.microsoft.com/enterprisemobility/2016/10/07/configuration-manager-and-simplified-windows-servicing-on-down-level-operating-systems/)
+- [Déployer automatiquement des mises à jour logicielles](/sccm/sum/deploy-use/automatically-deploy-software-updates)
 
-Führen Sie einen der folgenden Schritte aus, um das Feld **Inhaltsgröße (KB)** zu konfigurieren:
-- Wenn Sie eine Regel zur automatischen Bereitstellung erstellen, wechseln Sie im Assistenten zum Erstellen automatischer Bereitstellungsregeln auf die Seite **Softwareupdates**.
-- Wechseln Sie in den Eigenschaften für eine vorhandene automatische Bereitstellungsregel zur Registerkarte **Softwareupdates**.
+Pour configurer le champ **Taille du contenu (Ko)**, effectuez l’une des opérations suivantes :
+- Quand vous créez une règle de déploiement automatique, dans l’Assistant Création d’une règle de déploiement automatique, accédez à la page **Mises à jour logicielles**.
+- Dans les propriétés d’une règle de déploiement automatique existante, accédez à l’onglet **Mises à jour logicielles**.
 
-## <a name="office-365-client-management-dashboard"></a>Office 365-Clientverwaltungsdashboard
-Das Office 365-Clientverwaltungsdashboard ist nun in der Configuration Manager-Konsole verfügbar. Wechseln Sie zu **Softwarebibliothek** > **Übersicht** > **Office 365 Client Management** (Office 365-Clientverwaltung), um das Dashboard anzuzeigen.
+## <a name="office-365-client-management-dashboard"></a>Tableau de bord Gestion des clients Office 365
+Le tableau de bord de gestion des clients Office 365 est désormais disponible dans la console Configuration Manager. Pour afficher le tableau de bord, accédez à **Bibliothèque de logiciels** > **Vue d’ensemble** > **Gestion des clients Office 365**.
 
-Das Dashboard zeigt Diagramme für Folgendes an:
+Le tableau de bord affiche des graphiques pour les éléments suivants :
 
-- Anzahl der Office 365-Clients
-- Office 365-Clientversionen
-- Office 365-Clientsprachen
-- Office 365-Clientkanäle     
+- Nombre de clients Office 365
+- Versions du client Office 365
+- Langues du client Office 365
+- Canaux du client Office 365     
 
-Weitere Informationen finden Sie unter [Verwalten von Office 365 ProPlus-Updates](/sccm/sum/deploy-use/manage-office-365-proplus-updates).
+Pour plus d’informations, consultez [Gérer les mises à jour Office 365 ProPlus](/sccm/sum/deploy-use/manage-office-365-proplus-updates).
 
-## <a name="task-sequence-steps-to-manage-bios-to-uefi-conversion"></a>Tasksequenzschritte für das Verwalten einer Konvertierung von BIOS zu UEFI
-Sie können eine Tasksequenz einer Betriebssystembereitstellung nun mit einer neuen Variable (TSUEFIDrive) so anpassen, dass durch den Schritt **Computer neu starten** auf der Festplatte eine FAT32-Partition für den Übergang zu UEFI vorbereitet wird. Das folgende Verfahren stellt ein Beispiel dar, wie Sie Tasksequenzschritte erstellen können, um die Festplatte auf die Konvertierung von BIOS zu UEFI vorzubereiten. Weitere Informationen finden Sie unter [Tasksequenzschritte für das Verwalten einer Konvertierung von BIOS zu UEFI](/sccm/osd/deploy-use/task-sequence-steps-to-manage-bios-to-uefi-conversion).
+## <a name="task-sequence-steps-to-manage-bios-to-uefi-conversion"></a>Étapes de séquence de tâches pour gérer la conversion du BIOS en UEFI
+Vous pouvez maintenant personnaliser une séquence de tâches de déploiement de système d’exploitation avec une nouvelle variable, TSUEFIDrive, afin que l’étape **Redémarrer l’ordinateur** prépare une partition FAT32 sur le disque dur pour la transition vers UEFI. La procédure suivante fournit un exemple de création des étapes de séquence de tâches pour préparer le disque dur pour la conversion du BIOS en UEFI. Pour plus d’informations, consultez [Étapes de séquence de tâches pour gérer la conversion du BIOS en UEFI](/sccm/osd/deploy-use/task-sequence-steps-to-manage-bios-to-uefi-conversion).
 
-##  <a name="improvements-to-the-task-sequence-step-prepare-configmgr-client-for-capture"></a>Verbesserungen am Tasksequenzschritt „ConfigMgr-Client für Erfassung vorbereiten“  
-Im Schritt „Configuration Manager-Client vorbereiten“ wird der Configuration Manager-Client nun vollständig entfernt, und nicht nur die wichtigen Informationen. Wenn die Tasksequenz das erfasste Betriebssystemimage bereitstellt, wird jedes Mal ein neuer Configuration Manager-Client installiert. Weitere Informationen finden Sie unter [Tasksequenzschritte](/sccm/osd/understand/task-sequence-steps#BKMK_PrepareConfigMgrClientforCapture).
-
-
-
-## <a name="intune-compliance-policy-charts"></a>Diagramme zu Intune-Konformitätsrichtlinien
-Sie können jetzt eine schnelle Übersicht über die gesamte Gerätekonformität und die häufigsten Gründe für Nichtkonformität anzeigen, indem Sie die neuen Diagramme in der Configuration Manager-Konsole im Arbeitsbereich **Überwachung** verwenden. Klicken Sie auf einen Abschnitt im Diagramm, um einen Drilldown in einer Liste der Geräte in dieser Kategorie auszuführen. Weitere Informationen finden Sie unter [Überwachen der Konformitätsrichtlinie](/sccm/protect/deploy-use/create-compliance-policy#monitor-the-compliance-policy).
-
-
-## <a name="lookout-integration-for-hybrid-implementations-to-protect-ios-and-android-devices"></a>Lookout-Integration für Hybridimplementierungen zum Schutz von iOS- und Android-Geräten
-Microsoft ist mit der Lösung „Lookout Mobile Threat Protection“ zum Schutz von mobilen iOS- und Android-Geräten integriert. Mit dieser Lösung werden Schadsoftware, riskante Apps und weitere Risiken auf Geräten identifiziert. Die Lösung von Lookout unterstützt Sie beim Bestimmen der Bedrohungsstufe. Dies ist konfigurierbar. Sie können eine Konformitätsrichtlinienregel in System Center Configuration Manager erstellen, um die Gerätekonformität basierend auf der Risikoeinschätzung durch Lookout einzuschätzen. Mithilfe bedingter Zugriffsrichtlinien können Sie den Zugriff auf Unternehmensressourcen basierend auf dem Konformitätsstatus des Geräts zulassen oder verweigern. Weitere Informationen über die Integration und die Funktionsweise finden Sie unter [Manage access based on device, network, and application risk (Verwalten des Zugriffs basierend auf Gerät, Netzwerk und Anwendungsrisiko)](/sccm/protect/deploy-use/manage-access-based-on-device-network-app-risk).
-
-Benutzer nicht konformer iOS-Geräte werden zur Registrierung aufgefordert. Sie müssen die Lookout for Work-App auf ihren Geräten installieren, die App aktivieren und Bedrohungen entfernen, die in der Lookout for Work-Anwendung gemeldet werden, um Zugriff auf Unternehmensdaten zu erhalten. Erfahren Sie mehr über [Configure and deploy Lookout for Work apps (Konfigurieren und Bereitstellen von Lookout for Work-Apps)](/sccm/protect/deploy-use/configure-and-deploy-lookout-for-work-apps).
-
-
-
-## <a name="new-compliance-settings-for-configuration-items"></a>Neue Kompatibilitätseinstellungen für Konfigurationselemente
-Es gibt viele neue Einstellungen, die Sie in Ihren Konfigurationselementen für verschiedene Geräteplattformen verwenden können. Dabei handelt es sich um Einstellungen, die zuvor in Microsoft Intune in einer eigenständigen Konfiguration vorhanden waren, und jetzt verfügbar sind, wenn Sie Intune mit Configuration Manager verwenden.
-Weitere Informationen finden Sie unter [Konfigurationselemente für Geräte, die ohne den System Center Configuration Manager-Client verwaltet werden](/sccm/compliance/deploy-use/configuration-items-for-devices-managed-without-the-client).
-
-### <a name="new-settings-for-android-devices"></a>Neue Einstellungen für Android-Geräte
-#### <a name="password-settings"></a>Kennworteinstellungen
-- **Kennwortverlauf speichern**
-- **Fingerabdruckentsperrung zulassen**
-
-#### <a name="security-settings"></a>Sicherheitseinstellungen
-- **Verschlüsselung auf Speicherkarten vorschreiben**
-- **Bildschirmaufnahme zulassen**
-- **Übermitteln von Diagnosedaten zulassen**
-
-#### <a name="browser-settings"></a>Browsereinstellungen
-- **Webbrowser zulassen**
-- **AutoAusfüllen zulassen**
-- **Popupblocker zulassen**
-- **Cookies zulassen**
-- **Active Scripting zulassen**
-
-#### <a name="app-settings"></a>App-Einstellungen
-- **Google Play Store zulassen**
-
-#### <a name="device-capability-settings"></a>Gerätefunktionseinstellungen
-- **Wechselspeichermedien zulassen**
-- **WLAN-Tethering zulassen**
-- **Geolocation zulassen**
-- **NFC zulassen**
-- **Bluetooth zulassen**
-- **Sprachroaming zulassen**
-- **Datenroaming zulassen**
-- **SMS/MMS-Messaging zulassen**
-- **Sprach-Assistent zulassen**
-- **Sprachwahl zulassen**
-- **Kopieren und Einfügen zulassen**
-
-### <a name="new-settings-for-ios-devices"></a>Neue Einstellungen für iOS-Geräte
-#### <a name="password-settings"></a>Kennworteinstellungen
-- **Erforderliche Anzahl komplexer Zeichen im Kennwort**
-- **Einfache Kennwörter zulassen**
-- **Minuten Inaktivität vor Anforderung des Kennworts**
-- **Kennwortverlauf speichern**
-
-### <a name="new-settings-for-mac-os-x-devices"></a>Neue Einstellungen für Mac OS X-Geräte
-#### <a name="password-settings"></a>Kennworteinstellungen
-- **Erforderliche Anzahl komplexer Zeichen im Kennwort**
-- **Einfache Kennwörter zulassen**
-- **Kennwortverlauf speichern**
-- **Minuten Inaktivität bis zur Aktivierung des Bildschirmschoners**
-
-### <a name="new-settings-for-windows-10-desktop-and-mobile-devices"></a>Neue Einstellungen für Windows 10 Desktop und mobile Geräte
-#### <a name="password-settings"></a>Kennworteinstellungen
-- **Minimale Anzahl von Zeichensätzen**
-- **Kennwortverlauf speichern**
-- **Kennworteingabe verlangen, wenn das Gerät aus dem Leerlauf zurückkehrt**
-
-#### <a name="security-settings"></a>Sicherheitseinstellungen
-- **Verschlüsselung auf mobilen Geräten vorschreiben**
-- **Manuelle Aufhebung der Registrierung zulassen**
-
-#### <a name="device-capability-settings"></a>Gerätefunktionseinstellungen
-- **VPN über Mobilfunk zulassen**
-- **VPN-Roaming über Mobilfunk zulassen**
-- **Handyzurücksetzung zulassen**
-- **USB-Verbindung zulassen**
-- **Cortana zulassen**
-- **Info-Center-Benachrichtigungen zulassen**
-
-### <a name="new-settings-for-windows-10-team-devices"></a>Neue Einstellungen für Windows 10 Team-Geräte
-#### <a name="device-settings"></a>Geräteeinstellungen
-- **Azure Operational Insights aktivieren**
-- **Miracast-Funkprojektion aktivieren**
-- **Im Willkommensbildschirm angezeigte Besprechungsinformationen auswählen**
-- **URL zum Bild für den Sperrbildschirmhintergrund**
-
-### <a name="new-settings-for-windows-81-devices"></a>Neue Einstellungen für Windows 8.1-Geräte
-#### <a name="applicability-settings"></a>Anwendbarkeitseinstellungen
-- **Alle Konfigurationen auf Windows 10 anwenden**
-
-#### <a name="password-settings"></a>Kennworteinstellungen
-- **Erforderlicher Kennworttyp**
-- **Minimale Anzahl von Zeichensätzen**
-- **Minimale Kennwortlänge**
-- **Anzahl der zulässigen wiederholten Anmeldefehler, bevor die Gerätedaten zurückgesetzt werden**
-- **Inaktivität in Minuten bis zur Abschaltung des Bildschirms**
-- **Kennwortablauf (Tage)**
-- **Kennwortverlauf speichern**
-- **Wiederverwendung vorheriger Kennwörter verhindern**
-- **Bildkennwort und PIN zulassen**
-
-#### <a name="browser-settings"></a>Browsereinstellungen
-- **Automatische Erkennung des Intranets zulassen**
-
-### <a name="new-settings-for-windows-phone-81-devices"></a>Neue Einstellungen für Windows Phone 8.1-Geräte
-#### <a name="applicability-settings"></a>Anwendbarkeitseinstellungen
-- **Alle Konfigurationen auf Windows 10 anwenden**
-
-#### <a name="password-settings"></a>Kennworteinstellungen
-- **Minimale Anzahl von Zeichensätzen**
-- **Einfache Kennwörter zulassen**
-- **Kennwortverlauf speichern**
-
-#### <a name="device-capability-settings"></a>Gerätefunktionseinstellungen
-- **Automatische Verbindung mit freien WLAN-Hotspots zulassen**
+##  <a name="improvements-to-the-task-sequence-step-prepare-configmgr-client-for-capture"></a>Améliorations apportées à l’étape de séquence de tâches : Préparer le client ConfigMgr pour capture  
+L’étape de préparation du client ConfigMgr va désormais supprimer complètement le client Configuration Manager, au lieu de supprimer uniquement des informations clés. Quand la séquence de tâches déploie l’image capturée du système d’exploitation, elle installe un nouveau client Configuration Manager chaque fois. Pour plus d’informations, consultez [Étapes de séquence de tâches](/sccm/osd/understand/task-sequence-steps#BKMK_PrepareConfigMgrClientforCapture).
+
+
+
+## <a name="intune-compliance-policy-charts"></a>Graphiques de stratégie de conformité Intune
+Vous pouvez désormais obtenir un aperçu rapide de la conformité globale des appareils et les principales raisons de non-conformité à l’aide des nouveaux graphiques sous l’espace de travail **Surveillance** dans la console Configuration Manager. Cliquez sur une section dans le graphique pour afficher la liste des appareils dans cette catégorie. Pour plus d’informations, consultez [Surveiller la stratégie de conformité](/sccm/protect/deploy-use/create-compliance-policy#monitor-the-compliance-policy).
+
+
+## <a name="lookout-integration-for-hybrid-implementations-to-protect-ios-and-android-devices"></a>Intégration de Lookout pour les implémentations hybrides afin de protéger les appareils iOS et Android
+Microsoft intègre la solution Mobile Threat Protection de Lookout pour protéger les appareils mobiles iOS et Android en détectant les programmes malveillants, les applications présentant des risques, et bien plus encore, sur les appareils. La solution de Lookout vous permet de déterminer le niveau de menace, qui est configurable. Vous pouvez créer une règle de stratégie de conformité dans System Configuration Manager pour déterminer la conformité des appareils en fonction de l’évaluation des risques par Lookout. À l’aide de stratégies d’accès conditionnel, vous pouvez autoriser ou bloquer l’accès aux ressources d’entreprise en fonction de l’état de conformité de l’appareil. Pour en savoir plus sur l’intégration et son fonctionnement, consultez [Gérer l’accès en fonction de l’appareil, du réseau et du risque encouru au niveau de l’application](/sccm/protect/deploy-use/manage-access-based-on-device-network-app-risk).
+
+Les utilisateurs finaux d’appareils iOS non conformes sont invités à s’inscrire. Ils doivent installer l’application Lookout for Work sur leurs appareils, l’activer et corriger les menaces signalées dans l’application pour avoir accès aux données de la société. Découvrez comment [Configurer et déployer les applications Lookout for Work](/sccm/protect/deploy-use/configure-and-deploy-lookout-for-work-apps).
+
+
+
+## <a name="new-compliance-settings-for-configuration-items"></a>Nouveaux paramètres de compatibilité pour les éléments de configuration
+Il existe de nombreux nouveaux paramètres que vous pouvez utiliser dans vos éléments de configuration pour diverses plateformes d’appareils. Il s’agit de paramètres qui existaient précédemment dans Microsoft Intune dans une configuration autonome et qui sont maintenant disponibles quand vous utilisez Intune avec Configuration Manager.
+Pour plus d’informations, consultez [Éléments de configuration pour les appareils gérés sans le client System Center Configuration Manager](/sccm/compliance/deploy-use/configuration-items-for-devices-managed-without-the-client).
+
+### <a name="new-settings-for-android-devices"></a>Nouveaux paramètres pour les appareils Android
+#### <a name="password-settings"></a>Paramètres de mot de passe
+- **Mémoriser l’historique des mots de passe**
+- **Autoriser le déverrouillage par empreinte digitale**
+
+#### <a name="security-settings"></a>Paramètres de sécurité
+- **Exiger le chiffrement sur les cartes de stockage**
+- **Autoriser la capture d’écran**
+- **Autoriser la soumission des données de diagnostic**
+
+#### <a name="browser-settings"></a>Paramètres du navigateur
+- **Autoriser le navigateur web**
+- **Autoriser le remplissage automatique**
+- **Autoriser le bloqueur de fenêtres publicitaires**
+- **Autoriser les cookies**
+- **Autoriser les scripts actifs**
+
+#### <a name="app-settings"></a>Paramètres de l’application
+- **Autoriser Google Play Store**
+
+#### <a name="device-capability-settings"></a>Paramètres de capacité des appareils
+- **Autoriser le stockage amovible**
+- **Autoriser la connexion Wi-Fi**
+- **Autoriser la géolocalisation**
+- **Autoriser NFC**
+- **Autoriser Bluetooth**
+- **Autoriser l’itinérance vocale**
+- **Autoriser l’itinérance des données**
+- **Autoriser les messages SMS/MMS**
+- **Autoriser l’assistant vocal**
+- **Autoriser la composition vocale**
+- **Autoriser la fonction copier-coller**
+
+### <a name="new-settings-for-ios-devices"></a>Nouveaux paramètres pour les appareils iOS
+#### <a name="password-settings"></a>Paramètres de mot de passe
+- **Nombre de caractères complexes requis dans le mot de passe**
+- **Autoriser les mots de passe simples**
+- **Minutes d’inactivité avant demande du mot de passe**
+- **Mémoriser l’historique des mots de passe**
+
+### <a name="new-settings-for-mac-os-x-devices"></a>Nouveaux paramètres pour les appareils Mac OS X
+#### <a name="password-settings"></a>Paramètres de mot de passe
+- **Nombre de caractères complexes requis dans le mot de passe**
+- **Autoriser les mots de passe simples**
+- **Mémoriser l’historique des mots de passe**
+- **Minutes d’inactivité avant activation de l’écran de veille**
+
+### <a name="new-settings-for-windows-10-desktop-and-mobile-devices"></a>Nouveaux paramètres pour les appareils Windows 10 Desktop et Mobile
+#### <a name="password-settings"></a>Paramètres de mot de passe
+- **Nombre minimum de jeux de caractères**
+- **Mémoriser l’historique des mots de passe**
+- **Exiger un mot de passe quand l’appareil quitte un état inactif**
+
+#### <a name="security-settings"></a>Paramètres de sécurité
+- **Exiger le chiffrement sur l’appareil mobile**
+- **Autoriser la désinscription manuelle**
+
+#### <a name="device-capability-settings"></a>Paramètres de capacité des appareils
+- **Autoriser une connexion VPN sur un réseau cellulaire**
+- **Autoriser l’itinérance VPN sur un réseau cellulaire**
+- **Autoriser la réinitialisation du téléphone**
+- **Autoriser la connexion USB**
+- **Autoriser Cortana**
+- **Autoriser les notifications du centre de notifications**
+
+### <a name="new-settings-for-windows-10-team-devices"></a>Nouveaux paramètres pour les appareils Windows 10 Collaboration
+#### <a name="device-settings"></a>Paramètres de l’appareil
+- **Activer Azure Operational Insights**
+- **Activer la projection sans fil Miracast**
+- **Choisir les informations relatives à la réunion affichées sur l’écran d’accueil**
+- **URL de l’image d’arrière-plan de l’écran de verrouillage**
+
+### <a name="new-settings-for-windows-81-devices"></a>Nouveaux paramètres pour les appareils Windows 8.1
+#### <a name="applicability-settings"></a>Paramètres de mise en application
+- **Appliquer toutes les configurations à Windows 10**
+
+#### <a name="password-settings"></a>Paramètres de mot de passe
+- **Type de mot de passe requis**
+- **Nombre minimum de jeux de caractères**
+- **Longueur minimale du mot de passe**
+- **Nombre d’échecs de connexion successifs autorisé avant réinitialisation de l’appareil**
+- **Minutes d’inactivité avant arrêt de l’écran**
+- **Expiration du mot de passe (jours)**
+- **Mémoriser l’historique des mots de passe**
+- **Empêcher la réutilisation des mots de passe précédents**
+- **Autoriser un mot de passe image et un code confidentiel**
+
+#### <a name="browser-settings"></a>Paramètres du navigateur
+- **Autoriser la détection automatique des réseaux intranet**
+
+### <a name="new-settings-for-windows-phone-81-devices"></a>Nouveaux paramètres pour les appareils Windows Phone 8.1
+#### <a name="applicability-settings"></a>Paramètres de mise en application
+- **Appliquer toutes les configurations à Windows 10**
+
+#### <a name="password-settings"></a>Paramètres de mot de passe
+- **Nombre minimum de jeux de caractères**
+- **Autoriser les mots de passe simples**
+- **Mémoriser l’historique des mots de passe**
+
+#### <a name="device-capability-settings"></a>Paramètres de capacité des appareils
+- **Autoriser la connexion automatique aux points d’accès Wi-Fi gratuits**

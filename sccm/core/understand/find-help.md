@@ -1,6 +1,6 @@
 ---
-title: "Suchen nach Hilfe für die Verwendung von System Center Configuration Manager | Microsoft-Dokumentation"
-description: "Hier finden Sie Ressourcen für zusätzliche Informationen zu System Center Configuration Manager."
+title: "Trouver de l’aide sur l’utilisation de System Center Configuration Manager | Microsoft Docs"
+description: "Recherchez des ressources pour plus d’informations sur System Center Configuration Manager."
 ms.custom: na
 ms.date: 2/8/2017
 ms.prod: configuration-manager
@@ -18,59 +18,59 @@ manager: angrobe
 ms.openlocfilehash: 72fe220cb9a40d6a20164ace1db8542a91221f55
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="find-help-for-using-system-center-configuration-manager"></a>Suchen nach Hilfe für die Verwendung von System Center Configuration Manager
+# <a name="find-help-for-using-system-center-configuration-manager"></a>Trouver de l’aide pour l’utilisation de System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Verwenden Sie folgende Ressourcen, um zusätzliche Informationen zu System Center Configuration Manager zu erhalten:  
+Utilisez les ressources suivantes pour obtenir plus d’informations sur System Center Configuration Manager :  
 
--   [Informationen und Support](#bkmk_Info)  
+-   [Information et support](#bkmk_Info)  
 
-    -   [Durchsuchen der Dokumentationsbibliothek](#BKMK_SearchTips)  
+    -   [Rechercher dans la bibliothèque de documentation](#BKMK_SearchTips)  
 
-    -   [System Center Configuration Manager-Teamblog](#BKMK_ProductGroupBlog)  
-    -   [Supportoptionen und Communityressourcen](#BKMK_SupportOptions)
+    -   [Blog de l'équipe System Center Configuration Manager](#BKMK_ProductGroupBlog)  
+    -   [Options de support et ressources de la communauté](#BKMK_SupportOptions)
 
-  Hilfe zur Barrierefreiheit finden Sie unter [Accessibility features in System Center Configuration Manager (Barrierefreiheitsfunktionen in System Center Configuration Manager)](../../core/understand/accessibility-features.md).
+  Pour obtenir de l’aide concernant l’accessibilité, consultez [Fonctionnalités d’accessibilité dans System Center Configuration Manager](../../core/understand/accessibility-features.md).
 
-##  <a name="bkmk_Info"></a> Informationen und Support  
- Verwenden Sie folgende Ressourcen für zusätzliche Informationen zu Configuration Manager.  
+##  <a name="bkmk_Info"></a> Information et support  
+ Utilisez les ressources suivantes pour obtenir plus d’informations sur Configuration Manager.  
 
--   **Zugriff auf die aktuelle Produktdokumentation zu System Center Configuration Manager:** Verwenden Sie die [Dokumentation für System Center Configuration Manager](http://go.microsoft.com/fwlink/p/?LinkId=691974) in TechNet.
+-   **Pour accéder à la documentation la plus récente du produit System Center Configuration Manager :** utilisez la [bibliothèque de documentation pour System Center Configuration Manager](http://go.microsoft.com/fwlink/p/?LinkId=691974) dans TechNet.
 
--   **Bereitstellen von Feedback zur Dokumentation:** Stellen Sie Feedback per **User Voice** unter [System Center Configuration Manager – Feedback (Dokumentation)](https://configurationmanager.uservoice.com/forums/300492-ideas/category/112371-documentation) bereit.  
+-   **Pour fournir des commentaires sur la documentation :** envoyez vos commentaires sur **User Voice** à la page [System Center Configuration Manager Feedback (Documentation)](https://configurationmanager.uservoice.com/forums/300492-ideas/category/112371-documentation).  
 
--   **Zum Herunterladen einer archivierten Kopie der Dokumentation:** Wechseln Sie zur TechNet Gallery:
+-   **Pour télécharger une copie archivée de la documentation :** Accédez à la Galerie TechNet :
 
-    - [Version 1602](https://gallery.technet.microsoft.com/documentation-for-system-ea90eaf1)
-    - [Version 1511](https://gallery.technet.microsoft.com/documentation-for-system-ea90eaf1)
+    - [Version 1602](https://gallery.technet.microsoft.com/documentation-for-system-ea90eaf1)
+    - [Version 1511](https://gallery.technet.microsoft.com/documentation-for-system-ea90eaf1)
 
-###  <a name="BKMK_SearchTips"></a> Durchsuchen der Dokumentationsbibliothek  
- Verwenden Sie die folgenden Suchtipps für die Suche nach den benötigten Informationen:  
+###  <a name="BKMK_SearchTips"></a> Rechercher dans la bibliothèque de documentation  
+ Utilisez les conseils de recherche suivants pour vous aider à trouver les informations dont vous avez besoin :  
 
--   Wenn Sie Ihre bevorzugte Suchmaschine verwenden, um nach Inhalten für System Center Configuration Manager zu suchen, können Sie den Bereich der Suchergebnisse auf die aktuelle Inhaltsbibliothek eingrenzen, indem Sie die folgenden zwei Begriffe hinzufügen: **SCCM** und **Dokumentation**.
+-   Quand vous utilisez votre moteur de recherche préféré pour localiser du contenu pour System Center Configuration Manager, vous pouvez limiter les résultats de recherche à la bibliothèque de contenu actuel en incluant les deux termes suivants : **SCCM** et **Docs**.
 
--   Verwenden Sie Suchbegriffe, die den Begriffen entsprechen, die Ihnen in der Benutzeroberfläche und der Onlinedokumentation begegnen, anstelle von inoffiziellen Bezeichnungen oder Abkürzungen, die in öffentlichen Foren vorkommen. Suchen Sie beispielsweise nach „Verwaltungspunkt“ statt nach „MP“, nach „Bereitstellungstyp“ statt nach „DT“ und nach „Softwareupdates“ statt nach „SUM“.  
+-   Utilisez des termes de recherche correspondant à ceux que vous voyez dans l’interface utilisateur et la documentation en ligne, plutôt que des termes ou abréviations non officiels que vous pouvez voir dans le contenu de la communauté. Par exemple, rechercher « point de gestion » plutôt que « MP », « type de déploiement » plutôt que « DT » et « mises à jour logicielles » plutôt que « SUM ».  
 
--   Wenn Sie auf einer Seite in TechNet oder in der Hilfedatei suchen (z.B. durch Drücken von STRG+F1 und Eingeben von Suchbegriffen im Dialogfeld **Suchen**), ist der Text in den ausgeblendeten Abschnitten nicht in den Ergebnissen enthalten. Erweitern Sie die Abschnitte für die Textsuche in ausgeblendeten Abschnitten, bevor Sie auf dieser Seite suchen. Zu diesem Zweck können Sie die Schaltfläche **Alle erweitern** am oberen Rand der Seite wählen oder auf einen beliebigen ausgeblendeten Abschnitt doppelklicken. Wenn alle Abschnitte erweitert sind, können Sie mit der Suchfunktion nach allen Abschnitten auf der Seite suchen.  
+-   Si vous effectuez une recherche dans une page dans TechNet ou dans le fichier d’aide (par exemple, sélectionnez Ctrl+F1, puis entrez les termes recherchés dans la zone **Rechercher**), les résultats excluent le texte se trouvant dans les sections réduites. Pour rechercher un texte dans les sections réduites, développez les sections avant d'effectuer la recherche sur la page. Pour ce faire, vous pouvez sélectionner le bouton **Développer tout** en haut de la page ou double-cliquer sur une section réduite. Lorsque toutes les sections sont développées, une recherche sur la page peut alors rechercher toutes les sections de cette page.  
 
--   Zum Suchen eines Themas in der Hilfedatei wählen Sie F1 und geben dann Suchbegriffe in das Dialogfeld **Suchen** ein. Die Option **Alle erweitern** wird von der Hilfedatei nicht unterstützt. Sie müssen ausgeblendete Abschnitte manuell erweitern, um auf der Seite Text in solchen Abschnitten finden zu können.  
+-   Pour rechercher une rubrique dans le fichier d’aide, sélectionnez F1, puis entrez des termes de recherche dans la boîte de dialogue **Rechercher**. Le fichier d’aide ne prend pas en charge l’option **Développer tout** et vous devez développer manuellement les sections individuelles qui sont réduites pour qu’une recherche dans la page trouve du texte dans ces sections.  
 
--   Verwenden Sie nach Möglichkeit die TechNet-Onlinebibliothek anstelle von heruntergeladener Dokumentation. TechNet enthält die neuesten Informationen. Die Informationen, die Sie suchen, sind eventuell nicht in der heruntergeladenen Dokumentation enthalten, oder es liegen Korrekturen oder zusätzliche Informationen online vor.  
+-   Autant que possible, utilisez la bibliothèque en ligne TechNet plutôt que la documentation téléchargée. TechNet contient les informations les plus récentes, et les éléments que vous recherchez peuvent ne pas se trouver dans la documentation téléchargée, ou des corrections ou d’autres informations peuvent être disponibles en ligne.  
 
--   Wenn Sie sich vom Durchsuchen lokal gespeicherter Dokumentation einen Vorteil bei der Geschwindigkeit versprechen, können Sie mehrere Themen in TechNet auswählen und lokal sichern. Melden Sie sich als Erstes in TechNet an. Wählen Sie dann oben auf der Seite, die Sie lokal speichern möchten, die Option **Exportieren** (neben **Drucken**). Daraufhin wird das Banner **Mehrere Seitensätze exportieren** angezeigt, mit dem Sie die zu speichernden Seiten hinzufügen und entfernen können. Wählen Sie dann **Seiten verwalten**, um die Seiten zu exportieren. Weitere Informationen finden Sie auf dem Banner unter **Hilfe**.  
+-   S’il est plus facile et plus rapide pour vous d’effectuer des recherches dans la documentation stockée sur votre ordinateur, vous pouvez sélectionner plusieurs rubriques dans TechNet et les enregistrer localement. Tout d’abord, connectez-vous à TechNet. Ensuite, en haut de la page que vous souhaitez enregistrer localement, choisissez **Exporter** (à côté d’**Imprimer**). Vous voyez alors la bannière **Exporter plusieurs ensembles de pages** , qui vous permet d'ajouter et de supprimer les pages que vous voulez enregistrer. Ensuite, choisissez **Gérer les pages** pour les exporter. Pour plus d’informations, choisissez **Aide** sur la bannière.  
 
-###  <a name="BKMK_ProductGroupBlog"></a> System Center Configuration Manager-Teamblog  
- Das Configuration Manager-Engineering-Team und Partnerteams stellen im [System Center Configuration Manager Team Blog](http://go.microsoft.com/fwlink/?LinkId=191941) technische Informationen und andere Neuigkeiten zu Configuration Manager und entsprechenden Technologien bereit. Unsere Blogbeiträge ergänzen die Produktdokumentation und Supportinformationen.  
+###  <a name="BKMK_ProductGroupBlog"></a> Blog de l'équipe System Center Configuration Manager  
+ Les équipes d’ingénierie et partenaire de Configuration Manager utilisent le [blog de l’équipe System Center Configuration Manager](http://go.microsoft.com/fwlink/?LinkId=191941) pour vous donner des informations techniques et d’autres informations sur Configuration Manager et les technologies associées. Les publications de ce blog complètent la documentation et le support du produit.  
 
-###  <a name="BKMK_SupportOptions"></a> Supportoptionen und Communityressourcen  
- Über die folgenden Links erhalten Sie Informationen zu Supportoptionen und Communityressourcen:  
+###  <a name="BKMK_SupportOptions"></a> Options de support et ressources de la communauté  
+ Les liens suivants fournissent des informations sur les options de support et les ressources communautaires :  
 
--   [Microsoft-Support](http://go.microsoft.com/fwlink/?LinkId=243064)  
+-   [Support Microsoft](http://go.microsoft.com/fwlink/?LinkId=243064)  
 
--   [Configuration Manager-Community: System Center Configuration Manager (Current Branch) Survival Guide](http://social.technet.microsoft.com/wiki/contents/articles/33035.system-center-configuration-manager-current-branch-survival-guide.aspx )  
+-   [Communauté Configuration Manager : Guide de survie de System Center Configuration Manager (Current Branch)](http://social.technet.microsoft.com/wiki/contents/articles/33035.system-center-configuration-manager-current-branch-survival-guide.aspx )  
 
--   [Configuration Manager-Forenübersicht](https://social.technet.microsoft.com/Forums/en-US/home?category=ConfigMgrCB)  
+-   [Page Forums de Configuration Manager](https://social.technet.microsoft.com/Forums/en-US/home?category=ConfigMgrCB)  

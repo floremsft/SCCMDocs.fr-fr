@@ -1,6 +1,6 @@
 ---
-title: "Unterstützte Active Directory-Domänen | Microsoft-Dokumentation"
-description: "Rufen Sie die Anforderungen für die Mitgliedschaft eines System Center Configuration Manager-Standortsystems in einer Active Directory-Domäne ab."
+title: Domaines Active Directory pris en charge | Microsoft Docs
+description: "Prenez connaissance de la configuration requise pour l’appartenance d’un système de site System Center Configuration Manager à un domaine Active Directory."
 ms.custom: na
 ms.date: 3/23/2017
 ms.prod: configuration-manager
@@ -18,31 +18,31 @@ manager: angrobe
 ms.openlocfilehash: 2654ab4eaaaf6a4bf3bd7dca9908e7033647dc2c
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="supported-active-directory-domains-for-system-center-configuration-manager"></a>Unterstützte Active Directory-Domänen für System Center Configuration Manager
+# <a name="supported-active-directory-domains-for-system-center-configuration-manager"></a>Domaines Active Directory pris en charge pour System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Alle System Center Configuration Manager-Standortsysteme müssen Mitglieder einer unterstützten Windows Server Active Directory-Domäne sein. Configuration Manager-Clientcomputer können Mitglieder der Domäne oder der Arbeitsgruppe sein.  
+Tous les systèmes de site System Center Configuration Manager doivent être membres d’un domaine Windows Server Active Directory pris en charge. Les ordinateurs clients Configuration Manager peuvent être membres du domaine ou membres d’un groupe de travail.  
 
- **Anforderungen und Einschränkungen:**  
+ **Configuration requise et limitations :**  
 
--   Die Domänenmitgliedschaft schließt Standortsysteme ein, die eine internetbasierte Clientverwaltung in einem Umkreisnetzwerk (auch als überwachtes Subnetz oder DMZ bezeichnet) unterstützen.  
+-   L’appartenance à un domaine s’applique à des systèmes de site prenant en charge la gestion du client basée sur Internet dans un réseau de périmètre (également appelé DMZ, zone démilitarisée et sous-réseau filtré).  
 
--   Änderungen an den folgenden Einstellungen eines Computers, der eine Standortsystemrolle hostet, werden nicht unterstützt:  
+-   Cela ne permet pas de modifier les paramètres suivants pour un ordinateur qui héberge un rôle de système de site :  
 
-    -   Domänenmitgliedschaft  
+    -   Appartenance au domaine  
 
-    -   Domänenname  
+    -   Nom du domaine  
 
-    -   Computername  
+    -   Nom de l'ordinateur  
 
-Sie müssen die Standortsystemrolle (einschließlich des Standorts bei einem Standortserver) deinstallieren, bevor Sie diese Änderungen vornehmen.  
+Vous devez désinstaller le rôle de système de site (y compris le site s’il s’agit d’un serveur de site) avant d’apporter ces modifications.  
 
-**Domänen mit den folgenden Domänenfunktionsebenen werden unterstützt:**  
-- Windows Server 2016
+**Les domaines avec les niveaux fonctionnels de domaine suivants sont pris en charge :**  
+- Windows Server 2016
 
 - Windows Server 2012 R2  
 
@@ -50,7 +50,7 @@ Sie müssen die Standortsystemrolle (einschließlich des Standorts bei einem Sta
 
 - Windows Server 2008 R2
 
-- Windows Server 2008  
+- Windows Server 2008  
 
 
 
@@ -58,30 +58,30 @@ Sie müssen die Standortsystemrolle (einschließlich des Standorts bei einem Sta
 
 
 
-##  <a name="bkmk_Disjoint"></a> Zusammenhanglose Namespaces  
-Configuration Manager unterstützt die Installation von Standortsystemen und Clients in einer Domäne mit einem zusammenhanglosen Namespace.  
+##  <a name="bkmk_Disjoint"></a> Espace de noms disjoint  
+Configuration Manager prend en charge l’installation de systèmes de site et de clients dans un domaine qui a un espace de noms disjoint.  
 
-Ein zusammenhangloser Namespace liegt vor, wenn das primäre DNS-Suffix (Domain Name System) eines Computers nicht mit dem Active Directory DNS-Domänennamen an dem Ort übereinstimmt, an dem der Computer sich befindet. Der Computer mit dem abweichenden primären DNS-Suffix wird als zusammenhanglos betrachtet. Ein zusammenhangloser Namespace liegt auch vor, wenn der NetBIOS-Domänenname eines Domänencontrollers nicht mit dem Active Directory DNS-Domänennamen übereinstimmt.  
+Dans un scénario d’espace de noms disjoint, le suffixe du DNS principal d’un ordinateur ne correspond pas au nom de domaine DNS Active Directory où se trouve cet ordinateur. L’ordinateur qui utilise le suffixe DNS principal qui ne correspond pas est dit « disjoint ». Un autre scénario d’espace de noms disjoint se produit si le nom de domaine NetBIOS d’un contrôleur de domaine ne correspond pas au nom de domaine DNS Active Directory.  
 
-In der folgenden Tabelle werden die bei zusammenhanglosen Namespaces unterstützten Szenarien aufgeführt.  
+Le tableau suivant identifie les scénarios pris en charge pour un espace de noms disjoint.  
 
-|Szenario|Weitere Informationen|  
+|Scénario|Plus d'informations|  
 |--------------|----------------------|  
-|**Szenario 1:**<br /><br /> Das primäre DNS-Suffix des Domänencontrollers unterscheidet sich vom Active Directory DNS-Domänennamen. Computer, die Mitglieder der Domäne sind, können zusammenhanglos oder nicht zusammenhanglos sein.|Das primäre DNS-Suffix des Domänencontrollers unterscheidet sich in diesem Szenario vom Active Directory DNS-Domänennamen. Der Domänencontroller ist in diesem Szenario zusammenhanglos. Computer, die Mitglieder der Domäne sind, einschließlich der Standortserver und Computer, können ein primäres DNS-Suffix aufweisen, das entweder mit dem primären DNS-Suffix des Domänencontrollers oder mit dem Active Directory DNS-Domänennamen übereinstimmt.|  
-|**Szenario 2:**<br /><br /> Ein Mitgliedscomputer in einer Active Directory DNS-Domäne ist zusammenhanglos, obwohl der Domänencontroller nicht zusammenhanglos ist.|In diesem Szenario unterscheidet sich das primäre DNS-Suffix eines Mitgliedscomputers, auf dem ein Standortsystem installiert ist, vom Active Directory DNS-Domänennamen, obwohl das primäre DNS-Suffix des Domänencontrollers mit dem Active Directory DNS-Domänennamen übereinstimmt. In diesem Fall ist ein Domänencontroller nicht zusammenhanglos, und ein Mitgliedscomputer ist zusammenhanglos. Mitgliedscomputer, auf denen der Configuration Manager-Client ausgeführt wird, können ein primäres DNS-Suffix aufweisen, das entweder mit dem primären DNS-Suffix des separaten Standortsystemservers oder mit dem Active Directory DNS-Domänennamen übereinstimmt.|  
+|**Scénario 1 :**<br /><br /> Le suffixe DNS principal du contrôleur de domaine diffère du nom de domaine DNS d'Active Directory. Les ordinateurs qui sont membres du domaine peuvent être disjoints ou non disjoints.|Dans ce scénario, le suffixe DNS principal du contrôleur de domaine diffère du nom de domaine DNS d'Active Directory. Le contrôleur de domaine est disjoint dans ce scénario. Les ordinateurs qui sont membres du domaine, comme les serveurs et les ordinateurs de site, peuvent avoir un suffixe DNS principal qui correspond soit au suffixe DNS principal du contrôleur de domaine ou au nom de domaine DNS d'Active Directory.|  
+|**Scénario 2 :**<br /><br /> Un ordinateur membre d'un domaine Active Directory est disjoint, même si le contrôleur de domaine n'est pas disjoint.|Dans ce scénario, le suffixe DNS principal d'un ordinateur membre sur lequel un système de site est installé diffère du nom de domaine DNS d'Active Directory, même si le suffixe DNS principal du contrôleur de domaine est le même que le nom de domaine DNS d'Active Directory. Dans ce scénario, un contrôleur de domaine n'est pas disjoint et un ordinateur membre est disjoint. Les ordinateurs membres qui exécutent le client Configuration Manager peuvent posséder un suffixe DNS principal qui correspond soit au suffixe DNS principal du serveur du système de site disjoint, soit au nom de domaine DNS d’Active Directory.|  
 
- Damit ein Computer auf zusammenhanglose Domänencontroller zugreifen kann, müssen Sie das Active Directory-Attribut **msDS-AllowedDNSSuffixes** für den Domänenobjektcontainer ändern. Sie müssen dem Attribut beide DNS-Suffixe hinzufügen.  
+ Pour permettre à un ordinateur d'accéder à des contrôleurs de domaine disjoints, vous devez changer l'attribut d'Active Directory **msDS-AllowedDNSSuffixes** sur le conteneur d'objets du domaine. Vous devez ajouter les deux suffixes DNS à l'attribut.  
 
- Darüber hinaus müssen Sie die Suchliste für jeden zusammenhanglosen Computer in der Domäne konfigurieren und so sicherstellen, dass in der Suchliste für die DNS-Suffixe alle im Unternehmen bereitgestellten DNS-Namespaces enthalten sind. Stellen Sie sicher, dass Sie Folgendes in der Liste der Namespaces berücksichtigen: Das primäre DNS-Suffix des Domänencontrollers, den DNS-Domänennamen und alle zusätzlichen Namespaces für andere Server mit Interoperabilität mit Configuration Manager. Sie können die Gruppenrichtlinien-Verwaltungskonsole verwenden, um die **Suchliste für DNS-Suffixe** zu konfigurieren.  
+ De plus, pour vérifier que la liste de recherche des suffixes DNS contient tous les espaces de noms DNS déployés au sein de l’organisation, vous devez configurer la liste de recherche pour chaque ordinateur du domaine disjoint. Vérifiez que vous incluez ce qui suit dans la liste d’espaces de noms : le suffixe DNS principal du contrôleur de domaine, le nom de domaine DNS et tous les espaces de noms supplémentaires d’autres serveurs avec lesquels Configuration Manager peut interagir. Vous pouvez utiliser la console de Gestion de stratégie de groupe pour configurer la liste de **Recherche de suffixe de nom de domaine (DNS)** .  
 
 > [!IMPORTANT]  
->  Wenn Sie in Configuration Manager auf einen Computer verweisen, geben Sie das primäre DNS-Suffix des Computers an. Das Suffix muss mit dem FQDN, der als Attribut **dnsHostName** in der Active Directory-Domäne registriert ist, und mit dem Dienstprinzipalnamen (SPN) des Systems übereinstimmen.  
+>  Lorsque vous référencez un ordinateur dans Configuration Manager, entrez-le à l’aide de son suffixe DNS principal. Ce suffixe doit correspondre au nom de domaine complet inscrit comme attribut **dnsHostName** dans le domaine Active Directory et au nom de principal du service associé au système.  
 
-##  <a name="bkmk_SLD"></a> Einteilige Domänen  
- Configuration Manager unterstützt Standortsysteme und Clients in einer einteiligen Domäne, wenn die folgenden Kriterien erfüllt sind:  
+##  <a name="bkmk_SLD"></a> Noms de domaine en une seule partie  
+ Configuration Manager prend en charge les systèmes de site et les clients dans un nom domaine en une seule partie quand les critères suivants sont remplis :  
 
--   Die einteilige Domäne muss in Active Directory Domain Services mit einem zusammenhanglosen DNS-Namespace konfiguriert sein, der über eine gültige Domäne der obersten Ebene verfügt.  
+-   Le nom de domaine en une seule partie dans les services de domaine Active Directory doit être configuré avec un espace de noms DNS disjoint associé à un domaine de niveau supérieur valide.  
 
-     **Beispiel:** Die einteilige Domäne „Contoso“ ist so konfiguriert, dass sie im DNS von „contoso.com“ einen zusammenhanglosen Namespace aufweist. Wenn Sie das DNS-Suffix in Configuration Manager also für einen Computer in der Domäne „Contoso“ festlegen, geben Sie „Contoso.com“ und nicht „Contoso“ an.  
+     **Exemple** : le nom de domaine en une seule partie Contoso est configuré pour avoir un espace de noms disjoint contoso.com dans DNS. Ainsi, quand vous spécifiez le suffixe DNS dans Configuration Manager pour un ordinateur du domaine Contoso, vous spécifiez « Contoso.com » et non pas « Contoso ».  
 
--   Distributed Component Object Model-Verbindungen (DCOM) zwischen Standortservern im Systemkontext müssen erfolgreich sein, was durch die Kerberos-Authentifizierung sichergestellt wird.  
+-   Les connexions DCOM (Distributed Component Object Model) entre serveurs de site dans le contexte système doivent être établies avec l’authentification Kerberos.  

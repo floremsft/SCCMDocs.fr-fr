@@ -1,6 +1,6 @@
 ---
-title: "Sicherheit und Datenschutz für die Betriebssystembereitstellung | Microsoft-Dokumentation"
-description: "Hier finden Sie Informationen zu Sicherheit und Datenschutz für die Betriebssystembereitstellung in System Center Configuration Manager."
+title: "Sécurité et confidentialité du déploiement de systèmes d’exploitation | Microsoft Docs"
+description: "Découvrez les bonnes pratiques en matière de sécurité et de confidentialité pour le déploiement de systèmes d’exploitation dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -18,191 +18,191 @@ manager: angrobe
 ms.openlocfilehash: 5632a753fc565312a80b2ed69ce438335b3fad50
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="security-and-privacy-for-operating-system-deployment-in-system-center-configuration-manager"></a>Sicherheit und Datenschutz bei der Betriebssystembereitstellung in System Center Configuration Manager
+# <a name="security-and-privacy-for-operating-system-deployment-in-system-center-configuration-manager"></a>Sécurité et confidentialité du déploiement de systèmes d’exploitation dans System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Dieses Thema enthält Informationen zur Sicherheit und zum Datenschutz für die Betriebssystembereitstellung in System Center Configuration Manager.  
+Cette rubrique contient des informations de sécurité et de confidentialité pour le déploiement de systèmes d’exploitation dans System Center Configuration Manager.  
 
-##  <a name="BKMK_Security_HardwareInventory"></a> Bewährte Sicherheitsmethoden für die Betriebssystembereitstellung  
- Wenden Sie die folgenden bewährten Sicherheitsmethoden für die Bereitstellung von Betriebssystemen mit Configuration Manager an:  
+##  <a name="BKMK_Security_HardwareInventory"></a> Bonnes pratiques de sécurité pour le déploiement de systèmes d’exploitation  
+ Utilisez les bonnes pratiques de sécurité suivantes lorsque vous déployez des systèmes d’exploitation avec Configuration Manager :  
 
--   **Implementieren Sie Zugriffssteuerungen zum Schutz startbarer Medien.**  
+-   **Instaurez des contrôles d’accès pour protéger les médias de démarrage**  
 
-     Wenn Sie startbare Medien erstellen, weisen Sie zum Schutz der Medien immer ein Kennwort zu. Selbst mit einem Kennwort werden aber nur Dateien verschlüsselt, die sensible Informationen enthalten, und alle Dateien können überschrieben werden.  
+     Lorsque vous créez un média de démarrage, attribuez toujours un mot de passe pour sécuriser le média. Toutefois, même avec un mot de passe, seuls les fichiers qui contiennent des informations sensibles sont cryptés et tous les fichiers peuvent être remplacés.  
 
-     Kontrollieren Sie den physischen Zugriff auf die Medien, um zu verhindern, dass ein Angreifer mithilfe kryptografischer Angriffe Zugang zum Clientauthentifizierungszertifikat erhält.  
+     Contrôlez l'accès physique au média pour qu'une personne malveillante ne puisse pas recourir à des attaques par chiffrement pour obtenir le certificat d'authentification du client.  
 
-     Auf den Inhalt wird ein Hashwert angewendet, und der Inhalt muss mit der Originalrichtlinie verwendet werden, um zu verhindern, dass von einem Client Inhalt oder eine Clientrichtlinie installiert wird, der bzw. die manipuliert wurde.  Wenn für den Inhaltshash ein Fehler auftritt oder die Überprüfung der Übereinstimmung des Inhalts mit der Richtlinie nicht erfolgreich ist, werden die startbaren Medien vom Client nicht verwendet. Nur der Inhalt wird mit einem Hashwert versehen. Für die Richtlinie gilt dies nicht, aber die Richtlinie wird verschlüsselt und geschützt, wenn Sie ein Kennwort angeben. So wird Angreifern das Ändern der Richtlinie erschwert.  
+     Pour empêcher un client d’installer une stratégie client ou un contenu falsifié, le contenu est haché et doit être utilisé avec la stratégie d’origine.  Si le hachage de contenu échoue ou si la vérification détecte que le contenu correspond à la stratégie, le client n'utilise pas le média de démarrage. Seul le contenu est haché : la stratégie ne l'est pas. En revanche, elle est chiffrée et sécurisée lorsque vous spécifiez un mot de passe, ce qui rend la modification de la stratégie plus complexe pour les éventuels intrus.  
 
--   **Verwenden Sie einen sicheren Speicherort, wenn Sie Medien für Betriebssystemimages erstellen.**  
+-   **Utilisez un emplacement sécurisé lorsque vous créez des médias pour des images de système d’exploitation**  
 
-     Wenn nicht autorisierte Benutzer Zugriff auf den Speicherort haben, können sie die von Ihnen erstellten Dateien manipulieren und den gesamten verfügbaren Speicherplatz in Anspruch nehmen, sodass bei der Medienerstellung ein Fehler auftritt.  
+     Si des utilisateurs non autorisés ont accès à l'emplacement, ils peuvent falsifier les fichiers que vous créez et utiliser tout l'espace disque disponible pour faire échouer la création des médias.  
 
--   **Schützen Sie Zertifikatdateien (.pfx) durch ein sicheres Kennwort. Falls Sie diese Dateien im Netzwerk speichern, achten Sie beim Importieren der Dateien in Configuration Manager darauf, dass der Netzwerkkanal sicher ist.**  
+-   **Protégez les fichiers de certificat (.pfx) avec un mot de passe fort et, si vous les stockez sur le réseau, sécurisez le canal de réseau lorsque vous les importez dans Configuration Manager**  
 
-     Wenn für das Importieren des Clientauthentifizierungszertifikats, das Sie für startbare Medien verwenden, ein Kennwort erforderlich ist, ist das Zertifikat vor Angriffen geschützt.  
+     Lorsque vous avez besoin d'un mot de passe pour importer le certificat d'authentification client que vous utilisez pour des médias de démarrage, cela permet de protéger le certificat contre une personne malveillante.  
 
-     Verwenden Sie SMB-Signaturen oder IPsec zwischen Netzwerkspeicherort und Standortserver, um einen Angreifer an der Manipulation der Zertifikatdatei zu hindern.  
+     Utilisez la signature SMB ou IPsec entre l'emplacement réseau et le serveur de site pour empêcher un intrus de falsifier le fichier de certificat.  
 
--   **Ist das Clientzertifikat beschädigt, blockieren Sie es über Configuration Manager, und sperren Sie es, falls es sich um ein PKI-Zertifikat handelt.**  
+-   **Si le certificat client est compromis, bloquez ce certificat à partir de Configuration Manager et révoquez-le s’il s’agit d’un certificat PKI**  
 
-     Zum Bereitstellen eines Betriebssystems mithilfe startbarer Medien und PXE-Start benötigen Sie ein Clientauthentifizierungszertifikat mit einem privaten Schlüssel. Sollte das Zertifikat gefährdet sein, blockieren Sie es im Arbeitsbereich **Verwaltung** über die Knoten **Zertifikate** und **Sicherheit** .  
+     Pour déployer un système d'exploitation à l'aide d'un média de démarrage et un démarrage PXE, vous devez disposer d'un certificat d'authentification client avec une clé privée. Si ce certificat est compromis, bloquez le certificat dans le nœud **Certificats** de l'espace de travail **Administration** , nœud **Sécurité** .  
 
--   **Wenn sich der SMS-Anbieter auf einem anderen Computer als dem Standortserver befindet, sichern Sie den Kommunikationskanal zum Schutz von Startimages.**  
+-   **Lorsque le fournisseur SMS se trouve sur un ou plusieurs ordinateurs autres que le serveur de site, sécurisez le canal de communication pour protéger les images de démarrage**  
 
-     Wenn Startabbilder geändert werden und der SMS-Anbieter auf einem anderen Server als dem Standortserver ausgeführt wird, sind die Startabbilder anfällig für Angriffe. Schützen Sie den Netzwerkkanal zwischen diesen Computern mithilfe von SMB-Signaturen oder IPsec.  
+     Lorsque des images de démarrage sont modifiées et que le fournisseur SMS est en cours d'exécution sur un serveur qui n'est pas le serveur de site, les images de démarrage sont vulnérables aux attaques. Protégez le canal de réseau entre ces ordinateurs en utilisant la signature SMB ou IPsec.  
 
--   **Aktivieren Sie Verteilungspunkte für die PXE-Clientkommunikation nur in sicheren Netzwerksegmenten.**  
+-   **Activez les points de distribution pour la communication du client PXE uniquement sur des segments de réseau sécurisés**  
 
-     Wenn von einem Client eine PXE-Startanforderung gesendet wird, haben Sie keine Möglichkeit sicherzustellen, dass die Anforderung von einem gültigen PXE-fähigen Verteilungspunkt beantwortet wird. In diesem Szenario bestehen die folgenden Sicherheitsrisiken:  
+     Lorsqu'un client envoie une demande de démarrage PXE, vous n'avez aucun moyen de vous assurer que la demande est traitée par un point de distribution PXE valide. Ce scénario présente les risques de sécurité suivants :  
 
-    -   Von einem nicht autorisierten Verteilungspunkt, von dem PXE-Anforderungen beantwortet werden, könnte ein manipuliertes Abbild an Clients bereitgestellt werden.  
+    -   Un point de distribution non autorisé qui répond aux demandes PXE peut fournir une image falsifiée aux clients.  
 
-    -   Ein Angreifer könnte einen Man-in-the-Middle-Angriff gegen das von PXE verwendete TFTP-Protokoll starten und schädlichen Code mit den Betriebssystemdateien senden oder einen nicht autorisierten Client erstellen, von dem TFTP-Anforderungen direkt an den PXE-Dienstpunkt gesendet werden.  
+    -   Une personne malveillante peut lancer une attaque par le biais d'un intermédiaire (« man-in-the-middle ») contre le protocole TFTP utilisé par PXE, et envoyer du code nuisible avec les fichiers du système d'exploitation, ou créer un client non autorisé pour effectuer des demandes TFTP directement au point de distribution.  
 
-    -   Ein Angreifer könnte einen schädlichen Client verwenden, um einen DoS-Angriff gegen den Verteilungspunkt zu starten.  
+    -   Une personne malveillante peut utiliser un client malveillant pour lancer une attaque par déni de service contre le point de distribution.  
 
-     Sorgen Sie bei Netzwerksegmenten, in denen im Zusammenhang mit PXE-Anforderungen von Clients auf Verteilungspunkte zugegriffen wird, für einen umfassendem Schutz.  
+     Adoptez un excellent système de défense pour protéger les segments réseau sur lesquels les clients accèderont aux points de distribution pour des demandes PXE.  
 
     > [!WARNING]  
-    >  Wegen dieser Sicherheitsrisiken wird von der Aktivierung eines Verteilungspunkts für die PXE-Kommunikation abgeraten, wenn er sich in einem nicht vertrauenswürdigen Netzwerk (z. B. ein Umkreisnetzwerk) befindet.  
+    >  En raison de ces risques de sécurité, n'activez pas un point de distribution pour les communications PXE lorsqu'il se trouve sur un réseau non approuvé, tel qu'un réseau de périmètre.  
 
--   **Konfigurieren Sie PXE-fähige Verteilungspunkte so, dass diese nur an bestimmten Netzwerkschnittstellen auf PXE-Anforderungen reagieren.**  
+-   **Configurez le points de distribution PXE de sorte qu’il réponde aux demandes PXE uniquement sur des interfaces réseau spécifiées**  
 
-     Wenn Sie zulassen, dass die Reaktion des Verteilungspunkts auf PXE-Anforderungen an allen Netzwerkschnittstellen möglich ist, wird der PXE-Dienst möglicherweise für nicht vertrauenswürdige Netzwerke verfügbar.  
+     Si vous autorisez le point de distribution à répondre aux demandes PXE sur toutes les interfaces réseau, cette configuration peut exposer le service PXE à des réseaux non approuvés  
 
--   **Legen Sie fest, dass für den PXE-Start ein Kennwort erforderlich ist.**  
+-   **Exigez un mot de passe pour le démarrage PXE**  
 
-     Wenn Sie festlegen, dass für den PXE-Start ein Kennwort erforderlich ist, wird die Sicherheit des PXE-Startprozesses verbessert, und der Beitritt nicht autorisierter Clients zur Configuration Manager-Hierarchie wird verhindert.  
+     Lorsque vous avez besoin d’un mot de passe pour le démarrage PXE, cette configuration ajoute un niveau supplémentaire de sécurité au processus de démarrage PXE afin d’éviter que des clients non autorisés rejoignent la hiérarchie Configuration Manager.  
 
--   **Schließen Sie in ein Image, das für einen PXE-Start oder Multicast vorgesehen ist, keine Branchenanwendungen oder Software mit sensiblen Daten ein.**  
+-   **N’incluez pas d’applications métier ni de logiciels contenant des données sensibles dans une image qui sera utilisée pour un démarrage PXE ou une multidiffusion**  
 
-     Mit dem PXE-Start und Multicast sind grundsätzlich Sicherheitsrisiken verbunden. Verringern Sie daher das Risiko für den Fall, dass das Betriebssystemabbild von einem nicht autorisierten Computer heruntergeladen wird.  
+     En raison des risques de sécurité liés à la multidiffusion et au démarrage PXE, réduisez les risques si l'ordinateur non autorisé télécharge l'image du système d'exploitation.  
 
--   **Schließen Sie in Softwarepakete, die mithilfe von Tasksequenzvariablen installiert werden, keine Branchenanwendungen oder Software mit sensiblen Daten ein.**  
+-   **N’incluez pas d’applications métier ni de logiciels contenant des données sensibles dans des packages logiciels qui sont installés à l’aide de variables de séquences de tâches**  
 
-     Wenn Sie Softwarepakete mithilfe von Tasksequenzvariablen bereitstellen, ist eine Installation der Software auf Geräten und für Benutzer möglich, die nicht zum Empfangen dieser Software autorisiert sind.  
+     Lorsque vous déployez des packages logiciels à l'aide de variables de séquences de tâches, le logiciel peut être installé sur des ordinateurs et pour des utilisateurs qui ne sont pas autorisés à recevoir ce logiciel.  
 
--   **Sichern Sie beim Migrieren des Benutzerstatus den Netzwerkkanal zwischen dem Client und dem Statusmigrationspunkt mithilfe von SMB-Signaturen oder IPsec.**  
+-   **Lorsque vous migrez un état utilisateur, sécurisez le canal de réseau entre le client et le point de migration d’état à l’aide de la signature SMB ou d’IPsec**  
 
-     Nachdem die erste Verbindung über HTTP hergestellt wurde, werden die Migrationsdaten für den Benutzerzustand mithilfe von SMB übertragen.  Wenn Sie den Netzwerkkanal nicht sichern, können diese Daten von einem Angreifer gelesen und geändert werden.  
+     Après la connexion initiale sur HTTP, les données de migration d'état utilisateur sont transférées à l'aide de SMB.  Si vous ne sécurisez pas le canal de réseau, une personne malveillante peut lire et modifier ces données.  
 
--   **Verwenden Sie die aktuelle Version von Windows-EasyTransfer (früher USMT), die von Configuration Manager unterstützt wird.**  
+-   **Utilisez la dernière version de l’outil de migration de l’état utilisateur (USMT) pris en charge par Configuration Manager**  
 
-     Die aktuelle Version von Windows-EasyTransfer umfasst Sicherheitsverbesserungen und bessere Steuerungsmöglichkeiten für die Migration von Benutzerzustandsdaten.  
+     La dernière version d'USMT offre des améliorations de sécurité et un meilleur contrôle de la migration des données d'état utilisateur.  
 
--   **Löschen Sie Ordner auf dem Statusmigrationspunkt manuell, wenn sie außer Betrieb gesetzt werden.**  
+-   **Supprimez manuellement des dossiers sur le point de migration d’état lorsqu’ils sont mis hors service**  
 
-     Wenn Sie einen Ordner für einen Statusmigrationspunkt in der Configuration Manager-Konsole in den Eigenschaften des Statusmigrationspunkts entfernen, bleibt der physische Ordner weiter bestehen. Sie müssen die Netzwerkfreigabe manuell entfernen und den Ordner löschen, um zu verhindern, dass die Migrationsdaten für den Benutzerzustand offengelegt werden.  
+     Lorsque vous supprimez un dossier de point de migration d’état dans la console Configuration Manager sur les propriétés du point de migration d’état, le dossier physique n’est pas supprimé. Pour protéger les données de migration d'état utilisateur contre la divulgation d'informations, vous devez supprimer manuellement le partage réseau et supprimer le dossier.  
 
--   **Konfigurieren Sie die Löschrichtlinie so, dass der Benutzerstatus nicht sofort gelöscht wird.**  
+-   **Ne configurez pas la stratégie de suppression pour supprimer l’état utilisateur immédiatement**  
 
-     Wenn Sie die Löschrichtlinie auf dem Zustandsmigrationspunkt so konfigurieren, dass zum Löschen markierte Daten sofort gelöscht werden, und es einem Angreifer vor dem gültigen Computer gelingt, die Benutzerzustandsdaten abzurufen, werden die Benutzerzustandsdaten sofort gelöscht. Legen Sie das Intervall **Löschen nach** auf eine Dauer fest, die dafür ausreicht, die erfolgreiche Wiederherstellung der Benutzerzustandsdaten zu überprüfen.  
+     Si vous configurez la stratégie de suppression sur le point de migration d'état afin de supprimer les données marquées pour suppression immédiatement, et si une personne malveillante parvient à récupérer les données d'état utilisateur avant l'ordinateur valide, les données d'état utilisateur seront immédiatement supprimées. Définissez l'intervalle **Supprimer après** de sorte qu'il soit suffisamment long pour permettre la vérification de la restauration correcte des données de l'état utilisateur.  
 
--   **Löschen Sie Computerzuordnungen manuell, wenn die Wiederherstellung der Migrationsdaten für den Benutzerstatus abgeschlossen ist und überprüft wurde.**  
+-   **Supprimez manuellement les associations d’ordinateurs lorsque la restauration des données de migration d’état utilisateur est terminée et vérifiée**  
 
-     Computerzuordnungen werden von Configuration Manager nicht automatisch entfernt. Schützen Sie die Identität von Benutzerzustandsdaten, indem Sie Computerzuordnungen, die nicht mehr benötigt werden, manuell löschen.  
+     Configuration Manager ne supprime pas automatiquement les associations d’ordinateurs. Protégez l'identité des données d'état utilisateur en supprimant manuellement les associations d'ordinateurs qui ne sont plus nécessaires.  
 
--   **Sichern Sie die Migrationsdaten für den Benutzerstatus auf dem Statusmigrationspunkt manuell.**  
+-   **Sauvegardez manuellement les données de migration d’état utilisateur sur le point de migration d’état**  
 
-     Die Migrationsdaten für den Benutzerstatus werden bei der Configuration Manager-Sicherung nicht berücksichtigt.  
+     La sauvegarde Configuration Manager n’inclut pas les données de migration d’état utilisateur.  
 
--   **Denken Sie daran, nach der Installation des Betriebssystems BitLocker zu aktivieren.**  
+-   **N’oubliez pas d’activer BitLocker après avoir installé le système d’exploitation**  
 
-     Wenn BitLocker von einem Computer unterstützt wird und Sie das Betriebssystem unbeaufsichtigt installieren möchten, müssen Sie BitLocker mithilfe eines Tasksequenzschritts deaktivieren. Nach der Installation des Betriebssystems wird BitLocker von Configuration Manager nicht aktiviert, und Sie müssen es daher manuell erneut aktivieren.  
+     Si un ordinateur prend en charge BitLocker, vous devez le désactiver à l'aide d'une étape de séquence de tâches si vous souhaitez installer le système d'exploitation en mode sans assistance. Configuration Manager n’active pas BitLocker une fois le système d’exploitation installé, vous devez donc réactiver BitLocker manuellement.  
 
--   **Implementieren Sie Zugriffssteuerungen zum Schutz der vorab bereitgestellten Medien.**  
+-   **Instaurez des contrôles d’accès pour protéger les médias préparés**  
 
-     Kontrollieren Sie den physischen Zugriff auf die Medien, um zu verhindern, dass ein Angreifer mithilfe kryptografischer Angriffe Zugang zum Clientauthentifizierungszertifikat und zu sensiblen Daten erhält.  
+     Contrôlez l'accès physique au média pour qu'une personne malveillante ne puisse pas recourir à des attaques par chiffrement afin d'obtenir le certificat d'authentification du client et les données sensibles.  
 
--   **Implementieren Sie Zugriffssteuerungen zum Schutz des Imageerstellungsprozesses auf dem Referenzcomputer.**  
+-   **Instaurez des contrôles d’accès pour protéger le processus d’acquisition d’image de l’ordinateur de référence**  
 
-     Sorgen Sie dafür, dass sich der zur Erfassung von Betriebssystemabbildern verwendete Referenzcomputer in einer sicheren Umgebung befindet und die angemessenen Zugriffssteuerungen implementiert sind, damit unerwartete Software oder Malware nicht installiert und versehentlich ins aufgenommene Abbild einbezogen werden kann. Sorgen Sie bei der Erfassung des Abbilds dafür, dass der Dateifreigabepfad des Zielnetzwerks sicher ist, damit das Abbild nach der Erfassung nicht manipuliert werden kann.  
+     Vérifiez que l'ordinateur de référence utilisé pour capturer des images du système d'exploitation est situé dans un environnement sécurisé intégrant les contrôles d'accès appropriés afin que des logiciels malveillants ne puissent pas être installés et inclus par inadvertance dans l'image capturée. Lorsque vous capturez l'image, assurez-vous que l'emplacement du partage de fichiers réseau de destination est sécurisé afin que l'image ne puisse pas être falsifiée une fois capturée.  
 
--   **Installieren Sie immer die neuesten Sicherheitsupdates auf dem Referenzcomputer.**  
+-   **Installez systématiquement les mises à jour de sécurité les plus récentes sur l’ordinateur de référence**  
 
-     Wenn die aktuellen Sicherheitsupdates auf dem Referenzcomputer vorhanden sind, werden die Sicherheitsrisiken beim ersten Start neuer Computer reduziert.  
+     Lorsque l'ordinateur de référence contient des mises à jour de sécurité, il permet de réduire la fenêtre de vulnérabilité des nouveaux ordinateurs lors de leur premier démarrage.  
 
--   **Wenn Sie Betriebssysteme für einen unbekannten Computer bereitstellen müssen, implementieren Sie Zugriffssteuerungen, um zu verhindern, dass von nicht autorisierten Computer eine Verbindung mit dem Netzwerk hergestellt wird.**  
+-   **Si vous devez déployer des systèmes d’exploitation vers un ordinateur inconnu, implémentez des contrôles d’accès afin de bloquer la connexion des ordinateurs non autorisés au réseau**  
 
-     Die Bereitstellung unbekannter Computer kann sich bei der bedarfsgesteuerten Bereitstellung neuer Computer zwar als praktisch erweisen, birgt jedoch auch die Gefahr, dass Angreifer sich im Netzwerk als vertrauenswürdige Clients anmelden. Schränken Sie den physischen Zugriff auf das Netzwerk ein, und überwachen Sie Clients, um nicht autorisierte Computer zu erkennen. Zudem können auf Computern, die PXE-initiierte Betriebssystembereitstellungen verwenden, während der Betriebssystembereitstellung alle Daten zerstört werden. Dies kann dazu führen, dass unabsichtlich neu formatierte Systeme nicht mehr verfügbar sind.  
+     Bien que le provisionnement des ordinateurs inconnus fournisse une méthode pratique pour déployer de nouveaux ordinateurs à la demande, il peut également permettre à une personne malveillante de devenir un client approuvé sur votre réseau. Limitez l'accès physique au réseau et contrôlez les clients afin de détecter les ordinateurs non autorisés. De même, toutes les données relatives aux ordinateurs répondant au déploiement du système d'exploitation établi par PXE risquent d'être détruites lors du déploiement du système d'exploitation. Cela peut engendrer une perte de disponibilité au niveau des systèmes qui sont reformatés par inadvertance.  
 
--   **Aktivieren Sie die Verschlüsselung für Multicastpakete.**  
+-   **Activez le chiffrement de packages de multidiffusion**  
 
-     Sie haben bei jedem Paket der Betriebssystembereitstellung die Möglichkeit, die Verschlüsselung zu aktivieren, wenn das Paket von Configuration Manager mithilfe von Multicast übertragen wird. Auf diese Weise verhindern Sie die Teilnahme nicht autorisierter Computer an der Multicastsitzung sowie die Manipulation der Übertragung durch Angreifer.  
+     Pour chaque package de déploiement du système d’exploitation, vous pouvez activer le chiffrement lorsque Configuration Manager transfère le package par multidiffusion. Cette configuration permet d'empêcher les ordinateurs non autorisés de se joindre à la session multidiffusion et les personnes malveillantes d'altérer la transmission.  
 
--   **Überwachen Sie das System auf nicht autorisierte, multicastfähige Verteilungspunkte.**  
+-   **Contrôlez les points de distribution de multidiffusion activée**  
 
-     Wenn Angreifer Zugriff auf Ihr Netzwerk erhalten, können sie nicht autorisierte Multicastserver konfigurieren, um die Betriebssystembereitstellung zu spoofen.  
+     Si des personnes malveillantes peuvent accéder à votre réseau, elles peuvent configurer des serveurs de multidiffusion non autorisés afin qu'ils usurpent un déploiement de systèmes d'exploitation.  
 
--   **Wenn Sie Tasksequenzen an einen Netzwerkspeicherort exportieren, sichern Sie den Speicherort und den Netzwerkkanal.**  
+-   **Lorsque vous exportez des séquences de tâches vers un emplacement réseau, sécurisez l’emplacement et le canal de réseau**  
 
-     Schränken Sie die Anzahl der Personen ein, die auf den Netzwerkordner zugreifen können.  
+     Veillez à restreindre l'accès au dossier réseau.  
 
-     Verwenden Sie SMB-Signaturen oder IPsec zwischen Netzwerkspeicherort und Standortserver, um einen Angreifer an der Manipulation der exportierten Tasksequenz zu hindern.  
+     Utilisez la signature SMB ou IPsec entre l'emplacement réseau et le serveur de site pour empêcher une personne malveillante de falsifier la séquence de tâches exportée.  
 
--   **Sichern Sie den Kommunikationskanal, wenn Sie eine virtuelle Festplatte zu Virtual Machine Manager hochladen.**  
+-   **Sécurisez le canal de communication lorsque vous chargez un disque dur virtuel vers Virtual Machine Manager**  
 
-     Vermeiden Sie die Manipulation von Daten bei der Übertragung im Netzwerk, indem Sie zwischen dem Computer, auf dem die Configuration Manager-Konsole ausgeführt wird, und jenem, auf dem Virtual Machine Manager ausgeführt wird, das IPsec- (Internetprotokollsicherheit) oder das SMB-Protokoll (Server Message Block) verwenden.  
+     Pour empêcher la falsification des données lorsqu’elles sont transférées via le réseau, utilisez la sécurité du protocole Internet (IPsec) ou le bloc de message serveur (SMB) entre l’ordinateur qui exécute la console Configuration Manager et l’ordinateur qui exécute Virtual Machine Manager.  
 
--   **Falls Sie das ausführende Konto für die Tasksequenz verwenden müssen, treffen Sie zusätzliche Sicherheitsvorkehrungen.**  
+-   **Si vous devez utiliser le compte d’identification de séquence de tâches, prenez des précautions de sécurité supplémentaires**  
 
-     Treffen Sie die folgenden Sicherheitsvorkehrungen, wenn Sie das ausführende Konto für die Tasksequenz verwenden:  
+     Si vous utilisez le compte d'identification de séquence de tâches, prenez les précautions suivantes :  
 
-    -   Verwenden Sie ein Konto mit geringstmöglichen Berechtigungen.  
+    -   Utilisez un compte doté du moindre nombre d'autorisations possible.  
 
-    -   Verwenden Sie für dieses Konto nicht das Netzwerkzugriffskonto.  
+    -   N'utilisez pas le compte d'accès réseau pour ce compte.  
 
-    -   Versehen Sie das Konto niemals mit Domänenadministratorrechten.  
+    -   Ne configurez en aucun cas le compte en tant qu'administrateur de domaine.  
 
-     Beachten Sie auch Folgendes:  
+     En outre :  
 
-    -   Konfigurieren Sie niemals servergespeicherte Profile für dieses Konto. Wenn die Tasksequenz ausgeführt wird, wird das servergespeicherte Profil für das Konto heruntergeladen, sodass es anfällig für einen Zugriff auf dem lokalen Computer wird.  
+    -   Ne configurez jamais de profils itinérants pour ce compte. Lorsque la séquence de tâches s'exécute, elle télécharge le profil itinérant pour le compte, ce qui le rend vulnérable aux accès sur l'ordinateur local.  
 
-    -   Beschränken Sie den Kontoumfang. Erstellen Sie beispielsweise für jede Tasksequenz ein anderes ausführendes Konto, sodass bei der Gefährdung eines Kontos nur die Clientcomputer betroffen sind, auf die dieses Konto Zugriff hat. Wenn für die Befehlszeile Administratorrechte auf dem Computer erforderlich sind, erwägen Sie die Erstellung eines lokalen Administratorkontos lediglich für das ausführende Konto für die Tasksequenz auf allen Computern, von denen die Tasksequenz ausgeführt wird. Löschen Sie das Konto, sobald es nicht mehr benötigt wird.  
+    -   Limitez la portée du compte. Par exemple, créez différents comptes d'identification de séquence de tâches pour chaque séquence de tâches, de sorte que, si un compte est compromis, seuls les ordinateurs clients auxquels ce compte a accès sont compromis. Si la ligne de commande requiert un accès administrateur sur l'ordinateur, vous pouvez créer un compte administrateur local réservé au compte d'identification de séquence de tâches sur tous les ordinateurs qui exécuteront la séquence, puis supprimer le compte devenu inutile.  
 
--   **Überwachen Sie die Administratoren, denen die Sicherheitsrolle „Betriebssystembereitstellungs-Manager“ zugewiesen wurde, und beschränken Sie ihre Anzahl.**  
+-   **Limitez et surveillez les utilisateurs administratifs disposant du rôle de sécurité Gestionnaire de déploiement de système d’exploitation**  
 
-     Administratoren, denen die Sicherheitsrolle „Betriebssystembereitstellungs-Manager“ zugewiesen wurde, können selbstsignierte Zertifikate erstellen, mit deren Hilfe die Identität eines Clients angenommen und die Clientrichtlinie von Configuration Manager abgerufen werden kann.  
+     Les utilisateurs administratifs disposant du rôle de sécurité Gestionnaire de déploiement de système d’exploitation peuvent créer des certificats auto-signés pouvant ensuite être utilisés pour emprunter l’identité d’un client et obtenir une stratégie client de Configuration Manager.  
 
-### <a name="security-issues-for-operating-system-deployment"></a>Sicherheitsprobleme bei der Betriebssystembereitstellung  
- Obwohl die Betriebssystembereitstellung eine bequeme Methode zur Bereitstellung der sichersten Betriebssysteme und Konfigurationen für Computer in Ihrem Netzwerk darstellt, ist sie mit den folgenden Sicherheitsrisiken verbunden:  
+### <a name="security-issues-for-operating-system-deployment"></a>Problèmes de sécurité pour le déploiement de systèmes d’exploitation  
+ Bien que le déploiement de systèmes d'exploitation puisse être un moyen efficace de déployer les systèmes d'exploitation et les configurations les plus sûrs pour les ordinateurs sur votre réseau, il comporte les risques de sécurité suivants :  
 
--   Offenlegung von Informationen und Denial-of-Service  
+-   Divulgation d'informations et déni de service  
 
-     Sollte ein Angreifer Kontrolle über Ihre Configuration Manager-Infrastruktur erhalten, könnte er beliebige Tasksequenzen ausführen und zum Beispiel die Festplatten auf allen Clientcomputern formatieren. Tasksequenzen können so konfiguriert werden, dass sie vertrauliche Informationen wie Konten mit Berechtigungen zum Domänenbeitritt und Volumenlizenzschlüssel enthalten.  
+     Si une personne malveillante peut prendre le contrôle de votre infrastructure Configuration Manager, elle peut exécuter n’importe quelle séquence de tâches, ce qui peut inclure le formatage des disques durs de tous les ordinateurs clients. Des séquences de tâches peuvent être configurées pour contenir des informations sensibles, telles que les comptes autorisés à rejoindre le domaine et les clés de licence en volume.  
 
--   Identitätsvortäuschung und Rechteerweiterungen  
+-   Emprunt d'identité et élévation de privilèges  
 
-     Mit Tasksequenzen kann der Beitritt eines Computers zu einer Domäne bewirkt werden, und hierdurch kann ein nicht autorisierter Computer möglicherweise einen authentifizierten Netzwerkzugriff erhalten. Ein weiterer Aspekt, der bei der Sicherheit der Betriebssystembereitstellung beachtet werden muss, ist der Schutz des Clientauthentifizierungszertifikats, das für startbare Tasksequenzmedien und für die Bereitstellung mit PXE-Start verwendet wird. Wenn Sie ein Clientauthentifizierungszertifikat erfassen, hat ein Angreifer die Gelegenheit, den privaten Schlüssel im Zertifikat abzurufen und dann die Identität eines gültigen Clients im Netzwerk anzunehmen.  
+     Des séquences de tâches peuvent joindre un ordinateur au domaine, qui peut fournir l'accès réseau authentifié à un ordinateur non autorisé. Un autre principe important de la sécurité du déploiement du système d'exploitation consiste à protéger le certificat d'authentification du client utilisé pour le média de démarrage des séquences de tâches et pour le déploiement du démarrage PXE. Lorsque vous capturez un certificat d'authentification client, cela permet à la personne malveillante d'obtenir la clé privée dans le certificat puis d'emprunter l'identité d'un client valide sur le réseau.  
 
-     Wenn das Clientauthentifizierungszertifikat, das für startbare Tasksequenzmedien und für die Bereitstellung mit PXE-Start verwendet wird, von einem Angreifer abgerufen wird, kann er gegenüber Configuration Manager die Identität eines gültigen Clients annehmen. In diesem Fall kann von dem nicht autorisierten Computer die Richtlinie, die möglicherweise sensible Daten enthält, heruntergeladen werden.  
+     Si une personne malveillante obtient le certificat client utilisé pour le média de démarrage des séquences de tâches et pour le déploiement du démarrage PXE, ce certificat peut être utilisé pour emprunter l’identité d’un client valide sur Configuration Manager. Dans ce scénario, l'ordinateur non autorisé peut télécharger une stratégie, qui peut contenir des données sensibles.  
 
-     Wenn das Netzwerkzugriffskonto von Clients zum Zugreifen auf Daten verwendet wird, die auf dem Zustandsmigrationspunkt gespeichert sind, verfügen diese Clients praktisch über dieselbe Identität und können auf Zustandsmigrationsdaten eines anderen Clients zugreifen, von dem das Netzwerkzugriffskonto genutzt wird. Die Daten werden verschlüsselt, damit sie nur vom ursprünglichen Client gelesen werden können. Es ist jedoch möglich, die Daten zu manipulieren oder zu löschen.  
+     Si des clients utilisent le compte d'accès réseau pour accéder aux données stockées sur le point de migration d'état, ces clients partagent effectivement la même identité et peuvent accéder aux données de migration d'état d'un autre client utilisant le compte d'accès réseau. Les données sont chiffrées et seul le client d'origine peut donc les lire, mais elles peuvent être falsifiées ou supprimées.  
 
--   Die Clientauthentifizierung für den Statusmigrationspunkt wird mithilfe eines Configuration Manager-Tokens durchgeführt, das vom Verwaltungspunkt ausgegeben wird.  
+-   L’authentification des clients auprès du point de migration d’état s’effectue à l’aide d’un jeton Configuration Manager émis par le point de gestion.  
 
-     Außerdem wird der Umfang der auf dem Statusmigrationspunkt gespeicherten Daten von Configuration Manager weder eingeschränkt noch verwaltet. Ein Angreifer könnte den verfügbaren Speicherplatz gänzlich in Anspruch nehmen und einen DoS-Zustand (Denial-of-Service) verursachen.  
+     Par ailleurs, Configuration Manager ne limite pas et ne gère pas la quantité de données stockées sur le point de migration d’état. Or, un intrus peut saturer l’espace disque disponible et provoquer un déni de service.  
 
--   Wenn Sie Sammlungsvariablen verwenden, können lokale Administratoren potenziell vertrauliche Informationen lesen.  
+-   Si vous utilisez des variables de regroupement, les administrateurs locaux peuvent lire des informations potentiellement sensibles.  
 
-     Obwohl Sammlungsvariablen ein flexibles Verfahren zum Bereitstellen von Betriebssystemen darstellen, kann dies zur Offenlegung von Informationen führen.  
+     Même si les variables de regroupement offrent une méthode flexible pour le déploiement des systèmes d'exploitation, elles peuvent entraîner une divulgation d'informations.  
 
-##  <a name="BKMK_Privacy_HardwareInventory"></a> Informationen zum Datenschutz für die Betriebssystembereitstellung  
- Neben dem Bereitstellen von Betriebssystemen für Computer ohne Betriebssystem können mit Configuration Manager Benutzerdateien und -einstellungen von einem Computer zu einem anderen migriert werden. Der Administrator konfiguriert, welche Informationen übertragen werden. Dies umfasst persönliche Datendateien, Konfigurationseinstellungen und Browsercookies.  
+##  <a name="BKMK_Privacy_HardwareInventory"></a> Informations de confidentialité pour le déploiement de systèmes d’exploitation  
+ Configuration Manager peut non seulement permettre de déployer des systèmes d’exploitation sur des ordinateurs sans système d’exploitation, mais également permettre de migrer les fichiers et les paramètres des utilisateurs d’un ordinateur à un autre. L'administrateur configure les informations à transférer, notamment les fichiers de données personnelles, les paramètres de configuration et les cookies du navigateur.  
 
- Die Informationen werden auf einem Zustandsmigrationspunkt gespeichert und bei der Übertragung und Speicherung verschlüsselt. Die Informationen können vom neuen, den Zustandsinformationen zugeordneten Computer abgerufen werden. Verliert der neue Computer den Schlüssel zum Abruf der Informationen, kann ein Configuration Manager-Administrator mit dem Recht „Wiederherstellungsinformationen anzeigen“ für Computerzuordnungsinstanzobjekte auf die Informationen zugreifen und sie einem neuen Computer zuordnen. Nachdem der neue Computer die Zustandsinformationen wiederhergestellt hat, werden die Daten standardmäßig nach einem Tag gelöscht. Sie können konfigurieren, wann der Zustandsmigrationspunkt zum Löschen markierte Daten entfernt. Die Zustandsmigrationsinformationen werden nicht in der Standortdatenbank gespeichert und nicht an Microsoft gesendet.  
+ Les informations sont stockées sur un point de migration de l'état et sont chiffrées durant la transmission et le stockage. Les informations peuvent être récupérées par le nouvel ordinateur associé aux informations d'état. Si le nouvel ordinateur perd la clé permettant d'extraire les informations, un administrateur Configuration Manager bénéficiant de l'autorisation Afficher les informations de récupération sur les objets d'instance d'association d'ordinateurs peut accéder aux informations et les associer au nouvel ordinateur. Une fois que le nouvel ordinateur a restauré les informations d'état, il supprime les données après un jour par défaut. Vous pouvez configurer le moment auquel le point de migration de l'état supprime les données marquées pour suppression. Les informations de migration de l'état ne sont pas stockées dans la base de données de site et ne sont pas envoyées à Microsoft.  
 
- Wenn Sie Startmedien für die Bereitstellung von Betriebssystemabbildern verwenden, achten Sie darauf, stets die Standardoption für den Kennwortschutz der Startmedien zu verwenden. Mit dem Kennwort werden alle in der Tasksequenz gespeicherten Variablen verschlüsselt. Alle nicht in einer Variablen gespeicherten Informationen können aber Sicherheitsrisiken ausgesetzt sein.  
+ Si vous utilisez un média de démarrage pour déployer des images du système d'exploitation, utilisez systématiquement l'option par défaut permettant de protéger par mot de passe le média de démarrage. Le mot de passe chiffre les variables stockées dans la séquence de tâches, mais les informations non stockées dans une variable peuvent être facilement divulguées.  
 
- Bei der Betriebssystembereitstellung können mithilfe von Tasksequenzen viele verschiedene Tasks wie die Installation von Anwendungen und Softwareupdates ausgeführt werden. Wenn Sie Tasksequenzen konfigurieren, berücksichtigen Sie auch die mit der Installation von Software verbundenen Auswirkungen auf den Datenschutz.  
+ Le déploiement du système d'exploitation peut utiliser des séquences de tâches pour effectuer un grand nombre de tâches durant le processus de déploiement, notamment l'installation d'applications et de mises à jour logicielles. Lorsque vous configurez des séquences de tâches, vous devez également être conscient des conséquences de l'installation de logiciels en termes de confidentialité.  
 
- Wenn Sie eine virtuelle Festplatte in Virtual Machine Manager hochladen, ohne das Abbild zuvor mithilfe von Sysprep bereinigt zu haben, können auf der hochgeladenen virtuellen Festplatte persönliche Daten aus dem Ursprungsabbild enthalten sein.  
+ Si vous téléchargez un disque dur virtuel vers Virtual Machine Manager sans utiliser Sysprep auparavant pour nettoyer l'image, le disque dur virtuel téléchargé peut contenir des données personnelles de l'image d'origine.  
 
- Die Betriebssystembereitstellung wird von Configuration Manager nicht standardmäßig implementiert. Es müssen mehrere Konfigurationsschritte ausgeführt werden, bevor Sie Benutzerstatusdaten sammeln oder Tasksequenzen bzw. Startimages erstellen können.  
+ Configuration Manager ne met pas en œuvre le déploiement du système d’exploitation par défaut et requiert plusieurs étapes de configuration avant que vous puissiez recueillir des informations d’état utilisateur ou créer des séquences de tâches ou des images de démarrage.  
 
- Denken Sie über Ihre Datenschutzanforderungen nach, bevor Sie die Betriebssystembereitstellung konfigurieren.  
+ Avant de configurer le déploiement du système d'exploitation, prenez en compte vos impératifs en matière de confidentialité.  

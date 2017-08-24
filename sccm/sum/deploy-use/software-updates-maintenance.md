@@ -1,6 +1,6 @@
 ---
-title: Wartung von Softwareupdates | Microsoft-Dokumentation
-description: "Um die Softwareupdates in Configuration Manager zu gewährleisten, können Sie den WSUS-Bereinigungstask planen oder manuell ausführen."
+title: "Maintenance des mises à jour logicielles | Microsoft Docs"
+description: "Pour assurer la maintenance des mises à jour dans Configuration Manager, vous pouvez planifier la tâche de nettoyage WSUS, ou vous pouvez l’exécuter manuellement."
 keywords: 
 author: dougeby
 ms.author: dougeby
@@ -14,19 +14,19 @@ ms.assetid: 4b0e2e90-aac7-4d06-a707-512eee6e576c
 ms.openlocfilehash: 1590c623f7bc2f42a8617f110de5321212732a03
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="software-updates-maintenance"></a>Wartung für Softwareupdates
+# <a name="software-updates-maintenance"></a>Maintenance des mises à jour logicielles
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Sie können den WSUS-Bereinigungstask von der Configuration Manager-Konsole aus planen und ausführen, oder Sie können den WSUS-Bereinigungstask von den Eigenschaften der Softwareupdatepunktkomponente aus manuell ausführen. Wenn Sie die Ausführung der WSUS-Bereinigungsaufgabe auswählen, wird sie bei der nächsten Softwareupdatesynchronisierung ausgeführt. Die abgelaufenen Softwareupdates werden auf dem WSUS-Server auf den Status „Abgelehnt“ festgelegt, und der Windows Update-Agent auf Computern durchsucht diese Softwareupdates daraufhin nicht mehr. Standardmäßig wird der WSUS-Bereinigungsauftrag alle 30 Tage ausgeführt.  
+Vous pouvez planifier et exécuter la tâche de nettoyage WSUS à partir de la console Configuration Manager, ou l’exécuter manuellement à partir des propriétés du composant de point de mise à jour logicielle. Quand vous choisissez d’exécuter la tâche de nettoyage WSUS, elle s’exécute à la prochaine synchronisation des mises à jour logicielles. Les mises à jour logicielles qui ont expiré présentent un état refusé sur le serveur WSUS et l’Agent Windows Update ne les analyse plus. Par défaut, la tâche de nettoyage WSUS s’exécute tous les 30 jours.  
 
-#### <a name="to-schedule-and-run-the-wsus-cleanup-job"></a>So wird die WSUS-Bereinigungsaufgabe geplant und ausgeführt  
+#### <a name="to-schedule-and-run-the-wsus-cleanup-job"></a>Pour planifier et exécuter la tâche de nettoyage WSUS  
 
-1.  Navigieren Sie in der Configuration Manager-Konsole zu **Verwaltung** > **Übersicht** > **Standortkonfiguration** > **Standorte**.  
+1.  Dans la console Configuration Manager, accédez à **Administration** > **Vue d’ensemble** > **Configuration du site** > **Sites**.  
 
-2.  Klicken Sie in der Gruppe **Einstellungen** auf **Standortkomponenten konfigurieren** , und klicken Sie dann auf **Softwareupdatepunkt** , um die Eigenschaften der Softwareupdatepunkt-Komponente zu öffnen.  
+2.  Cliquez sur **Configurer les composants de site** dans le groupe **Paramètres** , puis cliquez sur **Point de mise à jour logicielle** pour ouvrir les propriétés du composant du point de mise à jour logicielle.  
 
-3.  Klicken Sie auf die Registerkarte **Ablösungsregeln** , wählen Sie **Assistent für die WSUS-Serverbereinigung ausführen**, und klicken Sie dann auf **OK**.
+3.  Cliquez sur l’onglet **Règles de remplacement** , sélectionnez **Exécuter l’Assistant Nettoyage WSUS**, puis cliquez sur **OK**.

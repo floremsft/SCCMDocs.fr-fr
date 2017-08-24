@@ -1,6 +1,6 @@
 ---
-title: Konfigurieren von Wake-on-LAN | Microsoft-Dokumentation
-description: "Wählen Sie Wake-On-LAN-Einstellungen in System Center Configuration Manager aus."
+title: Configurer Wake on LAN | Microsoft Docs
+description: "Sélectionnez les paramètres Wake On LAN dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
@@ -17,43 +17,43 @@ manager: angrobe
 ms.openlocfilehash: 9c920651ba1dc6e0a28df458d28956126ddbaff0
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-configure-wake-on-lan-in-system-center-configuration-manager"></a>Konfigurieren von Wake-On-LAN in System Center Configuration Manager
+# <a name="how-to-configure-wake-on-lan-in-system-center-configuration-manager"></a>Guide pratique pour configurer Wake on LAN dans System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Geben Sie Einstellungen für Wake-On-LAN für System Center Configuration Manager an, wenn Sie Computer aus dem Standbymodus reaktivieren möchten, um die erforderliche Software (Softwareupdates, Anwendungen, Tasksequenzen, Programme usw.) zu installieren.
+Spécifiez les paramètres d’éveil par appel réseau (« Wake On LAN ») pour System Center Configuration Manager quand vous voulez sortir des ordinateurs d’un état de veille pour installer les logiciels requis, notamment des mises à jour logicielles, des applications, des séquences de tâches ou des programmes.
 
-Sie können Wake-On-LAN erweitern, indem Sie die Clienteinstellungen für den Aktivierungsproxy nutzen. Zum Nutzen des Aktivierungsproxys müssen Sie jedoch zuerst Wake-On-LAN für den Standort aktivieren und **Nur Aktivierungspakete verwenden** sowie die Option **Unicast** für die Wake-On-LAN-Übertragungsmethode angeben. Bei dieser Aktivierungslösung werden auch Ad-hoc-Verbindungen unterstützt, z. B. eine Remotedesktopverbindung.
+Vous pouvez compléter Wake On LAN en utilisant les paramètres client du proxy de mise en éveil. Cependant, pour pouvoir utiliser le proxy de mise en éveil, vous devez au préalable activer l'éveil par appel réseau sur le site et activer les options **Utiliser uniquement les paquets de mise en éveil** et **Monodiffusion** pour la méthode de transmission de l'éveil par appel réseau. Cette solution de mise en éveil prend également en charge les connexions ad hoc, notamment les connexions Bureau à distance.
 
-Verwenden Sie das erste Verfahren, um einen primären Standort für Wake-On-LAN zu konfigurieren. Verwenden Sie das zweite Verfahren, um die Clienteinstellungen für den Aktivierungsproxy zu konfigurieren. Mithilfe des zweiten Verfahrens werden die Clientstandardeinstellungen für die Aktivierungsproxy-Einstellungen konfiguriert, die für alle Computer der Hierarchie gelten. Wenn diese Einstellungen nur auf ausgewählte Computer angewendet werden sollen, erstellen Sie eine benutzerdefinierte Geräteeinstellung und weisen diese einer Sammlung mit den Computern zu, die Sie für den Aktivierungsproxy konfigurieren möchten. Weitere Informationen zum Erstellen benutzerdefinierter Clienteinstellungen finden Sie unter [Konfigurieren von Geräteclienteinstellungen in System Center Configuration Manager](../../../core/clients/deploy/configure-client-settings.md).
+Utilisez la première procédure pour configurer l'éveil par appel réseau sur un site principal. Ensuite, utilisez la deuxième procédure pour configurer les paramètres client du proxy de mise en éveil. Cette deuxième procédure configure les paramètres client par défaut, de façon à ce que les paramètres du proxy de mise en éveil soient appliqués à tous les ordinateurs de la hiérarchie. Si vous souhaitez appliquer ces paramètres à certains ordinateurs seulement, créez un paramètre d’appareil personnalisé et attribuez-le à un regroupement contenant les ordinateurs que vous souhaitez configurer pour le proxy de mise en éveil. Pour plus d'informations sur la création de paramètres client personnalisés, consultez [Guide pratique pour configurer les paramètres client dans System Center Configuration Manager](../../../core/clients/deploy/configure-client-settings.md).
 
-Ein Computer, der die Clienteinstellungen des Aktivierungsproxys erhält, wird seine Netzwerkverbindung wahrscheinlich für 1-3 Sekunden unterbrechen. Der Grund hierfür ist, dass der Client die Netzwerkschnittstellenkarte zurücksetzen muss, um den Treiber des Aktivierungsproxys zuzulassen.
+Un ordinateur qui reçoit les paramètres client du proxy de mise en éveil risque d’interrompre sa connexion réseau pendant 1 à 3 secondes. Cela est dû au fait que le client doit réinitialiser la carte d’interface réseau pour activer le pilote de proxy de mise en éveil.
 
 > [!WARNING]
-> Werten Sie den Aktivierungsproxy zur Vermeidung unerwarteter Störungen der Netzwerkdienste zuerst in einer isolierten und repräsentativen Netzwerkinfrastruktur aus. Verwenden Sie anschließend die benutzerdefinierten Clienteinstellungen, um den Test auf eine ausgewählte Gruppe von Computern in mehreren Subnetzen auszudehnen. Weitere Informationen zur Funktionsweise des Aktivierungsproxys finden Sie unter [Plan how to wake up clients in System Center Configuration Manager (Planen der Aktivierung von Clients in System Center Configuration Manager)](../../../core/clients/deploy/plan/plan-wake-up-clients.md).
+> Pour éviter une interruption inattendue de vos services réseau, commencez par évaluer le proxy de mise en éveil sur une infrastructure réseau isolée et représentative. Utilisez ensuite les paramètres client personnalisés pour étendre votre test à une sélection d'ordinateurs situés sur plusieurs sous-réseaux. Pour plus d’informations sur le fonctionnement du proxy de mise en éveil, consultez [Planifier la sortie de veille des clients dans System Center Configuration Manager](../../../core/clients/deploy/plan/plan-wake-up-clients.md).
 
-## <a name="to-configure-wake-on-lan-for-a-site"></a>So konfigurieren Sie Wake-on-LAN für einen Standort
+## <a name="to-configure-wake-on-lan-for-a-site"></a>Pour configurer l'éveil par appel réseau pour un site
 
-1. Wechseln Sie in der Configuration Manager-Konsole zu **Verwaltung > Standortkonfiguration > Standorte**.
-2. Klicken Sie zum Konfigurieren auf den primären Standort, und klicken Sie dann auf **Eigenschaften**.
-3. Klicken Sie auf die Registerkarte **Wake-On-LAN**, und konfigurieren Sie die Optionen für diesen Standort. Stellen Sie zum Unterstützen des Aktivierungsproxys sicher, dass Sie die Optionen **Nur Aktivierungspakete verwenden** und **Unicast** aktivieren. Weitere Informationen finden Sie unter [Plan how to wake up clients in System Center Configuration Manager (Planen der Aktivierung von Clients in System Center Configuration Manager)](../../../core/clients/deploy/plan/plan-wake-up-clients.md).
-4. Klicken Sie auf **OK**, und wiederholen Sie diesen Vorgang für alle primären Standorte in der Hierarchie.
+1. Dans la console Configuration Manager, accédez à **Administration > Configuration du site > Sites**.
+2. Cliquez sur le site principal à configurer, puis sur **Propriétés**.
+3. Cliquez sur l’onglet **Wake On LAN** et configurez les options dont vous avez besoin pour ce site. Pour activer la prise en charge du proxy de mise en éveil, veillez à sélectionner **Utiliser uniquement les paquets de mise en éveil** et **Monodiffusion**. Pour plus d’informations, consultez [Planifier la sortie de veille des clients dans System Center Configuration Manager](../../../core/clients/deploy/plan/plan-wake-up-clients.md).
+4. Cliquez sur **OK** et répétez cette procédure pour tous les sites principaux de la hiérarchie.
 
-## <a name="to-configure-wake-up-proxy-client-settings"></a>So konfigurieren Sie die Clienteinstellungen für den Aktivierungsproxy
+## <a name="to-configure-wake-up-proxy-client-settings"></a>Pour configurer les paramètres client du proxy de mise en éveil
 
-1. Navigieren Sie in der Configuration Manager-Konsole zu **Verwaltung > Clienteinstellungen**.
-2. Klicken Sie auf **Clientstandardeinstellungen**, und klicken Sie auf **Eigenschaften**.
-3. Wählen Sie **Energieverwaltung** aus, und wählen Sie dann für **Aktivierungsproxy zulassen**, **Ja** aus.
-4. Überprüfen und konfigurieren Sie ggf. weitere Einstellungen für den Aktivierungsproxy. Weitere Informationen zu diesen Einstellungen finden Sie unter [Power management settings (Konfigurieren der Energieverwaltungseinstellungen)](../../../core/clients/deploy/about-client-settings.md#power-management).
-5. Klicken Sie auf **OK**, um das Dialogfeld zu schließen, und klicken Sie dann erneut auf **OK**, um das Dialogfeld Clientstandardeinstellungen zu schließen.
+1. Dans la console Configuration Manager, accédez à **Administration > Paramètres client**.
+2. Cliquez sur **Paramètres client par défaut**, puis sur **Propriétés**.
+3. Sélectionnez **Gestion de l’alimentation**, puis choisissez **Oui** pour **Autoriser le proxy de mise en éveil**.
+4. Passez en revue les autres paramètres du proxy de mise en éveil et configurez-les si nécessaire. Pour plus d’informations sur ces paramètres, consultez [Paramètres de gestion de l’alimentation](../../../core/clients/deploy/about-client-settings.md#power-management).
+5. Cliquez sur **OK** pour fermer la boîte de dialogue, puis cliquez de nouveau sur **OK** pour fermer la boîte de dialogue Paramètres client par défaut.
 
-Sie können die folgenden Wake-On-LAN-Berichte zum Überwachen der Installation und Konfiguration des Aktivierungsproxys verwenden:
+Vous pouvez utiliser les rapports de Wake On LAN suivants pour surveiller l'installation et la configuration du proxy de mise en éveil :
 
-- Zusammenfassung des Aktivierungsproxy-Bereitstellungszustands
-- Details zum Aktivierungsproxy-Bereitstellungszustand
+- Résumé de l'état de déploiement du proxy de mise en éveil
+- Détails sur l'état du déploiement de proxy de mise en éveil
 
 > [!TIP]
-> Mit einer Verbindung zu einem Computer im Standbymodus können Sie testen, ob der Aktivierungsproxy funktioniert. Stellen Sie beispielsweise eine Verbindung mit einem freigegebenen Ordner auf diesem Computer her, oder versuchen Sie, per Remotedesktop eine Verbindung zu dem Computer herzustellen. Stellen Sie bei Verwendung von DirectAccess sicher, dass die IPv6-Präfixe funktionieren, indem Sie die gleichen Tests für einen Computer im Standbymodus durchführen, der sich momentan im Internet befindet.
+> Pour vérifier le bon fonctionnement du proxy de mise en éveil, essayez de vous connecter à un ordinateur en veille. Essayez par exemple de vous connecter à un dossier partagé sur cet ordinateur ou de vous connecter à ce dernier via une connexion Bureau à distance. Si vous utilisez l’accès direct, vérifiez que les préfixes IPv6 fonctionnent en effectuant les mêmes tests sur un ordinateur en veille actuellement connecté à Internet.

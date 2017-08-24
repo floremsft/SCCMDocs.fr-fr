@@ -1,6 +1,6 @@
 ---
-title: Verwalten des Zugriffs auf Skype for Business Online | Microsoft-Dokumentation
-description: "Enthält Informationen zum Verwenden der Richtlinie für bedingten Zugriff, um Skype for Business Online zu verwalten."
+title: "Gérer l’accès à Skype Entreprise Online | Microsoft Docs"
+description: "Apprenez à utiliser la stratégie d’accès conditionnel pour gérer l’accès à Skype Entreprise Online."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -17,96 +17,96 @@ manager: angrobe
 ms.openlocfilehash: cacb22a85e74a7d9cae75ad907d0206487cd4dc7
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-skype-for-business-online-access"></a>Verwalten des Zugriffs auf Skype for Business Online
+# <a name="manage-skype-for-business-online-access"></a>Gérer l’accès à Skype Entreprise Online
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
-
-
-Verwenden Sie die Richtlinie für bedingten Zugriff für  **Skype for Business Online** zum Verwalten des Zugriffs auf Skype for Business Online anhand der Bedingungen, die Sie angeben.  
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
- Wenn ein Zielbenutzer versucht, Skype for Business Online auf seinem Gerät zu verwenden, wird folgende Bewertung durchgeführt:![ConditionalAccess&#95;SFBFlow](media/ConditionalAccess_SFBFlow.png)  
+Vous pouvez utiliser une stratégie d’accès conditionnel pour  **Skype Entreprise Online** pour gérer l’accès à Skype Entreprise Online en fonction des conditions que vous spécifiez.  
 
-## <a name="prerequisites"></a>Voraussetzungen  
 
--   Aktivieren Sie die moderne Authentifizierung für Skype for Business Online. Füllen Sie dieses [Anmeldeformular](https://connect.microsoft.com/office/Survey/NominationSurvey.aspx?SurveyID=17299&ProgramID=8715) aus, um sich für die moderne Authentifizierung zu registrieren.  
+ Quand un utilisateur ciblé tente d’utiliser Skype Entreprise Online sur son appareil, voici l’évaluation qui se produit :![ConditionalAccess&#95;SFBFlow](media/ConditionalAccess_SFBFlow.png)  
 
--   Alle Ihre Endbenutzer müssen Skype for Business Online verwenden. Wenn Sie eine Bereitstellung sowohl mit Skype for Business Online als auch Skype for Business haben, wird die Richtlinie für bedingten Zugriff nicht für Endbenutzer angewendet.  
+## <a name="prerequisites"></a>Conditions préalables  
 
--   Das Gerät, das Zugriff auf Skype for Business Online benötigt, muss folgende Voraussetzungen erfüllen:  
+-   Activez l’authentification moderne pour Skype Entreprise Online. Remplissez ce [formulaire de connexion](https://connect.microsoft.com/office/Survey/NominationSurvey.aspx?SurveyID=17299&ProgramID=8715) pour vous inscrire au programme d’authentification moderne.  
 
-    -   Es muss ein Android- oder iOS-Gerät sein.  
+-   Tous vos utilisateurs finaux doivent utiliser Skype Entreprise Online. Si vous avez un déploiement avec Skype Entreprise Online et Skype Entreprise en local, la stratégie d’accès conditionnel n’est pas appliquée aux utilisateurs finaux.  
 
-    -   Es muss bei Intune registriert sein.  
+-   L’appareil devant accéder à Skype Entreprise Online doit :  
 
-    -   Es muss mit allen bereitgestellten Konformitätsrichtlinien kompatibel sein.  
+    -   être un appareil Android ou iOS ;  
 
- Der Gerätestatus wird in Azure Active Directory gespeichert. Die Anwendung gewährt oder blockiert den Zugriff entsprechend den von Ihnen angegebenen Bedingungen.  
-Wenn eine Bedingung nicht erfüllt wird, erhält der Benutzer bei der Anmeldung die folgenden Meldungen:  
+    -   être inscrit auprès d’Intune ;  
 
--   Wenn das Gerät nicht bei Intune oder in Azure Active Directory registriert ist, wird eine Meldung mit Anweisungen zum Installieren der Unternehmensportal-App und zum Registrieren des Geräts angezeigt.  
+    -   être conforme à toutes les stratégies de conformité Intune déployées.  
 
--   Wenn das Gerät nicht kompatibel ist, wird eine Meldung angezeigt, die den Benutzer zum Intune-Unternehmensportal oder der Unternehmensportal-App weiterleitet. Hier finden sie Informationen zum Problem und zu dessen Lösung.  
+ L’état de l’appareil est stocké dans Azure Active Directory, qui accorde ou bloque l’accès aux fichiers en fonction des conditions que vous spécifiez.  
+Si une condition n'est pas remplie, l'utilisateur reçoit l'un des messages suivants quand il tente de se connecter :  
 
-## <a name="configure-conditional-access-for-skype-for-business-online"></a>Konfigurieren des bedingten Zugriffs für Skype for Business Online  
+-   Si l’appareil n’est pas inscrit auprès d’Intune ou dans Azure Active Directory, l’utilisateur reçoit un message contenant des instructions pour installer l’application Portail d’entreprise et inscrire l’appareil.  
 
-### <a name="step-1-configure-active-directory-security-groups"></a>Schritt 1: Konfigurieren von Active Directory-Sicherheitsgruppen  
- Bevor Sie beginnen, konfigurieren Sie Azure Active Directory-Sicherheitsgruppen für die bedingte Zugriffsichtlinie. Sie können diese Gruppen im Office 365 Admin Center konfigurieren. Die Gruppen beinhalten die Benutzer, für die die Richtlinie gelten soll oder die davon ausgeschlossen sind. Bei Benutzern, für die eine Richtlinie gelten soll, muss jedes von ihnen verwendete Gerät die Richtlinie erfüllen, damit sie auf Ressourcen zugreifen können.  
+-   Si l’appareil n’est pas conforme, l’utilisateur reçoit un message le dirigeant vers le site web ou l’application Portail d’entreprise, où il peut trouver des informations sur le problème et des solutions pour y remédier.  
 
- Sie können zwei Typen von Gruppen angeben, die für die Skype for Business-Richtlinie verwendet werden sollen:  
+## <a name="configure-conditional-access-for-skype-for-business-online"></a>Configurer l’accès conditionnel pour Skype Entreprise Online  
 
--   Zielgruppen – Gruppen von Benutzern, für die die Richtlinie gelten soll  
+### <a name="step-1-configure-active-directory-security-groups"></a>Étape 1 : configurer les groupes de sécurité Active Directory  
+ Avant de commencer, configurez les groupes de sécurité Azure Active Directory pour la stratégie d'accès conditionnel. Vous pouvez configurer ces groupes dans le Centre d’administration Office 365. Ces groupes contiennent les utilisateurs qui seront ciblés par la stratégie ou exemptés de celle-ci. Quand un utilisateur est ciblé par une stratégie, chaque appareil qu'il utilise doit être conforme à cette stratégie pour qu'il puisse accéder aux ressources.  
 
--   Ausgenommene Gruppen – Gruppen von Benutzern, die von der Richtlinie ausgenommen sind (optional)  
-    Benutzer, die in beiden Gruppen enthalten sind, werden von der Richtlinie ausgenommen.  
+ Vous pouvez spécifier deux types de groupes à utiliser pour la stratégie de Skype Entreprise :  
 
-### <a name="step-2-configure-and-deploy-a-compliance-policy"></a>Schritt 2: Konfigurieren und Bereitstellen einer Kompatibilitätsrichtlinie  
- Wichtig ist, dass Sie für alle Geräte, für die die Skype for Business Online-Richtlinie gelten soll, eine Kompatibilitätsrichtlinie erstellen und bereitstellen.  
+-   Groupes ciblés : groupes d’utilisateurs auxquels s’applique la stratégie.  
 
- Ausführliche Informationen zum Konfigurieren der Kompatibilitätsrichtlinie finden Sie unter [Verwalten von Kompatibilitätsrichtlinien für Geräte in System Center Configuration Manager](../../protect/deploy-use/device-compliance-policies.md).  
+-   Groupes exemptés : groupes d’utilisateurs exempts de la stratégie (facultatif).  
+    Si un utilisateur se trouve dans les deux groupes, il est exempt de la stratégie.  
+
+### <a name="step-2-configure-and-deploy-a-compliance-policy"></a>Étape 2 : configurer et déployer une stratégie de conformité  
+ Veillez à créer et à déployer une stratégie de conformité sur tous les appareils ciblés par la stratégie Skype Entreprise Online.  
+
+ Pour plus d’informations sur la configuration de la stratégie de conformité, consultez [Gérer des stratégies de conformité d’appareils dans System Center Configuration Manager](../../protect/deploy-use/device-compliance-policies.md).  
 
 > [!NOTE]  
->  Wenn Sie keine Kompatibilitätsrichtlinie bereitgestellt haben und dann die Skype for Business Online-Richtlinie aktivieren, wird allen Zielgeräten der Zugriff erlaubt, sofern sie bei Intune registriert sind.  
+>  Si vous n’avez pas déployé de stratégie de conformité, mais activez la stratégie Skype Entreprise Online, tous les appareils ciblés sont autorisés à accéder s’ils sont inscrits auprès d’Intune.  
 
- Fahren Sie mit Schritt 3 fort.  
+ Quand vous êtes prêt, passez à l’Étape 3.  
 
-### <a name="step-3-configure-the-skype-for-business-online-policy"></a>Schritt 3: Konfigurieren der Skype for Business Online-Richtlinie  
- Anschließend konfigurieren Sie die Richtlinie so, dass nur verwaltete und kompatible Geräte auf Skype for Business Online zugreifen dürfen. Diese Richtlinie wird in Azure Active Directory gespeichert.  
+### <a name="step-3-configure-the-skype-for-business-online-policy"></a>Étape 3 : configurer la stratégie Skype Entreprise Online  
+ Ensuite, configurez la stratégie de manière à restreindre l’accès à Skype Entreprise Online aux seuls périphériques gérés et conformes. Cette stratégie sera stockée dans Azure Active Directory.  
 
-1.  Klicken Sie in der [Microsoft Intune-Verwaltungskonsole](https://manage.microsoft.com)auf **Richtlinie** > **Bedingter Zugriff** > **Skype for Business Online Richtlinie**.  
+1.  Dans la [Console d’administration Microsoft Intune](https://manage.microsoft.com), cliquez sur **Stratégie** > **Accès conditionnel** > **Stratégie Skype Entreprise Online**.  
 
      ![ConditionalAccess&#95;SFBPolicy](media/ConditionalAccess_SFBPolicy.png)  
 
-2.  Wählen Sie **Richtlinie für bedingten Zugriff aktivieren** aus.  
+2.  Sélectionnez **Activer la stratégie d’accès conditionnel**.  
 
-3.  Unter **Anwendungszugriff**können Sie optional eine bedingte Zugriffsrichtlinie auf Folgendes anwenden:  
+3.  Sous **Accès à l’application**, vous pouvez choisir d’appliquer la stratégie d’accès conditionnel à :  
 
     -   iOS  
 
     -   Android  
 
-4.  Klicken Sie unter **Zielgruppen**auf **Ändern** , um die Active Directory-Sicherheitsgruppen auszuwählen, für die die Richtlinie gelten soll. Sie können dies für alle Benutzer oder nur für ausgewählte Benutzergruppen festlegen.  
+4.  Sous **Groupes ciblés**, cliquez sur **Modifier** pour sélectionner les groupes de sécurité Active Directory auxquels la stratégie sera appliquée. Vous avez la possibilité de cibler cette stratégie sur tous les utilisateurs ou uniquement sur un groupe sélectionné d’utilisateurs.  
 
-5.  Klicken Sie unter **Ausgenommene Gruppen**optional auf **Ändern** , um die Active Directory-Sicherheitsgruppen auszuwählen, die von dieser Richtlinie ausgenommen werden.  
+5.  Sous **Groupes exemptés**, vous pouvez éventuellement cliquez sur **Modifier** pour sélectionner les groupes de sécurité Azure Active Directory exempts de cette stratégie.  
 
-6.  Klicken Sie abschließend auf **Speichern**.  
+6.  Une fois terminé, cliquez sur **Enregistrer**.  
 
- Sie haben jetzt den bedingten Zugriff für Skype for Business Online konfiguriert. Die Richtlinie für bedingten Zugriff wird sofort wirksam und muss nicht explizit bereitgestellt werden.  
+ Vous avez maintenant configuré l’accès conditionnel pour Skype Entreprise Online. La stratégie d'accès conditionnel prend effet immédiatement. Il est donc inutile de la déployer.  
 
-## <a name="monitor-the-compliance-and-conditional-access-policies"></a>Überwachen der Richtlinien für Konformität und bedingten Zugriff  
- Im Arbeitsbereich „Gruppen“ können Sie den Status beim bedingten Zugriff Ihrer Geräte anzeigen.  
+## <a name="monitor-the-compliance-and-conditional-access-policies"></a>analyser la conformité et les stratégies d'accès conditionnel  
+ Dans l’espace de travail Groupes, vous pouvez afficher l’état de l’accès conditionnel de vos appareils.  
 
- Wählen Sie eine beliebige Gruppe von Mobilgeräten und anschließend auf der Registerkarte **Geräte** einen der folgenden **Filter**aus:  
+ Sélectionnez un groupe d’appareils mobiles quelconque puis, sous l’onglet **Appareils** , sélectionnez l’un des **Filtres**suivants :  
 
--   **Geräte, die nicht bei AAD registriert sind** – Diese Geräte werden für Skype for Business Online blockiert.  
+-   **Appareils non enregistrés avec AAD** : l’accès à Skype Entreprise Online est bloqué pour ces appareils.  
 
--   **Geräte, die nicht kompatibel sind** – Diese Geräte werden für Skype for Business Online blockiert.  
+-   **Appareils non conformes** : l’accès à Skype Entreprise Online est bloqué pour ces appareils.  
 
--   **Geräte, die bei AAD registriert und kompatibel sind** – Diese Geräte können auf Skype for Business Online zugreifen.  
+-   **Appareils enregistrés avec AAD et conformes** : ces appareils peuvent accéder à Skype Entreprise Online.  
 
-### <a name="see-also"></a>Weitere Informationen:  
+### <a name="see-also"></a>Voir aussi  
 
- [Manage device compliance policies in System Center Configuration Manager (Verwalten von Kompatibilitätsrichtlinien für Geräte in System Center Configuration Manager)](../../protect/deploy-use/device-compliance-policies.md)
+ [Gérer des stratégies de conformité d’appareils dans System Center Configuration Manager](../../protect/deploy-use/device-compliance-policies.md)

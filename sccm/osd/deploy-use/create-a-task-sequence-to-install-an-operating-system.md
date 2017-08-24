@@ -1,6 +1,6 @@
 ---
-title: Erstellen einer Tasksequenz zum Installieren eines Betriebssystems | Microsoft-Dokumentation
-description: Verwenden Sie Tasksequenzen in System Center Configuration Manager, um automatisch ein Betriebssystemimage und andere Inhalte auf einem Zielcomputer zu installieren.
+title: "Créer une séquence de tâches pour installer un système d’exploitation | Microsoft Docs"
+description: "Dans System Center Configuration Manager, utilisez des séquences de tâches pour installer automatiquement une image de système d’exploitation et d’autres contenus sur un ordinateur de destination."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,141 +17,141 @@ manager: angrobe
 ms.openlocfilehash: 41aa6cf69a746f0ab67d804f1ee0c70db05d65ee
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-a-task-sequence-to-install-an-operating-system-in-system-center-configuration-manager"></a>Erstellen einer Tasksequenz zum Installieren eines Betriebssystems in System Center Configuration Manager
+# <a name="create-a-task-sequence-to-install-an-operating-system-in-system-center-configuration-manager"></a>Créer une séquence de tâches pour installer un système d’exploitation dans System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Verwenden Sie Tasksequenzen in System Center Configuration Manager, um automatisch ein Betriebssystemimage auf einem Zielcomputer zu installieren. Sie erstellen eine Tasksequenz , in der auf Folgendes verwiesen wird: das zum Starten des Zielcomputers verwendete Startabbild, das auf dem Zielcomputer zu installierende Betriebssystemabbild und sämtlichen zusätzlich zu installierenden Inhalt, beispielsweise andere Anwendungen oder Softwareupdates. Stellen Sie dann die Tasksequenz für die Sammlung bereit, die den Zielcomputer enthält.  
+Dans System Center Configuration Manager, utilisez des séquences de tâches pour installer automatiquement une image de système d’exploitation sur un ordinateur de destination. Vous pouvez créer une séquence de tâches qui fasse référence à l’image de démarrage chargée de démarrer l’ordinateur de destination, à l’image du système d’exploitation que vous voulez installer sur l’ordinateur de destination et à tout autre contenu supplémentaire, par exemple les autres applications ou les mises à jour logicielles que vous voulez installer. Vous devez ensuite déployer la séquence de tâches sur le regroupement qui contient l’ordinateur de destination.  
 
-##  <a name="BKMK_InstallOS"></a> Erstellen einer Tasksequenz zum Installieren eines Betriebssystems  
- Es gibt eine Vielzahl von Szenarien zum Bereitstellen eines Betriebssystems auf Computern in Ihrer Umgebung. In den meisten Fällen erstellen Sie eine Tasksequenz und wählen **Bestehendes Abbildpaket installieren** im Tasksequenzerstellungs-Assistenten aus, um das Betriebssystem zu installieren, die Benutzereinstellungen zu migrieren, Softwareupdates anzuwenden und Anwendungen zu installieren. Bevor Sie eine Tasksequenz zum Installieren eines Betriebssystems erstellen, muss Folgendes vorhanden sein:   
+##  <a name="BKMK_InstallOS"></a> Créer une séquence de tâches pour installer un système d’exploitation  
+ Il existe de nombreux scénarios pour déployer un système d’exploitation sur les ordinateurs de votre environnement. Dans la plupart des cas, vous créez une séquence de tâches et vous sélectionnez **Installer un package d’images existant** dans l’Assistant Création d’une séquence de tâches pour installer le système d’exploitation, migrer des paramètres utilisateur, appliquer des mises à jour logicielles et installer des applications. Avant de créer une séquence de tâches pour installer un système d’exploitation, les conditions suivantes doivent être remplies :   
 
--   **Erforderlich**  
+-   **Obligatoire**  
 
-    -   Das [Startimage](../get-started/manage-boot-images.md) muss in der Configuration Manager-Konsole verfügbar sein.  
+    -   L’[image de démarrage](../get-started/manage-boot-images.md) doit être disponible dans la console Configuration Manager.  
 
-    -   Ein [Betriebssystemimage](../get-started/manage-operating-system-images.md) muss in der Configuration Manager-Konsole verfügbar sein.  
+    -   Une [image de système d’exploitation](../get-started/manage-operating-system-images.md) doit être disponible dans la console Configuration Manager.  
 
--   **Erforderlich (sofern verwendet)**  
+-   **Obligatoire (si utilisé)**  
 
-    -   [Softwareupdates](../../sum/get-started/synchronize-software-updates.md) müssen in der Configuration Manager-Konsole synchronisiert werden.  
+    -   Les [mises à jour logicielles](../../sum/get-started/synchronize-software-updates.md) doivent être synchronisées dans la console Configuration Manager.  
 
-    -   [Anwendungen](../../apps/deploy-use/create-applications.md) müssen zur Configuration Manager-Konsole hinzugefügt werden.  
+    -   Les [applications](../../apps/deploy-use/create-applications.md) doivent être ajoutées à la console Configuration Manager.  
 
-#### <a name="to-create-a-task-sequence-that-installs-an-operating-system"></a>So erstellen Sie eine Tasksequenz zum Installieren eines Betriebssystems  
+#### <a name="to-create-a-task-sequence-that-installs-an-operating-system"></a>Pour créer une séquence de tâches qui installe un système d’exploitation  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Softwarebibliothek**.  
+1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
-2.  Erweitern Sie im Arbeitsbereich **Softwarebibliothek** den Bereich **Betriebssysteme**, und klicken Sie dann auf **Tasksequenzen**.  
+2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Séquences de tâches**.  
 
-3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** auf **Tasksequenz erstellen** , um den Tasksequenzerstellungs-Assistenten zu starten.  
+3.  Sous l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer une séquence de tâches** pour démarrer l'Assistant Création d'une séquence de tâches.  
 
-4.  Klicken Sie auf der Seite **Neue Tasksequenz erstellen** auf **Bestehendes Abbildpaket installieren**und dann auf **Weiter**.  
+4.  Dans la page **Créer une séquence de tâches** , sélectionnez **Installer un package d'images existant**, puis cliquez sur **Suivant**.  
 
-5.  Geben Sie auf der Seite **Informationen zur Tasksequenz** die folgenden Einstellungen an, und klicken Sie dann auf **Weiter**.  
+5.  Sur la page **Informations sur la séquence de tâches** , spécifiez les paramètres suivants et cliquez sur **Suivant**.  
 
-    -   **Tasksequenzname**: Geben Sie einen Namen zur Identifikation der Tasksequenz an.  
+    -   **Nom de la séquence de tâches**: spécifiez un nom qui identifie la séquence de tâches.  
 
-    -   **Beschreibung**: Geben Sie eine Beschreibung der Aufgabe an, die von der Tasksequenz ausgeführt wird.  
+    -   **Description**: spécifiez une description de la tâche qui est effectuée par la séquence de tâches.  
 
-    -   **Startabbild**: Geben Sie das Startabbild an, von dem das Betriebssystem auf dem Zielcomputer installiert wird. Das Startabbild enthält eine Version von Windows PE, die zum Installieren des Betriebssystems sowie aller zusätzlich erforderlichen Gerätetreiber verwendet wird. Weitere Informationen finden Sie unter [Manage boot images (Verwalten von Startimages)](../get-started/manage-boot-images.md).  
-
-        > [!IMPORTANT]  
-        >  Die Architektur des Startabbilds muss kompatibel mit der Hardwarearchitektur des Zielcomputers sein.  
-
-6.  Geben Sie auf der Seite **Windows installieren** die folgenden Einstellungen an, und klicken Sie dann auf **Weiter**.  
-
-    -   **Abbildpaket**: Geben Sie das Paket an, welches das zu installierende Betriebssystemabbild enthält. Weitere Informationen finden Sie unter [Manage operating system images (Verwalten von Betriebssystemimages)](../get-started/manage-operating-system-images.md).  
-
-    -   **Abbild**: Wenn das Betriebssystemabbildpaket mehrere Abbilder enthält, geben Sie den Indes des zu installierenden Betriebssystemabbilds an.  
-
-    -   **Zielcomputer vor Installation des Betriebssystems partitionieren und formatieren**: Geben Sie an, ob der Zielcomputer vor Installation des Betriebssystems von der Tasksequenz partitioniert und formatiert werden soll.  
-
-    -   **Product Key**: Geben Sie den Product Key für das zu installierende Windows-Betriebssystem an. Sie können codierte Volumenlizenzschlüssel und standardmäßige Product Keys angeben. Wenn Sie einen nicht codierten Product Key verwenden, muss jede Gruppe aus 5 Zeichen mit einen Bindestrich (-) getrennt werden. Beispiel: *XXXXX-XXXXX-XXXXX-XXXXX-XXXXX*  
-
-    -   **Serverlizenzierungsmodus**: Geben Sie an, ob die Serverlizenz **Pro Arbeitsplatz**oder **Pro Server**bzw. dass keine Lizenz angegeben ist. Wenn die Serverlizenz **Pro Server**gilt, geben Sie auch die maximale Anzahl von Serververbindungen an.  
-
-    -   Geben Sie an, wie das Administratorkonto verarbeitet werden soll, das bei der Bereitstellung des Betriebssystemabbilds verwendet wird.  
-
-        -   **Lokales Administratorkonto deaktivieren**: Geben Sie an, ob das lokale Administratorkonto deaktiviert werden soll, wenn das Betriebssystemabbild bereitgestellt ist.  
-
-        -   **Immer das gleiche Administratorkennwort verwenden**: Geben Sie an, ob während der Bereitstellung des Betriebssystemabbilds auf allen Computern das gleiche Kennwort für das lokale Administratorkonto verwendet werden soll.  
-
-7.  Geben Sie auf der Seite **Netzwerkeinstellungen konfigurieren** die folgenden Einstellungen an, und klicken Sie dann auf **Weiter**.  
-
-    -   **Einer Arbeitsgruppe beitreten**: Geben Sie an, ob der Zielcomputer einer Arbeitsgruppe hinzugefügt werden soll.  
-
-    -   **Einer Domäne beitreten**: Geben Sie an, ob der Zielcomputer einer Domäne hinzugefügt werden soll. Geben Sie unter **Domäne**den Namen der Domäne an.  
+    -   **Images de démarrage**: spécifiez l'image de démarrage qui installe le système d'exploitation sur l'ordinateur de destination. L'image de démarrage contient une version de Windows PE qui est utilisée pour installer le système d'exploitation, ainsi que les pilotes d'appareil supplémentaires qui sont requis. Pour plus d’informations, consultez [Gérer les images de démarrage](../get-started/manage-boot-images.md).  
 
         > [!IMPORTANT]  
-        >  Domänen in der lokalen Gesamtstruktur können Sie suchen, doch bei Domänen in remoten Gesamtstrukturen müssen Sie den Domänennamen angeben.  
+        >  L'architecture de l'image de démarrage doit être compatible avec l'architecture matérielle de l'ordinateur de destination.  
 
-         Sie können auch eine Organisationseinheit angeben. Dies ist eine optionale Einstellung, mit welcher der LDAP X.500-definierte Name der Organisationseinheit angegeben wird, in der das Computerkonto erstellt werden soll, sofern das Konto noch nicht vorhanden ist.  
+6.  Sur la page **Installer Windows** , spécifiez les paramètres suivants et cliquez sur **Suivant**.  
 
-    -   **Konto**: Geben Sie Benutzernamen und Kennwort für das Konto an, das die Berechtigungen hat, um der angegebenen Domäne beizutreten. Beispiel: *Domäne\Benutzer* oder *%Variable%*.  
+    -   **Package d'images**: spécifiez le package qui contient l'image du système d'exploitation à installer. Pour plus d’informations, consultez [Gérer les images de système d’exploitation](../get-started/manage-operating-system-images.md).  
+
+    -   **Image**: si le package d'images du système d'exploitation comporte plusieurs images, spécifiez l'index de l'image du système d'exploitation à installer.  
+
+    -   **Effectuez la partition et le formatage de l'ordinateur cible avant d'installer le système d'exploitation**: spécifiez si vous souhaitez que la séquence de tâches partitionne et formate l'ordinateur de destination avant que le système d'exploitation soit installé.  
+
+    -   **Clé du produit**: spécifiez la clé de produit pour le système d'exploitation Windows à installer. Vous pouvez spécifier des clés de licence en volume codées et des clés de produit standard. Si vous utilisez une clé de produit non codée, chaque groupe de 5 caractères doit être séparé par un tiret (-). Par exemple : *XXXXX-XXXXX-XXXXX-XXXXX-XXXXX*  
+
+    -   **Mode de licence serveur :**spécifiez que la licence serveur est **Par siège**, **Par serveur**ou qu’aucune licence n’est spécifiée. Si la licence serveur est **Par serveur**, spécifiez également le nombre maximal de connexions au serveur.  
+
+    -   Spécifiez comment gérer le compte administrateur qui est utilisé lors du déploiement de l'image du système d'exploitation.  
+
+        -   **Désactiver le compte administrateur local**: spécifiez si le compte administrateur local est désactivé lorsque l'image du système d'exploitation est déployée.  
+
+        -   **Toujours utiliser le même mot de passe administrateur**: spécifiez si le même mot de passe est utilisé pour le compte administrateur local sur tous les ordinateurs où l'image du système d'exploitation est déployée.  
+
+7.  Sur la page **Configurer le réseau** , spécifiez les paramètres suivants et cliquez sur **Suivant**.  
+
+    -   **Joindre un groupe de travail**: indiquez si vous souhaitez ajouter l'ordinateur de destination à un groupe de travail.  
+
+    -   **Joindre un domaine**: indiquez si vous souhaitez ajouter l'ordinateur de destination à un domaine. Dans **Domaine**, spécifiez le nom du domaine.  
 
         > [!IMPORTANT]  
-        >  Sie müssen die richtigen Domänenanmeldeinformationen eingeben, wenn Sie entweder die Domäneneinstellungen oder die Arbeitsgruppeneinstellungen migrieren möchten.  
+        >  Vous pouvez rechercher des domaines dans la forêt locale, mais vous devez spécifier le nom de domaine d'une forêt distante.  
 
-8.  Geben Sie auf der Seite **Configuration Manager installieren** das Configuration Manager-Clientpaket an, das auf dem Zielcomputer installiert werden sollen, und klicken Sie auf **Weiter**.  
+         Vous pouvez également spécifier une unité d'organisation (UO). Il s'agit d'un paramètre facultatif qui spécifie le nom unique LDAP X.500 de l'UO dans laquelle vous créez le compte d'ordinateur s'il n'existe pas déjà.  
 
-9. Geben Sie auf der Seite **Zustandsmigration** die folgenden Informationen an, und klicken Sie dann auf **Weiter**.  
+    -   **Compte**: spécifiez le nom d’utilisateur et le mot de passe du compte qui dispose des autorisations pour joindre le domaine spécifié. Par exemple : *domaine\utilisateur* ou *%variable%*.  
 
-    -   **Benutzereinstellungen erfassen**: Geben Sie an, ob der Benutzerstatus von der Tasksequenz erfasst werden soll. Weitere Informationen zum Erfassen und Wiederherstellen des Benutzerstatus finden Sie unter [Verwalten des Benutzerstatus](../get-started/manage-user-state.md).  
+        > [!IMPORTANT]  
+        >  Vous devez entrer les informations d'identification de domaine appropriées si vous prévoyez de migrer les paramètres du domaine ou les paramètres du groupe de travail.  
 
-    -   **Netzwerkeinstellungen erfassen**: Geben Sie an, ob die Netzwerkeinstellungen des Zielcomputers von der Tasksequenz erfasst werden sollen. Sie können zusätzlich zu den Netzwerkadaptereinstellungen auch die Domänen- oder Arbeitsgruppenmitgliedschaft erfassen.  
+8.  Dans la page **Installer Configuration Manager**, spécifiez le package client Configuration Manager à installer sur l’ordinateur de destination, puis cliquez sur **Suivant**.  
 
-    -   **Microsoft Windows-Einstellungen erfassen**:  Geben Sie an, ob die Windows-Einstellungen des Zielcomputers von der Tasksequenz erfasst werden sollen, bevor das Betriebssystemabbild installiert wird. Sie können den Computernamen, Namen von registrierten Benutzern und Unternehmen sowie Zeitzoneneinstellungen erfassen.  
+9. Sur la page **Migration de l'état** , spécifiez les informations suivantes, puis cliquez sur **Suivant**.  
 
-10. Geben Sie auf der Seite **Updates einschließen** an, ob erforderliche Softwareupdates, alle Softwareupdates oder keine Softwareupdates installiert werden sollen, und klicken Sie dann auf **Weiter**. Wenn Sie angeben, dass Softwareupdates installiert werden sollen, werden von Configuration Manager nur Softwareupdates installiert, die für Sammlungen bestimmt sind, in denen der Zielcomputer Mitglied ist.  
+    -   **Capturer les paramètres utilisateur**: spécifiez si la séquence de tâches capture l'état utilisateur. Pour plus d’informations sur la capture et la restauration de l’état utilisateur, consultez [Gérer l’état utilisateur](../get-started/manage-user-state.md).  
 
-11. Geben Sie auf der Seite **Anwendungen installieren** die Anwendungen an, die auf dem Zielcomputer installiert werden sollen, und klicken Sie dann auf **Weiter**. Wenn Sie mehrere Anwendungen angeben, können Sie auch angeben, dass die Tasksequenz fortgesetzt werden soll, wenn bei der Installation einer bestimmten Anwendung ein Fehler auftritt.  
+    -   **Capturer les paramètres réseau**: spécifiez si la séquence de tâches capture les paramètres réseau de l'ordinateur de destination. Vous pouvez capturer l'appartenance du domaine ou du groupe de travail avec les paramètres de carte réseau.  
 
-12. Schließen Sie den Assistenten ab.  
+    -   **Capturer les paramètres Microsoft Windows**:  spécifiez si la séquence de tâches capture les paramètres Windows à partir de l'ordinateur de destination avant l'installation de l'image du système d'exploitation. Vous pouvez capturer le nom de l'ordinateur, les noms d'organisations et d'utilisateurs inscrits et les paramètres des fuseaux horaires.  
 
- Sie können jetzt die Tasksequenz für eine Sammlung von Computern bereitstellen.  Weitere Informationen finden Sie unter [Deploy a task sequence](manage-task-sequences-to-automate-tasks.md#BKMK_DeployTS).  
+10. Sur la page **Inclure les mises à jour** , spécifiez si vous souhaitez installer les mises à jour logicielles requises, toutes les mises à jour logicielles ou aucune mise à jour logicielle, puis cliquez sur **Suivant**. Si vous spécifiez l’installation des mises à jour logicielles, Configuration Manager installe uniquement les mises à jour logicielles ciblant les regroupements auxquels l’ordinateur de destination appartient.  
 
-##  <a name="BKMK_InstallExistingOSImageTSExample"></a> Beispiel einer Tasksequenz zum Installieren eines vorhandenen Betriebssystemabbilds  
- Orientieren Sie sich an der folgenden Tabelle, während Sie eine Tasksequenz zur Bereitstellung eines Betriebssystems mithilfe eines vorhandenen Betriebssystemabbilds erstellen. Mithilfe dieser Tabelle können Sie die allgemeine Sequenz für Ihre Tasksequenzschritte festlegen und diese Tasksequenzschritte in logischen Gruppen organisieren. Die von Ihnen erstellte Tasksequenz kann von diesem Beispiel abweichen und eine andere Anzahl von Tasksequenzschritten und Tasksequenzgruppen enthalten.  
+11. Sur la page **Installer les applications** , spécifiez les applications à installer sur l'ordinateur de destination, puis cliquez sur **Suivant**. Si vous spécifiez plusieurs applications, vous pouvez également spécifier que la séquence de tâches continue si l'installation d'une application spécifique échoue.  
+
+12. Effectuez toutes les étapes de l'Assistant.  
+
+ Vous pouvez maintenant déployer la séquence de tâches dans un regroupement d’ordinateurs.  Pour plus d'informations, voir [Déployer une séquence de tâches](manage-task-sequences-to-automate-tasks.md#BKMK_DeployTS).  
+
+##  <a name="BKMK_InstallExistingOSImageTSExample"></a> Exemple de séquence de tâches pour installer une image de système d’exploitation existante  
+ Utilisez le tableau suivant comme guide lorsque vous créez une séquence de tâches qui déploie un système d'exploitation à l'aide d'une image de système d'exploitation existante. Ce tableau vous aidera à définir la séquence générale des étapes de votre séquence de tâches. Il vous permettra également d'organiser et de structurer ces étapes en groupes logiques. La séquence de tâches que vous créez peut être différente de celle de cet exemple et elle peut contenir un nombre de groupes et d'étapes de séquence de tâches plus ou moins important.  
 
 > [!IMPORTANT]  
->  Sie müssen diese Tasksequenz stets mithilfe des Tasksequenzerstellungs-Assistenten erstellen.  
+>  Vous devez toujours utiliser l'Assistant Création d'une séquence de tâches pour créer cette séquence de tâches.  
 
- Wenn Sie diese neue Tasksequenz mithilfe des Tasksequenzerstellungs-Assistenten erstellen, haben einige Tasksequenzschritte andere Namen, als wenn Sie diese Tasksequenzschritte manuell zu einer vorhandenen Tasksequenz hinzufügen. In der folgenden Tabelle sind die Namensunterschiede angezeigt:  
+ Lorsque vous utilisez l'Assistant Création d'une séquence de tâches pour créer cette nouvelle séquence de tâches, certains noms d'étapes de séquence de tâches sont différents des noms indiqués dans le cadre d'un ajout manuel de ces étapes de séquence de tâches à une séquence de tâches existante. Le tableau suivant présente les différences de dénomination :  
 
-|Name des Tasksequenzschritts im Tasksequenzerstellungs-Assistenten|Name des entsprechenden Schritts im Tasksequenz-Editor|  
+|Nom de l'étape de séquence de tâches de l'Assistant Création d'une séquence de tâches|Nom équivalent de l'étape dans l'Éditeur de séquence de tâches|  
 |---------------------------------------------------------|-----------------------------------------------|  
-|Benutzerzustandsspeicher anfordern|Zustandsspeicher anfordern|  
-|Benutzerdateien und Einstellungen erfassen|Benutzerzustand erfassen|  
-|Benutzerzustandsspeicher freigeben|Zustandsspeicher freigeben|  
-|Neustart mit Windows PE ausführen|Neustart mit Windows PE oder Festplatte ausführen|  
-|Festplatte 0 partitionieren|Datenträger formatieren und partitionieren|  
-|Benuterzdateien und -einstellungen wiederherstellen|Benutzerzustand wiederherstellen|  
+|Demander le stockage de l'état utilisateur|Demander le magasin d'état|  
+|Capturer les paramètres et fichiers utilisateur|Capturer l'état utilisateur|  
+|Libérer le stockage de l'état utilisateur|Libérer le magasin d'état|  
+|Redémarrer dans Windows PE|Redémarrer sur Windows PE ou disque dur|  
+|Partitionner le disque 0|Formater et partitionner le disque|  
+|Restaurer les fichiers et paramètres utilisateur|Restaurer l'état utilisateur|  
 
-|Tasksequenzgruppe/-schritt|Beschreibung|  
+|Groupe ou étape de séquence de tâches|Description|  
 |---------------------------------|-----------------|  
-|Dateien und Einstellungen erfassen – **(Neue Tasksequenzgruppe)**|Erstellen Sie eine Tasksequenzgruppe. Mithilfe einer Tasksequenzgruppe können Sie ähnliche Tasksequenzschritte zur besseren Organisation und Fehlersteuerung gruppieren.<br /><br /> Diese Gruppe enthält die zum Erfassen von Dateien und Einstellungen vom Betriebssystem des Referenzcomputers erforderlichen Schritte.|  
-|Windows-Einstellungen erfassen|Mithilfe dieses Tasksequenzschritts können Sie die Microsoft Windows-Einstellungen identifizieren, die vom Referenzcomputer erfasst werden müssen. Sie können den Computernamen, Benutzer- und Unternehmensinformationen sowie Zeitzoneneinstellungen erfassen.|  
-|Netzwerkeinstellungen erfassen|Mithilfe dieses Tasksequenzschritts können Sie die Netzwerkeinstellungen vom Referenzcomputer erfassen. Sie können die Domänen- oder Arbeitsgruppenmitgliedschaft des Referenzcomputers sowie Informationen zur Netzwerkkarteneinstellung erfassen.|  
-|Benutzerdateien und Einstellungen erfassen – **(Neue Tasksequenz-Untergruppe)**|Erstellen Sie eine Tasksequenzgruppe innerhalb einer anderen Tasksequenzgruppe. Diese Untergruppe enthält die zum Erfassen der Benutzerzustandsdaten erforderlichen Schritte. Ähnlich wie mithilfe der ersten von Ihnen hinzugefügten Gruppe können Sie mithilfe dieser Untergruppe ähnliche Tasksequenzschritte zur besseren Organisation und Fehlersteuerung gruppieren.|  
-|Benutzerzustandsspeicher anfordern|Mithilfe dieses Tasksequenzschritts können Sie Zugriff auf einen Zustandsmigrationspunkt anfordern, auf dem die Benutzerzustandsdaten gespeichert sind. Sie können diesen Tasksequenzschritt so konfigurieren, dass die Benutzerzustandsinformationen erfasst oder wiederhergestellt werden.|  
-|Benutzerdateien und Einstellungen erfassen|Mithilfe dieses Tasksequenzschritts können Sie den Benutzerzustand und die Einstellungen unter Verwendung von Windows-EasyTransfer bzw. USMT von dem Referenzcomputer erfassen, auf dem die mit diesem Taskschritt verknüpfte Tasksequenz empfangen wird. Sie können die Standardoptionen erfassen oder die zu erfassenden Optionen konfigurieren.|  
-|Benutzerzustandsspeicher freigeben|Mithilfe dieses Tasksequenzschritts können Sie den Zustandsmigrationspunkt darüber benachrichtigen, dass die Erfassungs- oder Wiederherstellungsaktion abgeschlossen ist.|  
-|Betriebssystem installieren – **(Neue Tasksequenzgruppe)**|Erstellen Sie eine weitere Untergruppe der Tasksequenz. Diese Untergruppe enthält die zum Installieren und Konfigurieren der Windows PE-Umgebung erforderlichen Schritte.|  
-|Neustart mit Windows PE|Mithilfe dieses Tasksequenzschritts können Sie die Neustartoptionen für den Zielcomputer angeben, auf dem diese Tasksequenz empfangen wird. In diesem Schritt wird eine Meldung angezeigt, um den Benutzer darüber zu informieren, dass der Computer zum Fortsetzen der Installation neu gestartet wird.<br /><br /> In diesem Schritt wird die schreibgeschützte Tasksequenzvariable **_SMSTSInWinPE** verwendet. Wenn der Variablen der Wert **false** zugeordnet ist, wird der Tasksequenzschritt fortgesetzt.|  
-|Festplatte 0 partitionieren|Mithilfe dieses Tasksequenzschritts werden die zum Formatieren der Festplatte auf dem Zielcomputer erforderlichen Aktionen angegeben. Die standardmäßige Datenträgernummer ist **0**.<br /><br /> In diesem Schritt wird die schreibgeschützte Tasksequenzvariable **_SMSTSClientCache** verwendet. Der Schritt wird ausgeführt, wenn kein Configuration Manager-Clientcache vorhanden ist.|  
-|Betriebssystem anwenden|Mithilfe dieses tasksequenzschritts das Betriebssystemabbild auf dem Zielcomputer installieren. In diesem Schritt werden alle in der WIM-Datei enthaltenen Volumeimages auf das entsprechende sequenzielle Datenträgervolume auf dem Bereitstellungszielcomputer angewendet, nachdem zuerst alle Dateien auf diesem Volume gelöscht wurden (mit Ausnahme Configuration Manager-spezifischer Steuerdateien). Sie können eine **sysprep** -Antwortdatei angeben und auch konfigurieren, welche Festplattenpartition für die Installation verwendet wird.|  
-|Windows-Einstellungen anwenden|Mithilfe dieses Tasksequenzschritts können Sie die Konfigurationsinformationen für die Windows-Einstellungen des Zielcomputers angeben. Folgende Windows-Einstellungen können anwendet werden: Benutzer- und Unternehmensinformationen, Produkt- oder Lizenzschlüsselinformationen, Zeitzone und lokales Administratorkennwort.|  
-|Netzwerkeinstellungen anwenden|Mithilfe dieses Tasksequenzschritts können Sie die Konfigurationsinformationen für das Netzwerk oder die Arbeitsgruppe des Zielcomputers angeben. Sie können auch angeben, ob vom Computer ein DHCP-Server verwendet wird, oder Sie können die IP-Adressinformationen statisch zuweisen.|  
-|Gerätetreiber anwenden|Mithilfe dieses Tasksequenzschritts können Sie Gerätetreiber als Teil der Betriebssystembereitstellung installieren. Sie können durch Auswahl von **Treiber aller Kategorien berücksichtigen** zulassen, dass alle vorhandenen Treiberkategorien von Windows Setup durchsucht werden, oder die von Windows Setup zu durchsuchenden Treiberkategorien durch Auswahl von **Nur Treiber in bestimmten Kategorien berücksichtigen**einschränken.<br /><br /> In diesem Schritt wird die schreibgeschützte Tasksequenzvariable **_SMSTSMediaType** verwendet. Dieser Tasksequenzschritt wird nur ausgeführt, wenn der Wert der Variablen ungleich **FullMedia**ist.|  
-|Treiberpaket anwenden|Mithilfe dieses Tasksequenzschritts können Sie alle Gerätetreiber in einem Treiberpaket für Windows Setup zur Verfügung stellen.|  
-|Betriebssystem einrichten – **(Neue Tasksequenzgruppe)**|Erstellen Sie eine weitere Untergruppe der Tasksequenz. Diese Untergruppe enthält die zum Einrichten des installierten Betriebssystems erforderlichen Schritte.|  
-|Windows und ConfigMgr einrichten|Mit diesem Tasksequenzschritt können Sie die Configuration Manager-Clientsoftware installieren. Mit dem Configuration Manager wird die GUID des Configuration Manager-Clients installiert und registriert. Sie können die erforderlichen Installationsparameter im Fenster **Installationseinstellungen** zuweisen.|  
-|Updates installieren|Mithilfe dieses Tasksequenzschritts können Sie angeben, wie Softwareupdates auf dem Zielcomputer installiert werden. Der Zielcomputer wird erst beim Ausführen dieses Tasksequenzschritts hinsichtlich anwendbarer Softwareupdates ausgewertet. An diesem Punkt wird der Zielcomputer ähnlich wie jeder andere von Configuration Manager verwaltete Client hinsichtlich Softwareupdates ausgewertet.<br /><br /> In diesem Schritt wird die schreibgeschützte Tasksequenzvariable **_SMSTSMediaType** verwendet. Dieser Tasksequenzschritt wird nur ausgeführt, wenn der Wert der Variablen ungleich **FullMedia**ist.|  
-|Benutzerdateien und -einstellungen wiederherstellen – **(Neue Tasksequenz-Untergruppe)**|Erstellen Sie eine weitere Untergruppe der Tasksequenz. Diese Untergruppe enthält die zum Wiederherstellen der Benutzerdateien und -einstellungen erforderlichen Schritte.|  
-|Benutzerzustandsspeicher anfordern|Mithilfe dieses Tasksequenzschritts können Sie Zugriff auf einen Zustandsmigrationspunkt anfordern, auf dem die Benutzerzustandsdaten gespeichert sind.|  
-|Benuterzdateien und -einstellungen wiederherstellen|Mithilfe dieses Tasksequenzschritts können Sie Windows-EasyTransfer bzw. USMT initiieren, um Benutzerzustand und -einstellungen auf einem Zielcomputer wiederzuherstellen.|  
-|Benutzerzustandsspeicher freigeben|Mithilfe dieses Tasksequenzschritts können Sie den Zustandsmigrationspunkt darüber benachrichtigen, dass die Benutzerzustandsdaten nicht mehr benötigt werden.|  
+|Capturer les fichiers et les paramètres - **(Nouveau groupe de séquences de tâches)**|Créez un groupe de séquences de tâches. Un groupe de séquences de tâches regroupe des étapes de séquence de tâches similaires pour une meilleure organisation et un contrôle plus efficace des erreurs.<br /><br /> Ce groupe contient les étapes nécessaires pour capturer des fichiers et des paramètres à partir du système d'exploitation d'un ordinateur de référence.|  
+|Capturer les paramètres Windows|Utilisez cette étape de séquence de tâches pour identifier les paramètres Microsoft Windows pour capturer à partir de l'ordinateur de référence. Vous pouvez capturer le nom de l'ordinateur, les informations utilisateur et organisationnelles et les paramètres des fuseaux horaires.|  
+|Capturer les paramètres réseau|Utilisez cette étape de séquence de tâches pour capturer les paramètres réseau à partir de l'ordinateur de référence. Vous pouvez capturer l'appartenance au domaine ou au groupe de travail de l'ordinateur de référence et les informations du paramètre de la carte réseau.|  
+|Capturer les paramètres et fichiers utilisateur - **(Nouveau sous-groupe de séquences de tâches)**|Créez un groupe de séquences de tâches au sein d'un groupe de séquences de tâches. Ce sous-groupe contient les étapes nécessaires à la capture des données d'état utilisateur. Comme le groupe initial que vous avez ajouté, ce sous-groupe regroupe des étapes de séquence de tâches similaires pour une meilleure organisation et un contrôle plus efficace des erreurs.|  
+|Demander le stockage de l'état utilisateur|Utilisez cette étape de séquence de tâches pour demander l'accès à un point de migration d'état où sont stockées les données d'état utilisateur. Vous pouvez configurer cette étape de la séquence de tâches pour capturer ou restaurer les informations de l'état utilisateur.|  
+|Capturer les paramètres et fichiers utilisateur|Utilisez cette étape de séquence de tâches pour utiliser l'outil de migration de l'état utilisateur pour capturer l'état utilisateur et les paramètres à partir de l'ordinateur de référence qui recevra la séquence de tâches associée à cette étape de tâche. Vous pouvez capturer les options standard ou configurer les options à capturer.|  
+|Libérer le stockage de l'état utilisateur|Utilisez cette étape de séquence de tâches pour informer le point de migration d'état que l'opération de capture ou de restauration est terminée.|  
+|Installer le système d'exploitation - **(Nouveau groupe de séquences de tâches)**|Créez un autre sous-groupe de séquences de tâches. Ce sous-groupe contient les étapes nécessaires à l'installation et à la configuration de l'environnement Windows PE.|  
+|Redémarrer dans Windows PE|Utilisez cette étape de séquence de tâches pour spécifier les options de redémarrage pour l'ordinateur de destination qui reçoit cette séquence de tâches. Cette étape affichera un message destiné à l'utilisateur et lui indiquant que l'ordinateur sera redémarré afin de poursuivre l'installation.<br /><br /> Cette étape utilise la variable de séquence de tâches **_SMSTSInWinPE** en lecture seule. Si la valeur associée est **faux** , l'étape de séquence de tâches se poursuit.|  
+|Partitionner le disque 0|Cette étape de séquence de tâches détermine les actions nécessaires au formatage du disque dur sur l'ordinateur de destination. Le numéro de disque par défaut est **0**.<br /><br /> Cette étape utilise la variable de séquence de tâches **_SMSTSMediaType** en lecture seule. Elle sera exécutée en l’absence de mémoire cache du client Configuration Manager.|  
+|Appliquer le système d'exploitation|Utilisez cette étape pour installer l'image de système d'exploitation sur l'ordinateur de destination. Cette étape applique toutes les images de volume contenues dans le fichier WIM au volume de disque séquentiel correspondant sur l’ordinateur cible après avoir d’abord supprimé tous les fichiers sur ce volume (à l’exception des fichiers de contrôle propres à Configuration Manager). Vous pouvez spécifier un fichier de réponse **sysprep** et également configurer la partition de disque utilisée pour l'installation.|  
+|Appliquer les paramètres Windows|Utilisez cette étape de séquence de tâches pour configurer les informations de configuration des paramètres Windows pour l'ordinateur de destination. Les paramètres Windows que vous pouvez appliquer sont les informations utilisateur et organisationnelles, les informations principales sur le produit ou la clé de licence, les fuseaux horaires et le mot passe administrateur local.|  
+|Appliquer les paramètres réseau|Utilisez cette étape de séquence de tâches pour spécifier les informations de configuration du réseau ou du groupe de travail pour l'ordinateur de destination. Vous pouvez également indiquer si l'ordinateur utilise un serveur DHCP ou vous pouvez attribuer en mode statique les informations de l'adresse IP.|  
+|Appliquer les pilotes de périphériques|Utilisez cette étape de séquence de tâches pour installer des pilotes dans le cadre du déploiement de système d'exploitation. Vous pouvez autoriser le programme d'installation Windows à rechercher toutes les catégories de pilotes existantes en sélectionnant **Considérer les pilotes de toutes les catégories** . Vous pouvez également limiter les catégories de pilotes que le programme d'installation Windows doit rechercher en sélectionnant **Limiter la correspondance des pilotes aux pilotes des catégories sélectionnées uniquement**.<br /><br /> Cette étape utilise la variable de séquence de tâches **_SMSTSMediaType** en lecture seule. Cette étape de séquence de tâches s'exécute uniquement si la valeur de la variable n'est pas **FullMedia**.|  
+|Appliquer le package de pilotes|Utilisez cette étape de séquence de tâches pour que tous les pilotes de périphérique d'un package de pilotes puissent être utilisés par le programme d'installation de Windows.|  
+|Configurer le système d'exploitation - **(Nouveau groupe de séquences de tâches)**|Créez un autre sous-groupe de séquences de tâches. Ce sous-groupe contient les étapes nécessaires à la configuration du système d'exploitation.|  
+|Configurer Windows et ConfigMgr|Cette étape de séquence de tâches permet d’installer le logiciel client Configuration Manager. Configuration Manager installe et inscrit le GUID du client Configuration Manager. Vous pouvez définir les paramètres d'installation nécessaires à partir de la fenêtre **Propriétés d'installation** .|  
+|Installer les mises à jour|Utilisez cette étape de séquence de tâches pour spécifier la façon dont sont installées les mises à jour logicielles sur l'ordinateur de destination. L'ordinateur de destination n'est pas évalué pour déterminer les mises à jour logicielles applicables avant l'exécution de cette séquence de tâches. À ce stade, l’ordinateur de destination est évalué pour déterminer les mises à jour logicielles applicables comme n’importe quel autre client géré dans Configuration Manager.<br /><br /> Cette étape utilise la variable de séquence de tâches **_SMSTSMediaType** en lecture seule. Cette étape de séquence de tâches s'exécute uniquement si la valeur de la variable n'est pas **FullMedia**.|  
+|Restaurer les fichiers et paramètres utilisateur - **(Nouveau sous-groupe de la séquence de tâches)**|Créez un autre sous-groupe de séquences de tâches. Ce sous-groupe contient les étapes nécessaires à la restauration des fichiers utilisateur et des paramètres.|  
+|Demander le stockage de l'état utilisateur|Utilisez cette étape de séquence de tâches pour demander l'accès à un point de migration d'état où sont stockées les données d'état utilisateur.|  
+|Restaurer les fichiers et paramètres utilisateur|Utilisez cette étape de séquence de tâches pour lancer l'outil de migration de l'état utilisateur afin de restaurer les paramètres et l'état utilisateur sur un ordinateur de destination.|  
+|Libérer le stockage de l'état utilisateur|Utilisez cette étape de séquence de tâches pour informer le point de migration d’état que les données d’état d’utilisateur ne sont plus nécessaires.|  

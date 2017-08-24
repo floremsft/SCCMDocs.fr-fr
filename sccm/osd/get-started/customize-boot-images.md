@@ -1,6 +1,6 @@
 ---
-title: "Anpassen von Startimages – Configuration Manager | Microsoft-Dokumentation"
-description: "Hier lernen Sie mehrere Möglichkeiten kennen, Configuration Manager oder das Befehlszeilenwerkzeug der Imageverwaltung für die Bereitstellung (Deployment Image Servicing and Management, DISM) zu verwenden, um ein Startimage anzupassen."
+title: "Personnaliser les images de démarrage - Configuration Manager | Microsoft Docs"
+description: "Découvrez plusieurs façons d’utiliser Configuration Manager ou l’outil en ligne de commande de gestion et de maintenance des images de déploiement (DISM) pour personnaliser une image de démarrage."
 ms.custom: na
 ms.date: 01/23/2017
 ms.prod: configuration-manager
@@ -18,76 +18,76 @@ manager: angrobe
 ms.openlocfilehash: ab2ecb64c9c80b4effed79ba08769c99473db0c4
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="customize-boot-images-with-system-center-configuration-manager"></a>Anpassen von Startimages mit System Center Configuration Manager
+# <a name="customize-boot-images-with-system-center-configuration-manager"></a>Personnaliser les images de démarrage avec System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Jede Version von Configuration Manager unterstützt eine bestimmte Version von Windows Assessment and Deployment Kit (Windows ADK). Sie können Startimages aus der Configuration Manager-Konsole bedienen oder anpassen, wenn diese auf einer Windows PE-Version aus der unterstützten Version von Windows ADK basieren. Andere Startabbilder müssen Sie mithilfe eines anderen Verfahrens anpassen, beispielsweise mit dem Befehlszeilenprogramm Deployment Image Servicing and Management (DISM), das Bestandteil von Windows AIK und Windows ADK ist.  
+Chaque version de Configuration Manager prend en charge une version spécifique du Kit de déploiement et d’évaluation Windows (Windows ADK). Vous pouvez utiliser, ou personnaliser, les images de démarrage depuis la console Configuration Manager quand elles sont basées sur une version Windows PE depuis la version prise en charge de Windows ADK. Vous devez déployer les autres images de démarrage à l'aide d'une autre méthode, telle que l'outil de ligne de commande Gestion et maintenance des images de déploiement (DISM) qui fait partie de Windows AIK et Windows ADK.  
 
- Im Folgenden finden Sie die jeweils unterstützte Version von Windows ADK, die Windows PE-Version, auf der das Startimage basiert, das über die Configuration Manager-Konsole angepasst werden kann, und die Windows PE-Versionen, auf denen das Startimage basiert, das Sie mithilfe von DISM anpassen und anschließend zu Configuration Manager hinzufügen können.  
+ Vous trouverez ci-dessous des informations sur la version prise en charge de Windows ADK, la version de Windows PE sur laquelle l’image de démarrage est basée et qui peut être personnalisée à partir de la console Configuration Manager, ainsi que les versions de Windows PE sur lesquelles l’image de démarrage est basée et que vous pouvez personnaliser à l’aide de l’outil DISM avant d’ajouter l’image à Configuration Manager.  
 
--   **Windows ADK-Version**  
+-   **Version de Windows ADK**  
 
-     Windows ADK für Windows 10  
+     Windows ADK pour Windows 10  
 
--   **Windows PE-Versionen für Startimages, die über die Configuration Manager-Konsole angepasst werden können**  
+-   **Versions de Windows PE pour les images de démarrage personnalisables à partir de la console Configuration Manager**  
 
      Windows PE 10  
 
--   **Unterstützte Windows PE-Versionen für Startimages, die nicht über die Configuration Manager-Konsole angepasst werden können**  
+-   **Versions prises en charge de Windows PE pour les images de démarrage non personnalisables à partir de la console Configuration Manager**  
 
-     Windows PE 3.1<sup>1</sup> und Windows PE 5  
+     Windows PE 3.1<sup>1</sup> et Windows PE 5  
 
-     <sup>1</sup> Sie können zu Configuration Manager nur dann ein Startimage hinzufügen, wenn es auf Windows PE 3.1 basiert. Installieren Sie die Ergänzung zu Windows AIK für Windows 7 SP1, um ein Upgrade von Windows AIK für Windows 7 (basierend auf Windows PE 3) mit der Ergänzung zu Windows AIK für Windows 7 SP1 (basierend auf Windows PE 3.1) durchzuführen. Sie können die Ergänzung zu Windows AIK für Windows 7 SP1 aus dem [Microsoft Download Center](http://www.microsoft.com/download/details.aspx?id=5188)herunterladen.  
+     <sup>1</sup> Vous pouvez ajouter une image de démarrage à Configuration Manager uniquement si elle est basée sur Windows PE 3.1. Installez le supplément Windows AIK pour Windows 7 SP1 pour mettre à niveau Windows AIK pour Windows 7 (basé sur Windows PE 3) avec le supplément Windows AIK pour Windows 7 SP1 (basé sur Windows PE 3.1). Vous pouvez télécharger le supplément Windows AIK pour Windows 7 SP1 depuis le [Centre de téléchargement Microsoft](http://www.microsoft.com/download/details.aspx?id=5188).  
 
-     Im Fall von Configuration Manager etwa können Sie Startimages aus Windows ADK für Windows 10 (das auf Windows PE 10 basiert) über die Configuration Manager-Konsole anpassen. Zwar werden auf Windows PE 5 basierende Startabbilder unterstützt, doch müssen Sie sie von einem anderen Computer aus anpassen und die mit dem Windows ADK für Windows 8 installierte DISM-Version verwenden. Danach können Sie das Startimage zur Configuration Manager-Konsole hinzufügen.  
+     Par exemple, si vous utilisez Configuration Manager, vous pouvez personnaliser les images de démarrage de Windows ADK pour Windows 10 (basées sur Windows PE 10) depuis la console Configuration Manager. Toutefois, si les images de démarrage basées sur Windows PE 5 sont prises en charge, vous devez les personnaliser depuis un autre ordinateur et utiliser la version de DISM installée avec Windows ADK pour Windows 8. Ensuite, vous pouvez ajouter l’image de démarrage à la console Configuration Manager.  
 
- Mit den unter diesem Thema beschriebenen Verfahren wird gezeigt, wie die optionalen, für Configuration Manager erforderlichen Komponenten mithilfe der folgenden Windows PE-Pakete zum Startimage hinzugefügt werden:  
+ Les procédures de cette rubrique expliquent comment ajouter les composants facultatifs requis par Configuration Manager à l’image de démarrage en utilisant les packages Windows PE suivants :  
 
--   **WinPE-WMI**: Hiermit wird die Unterstützung für die Windows-Verwaltungsinstrumentation (Windows Management Instrumentation, WMI) hinzugefügt.  
+-   **WinPE-WMI**: Ajoute la prise en charge de Windows Management Instrumentation (WMI).  
 
--   **WinPE-Scripting**: Hiermit wird die Unterstützung für Windows Script Host (WSH) hinzugefügt.  
+-   **WinPE-Scripting**: ajoute la prise en charge de Windows Script Host (WSH).  
 
--   **WinPE-WDS-Tools**: Hiermit werden die Windows-Bereitstellungsdienste installiert.  
+-   **WinPE-WDS-Tools**: installe les outils Windows Deployment Services.  
 
- Es gibt noch weitere Windows PE-Pakete, die Sie hinzufügen können. Die folgenden Ressourcen bieten weitere Informationen zu optionalen Komponenten, die Sie dem Startabbild hinzufügen können.  
+ D'autres packages Windows PE peuvent être ajoutés. Les ressources suivantes fournissent plus d'informations sur les composants facultatifs que vous pouvez ajouter à l'image de démarrage.  
 
--   Zu Windows PE 5 finden Sie Informationen im Thema [WinPE: Hinzufügen von Paketen (Referenz zu optionalen Komponenten)](https://msdn.microsoft.com/library/windows/hardware/dn938382\(v=vs.85\).aspx)  
+-   Pour Windows PE 5, consultez [WinPE : Ajouter des packages (informations de référence sur les composants facultatifs)](https://msdn.microsoft.com/library/windows/hardware/dn938382\(v=vs.85\).aspx)  
 
--   Zu Windows PE 3.1 finden Sie Informationen im Thema [Add a Package to a Windows PE Image (Hinzufügen eines Pakets zu einem Windows PE-Abbild)](http://technet.microsoft.com/library/dd799312\(v=WS.10\).aspx) in der Windows 7-TechNet-Dokumentationsbibliothek.  
+-   Pour Windows PE 3.1, consultez la rubrique [Ajouter un package à une image Windows PE](http://technet.microsoft.com/library/dd799312\(v=WS.10\).aspx) dans la bibliothèque de documentation TechNet Windows 7.  
 
 > [!NOTE]
->Wenn Sie von einem benutzerdefinierten Startimage mit von Ihnen hinzugefügten Tools aus in WinPE starten, können Sie eine Eingabeaufforderung von WinPE aus öffnen und den Dateinamen eines Tools eingeben, um es auszuführen. Der Speicherort dieser Tools wird automatisch der Pfadvariable hinzugefügt. Die Befehlszeile kann nur hinzugefügt werden, wenn die Einstellung **Befehlsunterstützung aktivieren (nur Test)** auf der Registerkarte **Anpassung** der Startimageeigenschaften aktiviert wird.
+>Lors du démarrage de WinPE à partir d’une image de démarrage personnalisée qui inclut des outils que vous avez ajoutés, vous pouvez ouvrir une invite de commandes à partir de WinPE et taper le nom de fichier de l’outil pour l’exécuter. L’emplacement de ces outils est automatiquement ajouté à la variable de chemin d’accès. L’invite de commandes ne peut être ajoutée que si le paramètre **Activer la prise en charge des commandes (test uniquement)** est sélectionné sous l’onglet **Personnalisation** des propriétés d’image de démarrage.
 
-## <a name="customize-a-boot-image-that-uses-windows-pe-5"></a>Anpassen eines Startimages, das Windows PE 5 verwendet  
- Um ein Startabbild anzupassen, das Windows PE 5 verwendet, müssen Sie das Windows ADK installieren und dann mithilfe des Befehlszeilenprogramms DISM das Startabbild bereitstellen, zusätzliche Komponenten und Treiber hinzufügen und die Änderungen im Startabbild ausführen. Gehen Sie wie folgt vor, um das Startabbild anzupassen.  
+## <a name="customize-a-boot-image-that-uses-windows-pe-5"></a>Personnaliser une image de démarrage qui utilise Windows PE 5  
+ Pour personnaliser une image de démarrage qui utilise Windows PE 5, vous devez installer Windows ADK et utiliser l’outil en ligne de commande DISM pour monter l’image de démarrage, ajouter des composants et des pilotes facultatifs et appliquer les modifications à l’image de démarrage. Pour personnaliser l'image de démarrage, procédez comme suit.  
 
-#### <a name="to-customize-a-boot-image-that-uses-windows-pe-5"></a>So passen Sie ein Startabbild an, das Windows PE 5 verwendet  
+#### <a name="to-customize-a-boot-image-that-uses-windows-pe-5"></a>Pour personnaliser une image de démarrage qui utilise Windows PE 5  
 
-1.  Installieren Sie das Windows ADK auf einem Computer, auf dem keine andere Windows AIK- oder Windows ADK-Version installiert ist und auf dem keine Configuration Manager-Komponenten installiert sind.  
+1.  Installez le kit Windows ADK sur un ordinateur qui n’a pas d’autre version de Windows AIK ni de Windows ADK, et sur lequel aucun composant Configuration Manager n’est installé.  
 
-2.  Laden Sie das Windows ADK für Windows 8.1 aus dem [Microsoft Download Center](http://www.microsoft.com/download/details.aspx?id=39982)herunter.  
+2.  Téléchargez Windows ADK pour Windows 8.1 depuis le [Centre de téléchargement Microsoft](http://www.microsoft.com/download/details.aspx?id=39982).  
 
-3.  Kopieren Sie das Startimage (wimpe.wim) aus dem Windows ADK-Installationsordner (z.B. „<*Installationspfad*>\Windows Kits\\<Version*>\Assessment and Deployment Kit\Windows Preinstallation Environment*\\<*x86 oder amd64*>\\<*Gebietsschema*>“) in einen Zielordner auf dem Computer, von dem aus Sie das Startimage anpassen. In dieser Vorgehensweise wird C:\WinPEWAIK als Zielordnername verwendet.  
+3.  Copiez l’image de démarrage (wimpe.wim) du dossier d’installation de Windows ADK (par exemple, <*chemin_installation*>\Windows Kits\\<*version*>\Assessment and Deployment Kit\Windows Preinstallation Environment\\<*x86 ou amd64*>\\<*paramètres régionaux*>) vers un dossier de destination sur l’ordinateur à partir duquel vous personnaliserez l’image de démarrage. Cette procédure utilise C:\WinPEWAIK comme nom de dossier de destination.  
 
-4.  Stellen Sie das Startabbild mithilfe von DISM in einem lokalen Windows PE-Ordner bereit. Geben Sie beispielsweise folgende Befehlszeile ein:  
+4.  Utilisez DISM pour monter l'image de démarrage dans un dossier Windows PE local. Par exemple, tapez la ligne de commande suivante :  
 
      **dism.exe /mount-wim /wimfile:C:\WinPEWAIK\winpe.wim /index:1 /mountdir:C:\WinPEMount**  
 
-     Hierbei ist C:\WinPEWAIK der Ordner, in dem das Startabbild enthalten ist, und C:\WinPEMount der bereitgestellte Ordner.  
+     Où C:\WinPEWAIK est le dossier qui contient l'image de démarrage et C:\WinPEMount est le dossier monté.  
 
     > [!NOTE]
-    >  Weitere Informationen zu DISM finden Sie im Thema [DISM - Deployment Image Servicing and Management Technical Reference (Technische Referenz zur Abbildverwaltung für die Bereitstellung - DISM)](http://technet.microsoft.com/library/hh824821.aspx) in der Windows 8.1- und Windows 8-TechNet-Dokumentationsbibliothek.
+    >  Pour plus d'informations sur DISM, consultez la rubrique [Informations techniques de référence sur l’outil Gestion et maintenance des images de déploiement](http://technet.microsoft.com/library/hh824821.aspx) dans la bibliothèque de documentation TechNet Windows 8.1 et Windows 8.
 
-5.  Nach dem Bereitstellen des Startabbilds fügen Sie diesem mit DISM optionale Komponenten hinzu. In Windows PE 5 befinden sich die optionalen 64-Bit-Komponenten im Verzeichnis „<*Installationspfad*>\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs“.  
+5.  Une fois que vous avez monté l'image de démarrage, utilisez DISM pour ajouter des composants facultatifs à l'image de démarrage. Dans Windows PE 5, les composants facultatifs 64 bits sont situés dans <*chemin_installation*>\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs.  
 
     > [!NOTE]
-    >  Bei diesem Verfahren wird der folgende Speicherort für die optionalen Komponenten verwendet: C:\Programme (x86)\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs. Je nach Windows ADK-Version und dafür ausgewählten Optionen kann sich der Pfad bei Ihnen unterscheiden.  
+    >  Cette procédure utilise l'emplacement suivant pour les composants facultatifs : C:\Program Files (x86)\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs. Le chemin d'accès que vous utilisez peut être différent selon les options de version et d'installation que vous choisissez pour le kit Windows ADK.  
 
-     Geben Sie Folgendes ein, um die optionalen Komponenten zu installieren:  
+     Tapez la commande suivante pour installer les composants facultatifs :  
 
      **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files (x86)\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\winpe-wmi.cab"**  
 
@@ -97,15 +97,15 @@ Jede Version von Configuration Manager unterstützt eine bestimmte Version von W
 
      **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files (x86)\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\WinPE-SecureStartup.cab"**  
 
-     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files (x86)\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\\** *<Gebietsschema\>* **\WinPE-SecureStartup_** *<Gebietsschema\>* **.cab"**  
+     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files (x86)\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\\** *<paramètres régionaux\>* **\WinPE-SecureStartup_** *<paramètres régionaux\>* **.cab"**  
 
-     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files (x86)\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\\** *<Gebietsschema\>* **\WinPE-WMI_** *<Gebietsschema\>* **.cab"**  
+     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files (x86)\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\\** *<paramètres régionaux\>* **\WinPE-WMI_** *<paramètres régionaux\>* **.cab"**  
 
-     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files (x86)\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\\** *<Gebietsschema\>* **\WinPE-Scripting** *<Gebietsschema\>* **.cab"**  
+     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files (x86)\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\\** *<paramètres régionaux\>* **\WinPE-Scripting** *<paramètres régionaux\>* **.cab"**  
 
-     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files (x86)\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\\** *<Gebietsschema\>* **\WinPE-WDS-Tools_** *<Gebietsschema\>* **.cab"**  
+     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files (x86)\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\\** *<paramètres régionaux\>* **\WinPE-WDS-Tools_** *<paramètres régionaux\>* **.cab"**  
 
-     "C:\WinPEMount" ist der bereitgestellte Ordner und "locale" ist das Gebietsschema für die Komponenten. Für das Gebietsschema **en-us** geben Sie z. B. Folgendes ein:  
+     Où C:\WinPEMount est le dossier monté et paramètres régionaux désigne les paramètres régionaux des composants. Par exemple, pour les paramètres régionaux **fr-fr** , tapez :  
 
      **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files (x86)\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\en-us\WinPE-SecureStartup_en-us.cab"**  
 
@@ -116,100 +116,100 @@ Jede Version von Configuration Manager unterstützt eine bestimmte Version von W
      **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files (x86)\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\en-us\WinPE-WDS-Tools_en-us.cab"**  
 
     > [!TIP]
-    >  Weitere Informationen zu den optionalen Komponenten, die Sie dem Startabbild hinzufügen können, finden Sie im Thema [Windows PE Optional Components Reference (Referenz zu optionalen Komponenten in Windows PE)](http://technet.microsoft.com/library/hh824926.aspx) in der Windows 8.1- und Windows 8-TechNet-Dokumentationsbibliothek.  
+    >  Pour plus d'informations sur les composants facultatifs que vous pouvez ajouter à l'image de démarrage, consultez la rubrique [Informations de référence sur les composants facultatifs Windows PE](http://technet.microsoft.com/library/hh824926.aspx) dans la bibliothèque de documentation TechNet Windows 8.1 et Windows 8.  
 
-6.  Fügen Sie mithilfe von DISM erforderlichenfalls bestimmte Treiber zum Startabbild hinzu. Geben Sie Folgendes ein, um Treiber zum Startabbild hinzuzufügen:  
+6.  Utilisez DISM pour ajouter des pilotes spécifiques à l'image de démarrage, si nécessaire. Tapez la commande suivante pour ajouter des pilotes à l'image de démarrage :  
 
-     **dism.exe /image:C:\WinPEMount /add-driver /driver:&lt;** *path to driver .inf file* **>**  
+     **dism.exe /image:C:\WinPEMount /add-driver /driver:&lt;** *chemin d'accès au fichier .inf du pilote* **>**  
 
-     Hierbei ist C:\WinPEMount der bereitgestellte Ordner.  
+     Où C:\WinPEMount est le dossier monté.  
 
-7.  Geben Sie Folgendes ein, um die Bereitstellung der Startabbilddatei aufzuheben und die Änderungen auszuführen.  
+7.  Tapez la commande suivante pour démonter le fichier image de démarrage et valider les modifications.  
 
      **dism.exe /unmount-wim /mountdir:C:\WinPEMount /commit**  
 
-     Hierbei ist C:\WinPEMount der bereitgestellte Ordner.  
+     Où C:\WinPEMount est le dossier monté.  
 
-8.  Fügen Sie das aktualisierte Startimage zu Configuration Manager hinzu, um es zur Verwendung in Ihren Tasksequenzen verfügbar zu machen. Gehen Sie wie folgt vor, um das aktualisierte Startabbild zu importieren:  
+8.  Ajoutez l’image de démarrage mise à jour à Configuration Manager pour pouvoir l’utiliser dans vos séquences de tâches. Utilisez les étapes suivantes pour importer l'image de démarrage mise à jour :  
 
-    1.  Klicken Sie in der Configuration Manager-Konsole auf **Softwarebibliothek**.  
+    1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
-    2.  Erweitern Sie im Arbeitsbereich **Softwarebibliothek** den Bereich **Betriebssysteme**, und klicken Sie dann auf **Startabbilder**.  
+    2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Images de démarrage**.  
 
-    3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** auf **Startabbild hinzufügen** , um den Assistenten zum Hinzufügen von Startabbildern zu starten.  
+    3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Ajouter une image de démarrage** pour démarrer l'Assistant Ajout d'une image de démarrage.  
 
-    4.  Geben Sie auf der Seite **Datenquelle** die folgenden Optionen an, und klicken Sie dann auf **Weiter**.  
+    4.  Sur la page **Source de données** , spécifiez les options suivantes et cliquez sur **Suivant**.  
 
-        -   Geben Sie im Feld **Pfad** den Pfad der aktualisierten Startabbilddatei an. Der angegebene Pfad muss ein gültiger Netzwerkpfad im UNC-Format sein. Beispiel: **\\\\<***Servername***>\\<***WinPEWAIK-Freigabe***>\winpe.wim**.  
+        -   Dans la zone **Chemin d'accès** , indiquez le chemin d'accès au fichier de l'image de démarrage mis à jour. Le chemin d'accès spécifié doit être un chemin d'accès réseau valide au format UNC. Par exemple : **\\\\<***nom_serveur***>\\<***partage WinPEWAIK***>\winpe.wim**.  
 
-        -   Wählen Sie das Startabbild in der Dropdownliste **Startabbild** aus. Wenn die WIM-Datei mehrere Startabbilder enthält, werden sämtliche Abbilder aufgeführt.  
+        -   Sélectionnez l'image de démarrage dans la liste déroulante **Image de démarrage** . Si le fichier WIM contient plusieurs images de démarrage, chaque image est répertoriée.  
 
-    5.  Geben Sie auf der Seite **Allgemein** die folgenden Optionen an, und klicken Sie dann auf **Weiter**.  
+    5.  Sur la page **Général** , spécifiez les options suivantes et cliquez sur **Suivant**.  
 
-        -   Geben Sie im Feld **Name** einen eindeutigen Namen für das Startabbild an.  
+        -   Dans la zone **Nom** , spécifiez un nom unique pour l'image de démarrage.  
 
-        -   Geben Sie im Feld **Version** eine Versionsnummer für das Startabbild an.  
+        -   Dans la zone **Version** , spécifiez un numéro de version pour l'image de démarrage.  
 
-        -   Geben Sie im Feld **Kommentar** anhand einer kurzen Beschreibung an, wie das Startabbild verwendet werden soll.  
+        -   Dans la zone **Commentaire** , spécifiez une description sommaire de l'utilisation de l'image de démarrage.  
 
-    6.  Schließen Sie den Assistenten ab.  
+    6.  Effectuez toutes les étapes de l'Assistant.  
 
-9. Sie können im Startabbild eine Befehlsshell aktivieren, um es in Windows PE zu debuggen und Probleme zu behandeln. Gehen Sie wie folgt vor, um die Befehlsshell zu aktivieren.  
+9. Vous pouvez activer une invite de commandes dans l'image de démarrage pour le débogage et le dépannage dans Windows PE. Utilisez les étapes suivantes pour activer l'invite de commandes.  
 
-    1.  Klicken Sie in der Configuration Manager-Konsole auf **Softwarebibliothek**.  
+    1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
-    2.  Erweitern Sie im Arbeitsbereich **Softwarebibliothek** den Bereich **Betriebssysteme**, und klicken Sie dann auf **Startabbilder**.  
+    2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Images de démarrage**.  
 
-    3.  Suchen Sie in der Liste nach dem neuen Startabbild, und ermitteln Sie die Paket-ID des Abbilds. Sie finden die Paket-ID in der Spalte **Abbild-ID** für das Startabbild.  
+    3.  Recherchez la nouvelle image de démarrage dans la liste et identifiez l'ID de package pour l'image. Vous pouvez trouver l'ID de package dans la colonne **ID de l'image** pour l'image de démarrage.  
 
-    4.  Geben Sie an der Eingabeaufforderung den Befehl **wbemtest** ein, um das Testprogramm für die Windows-Verwaltungsinstrumentation zu öffnen.  
+    4.  À partir d'une invite de commande, tapez **wbemtest** pour ouvrir le testeur WMI.  
 
-    5.  Geben Sie **\\\\<***SMS-Anbietercomputer***>\root\sms\site_<***Standortcode***>** in **Namespace**ein, und klicken Sie auf **Verbinden**.  
+    5.  Tapez **\\\\<***ordinateur_fournisseur_SMS***>\root\sms\site_<***code_site***>** dans **Espace de noms**, puis cliquez sur **Connexion**.  
 
-    6.  Klicken Sie auf **Instanz öffnen**, geben Sie **sms_bootimagepackage.packageID="<Paket-ID\>"** ein, und klicken Sie auf **OK**. Geben Sie als Paket-ID den in Schritt 3 ermittelten Wert ein.  
+    6.  Cliquez sur **Ouvrir une instance**, tapez **sms_bootimagepackage.packageID="<packageID\>"**, puis cliquez sur **OK**. Pour packageID, entrez la valeur que vous avez identifiée à l'étape 3.  
 
-    7.  Klicken Sie auf **Objekt aktualisieren**und dann im Bereich **Eigenschaften** auf **EnableLabShell** .  
+    7.  Cliquez sur **Actualiser l'objet**, puis cliquez sur **EnableLabShell** dans le volet **Propriétés** .  
 
-    8.  Klicken Sie auf **Eigenschaft bearbeiten**, ändern Sie den Wert auf **TRUE**, und klicken Sie auf **Eigenschaft speichern**.  
+    8.  Cliquez sur **Modifier la propriété**, remplacez la valeur par **TRUE**, puis cliquez sur **Enregistrer la propriété**.  
 
-    9. Klicken Sie auf **Objekt speichern**, und beenden Sie dann das Testprogramm für Windows-Verwaltungsinstrumentation.  
+    9. Cliquez sur **Enregistrer l'objet**, puis fermez le testeur WMI.  
 
-10. Sie müssen das Startabbild an Verteilungspunkte, Verteilungspunktgruppen oder mit Verteilungspunktgruppen verknüpften Sammlungen verteilen, um es in einer Tasksequenz verwenden zu können. Gehen Sie wie folgt vor, um das Startabbild zu verteilen.  
+10. Vous devez distribuer l'image de démarrage vers des points de distribution, des groupes de points de distribution ou des regroupements associés à des groupes de points de distribution avant de pouvoir utiliser l'image de démarrage dans une séquence de tâches. Pour distribuer l'image de démarrage, procédez comme suit.  
 
-    1.  Klicken Sie in der Configuration Manager-Konsole auf **Softwarebibliothek**.  
+    1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
-    2.  Erweitern Sie im Arbeitsbereich **Softwarebibliothek** den Bereich **Betriebssysteme**, und klicken Sie dann auf **Startabbilder**.  
+    2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Images de démarrage**.  
 
-    3.  Klicken Sie auf das in Schritt 3 angegebene Startabbild.  
+    3.  Cliquez sur l'image de démarrage identifiée à l'étape 3.  
 
-    4.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Bereitstellung** auf **Verteilungspunkte aktualisieren**.  
+    4.  Dans l'onglet **Accueil** , dans le groupe **Déploiement** , cliquez sur **Mettre à jour les points de distribution**.  
 
-## <a name="customize-a-boot-image-that-uses-windows-pe-31"></a>Passen Sie ein Startabbild an, das Windows PE 3.1 verwendet.  
- Zum Anpassen eines Startabbilds, das Windows PE 3.1 verwendet, müssen Sie nacheinander Windows AIK und die Ergänzung zu Windows AIK für Windows 7 SP1 installieren und dann mithilfe des Befehlszeilenprogramms DISM das Startabbild bereitstellen, zusätzliche Komponenten und Treiber hinzufügen und die Änderungen im Startabbild ausführen. Gehen Sie wie folgt vor, um das Startabbild anzupassen.  
+## <a name="customize-a-boot-image-that-uses-windows-pe-31"></a>Personnaliser une image de démarrage qui utilise Windows PE 3.1  
+ Pour personnaliser une image de démarrage qui utilise WinPE 3.1, vous devez installer Windows AIK, installer le supplément Windows AIK pour Windows 7 SP1 et utiliser l'outil de ligne de commande DISM pour monter l'image de démarrage, ajouter des composants et des pilotes facultatifs et appliquer les modifications à l'image de démarrage. Pour personnaliser l'image de démarrage, procédez comme suit.  
 
-#### <a name="to-customize-a-boot-image-that-uses-windows-pe-31"></a>So passen Sie ein Startabbild an, das Windows PE 3.1 verwendet  
+#### <a name="to-customize-a-boot-image-that-uses-windows-pe-31"></a>Pour personnaliser une image de démarrage qui utilise Windows PE 3.1  
 
-1.  Installieren Sie das Windows A|K auf einem Computer, auf dem keine andere Windows AIK- oder Windows ADK-Version installiert ist und auf dem keine Configuration Manager-Komponenten installiert sind. Laden Sie Windows AIK im [Microsoft Download Center](http://www.microsoft.com/download/details.aspx?id=5753)herunter.  
+1.  Installez Windows AIK sur un ordinateur qui n’a pas d’autre version de Windows AIK ni de Windows ADK, et sur lequel aucun composant Configuration Manager n’est installé. Téléchargez le kit Windows AIK depuis le [Centre de téléchargement Microsoft](http://www.microsoft.com/download/details.aspx?id=5753).  
 
-2.  Installieren Sie die Ergänzung zu Windows AIK für Windows 7 mit SP1 auf dem Computer aus Schritt 1. Laden Sie die Ergänzung zu Windows AIK für Windows 7 SP1 aus dem [Microsoft Download Center](http://www.microsoft.com/download/details.aspx?id=5188)herunter.  
+2.  Installez le supplément Windows AIK pour Windows 7 avec SP1 sur l'ordinateur de l'étape 1. Téléchargez le supplément Windows AIK pour Windows 7 SP1 depuis le [Centre de téléchargement Microsoft](http://www.microsoft.com/download/details.aspx?id=5188).  
 
-3.  Kopieren Sie das Startimage (wimpe.wim) aus dem Windows AIK-Installationsordner (z.B. „<*Installationspfad*>\Windows AIK\Tools\PETools\amd64\\“) in einen Ordner auf dem Computer, von dem aus Sie das Startimage anpassen. In dieser Vorgehensweise wird C:\WinPEWAIK als Ordnername verwendet.  
+3.  Copiez l’image de démarrage (wimpe.wim) qui se trouve dans le dossier d’installation Windows AIK (par exemple, <*chemin_installation*>\Windows AIK\Tools\PETools\amd64\\) vers un dossier de l’ordinateur à partir duquel vous personnaliserez l’image de démarrage. Cette procédure utilise C:\WinPEWAIK comme nom de dossier.  
 
-4.  Stellen Sie das Startabbild mithilfe von DISM in einem lokalen Windows PE-Ordner bereit. Geben Sie beispielsweise folgende Befehlszeile ein:  
+4.  Utilisez DISM pour monter l'image de démarrage dans un dossier Windows PE local. Par exemple, tapez la ligne de commande suivante :  
 
      **dism.exe /mount-wim /wimfile:C:\WinPEWAIK\winpe.wim /index:1 /mountdir:C:\WinPEMount**  
 
-     Hierbei ist C:\WinPEWAIK der Ordner, in dem das Startabbild enthalten ist, und C:\WinPEMount der bereitgestellte Ordner.  
+     Où C:\WinPEWAIK est le dossier qui contient l'image de démarrage et C:\WinPEMount est le dossier monté.  
 
     > [!NOTE]
-    >  Weitere Informationen zu DISM finden Sie im Thema [Technische Referenz zur Imageverwaltung für die Bereitstellung](http://technet.microsoft.com/library/dd744256\(v=ws.10\).aspx) in der TechNet-Dokumentationsbibliothek für Windows 7.  
+    >  Pour plus d’informations sur DISM, consultez la rubrique [Informations techniques de référence sur l’outil Gestion et maintenance des images de déploiement](http://technet.microsoft.com/library/dd744256\(v=ws.10\).aspx) dans la bibliothèque de documentation TechNet Windows 7.  
 
-5.  Nach dem Bereitstellen des Startabbilds fügen Sie diesem mit DISM optionale Komponenten hinzu. In Windows PE 3.1 beispielsweise befinden sich die optionalen Komponenten im Verzeichnis „<*Installationspfad*>\Windows AIK\Tools\PETools\amd64\WinPE_FPs\\“.  
+5.  Une fois que vous avez monté l'image de démarrage, utilisez DISM pour ajouter des composants facultatifs à l'image de démarrage. Dans Windows PE 3.1, par exemple, les composants facultatifs sont situés dans <*chemin_installation*>\Windows AIK\Tools\PETools\amd64\WinPE_FPs\\.  
 
     > [!NOTE]
-    >  Bei diesem Verfahren wird der folgende Speicherort für die optionalen Komponenten verwendet: C:\Programme\Windows AIK\Tools\PETools\amd64\WinPE_FPs. Je nach Windows AIK-Version und dafür ausgewählten Optionen kann sich der Pfad bei Ihnen unterscheiden.  
+    >  Cette procédure utilise l'emplacement suivant pour les composants facultatifs : C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs. Le chemin d'accès que vous utilisez peut être différent selon les options de version et d'installation que vous choisissez pour le kit Windows AIK.  
 
-     Geben Sie Folgendes ein, um die optionalen Komponenten zu installieren:  
+     Tapez la commande suivante pour installer les composants facultatifs :  
 
      **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\winpe-wmi.cab"**  
 
@@ -217,13 +217,13 @@ Jede Version von Configuration Manager unterstützt eine bestimmte Version von W
 
      **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\winpe-wds-tools.cab"**  
 
-     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\\** *<Gebietsschema\>* **\winpe-wmi_** *<Gebietsschema\>* **.cab"**  
+     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\\** *<locale\>* **\winpe-wmi_** *<paramètres régionaux\>* **.cab"**  
 
-     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\\** *<Gebietsschema\>* **\winpe-scripting_** *<Gebietsschema\>* **.cab"**  
+     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\\** *<locale\>* **\winpe-scripting_** *<paramètres régionaux\>* **.cab"**  
 
-     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\\** *<Gebietsschema\>* **\winpe-wds-tools_** *<Gebietsschema\>* **.cab"**  
+     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\\** *<locale\>* **\winpe-wds-tools_** *<paramètres régionaux\>* **.cab"**  
 
-     "C:\WinPEMount" ist der bereitgestellte Ordner und "locale" ist das Gebietsschema für die Komponenten. Für das Gebietsschema **en-us** geben Sie z. B. Folgendes ein:  
+     Où C:\WinPEMount est le dossier monté et paramètres régionaux désigne les paramètres régionaux des composants. Par exemple, pour les paramètres régionaux **fr-fr** , tapez :  
 
      **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\en-us\winpe-wmi_en-us.cab"**  
 
@@ -232,70 +232,70 @@ Jede Version von Configuration Manager unterstützt eine bestimmte Version von W
      **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\en-us\winpe-wds-tools_en-us.cab"**  
 
     > [!TIP]
-    >  Weitere Informationen zu den verschiedenen Paketen, die Sie dem Startimage hinzufügen können, finden Sie im Thema [Hinzufügen eines Pakets zu einem Windows PE-Image](http://technet.microsoft.com/library/dd799312\(v=WS.10\).aspx) in der TechNet-Dokumentationsbibliothek für Windows 7.  
+    >  Pour plus d’informations sur les différents packages que vous pouvez ajouter à l’image de démarrage, consultez la rubrique [Ajouter un package à une image Windows PE](http://technet.microsoft.com/library/dd799312\(v=WS.10\).aspx) dans la bibliothèque de documentation TechNet Windows 7.  
 
-6.  Fügen Sie mithilfe von DISM erforderlichenfalls bestimmte Treiber zum Startabbild hinzu. Geben Sie Folgendes ein, um Treiber zum Startabbild hinzuzufügen:  
+6.  Utilisez DISM pour ajouter des pilotes spécifiques à l'image de démarrage, si nécessaire. Tapez la commande suivante pour ajouter des pilotes à l'image de démarrage, si nécessaire :  
 
-     **dism.exe /image:C:\WinPEMount /add-driver /driver:&lt;** *path to driver .inf file* **>**  
+     **dism.exe /image:C:\WinPEMount /add-driver /driver:&lt;** *chemin d'accès au fichier .inf du pilote* **>**  
 
-     Hierbei ist C:\WinPEMount der bereitgestellte Ordner.  
+     Où C:\WinPEMount est le dossier monté.  
 
-7.  Geben Sie Folgendes ein, um die Bereitstellung der Startabbilddatei aufzuheben und die Änderungen auszuführen.  
+7.  Tapez la commande suivante pour démonter le fichier image de démarrage et valider les modifications.  
 
      **dism.exe /unmount-wim /mountdir:C:\WinPEMount /commit**  
 
-     Hierbei ist C:\WinPEMount der bereitgestellte Ordner.  
+     Où C:\WinPEMount est le dossier monté.  
 
-8.  Fügen Sie das aktualisierte Startimage zu Configuration Manager hinzu, um es zur Verwendung in Ihren Tasksequenzen verfügbar zu machen. Gehen Sie wie folgt vor, um das aktualisierte Startabbild zu importieren:  
+8.  Ajoutez l’image de démarrage mise à jour à Configuration Manager pour pouvoir l’utiliser dans vos séquences de tâches. Utilisez les étapes suivantes pour importer l'image de démarrage mise à jour :  
 
-    1.  Klicken Sie in der Configuration Manager-Konsole auf **Softwarebibliothek**.  
+    1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
-    2.  Erweitern Sie im Arbeitsbereich **Softwarebibliothek** den Bereich **Betriebssysteme**, und klicken Sie dann auf **Startabbilder**.  
+    2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Images de démarrage**.  
 
-    3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** auf **Startabbild hinzufügen** , um den Assistenten zum Hinzufügen von Startabbildern zu starten.  
+    3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Ajouter une image de démarrage** pour démarrer l'Assistant Ajout d'une image de démarrage.  
 
-    4.  Geben Sie auf der Seite **Datenquelle** die folgenden Optionen an, und klicken Sie dann auf **Weiter**.  
+    4.  Sur la page **Source de données** , spécifiez les options suivantes et cliquez sur **Suivant**.  
 
-        -   Geben Sie im Feld **Pfad** den Pfad der aktualisierten Startabbilddatei an. Der angegebene Pfad muss ein gültiger Netzwerkpfad im UNC-Format sein. Beispiel: **\\\\<***Servername***>\\<***WinPEWAIK-Freigabe***>\winpe.wim**.  
+        -   Dans la zone **Chemin d'accès** , indiquez le chemin d'accès au fichier de l'image de démarrage mis à jour. Le chemin d'accès spécifié doit être un chemin d'accès réseau valide au format UNC. Par exemple : **\\\\<***nom_serveur***>\\<***partage WinPEWAIK***>\winpe.wim**.  
 
-        -   Wählen Sie das Startabbild in der Dropdownliste **Startabbild** aus. Wenn die WIM-Datei mehrere Startabbilder enthält, werden sämtliche Abbilder aufgeführt.  
+        -   Sélectionnez l'image de démarrage dans la liste déroulante **Image de démarrage** . Si le fichier WIM contient plusieurs images de démarrage, chaque image est répertoriée.  
 
-    5.  Geben Sie auf der Seite **Allgemein** die folgenden Optionen an, und klicken Sie dann auf **Weiter**.  
+    5.  Sur la page **Général** , spécifiez les options suivantes et cliquez sur **Suivant**.  
 
-        -   Geben Sie im Feld **Name** einen eindeutigen Namen für das Startabbild an.  
+        -   Dans la zone **Nom** , spécifiez un nom unique pour l'image de démarrage.  
 
-        -   Geben Sie im Feld **Version** eine Versionsnummer für das Startabbild an.  
+        -   Dans la zone **Version** , spécifiez un numéro de version pour l'image de démarrage.  
 
-        -   Geben Sie im Feld **Kommentar** anhand einer kurzen Beschreibung an, wie das Startabbild verwendet werden soll.  
+        -   Dans la zone **Commentaire** , spécifiez une description sommaire de l'utilisation de l'image de démarrage.  
 
-    6.  Schließen Sie den Assistenten ab.  
+    6.  Effectuez toutes les étapes de l'Assistant.  
 
-9. Sie können im Startabbild eine Befehlsshell aktivieren, um es in Windows PE zu debuggen und Probleme zu behandeln. Gehen Sie wie folgt vor, um die Befehlsshell zu aktivieren.  
+9. Vous pouvez activer une invite de commandes dans l'image de démarrage pour le débogage et le dépannage dans Windows PE. Utilisez les étapes suivantes pour activer l'invite de commandes.  
 
-    1.  Klicken Sie in der Configuration Manager-Konsole auf **Softwarebibliothek**.  
+    1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
-    2.  Erweitern Sie im Arbeitsbereich **Softwarebibliothek** den Bereich **Betriebssysteme**, und klicken Sie dann auf **Startabbilder**.  
+    2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Images de démarrage**.  
 
-    3.  Suchen Sie in der Liste nach dem neuen Startabbild, und ermitteln Sie die Paket-ID des Abbilds. Sie finden die Paket-ID in der Spalte **Abbild-ID** für das Startabbild.  
+    3.  Recherchez la nouvelle image de démarrage dans la liste et identifiez l'ID de package pour l'image. Vous pouvez trouver l'ID de package dans la colonne **ID de l'image** pour l'image de démarrage.  
 
-    4.  Geben Sie an der Eingabeaufforderung den Befehl **wbemtest** ein, um das Testprogramm für die Windows-Verwaltungsinstrumentation zu öffnen.  
+    4.  À partir d'une invite de commande, tapez **wbemtest** pour ouvrir le testeur WMI.  
 
-    5.  Geben Sie **\\\\<***SMS-Anbietercomputer***>\root\sms\site_<***Standortcode***>** in **Namespace**ein, und klicken Sie auf **Verbinden**.  
+    5.  Tapez **\\\\<***ordinateur_fournisseur_SMS***>\root\sms\site_<***code_site***>** dans **Espace de noms**, puis cliquez sur **Connexion**.  
 
-    6.  Klicken Sie auf **Instanz öffnen**, geben Sie **sms_bootimagepackage.packageID="<Paket-ID\>"** ein, und klicken Sie auf **OK**. Geben Sie als Paket-ID den in Schritt 3 ermittelten Wert ein.  
+    6.  Cliquez sur **Ouvrir une instance**, tapez **sms_bootimagepackage.packageID="<packageID\>"**, puis cliquez sur **OK**. Pour packageID, entrez la valeur que vous avez identifiée à l'étape 3.  
 
-    7.  Klicken Sie auf **Objekt aktualisieren**und dann im Bereich **Eigenschaften** auf **EnableLabShell** .  
+    7.  Cliquez sur **Actualiser l'objet**, puis cliquez sur **EnableLabShell** dans le volet **Propriétés** .  
 
-    8.  Klicken Sie auf **Eigenschaft bearbeiten**, ändern Sie den Wert auf **TRUE**, und klicken Sie auf **Eigenschaft speichern**.  
+    8.  Cliquez sur **Modifier la propriété**, remplacez la valeur par **TRUE**, puis cliquez sur **Enregistrer la propriété**.  
 
-    9. Klicken Sie auf **Objekt speichern**, und beenden Sie dann das Testprogramm für Windows-Verwaltungsinstrumentation.  
+    9. Cliquez sur **Enregistrer l'objet**, puis fermez le testeur WMI.  
 
-10. Sie müssen das Startabbild an Verteilungspunkte, Verteilungspunktgruppen oder mit Verteilungspunktgruppen verknüpften Sammlungen verteilen, um es in einer Tasksequenz verwenden zu können. Gehen Sie wie folgt vor, um das Startabbild zu verteilen.  
+10. Vous devez distribuer l'image de démarrage vers des points de distribution, des groupes de points de distribution ou des regroupements associés à des groupes de points de distribution avant de pouvoir utiliser l'image de démarrage dans une séquence de tâches. Pour distribuer l'image de démarrage, procédez comme suit.  
 
-    1.  Klicken Sie in der Configuration Manager-Konsole auf **Softwarebibliothek**.  
+    1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
-    2.  Erweitern Sie im Arbeitsbereich **Softwarebibliothek** den Bereich **Betriebssysteme**, und klicken Sie dann auf **Startabbilder**.  
+    2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Images de démarrage**.  
 
-    3.  Klicken Sie auf das in Schritt 3 angegebene Startabbild.  
+    3.  Cliquez sur l'image de démarrage identifiée à l'étape 3.  
 
-    4.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Bereitstellung** auf **Verteilungspunkte aktualisieren**.  
+    4.  Dans l'onglet **Accueil** , dans le groupe **Déploiement** , cliquez sur **Mettre à jour les points de distribution**.  

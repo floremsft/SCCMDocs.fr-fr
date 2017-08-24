@@ -1,6 +1,6 @@
 ---
-title: "Voraussetzungsprüfung | Microsoft-Dokumentation"
-description: "Hier erfahren Sie, wie Sie mit der Voraussetzungsprüfung Probleme erkennen und beheben, die die Installation eines Standorts oder einer Standortsystemrolle verhindern könnten."
+title: "Outil de vérification des prérequis | Microsoft Docs"
+description: "Découvrez comment utiliser l’Outil de vérification des prérequis pour identifier et résoudre les problèmes susceptibles de bloquer l’installation d’un site ou d’un rôle de système de site."
 ms.custom: na
 ms.date: 3/1/2017
 ms.prod: configuration-manager
@@ -17,41 +17,41 @@ manager: angrobe
 ms.openlocfilehash: f0d44f82a0b6068f8cecc5808774677eccb0f8d9
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="prerequisite-checker-for-system-center-configuration-manager"></a>Voraussetzungsprüfung für System Center Configuration Manager
+# <a name="prerequisite-checker-for-system-center-configuration-manager"></a>Outil de vérification des prérequis pour System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
- Bevor Sie Setup zum Installieren oder Aktualisieren eines System Center Configuration Manager-Standorts ausführen bzw. bevor Sie auf einem neuen Server eine Standortsystemrolle installieren, können Sie diese eigenständige Anwendung (**Prereqchk.exe**) für die Version von Configuration Manager verwenden, mit der Sie die Serverbereitschaft überprüfen möchten. Erkennen Sie mit der Voraussetzungsprüfung Probleme und beheben Sie die, die die Installation eines Standorts oder einer Standortsystemrolle verhindern würden.  
+ Avant d’exécuter le programme d’installation pour installer ou mettre à niveau un site System Center Configuration Manager, ou avant d’installer un rôle de système de site sur un nouveau serveur, vous pouvez utiliser cette application autonome (**Prereqchk.exe**) de la version de Configuration Manager que vous voulez utiliser pour vérifier l’état de préparation du serveur. Utilisez l’Outil de vérification des prérequis pour identifier et résoudre les problèmes susceptibles de bloquer l’installation d’un site ou d’un rôle de système de site.  
 
 > [!NOTE]  
->  Die Voraussetzungsprüfung wird immer als Teil von Setup ausgeführt.  
+>  L’Outil de vérification des prérequis s’exécute toujours pendant l’installation.  
 
-Die Voraussetzungsprüfung führt standardmäßig diese Schritte aus:  
+Par défaut, quand l’Outil de vérification des prérequis s’exécute :  
 
--   Sie überprüft den Server, auf dem sie ausgeführt wird.  
--   Der lokale Computer wird auf einen vorhandenen Standortserver überprüft, und es werden nur die für diesen Standort relevanten Prüfungen ausgeführt.  
--   Wenn keine vorhandenen Standorte erkannt werden, werden alle vorausgesetzten Regeln ausgeführt.  
--   Sie überprüft, ob die Software und die Einstellungen installiert wurden, die für das Setup erforderlich sind. Es ist möglich, dass erforderliche Software zusätzliche Konfigurationen oder Softwareupdates benötigt, die nicht von der Voraussetzungsprüfung überprüft werden.  
--   Sie protokolliert ihre Ergebnisse in der Datei **ConfigMgrPrereq.log** auf dem Systemlaufwerk des Computers. Die Protokolldatei enthält möglicherweise Zusatzinformationen, die nicht auf der Anwendungsoberfläche erscheinen.  
+-   Il valide le serveur sur lequel il s’exécute.  
+-   Il recherche un serveur de site sur l’ordinateur local et exécute uniquement les vérifications applicables au site.  
+-   Si aucun site existant n'est détecté, toutes les règles de vérification des prérequis sont exécutées.  
+-   Il vérifie les règles pour s’assurer de la présence des logiciels et des paramètres nécessaires à l’installation. Il est possible qu’un logiciel requis nécessite des configurations ou des mises à jour logicielles supplémentaires qui ne sont pas vérifiées par l’Outil de vérification des prérequis.  
+-   Il enregistre ses résultats dans le fichier journal **ConfigMgrPrereq.log** sur le lecteur système de l’ordinateur. Le fichier journal peut contenir des informations supplémentaires qui n’apparaissent pas dans l’interface de l’application.  
 
-Wenn Sie die Voraussetzungsprüfung bei der Eingabeaufforderung ausführen und spezifische Befehlszeilenoptionen angeben:  
+Quand vous exécutez l’Outil de vérification des prérequis à l’invite de commandes et spécifiez des options de ligne de commande :  
 
--   Die Voraussetzungsprüfung führt nur die Prüfungen aus, die dem Standortserver oder den Standortsystemen zugeordnet sind, die Sie an der Befehlszeile angegeben haben.  
--   Um einen Remotecomputer zu überprüfen, muss Ihr Benutzerkonto über Administratorrechte für den Remotecomputer verfügen.  
+-   L’Outil de vérification des prérequis effectue uniquement les vérifications associées au serveur de site ou aux systèmes de site que vous spécifiez sur la ligne de commande.  
+-   Pour vérifier un ordinateur distant, votre compte d’utilisateur doit disposer des droits d’administrateur sur cet ordinateur.  
 
-Weitere Informationen zu Voraussetzungsprüfungen finden Sie unter [Liste der Voraussetzungsprüfungen für System Center Configuration Manager](../../../../core/servers/deploy/install/list-of-prerequisite-checks.md).  
+Pour plus d’informations sur les vérifications effectuées par l’Outil de vérification des prérequis, consultez [Liste des vérifications des prérequis pour System Center Configuration Manager](../../../../core/servers/deploy/install/list-of-prerequisite-checks.md).  
 
-## <a name="copy-prerequisite-checker-files-to-another-computer"></a>Kopieren von Dateien der Voraussetzungsprüfung auf einen anderen Computer  
+## <a name="copy-prerequisite-checker-files-to-another-computer"></a>Copier les fichiers de l’Outil de vérification des prérequis sur un autre ordinateur  
 
-1.  Gehen Sie in Windows-Explorer zu einem der folgenden Speicherorte:  
+1.  Dans l’Explorateur Windows, accédez à l’un des emplacements suivants :  
 
-    -   **&lt;*Configuration Manager-Installationsmedium*\>>\SMSSETUP\BIN\X64**  
-    -   **&lt;*Configuration Manager-Installationspfad*\>\BIN\X64**  
+    -   **&lt;*Support d’installation de Configuration Manager*\>\SMSSETUP\BIN\X64**  
+    -   **&lt;*Répertoire d’installation de Configuration Manager*\>\BIN\X64**  
 
-2.  Kopieren Sie die folgenden Dateien in den Zielordner auf dem anderen Computer:  
+2.  Copiez les fichiers suivants vers le dossier de destination sur l'autre ordinateur :  
 
     -   Prereqchk.exe  
     -   Prereqcore.dll  
@@ -59,140 +59,140 @@ Weitere Informationen zu Voraussetzungsprüfungen finden Sie unter [Liste der Vo
     -   Basesvr.dll  
     -   Baseutil.dll  
 
-##  <a name="run-prerequisite-checker-with-default-checks"></a>Ausführen der Voraussetzungsprüfung mit Standardprüfungen  
+##  <a name="run-prerequisite-checker-with-default-checks"></a>Exécuter l’Outil de vérification des prérequis avec les vérifications par défaut  
 
-1.  Gehen Sie in Windows-Explorer zu einem der folgenden Speicherorte:  
+1.  Dans l’Explorateur Windows, accédez à l’un des emplacements suivants :  
 
-    -   **&lt;*Configuration Manager-Installationsmedium*\>>\SMSSETUP\BIN\X64**  
-    -   **&lt;*Configuration Manager-Installationspfad*\>\BIN\X64**  
+    -   **&lt;*Support d’installation de Configuration Manager*\>\SMSSETUP\BIN\X64**  
+    -   **&lt;*Répertoire d’installation de Configuration Manager*\>\BIN\X64**  
 
-2.  Führen Sie **prereqchk.exe** aus, um die Voraussetzungsprüfung zu starten.   
-    Mithilfe der Voraussetzungsprüfung werden vorhandene Standorte erkannt und auf ihre Bereitschaft für Upgrades überprüft. Wenn keine Standorte gefunden werden, werden alle Prüfungen ausgeführt. In der Spalte **Standorttyp** finden Sie Informationen zum Standortserver oder Standortsystem, dem die Rolle zugeordnet ist.  
+2.  Exécutez **prereqchk.exe** pour démarrer l’Outil de vérification des prérequis.   
+    L’Outil de vérification des prérequis détecte les sites existants et, une fois identifiés, vérifie s'ils sont prêts pour une mise à niveau. Si aucun site n'est trouvé, toutes les vérifications sont effectuées. La colonne **Type de site** fournit des informations sur le serveur de site ou le système de site auquel la règle est associée.  
 
-##  <a name="run-prerequisite-checker-from-a-command-prompt-for-all-default-checks"></a>Ausführen der Voraussetzungsprüfung über eine Eingabeaufforderung für alle Standardprüfungen  
+##  <a name="run-prerequisite-checker-from-a-command-prompt-for-all-default-checks"></a>Exécuter l’Outil de vérification des prérequis à partir d’une invite de commandes pour toutes les vérifications par défaut  
 
-1.  Öffnen Sie ein Eingabeaufforderungsfenster, und wechseln Sie zu einem der folgenden Speicherorte:  
+1.  Ouvrez une fenêtre d’invite de commandes, puis accédez à l’un des répertoires suivants :  
 
-    -   **&lt;*Configuration Manager-Installationsmedium*\>>\SMSSETUP\BIN\X64**  
-    -   **&lt;*Configuration Manager-Installationspfad*\>\BIN\X64**  
+    -   **&lt;*Support d’installation de Configuration Manager*\>\SMSSETUP\BIN\X64**  
+    -   **&lt;*Répertoire d’installation de Configuration Manager*\>\BIN\X64**  
 
-2.  Geben Sie  **prereqchk.exe /LOCAL** ein, um die Voraussetzungsprüfung zu starten und alle Prüfungen auf dem Server auszuführen.  
+2.  Entrez  **prereqchk.exe /LOCAL** pour démarrer l’Outil de vérification des prérequis et effectuer toutes les vérifications des prérequis sur le serveur.  
 
-## <a name="run-prerequisite-checker-from-a-command-prompt-to-use-options"></a>Ausführen der Voraussetzungsprüfung über eine Eingabeaufforderung für angegebene Optionen  
+## <a name="run-prerequisite-checker-from-a-command-prompt-to-use-options"></a>Exécuter l’Outil de vérification des prérequis à partir d’une invite de commandes pour utiliser des options  
 
-1.  Öffnen Sie ein Eingabeaufforderungsfenster, und wechseln Sie zu einem der folgenden Speicherorte:  
+1.  Ouvrez une fenêtre d’invite de commandes, puis accédez à l’un des répertoires suivants :  
 
-    -   **&lt;*Configuration Manager-Installationsmedium*\>>\SMSSETUP\BIN\X64**  
-    -   **&lt;*Configuration Manager-Installationspfad*\>\BIN\X64**  
+    -   **&lt;*Support d’installation de Configuration Manager*\>\SMSSETUP\BIN\X64**  
+    -   **&lt;*Répertoire d’installation de Configuration Manager*\>\BIN\X64**  
 
-2.  Geben Sie **prereqchk.exe** sowie eine oder mehrere der folgenden Befehlszeilenoptionen ein.  
+2.  Entrez **prereqchk.exe** en ajoutant une ou plusieurs des options de ligne de commande suivantes.  
 
-    Um z.B. einen primären Standort zu überprüfen, können Sie Folgendes verwenden:  
+    Par exemple, pour vérifier un site principal, vous pouvez spécifier ce qui suit :  
 
-       **prereqchk.exe [/NOUI] /PRI /SQL &lt;FQDN von SQL Server\> /SDK &lt;FQDN des SMS-Anbieters\> [/JOIN &lt;FQDN des Standorts der zentralen Verwaltung\>] [/MP &lt;FQDN des Verwaltungspunkts\>] [/DP &lt;FQDN des Verteilungspunkts\>]**  
+       **prereqchk.exe [/NOUI] /PRI /SQL &lt;Nom de domaine complet de SQL Server\> /SDK &lt;Nom de domaine complet du fournisseur SMS\> [/JOIN &lt;Nom de domaine complet du site d’administration centrale\>] [/MP &lt;Nom de domaine complet du point de gestion\>] [/DP &lt;Nom de domaine complet du point de distribution\>]**  
 
-    **Standortserver der zentralen Verwaltung:**  
+    **Serveur de site d’administration centrale** :  
 
     -   **/NOUI**  
 
-         Nicht erforderlich. Startet die Voraussetzungsprüfung, ohne die Benutzeroberfläche anzuzeigen. Sie müssen diese Option vor allen anderen Optionen in der Befehlszeile angeben.  
+         Non obligatoire. Démarre l’Outil de vérification des prérequis sans afficher l’interface utilisateur. Vous devez spécifier cette option avant toute autre option dans la ligne de commande.  
 
     -   **/CAS**  
 
-         Erforderlich. Mit dieser Option wird überprüft, ob der lokale Computer die Anforderungen für den Standort der zentralen Verwaltung erfüllt.  
+         Obligatoire. Vérifie que l'ordinateur local répond à la configuration requise pour le site d'administration centrale.  
 
-    -   **/SQL &lt;*FQDN von SQL Server*>**  
+    -   **/SQL &lt;*Nom de domaine complet de SQL Server*>**  
 
-         Erforderlich. Das Verwenden des vollqualifizierten Domänennamens (fully qualified domain name, FQDN) überprüft, ob auf dem angegebenen Computer die Voraussetzungen für SQL Server zum Hosten der Configuration Manager-Standortdatenbank erfüllt sind.  
+         Obligatoire. À l’aide du nom de domaine complet, vérifie que l’ordinateur spécifié présente la configuration requise pour que SQL Server puisse héberger la base de données du site Configuration Manager.  
 
-    -   **/SDK &lt;*FQDN des SMS-Anbieters*>**  
+    -   **/SDK &lt;*Nom de domaine complet du fournisseur SMS*>**  
 
-         Erforderlich. Mit dieser Option wird überprüft, ob der angegebene Computer die Anforderungen für den SMS-Anbieter erfüllt.  
+         Obligatoire. Vérifie que l'ordinateur spécifié répond à la configuration requise pour le fournisseur SMS.  
 
     -   **/Ssbport**  
 
-         Nicht erforderlich. Mit dieser Option wird überprüft, ob eine Firewallausnahme eingerichtet wurde, um die Kommunikation auf dem SSB-Port (SQL Server Service Broker) zuzulassen. Der Standard-SSB-Port ist 4022.  
+         Non obligatoire. Vérifie qu’une exception de pare-feu est en place pour autoriser la communication sur le port SQL Server Service Broker (SSB). Le port SSB par défaut est 4022.  
 
-    -   **InstallDir&lt;*Configuration Manager-Installationspfad*>**  
+    -   **InstallDir &lt;*Chemin d’installation de Configuration Manager*>**  
 
-         Nicht erforderlich. Mit dieser Option wird überprüft, ob der benötigte Mindestspeicherplatz für die Standortinstallation verfügbar ist.  
+         Non obligatoire. Vérifie l’espace disque minimal nécessaire pour l’installation du site.  
 
-    **Primärer Standortserver:**  
+    **Serveur de site principal** :  
 
     -   **/NOUI**  
 
-        Nicht erforderlich. Startet die Voraussetzungsprüfung, ohne die Benutzeroberfläche anzuzeigen. Sie müssen diese Option vor allen anderen Optionen in der Befehlszeile angeben.  
+        Non obligatoire. Démarre l’Outil de vérification des prérequis sans afficher l’interface utilisateur. Vous devez spécifier cette option avant toute autre option dans la ligne de commande.  
 
     -   **/PRI**  
 
-         Erforderlich. Mit dieser Option wird überprüft, ob der lokale Computer die Anforderungen für den primären Standort erfüllt.  
+         Obligatoire. Vérifie que l'ordinateur local répond à la configuration requise pour le site principal.  
 
-    -   **/SQL &lt;*FQDN von SQL Server*>**  
+    -   **/SQL &lt;*Nom de domaine complet de SQL Server*>**  
 
-         Erforderlich. Mit dieser Option wird überprüft, ob auf dem angegebenen Computer die Voraussetzungen für SQL Server zum Hosten der Configuration Manager-Standortdatenbank erfüllt sind.  
+         Obligatoire. Vérifie que l’ordinateur spécifié présente la configuration requise pour que SQL Server puisse héberger la base de données du site Configuration Manager.  
 
-    -   **/SDK &lt;*FQDN des SMS-Anbieters*>**  
+    -   **/SDK &lt;*Nom de domaine complet du fournisseur SMS*>**  
 
-         Erforderlich. Mit dieser Option wird überprüft, ob der angegebene Computer die Anforderungen für den SMS-Anbieter erfüllt.  
+         Obligatoire. Vérifie que l'ordinateur spécifié répond à la configuration requise pour le fournisseur SMS.  
 
-    -   **/JOIN &lt;*FQDN des Standorts der zentralen Verwaltung*>**  
+    -   **/JOIN &lt;*Nom de domaine complet du site d’administration centrale*>**  
 
-         Nicht erforderlich. Mit dieser Option wird überprüft, ob der lokale Computer die Anforderungen für die Verbindung mit dem Standortserver der zentralen Verwaltung erfüllt.  
+         Non obligatoire. Vérifie que l'ordinateur local est conforme à la configuration requise pour se connecter au serveur de site d'administration centrale.  
 
-    -   **/MP &lt;*FQDN des Verwaltungspunkts*>**  
+    -   **/MP &lt;*Nom de domaine complet du point de gestion*>**  
 
-         Nicht erforderlich. Mit dieser Option wird überprüft, ob der angegebene Computer die Anforderungen für die Standortsystemrolle „Verwaltungspunkt“ erfüllt. Diese Option wird nur unterstützt, wenn Sie die Option **/PRI** verwenden.  
+         Non obligatoire. Vérifie que l'ordinateur spécifié répond à la configuration requise pour le rôle de système de site du point de gestion. Cette option est prise en charge uniquement avec l’option **/PRI** .  
 
-    -   **/DP &lt;*FQDN des Verteilungspunkts*>**  
+    -   **/DP &lt;*Nom de domaine complet du point de distribution*>**  
 
-         Nicht erforderlich. Mit dieser Option wird überprüft, ob der angegebene Computer die Anforderungen für die Standortsystemrolle „Verteilungspunkt“ erfüllt. Diese Option wird nur unterstützt, wenn Sie die Option **/PRI** verwenden.  
+         Non obligatoire. Vérifie que l'ordinateur spécifié répond à la configuration requise pour le rôle de système de site du point de distribution. Cette option est prise en charge uniquement avec l’option **/PRI** .  
 
     -   **/Ssbport**  
 
-         Nicht erforderlich. Mit dieser Option wird überprüft, ob eine Firewallausnahme eingerichtet wurde, um die Kommunikation über den SSB-Port zuzulassen. Der Standard-SSB-Port ist 4022.  
+         Non obligatoire. Vérifie qu'une exception de pare-feu est en place pour permettre la communication sur le port SSB. Le port SSB par défaut est 4022.  
 
-    -   **InstallDir&lt;*Configuration Manager-Installationspfad*>**  
+    -   **InstallDir &lt;*Chemin d’installation de Configuration Manager*>**  
 
-         Nicht erforderlich. Mit dieser Option wird überprüft, ob der benötigte Mindestspeicherplatz für die Standortinstallation verfügbar ist.  
+         Non obligatoire. Vérifie l’espace disque minimal nécessaire pour l’installation du site.  
 
-    **Sekundärer Standortserver:**  
+    **Serveur de site secondaire** :  
 
     -   **/NOUI**  
 
-         Nicht erforderlich. Startet die Voraussetzungsprüfung, ohne die Benutzeroberfläche anzuzeigen. Sie müssen diese Option vor allen anderen Optionen in der Befehlszeile angeben.  
+         Non obligatoire. Démarre l’Outil de vérification des prérequis sans afficher l’interface utilisateur. Vous devez spécifier cette option avant toute autre option dans la ligne de commande.  
 
-    -   **/SEC &lt;*FQDN des sekundären Standortservers*>**  
+    -   **/SEC &lt;*Nom de domaine complet du serveur de site secondaire*>**  
 
-         Erforderlich. Mit dieser Option wird überprüft, ob der angegebene Computer die Anforderungen für den sekundären Standort erfüllt.  
+         Obligatoire. Vérifie que l'ordinateur spécifié répond aux exigences pour le site secondaire.  
 
     -   **/INSTALLSQLEXPRESS**  
 
-         Nicht erforderlich. Mit dieser Option wird überprüft, ob SQL Server Express auf dem angegebenen Computer installiert werden kann.  
+         Non obligatoire. Vérifie que SQL Server Express peut être installé sur l'ordinateur spécifié.  
 
     -   **/Ssbport**  
 
-         Nicht erforderlich. Mit dieser Option wird überprüft, ob eine Firewallausnahme eingerichtet wurde, um die Kommunikation für den SSB-Port zuzulassen. Der Standard-SSB-Port ist 4022.  
+         Non obligatoire. Vérifie qu’une exception de pare-feu est en place pour permettre la communication sur le port SSB. Le port SSB par défaut est 4022.  
 
     -   **/Sqlport**  
 
-         Nicht erforderlich. Mit dieser Option wird überprüft, ob eine Firewallausnahme eingerichtet wurde, um die Verbindung mit dem SQL Server-Dienstport zuzulassen, und ob der Port von keiner anderen benannten SQL Server-Instanz verwendet wird. Der Standardport ist 1433.  
+         Non obligatoire. Vérifie qu’une exception de pare-feu est en place pour permettre la communication pour le port de service SQL Server, et que le port n’est pas utilisé par une autre instance nommée de SQL Server. Le port par défaut est 1433.  
 
-    -   **InstallDir&lt;*Configuration Manager-Installationspfad*>**  
+    -   **InstallDir &lt;*Chemin d’installation de Configuration Manager*>**  
 
-         Nicht erforderlich. Mit dieser Option wird überprüft, ob der benötigte Mindestspeicherplatz für die Standortinstallation verfügbar ist.  
+         Non obligatoire. Vérifie l’espace disque minimal nécessaire pour l’installation du site.  
 
     -   **/SourceDir**  
 
-         Nicht erforderlich. Mit dieser Option wird überprüft, ob das Computerkonto des sekundären Standorts auf den Ordner zugreifen kann, von dem die Quelldateien für Setup gehostet werden.  
+         Non obligatoire. Vérifie que le compte d'ordinateur du site secondaire peut accéder au dossier qui héberge les fichiers sources d'installation.  
 
-   **Configuration Manager-Konsole:**  
+   **Console Configuration Manager** :  
 
     -   **/Adminui**  
 
-         Erforderlich. Überprüft, ob der lokale Computer die Anforderungen für die Installation von Configuration Manager erfüllt.  
+         Obligatoire. Vérifie que l’ordinateur local présente la configuration requise pour l’installation de Configuration Manager.  
 
-3.  Im Bereich **Ergebnis der Voraussetzungsprüfung** auf der Benutzeroberfläche der Voraussetzungsprüfung werden alle erkannten Probleme aufgelistet.  
+3.  L’interface utilisateur de l’Outil de vérification des prérequis affiche la liste des problèmes détectés dans la section **Résultat de la vérification de configuration requise** .  
 
-    -   Klicken Sie in der Liste auf einen Eintrag, um Details zur Behebung des Problems anzuzeigen.  
-    -   Sie können mit der Installation des Standortservers, des Standortsystems oder der Configuration Manager-Konsole erst dann fortfahren, wenn alle in der Liste mit dem Status **Fehler** aufgeführten Elemente korrigiert wurden.  
-    -   Sie können die Ergebnisse der Voraussetzungsprüfung auch überprüfen, indem Sie die Datei **ConfigMgrPrereq.log** im Stamm des Systemlaufwerks öffnen. Die Protokolldatei enthält möglicherweise weitere Informationen, die nicht auf der Benutzeroberfläche der Voraussetzungsprüfung angezeigt werden.  
+    -   Cliquez sur un élément de la liste pour obtenir plus d'informations sur la façon de résoudre le problème.  
+    -   Vous devez résoudre tous les éléments de la liste qui présentent un état **Erreur** avant d’installer le serveur de site, le système de site ou la console Configuration Manager.  
+    -   Vous pouvez également ouvrir le fichier **ConfigMgrPrereq.log** à la racine du lecteur système pour examiner les résultats de l’Outil de vérification des prérequis. Le fichier journal peut contenir des informations supplémentaires qui ne sont pas affichées dans l’interface utilisateur de l’Outil de vérification des prérequis.  

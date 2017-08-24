@@ -1,6 +1,6 @@
 ---
-title: Upgrade auf System Center Configuration Manager | Microsoft-Dokumentation
-description: "Erfahren Sie die Schritte für die Ausführung eines direkten Upgrades an einem Standort und einer Hierarchie, wo System Center 2012 Configuration Manager ausgeführt wird."
+title: "Mettre à niveau vers System Center Configuration Manager | Microsoft Docs"
+description: "Découvrez les étapes d’exécution d’une mise à niveau sur place réussie à partir d’un site et d’une hiérarchie qui exécute System Center 2012 Configuration Manager."
 ms.custom: na
 ms.date: 6/6/2017
 ms.prod: configuration-manager
@@ -17,43 +17,43 @@ manager: angrobe
 ms.openlocfilehash: 1166b739e1e8d667172d97883f484fdbc3a142c1
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="upgrade-to-system-center-configuration-manager"></a>Upgrade auf System Center Configuration Manager
+# <a name="upgrade-to-system-center-configuration-manager"></a>Mettre à niveau vers System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Sie können ein direktes Upgrade zur Aktualisierung auf System Center Configuration Manager von einem Standort und einer Hierarchie ausführen, wo System Center 2012 Configuration Manager ausgeführt wird.  
+Vous pouvez exécuter une mise à niveau sur place pour mettre à niveau System Center Configuration Manager à partir d’un site et d’une hiérarchie qui exécute System Center 2012 Configuration Manager.  
 
- Vor dem Upgrade von System Center 2012 Configuration Manager müssen Sie die Standorte vorbereiten. Dazu müssen Sie bestimmte Konfigurationen entfernen, die ein erfolgreiches Upgrade verhindern könnten, und dann die Upgradeschritte ausführen, wenn mehr als ein einzelner Standort beteiligt ist.  
+ Avant de procéder à la mise à niveau à partir de System Center 2012 Configuration Manager, vous devez préparer les sites en supprimant des configurations spécifiques qui peuvent empêcher la réussite de l’opération et en suivant la séquence de mise à niveau quand plusieurs sites sont concernés.  
 
  > [!TIP]
- > Beim Verwalten des System Center Configuration Manager-Standorts und der Hierarchieinfrastruktur werden die Begriffe *Upgrade*, *Update* und *Installation* verwendet, um drei verschiedene Konzepte zu beschreiben. Erfahren Sie mehr über die Verwendung der Begriffe unter [Informationen zu Upgrade, Update und Installation für einen Standort und eine Hierarchieinfrastruktur](/sccm/core/understand/upgrade-update-install).
+ > Lors de la gestion de l’infrastructure de site et de hiérarchie de System Center Configuration Manager, les termes *mise à niveau*, *mise à jour* et *installation* sont utilisés pour décrire trois concepts distincts. Pour connaître la signification et l’usage de chaque terme, consultez [À propos de la mise à niveau, de la mise à jour et de l’installation de l’infrastructure de site et de hiérarchie](/sccm/core/understand/upgrade-update-install).
 
-##  <a name="bkmk_path"></a> Pfade für ein direktes Upgrade  
+##  <a name="bkmk_path"></a> Chemins de mise à niveau sur place  
 
-**Upgrade auf Version 1702**   
-Wenn Sie über das Baselinemedium für Version 1702 verfügen, können Sie die folgenden Versionen und Installationen auf eine vollständig lizenzierte Version von System Center Configuration Manager Version 1702 aktualisieren:   
--     Eine Evaluierungsinstallation von System Center Configuration Manager Version 1702
--     System Center 2012 Configuration Manager mit Service Pack 1
--     System Center 2012 Configuration Manager mit Service Pack 2
--     System Center 2012 R2 – Configuration Manager
--     System Center 2012 R2 Configuration Manager mit Service Pack 1
+**Mise à niveau vers la version 1702**   
+Si vous avez un support de base de référence 1702, vous pouvez mettre à niveau les produits suivants vers une version sous licence complète de System Center Configuration Manager version 1702 :   
+-     Une installation d’évaluation de System Center Configuration Manager version 1702
+-     System Center 2012 Configuration Manager avec Service Pack 1
+-     System Center 2012 Configuration Manager avec Service Pack 2
+-     System Center 2012 R2 Configuration Manager
+-     System Center 2012 R2 Configuration Manager avec Service Pack 1
 
-**Upgrade auf Version 1606**  
-Am 15. Dezember 2016 wurde das Baselinemedium für Version 1606 erneut veröffentlicht, um Unterstützung für zusätzliche Upgradeszenarios hinzufügen. Die neue Version unterstützt Upgrades der folgenden Versionen und Installationen auf eine vollständig lizenzierte Version von System Center Configuration Manager Version 1606:  
--   Eine Evaluierungsinstallation von System Center Configuration Manager Version 1606
--   Eine Release Candidate-Install von System Center Configuration Manager  
--   System Center 2012 Configuration Manager mit Service Pack 1  
--   System Center 2012 Configuration Manager mit Service Pack 2  
--   System Center 2012 R2 – Configuration Manager  
--   System Center 2012 R2 Configuration Manager mit Service Pack 1  
+**Mettre à niveau vers la version 1606**  
+Le 15 décembre 2016, le média de base de la version 1606 a été republié afin d’ajouter la prise en charge d’autres scénarios de mise à niveau. Cette nouvelle version prend en charge la mise à niveau des produits suivants vers une version sous licence complète de System Center Configuration Manager version 1606 :  
+-   Une installation d’évaluation de System Center Configuration Manager version 1606
+-   Une installation de version finale (RC) de System Center Configuration Manager  
+-   System Center 2012 Configuration Manager avec Service Pack 1  
+-   System Center 2012 Configuration Manager avec Service Pack 2  
+-   System Center 2012 R2 Configuration Manager  
+-   System Center 2012 R2 Configuration Manager avec Service Pack 1  
 
-Wenn Sie ein vor dem 15. Dezember 2016 heruntergeladenes Baselinemedium für Version 1606 verwenden, können Sie nur die folgenden Versionen und Installationen auf eine vollständig lizenzierte Version von System Center Configuration Manager Version 1606 aktualisieren:
--   Eine Evaluierungsinstallation von System Center Configuration Manager Version 1606
--   System Center 2012 Configuration Manager mit Service Pack 2
--   System Center 2012 R2 Configuration Manager mit Service Pack 1
+Si vous utilisez le média de base de la version 1606 téléchargé avant le 15 décembre 2016, vous pouvez mettre à niveau uniquement les produits suivants vers une version sous licence complète de System Center Configuration Manager version 1606 :
+-   Une installation d’évaluation de System Center Configuration Manager version 1606
+-   System Center 2012 Configuration Manager avec Service Pack 2
+-   System Center 2012 R2 Configuration Manager avec Service Pack 1
 
 <!-- Version 1511 has now dropped out of support
 **Upgrade to version 1511**  
@@ -68,334 +68,334 @@ When you have version 1511 baseline media, you can upgrade the following to a fu
 
 
 > [!TIP]  
->  Wenn Sie das Upgrade für eine Version von System Center 2012 Configuration Manager auf Current Branch ausführen, können Sie den Upgradeprozess unter Umständen vereinfachen. Weitere Informationen finden Sie unter:  
+>  Une mise à niveau à partir d’une version de System Center 2012 Configuration Manager vers Current Branch peut vous permettre de simplifier votre processus de mise à niveau. Pour plus d'informations, consultez :  
 >   
->  -   Der Abschnitt [Baseline und Update-Versionen](../../../../core/servers/manage/updates.md#bkmk_Baselines) unter [Updates für System Center Configuration Manager](../../../../core/servers/manage/updates.md)  
->  -   [Der Ordner „CD.Latest“ für System Center Configuration Manager](../../../../core/servers/manage/the-cd.latest-folder.md)  
+>  -   La section [Versions de base et de mise à jour](../../../../core/servers/manage/updates.md#bkmk_Baselines) dans [Mises à jour pour System Center Configuration Manager](../../../../core/servers/manage/updates.md)  
+>  -   [Dossier CD.Latest pour System Center Configuration Manager](../../../../core/servers/manage/the-cd.latest-folder.md)  
 
- **Folgendes wird nicht unterstützt:**  
--   Das Upgrade einer Technical Preview für System Center Configuration Manager auf eine vollständig lizenzierte Installation wird nicht unterstützt.  Eine Technical Preview-Version kann nur auf eine neuere Version der Technical Preview aktualisiert werden.  
+ **Les éléments suivants ne sont pas pris en charge :**  
+-   La mise à niveau d’une préversion technique de System Center Configuration Manager vers une installation sous licence complète.  Une version d’évaluation technique peut uniquement être mise à niveau vers une version ultérieure de la version d’évaluation technique.  
 
--   Die Migration von einer Technical Preview auf eine vollständig lizenzierte Version wird nicht unterstützt.  
+-   La migration d’une version Technical Preview vers une version sous licence complète n’est pas pris en charge.  
 
-##  <a name="bkmk_checklist"></a> Checklisten zu Aktualisierungen  
- Die folgenden Checklisten helfen Ihnen bei der Planung einer erfolgreichen Aktualisierung auf System Center Configuration Manager.  
+##  <a name="bkmk_checklist"></a> Listes de vérification de mise à niveau  
+ Les listes de vérification suivantes peuvent vous aider à planifier une mise à niveau vers System Center Configuration Manager.  
 
-### <a name="before-you-upgrade"></a>Vor dem Upgrade  
+### <a name="before-you-upgrade"></a>Avant la mise à niveau :  
 
-**Überprüfen Sie Ihre System Center 2012 Configuration Manager-Umgebung**, und beheben Sie die in KB4018655, [Configuration Manager-Clients werden alle fünf Stunden aufgrund eines periodischen Wiederholungstasks neu installiert und, was zu einem unbeabsichtigten Clientupgrade führen kann](https://support.microsoft.com/help/4018655), beschriebenen Probleme.
+**Passez en revue votre environnement System Center 2012 Configuration Manager** et corrigez les problèmes comme détaillé dans l’article KB4018655 : [Les clients Configuration Manager se réinstallent toutes les cinq heures en raison d’une tâche périodique de nouvelle tentative, ce qui peut provoquer une mise à niveau du client par inadvertance](https://support.microsoft.com/help/4018655).
 
-**Stellen Sie sicher, dass Ihre Computerumgebung zu den unterstützten Konfigurationen** für ein Upgrade auf System Center Configuration Manager gehört:  
+**Vérifiez que votre environnement informatique répond aux configurations prises en charge** nécessaires à la mise à niveau vers System Center Configuration Manager SP1 :  
 
-Überprüfen Sie die zum Hosten der Standortsystemrollen verwendeten Serverbetriebssysteme:  
+Passez en revue les systèmes d’exploitation de serveur utilisés pour héberger les rôles de système de site :  
 
--   Einige von System Center 2012 Configuration Manager unterstützte ältere Betriebssysteme werden von System Center Configuration Manager nicht unterstützt, und die Standortsystemrollen auf diesen Betriebssystemen müssen vor dem Upgrade verschoben oder entfernt werden. Lesen Sie die Dokumentation [Unterstützte Betriebssysteme für Standortsystemserver](../../../../core/plan-design/configs/supported-operating-systems-for-site-system-servers.md).   
--   Mit der Voraussetzungsprüfung für Configuration Manager werden die Voraussetzungen für Standortsystemrollen auf dem Standortserver oder auf Remotestandortsystemen nicht geprüft.  
+-   Certains anciens systèmes d’exploitation pris en charge par System Center 2012 Configuration Manager ne sont pas pris en charge par System Center Configuration Manager, et les rôles système de site sur ces systèmes d’exploitation doivent être déplacés ou supprimés avant la mise à niveau. Consultez la documentation [Systèmes d’exploitation pris en charge pour les serveurs de système de site](../../../../core/plan-design/configs/supported-operating-systems-for-site-system-servers.md).   
+-   L’outil de vérification des conditions préalables pour Configuration Manager ne vérifie pas les prérequis pour les rôles de système de site sur le serveur de site ou sur les systèmes de site distants.  
 
-Überprüfen Sie die Voraussetzungen für jeden Computer, auf dem eine Standortsystemrolle gehostet wird:  
+Passez en revue les conditions préalables requises pour chaque ordinateur qui héberge un rôle de système de site :  
 
--   Zum Bereitstellen eines Betriebssystems verwendet System Center Configuration Manager z.B. das Windows 10 Assessment and Deployment Kit (Windows ADK). Vor dem Ausführen von Setup müssen Sie Windows 10 ADK herunterladen und auf dem Standortserver sowie auf jedem Computer installieren, auf dem eine Instanz des SMS-Anbieters ausgeführt wird.  
+-   Par exemple, pour déployer un système d’exploitation, System Center Configuration Manager utilise le Kit de déploiement et d’évaluation Windows 10 (Windows ADK). Avant d’exécuter le programme d’installation, vous devez télécharger et installer Windows 10 ADK sur le serveur de site et sur chaque ordinateur exécutant une instance du fournisseur SMS.  
 
-Allgemeine Informationen über unterstützte Plattformen und die Konfiguration von Voraussetzungen finden Sie unter [Supported configurations for System Center Configuration Manager](../../../../core/plan-design/configs/supported-configurations.md).  
+Pour obtenir des informations générales sur les plateformes prises en charge et les configurations requises, voir [Configurations prises en charge pour System Center Configuration Manager](../../../../core/plan-design/configs/supported-configurations.md).  
 
-Weitere Informationen zur Verwendung von Windows ADK mit Configuration Manager finden Sie unter [Anforderungen an die Infrastruktur für die Betriebssystembereitstellung in System Center Configuration Manager](../../../../osd/plan-design/infrastructure-requirements-for-operating-system-deployment.md).  
+Pour plus d’informations sur l’utilisation de Windows ADK avec Configuration Manager, consultez [Configuration requise de l’infrastructure pour le déploiement de système d’exploitation dans System Center Configuration Manager](../../../../osd/plan-design/infrastructure-requirements-for-operating-system-deployment.md).  
 
-**Überprüfen des Standort- und Hierarchiestandorts, um ungelöste Probleme zu beheben:**  
-Bevor Sie das Upgrade für einen Standort durchführen, sollten Sie alle Betriebsprobleme beheben, die den Standortserver, den Standortdatenbankserver und die auf Remotecomputern installierten Standortsystemrollen betreffen. Betriebsprobleme können die Ursache für Fehler beim Upgrade von Standorten sein.  
+**Examinez l’état des sites et de la hiérarchie et vérifiez qu’il ne reste aucun problème non résolu :**  
+Avant de mettre à niveau un site, veillez à résoudre tous les problèmes fonctionnels touchant le serveur de site, le serveur de base de données de site et les rôles de système de site installés sur les ordinateurs distants. Une mise à niveau de site peut échouer en raison de l'existence de problèmes fonctionnels.  
 
-**Installieren aller anwendbaren wichtigen Updates für Betriebssysteme auf Computern, auf denen der Standort, der Standortdatenbankserver und die Remotestandort-Systemrollen gehostet werden:**  
-Bevor Sie das Upgrade für einen Standort durchführen, sollten Sie für jedes relevante Standortsystem sämtliche wichtigen Updates installieren. Wenn für ein von Ihnen installiertes Update ein Neustart erforderlich ist, starten Sie die jeweiligen Computer neu, bevor Sie mit dem Service Pack-Update beginnen.  
+**Installez toutes les mises à jour critiques applicables aux systèmes d’exploitation des ordinateurs hébergeant le site, le serveur de base de données de site et les rôles de système de site distants :**  
+Avant de mettre à niveau un site, installez toutes les mises à jour critiques pour chaque système de site concerné. Si vous installez une mise à jour qui nécessite un redémarrage, redémarrez les ordinateurs concernés avant d'entreprendre la mise à jour du Service Pack.  
 
-Weitere Informationen erhalten Sie unter [Windows Update](http://go.microsoft.com/fwlink/p/?LinkId=105851).  
+Pour plus d'informations, voir [Windows Update](http://go.microsoft.com/fwlink/p/?LinkId=105851).  
 
-**Deinstallieren der Standortsystemrollen, die von System Center Configuration Manager nicht unterstützt werden:**  
-Die folgenden Standortsystemrollen werden in System Center Configuration Manager nicht mehr verwendet und müssen deinstalliert werden, bevor Sie von System Center 2012 Configuration Manager upgraden:  
+**Désinstallez les rôles de système de site non pris en charge par System Center Configuration Manager :**  
+Les rôles système de site suivants ne sont plus utilisés dans System Center Configuration Manager et doivent être désinstallées avant la mise à niveau depuis System Center 2012 Configuration Manager :  
 
--   Out-of-Band-Verwaltungspunkt  
--   Systemintegritätsprüfungspunkt  
+-   Point de gestion hors bande  
+-   Point du programme de validation d'intégrité système  
 
-**Deaktivieren von Datenbankreplikaten für Verwaltungspunkte an primären Standorten:**  
-Configuration Manager kann kein Upgrade eines primären Standorts durchführen, wenn dort Datenbankreplikate für Verwaltungspunkte aktiviert sind. Deaktivieren Sie die Datenbankreplikation, bevor Sie folgende Schritte ausführen:  
+**Désactivez les réplicas de base de données pour les points de gestion au niveau des sites principaux :**  
+Configuration Manager ne peut pas réussir la mise à niveau d’un site principal ayant un réplica de base de données activé pour les points de gestion. Désactivez la réplication de base de données avant de :  
 
--   Erstellen einer Sicherung der Standortdatenbank zum Testen des Datenbankupgrades  
--   Upgrade des Produktionsstandorts auf System Center Configuration Manager  
+-   Créer une sauvegarde de la base de données pour tester la mise à niveau de base de données  
+-   Mettre à niveau le site de production vers System Center Configuration Manager  
 
-Weitere Informationen finden Sie unter:  
--   System Center 2012 Configuration Manager: [Konfigurieren von Datenbankreplikaten für Verwaltungspunkte](https://technet.microsoft.com/library/hh846234.aspx)  
--   System Center Configuration Manager: [Datenbankreplikate für Verwaltungspunkte für System Center Configuration Manager](../../../../core/servers/deploy/configure/database-replicas-for-management-points.md)  
+Pour plus d'informations, consultez :  
+-   System Center 2012 Configuration Manager : [Configurer des réplicas de base de données pour les points de gestion](https://technet.microsoft.com/library/hh846234.aspx)  
+-   System Center Configuration Manager : [Réplicas de base de données pour les points de gestion de System Center Configuration Manager](../../../../core/servers/deploy/configure/database-replicas-for-management-points.md)  
 
-**Erneutes Konfigurieren von Softwareupdatepunkten, die NLBs verwenden:**  
-Configuration Manager kann kein Upgrade für Standorte durchführen, an denen Softwareupdatepunkte mithilfe eines NLB-Clusters gehostet werden.  
+**Reconfigurez les points de mise à jour logicielle qui utilisent l’équilibrage de la charge réseau (NLB) :**  
+Configuration Manager ne peut pas mettre à niveau un site qui utilise un cluster d’équilibrage de la charge réseau pour héberger des points de mise à jour logicielle.  
 
-Wenn Sie für Softwareupdatepunkte NLB-Cluster verwenden, entfernen Sie den NLB-Cluster mithilfe von PowerShell. (Ab System Center 2012 Configuration Manager SP1 gab es in der Configuration Manager-Konsole keine Option zum Konfigurieren von NLB-Cluster)  
+Si vous utilisez des clusters NLB pour les points de mise à jour logicielle, utilisez PowerShell pour supprimer le cluster NLB. (À compter de System Center 2012 Configuration Manager SP1, aucune option n’existe dans la console Configuration Manager pour configurer un cluster d’équilibrage de la charge réseau.)  
 
-**Deaktivieren aller Standortwartungsaufgaben an allen Standorten für die Dauer des Standortupgrades:**  
-Bevor Sie ein Upgrade auf System Center Configuration Manager durchführen, deaktivieren Sie alle Standortwartungstasks, die möglicherweise zu dem Zeitpunkt ausgeführt werden, zu dem der Upgradeprozess aktiv ist. Zu diesen Tasks gehören u. a. folgende:  
+**Désactivez toutes les tâches de maintenance de site sur chaque site pendant la durée de la mise à niveau de ce site :**  
+Avant la mise à niveau vers System Center Configuration Manager, désactivez toutes les tâches de maintenance de site qui peuvent s’exécuter pendant le processus de mise à niveau. Cela inclut, sans toutefois s'y limiter, les tâches suivantes :  
 
--   Standortserver sichern  
--   Veraltete Clientvorgänge löschen  
--   Veraltete Ermittlungsdaten löschen  
+-   Serveur de site de sauvegarde  
+-   Supprimer les anciennes opérations du client  
+-   Supprimer les données de découverte anciennes  
 
-Wenn während des Upgradeprozesses ein Wartungstask für die Standortdatenbank ausgeführt wird, tritt beim Standortupgrade möglicherweise ein Fehler auf.  
+Lorsqu'une tâche de maintenance de base de données de site s'exécute pendant le processus de mise à niveau, la mise à niveau de site peut échouer.  
 
-Zeichnen Sie den Zeitplan eines Tasks vor dem Deaktivieren auf, sodass Sie die Konfiguration nach Abschluss des Standortupgrades wiederherstellen können.  
+Avant de désactiver une tâche, il convient d'enregistrer sa planification pour pouvoir restaurer sa configuration après avoir accompli la mise à niveau du site.  
 
-Weitere Informationen zu Standortwartungstasks finden Sie unter:  
+Pour plus d’informations sur les tâches de maintenance de site, consultez :  
 
--   System Center 2012 Configuration Manager: [Planen von Wartungstasks für Configuration Manager](https://technet.microsoft.com/library/gg712686.aspx)  
--   System Center Configuration Manager: [Referenz für Wartungstasks für System Center Configuration Manager](../../../../core/servers/manage/reference-for-maintenance-tasks.md)  
+-   System Center 2012 Configuration Manager :  [Planification des tâches de maintenance pour Configuration Manager](https://technet.microsoft.com/library/gg712686.aspx)  
+-   System Center Configuration Manager : [Informations de référence sur les tâches de maintenance pour System Center Configuration Manager](../../../../core/servers/manage/reference-for-maintenance-tasks.md)  
 
-**Führen Sie die Setup-Voraussetzungsprüfung aus.**:  
-Bevor Sie das Upgrade für einen Standort durchführen, können Sie die **Voraussetzungsprüfung** unabhängig von Setup ausführen, um zu prüfen, ob Ihr Standort die Voraussetzungen erfüllt. Beim späteren Durchführen des Upgrades wird die Voraussetzungsprüfung erneut ausgeführt.  
+**Exécutez l’outil de vérification de la configuration requise.**:  
+Avant de mettre à niveau un site, vous pouvez exécuter le **vérificateur de la configuration requise** indépendamment du programme d’installation pour vous assurer que votre site est conforme à la configuration requise. Plus tard, quand vous mettez à niveau le site, l’outil de vérification des prérequis s’exécute à nouveau.  
 
-Wenn Sie das Baselinemedium für Version 1606 aus der Oktober 2016-Version verwenden, durchsucht die unabhängige Voraussetzungsprüfung die Website nach Upgrades für die Current Branch-Version und die Long-Term Servicing Branch-Version (LTSB) von System Center Configuration Manager. Da einige Funktionen nicht von der LTSB-Version unterstützt werden, werden möglicherweise im Protokoll *ConfigMgrPrereq.log*-Einträge wie die folgenden angezeigt:
- - INFO: The site is a LTSB edition. (Info: Die Website ist eine LTSB-Edition.)
- - Unsupported site system role 'Asset Intelligence synchronization point' for the LTSB edition;    Error;    Configuration Manager has detected that the 'Asset Intelligence synchronization point' is installed. (Nicht unterstützte Standortsystemrolle „Asset Intelligence-Synchronisierungspunkt“ für die LTSB-Edition;...Fehler;...Configuration Manager hat eine Installation von „Asset Intelligence-Synchronisierungspunkt“ erkannt.) Asset Intelligence is not supported on the LTSB edition. (Asset Intelligence wird auf der LTSB-Edition nicht unterstützt.) You must uninstall the Asset Intelligence synchronization point site system role before you can continue. (Sie müssen die Synchronisierungspunkt-Standortsystemrolle von Asset Intelligence deinstallieren, bevor Sie fortfahren können.)
+Si vous utilisez le média de base de la version 1606 à partir de la version d’octobre 2016, la vérification indépendante des prérequis évalue le site pour la mise à niveau vers Current Branch et LTSB (Long-Term Servicing Branch) de System Center Configuration Manager. Étant donné que certaines fonctionnalités ne sont pas prises en charge par l’édition LTSB, des entrées du fichier *ConfigMgrPrereq.log* peuvent ressembler à ce qui suit :
+ - INFO : Le site est une édition LTSB.
+ - Rôle de système de site non pris en charge « Point de synchronisation Asset Intelligence » pour l’édition LTSB ;    Erreur ;    Configuration Manager a détecté que le « Point de synchronisation Asset Intelligence » est installé. Asset Intelligence n’est pas pris en charge dans l’édition LTSB. Vous devez désinstaller le rôle de système de site du point de synchronisation Asset Intelligence pour pouvoir continuer.
 
-Wenn Sie ein Upgrade auf die Current Branch-Version planen, können Fehler für die LTSB-Edition einfach ignoriert werden. Sie sind nur dann relevant, wenn Sie ein Upgrade auf die LTSB-Edition planen.
+Si vous envisagez de mettre à niveau vers l’édition Current Branch, les erreurs concernant l’édition LTSB peuvent être ignorées en toute sécurité. Elles s’appliquent uniquement si vous envisagez de mettre à niveau vers l’édition LTSB.
 
-Wenn Sie später Configuration Manager-Setup für das Upgrade ausführen, wird die Voraussetzungsprüfung erneut ausgeführt und bewertet Ihren Standort auf der Basis der Branch-Version von System Center Configuration Manager, die Sie installieren möchten (Current Branch oder LTSB). Wenn Sie sich für ein Upgrade auf die Current Branch-Version entscheiden, wird die Prüfung von Features, die nicht von der LTSB-Edition unterstützt werden, nicht ausgeführt.
+Plus tard, quand vous exécutez le programme d’installation de Configuration Manager pour effectuer la mise à niveau, la vérification des prérequis s’exécute à nouveau et évalue votre site en fonction de l’édition de System Center Configuration Manager que vous choisissez d’installer (Current Branch ou LTSB). Si vous choisissez de mettre à niveau vers Current Branch, la vérification des fonctionnalités qui ne sont pas prises en charge par LTSB n’est pas exécutée.
 
-Weitere Informationen finden Sie unter [Voraussetzungsprüfung für System Center Configuration Manager](/sccm/core/servers/deploy/install/prerequisite-checker) und in der [Liste der Voraussetzungsprüfungen für System Center Configuration Manager](/sccm/core/servers/deploy/install/list-of-prerequisite-checks).  
+Pour plus d’informations, consultez [Outil de vérification des conditions préalables pour System Center Configuration Manager](/sccm/core/servers/deploy/install/prerequisite-checker) et [Liste des vérifications de la configuration requise pour System Center Configuration Manager](/sccm/core/servers/deploy/install/list-of-prerequisite-checks).  
 
-**Herunterladen von Dateien für die Voraussetzungsprüfung sowie von weitervertreibbaren Dateien für System Center Configuration Manager:**    
-Verwenden Sie das **Setup-Downloadprogramm**, um die erforderlichen weitervertreibbaren Dateien, die Sprachpakete und die neuesten Produktupdates für System Center Configuration Manager herunterzuladen.  
+**Téléchargez les fichiers prérequis et les fichiers redistribuables pour System Center Configuration Manager :**    
+Utilisez le **téléchargeur d’installation** pour télécharger les fichiers redistribuables et prérequis, ainsi que les dernières mises à jour de produit pour System Center Configuration Manager.  
 
-Informationen hierzu finden Sie unter [Setup-Downloadprogramm für System Center Configuration Manager](/sccm/core/servers/deploy/install/setup-downloader).  
+Pour plus d’informations, consultez [Téléchargeur d’installation pour System Center Configuration Manager](/sccm/core/servers/deploy/install/setup-downloader).  
 
-**Planen Sie die Verwaltung von Server- und Clientsprachen ein.**:  
-Beim Aktualisieren eines Standorts werden nur die Sprachpaketversionen installiert, die Sie während des Upgrades auswählen.  
+**Planifier la gestion des langues client et serveur**:  
+Quand vous mettez à niveau un site, la mise à niveau de site installe uniquement les versions des modules linguistiques que vous sélectionnez pendant la mise à niveau.  
 
--   Setup überprüft die aktuelle Sprachkonfiguration Ihres Standorts. Es wird ermittelt, welche Sprachpakete in dem Ordner verfügbar sind, in dem die zuvor heruntergeladenen erforderlichen Dateien gespeichert wurden.  
--   Anschließend können Sie die Auswahl der aktuellen Server- und Clientsprachpakete bestätigen oder diese ändern und die Unterstützung von Sprachen hinzufügen oder entfernen.  
--   Nur die Sprachpakete, die beim Ausführen von Setup verfügbar sind (die Sie mit den erforderlichen heruntergeladenen Dateien erhalten), können ausgewählt werden.  
+-   Le programme d’installation examine la configuration de langue actuelle de votre site et identifie les modules linguistiques disponibles dans le dossier où vous avez stocké les fichiers prérequis téléchargés précédemment.  
+-   Vous pouvez alors confirmer la sélection des modules linguistiques serveur et client actifs ou modifier les sélections pour ajouter ou supprimer la prise en charge de langues.  
+-   Vous pouvez sélectionner uniquement les modules linguistiques qui sont disponibles quand vous exécutez le programme d’installation (que vous obtenez avec les fichiers prérequis téléchargés).  
 
 > [!NOTE]  
->  Sie können die Sprachpakete aus System Center 2012 Configuration Manager nicht verwenden, um Sprachen für einen System Center Configuration Manager-Standort zu aktivieren.  
+>  Vous ne pouvez pas utiliser les modules linguistiques de System Center 2012 Configuration Manager pour activer des langues pour un site System Center Configuration Manager.  
 
-Weitere Informationen zu Sprachpaketen finden Sie unter [Sprachpakete in System Center Configuration Manager](../../../../core/servers/deploy/install/language-packs.md).  
+Pour plus d’informations sur les modules linguistiques, consultez [Modules linguistiques dans System Center Configuration Manager](../../../../core/servers/deploy/install/language-packs.md).  
 
-**Sehen Sie sich die Überlegungen zum Upgrade von Standorten an.**:  
-Wenn Sie ein Upgrade für einen Standort durchführen, werden einige Funktionen und Konfigurationen auf die Standardkonfiguration zurückgesetzt. Informationen zur Vorbereitung auf diese und ähnliche Änderungen finden Sie unter  [Upgradeüberlegungen](#bkmk_considerations).  
+**Passez en revue les considérations relatives aux mises à niveau de site**:  
+Lorsque vous mettez à niveau un site, certaines fonctionnalités et configurations retrouvent leur configuration par défaut. Pour vous aider à préparer ces modifications et les modifications associées, passez en revue les informations contenues dans  [Considérations sur la mise à niveau](#bkmk_considerations).  
 
-**Erstellen einer Sicherung der Standortdatenbank am Standort der zentralen Verwaltung und an primären Standorten:**  
-Bevor Sie das Upgrade für einen Standort durchführen, sollten Sie die Standortdatenbank sichern, damit Sie über eine Sicherung für die Notfallwiederherstellung verfügen.  
+**Créez une sauvegarde de la base de données du site au niveau du site d’administration centrale et des sites principaux :**  
+Avant de mettre à niveau un site, sauvegardez la base de données de site pour être certain de disposer d'une sauvegarde utilisable dans le cadre d'une récupération d'urgence.  
 
-Informationen finden Sie unter [Sicherung und Wiederherstellung für System Center Configuration Manager](../../../../protect/understand/backup-and-recovery.md).  
+Consultez [Sauvegarde et récupération pour System Center Configuration Manager](../../../../protect/understand/backup-and-recovery.md).  
 
-**Erstellen Sie eine Sicherung der benutzerdefinierten Datei „Configuration.mof“**:  
-Wenn Sie eine benutzerdefinierte Datei „Configuration.mof“ verwenden, um die bei der Hardwareinventur verwendeten Datenklassen zu definieren, müssen Sie vor dem Upgrade des Standorts eine Sicherung dieser Datei erstellen. Nach dem Upgrade stellen Sie diese Datei an dem Standort wieder her. Weitere Informationen zur Verwendung dieser Datei finden Sie unter [Erweitern der Hardwareinventur in System Center Configuration Manager](../../../../core/clients/manage/inventory/extend-hardware-inventory.md).  
+**Sauvegardez un fichier Configuration.mof personnalisé**:  
+Si vous utilisez un fichier Configuration.mof personnalisé pour définir des classes de données que vous utilisez avec un inventaire matériel, créez une sauvegarde de ce fichier avant la mise à niveau du site. Après la mise à niveau, restaurez ce fichier sur votre site. Pour plus d’informations sur l’utilisation de ce fichier, consultez [Comment étendre l’inventaire matériel dans System Center Configuration Manager](../../../../core/clients/manage/inventory/extend-hardware-inventory.md).  
 
-**Testen des Datenbank-Upgradeprozesses mit einer Kopie der letzten Sicherung der Standortdatenbank:**  
-Bevor Sie das Upgrade für einen Standort der zentralen Verwaltung oder einen primären Standort von Configuration Manager durchführen, testen Sie den Datenbankupgradeprozess mit einer Kopie der letzten Sicherung der Standortdatenbank.  
+**Testez le processus de mise à niveau de base de données sur une copie de la dernière sauvegarde de la base de données de site :**  
+Avant de mettre à niveau un site d’administration centrale ou un site principal Configuration Manager, testez le processus de mise à niveau de base de données de site sur une copie de la base de données de site.  
 
--   Sie sollten den Standortdatenbank-Upgradeprozess testen, da die Standortdatenbank während der Aktualisierung eines Standorts geändert werden kann.  
--   Ein Testdatenbankupgrade ist zwar nicht erforderlich, doch können dadurch Probleme beim Upgrade ermittelt werden, bevor die Produktionsdatenbank betroffen ist.  
--   Wenn beim Upgrade einer Standortdatenbank Fehler auftreten, ist die Datenbank möglicherweise nicht mehr betriebsfähig, und es müsste eine Standortwiederherstellung erfolgen.  
--   Obwohl die Standortdatenbank von allen Standorten in einer Hierarchie gemeinsam genutzt wird, sollten Sie die Datenbank an jedem relevanten Standort testen, bevor Sie das Upgrade für diesen Standort durchführen.  
--   Wenn Sie an einem primären Standort Datenbankreplikate für Verwaltungspunkte verwenden, deaktivieren Sie die Replikation, bevor Sie die Sicherung der Standortdatenbank erstellen.  
+-   Vous devez tester le processus de mise à niveau de base de données de site, car quand vous mettez à niveau un site, la base de données peut être modifiée.  
+-   Bien que le test de mise à niveau ne soit pas obligatoire, il peut identifier des problèmes liés à la mise à niveau avant que votre base de données de production ne soit affectée.  
+-   Un échec de mise à niveau de base de données de site peut rendre votre base de données de site inutilisable, et une récupération de site peut s’avérer nécessaire pour rétablir les fonctionnalités.  
+-   Bien que la base de données de site soit partagée entre les sites d’une même hiérarchie, prévoyez de tester la base de données sur chacun des sites concernés avant de procéder à leur mise à niveau.  
+-   Si vous utilisez des réplicas de base de données pour les points de gestion d’un site principal, désactivez la réplication avant de créer la sauvegarde de la base de données de site.  
 
-Configuration Manager unterstützt weder die Sicherung sekundärer Standorte noch das Testupgrade einer sekundären Standortdatenbank.  
+Configuration Manager ne prend en charge ni la sauvegarde des sites secondaires, ni le test de mise à niveau d’une base de données de site secondaire.  
 
-Das Testen des Datenbankupgrades für die Datenbank des Produktionsstandorts wird nicht unterstützt. Dadurch würde ein Upgrade der Standortdatenbank durchgeführt, und Ihr Standort wäre möglicherweise nicht mehr betriebsfähig.  
+L'exécution d'un test de mise à niveau de base de données sur la base de données de site de production n'est pas prise en charge. Cette opération mettrait à niveau la base de données du site et risquerait de rendre votre site inutilisable.  
 
-Weitere Informationen finden Sie unter [Testen des Standortdatenbankupgrades](#bkmk_test).  
+Pour plus d'informations, voir [Tester la mise à niveau de base de données de site](#bkmk_test).  
 
-**Erneutes Starten des Standortservers und aller Computer, auf denen eine Standortsystemrolle gehostet wird:**  
-Damit können Sie sicherstellen, dass keine Aktionen aus kürzlich durchgeführten Installationen von Updates oder hinsichtlich der Voraussetzungen mehr ausstehen. Es handelt sich um einen internen Prozess, der unternehmensspezifisch ist.  
+**Redémarrez le serveur de site et chaque ordinateur qui héberge un rôle de système de site** :  
+Cela permet de vérifier qu’aucune action liée à une installation récente de mises à jour ou aux prérequis n’est en cours. Il s’agit d’un processus interne propre à l’entreprise.  
 
-**Aktualisieren Sie Standorte.**:  
-Beginnen Sie mit dem Standort der obersten Ebene in der Hierarchie, und führen Sie „Setup.exe“ aus dem Quellmedium von System Center Configuration Manager aus.  
+**Effectuez la mise à niveau des sites.**:  
+En commençant par le site de niveau supérieur dans la hiérarchie, exécutez Setup.exe à partir du média source de System Center Configuration Manager.  
 
-Wenn das Upgrade am Standort der obersten Ebene abgeschlossen ist, können Sie mit dem Upgrade der untergeordneten Standorte beginnen. Schließen Sie jeweils das Upgrade eines Standorts ab, bevor Sie das Upgrade des nächsten Standorts durchführen.  
+Une fois la mise à niveau du site de niveau supérieur effectuée, vous pouvez commencer la mise à niveau de chaque site enfant. Terminez la mise à niveau de chaque site avant de commencer la mise à niveau du site suivant.  
 
-Bis für alle Standorte in der Hierarchie das Upgrade auf System Center Configuration Manager durchgeführt wurde, erfolgt der Betrieb im gemischten Versionsmodus.  
+Tant que tous les sites de la hiérarchie n’ont pas été mis à niveau vers System Center Configuration Manager, celle-ci fonctionne en mode de version mixte.  
 
-Informationen zum Ausführen des Upgrades finden Sie unter [Aktualisieren Sie Standorte](#bkmk_upgrade).  
+Pour plus d’informations sur l’exécution d’une mise à niveau, consultez [Mettre à niveau des sites](#bkmk_upgrade).  
 
-### <a name="after-you-upgrade"></a>Nach dem Upgrade  
-**Upgrade der eigenständigen Configuration Manager-Konsolen**:  
-Standardmäßig wird beim Upgrade eines Standorts der zentralen Verwaltung oder eines primären Standorts auch für eine auf dem Standortserver installierte Configuration Manager-Konsole ein Upgrade ausgeführt. Allerdings müssen Sie für jede Konsole, die auf einem anderen Computer als dem Standortserver installiert ist, ein manuelles Upgrade ausführen.  
-
-> [!TIP]  
->  Schließen Sie vor dem Starten des Upgrades jede geöffnete Konsole.  
-
-Weitere Informationen finden Sie unter [Install System Center Configuration Manager consoles](../../../../core/servers/deploy/install/install-consoles.md) (Installieren von System Center Configuration Manager-Konsolen).  
-
-**Neukonfigurieren von Datenbankreplikaten für Verwaltungspunkte an primären Standorten:**  
-Beim Verwenden von Datenbankreplikaten für Verwaltungspunkte an primären Standorten müssen Sie die Datenbankreplikate deinstallieren, bevor Sie den Standort aktualisieren. Konfigurieren Sie das Datenbankreplikat für Verwaltungspunkte nach dem Upgrade eines primären Standorts neu.   
-Weitere Informationen finden Sie unter  [Database replicas for management points for System Center Configuration Manager](../../../../core/servers/deploy/configure/database-replicas-for-management-points.md).  
-
-**Erneutes Konfigurieren von Datenbankwartungsaufgaben, die Sie vor dem Upgrade deaktiviert haben:**  
-Wenn Sie die Datenbank-[Referenz für Wartungstasks für System Center Configuration Manager](../../../../core/servers/manage/reference-for-maintenance-tasks.md) vor dem Upgrade an einem Standort deaktiviert haben, konfigurieren Sie diese Tasks an dem Standort mithilfe der vor dem Upgrade verwendeten Einstellungen neu.  
-
-**Aktualisieren Sie Clients.**:  
-Nach der Aktualisierung aller Standorte auf System Center Configuration Manager planen Sie das Upgraden von Clients.  
-
-Wenn Sie ein Upgrade für einen Client ausführen, wird die aktuelle Clientsoftware deinstalliert und die neue Version der Clientsoftware installiert. Für Upgrades von Clients können Sie ein beliebiges Verfahren verwenden, das von Configuration Manager unterstützt wird.  
+### <a name="after-you-upgrade"></a>Après la mise à niveau :  
+**Mettez à niveau les consoles Configuration Manager autonomes** :  
+Par défaut, quand vous mettez à niveau un site d’administration centrale ou un site principal, l’installation met également à niveau la console Configuration Manager installée sur le serveur de site. Toutefois, vous devez mettre à niveau manuellement chaque console installée sur un ordinateur autre que le serveur de site.  
 
 > [!TIP]  
->  Wenn Sie für den Standort der obersten Ebene einer Hierarchie ein Upgrade durchführen, wird das Clientinstallationspaket auf den einzelnen Verteilungspunkten der Hierarchie ebenfalls aktualisiert. Beim Upgrade eines primären Standorts wird das Clientupgradepaket aktualisiert, das vom primären Standort zur Verfügung gestellt wird.  
+>  Fermez chaque console ouverte avant de commencer la mise à niveau.  
 
-Informationen zum Ausführen eines Upgrades für vorhandene Clients und zum Installieren neuer Clients finden Sie unter [Aktualisieren von Clients für Windows-Computer in System Center Configuration Manager](../../../../core/clients/manage/upgrade/upgrade-clients-for-windows-computers.md).  
+Pour plus d’informations, consultez [Installer des consoles System Center Configuration Manager](../../../../core/servers/deploy/install/install-consoles.md).  
 
-##  <a name="bkmk_considerations"></a> Upgradeüberlegungen  
-**Automatische Aktionen:**  
-Wenn Sie ein Upgrade auf System Center Configuration Manager durchführen, werden die folgenden Aktionen automatisch ausgeführt:  
+**Reconfigurez les réplicas de base de données des points de gestion au niveau des sites principaux :**  
+Si vous utilisez des réplicas de base de données pour les points de gestion au niveau des sites principaux, vous devez désinstaller ces réplicas avant la mise à niveau du site. Après avoir mis à niveau un site principal, reconfigurez le réplica de base de données des points de gestion.   
+Pour plus d’informations, consultez  [Database replicas for management points for System Center Configuration Manager](../../../../core/servers/deploy/configure/database-replicas-for-management-points.md).  
 
--   Vom Standort wird eine Standortrücksetzung ausgeführt, die auch eine Neuinstallation aller Standortsystemrollen umfasst.  
--   Wenn es sich bei dem Standort um den Standort der obersten Ebene einer Hierarchie handelt, wird das Clientinstallationspaket auf allen Verteilungspunkten der Hierarchie aktualisiert. Vom Standort werden auch die Standardstartabbilder aktualisiert, sodass die neue Windows PE-Version verwendet wird, die in Windows Assessment and Deployment Kit 10 enthalten ist. Beim Durchführen des Upgrades werden vorhandene Medien jedoch nicht für die Verwendung mit der Abbildbereitstellung aktualisiert.  
--   Wenn es sich bei dem Standort um einen primären Standort handelt, wird das Clientupgradepaket für den Standort aktualisiert.  
+**Reconfigurez les tâches de maintenance de base de données désactivées avant la mise à niveau :**  
+Si vous avez désactivé des [tâches de maintenance de base de données pour System Center Configuration Manager](../../../../core/servers/manage/reference-for-maintenance-tasks.md) sur un site avant la mise à niveau, reconfigurez ces tâches sur le site en utilisant les paramètres existants avant la mise à niveau.  
 
-**Manuelle Aktionen für den Administrator nach einem Upgrade:**   
-Nachdem Sie für einen Standort ein Upgrade ausgeführt haben, müssen Sie sicherstellen, dass die folgenden Aktionen durchgeführt werden:  
+**Mettez à niveau les clients.**:  
+Une fois que tous vos sites sont mis à niveau vers System Center Configuration Manager, envisagez de mettre à niveau les clients.  
 
--   Vergewissern Sie sich, dass auf Clients, die den einzelnen primären Standorten zugewiesen sind, das Upgrade ausgeführt und die Clientsoftware für die neue Version installiert wird.  
--   Führen Sie ein Upgrade für jede Configuration Manager-Konsole aus, die eine Verbindung zum Standort herstellt und auf einem Computer ausgeführt wird, der sich gegenüber dem Standortserver an einem Remotestandort befindet.  
--   Konfigurieren Sie die Datenbankreplikate an den primären Standorten neu, an denen Sie Datenbankreplikate für Verwaltungspunkte verwenden.  
--   Nach dem Upgrade des Standorts müssen Sie physische Medien wie ISO-Dateien für CDs und DVDs, USB-Flashlaufwerke, oder vorab bereitgestellte für Windows To Go-Bereitstellungen verwendete oder für Hardwarehersteller bereitgestellte Medien manuell aktualisieren. Obwohl durch das Upgrade die standardmäßigen Startimages aktualisiert werden, werden diese von Configuration Manager extern verwendeten Mediendateien nicht upgegradet.  
--   Planen Sie die Aktualisierung von nicht standardmäßigen Startabbildern ein, wenn die ursprüngliche (ältere) Version von Windows PE nicht erforderlich ist.  
-
-**Aktionen, die sich auf Konfigurationen und Einstellungen auswirken:**   
-Wenn für einen Standort ein Upgrade auf System Center Configuration Manager durchgeführt wird, werden einige Konfigurationen und Einstellungen nach dem Upgrade nicht beibehalten oder auf eine neue Standardkonfiguration festgelegt. Die folgende Tabelle enthält Einstellungen, die nicht beibehalten oder geändert werden, und Details zur damit verbundenen Planung während des Upgrades eines Standorts:  
-
--   **Softwarecenter:**  
-    Die folgenden Elemente des Softwarecenters werden auf ihre Standardwerte zurückgesetzt:  
-    -   Die Option**Arbeitsinformationen** wird auf die Geschäftszeiten **5:00** bis **22:00** Monday bis Friday.  
-    -   Der Wert für **Computerwartung** wird auf **Softwarecenter-Aktivitäten anhalten, wenn sich der Computer im Präsentationsmodus befindet**festgelegt.  
-    -   Der Wert für **Remotesteuerung** wird auf den Wert in den Clienteinstellungen festgelegt, die dem Computer zugewiesen sind.  
--   **Zeitpläne für Softwareupdate-Zusammenfassung:**  
-     Benutzerdefinierte Zusammenfassungszeitpläne für Softwareupdates oder Softwareupdategruppen werden auf den Standardwert von einer Stunde zurückgesetzt. Setzen Sie benutzerdefinierte Zusammenfassungswerte nach Abschluss des Upgrades auf die erforderliche Häufigkeit zurück.  
-
-##  <a name="bkmk_test"></a> Testen des Standortdatenbankupgrades  
-Die folgenden Informationen gelten nur, wenn Sie eine vorherige Version wie System Center 2012 Configuration Manager auf System Center Configuration Manager aktualisieren.
-
-Bevor Sie das Upgrade eines Standorts durchführen, sollten Sie es anhand einer Kopie der Datenbank dieses Standorts testen.  
-
-Zum Testen der Datenbank für ein Upgrade stellen Sie zunächst eine Kopie der Standortdatenbank auf einer Instanz von SQL Server wieder her, von der kein Configuration Manager-Standort gehostet wird. Zum Hosten der Datenbankkopie müssen Sie eine Version von SQL Server verwenden, die von der Version von Configuration Manager, die Quelle der Datenbank ist, unterstützt wird.  
-
-Führen Sie nach dem Wiederherstellen der Standortdatenbank auf dem SQL Server-Computer das Configuration Manager-Setup aus dem System Center Configuration Manager-Ordner auf dem Quellmedium aus. Verwenden Sie dazu die Befehlszeilenoption **/TESTDBUPGRADE**.  
-
--   Weitere Informationen über das Erstellen und Wiederherstellen der Sicherung einer Standortdatenbank erhalten Sie unter [Command-line options for Setup](../../../../core/servers/deploy/install/command-line-options-for-setup.md) (Befehlszeilenoption für Setup).  
--   Informationen über die Befehlszeilenoption **/TESTDBUPGRADE** bietet die Tabelle im unter [Command-line options for Setup](../../../../core/servers/deploy/install/command-line-options-for-setup.md) (Befehlszeilenoption für Setup).  
--   Weitere Informationen über die unterstützten SQL Server-Versionen finden Sie unter [Unterstützung für SQL Server-Versionen für System Center Configuration Manager](../../../../core/plan-design/configs/support-for-sql-server-versions.md).  
+Lorsque vous migrez un client, le logiciel client existant est désinstallé et la nouvelle version du logiciel client est installée. Pour mettre à niveau des clients, vous pouvez appliquer n’importe quelle méthode prise en charge par Configuration Manager.  
 
 > [!TIP]  
->  Wenn Sie Microsoft Intune mit Configuration Manager integrieren:  
+>  Quand vous mettez à niveau le site de niveau supérieur d’une hiérarchie, le package d’installation du client est également mis à jour sur chaque point de distribution de la hiérarchie. Lorsque vous mettez à niveau un site principal, le package de mise à niveau de client disponible auprès de ce site principal est mis à jour.  
+
+Pour plus d’informations sur la mise à niveau de clients existants et sur la façon d’installer de nouveaux clients, consultez [Comment mettre à niveau les clients pour les ordinateurs Windows dans System Center Configuration Manager](../../../../core/clients/manage/upgrade/upgrade-clients-for-windows-computers.md).  
+
+##  <a name="bkmk_considerations"></a> Considérations sur la mise à niveau  
+**Actions automatiques** :  
+Quand vous effectuez la mise à niveau vers System Center Configuration Manager, les actions suivantes se produisent automatiquement :  
+
+-   Le site opère une réinitialisation de site, qui comprend la réinstallation de tous les rôles de système de site.  
+-   Si le site est le site de niveau supérieur d'une hiérarchie, il met à jour le package d'installation de client sur chaque point de distribution de la hiérarchie. Le site met également à jour les images de démarrage par défaut pour utiliser la nouvelle version du système Windows PE fournie avec le Kit de déploiement et d’évaluation Windows 10. Toutefois, la mise à niveau ne met pas niveau les médias existants pour une utilisation avec le déploiement d'image.  
+-   Si le site est un site principal, il met à jour le package de mise à niveau de client de ce site.  
+
+**Actions manuelles de l’utilisateur administratif après une mise à niveau**   
+Après la mise à niveau d’un site, effectuez les actions suivantes :  
+
+-   Vérifiez que les clients qui sont attribués à chaque site principal sont mis à niveau et installez le logiciel client correspondant à la nouvelle version.  
+-   Mettez à niveau chaque console Configuration Manager qui se connecte au site et qui s’exécute sur un ordinateur distant du serveur de site.  
+-   Sur les sites principaux où vous utilisez des réplicas de base de données pour les points de gestion, reconfigurez ces réplicas.  
+-   Une fois le site mis à niveau, vous devez effectuer une mise à niveau manuelle des médias physiques tels que les fichiers ISO pour les CD et les DVD ou les disques mémoire flash USB, ou les médias préparés utilisés pour les déploiements de Windows To Go ou fournis par des fournisseurs de matériel. Bien que la mise à niveau de site mette à jour les images de démarrage par défaut, elle ne peut pas mettre à niveau ces fichiers multimédias ou les appareils utilisés extérieurs à Configuration Manager.  
+-   Effectuez la mise à jour des images de démarrage autres que les images par défaut quand vous n'avez pas besoin de la version d'origine (plus ancienne) de Windows PE.  
+
+**Actions affectant les configurations et les paramètres**   
+Quand un site est mis à niveau vers System Center Configuration Manager, certaines configurations et certains paramètres ne sont pas conservés après la mise à niveau ou utilisent une nouvelle configuration par défaut. Le tableau ci-dessous répertorie des paramètres qui ne sont pas conservés ou sont modifiés, et fournit des informations qui vous aideront à anticiper ce problème dans le cadre d’une mise à niveau de site :  
+
+-   **Centre logiciel :**  
+    Les valeurs par défaut des éléments suivants du Centre logiciel sont rétablies :  
+    -   Les heures d'ouverture indiquées dans**Informations professionnelles** sont réinitialisées sur les valeurs par défaut : de **05:00** à **22:00** Monday à Friday.  
+    -   La valeur de **Maintenance de l'ordinateur** est définie sur **Interrompre les activités du Centre logiciel lorsque mon ordinateur est en mode présentation**.  
+    -   La valeur de **Contrôle à distance** est définie sur la valeur attribuée à l'ordinateur dans les paramètres du client.  
+-   **Calendriers de synthèse des mises à jour logicielles :**  
+     Les calendriers de synthèse personnalisés des mises à jour logicielles ou des groupes de mises à jour logicielles sont réinitialisés à la valeur par défaut (1 heure). Au terme de la mise à niveau, réinitialisez les valeurs de synthèse personnalisées sur la fréquence requise.  
+
+##  <a name="bkmk_test"></a> Tester la mise à niveau de base de données de site  
+Les informations suivantes s’appliquent uniquement lorsque vous mettez à niveau une version antérieure telle que System Center 2012 Configuration Manager vers System Center Configuration Manager.
+
+Avant de mettre à niveau un site, testez une copie de la base de données de ce site pour la mise à niveau.  
+
+Pour tester la base de données en vue d’une mise à niveau, vous devez dans un premier temps restaurer une copie de la base de données du site sur une instance de SQL Server qui n’héberge pas de site Configuration Manager. La version de SQL Server que vous utilisez pour héberger la copie de la base de données doit être prise en charge par la version de Configuration Manager, qui est la source de la copie de la base de données.  
+
+Ensuite, après avoir restauré la base de données de site, sur l’ordinateur SQL Server, exécutez le programme d’installation de Configuration Manager à partir du dossier du support de source d’installation de System Center Configuration Manager avec l’option de ligne de commande **/TESTDBUPGRADE**.  
+
+-   Pour plus d’informations sur la façon de créer et de restaurer une sauvegarde de base de données de site, consultez [Options de ligne de commande pour le programme d’installation](../../../../core/servers/deploy/install/command-line-options-for-setup.md).  
+-   Pour plus d’informations sur l’option de ligne de commande **/TESTDBUPGRADE**, consultez le tableau dans [Options de ligne de commande pour le programme d’installation](../../../../core/servers/deploy/install/command-line-options-for-setup.md).  
+-   Pour plus d’informations sur les versions de SQL Server prises en charge, consultez la rubrique [Prise en charge des versions de SQL Server pour System Center Configuration Manager](../../../../core/plan-design/configs/support-for-sql-server-versions.md).  
+
+> [!TIP]  
+>  Si vous intégrez Microsoft Intune à Configuration Manager :  
 >   
->  Wenn Sie ein Testdatenbankupgrade für eine Kopie der Standortdatenbank ausführen, die mindestens 5 Tage alt ist, wird möglicherweise eine der folgenden Meldungen angezeigt:  
+>  quand vous exécutez un test de mise à niveau de base de données sur une copie de la base de données qui a cinq jours ou plus, vous pouvez recevoir l’un des messages suivants :  
 >   
->  -   WARNUNG: Upgrade erzwingt eine vollständige Synchronisierung mit der Cloud.  
->  -   FEHLER: Datenbankupgrade erzwingt eine vollständige Synchronisierung mit der Cloud.  
+>  -   Avertissement : la mise à niveau va forcer la synchronisation complète vers le cloud.  
+>  -   Erreur : la mise à niveau de la base de données va forcer la synchronisation complète vers le cloud.  
 >   
-> Beide Meldungen können während des Tests eines Datenbankupgrades ohne weitere Auswirkungen ignoriert werden, da sie nicht auf Fehler oder Probleme mit dem Testupgrade hinweisen. Stattdessen zeigen sie an, dass während des tatsächlichen Upgrades Daten aus der Datenbankreplikationsgruppe **Cloud** möglicherweise mit Microsoft Intune synchronisiert werden.  
+> Vous pouvez sans risque ignorer ces deux messages pendant un test de mise à niveau de base de données, car ils ne signalent pas de défaillance ou de problème avec le test de mise à niveau. Ils indiquent plutôt que lors de la mise à niveau réelle, les données du groupe de réplication de base de données **Cloud** peuvent être synchronisées avec Microsoft Intune.  
 
-Führen Sie für alle Standorte der zentralen Verwaltung sowie für alle primären Standorte, für die ein Upgrade geplant ist, folgende Schritte aus.  
+Utilisez la procédure suivante sur chaque site d'administration centrale et site principal que vous envisagez de mettre à niveau.  
 
-#### <a name="to-test-a-site-database-for-upgrade"></a>So testen Sie eine Standortdatenbank für ein Upgrade  
+#### <a name="to-test-a-site-database-for-upgrade"></a>Pour tester une base de données de site pour la mise à niveau  
 
-1.  Erstellen Sie eine Kopie der Standortdatenbank. Stellen Sie diese Kopie dann auf einer Instanz von SQL Server wieder her, deren Edition der von der Standortdatenbank verwendeten entspricht und von der kein Configuration Manager-Standort gehostet wird. Wird auf der Standortdatenbank beispielsweise eine Instanz der Enterprise Edition von SQL Server ausgeführt, muss die Datenbank auf einer Instanz von SQL Server wiederhergestellt werden, auf der ebenfalls die Enterprise Edition von SQL Server ausgeführt wird.  
+1.  Créez une copie de la base de données du site, puis restaurez cette copie sur une instance de SQL Server qui utilise la même édition que la base de données du site et qui n’héberge pas de site Configuration Manager. Par exemple, si la base de données du site s'exécute sur une instance de l'édition Enterprise de SQL Server, veillez à restaurer la base de données sur une instance de SQL Server qui exécute également l'édition Enterprise de SQL Server.  
 
-2.  Nach der Wiederherstellung der Datenbankkopie führen Sie das Setup vom Quellmedium der System Center Configuration Manager-Version aus. Verwenden Sie beim Ausführen von Setup die Befehlszeilenoption **/TESTDBUPGRADE** . Handelt es sich bei der SQL Server-Instanz, von der die Datenbankkopie gehostet wird, nicht um die Standardinstanz, müssen Sie auch die Befehlszeilenargumente angeben. Damit können Sie ermitteln, von welcher Instanz die Kopie der Standortdatenbank gehostet wird.  
+2.  Après avoir restauré la copie de la base de données, exécutez le programme d’installation à partir du support de source d’installation de System Center Configuration Manager. Quand vous exécutez le programme d’installation, utilisez l’option de ligne de commande **/TESTDBUPGRADE** . Si l'instance SQL Server qui héberge la copie de la base de données n'est pas l'instance par défaut, vous devez également fournir les arguments de ligne de commande pour identifier l'instance qui héberge la copie de la base de données du site.  
 
-     Angenommen, Sie planen das Upgrade einer Standortdatenbank namens „SMS_ABC“. Sie stellen eine Kopie dieser Standortdatenbank auf einer unterstützten Instanz von SQL Server wieder her, die Sie „DBTest“ genannt haben. Verwenden Sie folgende Befehlszeile, um ein Upgrade dieser Kopie der Standortdatenbank zu testen: **Setup.exe /TESTDBUPGRADE DBtest\CM_ABC**  
+     Par exemple, vous prévoyez de mettre à niveau une base de données de site dont le nom de base de données est SMS_ABC. Vous restaurez une copie de cette base de données de site sur une instance prise en charge de SQL Server ayant pour nom d'instance DBTest. Pour tester une mise à niveau de cette copie de la base de données du site, utilisez la ligne de commande suivante : **Setup.exe /TESTDBUPGRADE DBtest\CM_ABC**  
 
-     Die Datei „Setup.exe“ befindet sich auf dem Quellmedium für System Center Configuration Manager an folgendem Speicherort: **SMSSETUP\BIN\X64**.  
+     Vous trouverez Setup.exe à l’emplacement suivant sur le média source de System Center Configuration Manager : **SMSSETUP\BIN\X64**.  
 
-3.  Überprüfen Sie den Fortschritt und den Erfolg des Upgrades auf der Instanz von SQL Server, auf der Sie den Test ausführen. Die nötigen Angaben dazu finden Sie in der Datei ConfigMgrSetup.log im Stamm des Systemlaufwerks:  
+3.  Sur l'instance de SQL Server où vous avez exécuté le test de mise à niveau de base de données, examinez ConfigMgrSetup.log à la racine du lecteur système pour connaître la progression et l'issue du test :  
 
-    -   Wenn beim Testen des Upgrades Fehler auftreten, beheben Sie die Probleme, die mit dem Upgrade der Standortdatenbank in Verbindung stehen. Erstellen Sie eine neue Sicherung der Standortdatenbank, und testen Sie anschließend das Upgrade der neuen Kopie der Standortdatenbank.  
-    -   Wenn der Prozess erfolgreich abgeschlossen ist, können Sie die Datenbankkopie löschen.  
+    -   Si le test de mise à niveau de la base de données du site échoue, remédiez aux problèmes liés à cet échec, créez une sauvegarde de la base de données du site, puis testez la mise à niveau de la nouvelle copie de la base de données du site.  
+    -   Une fois que le processus a abouti, vous pouvez supprimer la copie de la base de données.  
 
         > [!NOTE]  
-        >  Es wird nicht unterstützt, die für den Upgradetest verwendete Kopie der Datenbank mit dem Ziel der Verwendung als Standortdatenbank wiederherzustellen.  
+        >  Il n'est pas possible de restaurer la copie de la base de données du site que vous utilisez dans le cadre du test de mise à niveau afin de l'utiliser comme base de données d'un site quelconque.  
 
-Nachdem Sie für eine Kopie der Standortdatenbank erfolgreich ein Upgrade durchgeführt haben, fahren Sie mit dem Upgrade des Configuration Manager-Standorts und dessen Standortdatenbank fort.  
+Après avoir mis à niveau une copie de la base de données du site, procédez à la mise à niveau du site Configuration Manager et de sa base de données.  
 
-##  <a name="bkmk_upgrade"></a> Aktualisieren Sie Standorte.  
-Wenn Sie die Konfigurationen vor dem Upgrade für Ihren Standort abgeschlossen sowie das Upgrade der Standortdatenbank an einer Datenbankkopie getestet und die für die geplante Service Pack-Installation erforderlichen Dateien und Sprachpakete heruntergeladen haben, können Sie das Upgrade für Ihren Configuration Manager-Standort durchführen.  
+##  <a name="bkmk_upgrade"></a> Effectuez la mise à niveau des sites.  
+Dès lors que vous avez mené à bien les tâches de configuration préalables à la mise à niveau de votre site, testé la mise à niveau de la base de données du site sur une copie de la base de données, puis téléchargé les fichiers et les modules linguistiques prérequis pour la version du Service Pack que vous prévoyez d’installer, vous êtes prêt à mettre à niveau votre site Configuration Manager.  
 
-Beim Durchführen eines Upgrades für einen Standort in einer Hierarchie führen Sie als Erstes ein Upgrade für den Standort der obersten Ebene der Hierarchie durch. Bei dem Standort der obersten Ebene handelt es sich entweder um einen Standort der zentralen Verwaltung oder um einen eigenständigen primären Standort. Wenn das Upgrade des Standorts der zentralen Verwaltung abgeschlossen ist, können Sie für die untergeordneten primären Standorte in beliebiger Reihenfolge Upgrades durchführen. Nach dem Durchführen eines Upgrades für einen primären Standort können Sie für dessen untergeordnete sekundäre Standorte oder für zusätzliche primäre Standorte ein Upgrade durchführen, bevor Sie sekundäre Standorte aktualisieren.  
+Lorsque vous mettez à niveau un site qui fait partie d'une hiérarchie, vous mettez d'abord à niveau le site situé le plus haut dans la hiérarchie. Ce site de niveau supérieur est soit un site d'administration centrale, soit un site principal autonome. Après avoir effectué la mise à niveau d'un site d'administration centrale, vous pouvez mettre à niveau les sites principaux enfants dans l'ordre que vous voulez. Une fois que vous avez mis à niveau un site principal, vous pouvez mettre à niveau les sites secondaires enfants de ce site ou mettre à niveau d’autres sites principaux avant de mettre à niveau des sites secondaires.  
 
-Führen Sie Setup über das System Center Configuration Manager-Quellmedium aus, um ein Upgrade für einen Standort der zentralen Verwaltung oder einen primären Standort durchzuführen. Für ein Upgrade sekundärer Standorte führen Sie dagegen Seutp nicht aus. Stattdessen verwenden Sie die Configuration Manager-Konsole, um das Upgrade eines sekundären Standorts durchzuführen, nachdem das Upgrade des primären übergeordneten Standorts abgeschlossen ist.  
+Pour mettre à niveau un site d’administration centrale ou le site principal, vous exécutez le programme d’installation à partir du support de source d’installation de System Center Configuration Manager. Toutefois, il n'est pas nécessaire d'exécuter le programme d'installation pour mettre à niveau des sites secondaires. Au lieu de cela, il convient d’utiliser la console Configuration Manager pour mettre à niveau un site secondaire après avoir accompli la mise à niveau de son site parent principal.  
 
-Schließen Sie die auf dem Standortserver installierte Configuration Manager-Konsole, bevor Sie das Upgrade eines Standorts durchführen, bis dieses abgeschlossen ist. Schließen Sie außerdem jede Configuration Manager-Konsole, die auf anderen Computern als dem Standortserver ausgeführt wird. Sie können die Konsole nach Abschluss des Upgrades wieder verbinden. Bis Sie allerdings das Upgrade einer Configuration Manager-Konsole auf die neue Configuration Manager-Version durchführen, können in dieser Konsole nicht alle Objekte und Informationen angezeigt werden, die in der neuen Configuration Manager-Version verfügbar sind.  
+Avant de mettre à niveau un site, fermez la console Configuration Manager installée sur le serveur du site en attendant que la mise à niveau du site soit terminée. De même, fermez chacune des consoles Configuration Manager qui s’exécutent sur des ordinateurs autres que le serveur du site. Une fois la mise à niveau du site terminée, vous pouvez reconnecter la console. Toutefois, tant que vous n’avez pas mis à niveau une console Configuration Manager vers la nouvelle version de Configuration Manager, cette console ne peut pas afficher certains objets et certaines informations disponibles dans la nouvelle version de Configuration Manager.  
 
-Verwenden Sie die folgenden Verfahren zum Aktualisieren von Configuration Manager-Standorten:  
+Utilisez les procédures suivantes pour mettre à niveau des sites Configuration Manager :  
 
-#### <a name="to-upgrade-a-central-administration-site-or-primary-site"></a>So führen Sie ein Upgrade für einen Standort der zentralen Verwaltung oder einen primären Standort durch  
+#### <a name="to-upgrade-a-central-administration-site-or-primary-site"></a>Pour mettre à niveau un site d'administration centrale ou un site principal  
 
-1.  Überprüfen Sie, ob der Benutzer, der Setup ausführt, über die folgenden Sicherheitsrechte verfügt:  
+1.  Vérifiez que l'utilisateur qui exécute le programme d'installation possède les droits de sécurité suivants :  
 
-    -   Lokale Administratorrechte auf dem primären Standortservercomputer  
-    -   Lokale Administratorrechte auf dem Datenbankserver des Remotestandorts für den Standort, falls es sich um einen Remotestandort handelt    </br></br>
+    -   Droits d'administrateur local sur l'ordinateur serveur du site.  
+    -   Droits d'administrateur local sur le serveur de base de données de site distant du site, s'il est distant.    </br></br>
 
-2.  Öffnen Sie auf dem Standortservercomputer den Windows-Explorer, und wechseln Sie zu **&lt;ConfigMgSourceMedia\>\SMSSETUP\BIN\X64**.  
+2.  Sur l’ordinateur serveur de site, ouvrez l’Explorateur Windows et accédez à **&lt;SupportSourceInstallationConfigMg\>\SMSSETUP\BIN\X64**.  
 
-3.  Doppelklicken Sie auf **Setup.exe**. Der Setup-Assistent für Configuration Manager wird geöffnet.  
+3.  Double-cliquez sur **Setup.exe**. L’Assistant Installation de Configuration Manager s’ouvre.  
 
-4.  Klicken Sie auf der Seite **Vorbereitung** auf **Weiter**.  
+4.  Dans la page **Avant de commencer** , cliquez sur **Suivant**.  
 
-5.  Wählen Sie auf der Seite **Erste Schritte** die Option **Upgrade dieser Configuration Manager-Installation ausführen**, und klicken Sie dann auf **Weiter**.  
+5.  Sur la page **Mise en route** , sélectionnez **Mettre à niveau ce site Configuration Manager**, puis cliquez sur **Suivant**.  
 
-6.  Klicken Sie auf der Seite **Product Key** auf **Weiter**.  
+6.  Sur la page **Clé du produit** , cliquez sur **Suivant**.  
 
-     Wenn Sie zuvor eine Evaluierungsversion von Configuration Manager installiert haben, können Sie die Option **Lizenzierte Edition des Produkts installieren** auswählen und dann den Product Key für die vollständige Installation von Configuration Manager eingeben. Dadurch wird der Standort zur Vollversion konvertiert.  
+     Si vous avez précédemment installé la version d’évaluation de Configuration Manager, vous pouvez sélectionner **Installer la version illimitée de ce produit avec votre clef de licence**, puis entrer votre clé de produit correspondant à l’installation complète de Configuration Manager pour convertir le site en version complète.  
 
-     Seit der Veröffentlichung des Baselinemediums des System Center Configuration Manager-Release 1606 im Oktober 2016 können Sie das Ablaufdatum Ihres Software Assurance-Vertrags angeben. Sie haben auch die Möglichkeit, das **Ablaufdatum von Software Assurance** als praktische Erinnerung an dieses Datum anzugeben. Wenn Sie das Datum nicht während des Setups eingeben, können Sie es später in der Configuration Manager-Konsole angeben.
+     À partir de la version d’octobre 2016 du support de la base de référence de la version 1606 de System Center Configuration Manager, vous pouvez spécifier la date d’expiration de votre contrat Software Assurance. Vous avez également la possibilité de spécifier la **date d’expiration Software Assurance** de votre contrat de licence en guise de rappel pratique pour vous. Si vous ne l’entrez pas pendant l’installation, vous pouvez la spécifier ultérieurement depuis la console Configuration Manager.
 
      >  [!NOTE]   
-     >  Microsoft überprüft das angegebene Ablaufdatum nicht und verwendet es ebenso wenig, um die Lizenz zu überprüfen.  Stattdessen können Sie das Ablaufdatum angeben, um daran erinnert zu werden. Dies ist hilfreich, da Configuration Manager regelmäßig überprüft, ob neue Softwareupdates online angeboten werden, und Ihr Software Assurance-Lizenzstatus sollte aktuell sein, damit Sie von diesen zusätzlichen Updates profitieren können.    
+     >  Microsoft ne valide pas la date d’expiration que vous entrez et ne l’utilise pas pour la validation de la licence.  Vous pouvez ainsi l’utiliser en guise de rappel de votre date d’expiration. Ce rappel s’avère pratique car Configuration Manager vérifie régulièrement les nouvelles mises à jour logicielles proposées en ligne et l’état de votre licence Software Assurance doit être actualisé pour prétendre à l’utilisation de ces mises à jour supplémentaires.    
 
-     Weitere Informationen finden Sie unter [Lizenzierung und Branches für System Center Configuration Manager](/sccm/core/understand/learn-more-editions).
+     Pour plus d’informations, consultez [Licences et branches pour System Center Configuration Manager](/sccm/core/understand/learn-more-editions).
 
-7.  Lesen und akzeptieren Sie auf der Seite **Microsoft Software-Lizenzbedingungen** die Lizenzbedingungen, und klicken Sie anschließend auf **Weiter**.  
+7.  Sur la page **Termes du contrat de licence logiciel Microsoft** , lisez et acceptez les termes du contrat de licence, puis cliquez sur **Suivant**.  
 
-8.  Lesen und akzeptieren Sie auf der Seite **Lizenzen für erforderliche Komponenten** die Lizenzbedingungen für die erforderliche Software, und klicken Sie anschließend auf **Weiter**. Die Software wird gegebenenfalls heruntergeladen und automatisch auf Standortsystemen oder Clients installiert. Die nächste Seite wird erst angezeigt, nachdem Sie alle Kontrollkästchen aktiviert haben.  
+8.  Sur la page **Licences requises** , lisez et acceptez les termes du contrat de licence pour les logiciels requis, puis cliquez sur **Suivant**. Le programme d'installation télécharge et installe automatiquement les logiciels sur les systèmes ou les clients du site, si nécessaire. Vous devez activer toutes les cases à cocher pour passer à la page suivante.  
 
-9. Geben Sie auf der Seite **Download der Voraussetzungskomponenten** an, ob die aktuellsten Voraussetzungen, Sprachpakete und Produktupdates aus dem Internet heruntergeladen oder bereits heruntergeladene Dateien verwendet werden sollen. Klicken Sie dann auf **Weiter**. Falls Sie bereits Dateien mit dem Setup-Downloadprogramm heruntergeladen haben, wählen Sie **Bereits heruntergeladene Dateien verwenden** aus, und geben Sie den Downloadordner an. Weitere Informationen finden Sie unter [Setup Downloader (Setup-Downloadprogramm)](/sccm/core/servers/deploy/install/setup-downloader).
+9. Sur la page **Téléchargements requis** , précisez si le programme d'installation doit télécharger les derniers fichiers redistribuables requis, les modules linguistiques et les dernières mises à jour de produit à partir d'Internet ou utilisez les fichiers téléchargés précédemment, puis cliquez sur **Suivant**. Si vous avez précédemment téléchargé les fichiers à l'aide du téléchargeur d'installation, sélectionnez **Utiliser des fichiers précédemment téléchargés** , puis spécifiez le dossier de téléchargement. Pour plus d’informations, consultez [Téléchargeur d’installation](/sccm/core/servers/deploy/install/setup-downloader).
 
     > [!NOTE]  
-    >  Wenn Sie bereits heruntergeladene Dateien verwenden, überprüfen Sie, ob der Downloadordner die aktuellsten Dateiversionen enthält.  
+    >  Si vous utilisez des fichiers téléchargés précédemment, vérifiez que le chemin vers le dossier de téléchargement contient la version la plus récente des fichiers.  
 
-10. Zeigen Sie auf der Seite **Serversprachauswahl** die Liste der Sprachen an, die zurzeit für den Standort installiert sind. Wählen Sie weitere Sprachen aus, die an diesem Standort für die Configuration Manager-Konsole sowie für Berichte verfügbar sind, oder entfernen Sie Sprachen, die an diesem Standort nicht mehr unterstützt werden sollen. Klicken Sie anschließend auf **Weiter**. Englisch ist standardmäßig aktiviert und kann nicht entfernt werden.  
-
-    > [!IMPORTANT]  
-    >  Jede Version von Configuration Manager kann keine Sprachpakete aus einer früheren Version von Configuration Manager verwenden. Soll die Unterstützung einer bestimmten Sprache an einem Configuration Manager-Standort aktiviert werden, der upgegradet wird, müssen Sie die Sprachpaketversion für die neue Softwareversion verwenden. Wenn beispielsweise während des Upgrades von System Center 2012 Configuration Manager auf System Center Configuration Manager die System Center Configuration Manager-Version eines Sprachpakets nicht unter den erforderlichen Dateien verfügbar ist, die Sie herunterladen, kann die Unterstützung für diese Sprache nicht installiert werden.  
-
-11. Zeigen Sie auf der Seite **Clientsprachauswahl** die Liste der Sprachen an, die zurzeit für den Standort installiert sind. Wählen Sie weitere Sprachen aus, die an diesem Standort für Clientcomputer verfügbar sind, oder entfernen Sie Sprachen, die an diesem Standort nicht mehr unterstützt werden sollen. Geben Sie an, ob alle Clientsprachen für mobile Geräteclients aktiviert werden sollen. Klicken Sie dann auf **Weiter**. Englisch ist standardmäßig aktiviert und kann nicht entfernt werden.  
+10. Sur la page **Sélection de la langue du serveur** , examinez la liste des langues actuellement installées pour le site. Effectuez une sélection parmi les autres langues disponibles sur ce site pour la console Configuration Manager et les rapports, ou effacez les langues que vous ne souhaitez plus prendre en charge sur ce site, puis cliquez sur **Suivant**. L'anglais est sélectionné par défaut et ne peut pas être supprimé.  
 
     > [!IMPORTANT]  
-    >  Jede Version von Configuration Manager kann keine Sprachpakete aus einer früheren Version von Configuration Manager verwenden. Soll die Unterstützung einer bestimmten Sprache an einem Configuration Manager-Standort aktiviert werden, der upgegradet wird, müssen Sie die Sprachpaketversion für die neue Softwareversion verwenden. Wenn beispielsweise während des Upgrades von System Center 2012 Configuration Manager auf System Center Configuration Manager die System Center Configuration Manager-Version eines Sprachpakets nicht unter den erforderlichen Dateien verfügbar ist, die Sie herunterladen, kann die Unterstützung für diese Sprache nicht installiert werden.  
+    >  Chaque version de Configuration Manager ne peut pas utiliser les modules linguistiques d’une version antérieure de Configuration Manager. Pour activer la prise en charge d’une langue sur un site Configuration Manager que vous mettez à niveau, vous devez utiliser la version du module linguistique de cette nouvelle version. Pour exemple, pendant la mise à niveau de System Center 2012 Configuration Manager vers System Center Configuration Manager, si la version System Center Configuration Manager d’un module linguistique n’est pas disponible avec les fichiers prérequis que vous téléchargez, la prise en charge de cette langue ne peut pas être installée.  
 
-12. Klicken Sie auf der Seite **Zusammenfassung der Einstellungen** auf **Weiter** , um die Voraussetzungsprüfung zu starten und damit zu prüfen, ob der Server für das Upgrade des Standorts bereit ist.  
+11. Sur la page **Sélection de la langue client** , examinez la liste des langues actuellement installées pour le site. Effectuez une sélection parmi les autres langues disponibles sur ce site pour les ordinateurs clients, ou effacez les langues que vous ne voulez plus prendre en charge sur ce site. Précisez si vous souhaitez activer toutes les langues client pour les clients d’appareil mobile, puis cliquez sur **Suivant**. L'anglais est sélectionné par défaut et ne peut pas être supprimé.  
 
-13. Klicken Sie auf der Seite **Voraussetzungsprüfung** auf **Weiter** , falls keine Probleme aufgeführt werden. Daraufhin wird das Upgrade des Standorts und der Standortsystemrollen durchgeführt. Wenn bei der Voraussetzungsprüfung ein Problem festgestellt wird, klicken Sie in der Liste auf einen Eintrag, um Details zur Behebung des Problems anzuzeigen. Sie können mit der Installation erst dann fortfahren, wenn alle in der Liste mit dem Status **Fehler** aufgeführten Elemente korrigiert wurden. Klicken Sie nach der Problembehebung auf **Prüfung ausführen** , um die Voraussetzungsprüfung zu wiederholen. Sie können die Ergebnisse der Voraussetzungsprüfung überprüfen, indem Sie die Datei ConfigMgrPrereq.log im Stamm des Systemlaufwerks öffnen. Die Protokolldatei enhält möglicherweise weitere Informationen, die nicht auf der Benutzeroberfläche angezeigt werden. Eine Liste der Regeln und Beschreibungen zu den Installationsvoraussetzungen finden Sie unter [Voraussetzungsprüfung](/sccm/core/servers/deploy/install/list-of-prerequisite-checks).  
+    > [!IMPORTANT]  
+    >  Chaque version de Configuration Manager ne peut pas utiliser les modules linguistiques d’une version antérieure de Configuration Manager. Pour activer la prise en charge d’une langue sur un site Configuration Manager que vous mettez à niveau, vous devez utiliser la version du module linguistique de cette nouvelle version. Pour exemple, pendant la mise à niveau de System Center 2012 Configuration Manager vers System Center Configuration Manager, si la version System Center Configuration Manager d’un module linguistique n’est pas disponible avec les fichiers prérequis que vous téléchargez, la prise en charge de cette langue ne peut pas être installée.  
 
-Auf der Seite **Upgrade** wird der Gesamtstatus der Installation angezeigt. Wenn die Hauptinstallation des Standortservers und des Standortsystems abgeschlossen ist, können Sie den Assistenten schließen. Die Standortkonfiguration wird im Hintergrund fortgesetzt.  
+12. Sur la page **Résumé des paramètres** , cliquez sur **Suivant** pour démarrer l'outil de vérification des prérequis et vérifier si le serveur est prêt pour une mise à niveau du site.  
 
-#### <a name="to-upgrade-a-secondary-site"></a>So führen Sie das Upgrade eines sekundären Standorts durch  
+13. Sur la page **Vérification de l'installation préalable** , si aucun problème n'est répertorié, cliquez sur **Suivant** pour mettre à niveau le site et les rôles de système de site. Lorsque l’outil de vérification des prérequis détecte un problème, cliquez sur un élément dans la liste pour plus d'informations sur la résolution du problème. Résolvez tous les éléments de la liste dont l'état est **Erreur** avant de poursuivre l'installation. Après avoir résolu le problème, cliquez sur **Vérifier** pour relancer la vérification des prérequis. Vous pouvez également ouvrir le fichier ConfigMgrPrereq.log à la racine du lecteur système pour passer en revue les résultats de l'outil de vérification des prérequis. Le fichier journal peut contenir des informations supplémentaires qui ne s'affichent pas dans l'interface utilisateur. Pour obtenir la liste des règles et descriptions relatives aux prérequis de l’installation, consultez [Outil de vérification des prérequis](/sccm/core/servers/deploy/install/list-of-prerequisite-checks).  
 
-1.  Überprüfen Sie, ob der Administrator, der die Installation ausführt, über die folgenden Sicherheitsrechte verfügt:  
+Sur la page **Mettre à niveau** , le programme d'installation affiche l'état de la progression globale. Lorsque le programme d'installation a terminé l'installation du serveur de site principal et du système de site, vous pouvez fermer l'Assistant. La configuration du site se poursuit en arrière-plan.  
 
-    -   Lokale Administratorrechte auf dem sekundären Standortcomputer  
-    -   Sicherheitsrolle „Infrastrukturadministrator“ oder „Hauptadministrator“ am übergeordneten primären Standort  
-    -   Systemadministratorrechte (SA) für die Standortdatenbank des sekundären Standorts  
+#### <a name="to-upgrade-a-secondary-site"></a>Pour mettre à niveau un site secondaire  
+
+1.  Vérifiez que l'utilisateur administratif exécutant le programme d'installation possède les droits de sécurité suivants :  
+
+    -   Droits d'administrateur local sur l'ordinateur du site secondaire.  
+    -   Rôle de sécurité d'administrateur d'infrastructure ou d'administrateur complet sur le site principal parent.  
+    -   Droits d'administrateur système sur la base de données de site du site secondaire.  
     </br>
-2.  Klicken Sie in der Configuration Manager-Konsole auf **Verwaltung**.  
+2.  Dans la console Configuration Manager, cliquez sur **Administration**.  
 
-3.  Erweitern Sie im Arbeitsbereich **Verwaltung** den Bereich **Standortkonfiguration**, und klicken Sie dann auf **Standorte**.  
+3.  Dans l'espace de travail **Administration** , développez **Configuration du site**, puis cliquez sur **Sites**.  
 
-4.  Wählen Sie den sekundären Standort aus, für den Sie das Upgrade durchführen möchten, und klicken Sie dann auf der Registerkarte **Startseite** in der Gruppe **Standort** auf **Upgrade**.  
+4.  Sélectionnez le site secondaire à mettre à niveau puis, sous l'onglet **Accueil** , dans le groupe **Site** , cliquez sur **Mettre à niveau**.  
 
-5.  Klicken Sie zum Bestätigen auf **Ja** . Daraufhin wird das Upgrade des sekundären Standorts gestartet.  
+5.  Cliquez sur **Oui** pour confirmer la décision et lancer la mise à niveau du site secondaire.  
 
-Das Upgrade des sekundären Standorts erfolgt im Hintergrund. Nach Abschluss des Upgrades können Sie den Status in der Configuration Manager-Konsole bestätigen. Wenn Sie den Status bestätigen möchten, wählen Sie den Server des sekundären Standorts aus, und klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Standort** auf **Installationsstatus anzeigen**.  
+La mise à niveau du site secondaire progresse en arrière-plan. Une fois la mise à niveau terminée, vous pouvez vérifier l’état de la console Configuration Manager. Pour ce faire, sélectionnez le serveur du site secondaire puis, sous l'onglet **Accueil** , dans le groupe **Site** , cliquez sur **Afficher l'état d'installation**.  
 
-##  <a name="BKMK_PostUpgrade"></a> Ausführen der Aufgaben nach einem Upgrade  
-Nachdem Sie für einen Standort ein Upgrade auf ein neues Service Pack durchgeführt haben, müssen Sie möglicherweise einige zusätzliche Aufgaben ausführen, um das Upgrade oder die Neukonfiguration des Standorts abzuschließen. Dazu zählt beispielsweise das Durchführen eines Upgrades von Configuration Manager-Clients oder Configuration Manager-Konsolen, das erneute Aktivieren von Datenbankreplikaten für Verwaltungspunkte oder das Wiederherstellen von Configuration Manager-Funktionen, die Sie verwenden und die nach dem Service Pack-Upgrade nicht beibehalten werden.  
+##  <a name="BKMK_PostUpgrade"></a> Exécuter les étapes de post-mise à niveau  
+Après avoir mis à niveau un site vers un nouveau Service Pack, vous pouvez être amené à effectuer des tâches supplémentaires pour finaliser la mise à niveau ou reconfigurer le site. Ces tâches peuvent consister notamment à mettre à niveau des clients Configuration Manager ou des consoles Configuration Manager, à réactiver des réplicas de base de données pour des points de gestion ou à restaurer des paramètres pour la fonctionnalité Configuration Manager que vous utilisez et qui ne subsiste pas après la mise à niveau du Service Pack.  
 
-**Bekannte Probleme bei sekundären Standorten:**  
-- **Bei einem Upgrade auf Version 1511:** Um sicherzustellen, dass Clients auf sekundären Standorten den Verwaltungspunkt vom sekundären Standort (Proxyverwaltungspunkt) finden, fügen Sie den Verwaltungspunkt manuell zu Begrenzungsgruppen hinzu, die auch die Verteilungspunkte am sekundären Standort enthalten.  
+**Problèmes connus pour les sites secondaires :**  
+- **Quand vous effectuez la mise à niveau vers la version 1511 :** Pour vérifier que les clients sur les sites secondaires peuvent trouver le point de gestion à partir du site secondaire (point de gestion proxy), ajoutez manuellement le point de gestion aux groupes de limites qui incluent également les points de distribution du site secondaire.  
 
-- **Bei einem Upgrade auf Version 1606 oder höher:** Proxyverwaltungspunkte werden automatisch zu Begrenzungsgruppen hinzugefügt, die Verteilungspunkte am sekundären Standort enthalten.
+- **Quand vous effectuez la mise à niveau vers la version 1606 ou ultérieure :** Des points de gestion proxy sont automatiquement ajoutés aux groupes de limites qui incluent les points de distribution du site secondaire.

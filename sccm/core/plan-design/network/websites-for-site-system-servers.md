@@ -1,6 +1,6 @@
 ---
-title: "Websites für Standortsysteme | Microsoft-Dokumentation"
-description: "Erfahren Sie mehr über Standard- und Benutzerdefinierte Websites für Standortsystemserver in System Center Configuration Manager."
+title: "Sites web pour les systèmes de site | Microsoft Docs"
+description: "Découvrez les sites web personnalisés et par défaut pour les serveurs de système de site dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 2/8/2017
 ms.prod: configuration-manager
@@ -18,116 +18,116 @@ manager: angrobe
 ms.openlocfilehash: 886ff3b8e867fc340c79648a57feae81653b0ccd
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="websites-for-site-system-servers-in-system-center-configuration-manager"></a>Websites für Standortsystemserver in System Center Configuration Manager
+# <a name="websites-for-site-system-servers-in-system-center-configuration-manager"></a>Sites web pour les serveurs de système de site dans System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Mehrere Configuration Manager-Standortsystemrollen erfordern die Verwendung von Microsoft-Internetinformationsdiensten (IIS) und die Verwendung der IIS-Standardwebsite zum Hosten von Standortsystemdiensten. Wenn Sie andere Webanwendungen auf demselben Server ausführen müssen, und Einstellungen nicht mit Configuration Manager kompatibel sind, erwägen Sie die Nutzung einer benutzerdefinierten Website für Configuration Manager.  
+Plusieurs rôles de système de site Configuration Manager nécessitent l’utilisation de Microsoft Internet Information Services (IIS) et utilisent le site web IIS par défaut pour héberger les services du système de site. Si vous devez exécuter d’autres applications web sur le même serveur et que les paramètres ne sont pas compatibles avec Configuration Manager, utilisez plutôt un site web personnalisé pour Configuration Manager.  
 
 > [!TIP]  
->  Aus Sicherheitsgründen wird empfohlen, für Configuration Manager-Standortsysteme, für die IIS erforderlich ist, einen eigenen Server zu verwenden. Wenn Sie in einem Configuration Manager-Standortsystem andere Anwendungen ausführen, vergrößern Sie die Angriffsfläche dieses Computers.  
+>  Une bonne pratique en matière de sécurité consiste à dédier un serveur aux systèmes de site Configuration Manager nécessitant IIS. Quand vous exécutez d’autres applications sur un système de site Configuration Manager, vous augmentez la surface exposée aux attaques de cet ordinateur.  
 
 
 
 
-##  <a name="BKMK_What2Know"></a> Wissenswertes vor der Entscheidung für den Einsatz benutzerdefinierter Websites  
- Standortsystemrollen verwenden standardmäßig die **Standardwebsite** in IIS. Diese wird automatisch bei der Installation der Standortsystemrolle eingerichtet. An primären Standorten können Sie jedoch stattdessen benutzerdefinierte Websites verwenden. Wenn Sie benutzerdefinierte Websites verwenden:  
+##  <a name="BKMK_What2Know"></a> Informations à connaître avant d’utiliser des sites web personnalisés  
+ Par défaut, les rôles de système de site utilisent le **site web par défaut** dans IIS. Ceci est automatiquement configuré lors de l’installation du rôle de système de site. Toutefois, sur les sites principaux, vous pouvez choisir d’utiliser des sites web personnalisés à la place. Quand vous utilisez des sites web personnalisés :  
 
--   Benutzerdefinierte Websites sind für den gesamten Standort, nicht für einzelne Standortsystemserver oder -rollen aktiviert.  
+-   Les sites web personnalisés sont activés pour l’ensemble du site, et non pas individuellement pour des serveurs ou rôles du système de site.  
 
--   An primären Standorten muss jeder Computer, der eine anwendbare Standortsystemrolle hosten soll, mit einer benutzerdefinierten Website namens **SMSWEB** eingerichtet werden. Erst wenn Sie diese Website erstellt und die Standortsystemrollen auf diesem Computer so eingerichtet haben, dass sie die benutzerdefinierte Website verwenden, können Clients mit Standortsystemrollen auf diesem Computer kommunizieren.  
+-   Sur les sites principaux, chaque ordinateur qui hébergera un rôle de système de site applicable doit être configuré avec un site web personnalisé nommé **SMSWEB**. Tant que ce site web n’aura pas été créé et que les rôles de système de site sur l’ordinateur n’auront pas été configurés pour utiliser le site web personnalisé, les clients ne pourront peut-être pas communiquer avec les rôles de système de site sur cet ordinateur.  
 
--   Da sekundäre Standorte automatisch für die Verwendung einer benutzerdefinierten Website eingerichtet werden, wenn Sie diese Option für den übergeordneten primären Standort aktiviert haben, müssen Sie auch benutzerdefinierte Websites in IIS auf jedem sekundären Standortsystemserver erstellen, der IIS benötigt.  
+-   Du fait que les sites secondaires sont automatiquement configurés pour utiliser un site web personnalisé quand leur site parent principal est configuré pour cela, vous devez également créer des sites web personnalisés dans IIS sur chaque serveur de système de site secondaire qui nécessite IIS.  
 
 
-  **Voraussetzungen für die Verwendung benutzerdefinierter Websites:**  
+  **Configuration requise pour l’utilisation de sites web personnalisés :**  
 
- Vor der Aktivierung der Option zur Verwendung benutzerdefinierter Websites an einem Standort müssen Sie folgende Schritte durchführen:  
+ Avant d’activer l’option pour utiliser des sites web personnalisés sur un site, vous devez effectuer les opérations suivantes :  
 
--   Erstellen Sie eine benutzerdefinierte Website mit dem Namen **SMSWEB** in IIS auf jedem Standortsystemserver, der IIS erfordert. Führen Sie dies am primären Standort und an allen untergeordneten sekundären Standorten durch.  
+-   Créez un site web personnalisé nommé **SMSWEB** dans IIS sur chaque serveur de système de site qui nécessite les services IIS. Effectuez cette opération sur le site principal et sur tous les sites secondaires enfants.  
 
--   Richten Sie die benutzerdefinierte Website so ein, dass sie auf den gleichen Port reagiert, den Sie für die Configuration Manager-Clientkommunikation (Portnummer für Clientanfragen) eingerichtet haben.  
+-   Configurez le site web personnalisé pour répondre sur le même port que celui configuré pour la communication client Configuration Manager (port de demande client).  
 
--   Platzieren Sie für jede benutzerdefinierte Website oder Standardwebsite, die einen benutzerdefinierten Ordner verwendet, eine Kopie des verwendeten Standarddokumenttyps in dem Stammordner, der die Website hostet. Auf einem Windows Server 2008 R2-Computer mit Standardkonfigurationen ist **iisstart.htm** beispielsweise einer der verfügbaren Standarddokumenttypen. Suchen Sie im Stammverzeichnis der Standardwebsite nach dieser Datei, und legen Sie eine Kopie dieser Datei (oder eine Kopie des verwendeten Standarddokumenttyps) in den Stammordner, der die benutzerdefinierte SMSWEB-Website hostet. Weitere Informationen zu Standarddokumenttypen finden Sie unter [Default Document &lt;defaultDocument\> for IIS](http://www.iis.net/configreference/system.webserver/defaultdocument).  
+-   Pour chaque site web personnalisé ou site web par défaut qui utilise un dossier personnalisé, placez une copie du type de document par défaut que vous utilisez dans le dossier racine qui héberge le site web. Par exemple, sur un ordinateur Windows Server 2008 R2 avec des configurations par défaut, **iisstart.htm** est l’un des types de documents par défaut disponibles. Ce fichier se trouve à la racine du site web par défaut. Vous pouvez en placer une copie (ou une copie du type de document par défaut que vous utilisez) dans le dossier racine qui héberge le site web personnalisé SMSWEB. Pour plus d’informations sur les types de documents par défaut, consultez [Document par défaut &lt;defaultDocument\> pour IIS](http://www.iis.net/configreference/system.webserver/defaultdocument).  
 
-**Informationen zu IIS-Anforderungen:**
-**Für die folgenden Standortsystemrollen sind IIS und eine Website zum Hosten der Standortsystemdienste erforderlich:**  
+**À propos de la configuration requise pour IIS :**
+**Les rôles de système de site suivants nécessitent IIS et un site web pour héberger les services de système de site :**  
 
--   Anwendungskatalog-Webdienstpunkt  
+-   Point de service Web du catalogue des applications  
 
--   Anwendungskatalog-Websitepunkt  
+-   Point du site web du catalogue des applications  
 
--   Verteilungspunkt  
+-   Point de distribution  
 
--   Anmeldungspunkt  
+-   Point d'inscription  
 
--   Anmeldungsproxypunkt  
+-   Point proxy d'inscription  
 
--   Fallbackstatuspunkt  
+-   Point d’état de secours  
 
--   Verwaltungspunkt  
+-   Point de gestion  
 
--   Softwareupdatepunkt  
+-   Point de mise à jour logicielle  
 
--   Zustandsmigrationspunkt  
+-   Point de migration d'état  
 
-Weitere Aspekte:  
+Autres éléments à prendre en considération  
 
--   Wenn für einen primärer Standort benutzerdefinierte Websites aktiviert sind, werden diesem Standort zugewiesene Clients so weitergeleitet, dass sie mit den benutzerdefinierten Websites anstatt mit den Standardwebsites auf den betreffenden Standortsystemservern kommunizieren.  
+-   Quand un site principal comporte des sites web personnalisés activés, les clients attribués à ce site sont configurés pour communiquer avec les sites web personnalisés plutôt qu’avec les sites web par défaut sur les serveurs de système de site concernés.  
 
--   Wenn Sie benutzerdefinierte Websites für einen primären Standort verwenden, erwägen Sie, benutzerdefinierte Websites für alle primären Standorte in Ihrer Hierarchie zu verwenden, damit ein erfolgreiches Roaming von Clients innerhalb der Hierarchie möglich ist. (Roaming heißt der Vorgang, bei dem ein Clientcomputer zu einem neuen Netzwerksegment wechselt, das von einem anderen Standort verwaltet wird. Roaming kann Einfluss darauf haben, auf welche Ressourcen der Client lokal anstatt über eine WAN-Verbindung zugreifen kann.)  
+-   Si vous activez des sites web personnalisés pour un site principal, envisagez d’utiliser des sites web personnalisés pour tous les sites principaux de votre hiérarchie afin d’assurer la bonne itinérance des clients dans la hiérarchie. (L’itinérance désigne le déplacement d’un ordinateur client vers un nouveau segment de réseau qui est géré par un autre site. L’itinérance peut avoir une incidence sur les ressources auxquelles un client peut accéder localement au lieu d’y accéder sur une liaison WAN).  
 
--   Standortsystemrollen wie der Reporting Services-Punkt, die IIS verwenden, aber keine Clientverbindungen akzeptieren, verwenden ebenfalls die Website SMSWEB anstelle der Standardwebsite.  
+-   Les rôles de système de site qui utilisent les services IIS mais n’acceptent pas les connexions clientes, comme le point de Reporting Services, utilisent également le site web SMSWEB au lieu du site web par défaut.  
 
--   Benutzerdefinierte Websites erfordern das Zuweisen von Portnummern, die sich von denjenigen unterscheiden, die von der Standardwebsite des Computers verwendet werden. Eine Standardwebsite und benutzerdefinierte Website können nicht gleichzeitig ausgeführt werden, wenn beide Websites versuchen, dieselben TCP/IP-Ports zu verwenden.  
+-   Les sites web personnalisés vous permettent d’attribuer des numéros de port différents de ceux utilisés par le site web par défaut des ordinateurs. Un site web par défaut et le site web personnalisé ne peuvent pas s’exécuter simultanément s’ils tentent tous les deux d’utiliser les mêmes ports TCP/IP.  
 
--   Die TCP/IP-Ports, die Sie in IIS für die benutzerdefinierte Website einrichten, müssen mit den Clientanforderungsports für den Standort übereinstimmen.  
+-   Les ports TCP/IP que vous configurez dans IIS pour le site web personnalisé doivent correspondre aux ports de demande client pour le site.  
 
-## <a name="switch-between-default-and-custom-websites"></a>Wechseln zwischen Standard- und benutzerdefinierten Websites  
-Obwohl Sie das Kontrollkästchen zur Verwendung benutzerdefinierter Websites bei einem primären Standort jederzeit aktivieren bzw. deaktivieren können (Sie finden es auf der Seite „Eigenschaften“ auf der Registerkarte „Allgemein“), sollten Sie sorgfältig planen, bevor Sie diese Änderung vornehmen. Wenn diese Konfiguration geändert wird, müssen alle betreffenden Standortsystemrollen am primären Standort und an untergeordneten sekundären Standorten deinstalliert und erneut installiert werden:  
+## <a name="switch-between-default-and-custom-websites"></a>Basculer entre un site web par défaut et un site web personnalisé  
+Vous pouvez cocher ou décocher la case relative à l’utilisation de sites web personnalisés sur un site principal à tout moment (la case à cocher se trouve sous l’onglet Général des propriétés des sites), mais effectuez cette modification avec prudence. Si cette configuration est modifiée, tous les rôles de système de site applicables sur le site principal et sur les sites secondaires enfants doivent être désinstallés, puis réinstallés :  
 
-Die folgenden Rollen werden **automatisch neu installiert**:  
+Les rôles suivants sont **réinstallés automatiquement**:  
 
--   Verwaltungspunkt  
+-   Point de gestion  
 
--   Verteilungspunkt  
+-   Point de distribution  
 
--   Softwareupdatepunkt  
+-   Point de mise à jour logicielle  
 
--   Fallbackstatuspunkt  
+-   Point d'état de secours  
 
--   Zustandsmigrationspunkt  
+-   Point de migration d'état  
 
-Die folgenden Rollen müssen **manuell neu installiert werden**:  
+Les rôles suivants doivent être **réinstallés manuellement**:  
 
--   Anwendungskatalog-Webdienstpunkt  
+-   Point de service Web du catalogue des applications  
 
--   Anwendungskatalog-Websitepunkt  
+-   Point du site web du catalogue des applications  
 
--   Anmeldungspunkt  
+-   Point d'inscription  
 
--   Anmeldungsproxypunkt  
+-   Point proxy d'inscription  
 
-Darüber hinaus gilt:  
+En outre :  
 
--   Wenn Sie von der Standardwebsite zu einer benutzerdefinierten Website wechseln, werden die alten virtuellen Verzeichnisse nicht von Configuration Manager entfernt. Wenn Sie von Configuration Manager verwendete Dateien entfernen möchten, müssen Sie die virtuellen Verzeichnisse, die unter der Standardwebsite erstellt wurden, manuell löschen.  
+-   Quand vous utilisez un site web personnalisé à la place du site web par défaut, Configuration Manager ne supprime pas les anciens répertoires virtuels. Si vous souhaitez supprimer les fichiers utilisés par Configuration Manager, vous devez supprimer manuellement les répertoires virtuels créés sous le site web par défaut.  
 
--   Wenn Sie am Standort zu benutzerdefinierten Websites wechseln, müssen Clients, die bereits dem Standort zugewiesen sind, so neu konfiguriert werden, dass die neuen Clientanforderungsports für die benutzerdefinierten Websites verwendet werden. Weitere Informationen finden Sie unter [Konfigurieren von Clientkommunikationsports in System Center Configuration Manager](../../../core/clients/deploy/configure-client-communication-ports.md).  
+-   Si vous modifiez le site pour utiliser des sites web personnalisés, les clients qui sont déjà attribués au site doivent ensuite être reconfigurés pour utiliser les nouveaux ports de demande client pour les sites web personnalisés. Consultez [Guide pratique pour configurer les ports de communication des clients dans System Center Configuration Manager](../../../core/clients/deploy/configure-client-communication-ports.md).  
 
-## <a name="set-up-custom-websites"></a>Einrichten benutzerdefinierter Websites  
-Da die Schritte zum Erstellen einer benutzerdefinierten Website bei verschiedenen Betriebssystemversionen variieren, konsultieren Sie die Dokumentation Ihrer Betriebssystemversion hinsichtlich der genauen Schritte, doch befolgen Sie, sofern zutreffend, die folgenden Vorgaben:  
+## <a name="set-up-custom-websites"></a>Configurer des sites web personnalisés  
+Du fait que les procédures de création d’un site web personnalisé varient selon la version du système d’exploitation, reportez-vous à la documentation de votre version de système d’exploitation pour connaître les procédures exactes à suivre. Toutefois, suivez les indications ci-dessous, le cas échéant :  
 
--   Der Websitename muss **SMSWEB** lauten.  
+-   Le site web doit être appelé **SMSWEB**.  
 
--   Beim Einrichten von HTTPS müssen Sie ein SSL-Zertifikat angeben, bevor Sie die Konfiguration speichern können.  
+-   Si vous configurez le protocole HTTPS, vous devez spécifier un certificat SSL pour pouvoir enregistrer la configuration.  
 
--   Nachdem Sie die benutzerdefinierte Website erstellt haben, entfernen Sie die benutzerdefinierten Websiteports, die Sie von anderen Websites in IIS aus verwenden:  
+-   Après avoir créé le site web personnalisé, supprimez les ports de sites web personnalisés que vous utilisez à partir d’autres sites web dans IIS :  
 
-    1.  Bearbeiten Sie die **Bindungen** der anderen Websites so, dass Ports entfernt werden, die denjenigen entsprechen, die der Website **SMSWEB** zugewiesen sind.  
+    1.  Modifiez les **liaisons** des autres sites web pour supprimer les ports qui correspondent à ceux attribués au site web **SMSWEB**.  
 
-    2.  Starten Sie die Website **SMSWEB**.  
+    2.  Démarrez le site web **SMSWEB**.  
 
-    3.  Starten Sie den Dienst **SMS_SITE_COMPONENT_MANAGER** auf dem Standortserver des Standorts neu.  
+    3.  Redémarrez le service **SMS_SITE_COMPONENT_MANAGER** sur le serveur de site du site.  

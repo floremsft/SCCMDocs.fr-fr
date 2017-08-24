@@ -1,6 +1,6 @@
 ---
-title: "Funktionen in Technical Preview 1701 für Configuration Manager"
-description: "Erfahren Sie mehr zu Funktionen, die in Technical Preview 1701 für System Center Configuration Manager zur Verfügung stehen."
+title: "Fonctionnalités de Technical Preview 1701 Configuration Manager"
+description: "Découvrez les fonctionnalités disponibles dans Technical Preview 1701 System Center Configuration Manager."
 ms.custom: na
 ms.date: 01/23/2017
 ms.prod: configuration-manager
@@ -17,140 +17,140 @@ manager: angrobe
 ms.openlocfilehash: b330c97a0853d1673f1cf7e0691891b72407fa51
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="capabilities-in-technical-preview-1701-for-system-center-configuration-manager"></a>Funktionen in Technical Preview 1701 für System Center Configuration Manager
+# <a name="capabilities-in-technical-preview-1701-for-system-center-configuration-manager"></a>Fonctionnalités de Technical Preview 1701 System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Technical Preview)*
-
-
-
-In diesem Artikel werden die Funktionen erläutert, die in Technical Preview 1701 für System Center Configuration Manager verfügbar sind. Sie können diese Version installieren, um neue Funktionen für Ihren Configuration Manager Technical Preview-Standort zu aktualisieren oder hinzuzufügen. Bevor Sie diese Version der Technical Preview installieren, lesen Sie das einführende Thema [Technical Preview für System Center Configuration Manager](../../core/get-started/technical-preview.md), um sich mit den allgemeinen Anforderungen und Einschränkungen bei der Verwendung einer Technical Preview vertraut zu machen, und zu erfahren, wie Sie Updates zwischen Versionen durchführen und Feedback zu den Features in einer Technical Preview geben können.    
+*S’applique à : System Center Configuration Manager (version d’évaluation technique)*
 
 
-**Im Folgenden werden neue Features aufgelistet, die Sie mit dieser Version ausprobieren können.**  
 
-## <a name="boundary-groups-improvements-for-software-update-points"></a>Verbesserungen bei Begrenzungsgruppen für Softwareupdatepunkte
-Ab dieser Preview-Version verwenden Sie Begrenzungsgruppen, um Clients Softwareupdatepunkten zuzuordnen. Dies ist Teil der Bestrebungen, die Änderungen an Begrenzungsgruppen auszuweiten, sodass Begrenzungsgruppen zusätzliche Standortsystemrollen verwalten können.  Die ersten Änderungen an Begrenzungsgruppen wurden in Technical Preview 1609 und der Current Branch-Version 1610 eingeführt.  
-
-In dieser Preview-Version können Sie das neue Verhalten der Begrenzungsgruppe nutzen, um zu verwalten, welche Softwareupdatepunkte ein Client verwenden kann. Dabei gehen Sie ähnlich vor wie bei der Verwaltung der von einem Client nutzbaren Verteilungspunkte:  
-
-- Sie konfigurieren Begrenzungsgruppen, um einen oder mehrere Server zuzuordnen, die einen Softwareupdatepunkt hosten.
-- Clients, die einen neuen Softwareupdatepunkt suchen, werden versuchen, einen Punkt zu verwenden, der ihrer aktuellen Begrenzungsgruppe zugeordnet ist.
-- Wenn ein Client seinen aktuellen Softwareupdatepunkt nicht erreicht und auch in seiner aktuellen Begrenzungsgruppe keinen Softwareupdatepunkt findet, verwendet er ein Fallbackverhalten, um den Pool der zur Verfügung stehenden Softwareupdatepunkte zu erweitern.    
-
-Weitere Informationen zu Begrenzungsgruppen finden Sie unter [Begrenzungsgruppen](/sccm/core/servers/deploy/configure/boundary-groups) in der Hilfe für die Current Branch-Version.
-
-In dieser Preview sind die Begrenzungsgruppen für Softwareupdatepunkte jedoch nur teilweise implementiert. Sie können Softwareupdatepunkte hinzufügen und benachbarte Begrenzungsgruppen mit Softwareupdatepunkten konfigurieren, aber sie können die Fallbackzeit für Softwareupdatepunkte noch nicht ändern – d.h. es dauert zwei Stunden, bis ein Client einen Fallback einleitet.
-
-Nachfolgend wird das Verhalten von Softwareupdatepunkten in dieser Technical Preview beschrieben:  
-
--   **Neue Clients verwenden Begrenzungsgruppen, um Softwareupdatepunkte auszuwählen.** Ein Client, den Sie nach der Installation von Version 1701 installieren, wählt einen Softwareupdatepunkt aus denjenigen aus, die der Begrenzungsgruppe des Clients zugeordnet sind.
-
-  Dies ersetzt das vorherige Verhalten, bei dem die Clients zufällig einen Softwareupdatepunkt aus der Liste derer auswählten, die sich die Gesamtstruktur der Clients teilen.   
-
--   **Bereits installierte Clients verwenden so lange ihren aktuellen Softwareupdatepunkt, bis sie einen Fallback ausführen, um einen neuen zu finden.**
-Bestehende Clients, die bereits über einen Softwareupdatepunkt verfügen, werden diesen weiterhin verwenden, bis sie einen Fallback ausführen. Dies betrifft auch Softwareupdatepunkte, die nicht der aktuellen Begrenzungsgruppe des Clients zugeordnet sind. Sie versuchen nicht sofort, in ihrer aktuellen Begrenzungsgruppe einen Softwareupdatepunkt zu suchen und diesen zu verwenden.
-
-  Ein Client, der bereits über einen Softwareupdatepunkt verfügt, zeigt dieses neue Begrenzungsgruppenverhalten erst, nachdem er erfolglos versucht hat, seinen aktuellen Softwareupdatepunkt zu erreichen, und einen Fallback gestartet hat.
-Der verzögerte Wechsel zu diesem neuen Verhalten ist Absicht. Dies liegt daran, dass der Wechsel eines Softwareupdatepunkts einen großen Teil der Netzwerkbandbreite in Anspruch nimmt, da der Client Daten mit dem neuen Softwareupdatepunkt synchronisiert. Die Verzögerung beim Übergang vermeidet eine Komplettauslastung Ihres Netzwerk, da nicht alle Ihre Clients gleichzeitig auf den neuen Softwareupdatepunkt wechseln.
-
--   **Konfigurationen der Fallbackzeit:** In dieser Technical Preview können Sie nicht konfigurieren, wann ein Client einen Fallback ausführen soll, um nach einem neuen Softwareupdatepunkt zu suchen. Dazu zählen auch die Konfigurationen für **Fallback times (in minutes)** (Fallbackzeit (in Minuten)) und **Never fallback** (Niemals einen Fallback ausführen), die Sie möglicherweise für andere Begrenzungsgruppenbeziehungen konfigurieren möchten.
-
-  Die Clients behalten stattdessen ihr aktuelles Verhalten bei, d.h. sie versuchen zwei Stunden lang, sich mit ihrem aktuellen Softwareupdatepunkt zu verbinden, bevor Sie einen Fallback ausführen, um einen anderen verfügbaren Softwareupdatepunkt zu finden.
-
-  Wenn ein Client die Fallbackfunktion verwendet, greift er auf die Begrenzungsgruppenkonfigurationen für den Fallback zurück, um einen Pool verfügbarer Softwareupdatepunkte zu erstellen. Dieser Pool enthält alle Softwareupdatepunkte der *aktuellen Begrenzungsgruppe*, der *benachbarten Begrenzungsgruppe* und der *standardmäßigen Standortbegrenzungsgruppe* des Clients.
-
-- **Konfigurieren der standardmäßigen Standortbegrenzungsgruppe:**  
- Ziehen Sie in Erwägung, einen Softwareupdatepunkt zu *Default-Site-Boundary-Group&lt;Standortcode>* hinzuzufügen. Dadurch können auch Clients, die nicht Mitglieder einer anderen Begrenzungsgruppe sind, einen Fallback ausführen, um einen Softwareupdatepunkt zu suchen.
+Cet article présente les fonctionnalités qui sont disponibles dans Technical Preview 1701 System Center Configuration Manager. Vous pouvez installer cette version pour mettre à jour et ajouter de nouvelles fonctionnalités à votre site de version d’évaluation technique Configuration Manager. Avant d’installer cette version d’évaluation technique, passez en revue la rubrique de présentation, [Technical Preview pour System Center Configuration Manager](../../core/get-started/technical-preview.md), pour vous familiariser avec les conditions générales et les limitations d’utilisation d’une version d’évaluation technique, la mise à jour entre les versions et l’envoi de commentaires sur les fonctionnalités dans une version d’évaluation technique.    
 
 
-Verwenden Sie zum Verwalten von Softwareupdatepunkten die [Prozeduren aus der Dokumentation zur Current Branch-Version](/sccm/core/servers/deploy/configure/define-site-boundaries-and-boundary-groups#procedures-for-boundary-groups), aber denken Sie daran, dass ggf. konfigurierte Fallbackzeiten noch nicht auf Softwareupdatepunkte angewendet werden.
+**Vous trouverez ci-dessous les nouvelles fonctionnalités propres à cette version.**  
+
+## <a name="boundary-groups-improvements-for-software-update-points"></a>Améliorations des groupes de limites pour les points de mise à jour logicielle
+À compter de cette préversion, vous pouvez utiliser les groupes de limites pour associer les clients à des points de mise à jour logicielle. Ce changement intervient dans le cadre des travaux en cours destinés à modifier les groupes de limites de manière à ce qu’ils puissent gérer davantage de rôles de système de site.  Les premières modifications des groupes de limites sont apparues dans Technical Preview 1609 et dans la version Current Branch de Technical Preview 1610.  
+
+Avec cette préversion, vous pouvez désormais utiliser le nouveau comportement des groupes de limites pour gérer les points de mise à jour logicielle qu’un client peut utiliser, de la même manière dont vous gérez les points de distribution qu’un client peut utiliser :  
+
+- Vous configurez des groupes de limites pour associer un ou plusieurs serveurs qui hébergent un point de mise à jour logicielle.
+- Les clients qui recherchent un nouveau point de mise à jour logicielle tentent d’utiliser celui qui est associé à leur groupe de limites actuel.
+- Lorsqu’un client ne parvient pas à contacter le point de mise à jour logicielle auquel il est associé, ni à trouver un autre point appartenant à son groupe de limites actuel, il utilise le comportement de secours afin d’élargir le pool des points de mise à jour logicielle qu’il peut utiliser.    
+
+Pour plus d’informations sur les groupes de limites, consultez [Groupes de limites](/sccm/core/servers/deploy/configure/boundary-groups) dans le contenu concernant la version Current Branch.
+
+Toutefois, avec cette préversion, les groupes de limites des points de mise à jour logicielle ne sont que partiellement implémentés. Vous pouvez ajouter des points de mise à jour logicielle et configurer des groupes de limites voisins contenant des points de mise à jour logicielle. Cependant, étant donné qu’il n’est pas encore possible de définir un délai avant utilisation du comportement de secours pour les points de mise à jour logicielle, les clients attendent deux heures avant de lancer le comportement de secours.
+
+Les points suivants décrivent le comportement des points de mise à jour logicielle dans cette préversion :  
+
+-   **Les nouveaux clients utilisent des groupes de limites pour sélectionner des points de mise à jour logicielle**. Si vous installez un client après avoir installé la version 1701, celui-ci sélectionnera l’un des points de mise à jour logicielle associés à son groupe de limites.
+
+  Ce comportement vient remplacer celui qui consistait, pour les clients, à sélectionner un point de mise à jour logicielle de manière aléatoire dans la liste des points partageant la même forêt de clients.   
+
+-   **Les clients déjà installés continuent d’utiliser leur point de mise à jour logicielle actuel jusqu’à ce qu’ils en recherchent un nouveau une fois le comportement de secours lancé.**
+Les clients déjà installés qui disposent déjà d’un point de mise à jour logicielle continueront d’utiliser ce point jusqu’à ce que le comportement de secours soit lancé. Cela comprend les points de mise à jour logicielle qui ne sont pas associés au groupe de limites actuel du client. Ils ne tentent pas immédiatement de rechercher et d’utiliser un point de mise à jour logicielle appartenant à leur groupe de limites actuel.
+
+  Un client qui dispose déjà d’un point de mise à jour logicielle ne commencera à utiliser ce nouveau comportement de groupe de limites qu’après avoir échoué à contacter son point de mise à jour logicielle actuel et lancé le comportement de secours.
+Le délai de basculement vers le nouveau comportement est voulu. En effet, le changement de point de mise à jour logicielle peut entraîner une utilisation importante de la bande passante, car le client synchronise ses données avec le nouveau point de mise à jour logicielle. Ce délai se révèle donc utile. Le délai de transition peut permettre d’éviter la saturation du réseau, si tous vos clients devaient basculer vers le nouveau point de mise à jour logicielle en même temps.
+
+-   **Configuration du délai de basculement vers le comportement de secours**. Cette préversion ne permet pas de configurer quand les clients peuvent commencer à basculer vers le comportement de secours et rechercher un nouveau point de mise à jour logicielle. Elle comprend les options **Durées du secours (en minutes)** et **Ne jamais activer le secours**, que vous pouvez configurer pour différentes relations de groupes de limites.
+
+  Au lieu de cela, les clients conservent leur comportement actuel qui consiste à tenter de se connecter à leur point de mise à jour logicielle actuel pendant deux heures, avant de basculer vers le comportement de secours pour rechercher un nouveau point de mise à jour logicielle.
+
+  Lorsqu’un client bascule vers le comportement de secours, il utilise les configurations du groupe de limites relatives au comportement de secours, afin de créer un pool de points de mise à jour logicielle disponibles. Cette liste comprend tous les points de mise à jour logicielle des clients provenant du *groupe de limites actuel*, des *groupes de limites voisins* et du *groupe de limites de site par défaut*.
+
+- **Configurer le groupe de limites de site par défaut :**  
+ Ajoutez un point de mise à jour logicielle au *groupe-limites-site-par-défaut&lt;codesite>*. Vous permettez ainsi aux clients qui ne sont pas membres d’un autre groupe de limites de basculer vers le comportement de secours pour rechercher un point de mise à jour logicielle.
 
 
-## <a name="hardware-inventory-collects-uefi-information"></a>Die Hardwareinventur sammelt UEFI-Informationen
-Ihnen stehen eine neue Hardwareinventurklasse (**SMS_Firmware**) und eine neue Eigenschaft (**UEFI**) zur Verfügung, mit der Sie bestimmen können, ob ein Computer im UEFI-Modus startet. Wenn ein Computer im UEFI-Modus gestartet wird, ist die Eigenschaft **UEFI** auf **TRUE** festgelegt. Dies ist bei der Hardwareinventur standardmäßig aktiviert. Weitere Informationen zur Hardwareinventur finden Sie unter [How to configure hardware inventory (Konfigurieren der Hardwareinventur)](/sccm/core/clients/manage/inventory/configure-hardware-inventory).
+Pour gérer les points de mise à jour logicielle pour les groupes de limites, utilisez les [procédures de la documentation relative à la version Current Branch](/sccm/core/servers/deploy/configure/define-site-boundaries-and-boundary-groups#procedures-for-boundary-groups). Toutefois, n’oubliez pas qu’il n’est pas encore possible de configurer des durées de secours pour les points de mise à jour logicielle.
 
-## <a name="improvements-to-operating-system-deployment"></a>Verbesserungen bei der Betriebssystembereitstellung
-Basierend auf dem Feedback von Benutzern haben wir die folgenden Verbesserungen an der Betriebssystembereitstellung vorgenommen.
-- [**Unterstützung einer größeren Zahl von Anwendungen für den Tasksequenzschritt „Anwendungen installieren“**](https://configurationmanager.uservoice.com/forums/300492-ideas/suggestions/17062207-task-sequence-allow-more-than-9-applications-in-t): Im Tasksequenzschritt **Anwendungen installieren** können Sie nun bis zu 99 Anwendungen installieren. Vorher war maximal die Installation von neun Anwendungen möglich.
-- [**Auswählen mehrerer Apps im Tasksequenzschritt „Apps installieren“**](https://configurationmanager.uservoice.com/forums/300492-ideas/suggestions/15459978-when-adding-items-to-an-install-application-step): Wenn Sie im Tasksequenz-Editor Anwendungen zum Tasksequenzschritt „Apps installieren“ hinzufügen, können Sie im Bereich **Zu installierende Anwendung auswählen** nun mehrere Anwendungen hinzufügen.
-- [**Gültigkeitszeitraum für eigenständige Medien**](https://configurationmanager.uservoice.com/forums/300492-ideas/suggestions/14448564-provide-a-method-for-expiring-standalone-media): Beim Erstellen eines eigenständigen Mediums stehen Ihnen nun neue Optionen zur Verfügung, mit denen Sie optional den Beginn und das Ende des Gültigkeitszeitraums dieses Mediums festlegen können. Standardmäßig sind diese Einstellungen deaktiviert. Vor der Ausführung des eigenständigen Mediums werden die Datums- und Zeitangaben für den Zeitraum mit der Systemzeit auf dem Computer verglichen. Wenn die Systemzeit vor der Startzeit oder hinter der Ablaufzeit liegt, wird das eigenständige Medium nicht gestartet. Diese Optionen sind auch über das PowerShell-Cmdlet „New-CMStandaloneMedia“ verfügbar.
-- [**Unterstützung für zusätzlichen Inhalt in eigenständigen Medien**](https://configurationmanager.uservoice.com/forums/300492-ideas/suggestions/8341257-support-installation-of-packages-apps-via-dynamic): In eigenständigen Medien wird nun zusätzlicher Inhalt unterstützt. Wählen Sie Pakete, Treiberpakete und Anwendungen aus, die auf den Medien zusätzlich zum anderen Inhalt bereitgestellt werden sollen, auf den in der Tasksequenz verwiesen wird. Bisher wurde nur der Inhalt auf eigenständigen Medien bereitgestellt, auf den in der Tasksequenz verwiesen wurde.
-- [**Konfigurierbares Timeout für den Tasksequenzschritt „Treiber automatisch anwenden“**](https://configurationmanager.uservoice.com/forums/300492-ideas/suggestions/17153660-auto-apply-driver-timeout): Ihnen stehen im Tasksequenzschritt „Treiber automatisch anwenden“ neue Tasksequenzvariablen für die Konfiguration des Timeoutwerts bei Anfragen gegenüber dem HTTP-Katalog zur Verfügung. Die folgenden Variablen und Standardwerte (in Sekunden) sind verfügbar:
+
+## <a name="hardware-inventory-collects-uefi-information"></a>L’inventaire matériel collecte des informations UEFI
+Une nouvelle classe d’inventaire matériel (**SMS_Firmware**) et une nouvelle propriété (**UEFI**) sont disponibles pour vous aider à déterminer si un ordinateur démarre ou non en mode UEFI. Quand un ordinateur démarre en mode UEFI, la propriété **UEFI** est définie sur **TRUE**. Cette option est activée dans l’inventaire matériel par défaut. Pour plus d’informations sur l’inventaire matériel, consultez [Guide pratique pour configurer l’inventaire matériel](/sccm/core/clients/manage/inventory/configure-hardware-inventory).
+
+## <a name="improvements-to-operating-system-deployment"></a>Améliorations apportées au déploiement des systèmes d’exploitation
+Les améliorations suivantes ont été apportées au déploiement des systèmes d’exploitation, la plupart d’entre elles ayant été inspirées par vos commentaires.
+- [**Prise en charge d’un plus grand nombre d’applications dans la séquence de tâches Installer les applications**](https://configurationmanager.uservoice.com/forums/300492-ideas/suggestions/17062207-task-sequence-allow-more-than-9-applications-in-t) : Le nombre maximal d’applications qu’il est possible d’installer s’élève désormais à 99 pour la séquence de tâches **Installer les applications**. Auparavant, le maximum était de 9 applications.
+- [**Sélection de plusieurs applications dans la séquence de tâches Installer l’application**](https://configurationmanager.uservoice.com/forums/300492-ideas/suggestions/15459978-when-adding-items-to-an-install-application-step) : Lorsque vous ajoutez une application dans la séquence de tâches Installer l’application dans l’éditeur de séquences de tâches, il vous est désormais possible de sélectionner plusieurs applications dans le volet **Sélectionner l’application à installer**.
+- [**Expiration des supports autonomes**](https://configurationmanager.uservoice.com/forums/300492-ideas/suggestions/14448564-provide-a-method-for-expiring-standalone-media) : Lorsque vous créez un support autonome, de nouvelles options vous permettent de définir des dates facultatives de début et d’expiration pour ce support. Ces paramètres sont désactivés par défaut. Les dates sont comparées à l’heure système de l’ordinateur avant l’exécution du support autonome. Lorsque l’heure du système est antérieure à l’heure de début ou ultérieure à l’heure d’expiration, le support autonome n’est pas démarré. Ces options sont également disponibles avec l’applet de commande New-CMStandaloneMedia PowerShell.
+- [**Prise en charge de nouveaux types de contenu dans les supports autonomes**](https://configurationmanager.uservoice.com/forums/300492-ideas/suggestions/8341257-support-installation-of-packages-apps-via-dynamic) : D’autres types de contenu sont désormais pris en charge dans les supports autonomes. Vous pouvez sélectionner des packages supplémentaires, des packages de pilotes et des applications en vue d’effectuer une copie intermédiaire sur les supports, ainsi que d’autres types de contenu référencés dans la séquence de tâches. Auparavant, seul le contenu référencé dans la séquence de tâches était copié sur les supports autonomes.
+- [**Délai d’expiration configurable pour la séquence de tâches Appliquer automatiquement les pilotes**](https://configurationmanager.uservoice.com/forums/300492-ideas/suggestions/17153660-auto-apply-driver-timeout) : De nouvelles variables de séquence de tâches sont désormais disponibles pour configurer le délai d’expiration dans la séquence de tâches Appliquer automatiquement les pilotes lorsque vous effectuez des demandes de catalogue HTTP. Les variables et valeurs par défaut (en secondes) suivantes sont disponibles :
    - SMSTSDriverRequestResolveTimeOut Default: 60
    - SMSTSDriverRequestConnectTimeOut Default: 60
    - SMSTSDriverRequestSendTimeOut Default: 60
    - SMSTSDriverRequestReceiveTimeOut Default: 480
-- [**Anzeige der Paket-ID in Tasksequenzschritten**](https://configurationmanager.uservoice.com/forums/300492-ideas/suggestions/16167430-display-packageid-when-viewing-a-task-sequence-ste): Jeder Tasksequenzschritt, der auf ein Paket, ein Treiberpaket, ein Betriebssystemimage, ein Startimage oder ein Betriebssystem-Upgradepaket verweist, zeigt nun die Paket-ID des Objekts an, auf das verwiesen wird. Wenn in einem Tasksequenzschritt auf eine Anwendung verwiesen wird, wird die Objekt-ID angezeigt.
-- **Nachverfolgung des Windows 10 ADK anhand der Buildversion**: Das Windows 10 ADK wird nun anhand der Buildversion nachverfolgt, um eine kontrollierte Anpassung von Windows 10-Startimages zu gewährleisten. Wird beispielsweise das Windows ADK für Windows 10 in der Version 1607 verwendet, so können nur Startimages mit Version 10.0.14393 in der Konsole angepasst werden. Ausführliche Informationen zum Anpassen von WinPE-Versionen finden Sie unter [Startimages anpassen](/sccm/osd/get-started/customize-boot-images).
-- **Quellpfad des Standard-Startimages nicht mehr änderbar**: Standard-Startimages werden von Configuration Manager verwaltet, und ihr Quellpfad kann nicht mehr über die Configuration Manager-Konsole oder über das Configuration Manager SDK geändert werden. Sie können weiterhin einen benutzerdefinierten Quellpfad für benutzerdefinierte Startimages konfigurieren.
+- [**L’ID de package s’affiche désormais dans les séquences de tâches**](https://configurationmanager.uservoice.com/forums/300492-ideas/suggestions/16167430-display-packageid-when-viewing-a-task-sequence-ste) : Toutes les étapes de séquence de tâches qui font référence à un package, un package de pilotes, une image de système d’exploitation, une image de démarrage ou un package de mise à niveau de système d’exploitation affichent désormais l’ID de package de l’objet référencé. Lorsqu’une séquence de tâches fait référence à une application, elle affiche l’ID de l’objet.
+- **Le kit de déploiement et d’évaluation Windows 10 (ADK) est désormais suivi par le numéro de version** : Le kit de déploiement et d’évaluation Windows 10 est désormais suivi par le numéro de version pour garantir une meilleure prise en charge lors de la personnalisation d’images de démarrage Windows 10. Par exemple, si le site utilise la version 1607 du Windows ADK pour Windows 10, seules les images de démarrage dont la version est 10.0.14393 pourront être personnalisées dans la console. Pour plus d’informations sur la personnalisation des versions de WinPE, consultez [Personnaliser les images de démarrage](/sccm/osd/get-started/customize-boot-images).
+- **Le chemin source par défaut de l’image de démarrage ne peut plus être modifié** : Les images de démarrage par défaut sont gérées par Configuration Manager et le chemin source par défaut de l’image de démarrage ne peut donc plus être modifié dans la console Configuration Manager ni à l’aide du SDK Configuration Manager. Vous pouvez toutefois continuer à configurer un chemin source personnalisé pour les images de démarrage personnalisées.
 
-## <a name="host-software-updates-on-cloud-based-distribution-points"></a>Hosten von Softwareupdates auf cloudbasierten Verteilungspunkten
-Ab dieser Preview-Version können Sie Softwareupdatepakete auf cloudbasierten Verteilungspunkten hosten. Da Sie Ihre Clients jedoch so konfigurieren können, dass Softwareupdates direkt von Microsoft Update heruntergeladen werden, sollten Sie bedenken, dass durch die Bereitstellung eines Softwareupdatepakets auf einem cloudbasierten Verteilungspunkt zusätzliche Kosten anfallen können.
+## <a name="host-software-updates-on-cloud-based-distribution-points"></a>Héberger des mises à jour logicielles sur des points de distribution cloud
+À compter de cette préversion, les points de distribution cloud peuvent être utilisés pour héberger un package de mise à jour logicielle. Toutefois, étant donné qu’il est possible de configurer les clients pour qu’ils téléchargent des mises à jour logicielles directement à partir de Microsoft Update, vous devez tenir compte des coûts supplémentaires que représente le déploiement d’un package de mise à jour logicielle sur un point de distribution cloud.
 
-Weitere Informationen zur Verwendung von cloudbasierten Verteilungspunkten finden Sie unter [Verwenden eines cloudbasierten Verteilungspunkts](/sccm/core/plan-design/hierarchy/use-a-cloud-based-distribution-point) in der Hilfe für die Current Branch-Version von Configuration Manager.
+Pour plus d’informations sur l’utilisation des points de distribution cloud, consultez [Utiliser un point de distribution cloud](/sccm/core/plan-design/hierarchy/use-a-cloud-based-distribution-point) dans le contenu relatif à la version Current Branch de Configuration Manager.
 
-## <a name="validate-device-health-attestation-data-via-management-points"></a>Daten zum Nachweis der Geräteintegrität über Verwaltungspunkte überprüfen
+## <a name="validate-device-health-attestation-data-via-management-points"></a>Valider les données de l’attestation d’intégrité de l’appareil via des points de gestion
 
-Ab dieser Preview-Version können Sie Verwaltungspunkte so konfigurieren, dass damit für den cloudbasierten oder lokalen Dienst zum Integritätsnachweis Berichtsdaten zum Nachweis der Geräteintegrität überprüft werden können. Über die neue Registerkarte **Erweiterte Optionen** im Dialogfeld **Eigenschaften für Verwaltungspunktkomponenten** können Sie die **URL des lokalen Diensts zum Nachweis der Geräteintegrität** **Hinzufügen**, **Bearbeiten** oder **Entfernen**. Sie können auch **Benutzerdefinierte Geräteeinstellungen** für den Client-Agent angeben, für den die Einstellung **Use on-premises Health Attestation Service** (Lokalen Dienst zum Integritätsnachweis verwenden) verwendet werden soll.  Wenn Sie diese Einstellung auf **Ja** setzen, können Berichte statt an den cloudbasierten Dienst auch an den lokalen Verwaltungspunkt gesendet werden.
+À compter de cette préversion, il est possible de configurer des points de gestion dans le but de valider les données de rapport d’attestation d’intégrité pour le service d’attestation d’intégrité cloud ou local. Le nouvel onglet **Options avancées** de la boîte de dialogue **Propriétés du composant du point de gestion** vous permet d’**ajouter**, de **modifier** et de **supprimer** l’**URL du service local d’attestation d’intégrité de l’appareil**. Dans **Paramètres de périphérique personnalisés**, vous pouvez également sélectionner **Utiliser le service d’attestation d’intégrité local** pour l’agent client.  La valeur **Oui** active la création de rapports pour le point de gestion local et non pour le service cloud.
 
-### <a name="try-it-out"></a>Probieren Sie es aus
+### <a name="try-it-out"></a>Faites un essai
 
-- **Aktivieren des lokalen Integritätsnachweises für Geräte auf einem Verwaltungspunkt**<br>  Navigieren Sie in der Configuration Manager-Konsole zum Verwaltungspunkt, öffnen Sie **Eigenschaften für Verwaltungspunktkomponenten**, und klicken Sie anschließend auf die Registerkarte **Erweiterte Optionen**. Klicken Sie auf **Hinzufügen**, und geben Sie unter **On-premises device health attestation service URLs** (URLs des lokalen Dienst zum Integritätsnachweis) die lokale URL ein (z.B. https://10.10.10.10).
-- **Aktivieren der Berichterstattung über Integritätsnachweise an den lokalen Verwaltungspunkt für den Client-Agent** <br>Wählen Sie in der Configuration Manager-Konsole **Verwaltung** > **Clienteinstellungen** aus, und klicken Sie doppelt auf **benutzerdefinierte Geräteeinstellungen**, oder legen Sie sie ggf. erst fest. Wählen Sie **Computer-Agent** aus, und legen Sie die Einstellung **Use on-premises Health Attestation Service** (Lokalen Dienst zum Integritätsnachweis verwenden) auf **Ja** fest. Wenn die Einstellung **Enable communication with Device Health Attestation Service** (Kommunikation mit dem Dienst zum Nachweis der Geräteintegrität zulassen) auf **Ja** und die Einstellung **Use on-premises Health Attestation Service** (Lokalen Dienst zum Integritätsnachweis verwenden) auf **Nein** festgelegt ist, wird der Verwaltungspunkt den cloudbasierten Dienst zum Nachweis der Geräteintegrität verwenden.
+- **Activer le service local d’attestation d’intégrité de l’appareil pour un point de gestion**<br>  Dans la console Configuration Manager, naviguez jusqu’au point de gestion, ouvrez **Propriétés du composant du point de gestion**, puis cliquez sur l’onglet **Options avancées**. Cliquez sur **Ajouter**, puis indiquez l’URL locale (par exemple, https://10.10.10.10) pour l’**URL du service local d’attestation d’intégrité de l’appareil**.
+- **Activer la création de rapports à partir du service local d’attestation d’intégrité des points de gestion pour l’agent client**<br>Dans la console Configuration Manager, choisissez **Administration** > **Paramètres client**, puis double-cliquez, ou créez de nouveaux **Paramètres de périphérique personnalisés**. Sélectionnez **Agent ordinateur**, puis définissez **Utiliser le service d’attestation d’intégrité local** sur **Oui**. Si l’option **Activer la communication avec le service d’attestation d’intégrité** est définie sur **Oui** et l’option **Utiliser le service d’attestation d’intégrité local** est définie sur **Non**, le point de gestion utilise le service cloud d’attestation d’intégrité de l’appareil.
 
-## <a name="use-the-oms-connector-for-microsoft-azure-government-cloud"></a>Verwenden des OMS-Connectors für die Microsoft Azure Government-Cloud
-Ab dieser Technical Preview können Sie den OMS-Connector (Microsoft Operations Management) verwenden, um eine Verbindung mit einem OMS-Arbeitsbereich herzustellen, der sich in der Microsoft Azure Government-Cloud befindet.  
+## <a name="use-the-oms-connector-for-microsoft-azure-government-cloud"></a>Utiliser le connecteur OMS pour Microsoft Azure Government Cloud
+Avec cette préversion, vous pouvez désormais utiliser le connecteur Microsoft Operations Management Suite (OMS) pour vous connecter à un espace de travail OMS se trouvant dans Microsoft Azure Government Cloud.  
 
-Hierzu bearbeiten Sie eine Konfigurationsdatei, damit sie auf die Government-Cloud zeigt, und installieren anschließend den OMS-Connector.
+Pour cela, vous modifiez un fichier de configuration pour qu’il pointe vers Azure Government Cloud, puis vous installez le connecteur OMS.
 
-### <a name="set-up-an-oms-connector-to-microsoft-azure-government-cloud"></a>Einrichten eines OMS-Connectors für die Microsoft Azure Government-Cloud
-1.  Bearbeiten Sie auf jedem Computer, auf dem die Configuration Manager-Konsole installiert ist, die folgende Konfigurationsdatei, damit sie auf die Government-Cloud zeigt: ***&lt;Installationspfad_von_Configuration_Manager>\AdminConsole\bin\Microsoft.configurationManagmenet.exe.config***
+### <a name="set-up-an-oms-connector-to-microsoft-azure-government-cloud"></a>Configurer un connecteur OMS pour qu’il pointe vers Microsoft Azure Government Cloud
+1.  Sur les ordinateurs où est installée la console Configuration Manager, modifiez le fichier de configuration suivant pour qu’il pointe vers Azure Government Cloud : ***&lt;Chemin d’installation de Configuration Manager>\AdminConsole\bin\Microsoft.configurationManagmenet.exe.config***
 
-  **Bearbeitungen:**
+  **Modifications :**
 
-    Ändern Sie den Wert für die Einstellung *FairFaxArmResourceID* in „https://management.usgovcloudapi.net/“.
+    Modifiez la valeur du nom de paramètre *FairFaxArmResourceID* pour qu’elle corresponde à « https://management.usgovcloudapi.net/ »
 
-   - **Original:**&lt; setting name="FairFaxArmResourceId" serializeAs="String">   
+   - **Avant modification :** &lt;setting name="FairFaxArmResourceId" serializeAs="String">   
       &lt;value>&lt;/value>   
       &lt;/setting>
 
-   - **Bearbeitet:**     
-      &lt;setting name="FairFaxArmResourceId" serializeAs="String"> &lt;value>https://management.usgovcloudapi.net/&lt;/value>  
+   - **Après modification :**     
+      &lt;nom du paramètre="FairFaxArmResourceId" serializeAs="String"> &lt;value>https://management.usgovcloudapi.net/&lt;/value>  
       &lt;/setting>
 
-  Ändern Sie den Wert für die Einstellung *FairFaxAuthorityResource* in „https://login.microsoftonline.com/“.
+  Modifiez la valeur du nom de paramètre *FairFaxAuthorityResource* pour qu’elle corresponde à « https://login.microsoftonline.com/ »
 
-  - **Original:** &lt;setting name="FairFaxAuthorityResource" serializeAs="String">   
+  - **Avant modification :** &lt;nom de paramètre="FairFaxAuthorityResource" serializeAs="String">   
     &lt;value>&lt;/value>
 
-    - **Bearbeitet:** &lt;setting name="FairFaxAuthorityResource" serializeAs="String">   
+    - **Après modification :** &lt;nom du paramètre="FairFaxAuthorityResource" serializeAs="String">   
     &lt;value>https://login.microsoftonline.com/&lt;/value>
 
-2.  Nachdem Sie die Datei mit den zwei Änderungen gespeichert haben, starten Sie die Configuration Manager-Konsole auf demselben Computer neu, und installieren Sie anschließend den OMS-Connector über die Konsole. Verwenden Sie für die Installation des Connectors die Informationen in [Synchronisieren von Daten von System Center Configuration Manager mit der Microsoft Operations Management Suite](/sccm/core/clients/manage/sync-data-microsoft-operations-management-suite), und wählen Sie den **Operations Management Suite-Arbeitsbereich** aus, der sich in der Microsoft Azure Government-Cloud befindet.
+2.  Après avoir apporté ces deux modifications et enregistré le fichier, redémarrez la console Configuration Manager sur le même ordinateur, puis utilisez cette console pour installer le connecteur OMS. Pour installer le connecteur, utilisez les informations situées sous [Synchroniser les données de System Center Configuration Manager vers Microsoft Operations Management Suite](/sccm/core/clients/manage/sync-data-microsoft-operations-management-suite), puis sélectionnez l’**Espace de travail Operations Management Suite** qui se trouve dans Microsoft Azure Government Cloud.
 
-3.  Nach der erfolgreichen Installation des OMS-Connectors steht Ihnen die Verbindung zur Government-Cloud von jeder Konsole aus zur Verfügung, die sich mit dem Standort verbindet.
+3.  Une fois le connecteur OMS installé, une connexion à Azure Government Cloud est disponible lorsque vous utilisez une console se connectant au site.
 
-## <a name="android-and-ios-versions-are-no-longer-targetable-in-creation-wizards-for-hybrid-mdm"></a>Android- und iOS-Versionen werden nicht mehr über den Erstellungsassistenten für hybrides MDM erreicht
+## <a name="android-and-ios-versions-are-no-longer-targetable-in-creation-wizards-for-hybrid-mdm"></a>Les versions Android et iOS ne peuvent plus être ciblées dans les Assistants de création pour la gestion MDM hybride
 
-Ab dieser Technical Preview für hybride mobile Geräteverwaltung (MDM) müssen Sie nicht mehr bestimmte Android- und iOS-Versionen auswählen, wenn Sie neue Richtlinien und Profile für mit Intune verwaltete Geräte erstellen wollen. Stattdessen wählen Sie einen der folgenden Gerätetypen aus:
+À compter de cette version Technical Preview, vous n’avez plus besoin de cibler des versions Android et iOS spécifiques quand vous créez des stratégies et des profils pour des appareils gérés par Intune dans le cadre d’une gestion des appareils mobiles (MDM) hybride. Au lieu de cela, vous choisissez l’un des types d’appareils suivants :
 
 - Android
-- Samsung KNOX Standard 4.0 und höher
+- Samsung KNOX Standard 4.0 et versions supérieures
 - iPhone
 - iPad
 
-Diese Änderung wirkt sich auf den Assistenten beim Erstellen der folgenden Elemente aus:
+Cette modification affecte les Assistants de création des éléments suivants :
 
-- Konfigurationselemente
-- Kompatibilitätsrichtlinien
-- Zertifikatprofile
-- E-Mail-Profile
-- VPN-Profile
-- WLAN-Profile
+- Éléments de configuration
+- Stratégies de conformité
+- Profils de certificat
+- Profils de messagerie
+- Profils VPN
+- Profils Wi-Fi
 
-Durch diese Änderung können Hybridbereitstellungen schneller neue Android und iOS-Versionen unterstützen, ohne eine neue Configuration Manager-Version oder -Erweiterung zu benötigen. Sobald eine neue Version in Intune standalone unterstützt wird, können Benutzer ihre mobilen Geräte auf diese Version upgraden.
+Grâce à cette modification, les déploiements hybrides peuvent prendre en charge plus rapidement les nouvelles versions Android et iOS sans avoir besoin d’une nouvelle version de Configuration Manager ou d’une extension. Quand une nouvelle version est prise en charge dans Intune autonome, les utilisateurs peuvent mettre à niveau leurs appareils mobiles avec cette version.
 
-Um Probleme beim Upgrade von vorherigen Configuration Manager-Versionen zu vermeiden, kann auf andere Versionen des mobilen Betriebssystems den Eigenschaftsseiten für diese Elemente zugegriffen werden. Sollten Sie nur auf eine bestimmte Version abzielen, können Sie das neue Element erstellen und diesem dann auf dessen Eigenschaftsseite eine bestimmte Version zuweisen.
+Pour éviter tout problème lors de la mise à niveau de versions antérieures de Configuration Manager, les versions des systèmes d’exploitation des appareils mobiles restent disponibles dans les pages de propriétés de ces éléments. Si vous avez encore besoin de cibler une version spécifique, créez l’élément, puis spécifiez la version ciblée dans la page de propriétés du nouvel élément.

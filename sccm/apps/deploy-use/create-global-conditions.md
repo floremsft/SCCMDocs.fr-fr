@@ -1,6 +1,6 @@
 ---
-title: Erstellen von globalen Bedingungen | Microsoft-Dokumentation
-description: "Erstellen Sie globale Bedingungen, die festlegen, wie eine Anwendung auf Clientgeräten bereitgestellt werden soll."
+title: "Créer des conditions globales | Microsoft Docs"
+description: "Créez des conditions globales pour spécifier la manière dont une application est fournie et déployée sur les appareils clients."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -18,197 +18,197 @@ manager: angrobe
 ms.openlocfilehash: 8a59a1769eec4cd6d78d7686a1d8008e832dd924
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-create-global-conditions-in-system-center-configuration-manager"></a>Erstellen von globalen Bedingungen in System Center Configuration Manager
+# <a name="how-to-create-global-conditions-in-system-center-configuration-manager"></a>Comment créer des conditions globales dans System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-In System Center Configuration Manager sind globale Bedingungen Regeln für geschäftliche oder technische Bedingungen, mit deren Hilfe angegeben werden kann, wie eine Anwendung auf Clientgeräten bereitgestellt werden soll. Der Zugriff auf globale Bedingungen erfolgt über den Assistenten zum Erstellen neuer Bereitstellungstypen auf der Seite **Anforderungen** .  
+Dans System Center Configuration Manager, les conditions globales sont des règles qui représentent des conditions commerciales ou techniques pouvant être utilisées pour spécifier la manière dont une application est fournie et déployée sur les appareils clients. Les conditions globales sont accessibles à la page **Spécifications** de l’Assistant Création d’un type de déploiement.  
 
 > [!NOTE]  
->  Sie können globale Bedingungen nur von dem Standort aus bearbeiten, auf dem sie erstellt wurden.  
+>  Vous pouvez modifier les conditions globales uniquement à partir du site où elles ont été créées.  
 
- Gehen Sie wie folgt vor, um globale Configuration Manager-Bedingungen zu erstellen.  
+ Utilisez les procédures suivantes pour créer des conditions globales Configuration Manager.  
 
-## <a name="provide-basic-information-about-the-global-condition"></a>Bereitstellen grundlegender Informationen zu der globalen Bedingung  
- Es sind verschiedene Arten von globalen Bedingungen verfügbar. Den unterschiedlichen Arten globaler Bedingungen sind auch unterschiedliche Optionen zugeordnet. Wenn Sie eine bestimmte Art von globaler Bedingung auswählen, werden in Configuration Manager die jeweils zur Auswahl passenden Optionen gezeigt.  
+## <a name="provide-basic-information-about-the-global-condition"></a>Fournir des informations de base sur la condition globale  
+ Différents types de conditions globales sont à votre disposition. À chacun de ces types sont associées des options spécifiques. Quand vous sélectionnez un type de condition globale spécifique, Configuration Manager affiche les options qui s’appliquent à votre sélection.  
 
-1.  Wählen Sie in der Configuration Manager-Konsole **Softwarebibliothek** > **Anwendungsverwaltung** > **Globale Bedingungen** aus.  
+1.  Dans la console Configuration Manager, choisissez **Bibliothèque de logiciels** > **Gestion des applications** > **Conditions globales**.  
 
-3.  Wählen Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** **Globale Bedingung erstellen** aus.  
+3.  Sous l’onglet **Accueil**, dans le groupe **Créer**, choisissez **Créer une condition globale**.  
 
-4.  Geben Sie im Dialogfeld **Globale Bedingung erstellen** einen Namen und eine optionale Beschreibung für die globale Bedingung ein.  
+4.  Dans la boîte de dialogue **Créer une condition globale** , indiquez le nom et la description facultative de la condition globale.  
 
-5.  Wählen Sie in der Dropdownliste **Gerätetyp** aus, ob die globale Bedingung für einen **Windows**-Computer oder ein **Windows Mobile**-Gerät gelten soll.  
+5.  Dans la liste déroulante **Type d’appareil**, choisissez si la condition globale est destinée à un ordinateur **Windows** ou un appareil **Windows Mobile**.  
 
-6.  Wählen Sie in der Dropdownliste **Bedingungstyp** eine der folgenden Optionen aus:  
+6.  Dans la liste déroulante **Type de condition** , choisissez l'une des options suivantes :  
 
-    -   **Einstellung** : Mithilfe dieser Option wird das Vorhandensein von einem oder mehreren Elementen auf Clientgeräten überprüft. Sie können beispielsweise überprüfen, ob eine Datei, ein Ordner oder ein Registrierungsschlüsselwert auf einem Clientgerät vorhanden ist.  
+    -   **Paramètre** : cette option vérifie l'existence d'un ou plusieurs éléments supplémentaires sur des périphériques clients. Vous pouvez, par exemple, vérifier l’existence d’un fichier, d’un dossier ou d’une clé de Registre sur un appareil client.  
 
-    -   **Ausdruck**: Mithilfe dieser Option können Sie komplexere Regeln zum Überprüfen von Bedingungen auf Clientgeräten einrichten. Sie können beispielsweise überprüfen, ob der physische Arbeitsspeicher auf einem Computer zwischen 2 GB und 4 GB beträgt, oder ob ein mobiles Gerät die Eingabe über einen Touchscreen unterstützt.  
+    -   **Expression** : Cette option vous permet de configurer des règles plus complexes pour vérifier que la condition est satisfaite sur des appareils clients. Par exemple, vous pouvez savoir si la mémoire physique d’un ordinateur est comprise entre 2 Go et 4 Go ou si un appareil mobile possède un écran tactile pour la saisie.  
 
-## <a name="set-up-rules-for-the-global-condition"></a>Einrichten von Regeln für die globale Bedingung  
- Das Verfahren zum Definieren der globalen Bedingungsregeln ist davon abhängig, ob Sie eine Einstellung oder einen Ausdruck konfigurieren. Verwenden Sie das jeweilige Verfahren, um eine Einstellung oder einen Ausdruck für die globale Bedingung einzurichten.  
+## <a name="set-up-rules-for-the-global-condition"></a>Configurer des règles pour la condition globale  
+ La procédure pour définir les règles d’une condition globale est différente selon que vous configurez un paramètre ou une expression. Utilisez la procédure adéquate ci-dessous pour configurer le paramètre ou l’expression d’une condition globale.  
 
-### <a name="to-set-up-a-setting-for-the-global-condition"></a>So richten Sie eine Einstellung für die globale Bedingung ein  
+### <a name="to-set-up-a-setting-for-the-global-condition"></a>Pour configurer un paramètre pour la condition globale  
 
-1.  Wählen Sie in der Dropdownliste **Bedingungstyp** die Option **Einstellung**aus.  
+1.  Dans la liste déroulante **Type de condition** , choisissez **Paramètre**.  
 
-2.  Wählen Sie in der Dropdownliste **Einstellungstyp** das Element aus, das als Bedingung für die Überprüfung der Anforderungen dienen soll. Die unten angegebenen Einstellungstypen und Konfigurationen sind verfügbar.  
+2.  Dans la liste déroulante **Type de paramètre** , choisissez l'élément que vous souhaitez utiliser comme condition à vérifier. Les configurations et types de paramètres suivants sont disponibles.  
 
-    -   **Active Directory-Abfrage**  
+    -   **Requête Active Directory**  
 
-        -   **LDAP-Präfix** : Geben Sie ein gültiges LDAP-Präfix für die Active Directory-Domänendiensteabfrage an, mit der die Kompatibilität auf Clientcomputern bewertet wird. Sie können **LDAP://** oder **GC://**verwenden.  
+        -   **Préfixe LDAP** : désigne un préfixe LDAP valide pour la requête des services de domaine Active Directory afin d'évaluer la compatibilité sur les ordinateurs clients. Vous pouvez utiliser **LDAP://** ou **GC://**.  
 
-        -   **Definierter Name (DN)**: Geben Sie den Definierten Namen des Active Directory Domain Services-Diensts an, das auf Clientcomputern auf Konformität bewertet wird.  
+        -   **Nom unique** : Spécifiez le nom unique de l’objet Services de domaine Active Directory dont la compatibilité doit être évaluée sur les ordinateurs clients.  
 
-        -   **Suchfilter** : Geben Sie einen optionalen LDAP-Filter an, mit dem die Ergebnisse der Active Directory-Domänendiensteabfrage zur Bewertung der Kompatibilität auf Clientcomputern optimiert werden.  
+        -   **Filtre de recherche** : indique le filtre LDAP facultatif permettant d'affiner les résultats de la requête Services de domaine Active Directory pour évaluer la compatibilité sur les ordinateurs clients.  
 
-        -   **Suchbereich** : Geben Sie den Suchbereich in den Active Directory-Domänendiensten an:  
+        -   **Zone de recherche** : indique la zone de recherche dans les services de domaine Active Directory :  
 
-            -   **Basis**: Hiermit wird nur das angegebene Objekt abgefragt.  
+            -   **Base** : Interroge uniquement l’objet spécifié.  
 
-            -   **Eine Ebene**: Diese Option wird in dieser Version von Configuration Manager nicht verwendet.  
+            -   **Un niveau** : cette option n’est pas utilisée dans cette version de Configuration Manager.  
 
-            -   **Unterstruktur**: Hiermit werden das angegebene Objekt und dessen vollständige untergeordnete Struktur im Verzeichnis abgefragt.  
+            -   **Sous-arbre** : Interroge l’objet spécifié et son sous-arbre dans le répertoire.  
 
-        -   **Eigenschaft** : Geben Sie die Eigenschaft des Active Directory-Domänendiensteobjekts an, mit dem auf Clientcomputern die Kompatibilität bewertet wird.  
+        -   **Propriété** : désigne la propriété de l'objet Services de domaine Active Directory à utiliser pour évaluer la compatibilité sur les ordinateurs clients.  
 
-        -   **Abfrage**: Zeigt die LDAP-Abfrage an, die aus den Einträgen unter **LDAP-Präfix**, **Definierter Name (DN)**, **Suchfilter** (falls angegeben) und **Eigenschaft**erstellt wird. Diese Abfrage wird zur Bewertung der Kompatibilität auf Clientcomputern verwendet.  
+        -   **Requête** : Affiche la requête LDAP créée à partir des entrées figurant dans **Préfixe LDAP**, **Nom unique**, **Filtre de recherche** (s’il est défini) et **Propriété**. Cette requête sera utilisée pour évaluer la compatibilité des ordinateurs clients.  
 
     -   **Assembly**  
 
-        -   **Assemblyname** : Gibt den Namen des Assemblyobjekts an, nach dem gesucht wird. Der Name darf nicht mit einem Namen eines anderen Assemblyobjekts vom gleichen Typ identisch sein, und muss im globalen Assemblycache (Global Assembly Cache, GAC) registriert sein. Der Assemblyname darf maximal 256 Zeichen umfassen.  
+        -   **Nom de l’assembly** : indique le nom de l’objet assembly à rechercher. Ce nom doit être différent des autres objets assembly de même type et doit être enregistré dans le GAC (Global Assembly Cache). Le nom de l’assembly ne doit pas contenir plus de 256 caractères.  
 
         > [!NOTE]  
-        >  Eine Assembly ist ein Programmcode, der zwischen Anwendungen freigegeben werden kann. Assemblys können die Dateinamenerweiterung .dll oder .exe haben. Der GAC ist ein Ordner mit dem Namen *%systemroot%\assembly* auf Clientcomputern, in dem alle freigegebenen Assemblys gespeichert werden.  
+        >  Un assembly est un fragment de code qui peut être partagé entre plusieurs applications. Les assemblys peuvent avoir l’extension de nom de fichier .dll ou .exe. Le GAC (Global Assembly Cache) est un dossier présent sur les ordinateurs clients, qui porte le nom *%systemroot%\assembly* . Il contient l'ensemble des assemblys partagés.  
 
-    -   **Dateisystem**  
+    -   **Système de fichiers**  
 
-        -   **Typ**: Wählen Sie in der Dropdownliste aus, ob Sie nach einer **Datei** oder nach einem **Ordner**suchen möchten.  
+        -   **Type** : Dans la liste déroulante, indiquez si vous voulez rechercher un **fichier** ou un **dossier**.  
 
-        -   **Pfad** : Geben Sie den Pfad zur Datei bzw. zum Ordner auf Clientcomputern an. Sie können Systemumgebungsvariablen und die Umgebungsvariable *%USERPROFILE%* im Pfad angeben.  
-
-            > [!NOTE]  
-            >  Wenn Sie die Umgebungsvariable *%USERPROFILE%* in den Feldern **Pfad** oder **Datei- oder Ordnername** verwenden, werden alle Benutzerprofile auf dem Clientcomputer durchsucht. Dies kann dazu führen, dass mehrere Instanzen einer Datei oder eines Ordners gefunden werden.  
-
-        -   **Datei- oder Ordnername** : Geben Sie den Namen des Datei- oder Ordnerobjekts an, nach dem gesucht werden soll. Sie können Systemumgebungsvariablen und die *%USERPROFILE%* -Umgebungsvariable im Datei- oder Ordnernamen angeben. Sie können auch die Platzhalter * und ? im Dateinamen verwenden.  
+        -   **Chemin** : spécifie le chemin du fichier ou du dossier spécifié sur les ordinateurs clients. Vous pouvez spécifier des variables d'environnement système et la variable d'environnement *%USERPROFILE%* dans le chemin.  
 
             > [!NOTE]  
-            >  Wenn Sie einen Datei- oder Ordnernamen angeben und dabei Platzhalter verwenden, kann dies zu einer großen Anzahl von Ergebnissen führen. Dies kann zu hoher Ressourcenauslastung auf dem Clientcomputer und zu erhöhtem Netzwerkverkehr beim Berichten von Ergebnissen an Configuration Manager führen.  
+            >  Si vous utilisez la variable d'environnement *%USERPROFILE%* dans les champs **Chemin d'accès** ou **Nom de fichier ou de dossier** , la recherche portera sur tous les profils utilisateur stockés sur l'ordinateur client. Dans ce cas, plusieurs instances du fichier ou du dossier peuvent être découvertes.  
 
-        -   **Unterordner einschließen** : Aktivieren Sie diese Option, wenn auch Unterordner unter dem angegebenen Pfad durchsucht werden sollen.  
-
-        -   **Diese Datei oder dieser Ordner ist mit einer 64-Bit-Anwendung verknüpft**: Geben Sie an, ob der Speicherort der 64-Bit-Systemdatei (*%windir%*\system32) zusätzlich zum Speicherort der 32-Bit-Systemdatei (*%windir%*\syswow64) auf Configuration Manager-Clients durchsucht werden soll, auf denen eine 64-Bit-Version von Windows ausgeführt wird.  
+        -   **Nom de fichier ou de dossier** : spécifiez le nom de l'objet fichier ou dossier à rechercher. Vous pouvez spécifier des variables d'environnement système et la variable d'environnement *%USERPROFILE%* dans le nom de fichier ou de dossier. Vous pouvez également utiliser les caractères génériques * et ? dans le nom du fichier.  
 
             > [!NOTE]  
-            >  Wenn dieselbe Datei bzw. derselbe Ordner sowohl am Speicherort der 64-Bit-Systemdatei als auch am Speicherort der 32-Bit-Systemdatei desselben 64-Bit-Computers existiert, werden von der globalen Bedingung mehrere Dateien ermittelt.  
+            >  Si vous spécifiez un nom de fichier ou de dossier et utilisez des caractères génériques, vous risquez de générer de nombreux résultats, ce qui peut entraîner une forte utilisation des ressources sur l’ordinateur client et une augmentation du trafic réseau lors de la transmission des résultats à Configuration Manager.  
 
-         Die Angabe eines UNC-Pfads zu einer Netzwerkfreigabe im Feld **Pfad** wird vom Einstellungstyp **Dateisystem** nicht unterstützt.  
+        -   **Inclure les sous-dossiers** : activez cette option si vous voulez également effectuer la recherche dans les sous-dossiers dans le chemin spécifié.  
 
-    -   **IIS-Metabasis**  
-
-        -   **Metabasispfad** : Geben Sie einen gültigen Pfad für die IIS-Metabasis an.  
-
-        -   **Eigenschafts-ID** : Geben Sie die numerische Eigenschaft der IIS-Metabasiseinstellung an.  
-
-    -   **Registrierungsschlüssel**  
-
-        -   **Struktur**: Wählen Sie aus der Dropdownliste die Registrierungsstruktur aus, die durchsucht werden soll.  
-
-        -   **Schlüssel** : Geben Sie den Namen des Registrierungsschlüssels an, nach dem gesucht werden soll. Das zu verwendende Format ist *Schlüssel\Unterschlüssel*.  
-
-        -   **Dieser Registrierungsschlüssel ist einer 64-Bit-Anwendung zugeordnet** : gibt an, ob auf Clients mit der 64-Bit-Version von Windows die 64-Bit-Registrierungsschlüssel zusätzlich zu den 32-Bit-Registrierungsschlüsseln gesucht werden sollen.  
+        -   **Ce fichier ou dossier est associé à une application 64 bits** : indiquez si la recherche doit porter également sur l’emplacement de fichier système 64 bits (*%windir%*\system32) en plus de l’emplacement de fichier système 32 bits (*%windir%*\syswow64) sur les clients Configuration Manager qui exécutent une version 64 bits de Windows.  
 
             > [!NOTE]  
-            >  Wenn derselbe Registrierungsschlüssel sowohl in der 64-Bit-Registrierung als auch in der 32-Bit-Registrierung desselben 64-Bit-Computers existiert, werden von der globalen Bedingung beide Registrierungsschlüssel ermittelt.  
+            >  Si le même fichier ou dossier existe dans les emplacements de système de fichiers 64 bits et 32 bits sur un même ordinateur 64 bits, la condition globale détecte plusieurs fichiers.  
 
-    -   **Registrierungswert**  
+         Le paramètre **Système de fichiers** ne permet pas de définir un chemin UNC de partage réseau dans le champ **Chemin d'accès** .  
 
-        -   **Struktur** : Wählen Sie aus der Dropdownliste die Registrierungsstruktur aus, die durchsucht werden soll.  
+    -   **Métabase IIS**  
 
-        -   **Schlüssel** : Geben Sie den Namen des Registrierungsschlüssels an, nach dem gesucht werden soll. Das zu verwendende Format ist *Schlüssel\Unterschlüssel*.  
+        -   **Chemin de la métabase** : spécifiez un chemin d'accès valide à la métabase IIS.  
 
-        -   **Wert** : Geben Sie den Wert an, der im angegebenen Registrierungsschlüssel enthalten sein muss.  
+        -   **ID de propriété** : indique la propriété numérique du paramètre Métabase IIS.  
 
-        -   **Dieser Registrierungsschlüssel ist einer 64-Bit-Anwendung zugeordnet** : gibt an, ob auf Clients mit der 64-Bit-Version von Windows die 64-Bit-Registrierungsschlüssel zusätzlich zu den 32-Bit-Registrierungsschlüsseln gesucht werden sollen.  
+    -   **Clé du Registre**  
 
-            > [!NOTE]  
-            >  Wenn derselbe Registrierungsschlüssel sowohl in der 64-Bit-Registrierung als auch in der 32-Bit-Registrierung desselben 64-Bit-Computers existiert, werden von der globalen Bedingung beide Registrierungsschlüssel ermittelt.  
+        -   **Ruche** : Dans la liste déroulante, sélectionnez la ruche du Registre dans laquelle vous voulez effectuer la recherche.  
 
-    -   **Skript**  
+        -   **Clé** : indiquez le nom de clé de Registre à rechercher. Le format à utiliser doit être *clé\sous-clé.*  
 
-        -   **Ermittlungsskript**: Wählen Sie **Hinzufügen** aus, um ein zu verwendendes Skript einzugeben oder zu suchen. Sie können Windows PowerShell-, VBScript- oder JScript-Skripts verwenden.  
-
-        -   **Skripts durch Verwendung der Anmeldeinformationen angemeldeter Benutzer ausführen**: Wenn Sie diese Option aktivieren, wird das Skript auf Clientcomputern unter Verwendung der Anmeldeinformationen des angemeldeten Benutzers ausgeführt.  
+        -   **Cette clé de Registre est associée à une application 64 bits** : indique si la recherche doit porter sur les clés de Registre 64 bits en plus des clés de Registre 32 bits, sur les clients qui exécutent une version 64 bits de Windows.  
 
             > [!NOTE]  
-            >  Der Wert, der vom Skript zurückgegeben wird, wird zur Bewertung der Kompatibilität der globalen Bedingung verwendet. Bei der Verwendung von VBScript können Sie beispielsweise den Befehl **WScript.Echo Result** verwenden, um den Wert der Variablen „Result“ der globalen Bedingung zurückzugeben.  
+            >  Si la même clé de Registre existe dans les emplacements de Registre 64 bits et 32 bits sur un même ordinateur 64 bits, les deux clés de Registre sont détectées par la condition globale.  
+
+    -   **Valeur de Registre**  
+
+        -   **Ruche** : dans la liste déroulante, sélectionnez la ruche du Registre dans laquelle vous voulez effectuer la recherche.  
+
+        -   **Clé** : indiquez le nom de clé de Registre à rechercher. Le format à utiliser doit être *clé\sous-clé.*  
+
+        -   **Valeur** : indiquez la valeur qui doit être contenue dans la clé de Registre spécifiée.  
+
+        -   **Cette clé de Registre est associée à une application 64 bits** : indique si la recherche doit porter sur les clés de Registre 64 bits en plus des clés de Registre 32 bits, sur les clients qui exécutent une version 64 bits de Windows.  
+
+            > [!NOTE]  
+            >  Si la même clé de Registre existe dans les emplacements de Registre 64 bits et 32 bits sur un même ordinateur 64 bits, les deux clés de Registre sont détectées par la condition globale.  
+
+    -   **Script**  
+
+        -   **Script de découverte** : Choisissez **Ajouter** pour entrer ou rechercher le script à utiliser. Vous pouvez utiliser des scripts Windows PowerShell, VBScript ou JScript.  
+
+        -   **Exécuter des scripts avec les informations d’identification d’utilisateur dont la session est ouverte** : Si vous activez cette option, le script est exécuté sur les ordinateurs clients en utilisant les informations d’identification de l’utilisateur connecté.  
+
+            > [!NOTE]  
+            >  La valeur renvoyée par le script sera utilisée pour évaluer la compatibilité de la condition globale. Par exemple, quand vous utilisez VBScript, vous pouvez utiliser la commande **WScript.Echo Result** pour retourner la valeur de la variable de résultat à la condition globale.  
             >   
-            >  Wenn das Skript mehrere Werte zurückgibt, müssen sich diese Werte in einer einzigen Zeile befinden und durch ein Semikolon getrennt werden. Wenn sich jeder Wert in einer separaten Zeile befindet, kann die Auswertung nicht durchgeführt werden.  
+            >  Si votre script retourne plusieurs valeurs, celles-ci doivent être sur une seule ligne, séparées par un point-virgule. Si chaque valeur se trouve sur une ligne distincte, l’évaluation échoue.  
 
-    -   **SQL-Abfrage**  
+    -   **Requête SQL**  
 
-        -   **SQL Server-Instanz** – Wählen Sie aus, ob die SQL-Abfrage auf der Standardinstanz, allen Instanzen oder einem bestimmten Datenbankinstanznamen ausgeführt werden soll.  
+        -   **Instance SQL Server** : indiquez si vous préférez que la requête SQL soit exécutée sur l'instance par défaut, sur toutes les instances ou sur le nom d'une instance de base de données spécifique.  
 
             > [!NOTE]  
-            >  Der Instanzname muss sich auf eine lokale Instanz von SQL Server beziehen. Verwenden Sie eine Skripteinstellung, um sich auf eine gruppierte SQL-Serverinstanz zu beziehen.  
+            >  Le nom de l'instance doit faire référence à une instance locale de SQL Server. Pour faire référence à une instance SQL Server en cluster, utilisez plutôt un paramètre de script.  
 
-        -   **Datenbank** : Geben Sie den Namen der Microsoft SQL Server-Datenbank an, für die die SQL-Abfrage ausgeführt wird.  
+        -   **Base de données** : indiquez le nom de la base de données Microsoft SQL Server sur laquelle la requête SQL sera exécutée.  
 
-        -   **Spalte** : Geben Sie den für die Bewertung der Kompatibilität der globalen Bedingung zu verwendenden Spaltennamen an, der von der Transact-SQL-Anweisung zurückgegeben wird.  
+        -   **Colonne** : indiquez le nom de la colonne renvoyée par l'instruction Transact-SQL utilisée pour évaluer la compatibilité de la condition globale.  
 
-        -   **Transact-SQL-Anweisung** : Geben Sie die vollständige SQL-Abfrage an, die für die globale Bedingung verwendet werden soll. Sie können zum Öffnen einer vorhandenen SQL-Abfrage auch **Öffnen** auswählen.  
+        -   **Instruction Transact-SQL** : indiquez la requête SQL complète à utiliser pour la condition globale. Vous pouvez également choisir **Ouvrir** pour ouvrir une requête SQL existante.  
 
-    -   **WQL-Abfrage**  
+    -   **Requête WQL**  
 
-        -   **Namespace** : Geben Sie den WMI-Namespace zum Erstellen einer WQL-Abfrage an, deren Kompatibilität auf Clientcomputern bewertet wird. Der Standardwert ist "Root\cimv2".  
+        -   **Espace de noms** : indiquez l'espace de noms WMI qui sera utilisé pour créer une requête WQL dont la compatibilité sera évaluée sur les ordinateurs clients. La valeur par défaut est Root\cimv2.  
 
-        -   **Klasse** : Geben Sie die WMI-Klasse zum Erstellen einer WQL-Abfrage an, deren Kompatibilität auf Clientcomputern bewertet wird.  
+        -   **Classe** : indique la classe WMI qui sera utilisée pour créer une requête WQL dont la compatibilité sera évaluée sur les ordinateurs clients.  
 
-        -   **Eigenschaft** : Geben Sie die WMI-Eigenschaft zum Erstellen einer WQL-Abfrage an, deren Kompatibilität auf Clientcomputern bewertet wird.  
+        -   **Propriété** : indique la propriété WMI qui sera utilisée pour créer une requête WQL dont la compatibilité sera évaluée sur les ordinateurs clients.  
 
-        -   **WQL-Abfrage, WHERE-Klausel** : Mithilfe des Elements **WQL-Abfrage, WHERE-Klausel** können Sie eine WHERE-Klausel angeben, die auf Clientcomputern auf den angegebenen Namespace, die Klasse und die Eigenschaft angewendet wird.  
+        -   **Clause WHERE de la requête WQL** : vous pouvez utiliser l'élément **Clause WHERE de la requête WQL** pour indiquer la clause WHERE à appliquer à l'espace de noms, à la classe et à la propriété spécifiés sur les ordinateurs clients.  
 
-    -   **XPath-Abfrage**  
+    -   **Requête XPath**  
 
-        -   **Pfad** – Geben Sie den Pfad zur XML-Datei auf Clientcomputern an, die zur Bewertung der Kompatibilität verwendet wird. Configuration Manager unterstützt im Pfadnamen die Verwendung aller Windows-Systemumgebungsvariablen und der Benutzervariablen *%USERPROFILE%*.  
+        -   **Chemin** : spécifiez le chemin d'accès au fichier XML sur les ordinateurs clients qui seront utilisés pour évaluer la conformité. Configuration Manager prend en charge l’utilisation de toutes les variables d’environnement système Windows et de la variable utilisateur *%USERPROFILE%* dans le nom de chemin.  
 
-        -   **XML-Dateiname**: Geben Sie den Namen der Datei an, die die XML-Abfrage enthält, die für die Bewertung der Konformität auf Clientcomputern verwendet wird.  
+        -   **Nom du fichier XML** : Spécifiez le nom du fichier contenant la requête XML à utiliser pour évaluer la conformité des ordinateurs clients.  
 
-        -   **Unterordner einschließen** – Aktivieren Sie diese Option, wenn auch Unterordner unter dem angegebenen Pfad durchsucht werden sollen.  
+        -   **Inclure les sous-dossiers** : activez cette option si vous voulez également rechercher dans tous les sous-dossiers sous le chemin spécifié.  
 
-        -   **Diese Datei ist mit einer 64-Bit-Anwendung verknüpft**: Geben Sie an, ob der Speicherort der 64-Bit-Systemdatei (*%windir%*\system32) zusätzlich zum Speicherort der 32-Bit-Systemdatei (*%windir%*\syswow64) auf Configuration Manager-Clients durchsucht werden soll, auf denen eine 64-Bit-Version von Windows ausgeführt wird.  
+        -   **Ce fichier est associé à une application 64 bits** : indiquez si la recherche doit porter également sur l’emplacement de fichier système 64 bits (*%windir%*\system32) en plus de l’emplacement de fichier système 32 bits (*%windir%*\syswow64) sur les clients Configuration Manager qui exécutent une version 64 bits de Windows.  
 
-        -   **XPath-Abfrage** : Geben Sie eine gültige, vollständige XPath-Abfrage (XML Path Language) an, die für die Bewertung der Kompatibilität auf Clientcomputern verwendet wird.  
+        -   **Requête XPath** : spécifiez une requête XPath (XML path language) complète et valide à utiliser pour évaluer la compatibilité des ordinateurs clients.  
 
-        -   **Namespaces** : öffnet das Dialogfeld **XML-Namespaces** zum Identifizieren von Namespaces und Präfixen, die bei der XPath-Abfrage verwendet werden sollen.  
+        -   **Espaces de noms** : ouvre la boîte de dialogue **Espaces de noms XML** , qui permet d'identifier les espaces de noms et les préfixes à utiliser dans le cadre de la requête XPath.  
 
-3.  Wählen Sie aus der Dropdownliste **Datentyp** das Format aus, in dem Daten von der Bedingung zurückgegeben werden, bevor sie zur Überprüfung der Anforderungen verwendet wird.  
+3.  Dans la liste déroulante **Type de données** , choisissez le format auquel les données seront renvoyées par cette condition avant d'être utilisées pour vérifier les exigences.  
 
     > [!NOTE]  
-    >  Die Dropdownliste **Datentyp** wird nicht für alle Einstellungstypen angezeigt.  
+    >  La liste déroulante **Type de données** n’est pas affichée pour tous les types de paramètre.  
 
-4.  Richten Sie weitere Details zu dieser Einstellung unterhalb der Dropdownliste **Einstellungstyp** ein. Die Elemente, die Sie einrichten können, sind je nach gewähltem Einstellungstyp unterschiedlich.  
+4.  Configurez davantage de détails sur ce paramètre sous la liste déroulante **Type de paramètre** . Les éléments que vous pouvez configurer varient selon le type de paramètre que vous avez sélectionné.  
 
-5.  Wählen Sie **OK** aus, um die Regel zu speichern, und das Dialogfeld **Globale Bedingung erstellen** zu schließen.  
+5.  Choisissez **OK** pour enregistrer la règle et fermer la boîte de dialogue **Créer une condition globale**.  
 
-### <a name="set-up-an-expression-for-the-global-condition"></a>Einrichten eines Ausdrucks für die globale Bedingung  
+### <a name="set-up-an-expression-for-the-global-condition"></a>Configurer une expression pour la condition globale  
 
-1.  Wählen Sie in der Dropdownliste **Bedingungstyp** die Option **Ausdruck**aus.  
+1.  Dans la liste déroulante **Type de condition** , choisissez **Expression**.  
 
-2.  Wählen Sie **Klausel hinzufügen** aus, um das Dialogfeld **Klausel hinzufügen** zu öffnen.  
+2.  Choisissez **Ajouter une clause** pour ouvrir la boîte de dialogue **Ajouter une clause**.  
 
-3.  Wählen Sie in der Dropdownliste **Kategorie auswählen** aus, ob dieser Ausdruck für ein Gerät oder einen Benutzer bestimmt ist. Sie können auch **Benutzerdefiniert** auswählen, um eine zuvor konfigurierte globale Bedingung zu verwenden.  
+3.  À l'aide de la liste déroulante **Sélectionnez une catégorie** , indiquez si cette expression s'applique à un périphérique ou à un utilisateur. Vous pouvez également sélectionner **Personnalisée** pour utiliser une condition globale configurée précédemment.  
 
-4.  Wählen Sie in der Dropdownliste **Wählen Sie eine Bedingung aus** die Bedingung aus, mit der bewertet werden soll, ob der Benutzer bzw. das Gerät die Regelanforderungen erfüllt. Der Inhalt dieser Liste ist von der ausgewählten Kategorie abhängig.  
+4.  Dans la liste déroulante **Sélectionner une condition** , sélectionnez la condition à utiliser pour évaluer si l'utilisateur ou le périphérique respecte les règles. Le contenu de cette liste varie en fonction de la catégorie sélectionnée.  
 
-5.  Wählen Sie in der Dropdownliste **Operator auswählen** den Operator aus, der zum Vergleichen der ausgewählten Bedingung mit dem angegebenen Wert verwendet werden soll, um zu bewerten, ob der Benutzer bzw. das Gerät den Regelanforderungen entspricht. Welche Operatoren verfügbar sind, ist von der ausgewählten Bedingung abhängig.  
+5.  Dans la liste déroulante **Choisir un opérateur** , choisissez l'opérateur qui sera utilisé pour comparer la condition sélectionnée à la valeur spécifiée, afin d'évaluer si l'utilisateur ou le périphérique répond aux exigences des règles. Les opérateurs disponibles varient en fonction de la condition sélectionnée.  
 
-6.  Geben Sie im Feld **Wert** die Werte ein, die zusammen mit der ausgewählten Bedingung und dem Operator verwendet werden sollen, um zu bewerten, ob der Benutzer bzw. das Gerät die Regelanforderungen erfüllt. Welche Werte verfügbar sind, ist von der ausgewählten Bedingung und dem ausgewählten Operator abhängig.  
+6.  Dans le champ **Valeur** , spécifiez les valeurs qui seront utilisées avec la condition et l'opérateur sélectionnés pour évaluer si l'utilisateur ou le périphérique respecte les règles. Les valeurs disponibles varient en fonction de la condition et de l'opérateur sélectionnés.  
 
-7.  Wählen Sie **OK** aus, um den Ausdruck zu speichern und das Dialogfeld **Klausel hinzufügen** zu schließen.  
+7.  Choisissez **OK** pour enregistrer l’expression et fermer la boîte de dialogue **Ajouter une clause**.  
 
-8.  Wenn der globalen Bedingung alle gewünschten Klauseln hinzugefügt wurden, wählen Sie**OK** aus, um die globale Bedingung zu speichern und das Dialogfeld **Globale Bedingung erstellen** zu schließen.  
+8.  Quand vous avez terminé d’ajouter des clauses à la condition globale, choisissez **OK** pour fermer la boîte de dialogue **Créer une condition globale** et enregistrer la condition globale.  

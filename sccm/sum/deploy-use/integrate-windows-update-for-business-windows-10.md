@@ -1,6 +1,6 @@
 ---
-title: "Integration mit Windows Update für Unternehmen in Windows 10 | Microsoft-Dokumentation"
-description: "Verwenden Sie Windows Update for Business, um Windows 10-basierte Geräte in Ihrer Organisation, die mit Windows Update verbunden sind, auf dem neuesten Stand zu halten."
+title: "Intégration à Windows Update for Business dans Windows 10 | Microsoft Docs"
+description: "Utilisez Windows Update for Business pour tenir à jour les appareils Windows 10 de votre organisation connectés au service Windows Update."
 keywords: 
 author: dougeby
 ms.author: dougeby
@@ -14,90 +14,90 @@ ms.assetid: 183315fe-27bd-456f-b2c5-e8d25e05229b
 ms.openlocfilehash: 26e73a69d5e6ca69e766fcf3cedd992353c92cd6
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="integration-with-windows-update-for-business-in-windows-10"></a>Integration mit Windows Update für Unternehmen in Windows 10
+# <a name="integration-with-windows-update-for-business-in-windows-10"></a>Intégration avec Windows Update for Business dans Windows 10
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Mit Windows Update for Business (WUfB) können Sie Windows 10-basierte Geräte in Ihrem Unternehmen hinsichtlich der neuesten Schutzmaßnahmen und Windows-Features auf dem neuesten Stand halten, wenn diese Geräte eine direkte Verbindung mit dem Windows Update-Dienst herstellen. Configuration Manager kann zwischen Windows 10-Computern unterscheiden, die WUfB und WSUS zum Abrufen von Softwareupdates verwenden.  
+Windows Update for Business (WUfB) vous permet de garantir la mise à jour des appareils Windows 10 de votre organisation avec les mécanismes de sécurité et les fonctionnalités Windows les plus récents quand ces appareils se connectent directement au service Windows Update (WU). Configuration Manager peut faire la distinction entre les ordinateurs Windows 10 qui utilisent WUfB et WSUS pour obtenir les mises à jour logicielles.  
 
- Einige Configuration Manager-Features sind nicht mehr verfügbar, wenn Configuration Manager-Clients so konfiguriert sind, dass sie Updates von Windows Update empfangen, was Windows Update for Business (WUfB) oder Windows Insider einbezieht:  
+ Certaines fonctionnalités de Configuration Manager ne sont plus disponibles quand les clients Configuration Manager sont configurés pour recevoir des mises à jour de Windows Update, notamment WUfB ou Windows Insiders :  
 
--   Windows Update-Berichterstellung zur Kompatibilität:  
+-   Rapports de conformité Windows Update :  
 
-    -   Configuration Manager wird nicht über die Updates informiert, die auf Windows Update veröffentlicht werden. Die Configuration Manager-Clients, die für den Empfang von Updates von WU konfiguriert sind, zeigen für diese Updates in der Configuration Manager-Konsole **Unbekannt** an.  
+    -   Configuration Manager ne sera pas au courant des mises à jour publiées sur Windows Update. Les clients Configuration Manager configurés pour les mises à jour reçues à partir de Windows Update indiquent **inconnu** pour ces mises à jour dans la console Configuration Manager.  
 
-    -   Die Problembehandlung für den allgemeinen Kompatibilitätsstatus ist schwierig, da der Status **Unbekannt** nur für die Clients verwendet wird, die den Überprüfungsstatus nicht an WSUS zurückgemeldet haben.  Jetzt werden auch Configuration Manager-Clients einbezogen, die Updates von Windows Update erhalten.  
+    -   La résolution des problèmes liés à l’état de conformité global est difficile, car l’état **inconnu** concernait auparavant uniquement les clients qui n’avaient pas signalé leur état d’analyse à WSUS.  Maintenant, il inclut également les clients Configuration Manager qui reçoivent les mises à jour de Windows Update.  
 
-    -   Der bedingte Zugriff (auf Unternehmensressourcen) auf Basis des Status zur Kompatibilität funktioniert nicht erwartungsgemäß für Clients, die Updates von Windows Update empfangen, da sie nie die Kompatibilität von Configuration Manager erfüllen.  
+    -   L’accès conditionnel (pour les ressources d’entreprise) basé sur l’état de conformité de mise à jour ne fonctionnera pas comme prévu pour les clients qui reçoivent des mises à jour de Windows Update, car ils ne respecteront jamais la conformité de Configuration Manager.  
 
-    -   Die Kompatibilität der Definitionsupdates ist Teil der gesamten Berichterstellung zur Updatekompatibilität und funktioniert auch nicht wie erwartet.  Die Kompatibilität der Definitionsupdates zählt auch zur bedingten Zugriffsauswertung  
+    -   La conformité des mises à jour de définition fait partie des rapports de conformité de mise à jour globaux et ne fonctionnera pas non plus comme prévu.  La conformité des mises à jour de définition fait également partie de l’évaluation de l’accès conditionnel.  
 
--   Die auf dem Status der Updatekompatibilität basierte allgemeine Endpoint Protection-Berichterstellung für Defender gibt aufgrund der fehlenden Überprüfungsdaten keine exakten Ergebnisse.  
+-   Les rapports Endpoint Protection globaux pour Defender basés sur l’état de conformité de mise à jour retourneront des résultats incorrects en raison des données d’analyse manquantes.  
 
--   Configuration Manager kann keine Microsoft-Updates wie Office, Internet Explorer und Visual Studio für Clients bereitstellen, die für den Empfang von Updates mit WUfB verbunden sind.  
+-   Configuration Manager ne pourra pas déployer les mises à jour Microsoft, telles qu’Office, Internet Explorer et Visual Studio, vers les clients qui sont connectés à WUfB pour recevoir des mises à jour.  
 
--   Configuration Manager kann keine auf WSUS veröffentlichten und über Configuration Manager verwalteten Updates von Drittanbietern für Clients bereitstellen, die für den Empfang von Updates mit WUfB verbunden sind.  
+-   Configuration Manager ne pourra pas déployer les mises à jour tierces publiées dans WSUS et gérées par le biais de Configuration Manager vers les clients qui sont connectés à WUfB pour recevoir des mises à jour.  
 
--   Die vollständige Clientbereitstellung von Configuration Manager, die die Softwareupdateinfrastruktur verwendet, funktioniert nicht für Clients, die für den Empfang von Updates mit WUfB verbunden sind.  
+-   Le déploiement de client complet Configuration Manager qui utilise l’infrastructure de mises à jour logicielles ne fonctionnera pas pour les clients qui sont connectés à WUfB pour recevoir des mises à jour.  
 
-## <a name="identify-clients-that-use-wufb-for-windows-10-updates"></a>Identifizieren von Clients, die WUfB für Windows 10-Updates verwenden  
- Verwenden Sie das folgende Verfahren, um Clients zu identifizieren, die WUfB zum Abrufen von Windows 10-Updates und -Upgrades verwenden. Konfigurieren Sie diese Clients derart, dass sie zum Abrufen von Updates kein WSUS verwenden, und stellen Sie eine Einstellung für den Client-Agent bereit, um den Workflow der Softwareupdates für diese Clients zu deaktivieren.  
+## <a name="identify-clients-that-use-wufb-for-windows-10-updates"></a>Identifier les clients qui utilisent WUfB pour les mises à jour de Windows 10  
+ Appliquez la procédure suivante pour identifier les clients qui utilisent WUfB pour obtenir les mises à niveau et les mises à jour Windows 10, configurez ces clients pour cesser d’utiliser WSUS pour obtenir les mises à jour, et déployez un paramètre d’agent client pour désactiver le flux de travail des mises à jour logicielles pour ces clients.  
 
- **Voraussetzungen**  
+ **Conditions préalables**  
 
--   Clients, die Windows 10 Desktop Pro oder Windows 10 Enterprise Edition Version 1511 oder höher ausführen  
+-   Clients qui exécutent Windows 10 Desktop Pro ou Windows 10 Édition Entreprise version 1511 ou ultérieure  
 
--   [Windows Update for Business](https://technet.microsoft.com/library/mt622730\(v=vs.85\).aspx) wird bereitgestellt und die Clients verwenden WUfB zum Abrufen von Windows 10-Updates und -Upgrades.  
+-   [Windows Update for Business](https://technet.microsoft.com/library/mt622730\(v=vs.85\).aspx) est déployé et les clients utilisent WUfB pour obtenir les mises à niveau et les mises à jour Windows 10.  
 
-#### <a name="to-identify-clients-that-use-wufb"></a>So identifizieren Sie Clients, die WUfB verwenden  
+#### <a name="to-identify-clients-that-use-wufb"></a>Pour identifier les clients qui utilisent WUfB  
 
-1.  Deaktivieren Sie den Windows Update-Agent, damit er nicht auf WSUS sucht, wenn er zuvor aktiviert war.   
-    Der Registrierungsschlüssel **HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU\UseWUServer** kann so festgelegt werden, dass er anzeigt, ob der Computer auf WSUS oder Windows Update sucht.  Wenn der Wert „2“ ist, sucht er nicht auf WSUS.  
+1.  Désactivez l’Agent Windows Update, s’il était précédemment activé, afin qu’il n’effectue pas l’analyse par rapport à WSUS.   
+    La clé de Registre **HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU\UseWUServer** peut être définie pour indiquer si l’ordinateur effectue l’analyse par rapport à Windows Update ou à WSUS.  Lorsque la valeur est 2, il n’effectue pas l’analyse par rapport à WSUS.  
 
-2.  Es gibt ein neues Attribut, **UseWUServer**, unter dem Knoten **Windows Update** im Ressourcen-Explorer von Configuration Manager.  
+2.  Il existe un nouvel attribut, **UseWUServer**, sous le nœud **Windows Update** dans l’Explorateur de ressources Configuration Manager.  
 
-3.  Erstellen Sie eine Sammlung auf Basis des **UseWUServer** -Attributs für alle Computer, die für Updates und Upgrades über WUfB verbunden sind.  
+3.  Créez un regroupement basé sur l’attribut **UseWUServer** pour tous les ordinateurs connectés via WUFB pour les mises à jour et les mises à niveau.  
 
-4.  Erstellen Sie eine Client-Agent-Einstellung, um den Softwareupdate-Workflow zu deaktivieren, und stellen Sie die Einstellung in der Sammlung von Computern bereit, die direkt mit WUfB verbunden sind.  
+4.  Créez un paramètre d’agent du client pour désactiver le flux de travail des mises à jour logicielles et déployer le paramètre sur le regroupement d’ordinateurs connectés directement à WUFB.  
 
-5.  Die Computer, die über WUfB verwaltet werden, zeigen als Kompatibilitätsstatus **Unbekannt** an und werden im Gesamtprozentsatz der Kompatibilität nicht berücksichtigt.  
+5.  Les ordinateurs qui sont gérés via WUFB affichent **Inconnu** dans l’état de conformité et ne sont pas comptabilisés dans le pourcentage de conformité global.  
 
-## <a name="configure-windows-update-for-business-deferral-policies"></a>Konfigurieren von Windows Update for Business-Zurückstellungsrichtlinien
+## <a name="configure-windows-update-for-business-deferral-policies"></a>Configuration de Windows Update pour les stratégies d’entreprise de report d’entreprise
 <!-- 1290890 -->
-Ab Version 1706 des Configuration Manager können Sie Zurückstellungsrichtlinien für Funktions- oder Qualitätsupdates für Windows 10-Geräte konfigurieren, die von Windows Update for Business direkt verwaltet werden. Sie können die Zurückstellungsrichtlinien im neuen Knoten **Windows Update for Business-Richtlinien** unter **Softwarebibliothek** > **Windows 10-Wartung** verwalten.
+À compter de Configuration Manager version 1706, vous pouvez configurer des stratégies de report pour les appareils Windows 10 avec Mises à jour de fonctionnalités ou Mises à jour qualité gérés directement par Windows Update for Business. Vous pouvez gérer les stratégies de report du nouveau nœud **Stratégies Windows Update for Business** sous **Bibliothèque de logiciels** > **Maintenance de Windows 10**.
 
-### <a name="prerequisites"></a>Voraussetzungen
-Windows 10-Geräte, die von Windows Update for Business verwaltet werden, benötigen Internetzugriff.
+### <a name="prerequisites"></a>Conditions préalables
+Les appareils Windows 10 gérés par Windows Update for Business doivent avoir une connectivité Internet.
 
-#### <a name="to-create-a-windows-update-for-business-deferral-policy"></a>Sie erstellen Sie eine Windows Update for Business-Zurückstellungsrichtlinie
-1. In **Softwarebibliothek** > **Windows 10-Wartung** > **Windows Update for Business-Richtlinien**
-2. Wählen Sie auf der Registerkarte **Start** in der Gruppe **Erstellen** die Option **Windows Update for Business-Richtlinie erstellen** aus, um den Assistenten für das Erstellen von Windows Update for Business-Richtlinien zu öffnen.
-3. Geben Sie auf der Seite **Allgemein** einen Namen und eine Beschreibung für die Richtlinie ein.
-4. Konfigurieren Sie auf der Seite **Zurückstellungsrichtlinien**, ob Sie Funktionsupdates zurückstellen oder anhalten möchten.    
-    Funktionsupdates bieten in der Regel neue Funktionen für Windows. Nach dem Konfigurieren der Einstellung **Branchbereitschaftsniveau** können Sie dann festlegen, ob und wie lange Sie das Empfangen von Funktionsupdates zurückstellen möchten, sobald diese verfügbar sind.
-    - **Branchbereitschaftsniveau**: Legen Sie den Branch fest, für den das Gerät Windows-Updates erhält (Current Branch oder Current Branch for Business).
-    - **Zurückstellungszeitraum (Tage)**: Geben Sie die Anzahl der Tage an, die Funktionsupdates verzögert werden. Sie können den Empfang dieser Funktionsupdates für einen Zeitraum von 180 Tagen nach ihrer Veröffentlichung verzögern.
-    - **Anhalten von Funktionsupdates ab**: Wählen Sie aus, ob Sie das Empfangen von Funktionsupdates für einen Zeitraum von bis zu 60 Tagen ab dem Zeitpunkt des Anhaltens der Updates anhalten möchten. Nach Ablauf der maximalen Anzahl von Tagen läuft die Anhaltefunktion automatisch ab, sodass das Gerät in Windows Update nach in Frage kommenden Updates sucht. Nach diesem Suchvorgang können Sie die Updates erneut anhalten. Sie können das Anhalten von Funktionsupdates beenden, indem Sie das Kontrollkästchen deaktivieren.   
-5. Wählen Sie aus, ob Qualitätsupdates zurückgestellt oder angehalten werden sollen.     
-    Qualitätsupdates sind meist Korrekturen und Verbesserungen an vorhandener Windows-Funktionalität und werden in der Regel am ersten Dienstag jedes Monats veröffentlicht, wenngleich sie jederzeit von Microsoft veröffentlicht werden können. Sie können festlegen, ob und wie lange Sie Qualitätsupdates nach deren Verfügbarkeit zurückstellen möchten.
-    - **Zurückstellungszeitraum (Tage)**: Geben Sie die Anzahl der Tage an, die Funktionsupdates verzögert werden. Sie können den Empfang dieser Funktionsupdates für einen Zeitraum von 180 Tagen nach ihrer Veröffentlichung verzögern.
-    - **Anhalten von Qualitätsupdates ab**: Wählen Sie aus, ob Sie das Empfangen von Qualitätsupdates für einen Zeitraum von bis zu 35 Tagen ab dem Zeitpunkt des Anhaltens der Updates anhalten möchten. Nach Ablauf der maximalen Anzahl von Tagen läuft die Anhaltefunktion automatisch ab, sodass das Gerät in Windows Update nach in Frage kommenden Updates sucht. Nach diesem Suchvorgang können Sie die Updates erneut anhalten. Sie können das Anhalten von Qualitätsupdates beenden, indem Sie das Kontrollkästchen deaktivieren.
-6. Wählen Sie **Updates aus anderen Microsoft-Produkten installieren** aus, um die Gruppenrichtlinieneinstellung zu aktivieren, mit deren Hilfe Zurückstellungseinstellungen auf Microsoft Update sowie auf Windows-Updates angewendet werden können.
-7. Wählen Sie **Treiber in Windows-Updates einschließen** aus, um Treiber automatisch über Windows-Updates zu aktualisieren. Wenn Sie diese Einstellung deaktivieren, werden Treiberupdates nicht von Windows-Updates heruntergeladen.
-8. Schließen Sie den Assistenten ab, um die neue Zurückstellungsrichtlinie zu erstellen.
+#### <a name="to-create-a-windows-update-for-business-deferral-policy"></a>Pour créer une stratégie de report Windows Update for Business
+1. Dans **Bibliothèque de logiciels** > **Maintenance de Windows 10** > **Mises à jour de Windows pour les stratégies d’entreprise**
+2. Sous l’onglet **Accueil**, dans le groupe **Créer**, sélectionnez **Créer une stratégie Windows Update for Business** pour ouvrir l’assistant de création de stratégie Windows Update for Business.
+3. Dans la page **Général**, indiquez un nom et une description pour la stratégie.
+4. Sur la page **Stratégies de report**, choisissez de différer ou suspendre les mises à jour de fonctionnalités.    
+    Les mises à jour de fonctionnalités sont généralement de nouvelles fonctionnalités pour Windows. Après avoir configuré le paramètre **Niveau de préparation de la branche**, vous pouvez définir si et pour quelle durée vous souhaitez différer la réception des fonctionnalités mises à jour après leur disponibilité auprès de Microsoft.
+    - **Niveau de préparation de la branche** : définissez la branche pour laquelle l’appareil recevra les mises à jour de Windows (Current Branch ou Current Branch for Business).
+    - **Période de report (jours)** : spécifiez le nombre de jours pendant lesquels les mises à jour de fonctionnalités sont différées. Vous pouvez différer la réception de ces mises à jour de fonctionnalités pendant une période de 180 jours à partir de leur publication.
+    - **Suspendre le démarrage des mises à jour de fonctionnalités** : choisissez de suspendre la réception des mises à jour de fonctionnalités sur vos appareils pendant une période de 60 jours à partir du moment auquel vous suspendez les mises à jour. Une fois que le nombre maximal de jours s’est écoulé, la fonctionnalité de pause expirera automatiquement et l’appareil analysera les mises à jour de Windows pour déterminer celles qui sont applicables. Suite à cette analyse, vous pouvez à nouveau suspendre les mises à jour. Vous pouvez reprendre les mises à jour de fonctionnalités en désactivant la case à cocher.   
+5. Choisissez de différer ou suspendre les mises à jour de qualité.     
+    Les mises à jour de qualité sont généralement des améliorations et correctifs apportés aux fonctionnalités existantes de Windows, et sont généralement publiées le premier mardi de chaque mois, même si la publication peut être effectuée à tout moment par Microsoft. Vous pouvez définir si et pour combien de temps vous souhaitez différer la réception des mises à jour de qualité après leur disponibilité.
+    - **Période de report (jours)** : spécifiez le nombre de jours pendant lesquels les mises à jour de fonctionnalités sont différées. Vous pouvez différer la réception de ces mises à jour de fonctionnalités pendant une période de 180 jours à partir de leur publication.
+    - **Suspendre le démarrage des mises à jour de qualité** : choisissez de suspendre la réception des mises à jour de qualité sur vos appareils pendant une période de 35 jours à partir du moment auquel vous suspendez les mises à jour. Une fois que le nombre maximal de jours s’est écoulé, la fonctionnalité de pause expirera automatiquement et l’appareil analysera les mises à jour de Windows pour déterminer celles qui sont applicables. Suite à cette analyse, vous pouvez à nouveau suspendre les mises à jour. Vous pouvez reprendre les mises à jour de qualité en désactivant la case à cocher.
+6. Sélectionnez **Installer les mises à jour à partir d’autres produits Microsoft** pour activer le paramètre de stratégie de groupe qui rend les paramètres de report applicables à Microsoft Update, ainsi qu’aux mises à jour de Windows.
+7. Sélectionnez **Inclure les pilotes avec Windows Update** pour mettre à jour automatiquement les pilotes proposés avec les mises à jour de Windows. Si vous désactivez ce paramètre, les mises à jour de pilotes ne sont pas téléchargées à partir des mises à jour de Windows.
+8. Terminez l'Assistant pour créer la stratégie de report.
 
-#### <a name="to-deploy-a-windows-update-for-business-deferral-policy"></a>So stellen Sie eine Windows Update for Business-Zurückstellungsrichtlinie bereit
-1. In **Softwarebibliothek** > **Windows 10-Wartung** > **Windows Update for Business-Richtlinien**
-2. Aktivieren Sie auf der Registerkarte **Start** in der Gruppe **Bereitstellung** die Option **Windows Update for Business-Richtlinie bereitstellen**.
-3. Konfigurieren Sie die folgenden Einstellungen:
-    - **Bereitzustellende Konfigurationsrichtlinie**: Wählen Sie die Windows Update for Business-Richtlinie aus, die Sie bereitstellen möchten.
-    - **Sammlung**: Klicken Sie auf **Durchsuchen**, um die Sammlung auszuwählen, in der Sie die Richtlinie bereitstellen möchten.
-    - **Nicht konforme Regeln wiederherstellen, falls dies unterstützt wird**: Wählen Sie diese Option aus, um Regeln automatisch wiederherzustellen, die nicht mit der Windows-Verwaltungsinstrumentation (Windows Management Instrumentation, WMI), der Registrierung, Skripts und sämtlichen Einstellungen für die von Configuration Manager registrierten mobilen Geräte konform sind.
-    - **Wiederherstellung außerhalb des Wartungsfensters zulassen:** Wenn ein Wartungsfenster für die Sammlung konfiguriert wurde, für die Sie die Richtlinie bereitstellen, aktivieren Sie diese Option, um Konformitätseinstellungen zum Wiederherstellen des Werts außerhalb des Wartungsfensters zuzulassen. Weitere Informationen zu Wartungsfenstern finden Sie unter [Verwenden von Wartungsfenstern](/sccm/core/clients/manage/collections/use-maintenance-windows).
-    - **Warnung generieren:** Konfiguriert eine Warnung, die generiert wird, sobald die Konformität einer Konfigurationsbaseline zu einem bestimmten Datum und einer bestimmten Uhrzeit unterhalb eines angegebenen Prozentsatzes liegt. Sie können außerdem angeben, ob eine Warnung an System Center Operations Manager gesendet werden soll.
-    - **Zufällige Verzögerung (Stunden)**: Gibt ein Verzögerungsfenster an, um eine übermäßige Verarbeitung im Registrierungsdienst für Netzwerkgeräte zu vermeiden. Der Standardwert ist 64 Stunden.
-    - **Zeitplan**: Geben Sie den Zeitplan für die Auswertung der Konformität an, gemäß dem das bereitgestellte Profil auf Clientcomputern ausgewertet wird. Dabei kann es sich um einen einfachen oder benutzerdefinierten Zeitplan handeln. Das Profil wird von Clientcomputern ausgewertet, wenn sich der Benutzer anmeldet.
-4.  Schließen Sie den Assistenten ab, um das Profil bereitzustellen.
+#### <a name="to-deploy-a-windows-update-for-business-deferral-policy"></a>Pour déployer une stratégie de report Windows Update for Business
+1. Dans **Bibliothèque de logiciels** > **Maintenance de Windows 10** > **Mises à jour de Windows pour les stratégies d’entreprise**
+2. Sous l’onglet **Accueil** du groupe **Déploiement**, sélectionnez **Déployer la stratégie Windows Update for Business**.
+3. Configurez les paramètres suivants :
+    - **Stratégie de configuration à déployer** : sélectionnez la stratégie Windows Update for Business que vous souhaitez déployer.
+    - **Regroupement**: cliquez sur **Parcourir** pour sélectionner le regroupement dans lequel vous souhaitez déployer la stratégie.
+    - **Résoudre les règles non compatibles lorsqu’elles sont prises en charge** : sélectionnez cette option pour résoudre automatiquement toutes les règles qui ne sont pas compatibles pour Windows Management Instrumentation (WMI), le Registre, les scripts et tous les paramètres des appareils mobiles inscrits par Configuration Manager.
+    - **Autoriser les corrections en dehors de la fenêtre de maintenance** : si une fenêtre de maintenance a été configurée pour le regroupement vers lequel vous déployez la stratégie, activez cette option pour laisser les paramètres de compatibilité résoudre la valeur en dehors de la fenêtre de maintenance. Pour plus d’informations sur les fenêtres de maintenance, consultez [Guide pratique pour utiliser les fenêtres de maintenance](/sccm/core/clients/manage/collections/use-maintenance-windows).
+    - **Générer une alerte** : configure une alerte qui est générée si la compatibilité de la base de référence de configuration est inférieure à un pourcentage spécifié par une date et une heure spécifiques. Vous pouvez également spécifier si vous souhaitez qu'une alerte soit envoyée à System Center Operations Manager.
+    - **Délai aléatoire (heures)** : spécifie un délai pour éviter un traitement excessif sur le service d’inscription d’appareils réseau. La valeur par défaut est 64 heures.
+    - **Calendrier** : Spécifier le calendrier d’évaluation de la compatibilité par rapport auquel le profil déployé est évalué sur les ordinateurs clients. Il peut s'agir d'un calendrier simple ou d'un calendrier personnalisé. Lorsque l'utilisateur ouvre une session, le profil est évalué par les ordinateurs clients.
+4.  Terminez l’assistant pour déployer le profil.

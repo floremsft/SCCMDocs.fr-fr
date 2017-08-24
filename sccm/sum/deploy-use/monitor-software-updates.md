@@ -1,6 +1,6 @@
 ---
-title: "Überwachen von Softwareupdates | Microsoft-Dokumentation"
-description: "Die System Center Configuration Manager-Konsole stellt Warnungen und Status zum Überwachen von Updates und Kompatibilität bereit."
+title: "Surveiller les mises à jour logicielles | Microsoft Docs"
+description: "La console System Center Configuration Manager fournit des alertes et des états pour surveiller les mises à jour et la compatibilité."
 keywords: 
 author: dougeby
 ms.author: dougeby
@@ -14,86 +14,86 @@ ms.assetid: 9afd7b0f-5c8e-48bc-9a65-1f7d74103688
 ms.openlocfilehash: 956ef263a1c178b5ab5926705859f4b2d0ae5bc7
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="monitor-software-updates-in-system-center-configuration-manager"></a>Überwachen von Softwareupdates in System Center Configuration Manager
+# <a name="monitor-software-updates-in-system-center-configuration-manager"></a>Surveiller les mises à jour logicielles dans System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-In der System Center Configuration Manager-Konsole stehen viele Hilfsmittel zur Überwachung von Objekten, Prozessen und Kompatibilitätsinformationen im Zusammenhang mit Softwareupdates zur Verfügung. Verwenden Sie die folgenden Bereiche, um Softwareupdates zu überwachen.
+System Center Configuration Manager fournit de nombreuses méthodes pour vous aider à surveiller les objets de mises à jour logicielles, les processus et les informations de conformité. Utilisez les sections suivantes pour surveiller les mises à jour logicielles.
 
-## <a name="software-updates-dashboard"></a>Dashboard „Softwareupdatepunkt“
-Ab Version 1610 von Configuration Manager können Sie jetzt das Dashboard „Softwareupdatepunkt“ verwenden, um den aktuellen Konformitätsstatus von Geräten in Ihrer Organisation anzuzeigen, und schnell Daten analysieren, um anzuzeigen, welche Geräte gefährdet sind. Navigieren Sie zum Anzeigen des Dashboards zu **Überwachung** > **Überblick** > **Sicherheit** > **Software Updates Dashboard** (Dashboard „Softwareupdatepunkt“).   
+## <a name="software-updates-dashboard"></a>Tableau de bord des mises à jour logicielles
+À partir de Configuration Manager version 1610, vous pouvez utiliser le tableau de bord des mises à jour logicielles pour afficher l’état de compatibilité actuel des appareils de votre organisation et analyser rapidement les données pour identifier les appareils qui sont exposés. Pour afficher le tableau de bord, accédez à **Surveillance** > **Vue d’ensemble** > **Sécurité** > **Software Updates Dashboard** (Tableau de bord des mises à jour logicielles).   
 
-##  <a name="BKMK_SUAlerts"></a> Warnungen zu Softwareupdates  
- Sie können Warnungen zu Softwareupdates konfigurieren, mit denen Administratoren benachrichtigt werden, wenn die Kompatibilitätsstufen von Softwareupdatebereitstellungen unter dem konfigurierten Prozentsatz liegen. Sie können Warnungen zu Softwareupdatebereitstellungen an den folgenden Stellen konfigurieren:  
+##  <a name="BKMK_SUAlerts"></a> Alertes pour les mises à jour logicielles  
+ Vous pouvez configurer des alertes pour les mises à jour logicielles afin d'avertir les utilisateurs administratifs lorsque les niveaux de conformité pour les déploiements de mises à jour logicielles sont inférieurs au pourcentage configuré. Vous pouvez configurer des alertes pour les déploiements de mises à jour logicielles aux emplacements suivants :  
 
--   ADR-Einstellung: Sie können die Warnungseinstellungen im Assistenten zum Erstellen automatischer Bereitstellungsregeln und in den ADR-Eigenschaften (Automatic Deployment Rule, ADR) konfigurieren.  
+-   Paramètre ADR : vous pouvez configurer les paramètres des alertes dans l’Assistant Règle de déploiement automatique et dans les propriétés de la règle de déploiement automatique.  
 
--   Bereitstellungseinstellung: Sie können die Warnungseinstellungen im Assistenten zum Bereitstellen von Softwareupdates und in den Bereitstellungseigenschaften konfigurieren.  
+-   Paramètre de déploiement : vous pouvez configurer les paramètres des alertes dans l’Assistant Déploiement des mises à jour logicielles et dans les propriétés de déploiement.  
 
-Nachdem Sie die Warnungseinstellungen konfiguriert haben, wird von Configuration Manager eine Warnung ausgegeben, wenn die angegebenen Bedingungen erfüllt sind. Sie können die Warnungen zu Softwareupdates an den folgenden Stellen prüfen:  
+Après avoir configuré les paramètres d’alerte, si les conditions spécifiées sont remplies, Configuration Manager génère une alerte. Vous pouvez consulter les alertes des mises à jour logicielles aux emplacements suivants :  
 
-1.  Prüfen Sie die letzten Warnungen im Arbeitsbereich **Softwarebibliothek** im Knoten **Softwareupdates** .  
+1.  Consultez les alertes récentes dans le nœud **Mises à jour logicielles** dans l'espace de travail **Bibliothèque de logiciels** .  
 
-2.  Verwalten Sie die konfigurierten Warnungen im Arbeitsbereich **Überwachung** im Knoten **Warnungen** .  
+2.  Gérez les alertes configurées dans le nœud **Alertes** dans l'espace de travail **Surveillance** .  
 
-##  <a name="BKMK_SUSyncStatus"></a> Status der Softwareupdatesynchronisierung  
- Nach dem Start der Synchronisierung können Sie den Synchronisierungsprozess in der Configuration Manager-Konsole für alle Softwareupdatepunkte in der Hierarchie überwachen. Gehen Sie wie folgt vor, um die Softwareupdatesynchronisierung zu überwachen.  
+##  <a name="BKMK_SUSyncStatus"></a> État de synchronisation des mises à jour logicielles  
+ Après avoir lancé le processus de synchronisation, vous pouvez le surveiller à partir de la console Configuration Manager pour tous les points de mise à jour logicielle de votre hiérarchie. Pour surveiller le processus de synchronisation des mises à jour logicielles, procédez comme suit.  
 
-#### <a name="to-monitor-the-software-updates-synchronization-process"></a>So überwachen Sie die Softwareupdatesynchronisierung  
+#### <a name="to-monitor-the-software-updates-synchronization-process"></a>Pour surveiller le processus de synchronisation des mises à jour logicielles  
 
-- Wechseln Sie in der Configuration Manager-Konsole zu **Überwachung** > **Übersicht** > **Synchronisierungsstatus der Softwareupdatepunkte**.  
+- Dans la console Configuration Manager, accédez à **Analyse** > **Vue d’ensemble** > **État de la synchronisation du point de mise à jour logicielle**.  
 
-    Die Softwareupdatepunkte in der Configuration Manager-Hierarchie werden im Ergebnisbereich angezeigt. Von hier können Sie den Synchronisierungsstatus aller Softwareupdatepunkte überwachen. Ausführlichere Informationen zum Synchronisierungsprozess enthält die Datei „wsyncmgr.log“, die sich auf jedem Standortserver unter <*ConfigMgr-Installationspfad*>\Logs befindet.  
+    Les points de mise à jour logicielle de votre hiérarchie Configuration Manager sont affichés dans le volet des résultats. Dans cette vue, vous pouvez surveiller l'état de synchronisation pour tous les points de mise à jour logicielle. Pour plus d’informations sur le processus de synchronisation, vous pouvez consulter le fichier wsyncmgr.log qui se trouve dans <*chemin_installation_Configuration_Manager*>\Logs sur chaque serveur de site.  
 
-##  <a name="BKMK_SUDeployStatus"></a> Status der Softwareupdatebereitstellung  
- Nach der Bereitstellung der Softwareupdates in einer Softwareupdategruppe bzw. nach der Bereitstellung eines einzelnen Softwareupdates können Sie den Bereitstellungsstatus überwachen. Gehen Sie wie folgt vor, um den Bereitstellungsstatus einer Softwareupdategruppe oder eines Softwareupdates zu überwachen.  
+##  <a name="BKMK_SUDeployStatus"></a> État de déploiement des mises à jour logicielles  
+ Après avoir déployé les mises à jour logicielles dans un groupe de mises à jour logicielles ou déployé une mise à jour logicielle individuelle, vous pouvez surveiller l'état du déploiement. Pour surveiller l'état de déploiement d'un groupe de mises à jour logicielles ou d'une mise à jour logicielle, procédez comme suit.  
 
-#### <a name="to-monitor-deployment-status"></a>So überwachen Sie den Bereitstellungsstatus  
+#### <a name="to-monitor-deployment-status"></a>Pour surveiller l'état d'un déploiement  
 
-1.  Wechseln Sie in der Configuration Manager-Konsole zu **Überwachung** > **Übersicht** > **Bereitstellungen**.  
+1.  Dans la console Configuration Manager, accédez à **Analyse** > **Vue d’ensemble** > **Déploiements**.  
 
-2.  Klicken Sie auf die Softwareupdategruppe oder das Softwareupdate, dessen Bereitstellungsstatus Sie überwachen möchten.  
+2.  Cliquez sur le groupe de mises à jour logicielles ou sur la mise à jour logicielle de laquelle vous voulez surveiller l'état de déploiement.  
 
-3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Bereitstellung** auf **Status anzeigen**.  
+3.  Dans l'onglet **Accueil** , du groupe **Déploiement** , cliquez sur **Afficher l'état**.  
 
-##  <a name="BKMK_SUReports"></a> Softwareupdateberichte  
- Die Zustandsmeldungen zu Softwareupdates enthalten Informationen zur Kompatibilität von Softwareupdates sowie zu Bewertung und Erzwingungszustand von Softwareupdatebereitstellungen. Zum Anzeigen der Zustandsmeldungen können Sie Softwareupdateberichte ausführen. Mehr als 30 vordefinierte Softwareupdateberichte sind verfügbar. Sie sind in verschiedene Kategorien unterteilt und können dazu verwendet werden, Informationen zu bestimmten Aspekten von Softwareupdates und -bereitstellungen zu liefern. Zusätzlich zu den vorkonfigurierten Berichten können Sie auch benutzerdefinierte Softwareupdateberichte erstellen, die auf die Anforderungen Ihres Unternehmens zugeschnitten sind. Weitere Informationen finden Sie unter [Vorgänge und Wartungstasks für die Berichterstellung](../../core/servers/manage/operations-and-maintenance-for-reporting.md).  
+##  <a name="BKMK_SUReports"></a> Rapports des mises à jour logicielles  
+ Les messages d'état des mises à jour logicielles fournissent des informations sur la conformité des mises à jour logicielles et présentent l'état de l'évaluation et de l'application des déploiements des mises à jour logicielles. Vous pouvez exécuter des rapports de mises à jour logicielles pour afficher ces messages d'état. Il existe plus de 30 rapports de mises à jour logicielles prédéfinis disponibles. Ceux-ci sont organisés en plusieurs catégories et peuvent être utilisés pour signaler des informations spécifiques sur les mises à jour logicielles et les déploiements. En plus d'utiliser les rapports préconfigurés, vous pouvez également créer des rapports de mises à jour logicielles personnalisés selon les besoins de votre entreprise. Pour plus d’informations, consultez [Opérations et maintenance pour les rapports](../../core/servers/manage/operations-and-maintenance-for-reporting.md).  
 
-##  <a name="BKMK_MonitorContent"></a> Überwachen von Inhalt  
- Sie können den Inhalt in der Configuration Manager-Konsole überwachen, und so den Status aller Pakettypen im Zusammenhang mit den zugeordneten Verteilungspunkten prüfen. Dies kann den Inhaltsprüfungsstatus des Paketinhalts, den Status von Inhalt, der einer bestimmten Verteilungspunktgruppe zugeordnet ist, den Zustand von Inhalt, der einem Verteilungspunkt zugeordnet ist, und den Status optionaler Funktionen jedes Verteilungspunkts (Inhaltsprüfung, PXE und Multicast) umfassen.  
+##  <a name="BKMK_MonitorContent"></a> Surveiller le contenu  
+ Vous pouvez surveiller le contenu dans la console Configuration Manager pour déterminer l’état de tous les types de package en rapport avec les points de distribution associés, notamment l'état de validation du contenu du package, l'état du contenu attribué à un groupe de points de distribution spécifique, l'état du contenu attribué à un point de distribution et l'état des fonctions facultatives de chaque point de distribution (validation du contenu, PXE et multidiffusion).  
 
-###  <a name="BKMK_ContentStatus"></a> Überwachung des Inhaltsstatus  
- Im Arbeitsbereich **Überwachung** finden Sie im Knoten **Inhaltsstatus** Informationen zu Inhaltspaketen. Sie können allgemeine Informationen zum Paket, den Verteilungsstatus des Pakets sowie detaillierte Statusinformationen zum Paket prüfen. Gehen Sie wie folgt vor, um den Inhaltsstatus anzuzeigen.  
+###  <a name="BKMK_ContentStatus"></a> Surveillance de l’état du contenu  
+ Le nœud **État du contenu** dans l'espace de travail **Surveillance** fournit des informations sur les packages de contenu. Vous pouvez consulter les informations générales sur l'emballage, l'état de distribution pour le package et les informations d'état détaillées sur le package. Pour afficher l'état du contenu, procédez comme suit.  
 
-#### <a name="to-monitor-content-status"></a>So überwachen Sie den Inhaltsstatus  
+#### <a name="to-monitor-content-status"></a>Pour surveiller l'état du contenu  
 
-1.  Wechseln Sie in der Configuration Manager-Konsole zu **Überwachung** > **Übersicht** > **Verteilungsstatus** > **Inhaltsstatus**. Die Pakete werden angezeigt.  
+1.  Dans la console Configuration Manager, accédez à **Analyse** > **Vue d’ensemble** > **État de distribution** > **État du contenu**. Les packages sont affichés.  
 
-2.  Wählen Sie das Paket aus, für das Sie detaillierte Statusinformationen anzeigen möchten.  
+2.  Sélectionnez le package pour lequel afficher des informations d'état détaillées.  
 
-3.  Klicken Sie auf der Registerkarte **Startseite** auf **Status anzeigen**. Detaillierte Statusinformationen zum Paket werden angezeigt.  
+3.  Dans l'onglet **Accueil** , cliquez sur **Afficher l'état**. Des informations d'état détaillées pour le package sont affichées.  
 
-###  <a name="BKMK_DPGroupStatus"></a> Status der Verteilungspunktgruppe  
- Im Arbeitsbereich **Überwachung** finden Sie im Knoten **Status der Verteilungspunktgruppe** Informationen zu Verteilungspunktgruppen. Sie können allgemeine Informationen zur Verteilungspunktgruppe, wie beispielsweise den Status der Verteilungspunktgruppe und die Kompatibilitätsstufe, sowie detaillierte Informationen zur Verteilungspunktgruppe anzeigen. Gehen Sie wie folgt vor, um den Status einer Verteilungspunktgruppe anzuzeigen.  
+###  <a name="BKMK_DPGroupStatus"></a> État du groupe de points de distribution  
+ Le nœud **État du groupe de points de distribution** dans l'espace de travail **Surveillance** fournit des informations sur les groupes de points de distribution. Vous pouvez consulter les informations générales sur le groupe de points de distribution, notamment l'état du groupe de points de distribution et le degré de conformité, ainsi que les informations d'état détaillées pour le groupe de points de distribution. Pour afficher l'état du groupe de points de distribution, procédez comme suit.  
 
-#### <a name="to-monitor-distribution-point-group-status"></a>So überwachen Sie den Status einer Verteilungspunktgruppe  
+#### <a name="to-monitor-distribution-point-group-status"></a>Pour surveiller l'état du groupe de points de distribution  
 
-1.  Wechseln Sie in der Configuration Manager-Konsole zu **Überwachung** > **Übersicht** > **Verteilungsstatus** > **Status der Verteilungspunktgruppe**. Die Verteilungspunktgruppen werden angezeigt.  
+1.  Dans la console Configuration Manager, accédez à **Analyse** > **Vue d’ensemble** > **État de distribution** > **État du groupe de points de distribution**. Les groupes de points de distribution sont affichés.  
 
-2.  Wählen Sie die Verteilungspunktgruppe aus, für die detaillierte Statusinformationen angezeigt werden sollen.  
+2.  Sélectionnez le groupe de points de distribution pour lequel afficher des informations d'état détaillées.  
 
-3.  Klicken Sie auf der Registerkarte **Startseite** auf **Status anzeigen**. Detaillierte Statusinformationen zur Verteilungspunktgruppe werden angezeigt.  
+3.  Dans l'onglet **Accueil** , cliquez sur **Afficher l'état**. Des informations d'état détaillées pour le groupe de points de distribution sont affichées.  
 
-###  <a name="BKMK_DPConfigStatus"></a> Status der Verteilungspunktkonfiguration  
- Im Arbeitsbereich **Überwachung** finden Sie im Knoten **Status der Verteilungspunktkonfiguration** Informationen zum Verteilungspunkt. Sie können prüfen, welche Attribute für den Verteilungspunkt aktiviert sind, wie z. B. PXE, Multicast und Inhaltsprüfung. Außerdem können Sie detaillierte Statusinformationen zum Verteilungspunkt anzeigen. Gehen Sie wie folgt vor, um den Status einer Verteilungspunktkonfiguration anzuzeigen.  
+###  <a name="BKMK_DPConfigStatus"></a> État de configuration du point de distribution  
+ Le nœud **État de configuration du point de distribution** dans l'espace de travail **Surveillance** fournit des informations sur le point de distribution. Vous pouvez examiner les attributs qui sont activés pour le point de distribution, par exemple, PXE, multidiffusion et validation du contenu. Vous pouvez également afficher des informations d'état détaillées pour le point de distribution. Pour afficher l'état de configuration du point de distribution, procédez comme suit.  
 
-#### <a name="to-monitor-distribution-point-configuration-status"></a>So überwachen Sie den Status einer Verteilungspunktkonfiguration  
+#### <a name="to-monitor-distribution-point-configuration-status"></a>Pour surveiller l'état de configuration du point de distribution  
 
-1.  Wechseln Sie in der Configuration Manager-Konsole zu **Überwachung** > **Übersicht** > **Verteilungsstatus** > **Status der Verteilungspunktkonfiguration**. Die Verteilungspunkte werden angezeigt.  
+1.  Dans la console Configuration Manager, accédez à **Analyse** > **Vue d’ensemble** > **État de distribution** > **État de la configuration du point de distribution**. Les points de distribution sont affichés.  
 
-2.  Wählen Sie den Verteilungspunkt aus, für den Statusinformationen angezeigt werden sollen.  
+2.  Sélectionnez le point de distribution pour lequel afficher des informations d'état du point de distribution.  
 
-3.  Klicken Sie im Ergebnisbereich auf die Registerkarte **Details** . Statusinformationen zum Verteilungspunkt werden angezeigt.  
+3.  Dans le volet des résultats, cliquez sur l'onglet **Détails** . Des informations d'état pour le point de distribution sont affichées.  

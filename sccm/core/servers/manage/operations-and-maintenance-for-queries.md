@@ -1,6 +1,6 @@
 ---
-title: "Vorgänge und Wartungstasks für Abfragen | Microsoft-Dokumentation"
-description: "Es wird eine Liste mit Themen zu Abfragen in System Center Configuration Manager angezeigt. Im Mittelpunkt stehen Vorgänge und Wartung."
+title: "Opérations et maintenance pour les requêtes | Microsoft Docs"
+description: "Découvrez une liste de rubriques sur les requêtes dans System Center Configuration Manager. Le thème central est la maintenance et les opérations."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -18,20 +18,20 @@ manager: angrobe
 ms.openlocfilehash: 82648626882ddd23db0e40cfb18621a5953a1786
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="operations-and-maintenance-for-queries-in-system-center-configuration-manager"></a>Vorgänge und Wartungstasks für Abfragen in System Center Configuration Manager
+# <a name="operations-and-maintenance-for-queries-in-system-center-configuration-manager"></a>Opérations et maintenance pour les requêtes dans System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Die nachfolgend aufgeführten Themen dieses Abschnitts helfen bei Vorgängen und enthalten Wartungsinformationen für Abfragen in System Center Configuration Manager.  
+Consultez les rubriques de cette section pour en savoir plus sur les opérations et la maintenance en matière de requêtes dans System Center Configuration Manager.  
 
-## <a name="in-this-section"></a>Inhalt dieses Abschnitts  
+## <a name="in-this-section"></a>Dans cette section  
 
--   [Erstellen von Abfragen in System Center Configuration Manager](../../../core/servers/manage/create-queries.md)  
+-   [Guide pratique pour créer des requêtes dans System Center Configuration Manager](../../../core/servers/manage/create-queries.md)  
 
--   [Verwalten von Abfragen in System Center Configuration Manager](../../../core/servers/manage/manage-queries.md)  
+-   [Guide pratique pour gérer les requêtes dans System Center Configuration Manager](../../../core/servers/manage/manage-queries.md)  
 
-## <a name="see-also"></a>Siehe auch  
- [Abfragen – Technische Referenz für System Center Configuration Manager](../../../core/servers/manage/queries-technical-reference.md)
+## <a name="see-also"></a>Voir aussi  
+ [Informations techniques de référence sur les requêtes pour System Center Configuration Manager](../../../core/servers/manage/queries-technical-reference.md)

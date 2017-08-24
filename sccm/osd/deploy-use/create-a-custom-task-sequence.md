@@ -1,6 +1,6 @@
 ---
-title: Erstellen einer benutzerdefinierten Tasksequenz | Microsoft-Dokumentation
-description: "Bearbeiten einer benutzerdefinierten Tasksequenz in System Center Configuration Manager, um Schritte zur Tasksequenz hinzuzufügen."
+title: "Créer une séquence de tâches personnalisée | Microsoft Docs"
+description: "Modifiez une séquence de tâches personnalisée dans System Center Configuration Manager pour y ajouter des étapes."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -18,37 +18,37 @@ manager: angrobe
 ms.openlocfilehash: 03c844084c72fc52806123d9f4c11a410a3ec775
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-a-custom-task-sequence-with-system-center-configuration-manager"></a>Erstellen einer benutzerdefinierten Tasksequenz mit System Center Configuration Manager
+# <a name="create-a-custom-task-sequence-with-system-center-configuration-manager"></a>Créer une séquence de tâches personnalisée avec System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Wenn Sie eine benutzerdefinierte Tasksequenz in System Center Configuration Manager erstellen, enthält diese keine Tasksequenzschritte. Nach der Erstellung der Tasksequenz müssen Sie diese bearbeiten und die benötigten Tasksequenzschritte hinzufügen.  
+Quand vous créez une séquence de tâches personnalisée dans System Center Configuration Manager, elle ne contient aucune étape de séquence de tâches. Après avoir créé la séquence de tâches, vous devez la modifier et ajouter les étapes de séquence de tâches dont vous avez besoin.  
 
-##  <a name="BKMK_CustomTS"></a> Erstellen einer benutzerdefinierten Tasksequenz  
- Gehen Sie folgendermaßen vor, um eine benutzerdefinierte Tasksequenz zu erstellen.  
+##  <a name="BKMK_CustomTS"></a> Créer une séquence de tâches personnalisée  
+ Pour créer une séquence de tâches personnalisée, procédez comme suit.  
 
-#### <a name="to-create-a-custom-task-sequence"></a>So erstellen Sie eine benutzerdefinierte Tasksequenz  
+#### <a name="to-create-a-custom-task-sequence"></a>Pour créer une séquence de tâches personnalisée  
 
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Softwarebibliothek**.  
+1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
-2.  Erweitern Sie im Arbeitsbereich **Softwarebibliothek** den Bereich **Betriebssysteme**, und klicken Sie dann auf **Tasksequenzen**.  
+2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Séquences de tâches**.  
 
-3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** auf **Tasksequenz erstellen** , um den Tasksequenzerstellungs-Assistenten zu starten.  
+3.  Sous l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer une séquence de tâches** pour démarrer l'Assistant Création d'une séquence de tâches.  
 
-4.  Wählen Sie auf der Seite **Neue Tasksequenz erstellen** die Option **Neue benutzerdefinierte Tasksequenz erstellen**aus.  
+4.  Sur la page **Créer une nouvelle séquence de tâches** , sélectionnez **Créez une séquence de tâches personnalisée**.  
 
-5.  Geben Sie auf der Seite **Informationen zur Tasksequenz** für die Tasksequenz einen Namen, eine Beschreibung und ein optionales von der Tasksequenz zu verwendendes Startabbild an, und schließen Sie dann den Assistenten ab.  
+5.  Sur la page **Informations sur la séquence de tâches** , spécifiez un nom, une description et une image de démarrage facultative pour la séquence de tâches à utiliser, puis fermez l'Assistant.  
 
- Nachdem Sie den Tasksequenzerstellungs-Assistenten abgeschlossen haben, fügt Configuration Manager dem Knoten **Tasksequenzen** eine benutzerdefinierte Tasksequenz hinzu. Sie können diese Tasksequenz dann bearbeiten, um ihr Schritte hinzuzufügen.  
+ Après avoir fermé l’Assistant Création d’une séquence de tâches, Configuration Manager ajoute la séquence de tâches personnalisée au nœud **Séquences de tâches**. Vous pouvez désormais modifier cette séquence de tâches pour y ajouter des étapes de séquence de tâches.  
 
- Eine Liste verfügbarer Tasksequenzschritte finden Sie unter [Tasksequenzschritte](../understand/task-sequence-steps.md).  
+ Pour obtenir une liste des étapes de séquence de tâches disponibles, consultez [Étapes de séquence de tâches](../understand/task-sequence-steps.md).  
 
- Weitere Informationen zum Bearbeiten einer Tasksequenz finden Sie unter [Edit a task sequence (Bearbeiten einer Tasksequenz)](manage-task-sequences-to-automate-tasks.md#BKMK_ModifyTaskSequence).  
+ Pour plus d’informations sur la modification d’une séquence de tâches, consultez [Modifier une séquence de tâches](manage-task-sequences-to-automate-tasks.md#BKMK_ModifyTaskSequence).  
 
- Am häufigsten werden Sie Tasksequenzen zum Automatisieren von Betriebssystem-Bereitstellungstasks verwenden, aber Sie können auch benutzerdefinierte Tasksequenzen erstellen, um zahlreiche andere Tasks zu automatisieren. Weitere Informationen finden Sie unter [Create a task sequence for non-operating system deployments (Erstellen einer Tasksequenz für Nicht-Betriebssystembereitstellungen)](create-a-task-sequence-for-non-operating-system-deployments.md).  
+ Souvent, vous utiliserez des séquences de tâches pour automatiser des tâches de déploiement de système d’exploitation, mais vous pouvez créer une séquence de tâches personnalisée pour automatiser de nombreuses tâches. Pour plus d’informations, consultez [Créer une séquence de tâches pour les déploiements autres que les déploiements de système d’exploitation](create-a-task-sequence-for-non-operating-system-deployments.md).  
 
- ## <a name="next-steps"></a>Nächste Schritte
- [Deploy the task sequence (Bereitstellen der Tasksequenz)](manage-task-sequences-to-automate-tasks.md#BKMK_DeployTS)
+ ## <a name="next-steps"></a>Étapes suivantes
+ [Déployer la séquence de tâches](manage-task-sequences-to-automate-tasks.md#BKMK_DeployTS)

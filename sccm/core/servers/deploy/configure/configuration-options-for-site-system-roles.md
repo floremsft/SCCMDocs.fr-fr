@@ -1,6 +1,6 @@
 ---
-title: "Optionen für Standortsystemrollen | Microsoft-Dokumentation"
-description: "In diesem Artikel finden Sie Informationen über Configuration Manager-Standortsystemrollen, die nicht unbedingt selbsterklärend sind."
+title: "Options des rôles de système de site | Microsoft Docs"
+description: "Pour plus d’informations sur les rôles de système de site Configuration Manager qui ne sont pas nécessairement explicites, consultez cet article."
 ms.custom: na
 ms.date: 2/8/2017
 ms.prod: configuration-manager
@@ -17,138 +17,138 @@ manager: angrobe
 ms.openlocfilehash: b4db5d86cc0ed020ed176feb2e8f1f9dc51a2280
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="configuration-options-for-site-system-roles-for-system-center-configuration-manager"></a>Konfigurationsoptionen für Standortsystemrollen für System Center Configuration Manager
+# <a name="configuration-options-for-site-system-roles-for-system-center-configuration-manager"></a>Options de configuration pour les rôles de système de site pour System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Die meisten Konfigurationsoptionen für System Center Configuration Manager-Standortsystemrollen sind selbsterklärend oder werden im Assistenten oder den Dialogfeldern erklärt, wenn Sie sie konfigurieren. In den folgenden Abschnitten werden Standortsystemrollen erläutert, für deren Einstellungen möglicherweise zusätzliche Informationen erforderlich sind.  
+La plupart des options de configuration pour les rôles de système de site System Center Configuration Manager sont explicites ou décrites dans l’Assistant ou des boîtes de dialogue lors de la configuration. Les sections suivantes expliquent les rôles de système de site dont les paramètres peuvent nécessiter des informations supplémentaires.  
 
-##  <a name="BKMK_ApplicationCatalog_Website"></a> Anwendungskatalog-Websitepunkt  
- Informationen zum Einrichten des Anwendungskatalog-Websitepunkts für den Anwendungskatalog finden Sie unter [Planen und Konfigurieren der Anwendungsverwaltung in System Center Configuration Manager](../../../../apps/plan-design/plan-for-and-configure-application-management.md).  
+##  <a name="BKMK_ApplicationCatalog_Website"></a> Point du site web du catalogue des applications  
+ Pour plus d’informations sur la procédure de configuration du point du site web du catalogue des applications, consultez [Planifier et configurer la gestion des applications dans System Center Configuration Manager](../../../../apps/plan-design/plan-for-and-configure-application-management.md).  
 
- **Clientverbindungen**  
+ **Connexions client**  
 
- Wählen Sie **HTTPS** aus, um die sicherere Einstellung zu verwenden und zu überprüfen, ob Clients eine Verbindung über das Internet herstellen. Für diese Option ist ein PKI-Zertifikat auf dem Server zur Serverauthentifizierung bei den Clients und zur Datenverschlüsselung mithilfe von SSL (Secure Sockets Layer) erforderlich. Weitere Informationen zu den Zertifikatanforderungen finden Sie unter [PKI-Zertifikatanforderungen für System Center Configuration Manager](../../../../core/plan-design/network/pki-certificate-requirements.md).  
+ Sélectionnez **HTTPS** pour utiliser le paramètre de connexion le plus sécurisé et pour vérifier si les clients se connectent à partir d’Internet. Cette option nécessite un certificat PKI sur le serveur pour l'authentification du serveur sur les clients et pour le chiffrement des données sur le protocole SSL (Secure Socket Layer). Pour en savoir plus sur la configuration requise pour les certificats, consultez [Configuration requise des certificats PKI pour System Center Configuration Manager](../../../../core/plan-design/network/pki-certificate-requirements.md).  
 
- Eine Beispielbereitstellung des Serverzertifikats sowie Informationen zum Konfigurieren des Zertifikats in Internet Information Services (IIS) finden Sie im Abschnitt *Bereitstellen des Webserverzertifikats für Standortsysteme, von denen IIS ausgeführt werden* des Themas [Beispiel für die schrittweise Bereitstellung der PKI-Zertifikate für System Center Configuration Manager: Windows Server 2008-Zertifizierungsstelle](/sccm/core/plan-design/network/example-deployment-of-pki-certificates).  
+ Pour obtenir un exemple de déploiement du certificat de serveur et des informations sur la manière de le configurer dans Internet Information Services (IIS), consultez la section *Déploiement du certificat de serveur Web pour les systèmes de site qui exécutent IIS* dans la rubrique [Exemple détaillé de déploiement des certificats PKI pour Configuration Manager : Autorité de certification Windows Server 2008](/sccm/core/plan-design/network/example-deployment-of-pki-certificates).  
 
- **Anwendungskatalog-Website der Zone vertrauenswürdiger Sites hinzufügen**  
+ **Ajouter le site web du catalogue des applications à la zone de sites de confiance**  
 
- Diese Meldung zeigt den Wert in den Standardclienteinstellungen und gibt an, ob die Clienteinstellung **Anwendungskatalogwebsite der Internet Explorer-Zone der vertrauenswürdigen Sites hinzufügen** aktuell **TRUE** oder **FALSE** lautet. Wenn Sie diese Einstellung mit benutzerdefinierten Clienteinstellungen konfiguriert haben, müssen Sie diesen Wert selbst prüfen.  
+ Ce message affiche la valeur dans les paramètres du client par défaut, que le paramètre client **Ajouter le site Web du catalogue des applications dans la zone Sites approuvés d’Internet Explorer** ait la valeur **True** ou **False**. Si vous avez utilisé des paramètres client personnalisés pour configurer ce paramètre, vous devez vérifier cette valeur vous-même.  
 
- Wenn dieses Standortsystem für einen vollqualifizierten Domänennamen eingerichtet ist und die Website sich nicht in der Internet Explorer-Zone der vertrauenswürdigen Sites befindet, werden Benutzer zur Eingabe von Anmeldeinformationen aufgefordert, wenn sie eine Verbindung mit dem Anwendungskatalog herstellen.  
+ Si ce système de site est configuré pour un nom de domaine complet et si le site web ne se trouve pas dans la zone de sites approuvés dans Internet Explorer, les utilisateurs sont invités à entrer leurs informations d’identification quand ils se connectent au catalogue d’applications.  
 
- **Name der Organisation**  
+ **Nom de l’organisation**  
 
- Geben Sie den Namen ein, der den Benutzern im Anwendungskatalog angezeigt wird. Diese Brandinginformationen helfen den Benutzern, diese Website als vertrauenswürdige Quelle zu identifizieren.  
+ Entrez le nom que voient les utilisateurs dans le catalogue d’applications. Ces informations personnalisées aident les utilisateurs à identifier ce site web comme une source approuvée.  
 
-##  <a name="BKMK_ApplicationCatalog_WebService"></a> Anwendungskatalog-Webdienstpunkt  
- Informationen zum Einrichten des Anwendungskatalog-Webdienstpunkts für den Anwendungskatalog finden Sie unter [Planen und Konfigurieren der Anwendungsverwaltung in System Center Configuration Manager](../../../../apps/plan-design/plan-for-and-configure-application-management.md).  
+##  <a name="BKMK_ApplicationCatalog_WebService"></a> Point de service web du catalogue des applications  
+ Pour plus d’informations sur la procédure de configuration du point de service web du catalogue des applications, consultez [Planifier et configurer la gestion des applications dans System Center Configuration Manager](../../../../apps/plan-design/plan-for-and-configure-application-management.md).  
 
  **HTTPS**  
 
- Wählen Sie **HTTPS** zur Authentifizierung der Anwendungskatalog-Websitepunkte bei diesem Anwendungskatalog-Webdienstpunkt aus.  Für diese Option ist ein PKI-Zertifikat auf Servern erforderlich, die den Anwendungskatalog-Websitepunkt zur Serverauthentifizierung und zur Datenverschlüsselung mithilfe von SSL ausführen. Weitere Informationen zu den Zertifikatanforderungen finden Sie unter [PKI-Zertifikatanforderungen für System Center Configuration Manager](../../../../core/plan-design/network/pki-certificate-requirements.md).  
+ Sélectionnez **HTTPS** pour authentifier les points de site Web du catalogue d'applications vers ce point de service Web du catalogue des applications.  Cette option nécessite un certificat PKI sur les serveurs qui exécutent le point de site web du catalogue d’applications pour l’authentification du serveur et le chiffrement des données sur le protocole SSL. Pour en savoir plus sur la configuration requise pour les certificats, consultez [Configuration requise des certificats PKI pour System Center Configuration Manager](../../../../core/plan-design/network/pki-certificate-requirements.md).  
 
- Eine Beispielbereitstellung des Serverzertifikats sowie Informationen zum Konfigurieren des Zertifikats in IIS finden Sie im Abschnitt *Bereitstellen des Webserverzertifikats für Standortsysteme, von denen IIS ausgeführt werden* des Themas [Beispiel für die schrittweise Bereitstellung der PKI-Zertifikate für System Center Configuration Manager: Windows Server 2008-Zertifizierungsstelle](/sccm/core/plan-design/network/example-deployment-of-pki-certificates).  
+ Pour obtenir un exemple de déploiement du certificat de serveur et des informations sur la manière de le configurer dans IIS, consultez la section *Déploiement du certificat de serveur Web pour les systèmes de site qui exécutent IIS* dans la rubrique [Exemple détaillé de déploiement des certificats PKI pour Configuration Manager : Autorité de certification Windows Server 2008](/sccm/core/plan-design/network/example-deployment-of-pki-certificates).  
 
-##  <a name="BKMK_CertificateRegistrationPoint"></a> Zertifikatregistrierungspunkt  
- Weitere Informationen zum Einrichten des Zertifikatregistrierungspunkts finden Sie unter [Einführung in Zertifikatprofile in System Center Configuration Manager](/sccm/protect/deploy-use/introduction-to-certificate-profiles).  
+##  <a name="BKMK_CertificateRegistrationPoint"></a> Point d’enregistrement de certificat  
+ Pour en savoir plus sur la configuration du point d’enregistrement de certificat, consultez [Présentation des profils de certificat](/sccm/protect/deploy-use/introduction-to-certificate-profiles).  
 
-##  <a name="BKMK_Distribution_Point"></a> Verteilungspunkt  
- Weitere Informationen zum Einrichten des Verteilungspunkts und zur Inhaltsbereitstellung finden Sie unter [Verwalten von Inhalt und Inhaltsinfrastruktur für System Center Configuration Manager](../../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+##  <a name="BKMK_Distribution_Point"></a> Point de distribution  
+ Pour en savoir plus sur la configuration du point de distribution pour le déploiement de contenu, consultez [Gérer le contenu et l’infrastructure de contenu pour System Center Configuration Manager](../../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
- Weitere Informationen zum Einrichten des Verteilungspunkts für PXE-Bereitstellungen finden Sie unter [Verwenden von PXE zum Bereitstellen von Windows über das Netzwerk mit System Center Configuration Manager](../../../../osd/deploy-use/use-pxe-to-deploy-windows-over-the-network.md).  
+ Pour en savoir plus sur la configuration du point de distribution pour les déploiements PXE, consultez [Utiliser PXE pour déployer Windows sur le réseau avec System Center Configuration Manager](../../../../osd/deploy-use/use-pxe-to-deploy-windows-over-the-network.md).  
 
- Informationen zum Einrichten des Verteilungspunkts für Multicastbereitstellungen finden Sie unter [Verwenden von Multicast zum Bereitstellen von Windows über das Netzwerk mit System Center Configuration Manager](../../../../osd/deploy-use/use-multicast-to-deploy-windows-over-the-network.md).  
+ Pour en savoir plus sur la configuration du point de distribution pour les déploiements de multidiffusion, consultez [Utiliser la multidiffusion pour déployer Windows sur le réseau avec System Center Configuration Manager](../../../../osd/deploy-use/use-multicast-to-deploy-windows-over-the-network.md).  
 
- **IIS installieren und konfigurieren, sofern dies für Configuration Manager erforderlich ist**  
- Aktivieren Sie diese Option, damit IIS von Configuration Manager auf dem Server installiert und eingerichtet werden, sofern sie noch nicht installiert sind. IIS müssen auf allen Verteilungspunkten installiert sein, und Sie müssen diese Einstellung auswählen, um mit dem Assistenten fortzufahren.  
+ **Installer et configurer IIS si requis par Configuration Manager**  
+ Sélectionnez cette option pour permettre à Configuration Manager d’installer et de configurer IIS sur le système de site s’il n’est pas déjà installé. IIS doit être installé sur tous les points de distribution, et vous devez sélectionner ce paramètre pour continuer dans l'Assistant.  
 
- **Standortsystem-Installationskonto**  
- Bei Verteilungspunkten, die auf einem Standortserver installiert sind, wird nur die Verwendung des Computerkontos des Standortservers als Standortsystem-Installationskonto unterstützt.  
+ **Compte d’installation du système de site**  
+ Pour les points de distribution qui sont installés sur un serveur de site, seul le compte d'ordinateur du serveur du site est pris en charge pour être utilisé comme compte d'installation de système de site.  
 
- **Erstellen Sie ein selbstsigniertes Zertifikat, oder importieren Sie ein PKI-Clientzertifikat.**  
- Von diesem Zertifikat werden zwei Zwecke erfüllt:  
+ **Créer un certificat auto-signé ou importer un certificat client PKI**  
+ Ce certificat a deux objectifs :  
 
-1.  Durch das Zertifikat wird der Verteilungspunkt gegenüber einem Verwaltungspunkt authentifiziert, bevor vom Verteilungspunkt Statusmeldungen gesendet werden.  
+1.  Il authentifie le point de distribution à un point de gestion avant que le point de distribution n'envoie des messages d'état.  
 
-2.  Wenn das Kontrollkästchen **PXE-Unterstützung für Clients aktivieren** aktiviert ist, wird das Zertifikat an Computer gesendet, auf denen ein PXE-Start ausgeführt wird, um während der Bereitstellung des Betriebssystems eine Verbindung mit dem Verwaltungspunkt zu ermöglichen.  
+2.  Quand l’option **Activer la prise en charge PXE pour les clients** est sélectionnée, le certificat est envoyé aux ordinateurs qui effectuent un démarrage PXE pour qu’ils puissent se connecter à un point de gestion pendant le déploiement du système d’exploitation.  
 
-Wenn alle Verwaltungspunkte am Standort für HTTP eingerichtet sind, erstellen Sie ein selbstsigniertes Zertifikat. Wenn Ihre Verwaltungspunkte für HTTPS eingerichtet sind, importieren Sie ein PKI-Clientzertifikat.  
+Quand tous vos points de gestion du site sont configurés pour le protocole HTTP, créez un certificat auto-signé. Quand vos points de gestion sont configurés pour le protocole HTTPS, importez un certificat client PKI.  
 
-Um das Zertifikat zu importieren, wechseln Sie zu einer PKCS #12-Datei (Public Key Cryptography Standard #12), die ein PKI-Zertifikat mit den folgenden Anforderungen für Configuration Manager enthält:  
+Pour importer le certificat, accédez à un fichier PKCS #12 (Public Key Cryptography Standard #12) qui contient un certificat PKI avec les spécifications suivantes pour Configuration Manager :  
 
--   Die Clientauthentifizierung muss zur Verwendung vorgesehen sein.  
+-   L'utilisation prévue doit inclure l'authentification du client.  
 
--   Der private Schlüssel muss für den Export eingerichtet sein.  
+-   La clé privée doit être configurée pour l’exportation.  
 
-Es bestehen keine speziellen Anforderungen für den Zertifikatantragsteller oder den alternativen Antragstellernamen (Subject Alternative Name, SAN). Sie können ein Zertifikat für mehrere Verteilungspunkte verwenden.  
+Il n'existe aucune exigence particulière pour le Nom d'objet ou l'Autre nom de l'objet du certificat, et vous pouvez utiliser le même certificat pour plusieurs points de distribution.  
 
-Weitere Informationen zu den Zertifikatanforderungen finden Sie unter [PKI-Zertifikatanforderungen für System Center Configuration Manager](../../../../core/plan-design/network/pki-certificate-requirements.md). Eine Beispielbereitstellung dieses Zertifikats finden Sie im Abschnitt *Bereitstellen des Clientzertifikats für Verteilungspunkte* des Themas [Beispiel für die schrittweise Bereitstellung der PKI-Zertifikate für System Center Configuration Manager: Windows Server 2008-Zertifizierungsstelle](/sccm/core/plan-design/network/example-deployment-of-pki-certificates).  
+Pour en savoir plus sur la configuration requise pour les certificats, consultez [Configuration requise des certificats PKI pour System Center Configuration Manager](../../../../core/plan-design/network/pki-certificate-requirements.md). Pour obtenir un exemple de déploiement de ce certificat, consultez la section *Déploiement du certificat client pour les points de distribution* de la rubrique [Exemple détaillé de déploiement des certificats PKI pour Configuration Manager : Autorité de certification Windows Server 2008](/sccm/core/plan-design/network/example-deployment-of-pki-certificates).  
 
-**Diesen Verteilungspunkt für vorab bereitgestellten Inhalt aktivieren**  
-Aktivieren Sie dieses Kontrollkästchen, um den Verteilungspunkt für vorab bereitgestellten Inhalt zu aktivieren. Ist dieses Kontrollkästchen aktiviert, können Sie das Verteilungsverhalten bei der Inhaltsverteilung einrichten. Sie können zwischen den folgenden Möglichkeiten wählen: Inhalt wird vorab am Verteilungspunkt bereitgestellt, nur der Anfangsinhalt des Pakets wird vorab bereitgestellt, und Updates erfolgen mithilfe des regulären Inhaltsverteilungsvorgangs, oder für den Inhalt des Pakets wird stets der reguläre Inhaltsverteilungsvorgang verwendet.  
+**Activer ce point de distribution pour le contenu préparé**  
+Cochez cette case pour activer le point de distribution pour le contenu préparé. Quand cette case est cochée, vous pouvez configurer le comportement de distribution durant la distribution du contenu. Vous pouvez choisir de toujours préparer le contenu sur le point de distribution, de préparer le contenu initial pour le package mais d’utiliser le processus de distribution de contenu normal pour les mises à jour du contenu, ou de toujours utiliser le processus de distribution de contenu normal pour le contenu du package.  
 
-**Begrenzungsgruppen**  
- Sie können einem Verteilungspunkt Begrenzungsgruppen zuordnen. Bei der Inhaltsbereitstellung müssen sich die Clients in einer dem Verteilungspunkt zugeordneten Begrenzungsgruppe befinden, damit der Verteilungspunkt als Quellort für Inhalt verwendet werden kann.
- - **Vor Version 1610** können Sie das Kontrollkästchen **Fallbackquellpfad für Inhalt zulassen** aktivieren, um für Clients außerhalb solcher Begrenzungsgruppen ein Ausweichen auf den Verteilungspunkt als Quellort für Inhalt zu ermöglichen, wenn keine anderen Verteilungspunkte verfügbar sind.
- - **Ab Version 1610** können Sie **Fallbackquellpfad für Inhalt zulassen** nicht mehr konfigurieren.  Stattdessen können Sie Beziehungen zwischen Begrenzungsgruppen einrichten, die überprüfen, ab wann ein Client mit der Suche nach zusätzlichen Begrenzungsgruppen für einen gültigen Quellspeicherort für den Inhalt suchen kann.
+**Groupes de limites**  
+ Vous pouvez associer des groupes de limites à un point de distribution. Lors d'un déploiement de contenu, les clients doivent se trouver dans un groupe de limites associé au point de distribution pour l'utiliser comme emplacement source pour le contenu.
+ - **Avant la version 1610**, vous pouviez cocher la case **Autoriser un emplacement source de secours pour le contenu** pour permettre aux clients situés en dehors de ces groupes de limites de revenir et d’utiliser le point de distribution comme emplacement source pour le contenu quand aucun autre point de distribution n’est disponible.
+ - **À partir de la version 1610**, vous ne pouvez plus configurer l’option **Autoriser un emplacement source de secours pour le contenu**.  Au lieu de cela, vous configurez des relations entre les groupes de limites qui vérifient quand un client peut commencer à rechercher des emplacements sources pour le contenu valides dans d’autres groupes de limites.
 
-##  <a name="BKMK_Enrollment_Point"></a> Anmeldungspunkt  
-Anmeldungspunkte werden zur Installation von Macintosh-Computern und zur Registrierung mobiler Geräte verwendet, die Sie mithilfe der lokalen Geräteverwaltung verwalten. Weitere Informationen finden Sie unter:  
+##  <a name="BKMK_Enrollment_Point"></a> Point d’inscription  
+Les points d’inscription sont utilisés pour installer les ordinateurs Mac et inscrire les appareils que vous gérez avec la gestion des appareils mobiles locale. Pour plus d'informations, consultez :  
 
--   [Bereitstellen von Clients auf Macintosh-Computern in System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-macs.md)  
+-   [Guide pratique pour déployer des clients sur des ordinateurs Mac dans System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-macs.md)  
 
--   [Informationen zur Registrierung von Geräten mit der lokalen Verwaltung mobiler Geräte in System Center Configuration Manager](../../../../mdm/deploy-use/user-enroll-devices-on-premises-mdm.md)  
+-   [Comment les utilisateurs inscrivent des appareils avec la gestion des appareils mobiles locale dans System Center Configuration Manager](../../../../mdm/deploy-use/user-enroll-devices-on-premises-mdm.md)  
 
-**Zulässige Verbindungen**  
- Die HTTPS-Einstellung wird automatisch verwendet. Dafür ist ein PKI-Zertifikat auf dem Server zur Serverauthentifizierung beim Anmeldungsproxypunkt, zur Serverauthentifizierung beim Out-of-Band-Dienstpunkt sowie zur SSL-Datenverschlüsselung erforderlich. Weitere Informationen zu den Zertifikatanforderungen finden Sie unter [PKI-Zertifikatanforderungen für System Center Configuration Manager](../../../../core/plan-design/network/pki-certificate-requirements.md).  
+**Connexions autorisées**  
+ Ce paramètre HTTPS est sélectionné automatiquement et nécessite un certificat PKI sur le serveur pour l’authentification du serveur sur le point proxy d’inscription, l’authentification du serveur sur le point de service hors bande, ainsi que le chiffrement des données sur SSL. Pour en savoir plus sur la configuration requise pour les certificats, consultez [Configuration requise des certificats PKI pour System Center Configuration Manager](../../../../core/plan-design/network/pki-certificate-requirements.md).  
 
- Eine Beispielbereitstellung des Serverzertifikats sowie Informationen zum Konfigurieren des Zertifikats in IIS finden Sie im Abschnitt *Bereitstellen des Webserverzertifikats für Standortsysteme, von denen IIS ausgeführt werden* des Themas [Beispiel für die schrittweise Bereitstellung der PKI-Zertifikate für System Center Configuration Manager: Windows Server 2008-Zertifizierungsstelle](/sccm/core/plan-design/network/example-deployment-of-pki-certificates).  
+ Pour obtenir un exemple de déploiement du certificat de serveur et des informations sur la manière de le configurer dans IIS, consultez la section *Déploiement du certificat de serveur Web pour les systèmes de site qui exécutent IIS* dans la rubrique [Exemple détaillé de déploiement des certificats PKI pour Configuration Manager : Autorité de certification Windows Server 2008](/sccm/core/plan-design/network/example-deployment-of-pki-certificates).  
 
-##  <a name="BKMK_Enrollment_Proxy_Point"></a> Anmeldungsproxypunkt  
-Weitere Informationen zum Einrichten eines Anmeldungsproxypunkts für mobile Geräte finden Sie unter [Informationen zur Registrierung von Geräten mit der lokalen Verwaltung mobiler Geräte in System Center Configuration Manager](../../../../mdm/deploy-use/user-enroll-devices-on-premises-mdm.md).  
+##  <a name="BKMK_Enrollment_Proxy_Point"></a> Point proxy d’inscription  
+Pour en savoir plus sur la configuration d’un point proxy d’inscription pour les appareils mobiles, consultez [Comment les utilisateurs inscrivent des appareils avec la gestion des appareils mobiles locale dans System Center Configuration Manager](../../../../mdm/deploy-use/user-enroll-devices-on-premises-mdm.md).  
 
-**Clientverbindungen**  
- Die HTTPS-Einstellung wird automatisch ausgewählt. Dafür ist ein PKI-Zertifikat auf dem Server zur Serverauthentifizierung bei mobilen Geräten und Macintosh-Computern, die mithilfe von Configuration Management angemeldet wurden, sowie zur SSL-Datenverschlüsselung (Secure Sockets Layer) erforderlich. Weitere Informationen zu den Zertifikatanforderungen finden Sie unter [PKI-Zertifikatanforderungen für System Center Configuration Manager](../../../../core/plan-design/network/pki-certificate-requirements.md).  
+**Connexions client**  
+ Le paramètre HTTPS est sélectionné automatiquement. Il nécessite un certificat PKI sur le serveur pour l’authentification du serveur sur les appareils mobiles et les ordinateurs Mac inscrits par Configuration Manager, ainsi que pour le chiffrement des données avec SSL (Secure Sockets Layer). Pour en savoir plus sur la configuration requise pour les certificats, consultez [Configuration requise des certificats PKI pour System Center Configuration Manager](../../../../core/plan-design/network/pki-certificate-requirements.md).  
 
- Eine Beispielbereitstellung des Serverzertifikats sowie Informationen zum Konfigurieren des Zertifikats in IIS finden Sie im Abschnitt *Bereitstellen des Webserverzertifikats für Standortsysteme, von denen IIS ausgeführt werden* des Themas [Beispiel für die schrittweise Bereitstellung der PKI-Zertifikate für System Center Configuration Manager: Windows Server 2008-Zertifizierungsstelle](/sccm/core/plan-design/network/example-deployment-of-pki-certificates).  
+ Pour obtenir un exemple de déploiement du certificat de serveur et des informations sur la manière de le configurer dans IIS, consultez la section *Déploiement du certificat de serveur Web pour les systèmes de site qui exécutent IIS* dans la rubrique [Exemple détaillé de déploiement des certificats PKI pour Configuration Manager : Autorité de certification Windows Server 2008](/sccm/core/plan-design/network/example-deployment-of-pki-certificates).  
 
-##  <a name="BKMK_Fallback_Status_Point"></a> Fallbackstatuspunkt  
-**Anzahl der Zustandsmeldungen** und **Einschränkungsintervall (in Sekunden)**  
-Die Standardeinstellungen dieser beiden Optionen (10.000 Zustandsmeldungen und 3.600 Sekunden beim Einschränkungsintervall) sind unter den meisten Umständen ausreichend. Dennoch kann es erforderlich sein, dass Sie diese Einstellungen ändern, wenn die beiden folgenden Bedingungen erfüllt sind:  
+##  <a name="BKMK_Fallback_Status_Point"></a> Point d’état de secours  
+**Nombre de messages d'état** et **Intervalle d'accélération (en secondes)**  
+Bien que les paramètres par défaut pour ces options (10 000 messages d'état et 3 600 secondes pour l'intervalle d'accélération) suffisent dans la plupart des cas, vous pouvez être amené à les modifier lorsque les deux conditions suivantes sont vraies :  
 
--   Vom Fallbackstatuspunkt werden Verbindungen nur aus dem Intranet akzeptiert.  
+-   Le point d'état de secours accepte les connexions uniquement à partir de l'intranet.  
 
--   Sie verwenden den Fallbackstatuspunkt während der Einführung einer Clientbereitstellung für zahlreiche Computer.  
+-   Vous utilisez le point d'état de secours pendant un déploiement du client pour de nombreux ordinateurs.  
 
-In diesem Szenario kann es durch einen kontinuierlichen Strom von Zustandsmeldungen zu einem Rückstand kommen, durch den dauerhaft eine hohe CPU-Auslastung auf dem Standortserver verursacht wird. Außerdem sehen Sie in der Configuration Manager-Konsole und in den Clientbereitstellungsberichten möglicherweise keine aktuellen Informationen über die Clientbereitstellung.  
+Dans ce scénario, un flux continu de messages d’état peut créer un retard des messages d’état susceptible d’entraîner une utilisation élevée du processeur sur le serveur de site pendant une période prolongée. En outre, vous risquez de ne pas voir les informations récentes sur le déploiement du client dans la console Configuration Manager et dans les rapports de déploiement du client.  
 
-Diese Einstellungen für Fallbackstatuspunkte sollen für Zustandsmeldungen eingerichtet werden, die während der Clientbereitstellung generiert werden. Sie sind nicht für Probleme bei der Kommunikation mit Clients gedacht, beispielsweise wenn von Clients im Internet keine Verbindung mit dem internetbasierten Verwaltungspunkt hergestellt werden kann. Da diese Einstellungen von dem Fallbackstatuspunkt nicht nur auf die Zustandsmeldungen angewendet werden können, die während der Clientbereitstellung generiert werden, sollten Sie die Einstellungen nicht konfigurieren, wenn vom Fallbackstatuspunkt Verbindungen aus dem Internet akzeptiert werden.  
+Ces paramètres de point d’état de secours visent à être configurés pour les messages d’état générés durant le déploiement du client. Ils ne sont pas destinés à être configurés pour les problèmes de communication que peuvent rencontrer les clients, notamment lorsque ceux-ci se trouvent sur Internet et qu’ils ne parviennent pas à se connecter à leur point de gestion Internet. Comme le point d'état de secours ne peut pas appliquer ces paramètres aux seuls messages d'état générés lors du déploiement du client, ne configurez pas ces paramètres lorsque le point d'état de secours accepte les connexions en provenance d'Internet.  
 
-Jeder Computer, auf dem der System Center 2012 Configuration Manager-Client installiert wurde, sendet die folgenden vier Zustandsmeldungen an den Fallbackstatuspunkt:  
+Chaque ordinateur qui installe correctement le client System Center 2012 Configuration Manager envoie les quatre messages d’état ci-dessous au point d’état de secours :  
 
--   Clientbereitstellung wurde gestartet  
+-   Démarrage du déploiement du client  
 
--   Clientbereitstellung war erfolgreich  
+-   Déploiement du client réussi  
 
--   Clientzuweisung wurde gestartet  
+-   Démarrage de l'attribution du client  
 
--   Clientzuweisung war erfolgreich  
+-   Attribution du client réussie  
 
-Von Computern, die nicht installiert werden können oder die den Configuration Manager-Client zuweisen, werden zusätzliche Zustandsmeldungen gesendet.  
+Les ordinateurs qui ne peuvent pas être installés ou qui affectent le client Configuration Manager envoient des messages d’état supplémentaires.  
 
-Wenn Sie den Configuration Manager-Client beispielsweise für 20.000 Computer bereitstellen, werden möglicherweise 80.000 Zustandsmeldungen von der Bereitstellung an den Fallbackstatuspunkt gesendet. Da aufgrund der Standardkonfiguration der Einschränkung alle 3.600 Sekunden (1 Stunde) 10.000 Zustandsmeldungen an den Fallbackstatuspunkt gesendet werden können, kann dies beim Fallbackstatuspunkt zu einem Rückstand bei der Verarbeitung der Zustandsmeldungen führen. Bei der Verarbeitung zahlreicher Zustandsmeldungen müssen auch die verfügbare Netzwerkbandbreite zwischen dem Fallbackstatuspunkt und dem Standortserver sowie die Verarbeitungsgeschwindigkeit des Standortservers berücksichtigt werden.  
+Par exemple, si vous déployez le client Configuration Manager sur 20 000 ordinateurs, le déploiement peut envoyer 80 000 messages d’état au point d’état de secours. La configuration d’accélération par défaut permet l’envoi d’un maximum de 10 000 messages d’état au point d’état de secours toutes les 3,600 secondes (1 heure), c’est pourquoi les messages d’état peuvent être retardés sur le point d’état de secours. Vous devez également prendre en compte la largeur de bande réseau disponible entre le point d’état de secours et le serveur de site, ainsi que la capacité du serveur de site à traiter de nombreux messages d’état.  
 
-Um solche Probleme zu vermeiden, sollten Sie erwägen, die Anzahl von Zustandsmeldungen zu erhöhen und das Drosselungsintervall zu verkürzen.  
+Pour éviter ces problèmes, envisagez d’augmenter le nombre de messages d’état et de diminuer l’intervalle d’accélération.  
 
-Setzen Sie die Einschränkungswerte für den Fallbackstatuspunkt zurück, wenn eine der folgenden Bedingungen zutrifft:  
+Réinitialisez les valeurs d'accélération pour le point d'état de secours si l'une des conditions suivantes est vraie :  
 
--   Ihren Berechnungen nach sind die aktuellen Einschränkungswerte höher, als dies für die Verarbeitung von Zustandsmeldungen vom Fallbackstatuspunkt erforderlich ist.  
+-   Les valeurs d'accélération actuelles sont supérieures aux valeurs requises pour traiter les messages d'état à partir du point d'état de secours.  
 
--   Mit den aktuellen Einschränkungswerten stellen Sie eine hohe Prozessorauslastung des Standortservers fest.  
+-   Vous trouvez que les paramètres d'accélération actuels entraînent une utilisation élevée du processeur sur le serveur de site.  
 
-Ändern Sie die Einschränkungseinstellungen für den Fallbackstatuspunkt nur dann, wenn Sie sich über die Konsequenzen im Klaren sind. Wenn Sie beispielsweise die Einschränkungseinstellungen zu stark erhöhen, kann dadurch die Prozessorauslastung des Standortservers so erhöht werden, dass dadurch alle Standortvorgänge verlangsamt werden.  
+Ne modifiez pas les paramètres d'accélération du point d'état de secours avant d'en avoir mesuré les conséquences. Par exemple, lorsque vous augmentez les paramètres d'accélération jusqu'à ce qu'ils atteignent un niveau élevé, l'utilisation du processeur sur le serveur de site peut devenir élevée, ce qui ralentit tout le fonctionnement du site.  

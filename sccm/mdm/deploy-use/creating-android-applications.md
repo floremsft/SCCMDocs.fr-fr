@@ -1,6 +1,6 @@
 ---
-title: Erstellen von Android-Anwendungen | Microsoft Docs
-description: "Was Sie beim Erstellen und Bereitstellen von Apps für Android-Geräte berücksichtigen müssen."
+title: "Créer des applications Android | Documents Microsoft"
+description: "Examinez les éléments à prendre en compte quand vous créez et déployez des applications pour appareils Android."
 ms.custom: na
 ms.date: 07/31/2017
 ms.prod: configuration-manager
@@ -17,50 +17,50 @@ manager: angrobe
 ms.openlocfilehash: 3a89abc81cd70f4e499bf4e3087fd53915377c44
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-android-applications-with-system-center-configuration-manager"></a>Erstellen von Android-Apps mit System Center Configuration Manager
+# <a name="create-android-applications-with-system-center-configuration-manager"></a>Créer des applications Android avec System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-In einer System Center Configuration Manager-Anwendung ist mindestens ein Bereitstellungstyp enthalten. Diese umfassen die Installationsdateien und Informationen, die zum Bereitstellen von Software auf einem Gerät erforderlich sind. Bereitstellungstypen verfügen auch über Regeln, aus denen hervorgeht, wann und wie die Software bereitgestellt wird.  
+Une application System Center Configuration Manager a un ou plusieurs types de déploiement. Les types de déploiement comprennent les fichiers d’installation et les informations nécessaires pour déployer des logiciels sur un appareil. Le type de déploiement contient également des règles spécifiant à quel moment et selon quelle méthode le logiciel est déployé.  
 
- Es gibt die folgenden Möglichkeiten zum Erstellen von Anwendungen:  
+ Vous pouvez créer des applications à l'aide des méthodes suivantes :  
 
--   Erstellen Sie die Anwendungen und Bereitstellungstypen durch Lesen der Installationsdateien der Anwendung automatisch.  
--   Erstellen Sie die Anwendung manuell, und fügen Sie Bereitstellungstypen später hinzu.  
--   Importieren Sie eine Anwendung aus einer Datei.  
+-   Créer automatiquement les types d'application et de déploiement en lisant les fichiers d'installation de l'application.  
+-   Créer manuellement l'application, puis ajouter des types de déploiement ultérieurement.  
+-   Importer une application à partir d’un fichier.  
 
-Unter [Starten des Assistenten zum Erstellen von Anwendungen](../../apps/deploy-use/create-applications.md#start-the-create-application-wizard) finden Sie weitere Informationen zu erforderlichen Schritten zum Erstellen von Configuration Manager-Anwendungen und Bereitstellungstypen. Berücksichtigen Sie beim Erstellen und Bereitstellen von Apps für Android-Geräte auch Folgendes.  
+Pour connaître les étapes requises pour créer des types de déploiement et applications Configuration Manager, voir [Démarrer l’Assistant Création d’une application](../../apps/deploy-use/create-applications.md#start-the-create-application-wizard). De plus, gardez à l’esprit les considérations suivantes quand vous créez et déployez des applications pour des appareils Android.  
 
-## <a name="general-considerations-for-android-apps"></a>Allgemeine Aspekte für Android-Apps
+## <a name="general-considerations-for-android-apps"></a>Éléments généraux à prendre en compte pour les applications Android
 
-Configuration Manager unterstützt die Bereitstellung folgender App-Typen für Android:
+Configuration Manager prend en charge le déploiement des types d’applications suivants pour Android :
 
-|Gerätetyp|Unterstützte Dateien|
+|Type d'appareil|Fichiers pris en charge|
 |-|-|
 |Android|.apk|
 
-Die folgenden Bereitstellungsaktionen werden unterstützt:
+Les actions de déploiement suivantes sont prises en charge :
 
-|Gerätetyp|Unterstützte Aktionen|
+|Type d'appareil|Actions prises en charge|
 |-|-|
-|Android|**Verfügbar**, **Erforderlich**: Der Benutzer muss der Installation und Deinstallation zustimmen.|
-|Android for Work | **Erforderlich** |
+|Android|**Disponible**, **Obligatoire** L’utilisateur doit donner son consentement pour l’installation et la désinstallation.|
+|Android for Work | **Obligatoire** |
 
-## <a name="approve-and-deploy-android-for-work-apps"></a>Genehmigen und Bereitstellen von Android for Work Apps
-Als ein Configuration Manager-Administrator können Sie Apps auch auf der [Play for Work-Website](https://play.google.com/work) genehmigen und auf verwalteten Android for Work-Geräten bereitstellen.
+## <a name="approve-and-deploy-android-for-work-apps"></a>Approuver et déployer des applications Android for Work
+En tant qu’administrateur de Configuration Manager, vous pouvez également approuver des applications sur le [site web Play for Work](https://play.google.com/work), et déployer ces applications sur des appareils Android for Work gérés.
 
-Gehen Sie wie folgt vor, um Apps im Play for Work-Store zu genehmigen, diese mit der Configuration Manager-Konsole zu synchronisieren und sie anschließend in verwalteten Android for Work-Geräten bereitzustellen. Um Apps in den Arbeitsprofilen von Benutzern bereitzustellen, müssen Sie die Apps zunächst in Play for Work genehmigen und anschließend mit der Configuration Manager-Konsole synchronisieren.
+Effectuez les étapes suivantes pour approuver des applications dans le magasin Play for Work, les synchroniser avec la console Configuration Manager et les déployer sur des appareils Android for Work gérés. Pour déployer des applications sur les profils professionnels des utilisateurs, vous devez approuver les applications dans Play for Work, puis les synchroniser avec la console Configuration Manager.
 
-1. Öffnen Sie einen Browser und navigieren Sie zu https://play.google.com/work.
-2. Melden Sie sich mit dem Google-Administratorkonto an, das Sie an Ihren Intune-Mandanten gebunden haben.
-3. Suchen Sie nach Apps, die Sie in Ihrer Umgebung bereitstellen möchten, und wählen Sie jeweils **Approve** (Genehmigen), um die App für Android for Work zur Verfügung zu stellen.
-4. Gehen Sie in der Configuration Manager-Konsole zu **Administrator** > **Übersicht** > **Cloud Services** > **Android for Work**, und klicken Sie dann auf **Synchronisierung**.
-5. Es kann bis zu zehn Minuten dauern, bis Apps synchronisiert sind; navigieren Sie anschließend zu **Softwarebibliothek** > **Übersicht** > **Anwendungsverwaltung** > **Lizenzinformationen für Store-Apps**.
-6. Wählen Sie eine App, die mit Play for Work synchronisiert wurde, und klicken Sie dann auf **Anwendung erstellen**.
-7. Stellen Sie den Assistenten fertig, und wählen Sie anschließend **Schließen**.
-8. Navigieren Sie zu **Softwarebibliothek** > **Übersicht** > **Anwendungsverwaltung** > **Anwendungen**, wählen Sie eine Android for Work-App aus, und stellen Sie diese wie gewohnt bereit.
+1. Ouvrez un navigateur et accédez à https://play.google.com/work.
+2. Connectez-vous à l’aide du compte d’administrateur Google que vous avez lié à votre client Intune.
+3. Recherchez les applications que vous souhaitez déployer dans votre environnement et choisissez **Approuver** pour chacune d’elles afin de les rendre disponibles pour Android for Work.
+4. Dans la console Configuration Manager, accédez à **Administrateur** > **Vue d’ensemble** > **Services Cloud** > **Android for Work** et choisissez **Synchroniser**.
+5. Patientez jusqu’à 10 minutes que les applications soient synchronisées, puis accédez à **Bibliothèque de logiciels** > **Vue d’ensemble** > **Gestion des applications** > **Informations de licence pour les applications du Store**.
+6. Choisissez une application synchronisée à partir de Play for Work, puis choisissez **Créer une application**.
+7. Terminez l’Assistant et choisissez **Fermer**.
+8. Accédez à **Bibliothèque de logiciels** > **Vue d’ensemble** > **Gestion des applications** > **Applications**, choisissez une application Android for Work et déployez-la normalement.
 
-Um Play for Work-Apps mit Configuration Manager zu synchronisieren müssen Sie zunächst mindestens eine App auf der Play for Work-Website genehmigen.
+Pour synchroniser des applications Play for Work avec Configuration Manager, vous devez d’abord approuver au moins une application sur le site web Play for Work.

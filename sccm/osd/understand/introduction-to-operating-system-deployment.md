@@ -1,6 +1,6 @@
 ---
-title: "Einführung in die Betriebssystembereitstellung | Microsoft-Dokumentation"
-description: Verstehen Sie die Konzepte, bevor Sie Betriebssysteme in Ihrer Configuration Manager-Umgebung bereitstellen.
+title: "Introduction au déploiement de système d’exploitation | Microsoft Docs"
+description: "Comprenez les concepts avant de déployer des systèmes d’exploitation dans votre environnement Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,117 +17,117 @@ manager: angrobe
 ms.openlocfilehash: 2baa6b7dbd66ab41bc9b67e8f43c313be233153c
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="introduction-to-operating-system-deployment-in-system-center-configuration-manager"></a>Einführung in die Betriebssystembereitstellung in System Center Configuration Manager
+# <a name="introduction-to-operating-system-deployment-in-system-center-configuration-manager"></a>Introduction au déploiement de système d’exploitation dans System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Sie können Configuration Manager dazu verwenden, Betriebssysteme auf vielen verschiedenen Wegen bereitzustellen. Verwenden Sie die Informationen in diesem Abschnitt, um zu verstehen, wie Betriebssysteme bereitgestellt und Tasks automatisiert werden. 
+Vous pouvez utiliser Configuration Manager pour déployer des systèmes d’exploitation de différentes façons. Utilisez les informations contenues dans cette section pour comprendre comment déployer des systèmes d’exploitation et automatiser des tâches. 
 
-##  <a name="BKMK_OSDeploymentProcess"></a> Vorgang der Betriebssystembereitstellung  
- In Configuration Manager gibt es mehrere Methoden, die Sie zum Bereitstellen eines Betriebssystems verwenden können. Unabhängig von der verwendeten Bereitstellungsmethode müssen Sie mehrere Aktionen ausführen:  
+##  <a name="BKMK_OSDeploymentProcess"></a> Le processus de déploiement de système d’exploitation  
+ Configuration Manager propose plusieurs méthodes que vous pouvez utiliser pour déployer un système d’exploitation. Vous devez effectuer plusieurs actions quelle que soit la méthode de déploiement utilisée.  
 
--   Identifizieren Sie Windows-Gerätetreiber, die zum Starten des bereitzustellenden Startimages oder zum Installieren des bereitzustellenden Betriebssystemimages erforderlich sind.  
+-   Identifier les pilotes d’appareils Windows qui sont nécessaires pour démarrer l’image de démarrage ou pour installer l’image du système d’exploitation que vous devez déployer.  
 
--   Identifizieren Sie das Startabbild, das Sie zum Starten des Zielcomputers verwenden möchten.  
+-   Identifier l'image de démarrage que vous souhaitez utiliser pour démarrer l'ordinateur de destination.  
 
--   Verwenden Sie eine Tasksequenz, um ein Image des bereitzustellenden Betriebssystems zu erfassen. Alternativ können Sie ein Standardimage des Betriebssystems verwenden.  
+-   Utiliser une séquence de tâches pour capturer une image du système d’exploitation que vous souhaitez déployer. Vous pouvez également utiliser une image de système d’exploitation par défaut.  
 
--   Verteilen Sie das Startabbild, das Betriebssystemabbild sowie zugehörigen Inhalt an einen Verteilungspunkt.  
+-   Distribuer l'image de démarrage, l'image du système d'exploitation et tout contenu associé sur un point de distribution.  
 
--   Erstellen Sie eine Tasksequenz mit den Schritten zum Bereitstellen des Startimages und des Betriebssystemimages.  
+-   Créer une séquence de tâches avec les étapes nécessaires pour déployer l’image de démarrage et l’image du système d’exploitation.  
 
--   Stellen Sie die Tasksequenz für eine Sammlung von Computern bereit.  
+-   Déployer la séquence de tâches dans un regroupement d’ordinateurs.  
 
--   Überwachen Sie die Bereitstellung.  
+-   Surveiller le déploiement.  
 
-##  <a name="BKMK_OSDScenarios"></a> Betriebssystembereitstellungsszenarios  
- Es gibt viele Szenarien der Betriebssystembereitstellung in Configuration Manager, aus denen Sie je nach Umgebung und Zweck der Betriebssysteminstallation auswählen können.  Sie können z. B. einen vorhandenen Computer mit einer neuen Version von Windows partitionieren und formatieren oder Windows auf die neueste Version aktualisieren. Hilfe zur Ermittlung der Bereitstellungsmethode, die Ihren Bedürfnissen entspricht, finden Sie unter [Szenarien für die Bereitstellung von Unternehmensbetriebssystemen](../deploy-use/scenarios-to-deploy-enterprise-operating-systems.md).  Sie können aus den folgenden Szenarien für die Betriebssystembereitstellung auswählen:  
+##  <a name="BKMK_OSDScenarios"></a> Scénarios de déploiement du système d’exploitation  
+ Vous avez le choix entre de nombreux scénarios de déploiement de systèmes d’exploitation dans Configuration Manager en fonction de votre environnement et de l’objectif de l’installation du système d’exploitation.  Par exemple, vous pouvez partitionner et formater un ordinateur existant avec une nouvelle version de Windows ou mettre à niveau Windows vers la version la plus récente. Pour vous aider à déterminer la méthode de déploiement qui répond à vos besoins, consultez [Scénarios de déploiement de systèmes d’exploitation d’entreprise](../deploy-use/scenarios-to-deploy-enterprise-operating-systems.md).  Vous pouvez choisir parmi les scénarios de déploiement de système d’exploitation suivants :  
 
--   [Upgraden von Windows auf die neueste Version](../deploy-use/upgrade-windows-to-the-latest-version.md)  
+-   [Effectuer une mise à niveau de Windows vers la dernière version](../deploy-use/upgrade-windows-to-the-latest-version.md)  
 
--   [Aktualisieren eines vorhandenen Computers mit einer neuen Version von Windows](../deploy-use/refresh-an-existing-computer-with-a-new-version-of-windows.md)  
+-   [Actualiser un ordinateur existant avec une nouvelle version de Windows](../deploy-use/refresh-an-existing-computer-with-a-new-version-of-windows.md)  
 
--   [Installieren einer neuen Version von Windows auf einem neuen Computer (Bare-Metal)](../deploy-use/install-new-windows-version-new-computer-bare-metal.md)  
+-   [Installer une nouvelle version de Windows sur un nouvel ordinateur (système nu)](../deploy-use/install-new-windows-version-new-computer-bare-metal.md)  
 
--   [Ersetzen eines vorhandenen Computers und Übertragen von Einstellungen](../deploy-use/replace-an-existing-computer-and-transfer-settings.md)  
+-   [Remplacement d’un ordinateur existant et transfert des paramètres](../deploy-use/replace-an-existing-computer-and-transfer-settings.md)  
 
-##  <a name="BKMK_OSDMethods"></a> Methoden zum Bereitstellen von Betriebssystemen  
- Es gibt mehrere Methoden, mit denen Sie Betriebssysteme für Configuration Manager-Clientcomputer bereitstellen können.  
+##  <a name="BKMK_OSDMethods"></a> Méthodes pour déployer des systèmes d’exploitation  
+ Il existe plusieurs méthodes que vous pouvez utiliser pour déployer des systèmes d’exploitation sur des ordinateurs clients Configuration Manager.  
 
--   **PXE-initiierte Bereitstellungen**: Bei einer PXE-initiierten Bereitstellung wird die Bereitstellung von Clientcomputern über das Netzwerk angefordert. Das Betriebssystemabbild und ein Windows PE-Startabbild werden an einen Verteilungspunkt gesendet, der so konfiguriert ist, dass PXE-Startanforderungen akzeptiert werden. Weitere Informationen finden Sie unter [Verwenden von PXE zum Bereitstellen von Windows über das Netzwerk mit System Center Configuration Manager](../deploy-use/use-pxe-to-deploy-windows-over-the-network.md).  
+-   **Déploiements établis par PXE**: ces déploiements permettent aux ordinateurs clients de demander un déploiement sur le réseau. Avec cette méthode de déploiement, l'image du système d'exploitation et une image de démarrage Windows PE sont envoyées à un point de distribution qui est configuré pour accepter les requêtes de démarrage PXE. Pour plus d’informations, consultez [Utiliser PXE pour déployer Windows sur le réseau avec System Center Configuration Manager](../deploy-use/use-pxe-to-deploy-windows-over-the-network.md).  
 
--   **Betriebssysteme über das Softwarecenter zur Verfügung stellen**: Sie können ein Betriebssystem bereitstellen über das Softwarecenter zur Verfügung stellen. Configuration Manager-Clients können die Installation des Betriebssystems über das Softwarecenter initiieren. Weitere Informationen finden Sie unter [Ersetzen eines vorhandenen Computers und Übertragen von Einstellungen](../deploy-use/replace-an-existing-computer-and-transfer-settings.md).  
+-   **Rendre les systèmes d’exploitation disponibles dans le Centre logiciel** : vous pouvez déployer un système d’exploitation et le rendre disponible dans le Centre logiciel. Les clients Configuration Manager peuvent lancer l’installation du système d’exploitation à partir du Centre logiciel. Pour plus d’informations, consultez [Remplacer un ordinateur existant et transférer des paramètres](../deploy-use/replace-an-existing-computer-and-transfer-settings.md).  
 
--   **Multicastbereitstellungen**: Bei Multicastbereitstellungen wird die Netzwerkbandbreite beibehalten, indem gleichzeitig Daten an mehrere Clients gesendet werden, anstatt dass Daten kopiert und dann über eine separate Verbindung an jeden Client einzeln gesendet werden. Bei dieser Bereitstellungsmethode wird das Betriebssystemabbild an einen Verteilungspunkt gesendet. Von diesem wird das Abbild wiederum bereitgestellt, wenn die Bereitstellung von Clientcomputern angefordert wird. Weitere Informationen finden Sie unter [Verwenden von Multicast zum Bereitstellen von Windows über das Netzwerk](../deploy-use/use-multicast-to-deploy-windows-over-the-network.md).  
+-   **Déploiements multidiffusion** : ces déploiements économisent la bande passante réseau en envoyant de manière simultanée des données à plusieurs clients plutôt que d’envoyer une copie des données à chaque client via une connexion distincte. Avec cette méthode de déploiement, l'image du système d'exploitation est envoyée à un point de distribution. Celui-ci déploie à son tour l'image lorsque les ordinateurs clients demandent le déploiement. Pour plus d’informations, consultez [Utiliser la multidiffusion pour déployer Windows sur le réseau](../deploy-use/use-multicast-to-deploy-windows-over-the-network.md).  
 
--   **Bereitstellungen mit startbaren Medien**: Bei Bereitstellungen mit startbaren Medien können Sie das Betriebssystem beim Starten des Zielcomputers bereitstellen. Beim Starten des Zielcomputers werden die Tasksequenz, das Betriebssystemabbild sowie sämtlicher anderer erforderlicher Inhalt aus dem Netzwerk abgerufen. Da dieser Inhalt nicht auf den Medien enthalten ist, können Sie den Inhalt aktualisieren, ohne die Medien neu erstellen zu müssen. Weitere Informationen finden Sie unter [Erstellen startbarer Medien](../deploy-use/create-bootable-media.md).  
+-   **Déploiements de médias de démarrage** : ces déploiements vous permettent de déployer le système d’exploitation au démarrage de l’ordinateur de destination. Au démarrage de l'ordinateur de destination, il récupère la séquence de tâches, l'image du système d'exploitation et tout autre contenu requis à partir du réseau. Étant donné que le contenu n'est pas inclus sur le média, vous pouvez mettre à jour le contenu sans avoir à recréer le média. Pour plus d’informations, consultez [Créer un média de démarrage](../deploy-use/create-bootable-media.md).  
 
--   **Bereitstellungen mit eigenständigen Medien**: Mit Bereitstellungen mit eigenständigen Medien können Sie unter folgenden Umständen Betriebssysteme bereitstellen:  
+-   **Déploiements de médias autonomes** : ces déploiements vous permettent de déployer des systèmes d’exploitation dans les conditions suivantes :  
 
-    -   In Umgebungen, in denen es nicht praktikabel ist, ein Betriebssystemabbild oder anderen große Pakete über das Netzwerk zu kopieren;  
+    -   dans les environnements où il n'est pas pratique de copier une image du système d'exploitation ou d'autres packages volumineux sur le réseau ;  
 
-    -   in Umgebungen ohne Netzwerkverbindung oder mit geringer Netzwerkbandbreite.  
+    -   dans les environnements sans connectivité réseau ou avec une connectivité réseau avec une faible bande passante.  
 
-     Weitere Informationen finden Sie unter [Erstellen eigenständiger Medien](../deploy-use/create-stand-alone-media.md).  
+     Pour plus d’informations, consultez [Créer un média autonome](../deploy-use/create-stand-alone-media.md).  
 
--   **Bereitstellungen mit vorab bereitgestellten Medien**: Bei Bereitstellungen mit vorab bereitgestellten Medien können Sie ein Betriebssystem für Computer bereitstellen, das nicht vollständig bereitgestellt ist. Bei den vorab bereitgestellten Medien handelt es sich um eine WIM-Datei (Windows Imaging Format), die vom Hersteller auf einem Computer ohne Betriebssystem oder im Staging Center eines Unternehmens ohne Verbindung zur Configuration Manager-Umgebung installiert werden kann.  
+-   **Déploiements de médias préparés** : les déploiements de médias préparés vous permettent de déployer un système d’exploitation sur un ordinateur qui n’est pas entièrement préparé. Le média préparé est un fichier WIM (Windows Imaging Format) qui peut être installé sur un système nu par le fabricant ou dans un centre de reclassement d’entreprise qui n’est pas connecté à l’environnement Configuration Manager.  
 
-     Später wird der Computer in der Configuration Manager-Umgebung unter Verwendung des auf den Medien bereitgestellten Startimages gestartet. Anschließend wird eine Verbindung mit dem Verwaltungspunkt des Standorts hergestellt und dort nach verfügbaren Tasksequenzen gesucht, mit denen der Downloadvorgang abgeschlossen wird. Durch diese Bereitstellungsmethode wird der Netzwerkdatenverkehr reduziert, da das Startabbild und Betriebssystemabbild bereits auf dem Zielcomputer vorhanden sind. Sie können auch Anwendungen, Pakete und Treiberpakete als vorab bereitgestellte Medien angeben. Weitere Informationen finden Sie unter [Erstellen vorab bereitgestellter Medien](../deploy-use/create-prestaged-media.md).  
+     Ensuite, dans l’environnement Configuration Manager, l’ordinateur commence par utiliser l’image de démarrage fournie par le média, puis il se connecte au point de gestion de site pour les séquences de tâches disponibles qui terminent le processus de téléchargement. Cette méthode de déploiement peut réduire le trafic réseau car l'image de démarrage et l'image du système d'exploitation sont déjà sur l'ordinateur de destination. Vous pouvez spécifier les applications, les packages et les packages de pilotes à inclure dans le média préparé. Pour plus d’informations, consultez [Créer un média préparé](../deploy-use/create-prestaged-media.md).  
 
-##  <a name="BKMK_BootImages"></a> Startabbilder  
- Ein Startimage in Configuration Manager ist ein Windows PE-Image (WinPE), das während einer Betriebssystembereitstellung verwendet wird. Startimages dienen zum Starten eines Computers in Windows PE, einem minimalen Betriebssystem mit begrenzten Komponenten und Diensten zur Vorbereitung des Zielcomputers für die Windows-Installation. Configuration Manager stellt zwei Startimages bereit: eines zur Unterstützung von x86-Plattformen und eines zur Unterstützung von x64-Plattformen. Diese werden als Standardstartimages bezeichnet. Startimages, die Sie erstellen und zu Configuration Manager hinzufügen, werden als benutzerdefinierte Images bezeichnet. Standardstartimages können bei einem Update von Configuration Manager automatisch ersetzt werden. Weitere Informationen zu Startabbildern finden Sie im Thema [Verwalten von Startabbildern (Startimages)](../get-started/manage-boot-images.md).  
+##  <a name="BKMK_BootImages"></a> Images de démarrage  
+ Une image de démarrage dans Configuration Manager est une image Windows PE (WinPE) utilisée pendant un déploiement de système d’exploitation. Les images de démarrage servent à démarrer un ordinateur dans WinPE, qui est un système d’exploitation minimal avec des composants et des services limités qui préparent l’ordinateur de destination pour l’installation de Windows. Configuration Manager fournit deux images de démarrage : une pour la prise en charge des plateformes x86 et une autre pour la prise en charge des plateformes x64. Celles-ci sont considérées comme des images de démarrage par défaut. Les images de démarrage que vous créez et ajoutez à Configuration Manager sont considérées comme des images personnalisées. Les images de démarrage par défaut peuvent être remplacées automatiquement quand vous mettez à jour Configuration Manager. Pour plus d’informations sur les images de démarrage, consultez [Gérer les images de démarrage](../get-started/manage-boot-images.md).  
 
-##  <a name="BKMK_OSImages"></a> Betriebssystemimages  
- Betriebssystemabbilder in Configuration Manager werden im WIM-Dateiformat (Windows Imaging) gespeichert. Sie stellen eine komprimierte Sammlung von Verweisdateien und -ordnern dar, die für die erfolgreiche Installation und Konfiguration eines Betriebssystems auf einem Computer erforderlich sind. Bei allen Szenarien für die Betriebssystembereitstellung müssen Sie ein Betriebssystemabbild auswählen. Sie können das Standardimage des Betriebssystems verwenden oder das Betriebssystemimage von einem von Ihnen konfigurierten Referenzcomputer erstellen. Weitere Informationen finden Sie unter [Verwalten von Betriebssystemimages](../get-started/manage-operating-system-images.md).  
+##  <a name="BKMK_OSImages"></a> Images du système d’exploitation  
+ Les images de système d’exploitation dans Configuration Manager sont stockées au format de fichier WIM (Windows Imaging Format) et représentent un regroupement compressé de fichiers et de dossiers de référence nécessaires pour installer et configurer avec succès un système d’exploitation sur un ordinateur. Pour tous les scénarios de déploiement de système d’exploitation, vous devez sélectionner une image de système d’exploitation. Vous pouvez utiliser l’image de système d’exploitation par défaut ou créer l’image de système d’exploitation à partir d’un ordinateur de référence que vous configurez. Pour plus d’informations, consultez [Gérer les images de système d’exploitation](../get-started/manage-operating-system-images.md).  
 
-##  <a name="BKMK_OSUpgradePackages"></a> Betriebssystem-Upgradepakete  
- Betriebssystem-Upgradepakete werden zum Aktualisieren eines Betriebssystems verwendet und sind von Setup initiierte Betriebssystembereitstellungen. Sie importieren Betriebssystem-Upgradepakete von einer DVD oder einem bereitgestellten ISO-Image in Configuration Manager. Weitere Informationen finden Sie unter [Manage operating system upgrade packages (Verwalten von Betriebssystem-Upgradepaketen)](../get-started/manage-operating-system-upgrade-packages.md).  
+##  <a name="BKMK_OSUpgradePackages"></a> Packages de mise à niveau du système d’exploitation  
+ Les packages de mise à niveau de système d’exploitation servent à mettre à niveau un système d’exploitation. Il s’agit de déploiements de système d’exploitation initiés par le programme d’installation. Vous importez des packages de mise à niveau de système d’exploitation dans Configuration Manager à partir d’un DVD ou d’un fichier ISO monté. Pour plus d’informations, consultez [Gérer les packages de mise à niveau de système d’exploitation](../get-started/manage-operating-system-upgrade-packages.md).  
 
-##  <a name="BKMK_OSDMedia"></a> Medien zum Bereitstellen von Betriebssystemen  
- Sie können verschiedene Arten von Medien erstellen, die zum Bereitstellen von Betriebssystemen verwendet werden können. Hierzu gehören Erfassungsmedien, die zum Erfassen von Betriebssystemabbildern verwendet werden, sowie eigenständige, vorab bereitgestellte und startbare Medien, die zum Bereitstellen eines Betriebssystems verwendet werden. Mithilfe von Medien können Sie Betriebssysteme auf Computern ohne Netzwerkverbindung oder auf Computern bereitstellen, deren Verbindung mit Ihrem Configuration Manager-Standort eine geringe Bandbreite aufweist. Weitere Informationen zum Verwenden von Medien finden Sie unter [Erstellen von Tasksequenzmedien](../deploy-use/create-task-sequence-media.md).  
+##  <a name="BKMK_OSDMedia"></a> Médias pour déployer des systèmes d’exploitation  
+ Vous pouvez créer plusieurs types de médias qui peuvent être utilisés pour déployer des systèmes d'exploitation. Les différents types de médias incluent le média qui est utilisé pour capturer des images de système d'exploitation et le média de démarrage, préparé et autonome qui est utilisé pour déployer un système d'exploitation. Les médias vous permettent de déployer des systèmes d’exploitation sur des ordinateurs qui ne disposent pas de connexion réseau ou qui possèdent une connexion avec une faible bande passante vers votre site Configuration Manager. Pour plus d’informations sur la façon d’utiliser des médias, consultez [Créer un média de séquence de tâches](../deploy-use/create-task-sequence-media.md).  
 
-##  <a name="BKMK_DeviceDrivers"></a> Gerätetreiber  
- Sie können Gerätetreiber auf Zielcomputern installieren, ohne sie in das Betriebssystemabbild einzuschließen, das bereitgestellt wird. In Configuration Manager ist ein Treiberkatalog enthalten, der Verweise zu allen Gerätetreibern enthält, die Sie in Configuration Manager importieren. Der Treiberkatalog befindet sich im Arbeitsbereich **Softwarebibliothek** . Er besteht aus zwei Knoten: **Treiber** und **Treiberpakete**. Im Knoten **Treiber** sind alle Treiber aufgelistet, die Sie in den Treiberkatalog importiert haben. Sie können diesen Knoten verwenden, um Details zu jedem importierten Treiber zu ermitteln, um die Zugehörigkeit eines Treibers zu Treiberpaketen oder Startabbildern zu ändern, um einen Treiber zu aktivieren bzw. zu deaktivieren usw. Weitere Informationen finden Sie unter [Verwalten von Treibern](../get-started/manage-drivers.md).  
+##  <a name="BKMK_DeviceDrivers"></a> Pilotes d'appareils  
+ Vous pouvez installer des pilotes de périphérique sur les ordinateurs de destination sans les inclure dans l'image du système d'exploitation déployée. Configuration Manager propose un catalogue de pilotes qui contient les références à tous les pilotes de périphérique que vous importez dans Configuration Manager. Le catalogue de pilotes se trouve dans l’espace de travail **Bibliothèque de logiciels** et est composé de deux nœuds : **Pilotes** et **Packages de pilotes**. Le nœud **Pilotes** répertorie tous les pilotes que vous avez importés dans le catalogue de pilotes. Vous pouvez utiliser ce nœud pour découvrir les détails sur chaque pilote importé, pour modifier le package de pilotes ou l'image de démarrage auquel/à laquelle appartient un pilote, pour activer ou désactiver un pilote, et bien plus encore. Pour plus d’informations, consultez [Gérer les pilotes](../get-started/manage-drivers.md).  
 
-##  <a name="BKMK_OSDUserState"></a> Speichern und Wiederherstellen des Benutzerzustands  
- Beim Bereitstellen von Betriebssystemen können Sie den Benutzerzustand des Zielcomputers speichern, das Betriebssystem bereitstellen und den Benutzerzustand danach wiederherstellen. So gehen Sie normalerweise vor, wenn Sie das Betriebssystem auf einem Configuration Manager-Clientcomputer installieren.  
+##  <a name="BKMK_OSDUserState"></a> Enregistrer et restaurer l’état utilisateur  
+ Lorsque vous déployez des systèmes d'exploitation, vous pouvez enregistrer l'état utilisateur à partir de l'ordinateur de destination, déployer le système d'exploitation, puis restaurer l'état utilisateur une fois que le système d'exploitation est déployé. Ce processus est généralement utilisé quand vous installez le système d’exploitation sur un ordinateur client Configuration Manager.  
 
- Die Benutzerzustandsinformationen werden mithilfe von Tasksequenzen erfasst und wiederhergestellt. Wenn die Benutzerzustandsinformationen erfasst sind, können sie auf folgende Arten gespeichert werden:  
+ Les informations relatives à l'état utilisateur sont capturées et restaurées à l'aide de séquences de tâches. Lorsque les informations d'état utilisateur sont capturées, elles peuvent être stockées selon l'une des manières suivantes :  
 
--   Sie können die Benutzerzustandsdaten remote speichern, indem Sie einen Zustandsmigrationspunkt konfigurieren. Die Daten werden von der Erfassungstasksequenz an den Zustandsmigrationspunkt gesendet. Nach der Bereitstellung des Betriebssystems werden die Daten von der Wiederherstellungstasksequenz abgerufen, und der Benutzerzustand wird auf dem Zielcomputer wiederhergestellt.  
+-   Vous pouvez stocker les données d'état utilisateur à distance en configurant un point de migration d'état. La séquence de tâches Capturer envoie les données au point de migration d'état. Ensuite, une fois le système d'exploitation déployé, la séquence de tâches Restaurer récupère les données et restaure l'état utilisateur sur l'ordinateur de destination.  
 
--   Sie können die Benutzerzustandsdaten lokal an einem bestimmten Speicherort speichern. In diesem Szenario werden die Benutzerdaten von der Erfassungstasksequenz an einen bestimmten Speicherort auf dem Zielcomputer kopiert. Nach der Bereitstellung des Betriebssystems werden die Daten durch die Wiederherstellungstasksequenz von diesem Speicherort abgerufen.  
+-   Vous pouvez stocker les données d'état utilisateur localement à un emplacement spécifique. Dans ce scénario, la séquence de tâches Capturer copie les données utilisateur vers un emplacement spécifique sur l'ordinateur de destination. Puis, une fois le système d'exploitation déployé, la séquence de tâches Restaurer récupère les données utilisateur à partir de cet emplacement.  
 
--   Sie können Hardlinks angeben, die verwendet werden können, um die Benutzerdaten am ursprünglichen Speicherort wiederherzustellen. In diesem Szenario verbleiben die Benutzerdaten auf dem Laufwerk, wenn das alte Betriebssystem entfernt wird. Nach der Bereitstellung des Betriebssystems werden die Benutzerzustandsdaten von der Wiederherstellungstasksequenz mithilfe der Hardlinks am ursprünglichen Speicherort wiederhergestellt.  
+-   Vous pouvez spécifier les liens physiques qui peuvent être utilisés pour restaurer les données utilisateur vers leur emplacement d'origine. Dans ce scénario, les données d'état utilisateur restent sur le lecteur lorsque l'ancien système d'exploitation est supprimé. Ensuite, une fois le système d'exploitation déployé, la séquence de tâches Restaurer utilise les liens physiques pour restaurer les données d'état utilisateur vers leur emplacement d'origine.  
 
- Weitere Informationen finden Sie unter [Verwalten des Benutzerzustands](../get-started/manage-user-state.md).  
+ Pour plus d’informations, consultez [Gérer l’état utilisateur](../get-started/manage-user-state.md).  
 
-##  <a name="BKMK_UnknownComputer"></a> Bereitstellen auf unbekannten Computern  
- Sie können Betriebssysteme auf Computern bereitstellen, die nicht von Configuration Manager verwaltet werden. Für diese Computer gibt es in der Configuration Manager-Datenbank keine Einträge. Solche Computer werden als unbekannte Computer bezeichnet. Zu unbekannten Computern gehören die folgenden:  
+##  <a name="BKMK_UnknownComputer"></a> Déployer sur des ordinateurs inconnus  
+ Vous pouvez déployer un système d’exploitation sur des ordinateurs qui ne sont pas gérés par Configuration Manager. Il n’existe aucun enregistrement de ces ordinateurs dans la base de données Configuration Manager. Ces ordinateurs sont appelés ordinateurs inconnus. Les ordinateurs inconnus sont les suivants :  
 
--   Computer, auf denen kein Configuration Manager-Client installiert ist  
+-   Un ordinateur sur lequel le client Configuration Manager n’est pas installé  
 
--   Computer, die nicht in Configuration Manager importiert wurden  
+-   Un ordinateur qui n’est pas importé dans Configuration Manager  
 
--   Computer, die von Configuration Manager nicht ermittelt wurden  
+-   Un ordinateur qui n’est pas détecté par Configuration Manager  
 
- Weitere Informationen finden Sie unter [Prepare for unknown computer deployments (Vorbereiten auf Bereitstellungen für unbekannte Computer)](../get-started/prepare-for-unknown-computer-deployments.md).  
+ Pour plus d’informations, consultez [Préparer les déploiements d’ordinateurs inconnus](../get-started/prepare-for-unknown-computer-deployments.md).  
 
-##  <a name="BKMK_UDA"></a> Zuordnen von Benutzern zu Computern  
- Bei der Bereitstellung eines Betriebssystems können Sie Benutzer Zielcomputern zuordnen, um Aktionen im Zusammenhang mit der Affinität zwischen Benutzer und Gerät zu unterstützen. Wenn Sie dem Zielcomputer einen Benutzer zuordnen, kann der Administrator zu einem späteren Zeitpunkt Aktionen – beispielsweise Bereitstellen einer Anwendung auf dem Computer eines bestimmten Benutzers – auf jedem Computer ausführen, dem dieser Benutzer zugeordnet ist. Wenn Sie jedoch ein Betriebssystem bereitstellen, können Sie es nicht auf dem Computer eines bestimmten Benutzers bereitstellen. Weitere Informationen finden Sie unter [Zuordnen von Benutzern zu einem Zielcomputer](../get-started/associate-users-with-a-destination-computer.md).  
+##  <a name="BKMK_UDA"></a> Associer des utilisateurs à un ordinateur  
+ Lorsque vous déployez un système d'exploitation, vous pouvez associer des utilisateurs à l'ordinateur de destination pour prendre en charge des actions d'affinité entre appareil et utilisateur. Lorsque vous associez un utilisateur à l'ordinateur de destination, l'utilisateur administratif peut effectuer des actions ultérieurement sur l'un des ordinateurs associés à cet utilisateur, notamment déployer une application sur l'ordinateur d'un utilisateur spécifique. Toutefois, lorsque vous déployez un système d'exploitation, vous ne pouvez pas déployer le système d'exploitation sur l'ordinateur d'un utilisateur spécifique. Pour plus d’informations, consultez [Associer des utilisateurs à un ordinateur de destination](../get-started/associate-users-with-a-destination-computer.md).  
 
-##  <a name="BKMK_TaskSequences"></a> Verwenden von Tasksequenzen zum Automatisieren von Schritten  
- Sie können Tasksequenzen erstellen, um eine Vielzahl von Tasks in Ihrer Configuration Manager-Umgebung auszuführen. Die Aktionen der Tasksequenz werden in den einzelnen Schritten der Sequenz definiert. Bei der Ausführung der Tasksequenz werden die Aktionen der einzelnen Schritte auf Befehlszeilenebene ohne Benutzereingriff ausgeführt. Sie können Tasksequenzen für Folgendes verwenden:  
+##  <a name="BKMK_TaskSequences"></a> Utiliser des séquences de tâches pour automatiser des étapes  
+ Vous pouvez créer des séquences de tâches pour effectuer diverses tâches au sein de votre environnement Configuration Manager. Les actions de la séquence de tâches sont définies dans les étapes individuelles de la séquence. Lors de l'exécution de la séquence de tâches, les actions de chaque étape sont effectuées au niveau de la ligne de commande sans intervention de l'utilisateur. Vous pouvez utiliser des séquences de tâches pour les opérations suivantes :  
 
--   [Erstellen einer Tasksequenz zum Installieren eines Betriebssystems](../deploy-use/create-a-task-sequence-to-install-an-operating-system.md)  
+-   [Créer une séquence de tâches pour installer un système d’exploitation](../deploy-use/create-a-task-sequence-to-install-an-operating-system.md)  
 
--   [Erstellen einer Tasksequenz für Nicht-Betriebssystembereitstellungen](../deploy-use/create-a-task-sequence-for-non-operating-system-deployments.md)  
+-   [Créer une séquence de tâches pour les déploiements autres que les déploiements de système d’exploitation](../deploy-use/create-a-task-sequence-for-non-operating-system-deployments.md)  
 
--   [Erstellen einer Tasksequenz zum Erfassen eines Betriebssystems](../deploy-use/create-a-task-sequence-to-capture-an-operating-system.md)  
+-   [Créer une séquence de tâches pour capturer un système d’exploitation](../deploy-use/create-a-task-sequence-to-capture-an-operating-system.md)  
 
--   [Erstellen einer Tasksequenz zum Erfassen und Wiederherstellen eines Benutzerzustands](../deploy-use/create-a-task-sequence-to-capture-and-restore-user-state.md)  
+-   [Créer une séquence de tâches pour capturer et restaurer l’état utilisateur](../deploy-use/create-a-task-sequence-to-capture-and-restore-user-state.md)  
 
--   [Erstellen einer benutzerdefinierten Tasksequenz](../deploy-use/create-a-custom-task-sequence.md)  
+-   [Créer une séquence de tâches personnalisée](../deploy-use/create-a-custom-task-sequence.md)  

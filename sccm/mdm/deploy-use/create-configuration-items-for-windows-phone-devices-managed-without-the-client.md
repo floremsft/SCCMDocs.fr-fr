@@ -1,5 +1,5 @@
 ---
-title: "Erstellen von Konfigurationselementen für Windows Phone-Geräte, die mit Intune verwaltet werden | Microsoft-Dokumentation"
+title: "Comment créer des éléments de configuration pour les appareils Windows Phone gérés via Microsoft Intune | Microsoft Docs"
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -17,290 +17,290 @@ manager: angrobe
 ms.openlocfilehash: bcb2d14ef097afc2915932fe09f6d83c968aecf9
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-create-configuration-items-for-windows-phone-devices-managed-without-the-system-center-configuration-manager-client"></a>Erstellen von Konfigurationselementen für Windows Phone-Geräte, die ohne den System Center Configuration Manager-Client verwaltet werden
-Verwenden Sie das **Windows Phone**-Konfigurationselement von System Center Configuration Manager, um Einstellungen für Windows Phone-Geräte zu verwalten, die bei Microsoft Intune registriert sind oder lokal von Configuration Manager verwaltet werden.  
+# <a name="how-to-create-configuration-items-for-windows-phone-devices-managed-without-the-system-center-configuration-manager-client"></a>Comment créer des éléments de configuration pour des appareils Windows Phone gérés sans le client System Center Configuration Manager
+Utilisez l’élément de configuration System Center Configuration Manager **Windows Phone** pour gérer les paramètres des appareils Windows Phone qui sont inscrits dans Microsoft Intune ou gérés localement par Configuration Manager.  
   
-### <a name="to-create-a-windows-phone-configuration-item"></a>So erstellen Sie ein Windows Phone-Konfigurationselement  
+### <a name="to-create-a-windows-phone-configuration-item"></a>Pour créer un élément de configuration Windows Phone  
   
-1.  Klicken Sie in der Configuration Manager-Konsole auf **Bestand und Konformität**.  
+1.  Dans la console Configuration Manager, cliquez sur **Ressources et conformité**.  
   
-2.  Erweitern Sie im Arbeitsbereich **Bestand und Konformität** die **Konformitätseinstellungen**, und klicken Sie auf **Konfigurationselemente**.  
+2.  Dans l'espace de travail **Biens et conformité** , développez **Paramètres de compatibilité**, puis cliquez sur **Éléments de configuration**.  
   
-3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** auf **Konfigurationselement erstellen**.  
+3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer un élément de configuration**.  
   
-4.  Geben Sie auf der Seite **Allgemein** des **Assistenten zum Erstellen von Konfigurationselementen**einen Namen und optional eine Beschreibung für das Konfigurationselement an.  
+4.  Dans la page **Général** page de l’ **Assistant Création d’élément de configuration**, spécifiez un nom et une éventuelle description pour l’élément de configuration.  
   
-5.  Wählen Sie unter **Typ des zu erstellenden Konfigurationselements angeben**den Typ **Windows Phone**aus.  
+5.  Sous **Spécifier le type d’élément de configuration que vous voulez créer**, sélectionnez **Windows Phone**.  
   
-6.  Klicken Sie auf **Kategorien**, wenn Sie Kategorien erstellen und zuweisen, um das Durchsuchen und Filtern von Konfigurationselementen in der Configuration Manager-Konsole zu erleichtern.  
+6.  Cliquez sur **Catégories** si vous créez et attribuez des catégories pour faciliter la recherche et le filtrage des éléments de configuration dans la console Configuration Manager.  
   
-7.  Wählen Sie auf der Seite **Unterstützte Plattformen** des Assistenten die jeweiligen Windows Phone-Plattformen zur Bewertung des Konfigurationselements aus.  
+7.  Dans la page **Plateformes prises en charge** de l’Assistant, sélectionnez les plateformes Windows Phone spécifiques chargées d’évaluer l’élément de configuration.  
   
-8.  Wählen Sie auf der Seite **Geräteeinstellungen** des Assistenten die Einstellungsgruppe aus, die Sie konfigurieren möchten. Informieren Sie sich in diesem Thema unter [Referenz zu den Einstellungen für Windows Phone-Konfigurationselemente](#BKMK_Setref) über die Details, und klicken Sie dann auf **Weiter**.  
-  
-    > [!TIP]  
-    >  Ist die gewünschte Einstellung nicht aufgeführt, aktivieren Sie das Kontrollkästchen **Zusätzliche Einstellungen konfigurieren, die in den Standardeinstellungsgruppen nicht enthalten sind**.  
-  
-9. Konfigurieren Sie auf jeder Einstellungsseite die erforderlichen Einstellungen, und legen Sie fest, ob sie korrigiert werden sollen, wenn sie auf Geräten nicht kompatibel sind (sofern unterstützt).  
-  
-10. Sie können für jede Einstellungsgruppe auch den Schweregrad konfigurieren, der gemeldet wird, wenn die Inkompatibilität eines Konfigurationselements festgestellt wird. Die Einstellungen lauten wie folgt:  
-  
-    -   **Keiner**: Von Geräten, bei denen bei dieser Konformitätsregel ein Fehler auftritt, wird kein Fehlerschweregrad für Configuration Manager-Berichte gemeldet.  
-  
-    -   **Information**: Von Geräten, bei denen bei dieser Konformitätsregel ein Fehler auftritt, wird der Fehlerschweregrad **Information** für Configuration Manager-Berichte gemeldet.  
-  
-    -   **Warnung**: Von Geräten, bei denen bei dieser Konformitätsregel ein Fehler auftritt, wird der Fehlerschweregrad **Warnung** für Configuration Manager-Berichte gemeldet.  
-  
-    -   **Kritisch**: Von Geräten, bei denen bei dieser Konformitätsregel ein Fehler auftritt, wird der Fehlerschweregrad **Kritisch** für Configuration Manager-Berichte gemeldet.  
-  
-    -   **Kritisch mit Ereignis**: Von Geräten, bei denen bei dieser Konformitätsregel ein Fehler auftritt, wird der Fehlerschweregrad **Kritisch** für Configuration Manager-Berichte gemeldet. Dieser Schweregrad wird zudem im Anwendungsereignisprotokoll als Windows-Ereignis protokolliert.  
-  
-11. Überprüfen Sie auf der Seite **Plattformanwendbarkeit** des Assistenten alle Einstellungen, die mit den zuvor ausgewählten unterstützten Plattformen nicht kompatibel sind. Sie können zurückkehren und diese Einstellungen entfernen oder den Vorgang fortsetzen.  
+8.  Dans la page **Paramètres de périphérique** de l’Assistant, sélectionnez le groupe de paramètres à configurer. Consultez [Informations de référence sur les paramètres d’élément de configuration Windows Phone](#BKMK_Setref) dans cette rubrique pour plus d’informations, puis cliquez sur **Suivant**.  
   
     > [!TIP]  
-    >  Nicht unterstützte Einstellungen werden nicht auf Kompatibilität überprüft.  
+    >  Si le paramètre souhaité n’est pas répertorié, cochez la case **Configurer d’autres paramètres qui ne se trouvent pas dans les groupes de paramètres par défaut**.  
   
-12. Schließen Sie den Assistenten ab.  
+9. Dans chaque page de paramètres, configurez les paramètres dont vous avez besoin et indiquez si vous voulez les corriger quand ils ne sont pas conformes sur des périphériques (quand cela est pris en charge).  
   
- Sie können das neue Konfigurationselement im Arbeitsbereich **Bestand und Kompatibilität** im Knoten **Konfigurationselemente** anzeigen.  
+10. Pour chaque groupe de paramètres, vous pouvez également configurer la gravité signalée quand un élément de configuration n’est pas conforme :  
   
-##  <a name="windows-phone-configuration-item-settings-reference"></a>Referenz zu den Einstellungen für Windows Phone-Konfigurationselemente  
+    -   **Aucun** : les appareils qui ne respectent pas cette règle de conformité ne signalent pas la gravité d’un échec pour les rapports Configuration Manager.  
   
-### <a name="password"></a>Kennwort  
- Diese Einstellungen gelten für Windows Phone 8 und Windows Phone 8.1.  
+    -   **Informations** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Informations** pour les rapports Configuration Manager.  
   
-|Einstellung|Details|  
+    -   **Avertissement** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Avertissement** pour les rapports Configuration Manager.  
+  
+    -   **Critique** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Critique** pour les rapports Configuration Manager.  
+  
+    -   **Critique avec événement** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Critique** pour les rapports Configuration Manager. Ce niveau de gravité est également enregistré comme événement Windows dans le journal des événements des applications.  
+  
+11. Dans la page **Condition d’application de la plateforme** de l’Assistant, passez en revue tous les paramètres qui ne sont pas compatibles avec les plateformes prises en charge que vous avez sélectionnées précédemment. Vous pouvez revenir sur ces paramètres et les supprimer, ou vous pouvez continuer.  
+  
+    > [!TIP]  
+    >  La conformité des paramètres non pris en charge n’est pas évaluée.  
+  
+12. Effectuez toutes les étapes de l'Assistant.  
+  
+ Vous pouvez afficher le nouvel élément de configuration dans le nœud **Éléments de configuration** de l’espace de travail **Ressources et conformité** .  
+  
+##  <a name="windows-phone-configuration-item-settings-reference"></a>Informations de référence sur les paramètres d’élément de configuration Windows Phone  
+  
+### <a name="password"></a>Mot de passe  
+ Ces paramètres s’appliquent à la fois à Windows Phone 8 et Windows Phone 8.1.  
+  
+|Paramètre|Détails|  
 |-------------|-------------|  
-|**Kennworteinstellungen auf Geräten erforderlich**|Auf unterstützten Geräten ein Kennwort erfordern.|  
-|**Minimale Kennwortlänge (Zeichen)**|Die Mindestlänge für das Kennwort.|  
-|**Kennwortablauf in Tagen**|Die Anzahl der Tage, bevor ein Kennwort geändert werden muss.|  
-|**Anzahl der gespeicherten Kennwörter**|Verhindert die Wiederverwendung zuvor verwendeter Kennwörter.|  
-|**Anzahl der gescheiterten Anmeldeversuche vor dem Zurücksetzen eines Geräts**|Setzt das Gerät zurück, wenn diese Anzahl von Anmeldeversuchen fehlschlägt.|  
-|**Kennwortkomplexität**|Wählen Sie aus, ob Sie eine PIN wie „1234“ angeben können oder, ob ein sicheres Kennwort erforderlich ist.|  
-|**Kennwortwiederherstellungs-PIN an Exchange Server senden**||  
+|**Exiger des paramètres de mot de passe sur les appareils**|Exigez un mot de passe sur les appareils pris en charge.|  
+|**Longueur minimale du mot de passe (caractères)**|Longueur minimale du mot de passe.|  
+|**Expiration du mot de passe en jours**|Nombre de jours avant qu'un mot de passe ne doive être modifié.|  
+|**Nombre de mots de passe mémorisés**|Empêche la réutilisation des mots de passe déjà utilisés.|  
+|**Nombre d'échecs de tentative de connexion avant que l'appareil soit réinitialisé**|Réinitialise l'appareil si le nombre d'échecs de tentative de est atteint.|  
+|**Complexité du mot de passe**|Choisissez si vous pouvez spécifier un code confidentiel tel que « 1234 » ou si vous devez fournir un mot de passe fort.|  
+|**Envoyer le code PIN de récupération du mot de passe au serveur Exchange Server**||  
   
-### <a name="device"></a>Gerät  
+### <a name="device"></a>Appareil  
   
-|Einstellung|Details|  
+|Paramètre|Détails|  
 |-------------|-------------|  
-|**Bildschirmaufnahme**|Ermöglicht dem Benutzer, einen Screenshot der Geräteanzeige aufzunehmen.<br /><br /> (Nur Windows Phone 8.1)|  
-|**Übermittlung von Diagnosedaten**|Ermöglicht die Übermittlung von Protokolldateien der App.|  
-|**Geolocation**|Ermöglicht dem Gerät die Verwendung von Ortungsdienstinformationen.<br /><br /> (Nur Windows Phone 8.1)|  
-|**Kopieren und Einfügen**|Verwenden Sie zum Übertragen von Daten zwischen Apps das Kopieren und Einfügen.<br /><br /> (Nur Windows Phone 8.1)|  
-|**Bluetooth**|Ermöglicht die Verwendung der Bluetooth-Funktion des Geräts.|  
+|**Capture d'écran**|Autorisez l’utilisateur à prendre une capture d’écran de l’affichage de l’appareil.<br /><br /> (Windows Phone 8.1 uniquement)|  
+|**Envoi des données de diagnostic**|Autorisez l'envoi des journaux d'application.|  
+|**Géolocalisation**|Autorisez l'appareil à utiliser les informations des services d'emplacement.<br /><br /> (Windows Phone 8.1 uniquement)|  
+|**Copier et coller**|Utilisez le copier-coller pour transférer des données entre les applications.<br /><br /> (Windows Phone 8.1 uniquement)|  
+|**BlueTooth**|Autorisez l’utilisation de la fonctionnalité Bluetooth de l’appareil.|  
   
-### <a name="email-management"></a>E-Mail-Verwaltung  
- Diese Einstellungen gelten für Windows Phone 8 und Windows Phone 8.1.  
+### <a name="email-management"></a>Gestion de la messagerie  
+ Ces paramètres s’appliquent à la fois à Windows Phone 8 et Windows Phone 8.1.  
   
-|Einstellung|Details|  
+|Paramètre|Détails|  
 |-------------|-------------|  
-|**POP- und IMAP-E-Mail**|Ermöglicht die Verbindung mit E-Mail-Konten, die POP- und IMAP-Standards verwenden.|  
-|**Maximale Zeitdauer für die Speicherung von E-Mails**|Dauer der Speicherung von E-Mails, bevor sie vom Server gelöscht werden.|  
-|**Zulässige Nachrichtenformate**|Geben Sie an, ob E-Mails HTML oder Nur-Text verwenden können.|  
-|**Maximale Größe für E-Mails im Nur-Text-Format (automatisch heruntergeladen)**|Steuert die maximale Größe für E-Mails im Nur-Text-Format beim automatischen Herunterladen.|  
-|**Maximale Größe für E-Mails im HTML-Format (automatisch heruntergeladen)**|Steuert die maximale Größe für E-Mails im HTML-Format beim automatischen Herunterladen.|  
-|**Maximale Größe eines Anhangs (automatisch heruntergeladen)**|Konfiguriert die maximale Größe für E-Mails, die automatisch heruntergeladen werden.|  
-|**Kalendersynchronisierung**||  
-|**Benutzerdefiniertes E-Mail-Konto**|Ermöglicht die Verwendung eines Nicht-Microsoft-Kontos auf dem Gerät.|  
-|**Microsoft-Konto in Windows Mail-App optional machen**|Erfordert keine Verwendung des Microsoft-Kontos, um sich bei Windows Mail anzumelden.|  
+|**Messagerie POP et IMAP**|Autorise la connexion à des comptes de messagerie qui utilisent les normes POP et IMAP.|  
+|**Durée de conservation maximum des courriers électroniques**|Durée de conservation des courriers électroniques avant qu'ils ne soient supprimés du serveur.|  
+|**Formats de message autorisés**|Spécifiez si les courriers électroniques des utilisateurs peuvent être au format HTML ou au format texte brut uniquement.|  
+|**Taille maximale des messages en texte brut (téléchargés automatiquement)**|Contrôle la taille maximale des courriers électroniques en texte brut lorsqu'ils sont automatiquement téléchargés.|  
+|**Taille maximale des messages HTML (téléchargés automatiquement)**|Contrôle la taille maximale des courriers électroniques HTML lorsqu'ils sont automatiquement téléchargés.|  
+|**Taille maximum d'une pièce jointe (téléchargée automatiquement)**|Configure la taille maximale des courriers électroniques qui seront téléchargés automatiquement.|  
+|**Synchronisation du calendrier**||  
+|**Compte de messagerie personnalisé**|Autorisez l'utilisation d'un compte non Microsoft sur l'appareil.|  
+|**Rendre le compte Microsoft facultatif dans l'application Windows Mail**|Ne pas demander l’utilisation d’un compte Microsoft pour la connexion à Windows Mail.|  
   
-### <a name="store"></a>Speicher  
- Diese Einstellungen gelten nur für Windows Phone 8.1-Geräte.  
+### <a name="store"></a>Magasin  
+ Ces paramètres s’appliquent aux appareils Windows Phone 8.1 uniquement.  
   
-|Einstellung|Details|  
+|Paramètre|Détails|  
 |-------------|-------------|  
-|**Anwendungsstore**|Ermöglicht den Zugriff auf den App Store auf dem Gerät.|  
+|**Boutique d'applications**|Permet d'accéder à l'App Store sur l'appareil.|  
   
-### <a name="browser"></a>Browser  
- Diese Einstellungen gelten für Windows Phone 8 und Windows Phone 8.1.  
+### <a name="browser"></a>Navigateur  
+ Ces paramètres s’appliquent à la fois à Windows Phone 8 et Windows Phone 8.1.  
   
-|Einstellung|Details|  
+|Paramètre|Détails|  
 |-------------|-------------|  
-|**Webbrowser zulassen**|Aktivieren oder Deaktivieren des Standardinternetbrowsers.|  
-|**Automatisch ausfüllen**|Benutzer können die Einstellungen für AutoVervollständigen im Browser ändern.|  
-|**Active Scripting**|Browser können Skripts ausführen, z. B. ActiveX-Skripts.|  
-|**Plug-Ins**|Benutzer können Plug-Ins zu Internet Explorer hinzufügen.|  
-|**Popupblocker**|Aktiviert oder deaktiviert den Popupblocker des Browsers.|  
-|**Betrugswarnung**|Aktivieren oder deaktivieren von Warnungen zu potenziell betrügerischen Websites.|  
+|**Autoriser le navigateur web**|Activez ou désactivez le navigateur Internet par défaut.|  
+|**Remplissage automatique**|L'utilisateur peut modifier les paramètres de saisie semi-automatique dans le navigateur.|  
+|**Active scripting**|Le navigateur peut exécuter des scripts, tels que les scripts ActiveX.|  
+|**Plug-ins**|L'utilisateur peut ajouter des plug-ins à Internet Explorer.|  
+|**Bloqueur de fenêtres publicitaires**|Active ou désactive le bloqueur de fenêtres publicitaires du navigateur.|  
+|**Avertissement de fraude**|Activez ou désactivez les avertissements des sites Web frauduleux potentiels.|  
   
 ### <a name="internet-explorer"></a>Internet Explorer  
- Diese Einstellungen gelten für Windows Phone 8 und Windows Phone 8.1.  
+ Ces paramètres s’appliquent à la fois à Windows Phone 8 et Windows Phone 8.1.  
   
-|Einstellung|Details|  
+|Paramètre|Détails|  
 |-------------|-------------|  
-|**Header „Do Not Track“ (Nicht nachverfolgen) immer senden**|Verhindert das Senden von Informationen zum Durchsuchen an Drittanbieterwebsites.|  
-|**Intranetsicherheitszone**||  
-|**Sicherheitsstufe für Internetzone**|Konfigurieren Sie die Sicherheitsstufe für die Internetzone.|  
-|**Sicherheitsstufe für Intranetzone**|Konfigurieren Sie die Sicherheitsstufe für die Intranetzone.|  
-|**Sicherheitsstufe für Zone vertrauenswürdiger Sites**|Konfigurieren Sie die Sicherheitsstufe für die Zone vertrauenswürdiger Sites.|  
-|**Sicherheitsstufe für Zone eingeschränkter Sites**|Konfigurieren Sie die Sicherheitsstufe für Zone eingeschränkter Sites.|  
-|**Namespaces für Intranetzone**||  
-|**Durch Eingabe eines einzelnen Worts zu einer Intranetsite wechseln**|Aktiviert oder deaktiviert die Einstellung, die Internet Explorer den automatischen Wechsel zu einer Intranetsite ermöglicht, wenn ein gültiger Sitename ohne voranstehendes „HTTP:“ eingegeben wird.|  
-|**Menüoption für Unternehmensmodus**|Ermöglicht Benutzern das Aktivieren und Deaktivieren des Unternehmensmodus über das Internet Explorer-Menü **Extras** .|  
-|**Protokollieren des Berichtsspeicherorts (URL)**|Geben Sie eine URL an, unter der besuchte Websites protokolliert werden, wenn der Unternehmensmodus aktiv ist.|  
-|**Unternehmensmodus-Websitelistenspeicherort (URL)**|Geben Sie den Speicherort der Liste der Websites an, die den Unternehmensmodus verwenden, wenn er aktiv ist.|  
+|**Toujours envoyer un en-tête Aucun tracking**|Empêche que les informations d'exploration ne soient envoyées à des sites tiers.|  
+|**Zone de sécurité intranet**||  
+|**Niveau de sécurité de la zone Internet**|Configurez le niveau de sécurité pour la zone Internet.|  
+|**Niveau de sécurité de la zone intranet**|Configurez le niveau de sécurité pour la zone intranet.|  
+|**Niveau de sécurité de la zone Sites de confiance**|Configurez le niveau de sécurité pour la zone Sites de confiance.|  
+|**Niveau de sécurité de la zone des sites sensibles**|Configurez le niveau de sécurité pour la zone des sites sensibles.|  
+|**Espaces de noms pour la zone intranet**||  
+|**Accéder à un site intranet pour une entrée à mot unique**|Active ou désactive le paramètre qui permet à Internet Explorer d'accéder automatiquement à un site Intranet si un nom de site valide est entré sans être précédé de HTTP :|  
+|**Option de menu du mode entreprise**|Autorisez les utilisateurs à activer et désactiver le mode Entreprise à partir du menu **Outils** d’Internet Explorer.|  
+|**Emplacement du rapport de journalisation (URL)**|Spécifiez une URL où les sites web visités sont enregistrés quand le Mode entreprise est actif.|  
+|**Emplacement de la liste des sites en Mode entreprise (URL)**|Spécifiez l'emplacement de la liste des sites web qui utilisent le Mode entreprise quand il est actif.|  
   
 ### <a name="cloud"></a>Cloud  
   
-|Einstellung|Details|  
+|Paramètre|Détails|  
 |-------------|-------------|  
-|**Synchronisierung der Einstellungen**|Ermöglicht die Synchronisierung von Einstellungen zwischen Geräten.|  
-|**Synchronisierung der Anmeldeinformationen**|Ermöglicht die Synchronisierung von Anmeldeinformationen zwischen Geräten.|  
-|**Microsoft-Konto**|Ermöglicht die Verwendung eines Microsoft-Kontos auf dem Gerät.<br /><br /> (Nur Windows Phone 8.1)|  
-|**Synchronisierung von Einstellungen über getaktete Verbindungen**|Ermöglicht die Synchronisierung von Einstellungen, wenn die Internetverbindung getaktet ist.|  
+|**Synchronisation des paramètres**|Permet la synchronisation des paramètres entre les appareils.|  
+|**Synchronisation des informations d'identification**|Permet la synchronisation des informations d'identification entre les appareils.|  
+|**Compte Microsoft**|Autorisez l'utilisation d'un compte Microsoft sur l'appareil.<br /><br /> (Windows Phone 8.1 uniquement)|  
+|**Synchronisation des paramètres via des connexions limitées**|Autorisez la synchronisation des paramètres quand la connexion Internet est mesurée.|  
   
-### <a name="security"></a>Sicherheit  
+### <a name="security"></a>Sécurité  
   
-|Einstellung|Details|  
+|Paramètre|Détails|  
 |-------------|-------------|  
-|**Installation nicht signierter Dateien**|Ermöglicht das Laden von nicht signierten Dateien.|  
-|**Nicht signierte Anwendungen**|Ermöglicht das Laden von nicht signierten Apps.|  
-|**SMS- und MMS-Nachrichten**|Ermöglicht SMS- und MMS-Nachrichten über das Gerät.|  
-|**Wechselmedien**|Ermöglicht die Verwendung von Wechselmedien auf dem Gerät, z. B. SD-Karten.|  
-|**Kamera**|Ermöglicht die Verwendung der Gerätekamera.|  
-|**NFC (Near Field Communication)**|Ermöglicht auf dem Gerät die Kommunikation über NFC.<br /><br /> (Nur Windows Phone 8.1)|  
-|**USB-Verbindung zulassen**|Ermöglicht die Verbindung von Peripheriegeräten zu diesem Gerät über USB.|
+|**Installation du fichier non signé**|Autorise le chargement des fichiers non signés.|  
+|**Applications non signées**|Autorise le chargement des applications non signées.|  
+|**Messagerie SMS et MMS**|Autorisez les messages SMS et MMS à partir de l'appareil.|  
+|**Stockage amovible**|Autorisez l'utilisation du stockage amovible, comme une carte SD sur l'appareil.|  
+|**Appareil photo**|Autorisez l'utilisation de l'appareil photo.|  
+|**Communication en champ proche (NFC)**|Autorisez la communication à l'aide de NFC sur l'appareil.<br /><br /> (Windows Phone 8.1 uniquement)|  
+|**Autoriser la connexion USB**|Autorisez les périphériques à se connecter à cet appareil via USB.|
   
-### <a name="peak-synchronization"></a>Hauptzeitsynchronisierung  
- Diese Einstellungen gelten für Windows Phone 8 und Windows Phone 8.1.  
+### <a name="peak-synchronization"></a>Synchronisation de pointe  
+ Ces paramètres s’appliquent à la fois à Windows Phone 8 et Windows Phone 8.1.  
   
-|Einstellung|Details|  
+|Paramètre|Détails|  
 |-------------|-------------|  
-|**Angabe der Hauptzeit**|Legt ein Zeitfenster fest, das von den folgenden beiden Einstellungen verwendet wird.|  
-|**Häufigkeit der Hauptzeitsynchronisierung**|Wählen Sie aus, wie oft das Gerät während der Hauptzeit, die Sie angegeben haben, synchronisiert wird.|  
-|**Häufigkeit der Nebenzeitsynchronisierung**|Wählen Sie aus, wie oft das Gerät außerhalb der Hauptzeit, die Sie angegeben haben, synchronisiert wird.|  
+|**Spécifier les heures de pointe**|Spécifiez une fenêtre de temps qui sera utilisé par les deux paramètres suivants.|  
+|**Fréquence de synchronisation pendant les heures de pointe**|Choisissez la fréquence de synchronisation de l’appareil pendant la période de pointe spécifiée.|  
+|**Fréquence de synchronisation pendant les heures creuses**|Choisissez la fréquence de synchronisation de l’appareil en dehors de la période de pointe spécifiée.|  
   
-### <a name="roaming"></a>Roaming  
- Diese Einstellungen gelten für Windows Phone 8 und Windows Phone 8.1.  
+### <a name="roaming"></a>Itinérant  
+ Ces paramètres s’appliquent à la fois à Windows Phone 8 et Windows Phone 8.1.  
   
-|Einstellung|Details|  
+|Paramètre|Détails|  
 |-------------|-------------|  
-|**Geräteverwaltung beim Roaming**|Ermöglicht die Verwaltung des Geräts durch Configuration Manager beim Roaming.|  
-|**Softwaredownload beim Roaming**|Ermöglicht das Herunterladen von Apps und Software beim Roaming.|  
-|**E-Mail-Download beim Roaming**|Ermöglicht E-Mail-Downloads beim Roaming.|  
-|**Datenroaming**|Ermöglicht beim Zugriff auf Daten das Roaming zwischen Netzwerken.|  
+|**Gestion des appareils en itinérance**|Permet à l’appareil d’être géré par Configuration Manager en phase d’itinérance.|  
+|**Téléchargement de logiciel en itinérance**|Permet de télécharger des applications et des logiciels lors de l'itinérance.|  
+|**Téléchargement d'e-mails en itinérance**|Autorise les téléchargements de courrier électronique lors de l'itinérance.|  
+|**Itinérance des données**|Autorisez l'itinérance entre réseaux lors de l'accès aux données.|  
   
-### <a name="encryption"></a>Verschlüsselung  
- Diese Einstellungen gelten für Windows Phone 8 und Windows Phone 8.1.  
+### <a name="encryption"></a>Chiffrement  
+ Ces paramètres s’appliquent à la fois à Windows Phone 8 et Windows Phone 8.1.  
   
-|Einstellung|Details|  
+|Paramètre|Détails|  
 |-------------|-------------|  
-|**Speicherkartenverschlüsselung**|Erfordert eine Verschlüsselung, wenn Speicherkarten mit dem Gerät verwendet werden.|  
-|**Dateiverschlüsselung auf Gerät**|Erfordert die Verschlüsselung von Dateien auf dem mobilen Gerät.|  
-|**E-Mail-Signierung erforderlich**|Erfordert, dass E-Mails vor dem Senden signiert werden.|  
-|**Signaturalgorithmus**|Dient zum Auswählen des zum Signieren von E-Mails verwendeten Algorithmus.|  
-|**E-Mail-Verschlüsselung erforderlich**|Erfordert, dass E-Mails vor dem Senden verschlüsselt werden.|  
-|**Verschlüsselungsalgorithmus**|Dient zum Auswählen des zum Verschlüsseln von E-Mails verwendeten Algorithmus.|  
+|**Chiffrement de la carte de stockage**|Exigez le chiffrement des cartes de stockage utilisées avec l'appareil.|  
+|**Chiffrement des fichiers sur l’appareil**|Requiert que les fichiers de l'appareil mobile soient chiffrés.|  
+|**Demander la signature des courriers électroniques**|Requiert la signature des messages électroniques avant leur envoi.|  
+|**Algorithme de signature**|Sélectionnez l’algorithme à utiliser pour signer les messages électroniques.|  
+|**Demander le chiffrement des courriers électroniques**|Exigez le chiffrement des messages électroniques avant leur envoi.|  
+|**Algorithme de chiffrement**|Sélectionnez l’algorithme à utiliser pour chiffrer les messages électroniques.|  
   
-###  <a name="wireless-communications"></a>Funkkommunikation  
- Diese Einstellungen gelten für Windows Phone 8 und Windows Phone 8.1.  
+###  <a name="wireless-communications"></a>Communications sans fil  
+ Ces paramètres s’appliquent à la fois à Windows Phone 8 et Windows Phone 8.1.  
   
-|Name der Einstellung|Details|  
+|Nom du paramètre|Détails|  
 |------------------|-------------|  
-|**Drahtlosnetzwerkverbindung**|Aktivieren oder deaktivieren der WLAN-Funktion der Geräte.|  
-|**WLAN-Tethering**|Ermöglicht Benutzern die Verwendung ihres Geräts als mobilen Hotspot.|  
-|**Auslagern von Daten an Wi-Fi, wenn möglich**||  
-|**Berichterstellung für WLAN-Hotspots**||  
+|**Connexion réseau sans fil**|Activez ou désactivez la fonctionnalité Wi-Fi des appareils.|  
+|**Connexion Wi-Fi**|Les utilisateurs peuvent utiliser leur appareil en tant que point d'accès sans fil mobile.|  
+|**Décharger les données en Wi-Fi si possible**||  
+|**Rapports de point d'accès Wi-Fi**||  
   
-##### <a name="to-configure-a-wireless-network-connection"></a>So konfigurieren Sie eine Drahtlosnetzwerkverbindung  
+##### <a name="to-configure-a-wireless-network-connection"></a>Pour configurer une connexion réseau sans fil  
   
-1.  Klicken Sie auf der Seite **Einstellungen für die Funkkommunikation mit Mobilgeräten konfigurieren** auf **Hinzufügen**.  
+1.  Dans la page **Configurer les paramètres de communication sans fil de l'appareil mobile** , cliquez sur **Ajouter**.  
   
-2.  Geben Sie im Dialogfeld **Drahtlosnetzwerkverbindung** die folgenden Informationen zur Drahtlosverbindung ein, die auf mobilen Geräten bereitgestellt wird:  
+2.  Dans la boîte de dialogue **Connexion réseau sans fil** , spécifiez les informations suivantes sur la connexion sans fil qui sera configurée sur les appareils mobiles :  
   
-|Einstellung|Weitere Informationen|  
+|Paramètre|Plus d'informations|  
 |-------------|----------------------|  
-|**Netzwerkname (SSID)**||  
-|**Netzwerkverbindung**|Wählen Sie **Internet** oder **Arbeit**aus.|  
-|**Authentifizierung**|Wählen Sie eine der folgenden Authentifizierungsmethoden für die Drahtlosverbindung aus:<br><br> - **Offen**<br> - **Freigegeben**<br> - **WPA**<br> - **WPA-PSK**<br> - **WPA2**<br> - **WPA2-PSK**|  
-|**Datenverschlüsselung**|Wählen Sie die von dieser Verbindung verwendete Verschlüsselungsmethode aus. Die verfügbaren Werte variieren je nach ausgewählter **Authentifizierungsmethode** :<br><br> - **Deaktiviert**<br> - **WEP**<br> - **TKIP**<br> - **AES**|  
-|**Schlüsselindex**|Wählen Sie einen Schlüsselindex von **1** bis **4** aus, der mit der Einstellung **WEP** der **Datenverschlüsselung**-verwendet wird.|  
-|**Von diesem Netzwerk wird eine Verbindung zum Internet hergestellt**|Wählen Sie diese Option aus, wenn Sie Proxyeinstellungen angeben möchten, mit denen mobile Geräte über eine Drahtlosverbindung eine Verbindung mit dem Internet herstellen können.|  
-|**Proxyservereinstellungen**|Geben Sie je nach Bedarf die Einstellungen **Server** und **Port** für **HTTP**, **WAP** und **Sockets**an.|  
-|**802.1X-Netzwerkzugriff aktivieren**|Wählen Sie diese Option aus, wenn Sie die Verbindung sichern möchten, indem Sie einen EAP-Typ angeben.|  
-|**EAP-Typ**|Wählen Sie den EAP-Typ aus:<br><br> - **PEAP**<br> - **Smartcard oder Zertifikat**|  
+|**Nom réseau (SSID)**||  
+|**Connexion réseau**|Choisissez entre **Internet** et **Travail**.|  
+|**Authentification**|Sélectionnez la méthode d'authentification de la connexion sans fil :<br><br> - **Ouvrir**<br> - **Partagé**<br> - **WPA**<br> - **WPA-PSK**<br> - **WPA2**<br> - **WPA2-PSK**|  
+|**Chiffrement des données**|Choisissez la méthode de chiffrement utilisée par cette connexion. Les valeurs possibles varient en fonction de la méthode d' **Authentification** sélectionnée :<br><br> - **Désactivé**<br> - **WEP**<br> - **TKIP**<br> - **AES**|  
+|**Index de clé**|Sélectionnez un index de clé entre **1** et **4** , qui sera utilisé avec un paramètre **Chiffrement des données** de **WEP**.|  
+|**Ce réseau se connecte à Internet**|Sélectionnez cette option si vous souhaitez fournir des paramètres de proxy qui permettent aux appareils mobiles d'établir une connexion sans fil à Internet.|  
+|**Paramètres du serveur proxy**|Spécifiez si nécessaire les paramètres **Serveur** et **Port** pour **HTTP**, **WAP** et **Sockets**.|  
+|**Activer l'accès réseau 802.1X**|Sélectionnez cette option si vous souhaitez sécuriser la connexion en spécifiant un type EAP.|  
+|**Type EAP**|Choisissez le type EAP à utiliser :<br><br> - **PEAP**<br> - **Carte à puce ou certificat**|  
     
   
-###  <a name="certificates"></a>Zertifikate  
- Ermöglicht Ihnen das Importieren von Zertifikaten für die Installation auf mobilen Geräten.  
+###  <a name="certificates"></a>Certificats  
+ Importez les certificats à installer sur les appareils mobiles.  
   
- Klicken Sie auf **Importieren**, und geben Sie dann folgende Werte an:  
+ Cliquez sur **Importer**, puis spécifiez les valeurs suivantes :  
   
--   **Zertifikatsdatei** : Klicken Sie auf **Durchsuchen** , und wählen Sie dann die Zertifikatsdatei mit der Erweiterung **.cer** aus, die Sie importieren möchten.  
+-   **Fichier de certificat** : cliquez sur **Parcourir** , puis sélectionnez le fichier de certificat avec l'extension **.cer** que vous souhaitez importer.  
   
--   **Zielspeicher** : Wählen Sie mindestens einen Zielspeicher, dem das importierte Zertifikat auf dem mobilen Gerät hinzugefügt wird, unter den folgenden Optionen aus:  
+-   **Banque d'informations de destination** : choisissez une ou plusieurs banques de destination où le certificat importé sera ajouté sur l'appareil mobile :  
   
-    -   **Stamm**  
+    -   **Racine**  
   
-    -   **Zertifizierungsstelle**  
+    -   **Autorité de certification**  
   
     -   **Normal**  
   
-    -   **Privilegiert**  
+    -   **Privilégié**  
   
     -   **SPC**  
   
-    -   **Peer**  
+    -   **Homologue**  
   
--   **Rolle** : Wenn **SPC** (Software Publisher Certificate) als Zielspeicher ausgewählt ist, wählen Sie die Rolle, die dem Zertifikat zugeordnet wird, unter den folgenden Optionen aus:  
+-   **Rôle** : si **SPC** (Software Publisher Certificate) est sélectionné en tant que banque de destination, choisissez le rôle qui sera associé au certificat :  
   
-    -   **Mobilfunkanbieter**  
+    -   **Opérateur mobile**  
   
-    -   **Verwalter**  
+    -   **Gestionnaire**  
   
-    -   **Benutzer authentifiziert**  
+    -   **Utilisateur authentifié**  
   
-    -   **IT-Administrator**  
+    -   **Administrateur informatique**  
   
-    -   **Benutzer nicht authentifiziert**  
+    -   **Utilisateur non authentifié**  
   
-    -   **Vertrauenswürdiger Bereitstellungsserver**  
+    -   **Serveur d’approvisionnement approuvé**  
   
-### <a name="system-security"></a>Systemsicherheit  
- Diese Einstellungen gelten für Windows Phone 8 und Windows Phone 8.1.  
+### <a name="system-security"></a>Sécurité système  
+ Ces paramètres s’appliquent à la fois à Windows Phone 8 et Windows Phone 8.1.  
   
-|Einstellung|Details|  
+|Paramètre|Détails|  
 |-------------|-------------|  
-|**Benutzerkontensteuerung**|Aktiviert oder deaktiviert die Windows-Benutzerkontensteuerung auf dem Gerät.|  
-|**Netzwerkfirewall**|Aktiviert oder deaktiviert die Windows-Firewall.|  
-|**Updates**|Wählen Sie aus, wie Windows-Softwareupdates auf Computer heruntergeladen werden. Sie können z. B. Updates automatisch herunterladen, aber den Zeitpunkt der Installation vom Benutzer auswählen lassen.|  
-|**Minimale Klassifizierung von Updates**|Wählen Sie die minimale Klassifizierung von Updates, die auf Windows-Computer heruntergeladen werden: **Keine**, **Wichtig**oder **Empfohlen**.|  
-|**SmartScreen**|Aktivieren oder deaktivieren von Windows SmartScreen.|  
-|**Virenschutz**|Stellt sicher, dass das Gerät durch Antivirensoftware geschützt ist.|  
-|**Virenschutzsignaturen sind aktuell**|Stellt sicher, dass die Antivirensoftwaresignaturen auf dem neuesten Stand sind.|
-|**Manuelle Aufhebung der Registrierung zulassen**|Der Benutzer kann sein Gerät aus MDM entfernen.|  
+|**Contrôle de compte d'utilisateur**|Active ou désactive le contrôle de compte d'utilisateur Windows sur l'appareil.|  
+|**Pare-feu réseau**|Active ou désactive le pare-feu Windows.|  
+|**Mises à jour**|Choisissez le mode de téléchargement des mises à jour logicielles Windows sur les ordinateurs. Par exemple, vous pouvez télécharger automatiquement les mises à jour, mais permettre à l'utilisateur de choisir à quel moment les installer.|  
+|**Classification minimale des mises à jour**|Choisissez la classification minimale des mises à jour téléchargées sur les ordinateurs Windows : **Aucune**, **Importante**ou **Recommandée**.|  
+|**SmartScreen**|Activez ou désactivez Windows SmartScreen.|  
+|**Protection antivirus**|Assurez-vous que l’appareil est protégé par un logiciel antivirus.|  
+|**Les signatures de la protection antivirus sont à jour**|Assurez-vous que les signatures antivirus sont à jour.|
+|**Autoriser la désinscription manuelle**|Autorisez l’utilisateur à supprimer son appareil de la Gestion des appareils mobiles.|  
   
-### <a name="windows-server-work-folders"></a>Arbeitsordner von Windows Server  
- Diese Einstellungen gelten für Windows Phone 8 und Windows Phone 8.1.  
+### <a name="windows-server-work-folders"></a>Dossiers de travail du serveur Windows  
+ Ces paramètres s’appliquent à la fois à Windows Phone 8 et Windows Phone 8.1.  
   
-|Einstellung|Details|  
+|Paramètre|Détails|  
 |-------------|-------------|  
-|**URL der Arbeitsordner**|Konfiguriert den Speicherort eines Windows Server-Arbeitsordners, mit dem Benutzer über ihr Gerät eine Verbindung herstellen können.|  
+|**URL des dossiers de travail**|Configure l'emplacement d'un dossier de travail Windows Server auquel les utilisateurs peuvent se connecter à partir de leur appareil.|  
   
-### <a name="allowed-and-blocked-apps-list-windows-phone-81-only"></a>Liste der zulässigen und blockierten Apps (nur Windows Phone 8.1)  
- Dient zum Angeben einer Liste von Windows Phone-Apps, die in Ihrem Unternehmen kompatibel oder nicht kompatibel sind. Apps, die Sie als blockiert angeben, können von Benutzern nicht installiert werden. Wenn Sie eine Liste zulässiger Apps angeben, können Benutzer nur Apps in der Liste installieren.  
+### <a name="allowed-and-blocked-apps-list-windows-phone-81-only"></a>Liste des applications autorisées et bloquées (Windows Phone 8.1 uniquement)  
+ Elle vous permet de spécifier la liste des applications Windows Phone conformes ou non conformes dans votre entreprise. Les applications que vous spécifiez comme bloquées ne peuvent pas être installées par les utilisateurs. Si vous spécifiez une liste d'applications autorisées, les utilisateurs peuvent installer uniquement les applications de la liste.  
   
- Es ist nicht möglich, zulässige und blockierte Apps im selben Konfigurationselement anzugeben.  
+ Vous ne pouvez pas spécifier à la fois des applications autorisées et bloquées dans le même élément de configuration.  
   
 > [!IMPORTANT]  
->  Wenn Sie eine Liste zulässiger Apps angeben, müssen Sie sicherstellen, dass die Unternehmensportal-App und andere Apps, die Sie für Windows Phone 8.1-Geräte bereitgestellt haben, in der Liste zulässiger Apps ****  enthalten sind.  
+>  Si vous spécifiez une liste d’applications autorisées, vous devez vous assurer que l’application du portail d’entreprise et toutes les applications déployées sur les appareils Windows Phone 8.1 figurent dans la liste **Applications autorisées** .  
   
-##### <a name="to-specify-an-allowed-or-blocked-apps-list"></a>So geben Sie eine Liste zulässiger oder blockierter Apps an  
+##### <a name="to-specify-an-allowed-or-blocked-apps-list"></a>Pour spécifier une liste des applications autorisées ou bloquées  
   
-1.  Geben Sie auf der Seite **Liste der zulässigen und blockierten Apps (Windows Phone 8.1)** die folgende Informationen an:  
+1.  Dans la page **Liste des applications autorisées et bloquées (Windows Phone 8.1)** spécifiez les informations suivantes :  
   
 |||  
 |-|-|  
-|Einstellung|Weitere Informationen|  
-|**Liste der blockierten Apps**|Wählen Sie diese Option aus, wenn Sie eine Liste von Apps angeben möchten, die Benutzer nicht installieren dürfen.|  
-|**Liste der zulässigen Apps**|Wählen Sie diese Option aus, wenn Sie eine Liste von Apps angeben möchten, die Benutzer installieren dürfen.|  
-|**Hinzufügen**|Fügt eine App zur ausgewählten Liste hinzu. Geben Sie einen Namen Ihrer Wahl und optional den Herausgeber der App an. Geben Sie zudem die URL zur App im App-Store an.<br /><br /> Suchen Sie auf der Seite „Windows Phone Store“ die App, die Sie verwenden möchten, um die URL anzugeben.<br /><br /> **Beispiel:** Durchsuchen Sie den Store nach der App **Skype** . Die URL, die Sie verwenden, ist "http://www.windowsphone.com/en-us/store/app/skype/c3f8e570-68b3-4d6a-bdbb-c0a3f4360a51".<br /><br /> Für die Unternehmensportal-App oder Branchen-Apps müssen Sie keine vollständige URL, sondern nur die GUID der App angeben.|  
-|**Bearbeiten**|Ermöglicht Ihnen das Bearbeiten von Name, Herausgeber und URL der ausgewählten App.|  
-|**Entfernen**|Löscht die ausgewählte App aus der Liste.|  
-|**Importierenieren**|Importiert eine Liste von Apps, die Sie in einer CSV-Datei angegeben haben. Verwenden Sie in der Datei das Format Anwendungsname, Herausgeber und App-URL.|  
+|Paramètre|Plus d'informations|  
+|**Liste des applications bloquées**|Sélectionnez cette option si vous souhaitez spécifier une liste d'applications que les utilisateurs sont autorisés à installer.|  
+|**Liste des applications autorisées**|Sélectionnez cette option si vous souhaitez spécifier une liste d'applications que les utilisateurs sont autorisés à installer.|  
+|**Ajouter**|Ajoute une application à la liste sélectionnée. Spécifiez le nom de votre choix, éventuellement l’éditeur de l’application, ainsi que l’URL de l’application dans la boutique d’applications.<br /><br /> Pour spécifier l’URL, dans la page Windows Phone Store, recherchez l’application que vous voulez utiliser.<br /><br /> **Exemple :** recherchez l’application **Skype** dans le Store. L’URL que vous utilisez sera http://www.windowsphone.com/en-us/store/app/skype/c3f8e570-68b3-4d6a-bdbb-c0a3f4360a51.<br /><br /> Pour l'application du portail d'entreprise, ou des applications métiers, il est inutile de spécifier une URL complète, le GUID de l'application suffit.|  
+|**Éditer**|Vous permet de modifier le nom, l'éditeur et l'URL de l'application sélectionnée.|  
+|**Supprimer**|Supprime l'application sélectionnée dans la liste.|  
+|**Importerer**|Importe une liste d'applications que vous avez spécifiée dans un fichier de valeurs séparées par des virgules. Utilisez le format Nom de l'application, Éditeur, URL de l'application dans le fichier.|  
   
-## <a name="see-also"></a>Siehe auch  
- [Konfigurationselemente für Geräte, die ohne den System Center Configuration Manager-Client verwaltet werden](../../compliance/deploy-use/configuration-items-for-devices-managed-without-the-client.md)
+## <a name="see-also"></a>Voir aussi  
+ [Éléments de configuration pour les appareils gérés sans le client System Center Configuration Manager](../../compliance/deploy-use/configuration-items-for-devices-managed-without-the-client.md)

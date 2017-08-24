@@ -1,6 +1,6 @@
 ---
-title: "Voraussetzungen für die Migration | Microsoft-Dokumentation"
-description: "Hier erhalten Sie Informationen zu den unterstützten Versionen von Configuration Manager, zu den unterstützten Quellstandortsprachen sowie zu den erforderlichen Konfigurationen für die Migration."
+title: "Prérequis de la migration | Microsoft Docs"
+description: Prenez connaissance des versions prises en charge de Configuration Manager, des langues de site source prises en charge et des configurations requises pour la migration.
 ms.custom: na
 ms.date: 3/7/2017
 ms.prod: configuration-manager
@@ -18,110 +18,110 @@ manager: angrobe
 ms.openlocfilehash: cd90f5462ac4bb4c0a2021e6d5dde65161b9c5f6
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="prerequisites-for-migration-in-system-center-configuration-manager"></a>Voraussetzungen für die Migration in System Center Configuration Manager
+# <a name="prerequisites-for-migration-in-system-center-configuration-manager"></a>Prérequis de la migration dans System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Zur Durchführung einer Migration aus einer unterstützten Quellhierarchie müssen Sie Zugriff auf alle relevanten Configuration Manager-Quellstandorte haben und am System Center Configuration Manager-Zielstandort über die Berechtigungen für Konfigurations- und Migrationsvorgänge verfügen.  
+Pour migrer à partir d’une hiérarchie source prise en charge, vous devez avoir accès à chaque site source Configuration Manager applicable et aux autorisations dans le site de destination System Center Configuration Manager pour configurer et exécuter des opérations de migration.  
 
- Verwenden Sie die Informationen in den folgenden Abschnitten für die zur Migration unterstützen Configuration Manager-Versionen und die erforderlichen Konfigurationen.  
+ Pour mieux comprendre les versions de Configuration Manager prises en charge pour la migration et les configurations requises, aidez-vous des informations figurant dans les sections suivantes.  
 
--   [Versionen von Configuration Manager, die für die Migration unterstützt werden](#BKMK_SupportedMigrationVersions)  
+-   [Versions de Configuration Manager prises en charge pour la migration](#BKMK_SupportedMigrationVersions)  
 
--   [Quellstandortsprachen, die für die Migration unterstützt werden](#BKMK_SorceSiteLanguage)  
+-   [Langues de site source prises en charge pour la migration](#BKMK_SorceSiteLanguage)  
 
--   [Erforderliche Konfigurationen für die Migration](#BKMK_Required_Configurations)  
+-   [Configurations requises pour la migration](#BKMK_Required_Configurations)  
 
-##  <a name="BKMK_SupportedMigrationVersions"></a> Versionen von Configuration Manager, die für die Migration unterstützt werden  
- Sie können Daten aus einer Quellhierarchie migrieren, in der eine der folgenden Versionen von Configuration Manager ausgeführt wird:  
+##  <a name="BKMK_SupportedMigrationVersions"></a> Versions de Configuration Manager prises en charge pour la migration  
+ Vous pouvez migrer des données à partir d’une hiérarchie source qui exécute une des versions suivantes de Configuration Manager :  
 
--   Configuration Manager 2007 SP2 (Im Rahmen der Migration werden Configuration Manager 2007 R2 oder R3 am Quellstandort nicht berücksichtigt. Solange am Quellstandort SP2 ausgeführt wird, werden Standorte mit installiertem R2- oder R3-Add-On für die Migration zu System Center Configuration Manager unterstützt).  
+-   Configuration Manager 2007 SP2 (Pour la migration, il importe peu que le site source dispose de Configuration Manager 2007 R2 ou R3. Tant que le site source exécute SP2, les sites dotés du module complémentaire R2 ou R3 sont pris en charge pour la migration vers System Center Configuration Manager).  
 
--   System Center 2012 Configuration Manager SP2 oder System Center 2012 R2 Configuration Manager SP1.  
+-   System Center 2012 Configuration Manager SP2 ou System Center 2012 R2 Configuration Manager SP1  
 
     > [!TIP]  
-    >  Zusätzlich zur Migration können Sie bei Standorten, an denen System Center 2012 Configuration Manager ausgeführt wird, ein direktes Upgrade auf System Center Configuration Manager verwenden.  
+    >  En plus de la migration, vous pouvez utiliser une mise à niveau sur place des sites exécutant System Center 2012 Configuration Manager vers System Center Configuration Manager.  
 
--   Eine System Center Configuration Manager-Hierarchie mit derselben oder einer niedrigeren Version von System Center Configuration Manager.  
+-   Une hiérarchie System Center Configuration Manager présentant une version identique ou inférieure à celle de System Center Configuration Manager.  
 
-  Wenn Sie z.B. über eine Zielhierarchie verfügen, die System Center Configuration Manager 1606 ausführt, können Sie Migration verwenden, um Daten aus einer Quellhierarchie zu kopieren, die die Version 1606 oder 1602 ausführt. Sie können jedoch keine Daten aus einer Quellhierarchie migrieren, die 1610 ausführt.  
+  Par exemple, si vous disposez d’une hiérarchie de destination qui exécute System Center Configuration Manager version 1606, vous pouvez utiliser la migration pour copier des données à partir d’une hiérarchie source qui exécute la version 1606 ou 1602. Toutefois, vous ne pouvez pas migrer des données depuis une hiérarchie source exécutant la version 1610.  
 
 
-##  <a name="BKMK_SorceSiteLanguage"></a> Quellstandortsprachen, die für die Migration unterstützt werden  
- Wenn Sie Daten zwischen Configuration Manager-Hierarchien migrieren, werden die Daten in der Zielhierarchie in einem sprachunabhängigen Format für System Center Configuration Manager gespeichert. Da in Configuration Manager 2007 Daten nicht in einem sprachunabhängigen Format gespeichert werden, müssen Objekte während der Migration von Configuration Manager 2007 vom Migrationsprozess in dieses Format umgewandelt werden. Daher werden nur Configuration Manager 2007-Quellstandorte für die Migration unterstützt, die mit folgenden Sprachen installiert sind:  
+##  <a name="BKMK_SorceSiteLanguage"></a> Langues de site source prises en charge pour la migration  
+ Quand vous migrez des données entre hiérarchies Configuration Manager, celles-ci sont stockées dans la hiérarchie de destination dans un format indépendant de la langue pour System Center Configuration Manager. Étant donné que Configuration Manager 2007 ne stocke pas les données dans un format indépendant de la langue, le processus de migration doit convertir les objets dans ce format pendant la migration depuis Configuration Manager 2007. Par conséquent, seuls les sites sources Configuration Manager 2007 installés avec les langues suivantes sont pris en charge pour la migration :  
 
--   Englisch  
+-   Anglais  
 
--   Französisch  
+-   Français  
 
--   Deutsch  
+-   Allemand  
 
--   Japanisch  
+-   Japonais  
 
--   Koreanisch  
+-   Coréen  
 
--   Russisch  
+-   Russe  
 
--   Chinesisch (vereinfacht)  
+-   Chinois simplifié  
 
--   Chinesisch (traditionell)  
+-   Chinois traditionnel  
 
-Wenn Sie Daten aus einer System Center 2012 Configuration Manager- oder System Center Configuration Manager-Hierarchie migrieren, gibt es keine Einschränkungen hinsichtlich der Quellstandortsprache. Objekte in der Datenbank des Quellstandorts befinden sich bereits in einem sprachunabhängigen Format.  
+Quand vous migrez des données à partir d’une hiérarchie System Center 2012 Configuration Manager ou System Center Configuration Manager, il n’existe aucune limitation de langue du site source. Les objets dans la base de données du site source sont déjà dans un format indépendant de la langue.  
 
-##  <a name="BKMK_Required_Configurations"></a> Erforderliche Konfigurationen für die Migration  
-Folgende Konfigurationen sind für Migration und Migrationsvorgänge erforderlich:  
+##  <a name="BKMK_Required_Configurations"></a> Configurations requises pour la migration  
+Voici les configurations requises pour utiliser la migration et les opérations de migration :  
 
--   **So konfigurieren, starten und überwachen Sie die Migration in der Configuration Manager-Konsole:**  
+-   **Pour configurer, exécuter et surveiller la migration dans la console Configuration Manager :**  
 
-     Am Zielstandort muss Ihrem Konto die rollenbasierte Verwaltungssicherheitsrolle **Infrastrukturadministrator**zugewiesen sein. Mit dieser Sicherheitsrolle verfügen Sie über die Berechtigungen, sämtliche Migrationsvorgänge zu verwalten. Dazu gehören die Erstellung von Migrationsaufträgen, Bereinigung, Überwachung sowie das Freigeben und Aktualisieren von Verteilungspunkten.  
+     Dans le site de destination, le rôle de sécurité d'administration **Administrateur d'infrastructure**doit être affecté à votre compte. Ce rôle de sécurité accorde des autorisations pour gérer toutes les opérations de migration, notamment la création de tâches de migration, le nettoyage, la surveillance ainsi que le partage et la mise à niveau de points de distribution.  
 
--   **Datensammlung:**  
+-   **Collecte des données :**  
 
-     Für das Sammeln von Daten durch den Zielstandort müssen Sie die folgenden zwei Zugriffskonten des Zielstandorts zur Verwendung mit beiden Quellstandorten konfigurieren:  
+     Pour permettre au site de destination de collecter des données, vous devez configurer les deux comptes d'accès de site source suivants pour l'utilisation avec chaque site source :  
 
-    -   **Konto des Quellstandorts:** Dieses Konto wird für den Zugriff auf den SMS-Anbieter des Quellstandorts verwendet.  
+    -   **Compte de site source** : ce compte est utilisé pour accéder au fournisseur SMS du site source.  
 
-        -   Für einen Configuration Manager 2007 SP2-Quellstandort benötigt dieses Konto die Berechtigung **Lesen** für alle Quellstandortsobjekte.  
+        -   Pour un site source Configuration Manager 2007 SP2, ce compte nécessite une autorisation **Lecture** sur tous les objets du site source.  
 
-        -   Für einen System Center 2012 Configuration Manager- oder System Center Configuration Manager-Quellstandort muss dieses Konto über die Berechtigung **Lesen** für alle Quellstandortobjekte verfügen. Sie weisen dem Konto diese Berechtigung über die rollenbasierte Verwaltung zu. Informationen zur Verwendung der rollenbasierten Verwaltung finden Sie unter [Fundamentals of role-based administration for System Center Configuration Manager](../../core/understand/fundamentals-of-role-based-administration.md).  
+        -   Pour un site source System Center 2012 Configuration Manager ou System Center Configuration Manager, ce compte requiert une autorisation **Lecture** sur tous les objets du site source. Pour accorder cette autorisation au compte, vous utilisez l’administration basée sur des rôles. Pour plus d’informations sur l’utilisation de l’administration basée sur des rôles, consultez [Principes de base de l’administration basée sur des rôles pour System Center Configuration Manager](../../core/understand/fundamentals-of-role-based-administration.md).  
 
-    -   **Konto der Datenbank des Quellstandorts:** Dieses Konto wird für den Zugriff auf die SQL Server-Datenbank des Quellstandorts verwendet und muss über die Berechtigungen **Connect**, **Execute**und **Select** für die Datenbank des Quellstandorts verfügen.  
+    -   **Compte de base de données de site source** : ce compte permet d’accéder à la base de données SQL Server du site source, et nécessite des autorisations **Connect**, **Execute**et **Select** sur la base de données du site source.  
 
-    Sie können diese Konten dann konfigurieren, wenn Sie eine neue Quellhierarchie oder eine Datensammlung für einen zusätzlichen Quellstandort konfigurieren oder wenn Sie die Anmeldeinformationen für einen Quellstandort erneut konfigurieren. Für diese Konten kann ein Domänenbenutzerkonto verwendet werden, oder Sie können das Computerkonto des Standorts auf der obersten Ebene der Zielhierarchie angeben.  
+    Vous pouvez configurer ces comptes lorsque vous configurez une nouvelle hiérarchie source, la collecte de données d'un site source supplémentaire ou lorsque vous reconfigurez les informations d'identification d'un site source. Ces comptes peuvent utiliser un compte d'utilisateur de domaine, ou vous pouvez définir le compte d'ordinateur du site de niveau supérieur de la hiérarchie de destination.  
 
     > [!IMPORTANT]  
-    >  Wenn Sie das Configuration Manager-Computerkonto verwenden, vergewissern Sie sich, dass dieses Konto Mitglied der Sicherheitsgruppe **Distributed COM-Benutzer** in der Domäne mit dem Quellstandort ist.  
+    >  Si vous utilisez le compte d’ordinateur Configuration Manager pour l’un des comptes d’accès, vérifiez que ce compte est membre du groupe de sécurité **Utilisateurs du modèle COM distribué** dans le domaine du site source.  
 
-    Bei der Datensammlung werden folgende Netzwerkprotokolle und Ports verwendet:  
+    Lorsque vous collectez des données, les protocoles réseau suivants sont utilisés :  
 
-    -   NetBIOS/SMB – 445 (TCP)  
+    -   NetBIOS/SMB - 445 (TCP)  
 
-    -   RPC (WMI) – 135 (TCP)  
+    -   RPC (WMI) - 135 (TCP)  
 
-    -   SQL Server – Die sowohl von Quell- als auch von Zielstandortdatenbank verwendeten TCP-Ports.  
+    -   SQL Server : les ports TCP utilisés par les bases de données de site source et de destination.  
 
--   **Migrieren von Softwareupdates:**  
+-   **Migrer des mises à jour logicielles :**  
 
-     Bevor Sie Softwareupdates migrieren, müssen Sie die Zielhierarchie mit einem Softwareupdatepunkt konfigurieren. Weitere Informationen finden Sie unter [Planen der Migration von Softwareupdates](../../core/migration/planning-for-the-migration-of-objects.md#Plan_migrate_Software_updates).  
+     Avant de migrer des mises à jour logicielles, vous devez configurer votre hiérarchie de destination avec un point de mise à jour logicielle. Pour plus d’informations, consultez [Planification de la migration des mises à jour logicielles](../../core/migration/planning-for-the-migration-of-objects.md#Plan_migrate_Software_updates).  
 
--   **Freigeben von Verteilungspunkten:**  
+-   **Partager des points de distribution :**  
 
-     Damit Verteilungspunkte von einem Quellstandort erfolgreich freigegeben werden können, müssen von mindestens einem primären Standort oder dem Standort der zentralen Verwaltung dieselben Portnummern für Clientanforderungen wie beim Quellstandort verwendet werden. Weitere Informationen zu Clientanforderungsports finden Sie unter [Konfigurieren von Clientkommunikationsports in System Center Configuration Manager](../../core/clients/deploy/configure-client-communication-ports.md).  
+     Pour partager des points de distribution depuis un site source, au moins un site principal ou le site d'administration centrale dans la hiérarchie de destination doit utiliser les mêmes numéros de port pour les demandes des clients que le site source. Pour plus d’informations sur les ports pour les demandes des clients, consultez [Comment configurer les ports de communication des clients dans System Center Configuration Manager](../../core/clients/deploy/configure-client-communication-ports.md)  
 
-     Für jeden Quellstandort werden nur Verteilungspunkte freigegeben, die auf den mit einem FQDN konfigurierten Servern des Standortsystems installiert sind.  
+     Pour chaque site source, uniquement les points de distribution installés sur les serveurs système de site qui sont configurés avec un nom de domaine complet sont partagés.  
 
-     Außerdem muss das **Konto des Quellstandorts** (über das auf den SMS-Anbieter für den Quellstandortserver zugegriffen wird) über die Berechtigung **Ändern** für das Objekt **Standort** am Quellstandort verfügen, um einen Verteilungspunkt von einem System Center 2012 Configuration Manager- oder System Center Configuration Manager-Quellstandort freizugeben. Sie erteilen dem Konto diese Berechtigung mithilfe der rollenbasierten Verwaltung. Informationen zur Verwendung der rollenbasierten Verwaltung finden Sie unter [Fundamentals of role-based administration for System Center Configuration Manager](../../core/understand/fundamentals-of-role-based-administration.md).  
+     En outre, pour partager un point de distribution depuis un site source System Center 2012 Configuration Manager ou System Center Configuration Manager, le **compte de site source** (qui accède au fournisseur SMS du serveur de site source) doit disposer de l’autorisation **Modifier** sur l’objet **Site** sur le site source. Vous accordez cette autorisation au compte à l'aide de l'administration basée sur les rôles. Pour plus d’informations sur l’utilisation de l’administration basée sur des rôles, consultez [Principes de base de l’administration basée sur des rôles pour System Center Configuration Manager](../../core/understand/fundamentals-of-role-based-administration.md).  
 
 
--   **Aktualisieren oder erneutes Zuweisen von Verteilungspunkten:**  
+-   **Mettre à niveau ou réaffecter des points de distribution :**  
 
-     Das für das Sammeln von Daten beim SMS-Anbieter des Quellstandorts konfigurierte **Zugriffskonto des Quellstandorts** muss über folgende Berechtigungen verfügen:  
+     Le **compte d'accès de site source** configuré pour collecter des données depuis le fournisseur SMS du site source doit disposer des autorisations suivantes :  
 
-    -   Für das Aktualisieren eines Verteilungspunkts von Configuration Manager 2007 müssen für das Konto die Berechtigungen **Lesen**, **Ausführen** und **Löschen** der **Standort**-Klasse auf dem Standortserver von Configuration Manager 2007 vorliegen, um den Verteilungspunkt erfolgreich vom Configuration Manager 2007-Quellstandort entfernen zu können.  
+    -   Pour mettre à niveau un point de distribution Configuration Manager 2007, le compte requiert des autorisations **Lecture**, **Exécuter** et **Supprimer** sur la classe **Site** sur le serveur de site Configuration Manager 2007 pour pouvoir supprimer correctement le point de distribution du site source Configuration Manager 2007.  
 
-    -   Damit ein System Center 2012 Configuration Manager- oder System Center Configuration Manager-Verteilungspunkt neu zugewiesen werden kann, muss das Konto über die Berechtigung **Ändern** für das **Website**-Objekt am Quellstandort verfügen. Sie erteilen dem Konto diese Berechtigung mithilfe der rollenbasierten Verwaltung. Informationen zur Verwendung der rollenbasierten Verwaltung finden Sie unter [Fundamentals of role-based administration for System Center Configuration Manager](../../core/understand/fundamentals-of-role-based-administration.md).  
+    -   Pour réattribuer un point de distribution System Center 2012 Configuration Manager ou System Center Configuration Manager, le compte doit avoir l’autorisation **Modifier** sur l’objet **Site** sur le site source. Vous accordez cette autorisation au compte à l'aide de l'administration basée sur les rôles. Pour plus d’informations sur l’utilisation de l’administration basée sur des rôles, consultez [Principes de base de l’administration basée sur des rôles pour System Center Configuration Manager](../../core/understand/fundamentals-of-role-based-administration.md).  
 
-     Soll ein Verteilungspunkt erfolgreich aktualisiert oder einer neuen Hierarchie zugewiesen werden, müssen die für Clientanforderungen konfigurierten Ports am Standort, an dem der Verteilungspunkt in der Quellhierarchie verwaltet wird, den für Clientanforderungen konfigurierten Ports am Zielstandort entsprechen, an dem der Verteilungspunkt verwaltet wird. Weitere Informationen zu Clientanforderungsports finden Sie unter [Konfigurieren von Clientkommunikationsports in System Center Configuration Manager](../../core/clients/deploy/configure-client-communication-ports.md).  
+     Pour mettre à niveau un point de distribution ou le réaffecter à une nouvelle hiérarchie, les ports qui sont configurés pour les demandes clients sur le site qui gère le point de distribution dans la hiérarchie source doivent correspondre aux ports qui sont configurés pour les demandes client sur le site de destination qui gérera le point de distribution. Pour plus d’informations sur les ports pour les demandes des clients, consultez [Comment configurer les ports de communication des clients dans System Center Configuration Manager](../../core/clients/deploy/configure-client-communication-ports.md).  

@@ -1,6 +1,6 @@
 ---
-title: "Verwalten von Veröffentlichungen | Microsoft-Dokumentation"
-description: "Verwalten von Softwareupdates als Veröffentlichung mit System Center Updates Publisher"
+title: "Gérer les publications | Microsoft Docs"
+description: "Gérer des groupes de mises à jour logicielles comme une publication avec l’éditeur de mise à jour System Center"
 ms.custom: na
 ms.date: 4/29/2017
 ms.prod: configuration-manager
@@ -18,88 +18,88 @@ robots: NOINDEX, NOFOLLOW
 ms.openlocfilehash: ddea7af935d5be880b96e383401061f8aa11e6da
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-publications-in-updates-publisher"></a>Verwalten von Veröffentlichungen in Updates Publisher
+# <a name="manage-publications-in-updates-publisher"></a>Gérer des publications dans l’éditeur de mises à jour
 
-*Gilt für: System Center Updates Publisher*
+*S’applique à : l'éditeur de mise à jour System Center*
 
-Sie können Veröffentlichungen zum Verwalten von Update- und Paketgruppen als einzelnes Objekt verwenden. Dazu gehört das Veröffentlichen der Updates auf einem Verwaltungsserver und das Exportieren der Veröffentlichung als Gruppe für die Verwendung mit einer anderen Installation von Updates Publisher.
+Vous pouvez utiliser des publications pour gérer des offres groupées de mises à jour comme un seul objet. Cela inclut la publication des mises à jour sur un serveur d’administration et l’exportation de la publication en tant que groupe pour une utilisation avec une autre installation de l’éditeur de mise à jour.
 
-## <a name="create-publications"></a>Erstellen von Veröffentlichungen
-Veröffentlichungen werden auf zwei Arten erstellt:
+## <a name="create-publications"></a>Créer des publications
+Les publications sont créées de deux façons :
 
--   Bei der Verwaltung von Updates und Paketen im **Arbeitsbereich „Updates“** können Sie diese einer neuen Veröffentlichung [zuweisen](/sccm/sum/tools/manage-updates-with-updates-publisher#assign-updates-and-bundles-to-a-publication), die zu diesem Zeitpunkt erstellt wird.
+-   Lorsque vous gérez des mises à jour et des offres groupées dans l**’espace de travail Mises à jour**, vous pouvez leur [affecter](/sccm/sum/tools/manage-updates-with-updates-publisher#assign-updates-and-bundles-to-a-publication) une nouvelle publication créée à ce moment-là.
 
--   Im **Arbeitsbereich „Veröffentlichungen“** können Sie die Schaltfläche **Erstellen** auf der Registerkarte **Veröffentlichung** des Menübands verwenden. Mit dieser Methode können Sie eine Veröffentlichung zur zukünftigen Verwendung erstellen. Wenn Sie später Updates zuweisen, können Sie diese Veröffentlichung verwenden.
+-   Dans l**’espace de travail Publications,** vous pouvez utiliser le bouton **créer** de l’onglet **Publication** du ruban. Cette méthode vous permet de créer une publication pour une utilisation ultérieure. Plus tard, lorsque vous affectez des mises à jour, vous pouvez alors utiliser cette publication.
 
-## <a name="rename-a-publication"></a>Umbenennen einer Veröffentlichung
-Um eine Veröffentlichung umzubenennen, wählen Sie die Veröffentlichung im **Arbeitsbereich „Veröffentlichungen“** aus, und wählen Sie dann auf der Registerkarte **Veröffentlichung** des Menübands **Bearbeiten** aus.
+## <a name="rename-a-publication"></a>Renommer une publication
+Pour renommer une publication, sélectionnez la publication dans l**’espace de travail Publications**, puis, dans l’onglet **Publication** du ruban, choisissez **Modifier**.
 
-## <a name="change-the-publication-type-of-updates-in-a-publication"></a>Ändern des Veröffentlichungstyps von Updates in einer Veröffentlichung
-Vom **Arbeitsbereich „Veröffentlichungen“** aus können Sie den **Veröffentlichungstyp** von Updates und Paketen ändern, die einer Veröffentlichung zugeordnet sind.
+## <a name="change-the-publication-type-of-updates-in-a-publication"></a>Modifier le type de publication de mises à jour dans une publication
+Dans l**’espace de travail Publications**, vous pouvez modifier le **type de publication** de mises à jour et d’offres groupées affectées à une publication.
 
-1. Wählen Sie die Veröffentlichung aus, die die Updates enthält, die Sie ändern möchten, und wählen Sie ein oder mehrere Updates bzw. Pakete aus der Liste **All &lt;Publikationsname> member updates** (Alle <Publikationsname>-Mitgliedupdates).
+1. Sélectionnez la publication contenant les mises à jour que vous souhaitez modifier, puis sélectionnez une ou plusieurs mises à jour ou offres groupées dans la liste **Tous &lt;nom de la publication > mises à jour de membre**.
 
-2. Wählen Sie dann auf der Registerkarte **Start** eine der folgenden Optionen aus. Die verfügbaren Optionen richten sich nach dem Veröffentlichungstyp der Updates, die Sie ausgewählt haben.
+2. Puis, dans l'onglet **Accueil**, choisissez l’une des options suivantes. Les options disponibles dépendent du type de publication des mises à jour que vous avez sélectionné.
 
-  -   **Automatisch**
-  -   **Vollständiger Inhalt**
-  -   **Nur Metadaten**
+  -   **Automatique**
+  -   **Tout le contenu**
+  -   **Métadonnées uniquement**
 
-Nach einer Änderung müssen Sie die Veröffentlichungsansicht aktualisieren, um die neuen Werte anzuzeigen.
+Après avoir apporté une modification, vous devrez peut-être actualiser l’affichage de la publication pour voir les nouvelles valeurs.
 
-Informationen zu den verschiedenen Veröffentlichungstypen finden Sie unter [Assign updates and bundles to a publication](/sccm/sum/tools/manage-updates-with-updates-publisher#assign-updates-and-bundles-to-a-publication) (Zuweisen von Updates und Paketen zu einer Veröffentlichung).
+Pour plus d’informations sur les différents types de publication, consultez [Affecter des mises à jour et des offres groupées à une publication](/sccm/sum/tools/manage-updates-with-updates-publisher#assign-updates-and-bundles-to-a-publication).
 
 > [!TIP]    
-> Wenn Sie den Veröffentlichungstyp eines Pakets festlegen, werden alle Softwareupdates in dem Paket mit dem Veröffentlichungstyp dieses Pakets veröffentlicht.
+> Lorsque vous définissez le type de publication d’une offre groupée, toutes les mises à jour logicielles de cette offre groupée sont publiées avec son type de publication.
 
-## <a name="remove-updates-from-a-publication"></a>Entfernen von Updates aus einer Veröffentlichung
-Um Updates oder Pakete aus einer Veröffentlichung zu entfernen, wählen Sie im **Arbeitsbereich „Veröffentlichungen“** die Veröffentlichung aus, die Sie ändern möchten, und wählen Sie dann die Updates und Pakete aus, die Sie entfernen möchten. Wählen Sie als Nächstes auf der Registerkarte **Start** des Menübands **Entfernen** aus.
+## <a name="remove-updates-from-a-publication"></a>Supprimer des mises à jour d’une publication
+Pour supprimer des mises à jour ou des offres groupées d’une publication, dans l**’espace de travail Publications** sélectionnez la publication à modifier, puis choisissez les mises à jour et les offres groupées à supprimer. Ensuite, dans l’onglet **Accueil** du ruban, choisissez **Supprimer**.
 
-Nachdem Updates aus einer Veröffentlichung entfernt worden sind, bleiben sie im Updates Publisher-Repository verfügbar.
+Lorsque des mises à jour sont supprimées d’une publication, elles restent disponibles dans le référentiel de l’éditeur de mise à jour.
 
-## <a name="publish-publications"></a>Veröffentlichen von Veröffentlichungen
-Bei der Veröffentlichung von Updates und Paketen fügt Updates Publisher Informationen (Metadaten) zu diesen Updates und Paketen und möglicherweise Binärdateien für die Updates (vollständiger Inhalt) einem Updateserver zur Bereitstellung auf Geräten hinzu.
+## <a name="publish-publications"></a>Publier des publications
+Lorsque vous publiez des mises à jour et des offres groupées, l’éditeur de mise à jour ajoute des informations sur ces mises à jour et offres (métadonnées) et éventuellement les fichiers binaires des mises à jour (tout le contenu) à un serveur de mise à jour pour le déploiement sur des appareils.
 
-Damit die Option zum Veröffentlichen angezeigt wird, müssen Sie die Option [Updateserver](/sccm/sum/tools/updates-publisher-options#update-server) für Updates Publisher konfigurieren. Um diese Konfigurationsoption zu öffnen, wechseln Sie zum **Arbeitsbereich „Updates“** &gt; **Übersicht**, und wählen Sie **WSUS-Server und Signaturzertifikat konfigurieren** aus. Sie können auch in den Updates Publisher-Optionen zur Seite „Updateserver“ wechseln.
+Avant de pouvoir publier une mise à jour, vous devez configurer l’option [Serveur de mise à jour](/sccm/sum/tools/updates-publisher-options#update-server) de l’éditeur de mise à jour. Pour ouvrir cette option de configuration, accédez à l**’espace de travail Mises à jour** &gt; **Vue d’ensemble** et sélectionnez **Configurer WSUS et le certificat de signature.** Vous pouvez également accéder à la page Serveur de mise à jour dans les options de l’éditeur de mise à jour.
 
 > [!NOTE]   
-> Updates Publisher kann nur Updates mit einer Größe von max. 375 Megabyte (MB) veröffentlichen.
+> Le serveur de mise à jour peut uniquement publier des mises à jour d’une taille maximale de 375 mégaoctets (Mo).
 
-### <a name="to-publish-a-publication"></a>So veröffentlichen Sie eine Veröffentlichung
+### <a name="to-publish-a-publication"></a>Pour publier une publication
 
-1.  Wechseln Sie zum **Arbeitsbereich „Veröffentlichungen“**, und wählen Sie dann eine Veröffentlichung aus, die die Gruppe von Updates und Paketen enthält, die Sie veröffentlichen oder exportieren möchten. Wählen Sie dann auf der Registerkarte **Start** des Menübands die Option **Veröffentlichen**.
+1.  Accédez à l**’espace de travail Publications**, puis sélectionnez une publication contenant le groupe de mises à jour et les offres groupées que vous souhaitez publier ou exporter. Puis choisissez **Publier** dans l’onglet **Accueil** du ruban.
 
-2.  Auf der Seite **Auswählen** des **Veröffentlichungs**-Assistenten können Sie wählen, alle Updates mit einem neuen Veröffentlichungszertifikat zu signieren, aber Sie können den Veröffentlichungstyp nicht ändern.
+2.  Sur la page **Sélectionner** de l’Assistant **Publication**, vous pouvez choisir de signer toutes les mises à jour avec un nouveau certificat de publication, mais vous ne pouvez pas modifier le type de publication.
 
-3.  Schließen Sie den Assistenten ab.
+3.  Effectuez toutes les étapes de l'Assistant.
 
-  Wenn bei der Veröffentlichung ein Fehler auftritt, wird ein Link zur UpdatesPublisher.log-Datei angezeigt, die weitere Informationen bereitstellen kann.
+  Si la publication échoue, vous recevez un lien vers le fichier UpdatesPublisher.log apparaît qui peut fournir plus d’informations.
 
-## <a name="export-a-publication"></a>Exportieren einer Veröffentlichung
-Sie können eine Veröffentlichung aus Ihrem Updates Publisher-Repository exportieren. Auf diese Weise werden die Updates und Pakete exportiert, die dieser Veröffentlichung zugewiesen sind, und ein Updatekatalog erstellt. Anschließend können Sie diesen Katalog [hinzufügen](/sccm/sum/tools/updates-publisher-catalogs#add-software-update-catalogs) und dann in eine andere Instanz von Updates Publisher [importieren](/sccm/sum/tools/updates-publisher-catalogs#mport-updates). Sie können auch [Updates exportieren](/sccm/sum/tools/manage-updates-with-updates-publisher#export-updates), die nicht Teil einer Veröffentlichung sind.
+## <a name="export-a-publication"></a>Exporter une publication
+Vous pouvez exporter une publication à partir du référentiel de l’éditeur de mise à jour. Cette opération exporte les mises à jour et les offres groupées affectées à cette publication et crée un catalogue de mises à jour. Vous pouvez ensuite [ajouter](/sccm/sum/tools/updates-publisher-catalogs#add-software-update-catalogs) puis [importer](/sccm/sum/tools/updates-publisher-catalogs#mport-updates) ce catalogue vers une autre instance de l’éditeur de mise à jour. Vous pouvez également [exporter les mises à jour](/sccm/sum/tools/manage-updates-with-updates-publisher#export-updates) qui ne font pas partie d’une publication.
 
-Um eine Veröffentlichung zu exportieren, wechseln Sie zum **Arbeitsbereich „Veröffentlichungen“**, und wählen Sie die Veröffentlichung aus, die Updates enthält, die Sie exportieren möchten. Sie können nur jeweils eine Veröffentlichung auswählen.
+Pour exporter une publication, accédez à l**’espace de travail Publications** et sélectionnez la publication contenant les mises à jour que vous souhaitez exporter. Vous ne pouvez sélectionner qu’une publication à la fois.
 
-Wählen Sie nach der Veröffentlichungenauswahl auf der Registerkarte **Start** des Menübands die Option **Exportieren**, und geben Sie dann einen Pfad und Dateinamen für den Katalogexport an.
+Une fois la publication sélectionnée, choisissez **Exporter** dans l’onglet **Accueil** du ruban, puis indiquez un chemin d’accès et un nom de fichier pour l’exportation du catalogue.
 
-Sie können auch abhängige Softwareupdates als Teil des Exports exportieren (einzuschließen).
+Vous avez également la possibilité d’exporter (inclure) des mises à jour de logiciels dépendantes lors de l’exportation.
 
-## <a name="rename-a-publication"></a>Umbenennen einer Veröffentlichung
-Um eine Veröffentlichung umzubenennen, wählen Sie die Veröffentlichung im **Arbeitsbereich „Veröffentlichungen“** aus, und wählen Sie dann auf der Registerkarte **Veröffentlichung** des Menübands **Bearbeiten** aus.
+## <a name="rename-a-publication"></a>Renommer une publication
+Pour renommer une publication, sélectionnez la publication dans l**’espace de travail Publications**, puis choisissez **Modifier** dans l’onglet **Publication** du ruban.
 
-## <a name="delete-a-publication"></a>Löschen einer Veröffentlichung
-Um eine Veröffentlichung zu löschen, wählen Sie die Veröffentlichung im **Arbeitsbereich „Veröffentlichungen“** aus, und wählen Sie dann auf der Registerkarte **Veröffentlichung** des Menübands **Löschen** aus.
+## <a name="delete-a-publication"></a>Supprimer une publication
+Pour supprimer une publication, sélectionnez la publication dans l**’espace de travail Publications**, puis choisissez **Supprimer** dans l’onglet **Publication** du ruban.
 
-Wenn die Veröffentlichung aus Updates Publisher entfernt worden ist, bleiben die Updates, die sich in der Veröffentlichung befanden, im Updates Publisher-Repository verfügbar.
+Une fois la publication supprimée de l’éditeur de mise à jour, les mises à jour de cette publication restent disponibles dans le référentiel de l’éditeur de mise à jour.
 
-## <a name="expire-or-reactivate-updates-and-bundles"></a>Ablaufen oder erneutes Aktivieren von Updates und Paketen
-Sie können im **Arbeitsbereich „Updates“** Updates und Pakete auswählen und dann ablaufen lassen oder erneut aktivieren. Sie können Updates und Pakete so oft wie gewünscht ablaufen lassen und erneut aktivieren.
+## <a name="expire-or-reactivate-updates-and-bundles"></a>Faire expirer ou réactiver des mises à jour et des offres groupées
+Vous pouvez utiliser l**’espace de travail Mises à jour** pour sélectionner puis faire expirer ou réactiver des mises à jour et des offres groupées. Vous pouvez faire expirer et réactiver des mises à jour et des offres groupées autant de fois que vous le souhaitez.
 
--   **Um Updates oder Pakete ablaufen zu lassen**, wählen Sie im „Arbeitsbereich „Updates““ ein oder mehrere Updates oder Pakete aus, die nicht abgelaufen sind, und wählen Sie dann **Ablaufen** auf der Registerkarte **Start**. Bis Sie das Update oder Paket als abgelaufen im Configuration Manager veröffentlichen, können Sie es erneut aktivieren.
+-   **Pour faire expirer des mises à jour ou des offres groupées**, dans l’espace de travail Mises à jour, sélectionnez une ou plusieurs mises à jour ou offres groupées qui n’ont pas expiré, puis choisissez **Expirer** dans l’onglet **Accueil**. Tant que vous n’avez pas publié la mise à jour ou l’offre groupée dans l’éditeur de mise à jour pour la faire expirer, vous pouvez les réactiver.
 
-    Bevor Sie ein benutzerdefiniertes Update oder Paket aus dem Configuration Manager entfernen (löschen) können, müssen Sie es ablaufen lassen und dann den abgelaufenen Status im Configuration Manager veröffentlichen. Nachdem Updates oder Pakete im Configuration Manager abgelaufen sind, können Sie sie nicht mehr bereitstellen oder erneut aktivieren.
+    Avant de pouvoir supprimer une mise à jour ou une offre groupée personnalisée de Configuration Manager, vous devez la faire expirer puis publier ce statut expiré dans Configuration Manager. Une fois les mises à jour ou les offres groupées arrivées à expiration dans Configuration Manager, vous ne pouvez plus déployer ou réactiver la mise à jour ou l’offre groupée.
 
--   **Um Updates oder Pakete erneut zu aktivieren**, wählen Sie im „Arbeitsbereich „Updates““ ein oder mehrere Updates oder Pakete aus, die abgelaufen sind, und wählen Sie dann **Erneut aktivieren** auf der Registerkarte **Start**. Wenn das abgelaufene Update zuvor als abgelaufen im Configuration Manager veröffentlicht wurde, kann es nicht erneut aktiviert werden.
+-   **Pour réactiver des mises à jour ou des offres groupées**, dans l’espace de travail Mises à jour, sélectionnez une ou plusieurs mises à jour qui ont expiré, puis choisissez **Réactiver** dans l’onglet **Accueil** du ruban. Si la mise à jour expirée a été précédemment publiée comme ayant expiré dans Configuration Manager, vous ne pouvez pas la réactiver.

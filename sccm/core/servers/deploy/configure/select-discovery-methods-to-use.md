@@ -1,6 +1,6 @@
 ---
-title: "Auswählen von Ermittlungsmethoden für Configuration Manager | Microsoft-Dokumentation"
-description: "Prüfen Sie die Überlegungen dazu, welche Methoden verwendet werden sollen und an welchen Standorten sie angewendet werden sollen."
+title: "Sélectionner les méthodes de découverte pour Configuration Manager | Microsoft Docs"
+description: "Passez en revue les considérations relatives aux méthodes à utiliser et aux sites sur lesquels les exécuter."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,112 +17,112 @@ manager: angrobe
 ms.openlocfilehash: 4b6be888be2ad6c1f5e7c0be33d9830bb870114e
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="select-discovery-methods-to-use-for-system-center-configuration-manager"></a>Select discovery methods to use for System Center Configuration Manager (Auswählen von Ermittlungsmethoden zur Verwendung in System Center Configuration Manager)
+# <a name="select-discovery-methods-to-use-for-system-center-configuration-manager"></a>Sélectionner des méthodes de découverte à utiliser pour System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Damit Sie die Ermittlung für System Center Configuration Manager erfolgreich und effizient nutzen können, müssen Sie überlegen, welche Methoden verwendet werden sollen und an welchen Standorten sie angewendet werden sollen.  
+Pour utiliser correctement et efficacement la découverte pour System Center Configuration Manager, vous devez prendre en compte les méthodes à utiliser et les sites sur lesquels les exécuter.  
 
- Bei der Ermittlung kann hoher Netzwerkdatenverkehr entstehen, und bei der Verarbeitung der resultierenden Discovery Data Records (DDRs) werden möglicherweise erhebliche CPU-Ressourcen in Anspruch genommen. Sie sollten sich daher auf die Ermittlungsmethoden beschränken, die zur Erreichung Ihrer Ziele erforderlich sind. Möglicherweise genügen ein oder zwei Ermittlungsmethoden für Ihre Zwecke. Später können Sie weitere Methoden Schritt für Schritt hinzufügen, um die Ermittlung in Ihrer Umgebung auszuweiten. Anhand der Informationen in diesem Thema können Sie fundierte Entscheidungen treffen.  
+ La découverte peut générer un volume de trafic réseau considérable, et les enregistrements de données de découverte obtenus peuvent utiliser beaucoup de ressources du processeur pendant le traitement. Vous devez donc limiter l’utilisation des méthodes de découverte à celles qui sont nécessaires pour répondre à vos objectifs. Vous pouvez commencer par n’utiliser qu’une ou deux méthodes de découverte, avant d’éventuellement en activer d’autres de manière contrôlée par la suite pour étendre le niveau de découverte dans votre environnement. Les informations fournies dans cette rubrique peuvent vous aider à prendre des décisions éclairées.  
 
- Informationen zu den einzelnen Ermittlungsmethoden finden Sie unter [About discovery methods for System Center Configuration Manager (Informationen zu Ermittlungsmethoden in System Center Configuration Manager)](../../../../core/servers/deploy/configure/about-discovery-methods.md).  
+ Pour plus d’informations sur les différentes méthodes de découverte, consultez [À propos des méthodes de découverte pour System Center Configuration Manager](../../../../core/servers/deploy/configure/about-discovery-methods.md).  
 
-## <a name="select-methods-to-discover-different-things"></a>Auswählen von Methoden zum Ermitteln unterschiedlicher Dinge  
- Sie müssen geeignete Ermittlungsmethoden aktivieren, damit potenzielle Configuration Manager-Clientcomputer oder Benutzerressourcen ermittelt werden können. Sie können verschiedene Ermittlungsmethoden miteinander kombinieren, um verschiedene Ressourcen zu finden und zusätzliche Informationen zu diesen Ressourcen zu ermitteln. Durch die verwendeten Ermittlungsmethoden wird bestimmt, welcher Ressourcentyp ermittelt wird und welche Configuration Manager-Dienste und -Agents im Ermittlungsprozess eingesetzt werden. Auch die Art von Informationen, die Sie für Ressourcen ermitteln können, wird durch die Ermittlungsmethoden bestimmt.  
+## <a name="select-methods-to-discover-different-things"></a>Sélectionner des méthodes pour découvrir des choses différentes  
+ Pour découvrir des ordinateurs clients Configuration Manager potentiels ou des ressources utilisateur, vous devez activer les méthodes de découverte appropriées. Vous pouvez utiliser différentes combinaisons de méthodes de découverte pour localiser différentes ressources et découvrir des informations supplémentaires sur ces ressources. Les méthodes employées déterminent le type de ressources découvertes, ainsi que les services et agents Configuration Manager utilisés dans le processus de découverte. Elles déterminent également le type d'informations concernant les ressources que vous pouvez découvrir.  
 
-### <a name="discover-computers"></a>Computer ermitteln   
-Zur Ermittlung von Computern können Sie die **Active Directory-Systemermittlung** oder die **Netzwerkermittlung** verwenden.  
+### <a name="discover-computers"></a>Détecter les ordinateurs   
+Quand vous voulez découvrir des ordinateurs, vous pouvez utiliser la **Découverte de systèmes Active Directory** ou la **Découverte du réseau**.  
 
- Wenn Sie beispielsweise Ressourcen ermitteln möchten, mit denen der Configuration Manager-Client vor dem Ausführen der Clientpushinstallation installiert werden kann, können Sie die Active Directory-Systemermittlung ausführen. Mit dieser Methode ermitteln Sie nicht nur die Ressource, sondern auch grundlegende Informationen. Über die Active Directory-Domänendienste können Sie sogar erweiterte Informationen ermitteln. Diese Informationen können sich beim Erstellen komplexer Abfragen und Sammlungen, mit denen Clienteinstellungen zugewiesen oder Inhalte bereitgestellt werden, als nützlich erweisen.
+ Par exemple, si vous souhaitez découvrir des ressources qui peuvent installer le client Configuration Manager avant d’utiliser l’installation Push du client, vous pouvez exécuter la découverte de systèmes Active Directory. À l’aide de cette méthode, vous découvrez non seulement la ressource, mais aussi des informations de base, et même des informations étendues à partir des services de domaine Active Directory. Ces informations peuvent être utiles pour créer des requêtes et des regroupements complexes à utiliser dans l'attribution de paramètres de client ou le déploiement de contenu.
 
-Alternativ können Sie die Netzwerkermittlung ausführen und mithilfe ihrer Optionen das Betriebssystem der Ressourcen ermitteln (für die spätere Clientpushinstallation erforderlich). Über die Netzwerkermittlung erhalten Sie Informationen über die Netzwerktopologie, die Ihnen andere Ermittlungsmethoden nicht liefern. Diese Methode liefert jedoch keine Informationen über die Active Directory-Umgebung.
+En guise d’alternative, vous pouvez exécuter la découverte du réseau et utiliser ses options pour découvrir le système d’exploitation des ressources (nécessaire pour utiliser l’installation Push du client ultérieurement). La découverte du réseau fournit des informations sur la topologie de votre réseau que vous ne pouvez pas obtenir avec d’autres méthodes de découverte. Toutefois, cette méthode ne fournit aucune information sur votre environnement Active Directory.
 
- Es gibt auch eine Methode namens **Frequenzermittlung**. Es ist möglich, nur die Frequenzermittlung zu verwenden, um die Ermittlung von Clients zu erzwingen, die Sie mit anderen Methoden als der Clientpushinstallation installiert haben. Im Gegensatz zu anderen Ermittlungsmethoden können bei der Frequenzermittlung jedoch nur Computer mit einem aktiven Configuration Manager-Client ermittelt werden. Es wird eine begrenzte Anzahl von Informationen zurückgegeben. Dies dient der Wartung eines vorhandenen Datenbankdatensatzes, und nicht als Grundlage für diesen Datensatz. Die von der Frequenzermittlung bereitgestellten Informationen reichen möglicherweise nicht aus, um komplexe Abfragen oder Sammlungen zu erstellen.  
+ Il existe également une méthode appelée **Découverte par pulsations d’inventaire**. Il est possible d’utiliser uniquement la découverte par pulsations d’inventaire pour forcer la découverte des clients que vous avez installés à l’aide de méthodes autres que l’installation Push du client. Cependant, contrairement aux autres méthodes de découverte, la découverte par pulsations d’inventaire ne peut pas découvrir des ordinateurs qui ne disposent pas d’un client Configuration Manager actif. Elle retourne un ensemble limité d’informations, destinées à tenir à jour un enregistrement de base de données existant plutôt que la base de cet enregistrement. Les informations soumises par la découverte par pulsations d'inventaire peuvent ne pas suffire à construire des requêtes ou des regroupements complexes.  
 
- Wenn Sie mithilfe der **Active Directory-Gruppenermittlung** die Mitgliedschaft einer bestimmten Gruppe ermitteln, können Sie beschränkte System- oder Computerinformationen ermitteln. Dies stellt zwar keinen Ersatz für eine vollständige Ermittlung von Computern dar, kann aber grundlegende Informationen liefern. Diese Informationen sind für die Clientpushinstallation unzureichend.  
+ Si vous utilisez la **découverte de groupes Active Directory** pour découvrir l’appartenance d’un groupe spécifique, vous pouvez découvrir des informations limitées sur le système ou l’ordinateur. Cela ne remplace pas une découverte complète des ordinateurs, mais peut fournir des informations de base. Ces informations sont insuffisantes pour l’installation Push du client.  
 
-### <a name="discover-users"></a>Ermitteln von Benutzern   
-Zur Ermittlung von Informationen über Benutzer können Sie die **Active Directory-Benutzerermittlung** verwenden. Ähnlich wie bei der Active Directory-Systemermittlung ermittelt diese Methode Benutzer aus Active Directory. Sie enthält grundlegende Informationen sowie erweiterte Active Directory-Informationen. Mithilfe dieser Informationen können Sie ähnlich wie für Computer komplexe Abfragen und Sammlungen erstellen.  
+### <a name="discover-users"></a>Découvrir des utilisateurs   
+Quand vous voulez découvrir des informations sur les utilisateurs, utilisez la **Découverte d’utilisateurs Active Directory**. Comme pour la découverte de systèmes Active Directory, cette méthode découvre des utilisateurs d’Active Directory. Cela comprend les informations de base, en plus des informations étendues Active Directory. Vous pouvez utiliser ces informations pour générer des requêtes et des regroupements complexes similaires à ceux des ordinateurs.  
 
-### <a name="discover-group-information"></a>Ermitteln von Gruppeninformationen   
-Zur Ermittlung von Informationen über Gruppen und Gruppenmitgliedschaften können Sie die **Active Directory-Gruppenermittlung** verwenden. Bei dieser Ermittlungsmethode werden Ressourceneinträge für Sicherheitsgruppen erstellt.  
+### <a name="discover-group-information"></a>Découvrir des informations de groupe   
+Quand vous voulez découvrir des informations sur les groupes et les appartenances aux groupes, utilisez la **Découverte de groupes Active Directory**. Cette méthode de découverte crée des enregistrements de ressources pour les groupes de sécurité.  
 
- Mit dieser Methode können Sie eine bestimmte Active Directory-Gruppe durchsuchen, um die Mitglieder dieser Gruppe sowie alle in dieser Gruppe geschachtelten Gruppen zu identifizieren. Außerdem eignet sich diese Methode zum Durchsuchen eines Active Directory-Orts nach Gruppen sowie zum rekursiven Durchsuchen aller untergeordneten Container dieses Orts in den Active Directory-Domänendiensten.  
+ Vous pouvez utiliser cette méthode pour rechercher un groupe spécifique d’Active Directory afin d’identifier les membres de ce groupe, ainsi que les groupes imbriqués dans ce groupe. Cette méthode permet également de rechercher des groupes dans un emplacement Active Directory et de rechercher, de manière récursive, chaque conteneur enfant de cet emplacement dans les services de domaine Active Directory.  
 
- Mit dieser Ermittlungsmethode kann auch die Mitgliedschaft von Verteilergruppen durchsucht werden. Dabei können die Gruppenbeziehungen von Benutzern und Computern identifiziert werden.  
+ Cette méthode de découverte peut également rechercher l'appartenance des groupes de distribution. Elle permet également d'identifier les relations de groupe des utilisateurs et des ordinateurs.  
 
- Beim Ermitteln einer Gruppe können Sie auch in begrenztem Umfang Informationen über die Mitglieder dieser Gruppe in Erfahrung bringen. Dies ersetzt jedoch nicht die Methoden der Active Directory-Systemermittlung oder -Benutzerermittlung. Es ist in der Regel nicht ausreichend, komplexe Abfragen und Sammlungen zu erstellen, oder als Grundlage für eine Clientpushinstallation zu dienen.  
+ Lorsque vous découvrez un groupe, vous pouvez également découvrir des informations limitées sur ses membres. Toutefois, cela ne remplace pas les méthodes de découverte de systèmes ou d’utilisateurs Active Directory. Cela ne suffit généralement pas pour créer des requêtes et des regroupements complexes, ou pour servir de base d’une installation Push du client.  
 
-### <a name="discover-infrastructure"></a>Ermitteln der Infrastruktur   
-Für die Ermittlung der Netzwerkinfrastruktur stehen zwei Methoden zur Auswahl: die **Active Directory-Gesamtstrukturermittlung** und die **Netzwerkermittlung**.  
+### <a name="discover-infrastructure"></a>Découvrir l’infrastructure   
+Vous pouvez appliquer deux méthodes pour découvrir l’infrastructure réseau : la **Découverte de forêts Active Directory** et la **Découverte du réseau**.  
 
- Verwenden Sie die Active Directory-Gesamtstrukturermittlung, um eine Active Directory-Gesamtstruktur nach Informationen über Subnetze und Active Directory-Standortkonfigurationen zu durchsuchen. Diese Konfigurationen können dann automatisch in Configuration Manager als Grenzpositionen eingegeben werden.  
+ Utilisez la découverte de forêts Active Directory pour rechercher des informations sur les sous-réseaux et les configurations de site Active Directory dans une forêt Active Directory. Ces configurations peuvent ensuite être automatiquement entrées dans Configuration Manager en tant qu’emplacements limites.  
 
- Soll die Netzwerktopologie ermittelt werden, verwenden Sie die Netzwerkermittlung. Von anderen Ermittlungsmethoden werden zwar Informationen in Bezug auf die Active Directory-Domänendienste zurückgegeben, und der aktuelle Netzwerkort eines Clients kann identifiziert werden, aber es werden keine Infrastrukturinformationen auf Basis der Subnetze und der Routertopologie eines Netzwerks bereitgestellt.  
+ Lorsque vous souhaitez découvrir la topologie de votre réseau, utilisez la découverte du réseau. Les autres méthodes de découverte retournent des informations liées aux services de domaine Active Directory et peuvent identifier l’emplacement réseau actuel d’un client, mais elles ne peuvent pas fournir d’informations d’infrastructure basées sur la topologie des sous-réseaux ou du routeur de votre réseau.  
 
-##  <a name="bkmk_shared"></a> Gemeinsame Nutzung von Ermittlungsdaten durch verschiedene Standorte  
- Nachdem in Configuration Manager Ermittlungsdaten einer Datenbank hinzugefügt wurden, werden diese Daten direkt für alle Standorte in der Hierarchie freigegeben. Da es in der Regel nicht sinnvoll ist, identische Informationen von mehreren Standorten in Ihrer Hierarchie zu ermitteln, empfiehlt es sich, für jede verwendete Ermittlungsmethode eine einzige Instanz auf einem einzigen Standort einzurichten. Dies ist besser, als mehrere Instanzen einer Methode auf verschiedenen Standorten auszuführen.  
+##  <a name="bkmk_shared"></a> Les données de découverte sont partagées entre les sites  
+ Une fois que Configuration Manager a ajouté des données de découverte à une base de données, elles sont rapidement partagées parmi tous les sites de la hiérarchie. Comme il n’y a généralement pas d’avantage à découvrir les mêmes informations sur plusieurs sites de votre hiérarchie, il peut être judicieux de configurer une seule instance de chaque méthode de découverte que vous utilisez, pour qu’elle s’exécute sur un seul site. Cela vaut mieux que d’exécuter plusieurs instances d’une seule méthode sur différents sites.  
 
- Allerdings kann es in manchen Umgebungen hilfreich sein, die gleiche Ermittlungsmethode mit einer separaten Konfiguration und einem eigenen Zeitplan auf mehreren Standorten ausführen zu lassen. Dies ist beispielsweise häufig nützlich, wenn nicht versucht wird, alle Netzwerkadressen in einem WAN zu ermitteln, sondern mit der Netzwerkermittlung jeder Standort angewiesen wird, sein lokales Netzwerk zu ermitteln.
+ Il peut toutefois être utile, pour certains environnements, d’attribuer la même méthode de découverte à plusieurs sites, avec une configuration et une planification distinctes à chaque fois. Par exemple, quand vous utilisez la découverte du réseau, vous souhaiterez peut-être diriger chaque site pour découvrir son réseau local, au lieu d’essayer de découvrir tous les emplacements réseau sur un réseau WAN.
 
-Wenn Sie mehrere Instanzen der gleichen Ermittlungsmethoden zur Ausführung an verschiedenen Standorten einrichten, sollten Sie das Einrichten jedes Standorts sorgfältig planen. Sie sollten vermeiden, dass zwei oder mehr Standorte dieselben Ressourcen aus Ihrem Netzwerk oder Active Directory ermitteln. Dies kann zusätzliche Netzwerkbandbreite beanspruchen und Duplikate von DDRs erstellen.
+Si vous configurez plusieurs instances des mêmes méthodes de découverte pour qu’elles s’exécutent sur différents sites, planifiez soigneusement la configuration de chaque site. Il faut éviter que plusieurs sites découvrent les mêmes ressources de votre réseau ou d’Active Directory. Cela peut consommer de la bande passante réseau supplémentaire et créer des enregistrements DDR en double.
 
-In der folgenden Tabelle wird beschrieben, auf welchen Standorten Sie die verschiedenen Ermittlungsmethoden einrichten können.  
+Le tableau suivant identifie sur quels sites vous pouvez configurer les différentes méthodes de découverte.  
 
-|Ermittlungsmethode|Unterstützte Standorte|  
+|Méthode de découverte|Emplacements pris en charge|  
 |----------------------|-------------------------|  
-|Active Directory-Gesamtstrukturermittlung|Standort der zentralen Verwaltung<br /><br /> Primärer Standort|  
-|Active Directory-Gruppenermittlung|Primärer Standort|  
-|Active Directory-Systemermittlung|Primärer Standort|  
-|Active Directory-Benutzerermittlung|Primärer Standort|  
-|Frequenzermittlung<sup>1</sup>|Primärer Standort|  
-|Netzwerkermittlung|Primärer Standort<br /><br /> Sekundärer Standort|  
+|Découverte de forêts Active Directory|Site d'administration centrale<br /><br /> Site principal|  
+|Découverte de groupes Active Directory|Site principal|  
+|Découverte de systèmes Active Directory|Site principal|  
+|Découverte d’utilisateurs Active Directory|Site principal|  
+|Découverte par pulsations d’inventaire<sup>1</sup>|Site principal|  
+|Découverte du réseau|Site principal<br /><br /> Site secondaire|  
 
- <sup>1</sup> Auf sekundären Standorten kann die Frequenzermittlung nicht konfiguriert werden, jedoch ist es möglich, den Frequenz-DDR von einem Client zu empfangen.  
+ <sup>1</sup> Les sites secondaires ne peuvent pas configurer la découverte par pulsations d’inventaire, mais peuvent recevoir l’enregistrement de données de découverte par pulsation de la part d’un client.  
 
- Wenn auf sekundären Standorten die Netzwerkermittlung ausgeführt wird oder Frequenzermittlungs-DDRs empfangen werden, wird der DDR mithilfe von dateibasierter Replikation an deren übergeordneten primären Standort übertragen. Der Grund hierfür besteht darin, dass DDRs nur von primären Standorten und Standorten der zentralen Verwaltung verarbeitet werden können. Weitere Informationen zur Verarbeitung von DDRs finden Sie unter [About Discovery Data Records (Informationen zu Discovery Data Records)](../../../../core/servers/deploy/configure/run-discovery.md#BKMK_DDRs).  
+ Lorsque des sites secondaires exécutent la découverte du réseau, ou reçoivent des DDR de découverte par pulsations d'inventaire, ils transfèrent le DDR par réplication basée sur les fichiers vers leur site principal parent. Ceci est dû au fait que seuls les sites principaux et les sites d’administration centrale peuvent traiter les enregistrements de données de découverte. Pour plus d’informations sur le traitement des enregistrements de données de découverte, consultez [À propos des enregistrements de données de découverte](../../../../core/servers/deploy/configure/run-discovery.md#BKMK_DDRs).  
 
-## <a name="considerations-for-different-discovery-methods"></a>Überlegungen zu den verschiedenen Ermittlungsmethoden  
- Da jeder Standortserver und jede Netzwerkumgebung unterschiedlich ist, wird empfohlen, die anfänglichen Konfigurationen für die Ermittlung zu beschränken. Überwachen Sie dann bei jedem Standortserver genau, ob er die generierten Ermittlungsdaten verarbeiten kann.  
+## <a name="considerations-for-different-discovery-methods"></a>Éléments à prendre en compte pour différentes méthodes de découverte  
+ Chaque environnement réseau et de serveur de site étant différent, il est préférable de limiter vos configurations initiales pour la découverte. Ensuite, surveillez attentivement la capacité de chaque serveur de site à traiter les données de découverte générées.  
 
-Wenn Sie eine **Active Directory**-Ermittlungsmethode für Systeme, Benutzer oder Gruppen verwenden:  
+Quand vous utilisez une méthode de découverte **Active Directory** pour les systèmes, les utilisateurs ou les groupes :  
 
--   Führen Sie die Ermittlung auf einem Standort aus, der über eine schnelle Netzwerkverbindung mit Ihren Domänencontrollern verfügt.  
+-   Exécutez la découverte sur un site qui dispose d'une connexion réseau rapide pour vos contrôleurs de domaine.  
 
--   Beachten Sie die Active Directory-Replikationstopologie, um sicherzustellen, dass bei der Ermittlung Zugriff auf die neuesten Informationen besteht.  
+-   Pensez à la topologie de réplication Active Directory pour vous assurer que la découverte peut accéder aux informations les plus récentes.  
 
--   Beachten Sie den Bereich der Ermittlungskonfiguration und beschränken Sie die Ermittlung auf diejenigen Active Directory-Orte und -Gruppen, die ermittelt werden müssen.  
+-   Pensez à l’étendue de la configuration de la découverte et limitez la découverte aux emplacements et groupes Active Directory que vous souhaitez découvrir.  
 
-Wenn Sie die **Netzwerkermittlung** verwenden:  
+Si vous utilisez la **Découverte du réseau** :  
 
--   Verwenden Sie eine eingeschränkte Erstkonfiguration, um Ihre Netzwerktopografie zu identifizieren.  
+-   Utilisez une configuration initiale limitée pour identifier votre topographie réseau.  
 
--   Nachdem Sie Ihre Netzwerktopografie identifiziert haben, konfigurieren Sie die Netzwerkermittlung für die Ausführung auf bestimmten Standorten, die für diejenigen Netzwerkbereiche maßgeblich sind, die umfassender ermittelt werden sollen.  
+-   Après avoir identifié votre topographie réseau, configurez la découverte du réseau pour qu’elle s’exécute sur des sites spécifiques, qui jouent un rôle central pour les zones du réseau que vous souhaitez découvrir plus en détail.  
 
-Da die **Frequenzermittlung** nicht auf einem bestimmten Standort ausgeführt wird, müssen Sie diese Methode bei der allgemeinen Planung der Ermittlungsausführung nicht berücksichtigen.  
+Dans la mesure où la **Découverte par pulsations d’inventaire** ne s’exécute pas sur un site spécifique, vous n’avez pas besoin de prendre en compte le lieu de l’exécution dans la planification générale.  
 
-##  <a name="bkmk_best"></a> Bewährte Methoden für die Ermittlung  
-Für optimale Ergebnisse bei der Ermittlung wird Folgendes empfohlen:
+##  <a name="bkmk_best"></a> Bonnes pratiques pour la découverte  
+Pour obtenir de meilleurs résultats avec la découverte, nous vous recommandons d’effectuer les opérations suivantes :
 
- - **Ausführen der Active Directory-Systemermittlung und Active Directory-Benutzerermittlung vor der Active Directory-Gruppenermittlung.**  
+ - **Réalisez une découverte de systèmes Active Directory et une découverte d’utilisateurs Active Directory avant de procéder à une découverte de groupes Active Directory.**  
 
- Wenn bei der Active Directory-Gruppenermittlung ein bisher nicht ermittelter Computer als Mitglied einer Gruppe identifiziert wird, wird versucht, grundlegende Details für den Benutzer oder Computer zu ermitteln. Da die Active Directory-Gruppenermittlung für diese Art der Ermittlung nicht optimiert ist, kann dieser Prozess dazu führen, dass sich ihre Ausführung verlangsamt. Außerdem werden bei der Active Directory-Gruppenermittlung nur die grundlegenden Details zu den ermittelten Benutzern und Computern identifiziert, und es wird kein vollständiger Benutzer- oder Computerermittlungsdatensatz erstellt. Beim Ausführen der Active Directory-Systemermittlung und Active Directory-Benutzerermittlung sind die zusätzlichen Active Directory-Attribute für jeden Objekttyp verfügbar. Dadurch kann die Active Directory-Gruppenermittlung effizienter ausgeführt werden.  
+ Lorsqu'une découverte de groupes Active Directory identifie en tant que membre d'un groupe un ordinateur ou un utilisateur jusqu'alors inconnu, elle tente de découvrir les détails de base concernant cet utilisateur ou cet ordinateur. La découverte de groupes Active Directory n’étant pas optimisée pour ce type de découverte, ce processus peut provoquer un ralentissement de son exécution. Par ailleurs, la découverte de groupes Active Directory identifie uniquement les informations de base sur les utilisateurs et les ordinateurs, et ne crée pas d’enregistrement complet de découverte d’utilisateurs ou d’ordinateurs. Quand vous procédez à une découverte de systèmes Active Directory et à une découverte d’utilisateurs Active Directory, les attributs Active Directory supplémentaires de chaque type d’objet sont disponibles. Ainsi, la découverte de groupes Active Directory est plus performante.  
 
-- **Ausschließliches Angeben von Gruppen, die Sie mit Configuration Manager verwenden, beim Konfigurieren der Active Directory-Gruppenermittlung.**  
+- **Quand vous configurez la découverte de groupes Active Directory, spécifiez uniquement les groupes que vous utilisez avec Configuration Manager.**  
 
- Geben Sie nur die Gruppen an, die Sie mit Configuration Manager verwenden, um die Ressourcennutzung der Active Directory-Gruppenermittlung besser steuern zu können. Dies liegt daran, dass bei der Active Directory-Gruppenermittlung jede ermittelte Gruppe rekursiv nach Benutzern, Computern und verschachtelten Gruppen durchsucht wird. Das Durchsuchen aller verschachtelten Gruppen kann dazu führen, dass sich der Umfang der Active Directory-Gruppenermittlung vergrößert und die Leistung beeinträchtigt wird. Wenn Sie die Deltaermittlung für die Active Directory-Gruppenermittlung konfigurieren, wird zudem von der Ermittlungsmethode jede Gruppe auf Änderungen überwacht. Dadurch wird die Leistung noch stärker beeinträchtigt, da nicht erforderliche Gruppen durchsucht werden müssen.  
+ Pour mieux contrôler les ressources utilisées par le processus de découverte de groupes Active Directory, spécifiez uniquement les groupes que vous utilisez avec Configuration Manager. En effet, la découverte de groupes Active Directory recherche de manière récursive les utilisateurs, les ordinateurs et les groupes imbriqués dans chaque groupe qu'elle découvre. La recherche dans chaque groupe imbriqué peut élargir l’étendue de la découverte de groupes Active Directory et réduire les performances. En outre, quand vous configurez la découverte delta pour la découverte de groupes Active Directory, la méthode de découverte surveille les modifications apportées à chaque groupe. Les performances sont ainsi d'autant plus ralenties lorsque la méthode doit rechercher des groupes qui ne sont pas nécessaires.  
 
-- **Konfigurieren von Ermittlungsmethoden mit einem längeren Intervall zwischen der vollständigen Ermittlung und häufigeren Zeiträumen für die Deltaermittlung.**  
+- **Configurez les méthodes de découverte de telle sorte que l’intervalle entre les découvertes complètes soit plus long et que les découvertes delta soient plus fréquentes.**  
 
- Da bei der Deltaermittlung weniger Ressourcen als bei einem vollständigen Ermittlungszyklus genutzt werden und neue oder geänderte Ressourcen in Active Directory identifiziert werden können, können Sie die Häufigkeit der vollständigen Ermittlungszyklen auf einmal pro Woche (oder weniger) reduzieren. Bei der Deltaermittlung für die Active Directory-Systemermittlung, Active Directory-Benutzerermittlung und Active Directory-Gruppenermittlung werden nahezu alle Änderungen von Active Directory-Objekten identifiziert, und für Ressourcen können genaue Ermittlungsdaten vorgehalten werden.  
+ La découverte delta consomme moins de ressources qu’un cycle de découverte complète et peut identifier les ressources nouvelles ou modifiées dans Active Directory. Ainsi, vous pouvez réduire la fréquence des cycles de découverte complète à un par semaine (ou moins). La découverte delta de la découverte de systèmes Active Directory, de la découverte d’utilisateurs Active Directory et de la découverte de groupes Active Directory identifie presque toutes les modifications apportées aux objets Active Directory, et peut conserver des données de découverte exactes concernant les ressources.  
 
-- **Ausführen von Active Directory-Ermittlungsmethoden an einem primären Standort mit einem Netzwerkspeicherort, der über die geringste Entfernung zum Active Directory-Domänencontroller verfügt.**  
+- **Exécutez les méthodes de découverte Active Directory sur le site principal dont l’emplacement réseau est le plus proche de votre contrôleur de domaine Active Directory.**  
 
- Zur Verbesserung der Leistung einer Active Directory-Ermittlung wird empfohlen, die Ermittlung an einem primären Standort auszuführen, der über eine schnelle Netzwerkverbindung zu den Domänencontrollern verfügt. Wenn Sie die gleiche Active Directory-Ermittlungsmethode an mehreren Standorten ausführen, wird empfohlen, zum Vermeiden einer Überlappung jede Ermittlungsmethode separat zu konfigurieren. Im Gegensatz zu den vorherigen Versionen von Configuration Manager sind die Ermittlungsdaten für die Nutzung durch andere Standorte freigegeben. Daher ist es nicht erforderlich, an mehreren Standorten die gleichen Informationen zu ermitteln. Weitere Informationen finden Sie unter [Gemeinsame Nutzung von Ermittlungsdaten durch verschiedene Standorte](../../../../core/servers/deploy/configure/select-discovery-methods-to-use.md#bkmk_shared).  
+ Pour améliorer les performances de la découverte Active Directory, nous vous recommandons de l’exécuter sur un site principal connecté aux contrôleurs de domaine via une connexion réseau rapide. Si vous exécutez la même méthode de découverte Active Directory sur plusieurs sites, configurez chaque méthode de découverte pour éviter les chevauchements. Contrairement aux versions antérieures de Configuration Manager, les données de découverte sont partagées parmi les sites. Ainsi, il n’est pas nécessaire de procéder à la découverte des mêmes informations sur plusieurs sites. Pour plus d’informations, consultez [Les données de découverte sont partagées entre les sites](../../../../core/servers/deploy/configure/select-discovery-methods-to-use.md#bkmk_shared).  
 
-- **Ausführen der Active Directory-Gesamtstrukturermittlung an nur einem Standort, wenn Sie die automatische Erstellung von Grenzen aus den Ermittlungsdaten planen.**  
+- **Procédez à une découverte de forêts Active Directory sur un seul site quand vous envisagez de créer automatiquement des limites à partir des données de découverte.**  
 
- Wenn Sie die Active Directory-Gesamtstrukturermittlung in einer Hierarchie an mehr als einem Standort ausführen, wird empfohlen, Optionen zum automatischen Erstellen von Grenzen an nur einem einzelnen Standort zu aktivieren. Der Grund ist, dass Grenzen von Configuration Manager nicht zu einem einzelnen Grenzobjekt zusammengeführt werden können, wenn die Active Directory-Gesamtstrukturermittlung an jedem Standort ausgeführt wird und Grenzen erstellt werden. Wenn Sie die Active Directory-Gesamtstrukturermittlung so konfigurieren, dass Grenzen an mehreren Standorten automatisch erstellt werden, können sich in der Configuration Manager-Konsole doppelte Grenzobjekte ergeben.  
+ Si vous effectuez une découverte de forêts Active Directory sur plusieurs sites d’une hiérarchie, nous vous recommandons d’activer les options permettant de créer automatiquement des limites uniquement sur un site. En effet, lorsqu’une découverte de forêts Active Directory est réalisée sur chaque site et crée des limites, Configuration Manager ne peut pas fusionner ces limites en un objet de limite unique. Si vous configurez la découverte de forêts Active Directory de façon à ce qu’elle crée automatiquement des limites sur plusieurs sites, vous risquez de créer des objets de limite en double dans la console Configuration Manager.  
