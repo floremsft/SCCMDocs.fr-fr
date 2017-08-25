@@ -8,17 +8,14 @@ ms.date: 05/01/2017
 ms.topic: article
 ms.prod: configuration-manager
 ms.service: 
-ms.technology:
-- configmgr-client
+ms.technology: configmgr-client
 ms.assetid: e0ec7d66-1502-4b31-85bb-94996b1bc66f
+ms.openlocfilehash: 84b617b3e83636ab4578174ef40e786dcf1178cd
+ms.sourcegitcommit: 06aef618f72c700f8a716a43fb8eedf97c62a72b
 ms.translationtype: HT
-ms.sourcegitcommit: afe0ecc4230733fa76e41bf08df5ccfb221da7c8
-ms.openlocfilehash: df6e809aadd3d69275c137c92629ab8426bbdcb7
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/04/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/21/2017
 ---
-
 # <a name="set-up-cloud-management-gateway-for-configuration-manager"></a>Configurer la passerelle de gestion cloud pour Configuration Manager
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
@@ -26,6 +23,9 @@ ms.lasthandoff: 08/04/2017
 Depuis la version 1610, le processus de configuration de la passerelle de gestion cloud dans Configuration Manager comprend les étapes suivantes :
 
 ## <a name="step-1-configure-required-certificates"></a>Étape 1 : configurer les certificats requis
+
+> [!TIP]  
+> Avant de demander un certificat, vérifiez que le nom de domaine Azure souhaité (par exemple, GraniteFalls.CloudApp.Net) est unique. Pour cela, ouvrez une session sur le [Portail Microsoft Azure](https://manage.windowsazure.com), cliquez sur **Nouveau** et sélectionnez **Service cloud**, puis **Création personnalisée**. Dans le champ **URL**, tapez le nom de domaine de votre choix (ne cochez pas la case pour créer le service). Le portail indique si le nom de domaine est disponible ou déjà utilisé par un autre service.
 
 ## <a name="option-1-preferred---use-the-server-authentication-certificate-from-a-public-and-globally-trusted-certificate-provider-like-verisign"></a>Option 1 (recommandée) : utilisez le certificat d’authentification serveur provenant d’un fournisseur de certificats public et largement approuvé (comme VeriSign)
 
@@ -43,7 +43,6 @@ Par exemple, lors de la création de la passerelle de gestion cloud chez Contoso
 
 Vous pouvez créer un certificat SSL personnalisé pour la passerelle de gestion cloud de la même façon que vous le feriez pour un point de distribution cloud. Suivez les instructions pour le [déploiement du certificat de service pour les points de distribution cloud](/sccm/core/plan-design/network/example-deployment-of-pki-certificates), mais procédez différemment pour ce qui suit :
 
-- Lorsque vous configurez le nouveau modèle de certificat, accordez les autorisations **Lecture** et **Inscription** au groupe de sécurité que vous configurez pour les serveurs Configuration Manager.
 - Lors de la demande du certificat de serveur web personnalisé, donnez un nom de domaine complet au nom commun du certificat qui se termine par **cloudapp.net** pour utiliser la passerelle de gestion cloud sur le cloud public Azure ou par **usgovcloudapp.net** pour le cloud Secteur public Azure.
 
 
@@ -69,6 +68,9 @@ Le moyen le plus simple pour exporter la racine des certificats clients utilisé
 
 7.  Terminez l’Assistant Exportation de certificat en utilisant le format de certificat par défaut. Notez le nom et l’emplacement du certificat racine que vous créez. Vous en aurez besoin pour configurer la passerelle de gestion cloud dans une [étape ultérieure](#step-4-set-up-cloud-management-gateway).
 
+>[!NOTE]
+>Si le certificat client a été émis par une autorité de certification secondaire, vous devrez répéter cette étape pour chaque certificat de la chaîne.
+
 ## <a name="step-3-upload-the-management-certificate-to-azure"></a>Étape 3 : Charger le certificat de gestion dans Azure
 
 Un certificat de gestion Azure est nécessaire pour que Configuration Manager puisse accéder à l’API Azure et configurer la passerelle de gestion cloud. Pour plus d’informations et des instructions sur la manière de charger un certificat de gestion, consultez les articles suivants dans la documentation Azure :
@@ -80,74 +82,6 @@ Un certificat de gestion Azure est nécessaire pour que Configuration Manager pu
 >[!IMPORTANT]
 >Veillez à copier l’ID d’abonnement associé au certificat de gestion. Vous en aurez besoin pour configurer la passerelle de gestion cloud dans la console Configuration Manager à l’[étape suivante](#step-4-set-up-cloud-management-gateway).
 
-### <a name="subordinate-ca-certificates-and-azure"></a>Certificats d’autorité de certification subordonnée et Azure
-
-Si votre certificat est émis par une autorité de certification subordonnée et que votre infrastructure PKI d’entreprise n’est pas sur Internet, procédez comme suit pour charger le certificat sur Azure. 
-
-1. Dans votre portail Azure, après avoir configuré une passerelle de gestion cloud, recherchez le service de passerelle de gestion cloud et accédez à l’onglet **Certificat**. Chargez vos certificats d’autorité de certification subordonnée ici. Si vous avez plusieurs certificats d’autorité de certification subordonnée, vous devez les charger tous. 
-2. Une fois que le certificat est chargé, enregistrez son empreinte numérique. 
-3. Ajoutez l’empreinte numérique à la base de données de site à l’aide de ce script :
-    
-```
-
-    DIM serviceCName
-    DIM subCAThumbprints
-
-    ' Verify arguments
-    IF WScript.Arguments.Count <> 2 THEN
-    WScript.StdOut.WriteLine "Usage: CScript UpdateSubCAThumbprints.vbs <ServiceCName> <SubCA cert thumbprints, separated by ;>"
-    WScript.Quit 1
-    END IF
-
-    'Get arguments
-    serviceCName = WScript.Arguments.Item(0)
-    subCAThumbprints = WScript.Arguments.Item(1)
-
-    'Find SMS Provider
-    WScript.StdOut.WriteLine "Searching for SMS Provider for local site..."
-    SET objSMSNamespace = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\sms")
-    SET results = objSMSNamespace.ExecQuery("SELECT * From SMS_ProviderLocation WHERE ProviderForLocalSite = true")
-
-    'Process the results
-    FOR EACH var in results
-    siteCode = var.SiteCode
-    NEXT
-
-    IF siteCode = "" THEN
-    WScript.StdOut.WriteLine "Failed to locate SMS provider."
-    WScript.Quit 1
-    END IF
-
-    WScript.StdOut.WriteLine "SiteCode = " & siteCode 
-
-    ' Connect to the SMS namespace
-    SET objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\sms\site_" & siteCode)
-
-    'Get instance of SMS_AzureService
-    DIM query
-    query = "SELECT * From SMS_AzureService WHERE ServiceType = 'CloudProxyService' AND ServiceCName = '" & serviceCName & "'"
-    WScript.StdOut.WriteLine "Run WQL query: " &  query
-    SET objInstances = objWMIService.ExecQuery(query)
-
-    IF IsNull(objInstances) OR (objInstances.Count = 0) THEN
-    WScript.StdOut.WriteLine "Failed to get Azure_Service instance."
-    WScript.Quit 1
-    END IF
-
-    FOR EACH var IN objInstances
-    SET azService = var
-    NEXT
-
-    WScript.StdOut.WriteLine "Update [SubCACertThumbprint] to " & subCAThumbprints
-
-    'Update SubCA cert thumbprints
-    azService.Properties_.item("SubCACertThumbprint") = subCAThumbprints
-
-    'Save data back to provider
-    azService.Put_
-
-    WScript.StdOut.WriteLine "[SubCACertThumbprint] is updated successfully."
-```
 
 
 ## <a name="step-4-set-up-cloud-management-gateway"></a>Étape 4 : Configurer la passerelle de gestion cloud
@@ -173,7 +107,7 @@ Si votre certificat est émis par une autorité de certification subordonnée et
 
     - Spécifiez la clé privée (fichier .pfx) que vous avez exportée à partir du certificat SSL personnalisé.
 
-    - Spécifiez le certificat racine exporté à partir du certificat client.
+    - Spécifiez le certificat racine (et les éventuels certificats secondaires) exporté à partir du certificat client. L’Assistant accepte jusqu’à deux certificats racine et quatre certificats secondaires.
 
     -   Spécifiez le même nom de domaine complet de service que vous avez utilisé lorsque vous avez créé le nouveau modèle de certificat. Vous devez spécifier un des suffixes suivants pour le nom du service de nom de domaine complet, en fonction du cloud Azure que vous utilisez :
 
@@ -207,7 +141,7 @@ Le point de connexion de passerelle de gestion cloud est un nouveau rôle de sys
 
 ## <a name="step-7-configure-roles-for-cloud-management-gateway-traffic"></a>Étape 7 : Configurer des rôles pour le trafic de la passerelle de gestion cloud
 
-La dernière étape de la configuration de la passerelle de gestion cloud consiste à configurer les rôles de système de site pour qu’ils acceptent le trafic de la passerelle de gestion cloud. Pour la version d’évaluation technique 1606, seuls les rôles de point de gestion, de point de distribution et de point de mise à jour logicielle sont pris en charge pour la passerelle de gestion cloud. Vous devez configurer chaque rôle séparément.
+La dernière étape de la configuration de la passerelle de gestion cloud consiste à configurer les rôles de système de site pour qu’ils acceptent le trafic de la passerelle de gestion cloud. Seuls les rôles de point de gestion et de point de mise à jour logicielle sont pris en charge par la Passerelle de gestion cloud. Vous devez configurer chaque rôle séparément.
 
 1. Dans la console Configuration Manager, accédez à **Administration** > **Configuration du site** > **Serveurs et rôles de système de site**.
 
@@ -215,7 +149,7 @@ La dernière étape de la configuration de la passerelle de gestion cloud consis
 
 3. Choisissez le rôle puis **Propriétés**.
 
-4. Dans la feuille de propriétés du rôle, sous Connexions client, choisissez **HTTPS**, cochez la case à côté de **Autoriser le trafic de la passerelle de gestion cloud de Configuration Manager**, puis cliquez sur **OK**. Répétez ces étapes pour les autres rôles.
+4. Sur la feuille Propriétés du rôle, sous Connexions client, cochez la case à côté de **Autoriser le trafic de la Passerelle de gestion cloud Configuration Manager**, puis choisissez **OK**. Répétez ces étapes pour les autres rôles. Il est également recommandé d’activer l’option **HTTPS** pour des raisons de sécurité, mais ce n’est pas obligatoire.
 
 ## <a name="step-8-configure-clients-for-cloud-management-gateway"></a>Étape 8 : Configurer des clients pour la passerelle de gestion cloud
 
@@ -237,4 +171,3 @@ Cette commande affiche les points de gestion que le client peut contacter, notam
 ## <a name="next-steps"></a>Étapes suivantes
 
 [Surveiller les clients pour la passerelle de gestion cloud](monitor-clients-cloud-management-gateway.md)
-

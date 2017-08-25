@@ -6,8 +6,7 @@ ms.date: 6/5/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 828c31d1-3d70-4412-b1a8-c92e7e504d39
@@ -15,18 +14,15 @@ caps.latest.revision:
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7cd9c71287d62c9f5d36e2f032bc2a6065572ae
 ms.openlocfilehash: b5a1a1d165a6888bc26e809666d2331ff3c24d68
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/06/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/07/2017
 ---
-
 # <a name="unattended-site-recovery-for-configuration-manager"></a>Récupération de site sans assistance pour Configuration Manager   
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
- Pour effectuer une [récupération en mode sans assistance](/sccm/protect/understand/recover-sites#site-recovery-procedures) d'un site d'administration centrale Configuration Manager ou d'un site principal, vous pouvez créer un script d'installation sans assistance et utiliser le programme d'installation avec l'option de commande **/script**. Le script fournit le même type d'informations que les invites de l'Assistant Installation ; la seule différence est qu'il n'existe pas de paramètres par défaut. Toutes les valeurs doivent être indiquées pour les clés d'installation qui s'appliquent au type de récupération choisi.
+*S’applique à : System Center Configuration Manager (Current Branch)* Pour effectuer une [récupération sans assistance](/sccm/protect/understand/recover-sites#site-recovery-procedures) d’un site principal ou d’un site d’administration centrale Configuration Manager, vous pouvez créer un script d’installation sans assistance et utiliser le programme d’installation avec l’option de commande **/script**. Le script fournit le même type d'informations que les invites de l'Assistant Installation ; la seule différence est qu'il n'existe pas de paramètres par défaut. Toutes les valeurs doivent être indiquées pour les clés d'installation qui s'appliquent au type de récupération choisi.
 
  Pour utiliser l'option de ligne de commande d'installation /script, vous devez créer un fichier d'initialisation et en spécifier le nom après l'option de ligne de commande d'installation /script. Le nom du fichier n'a pas importance tant qu'il est suivi de l'extension de fichier **.ini**. Lorsque vous référencez le fichier d'initialisation d'installation à partir de la ligne de commande, vous devez fournir le chemin d'accès complet au fichier. Par exemple, si votre fichier d'initialisation d'installation s'appelle *setup.ini* et qu'il est stocké dans le *dossier C:\setup*, votre ligne de commande serait :
 
@@ -386,4 +382,3 @@ ms.lasthandoff: 06/06/2017
     -   **Obligatoire :** non
     -   **Valeurs :** &lt;*délai d’attente*>
     -   **Détails :** spécifie la valeur maximale du délai d’attente (en minutes) pour qu’un site principal se connecte au site d’administration centrale. Par exemple, si un site principal ne parvient pas à se connecter à un site d'administration centrale, le site principal essaie de nouveau d'établir une connexion selon la valeur de CASRetryInterval jusqu'à ce que le délai WaitForCASTimeout soit atteint. Vous pouvez spécifier une valeur de 0 à 100.
-

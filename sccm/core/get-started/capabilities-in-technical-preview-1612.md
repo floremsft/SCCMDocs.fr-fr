@@ -4,23 +4,21 @@ description: "Découvrez les fonctionnalités disponibles dans la version d’é
 ms.custom: na
 ms.date: 01/23/2017
 ms.prod: configuration-manager
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: bceab2e8-2f05-4a17-9ac8-a7a558670fb7
-caps.latest.revision: 5
+caps.latest.revision: "5"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
 ms.openlocfilehash: bcb14a2be312d4d8a4a9c235652c7bf971a7a976
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="capabilities-in-technical-preview-1612-for-system-center-configuration-manager"></a>Fonctionnalités de la version d’évaluation technique 1612 pour System Center Configuration Manager
 
@@ -52,11 +50,11 @@ Outre l’installation et la configuration de la base de données de l’entrep�
 
 | Étape         | Détails  |
 |:------:|-----------|  
-| **1**  |     Le serveur de site transfère et stocke les données dans la base de données de site.  |  
-| **2** |      En fonction de sa planification et de sa configuration, le point de service de l’entrepôt de données obtient des données de la base de données de site.  |  
+| **1**  |  Le serveur de site transfère et stocke les données dans la base de données de site.  |  
+| **2** |   En fonction de sa planification et de sa configuration, le point de service de l’entrepôt de données obtient des données de la base de données de site.  |  
 | **3** |  Le point de service de l’entrepôt de données transfère et stocke une copie des données synchronisées dans la base de données de l’entrepôt de données. |  
 | **A** |  À l’aide de rapports intégrés, une demande de données est effectuée et transmise au point de Reporting Services à l’aide de SQL Server Reporting Services. |  
-| **B** |      La plupart des rapports concernent des informations actuelles et ces demandes sont exécutées sur la base de données de site. |  
+| **B** |   La plupart des rapports concernent des informations actuelles et ces demandes sont exécutées sur la base de données de site. |  
 | **C** | Quand un rapport demande des données d’historique, à l’aide de l’un des rapports avec la *Catégorie* **Entrepôt de données**, la demande est exécutée sur la base de données de l’entrepôt de données.   |  
 
 ### <a name="prerequisites-for-the-data-warehouse-service-point-and-database"></a>Conditions préalables pour le point de service de l’entrepôt de données et la base de données
@@ -87,12 +85,12 @@ Page **Général** : Les informations générales suivantes sont requises :
 - **Paramètres de base de données Configuration Manager :**   
   - **Nom du serveur** : spécifiez le nom de domaine complet du serveur qui héberge la base de données de site. Si vous n’utilisez pas une instance par défaut de SQL Server, vous devez spécifier l’instance après le nom de domaine complet au format suivant : ***&lt;nom-domaine-complet_SQLServer>\&lt;nom_instance>***
   - **Nom de la base de données** : spécifiez le nom de la base de données de site.
-  -    **Vérifier** : cliquez sur **Vérifier** pour vous assurer que la connexion à la base de données de site est établie.
+  - **Vérifier** : cliquez sur **Vérifier** pour vous assurer que la connexion à la base de données de site est établie.
 </br></br>
 - **Paramètres de base de données de l’entrepôt de données :**
-  -    **Nom du serveur** : spécifiez le nom de domaine complet du serveur qui héberge le point de service de l’entrepôt de données et la base de données. Si vous n’utilisez pas une instance par défaut de SQL Server, vous devez spécifier l’instance après le nom de domaine complet au format suivant : ***&lt;nom-domaine-complet_SQLServer>\&lt;nom_instance>***
-  -    **Nom de la base de données** : spécifiez le nom de domaine complet de la base de données de l’entrepôt de données.  Configuration Manager va créer la base de données avec ce nom. Si vous spécifiez un nom de base de données qui existe déjà sur l’instance de SQL Server, Configuration Manager utilise cette base de données.
-  -    **Vérifier** : cliquez sur **Vérifier** pour vous assurer que la connexion à la base de données de site est établie.
+  - **Nom du serveur** : spécifiez le nom de domaine complet du serveur qui héberge le point de service de l’entrepôt de données et la base de données. Si vous n’utilisez pas une instance par défaut de SQL Server, vous devez spécifier l’instance après le nom de domaine complet au format suivant : ***&lt;nom-domaine-complet_SQLServer>\&lt;nom_instance>***
+  - **Nom de la base de données** : spécifiez le nom de domaine complet de la base de données de l’entrepôt de données.  Configuration Manager va créer la base de données avec ce nom. Si vous spécifiez un nom de base de données qui existe déjà sur l’instance de SQL Server, Configuration Manager utilise cette base de données.
+  - **Vérifier** : cliquez sur **Vérifier** pour vous assurer que la connexion à la base de données de site est établie.
 
 Page **Paramètres de synchronisation** :   
 - **Paramètres des données :**
@@ -109,7 +107,7 @@ Une fois le rôle d’entrepôt de données installé, vérifiez que le compte q
 #### <a name="troubleshoot-installation-and-data-synchronization"></a>Résoudre les problèmes d’installation et de synchronisation des données
 Utilisez les journaux suivants pour examiner les problèmes d’installation du point de service de l’entrepôt de données ou de synchronisation des données :
 - **DWSSMSI.log** et **DWSSSetup.log** : utilisez ces journaux pour examiner les erreurs lors de l’installation du point de service de l’entrepôt de données.
--     **Microsoft.ConfigMgrDataWarehouse.log** : utilisez ce journal pour examiner la synchronisation des données entre la base de données de site et la base de données de l’entrepôt de données.
+-   **Microsoft.ConfigMgrDataWarehouse.log** : utilisez ce journal pour examiner la synchronisation des données entre la base de données de site et la base de données de l’entrepôt de données.
 
 ### <a name="reporting"></a>Rapports
 Après avoir installé un rôle de système de site de l’entrepôt de données, les rapports suivants sont disponibles sur votre point de Reporting Services avec la *Catégorie* **Entrepôt de données** :
@@ -122,7 +120,7 @@ Après avoir installé un rôle de système de site de l’entrepôt de données
 | **Rapport sur l’inventaire logiciel général**  | Affiche tout l’inventaire logiciel pour un ordinateur spécifique.|
 | **Vue d’ensemble de l’intégrité de l’infrastructure**  |Affiche une vue d’ensemble de l’intégrité de votre infrastructure Configuration Manager.|
 | **Liste des programmes malveillants détectés**  |Affiche les programmes malveillants qui ont été détectés dans l’organisation.|
-|**Rapport sur la synthèse de distribution de logiciels** | Synthèse de la distribution de logiciels pour une publication et un ordinateur spécifiques.|
+|**Rapport de synthèse sur la distribution de logiciels** | Synthèse de la distribution de logiciels pour une publication et un ordinateur spécifiques.|
 
 ### <a name="move-the-data-warehouse-database"></a>Déplacer la base de données de l’entrepôt de données
 Procédez comme suit pour déplacer la base de données de l’entrepôt de données vers un nouveau serveur SQL Server :
@@ -145,7 +143,7 @@ Procédez comme suit pour déplacer la base de données de l’entrepôt de donn
 
 Vous pouvez consulter les journaux de Configuration Manager suivants pour vérifier que le rôle de système de site a été correctement réinstallé :  
 - **DWSSMSI.log** et **DWSSSetup.log** : utilisez ces journaux pour examiner les erreurs lors de l’installation du point de service de l’entrepôt de données.
--     **Microsoft.ConfigMgrDataWarehouse.log** : utilisez ce journal pour examiner la synchronisation des données entre la base de données de site et la base de données de l’entrepôt de données.
+-   **Microsoft.ConfigMgrDataWarehouse.log** : utilisez ce journal pour examiner la synchronisation des données entre la base de données de site et la base de données de l’entrepôt de données.
 
 
 ## <a name="content-library-cleanup-tool"></a>Outil de nettoyage de la bibliothèque de contenu
@@ -175,7 +173,7 @@ L’outil peut être exécuté dans deux modes :
   2. **Mode de suppression** : Quand vous exécutez l’outil avec le commutateur **/delete**, l’outil s’exécute en mode de suppression.
 
      - Quand l’outil s’exécute dans ce mode, le contenu orphelin qui se trouve sur le point de distribution spécifié peut être supprimé à partir de la bibliothèque de contenu du point de distribution.
-     -     Avant de supprimer chaque fichier, l’utilisateur est invité à confirmer que le fichier doit être supprimé.  Vous pouvez sélectionner **Y** pour oui, **N** pour non, ou **Oui pour tout** pour ignorer les autres invites et supprimer tout le contenu orphelin.  
+     -  Avant de supprimer chaque fichier, l’utilisateur est invité à confirmer que le fichier doit être supprimé.  Vous pouvez sélectionner **Y** pour oui, **N** pour non, ou **Oui pour tout** pour ignorer les autres invites et supprimer tout le contenu orphelin.  
      </br>
 
      Nous vous recommandons d’exécuter l’outil en mode de simulation et de consulter le fichier journal obtenu avant d’exécuter l’outil avec le commutateur /delete.  
@@ -224,9 +222,9 @@ Vous pouvez maintenant configurer une liste de fichiers exécutables (portant l�
 
 ### <a name="try-it-out"></a>Essayez
 Pour configurer une liste de fichiers exécutables
-1.    Dans la page de propriétés de tout type de déploiement, cliquez sur l’onglet **Installer Handling** (Gestion du programme d’installation).
-2.    Cliquez sur **Ajouter** pour ajouter un ou plusieurs fichiers exécutables à la liste (par exemple, **Edge.exe**)
-3.    Cliquez sur **OK** pour fermer la boîte de dialogue des propriétés de type de déploiement.
+1.  Dans la page de propriétés de tout type de déploiement, cliquez sur l’onglet **Installer Handling** (Gestion du programme d’installation).
+2.  Cliquez sur **Ajouter** pour ajouter un ou plusieurs fichiers exécutables à la liste (par exemple, **Edge.exe**)
+3.  Cliquez sur **OK** pour fermer la boîte de dialogue des propriétés de type de déploiement.
 
 À présent, quand vous déployez cette application sur un utilisateur ou un appareil et que l’un des fichiers exécutables que vous avez ajoutés est en cours d’exécution, une boîte de dialogue Centre logiciel indique à l’utilisateur final que l’installation a échoué, car une application est en cours d’exécution.
 
@@ -256,16 +254,16 @@ Nous avons ajouté la prise en charge des fichiers d’installation rapide dans 
 
 ### <a name="to-enable-the-download-of-express-installation-files-for-windows-10-updates-on-the-server"></a>Pour activer le téléchargement des fichiers d’installation rapide pour les mises à jour de Windows 10 sur le serveur
 Pour démarrer la synchronisation des métadonnées pour les fichiers d’installation rapide Windows 10, vous devez l’activer dans les propriétés du point de mise à jour logicielle.
-1.    Dans la console Configuration Manager, accédez à **Administration** > **Configuration du site** > **Sites**.
-2.    Sélectionnez le site d’administration centrale ou le site principal autonome.
-3.    Sur l'onglet **Accueil** dans le groupe **Paramètres** , cliquez sur **Configurer les composants de site**, puis cliquez sur **Point de mise à jour logicielle**. Sous l’onglet **Fichiers de mise à jour**, sélectionnez **Download full files for all approved updates and express installation files for Windows 10** (Télécharger des fichiers complets pour toutes les mises à jour approuvées et les fichiers d’installation rapide pour Windows 10).
+1.  Dans la console Configuration Manager, accédez à **Administration** > **Configuration du site** > **Sites**.
+2.  Sélectionnez le site d’administration centrale ou le site principal autonome.
+3.  Sur l'onglet **Accueil** dans le groupe **Paramètres** , cliquez sur **Configurer les composants de site**, puis cliquez sur **Point de mise à jour logicielle**. Sous l’onglet **Fichiers de mise à jour**, sélectionnez **Télécharger les fichiers complets de toutes les mises à jour approuvées et les fichiers d’installation rapide pour Windows 10**.
 
 ### <a name="to-enable-support-for-clients-to-download-and-install-express-installation-files"></a>Pour activer la prise en charge des clients pour télécharger et installer les fichiers d’installation rapide
 Pour activer la prise en charge des fichiers d’installation rapide sur les clients, vous devez activer les fichiers d’installation rapide sur les clients dans la section Mises à jour logicielles des paramètres du client. Vous créez ainsi un écouteur HTTP qui écoute les demandes de téléchargement des fichiers d’installation rapide sur le port que vous spécifiez. Quand vous déployez les paramètres du client pour activer cette fonctionnalité sur le client, ils tentent de télécharger le delta entre la mise à jour cumulative de Windows 10 du mois en cours et la mise à jour du mois précédent (les clients doivent exécuter une version de Windows 10 qui prend en charge les fichiers d’installation rapide).
-1.    Activez la prise en charge des fichiers d’installation rapide dans les propriétés du composant du point de mise à jour logicielle (procédure précédente).
-2.    Dans la console Configuration Manager, accédez à **Administration** > **Paramètres du client**.
-3.    Sélectionnez les paramètres du client appropriés, puis cliquez sur **Propriétés** sous l’onglet **Accueil**.
-4.    Sélectionnez la page **Mises à jour logicielles**, configurez **Oui** pour le paramètre **Enable installation of Express Updates on clients** (Activer l’installation des mises à jour rapides sur les clients) et configurez le port utilisé par l’écouteur HTTP sur le client pour le paramètre **Port used to download content for Express Updates** (Port utilisé pour télécharger le contenu des mises à jour rapides).
+1.  Activez la prise en charge des fichiers d’installation rapide dans les propriétés du composant du point de mise à jour logicielle (procédure précédente).
+2.  Dans la console Configuration Manager, accédez à **Administration** > **Paramètres du client**.
+3.  Sélectionnez les paramètres du client appropriés, puis cliquez sur **Propriétés** sous l’onglet **Accueil**.
+4.  Sélectionnez la page **Mises à jour logicielles** , configurez **Oui** pour le paramètre **Enable installation of Express Updates on clients** (Activer l’installation des mises à jour rapides sur les clients) et configurez le port utilisé par l’écouteur HTTP sur le client pour le paramètre **Port used to download content for Express Updates** (Port utilisé pour télécharger le contenu des mises à jour rapides).
 
 
 ## <a name="odata-endpoint-data-access"></a>Accès aux données de point de terminaison OData
@@ -322,4 +320,3 @@ Après avoir apporté ces modifications à la configuration, vous pouvez créer 
 ## <a name="change-to-configuring-multi-factor-authentication-for-device-enrollment"></a>Modification de la configuration de l’authentification multifacteur pour l’inscription d’appareils
 
 Maintenant que vous pouvez configurer l’authentification multifacteur pour l’inscription d’appareils dans le portail Azure, cette option a été supprimée de la console Configuration Manager. Vous trouverez d’autres informations sur la configuration de l’authentification multifacteur pour l’inscription [dans cette rubrique Microsoft Intune](https://docs.microsoft.com/en-us/intune/deploy-use/multi-factor-authentication-azure-active-directory).
-

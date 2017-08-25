@@ -6,22 +6,19 @@ ms.date: 02/14/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e3aaa9d2-a40e-42b1-ad75-5a115351729e
-caps.latest.revision: 15
+caps.latest.revision: "15"
 author: NathBarn
 ms.author: nathbarn
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 017bd5b899b364fc832c721d63cc7dbad0a11671
 ms.openlocfilehash: b88bc5f734b85527b81e5848deb0617db4c8dfbc
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="endpoint-protection-client-frequently-asked-questions"></a>Forum aux questions sur le client Endpoint Protection
 
@@ -65,7 +62,7 @@ Ce forum aux questions est destiné aux utilisateurs dont l’administrateur inf
     |Surveiller l’activité des programmes et des fichiers sur votre ordinateur|Cette option surveille le démarrage de l’exécution des fichiers ou programmes sur votre ordinateur, et vous avertit des actions effectuées par ou sur ces fichiers et programmes. Ceci est important, car les logiciels malveillants peuvent exploiter les vulnérabilités des programmes que vous avez installés pour exécuter à votre insu des logiciels malveillants ou indésirables. Par exemple, un logiciel espion peut s’exécuter lui-même en arrière-plan quand vous démarrez un programme que vous utilisez fréquemment. Windows Defender surveille vos programmes et vous avertit s’il détecte une activité suspecte.|  
     |Activer la surveillance du comportement|Cette option surveille les ensembles de comportements de types suspects qui peuvent ne pas être détectés par les méthodes de détection antivirus traditionnelles.|  
 
-    |Activer le système d’inspection du réseau|Cette option permet de protéger votre ordinateur contre les attaques « zero-day » de vulnérabilités connues, en réduisant le délai entre la découverte d’une vulnérabilité et l’application d’une mise à jour.|  
+    |Activer le système d’inspection du réseau|Cette option permet de protéger votre ordinateur contre les attaques « zero day » sur des vulnérabilités connues, en réduisant le délai entre la découverte d’une vulnérabilité et l’application d’une mise à jour.|  
 
 -   **Options d’analyse** : vous pouvez utiliser Windows Defender pour rechercher les menaces potentielles, notamment des virus, des logiciels espions et d’autres logiciels malveillants susceptibles de mettre votre ordinateur en danger. Il vous permet également de planifier des analyses régulières et de supprimer les logiciels malveillants qu'il détecte au cours d'une analyse.  
 
@@ -221,7 +218,7 @@ Pour supprimer rapidement et facilement tous les éléments indésirables ou pot
 |Analyser tous les téléchargements|Cette option surveille les fichiers et programmes qui sont téléchargés, y compris les fichiers qui sont téléchargés automatiquement via Windows Internet Explorer et Microsoft Outlook® Express, comme les contrôles ActiveX® et les programmes d’installation de logiciel. Ces fichiers peuvent être téléchargés, installés ou exécutés par le navigateur lui-même. Des logiciels malveillants, notamment des virus, des logiciels espions et des autres logiciels potentiellement indésirables, peuvent être inclus dans ces fichiers et installés à votre insu.<br /><br /> Avec l’option de protection en temps réel, Windows Defender surveille votre ordinateur en permanence, et recherche les fichiers ou les programmes malveillants que vous pourriez avoir téléchargés. Cette fonctionnalité de surveillance signifie que Windows Defender n’a pas besoin de ralentir votre navigation ou votre utilisation de la messagerie électronique en imposant une vérification des fichiers ou des programmes que vous voulez télécharger.|  
 |Surveiller l'activité des programmes et des fichiers sur votre ordinateur|Cette option surveille le démarrage de l’exécution des fichiers ou des programmes, puis vous avertit des actions qu’ils effectuent et des actions entreprises sur ces fichiers et programmes. Ceci est important, car les logiciels malveillants peuvent exploiter les vulnérabilités des programmes que vous avez installés pour exécuter à votre insu des logiciels malveillants ou indésirables. Par exemple, un logiciel espion peut s’exécuter lui-même en arrière-plan quand vous démarrez un programme que vous utilisez fréquemment. Windows Defender surveille vos programmes et vous avertit s’il détecte une activité suspecte.|  
 |Activer l'analyse du comportement|Cette option surveille les ensembles de comportements de types suspects qui peuvent ne pas être détectés par les méthodes de détection antivirus traditionnelles.|  
-|Activer le système NIS (Network Inspection System)|Cette option permet de protéger votre ordinateur contre les attaques « zero-day » de vulnérabilités connues, en réduisant le délai entre la découverte d’une vulnérabilité et l’application d’une mise à jour.|  
+|Activer le système NIS (Network Inspection System)|Cette option permet de protéger votre ordinateur contre les attaques « zero day » sur des vulnérabilités connues, en réduisant le délai entre la découverte d’une vulnérabilité et l’application d’une mise à jour.|  
 
 ### <a name="to-turn-off-real-time-protection"></a>Pour désactiver la protection en temps réel  
 
@@ -265,4 +262,3 @@ Pour supprimer rapidement et facilement tous les éléments indésirables ou pot
  [Résolution des problèmes liés au client Windows Defender ou Endpoint Protection](troubleshoot-endpoint-client.md)   
 
  [Aide du client Endpoint Protection](endpoint-protection-client-help.md)
-

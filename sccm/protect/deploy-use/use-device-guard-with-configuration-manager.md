@@ -6,25 +6,21 @@ ms.date: 07/31/2017
 ms.prod: configuration-manager
 ms.reviewer: dudeso
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 5e5d854c-9cc1-4dd8-b33f-0fcac675b395
-caps.latest.revision: 13
-caps.handback.revision: 0
+caps.latest.revision: "13"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
+ms.openlocfilehash: 3921748d3c99c2a35b670f3ca121dc7ab92d43bc
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.sourcegitcommit: 3c75c1647954d6507f9e28495810ef8c55e42cda
-ms.openlocfilehash: 4bb1f4a068563a5fe6f384708e10269dcd3229da
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/29/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/07/2017
 ---
-
-
 # <a name="device-guard-management-with-configuration-manager"></a>Gestion de Device Guard avec Configuration Manager
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
@@ -97,6 +93,9 @@ Quand vous ajoutez une approbation pour des fichiers ou des dossiers spécifique
     - Approuver des applications qui sont incluses dans une image de déploiement de système d’exploitation. 
 7.  Cliquez sur **Suivant**, puis fermez l’Assistant.
 
+>[!IMPORTANT]
+>L’inclusion de fichiers ou de dossiers approuvés n’est prise en charge que sur les PC clients équipés de la version 1706 ou d’une version ultérieure du client Gestionnaire de configuration. Si toutes les règles d’inclusion sont comprises dans une stratégie Device Guard et que celle-ci est ensuite déployée sur un PC client équipé d’une version antérieure du client Gestionnaire de configuration, elle ne sera pas appliquée. Pour résoudre ce problème, il suffit de mettre à niveau ces anciennes versions de clients. Les stratégies qui ne comprennent aucune règle d’inclusion peuvent toujours être appliquées sur des versions antérieures du client Gestionnaire de configuration.
+
 ## <a name="how-to-deploy-a-device-guard-policy"></a>Déployer une stratégie Device Guard
 1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.
 2.  Dans l’espace de travail **Ressources et Conformité** , développez **Endpoint Protection**, puis cliquez sur **Stratégies de protection des appareils**.
@@ -130,7 +129,6 @@ Dans ce cas, le logiciel peut continuer à être autorisé à s’exécuter mêm
 - Quand vous utilisez Configuration Manager pour activer l’intégrité du code configurable sur les PC clients avec des stratégies Device Guard, la stratégie n’empêche pas les utilisateurs disposant de droits d’administrateur local de contourner la stratégie Device Guard ou d’exécuter des logiciels non autorisés. 
 - La seule façon d’empêcher les utilisateurs dotés de droits d’administrateur local de désactiver l’intégrité du code configurable consiste à déployer une stratégie binaire signée. Ce déploiement est possible par le biais de la stratégie de groupe, mais il n’est pas pris en charge dans Configuration Manager pour le moment.
 - Le paramétrage de Configuration Manager en tant que programme d’installation managé sur les PC clients utilise la stratégie AppLocker. AppLocker est utilisé uniquement pour identifier les programmes d’installation managés et la mise en conformité se produit avec l’intégrité du code configurable. 
-
 
 
 

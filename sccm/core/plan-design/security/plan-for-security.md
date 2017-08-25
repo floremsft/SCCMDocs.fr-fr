@@ -6,23 +6,20 @@ ms.date: 01/04/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2a216814-ca8c-4d2e-bcef-dc00966a3c9f
-caps.latest.revision: 6
-caps.handback.revision: 0
+caps.latest.revision: "6"
+caps.handback.revision: "0"
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: af06fb10d905e3fe447c6cd6ed35dac10488161f
-ms.openlocfilehash: 1bf519ad4593f6a08d7dc393f9fab91c70b51b25
-ms.contentlocale: fr-fr
-ms.lasthandoff: 01/05/2017
-
-
+ms.openlocfilehash: 6145cb69c69dba1eb1b9842079ee1a33686bb18a
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="plan-for-security-in-system-center-configuration-manager"></a>Planifier la sécurité dans System Center Configuration Manager
 
@@ -292,9 +289,9 @@ Vous pouvez supprimer la clé racine approuvée d’un client en utilisant la pr
 
 7.  Dans la boîte de dialogue **Éditeur d’objets pour TrustedRootKey**, choisissez **Instances**.  
 
-8.  Dans la nouvelle fenêtre **Résultats d’interrogation** qui affiche les instances de **TrustedRootKey**, double-cliquez sur **TrustedRootKey=@**.  
+8.  Dans la nouvelle fenêtre **Résultat de la requête**, qui affiche les instances de **TrustedRootKey**, double-cliquez sur **TrustedRootKey=@**.  
 
-9. Dans la boîte de dialogue **Éditeur d’objets pour TrustedRootKey=@**, dans la section **Propriétés**, accédez à **TrustedRootKey CIM_STRING**. La chaîne dans la colonne droite correspond à la clé racine approuvée. Vérifiez qu’elle correspond à la valeur **SMSPublicRootKey** dans le fichier, *&lt;répertoire_Configuration_Manager\>***\bin\mobileclient.tcf**.  
+9. Dans la boîte de dialogue **Éditeur d'objets pour TrustedRootKey=@** , dans la section **Propriétés** , accédez à **TrustedRootKey CIM_STRING**. La chaîne dans la colonne droite correspond à la clé racine approuvée. Vérifiez qu’elle correspond à la valeur **SMSPublicRootKey** dans le fichier, *&lt;répertoire_Configuration_Manager\>***\bin\mobileclient.tcf**.  
 
 ##  <a name="BKMK_PlanningForSigningEncryption"></a> Planifier la signature et le chiffrement  
  Lorsque vous utilisez des certificats PKI pour toutes les communications client, vous n'avez pas à planifier la signature et le chiffrement pour contribuer à sécuriser les communications de données client. Toutefois, si vous installez des systèmes de site qui exécutent IIS pour autoriser les connexions client HTTP, vous devez décider comment sécuriser la communication client pour le site.  
@@ -310,4 +307,3 @@ Vous pouvez supprimer la clé racine approuvée d’un client en utilisant la pr
 
 ### <a name="see-also"></a>Voir aussi
 [Informations techniques de référence sur les contrôles de chiffrement pour System Center Configuration Manager](../../../protect/deploy-use/cryptographic-controls-technical-reference.md).  
-

@@ -6,23 +6,20 @@ ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 49cec466-1676-4fe2-a2fe-5004f01d735e
-caps.latest.revision: 11
-caps.handback.revision: 0
+caps.latest.revision: "11"
+caps.handback.revision: "0"
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c723fe7137a95df271c3612c88805efd8fb9a77
-ms.openlocfilehash: 58a82b29743cb37a5d358f020cf11b91d6f6f42e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/06/2017
-
-
+ms.openlocfilehash: c564c1fc25c5156a2d9ddfa1b4123024c658bf61
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="manage-sharepoint-online-access-in-system-center-configuration-manager"></a>Gérer l’accès à SharePoint Online dans System Center Configuration Manager
 
@@ -166,7 +163,7 @@ Les applications de bureau Office peuvent accéder à SharePoint Online sur les 
 
 4.  Sous **Accès du navigateur à SharePoint et à OneDrive Entreprise**, vous pouvez choisir d’autoriser l’accès à Exchange Online uniquement par le biais des navigateurs pris en charge : Safari (iOS) et Chrome (Android). L’accès à partir d’autres navigateurs sera bloqué.  Les mêmes restrictions de plateforme que celles que vous avez sélectionnées pour l’accès aux applications pour OneDrive s’appliquent également ici.
 
-    Sur les appareils **Android** , les utilisateurs doivent activer l’accès du navigateur.  Pour cela, l’utilisateur final doit activer l’option « Activer l’accès du navigateur » sur l’appareil inscrit, comme suit :
+    Sur les appareils **Android** , les utilisateurs doivent activer l’accès du navigateur.  Pour cela, l’utilisateur final doit activer l’option « Activer l’accès du navigateur » sur l’appareil inscrit :
     1.  Lancez **l’application Portail d’entreprise**.
     2.  Accédez à la page **Paramètres** via les trois points (...) ou le bouton de menu matériel.
     3.  Appuyez sur le bouton **Activer l’accès du navigateur** .
@@ -203,4 +200,3 @@ Les applications de bureau Office peuvent accéder à SharePoint Online sur les 
 ### <a name="see-also"></a>Voir aussi  
 
  [Gérer l’accès aux services dans System Center Configuration Manager](../../protect/deploy-use/manage-access-to-services.md)
-

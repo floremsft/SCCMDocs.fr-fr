@@ -2,10 +2,9 @@
 title: Technical Preview 1707 | Microsoft Docs
 description: "Découvrez les fonctionnalités disponibles dans la version Technical Preview 1707 de System Center Configuration Manager."
 ms.custom: na
-ms.date: 07/28/2017
+ms.date: 08/14/2017
 ms.prod: configuration-manager
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -14,18 +13,17 @@ ms.assetid: cb405ba0-8792-4ab7-988b-2f835f3a9550
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
+ms.openlocfilehash: 7ee2fd78c6c502394016ba077d42714041ad01c6
+ms.sourcegitcommit: 10f17229c5a359f040cb7f8f5e7bd868a34ac086
 ms.translationtype: HT
-ms.sourcegitcommit: 6e890862fd02786b675e2b7abaca7ede7c0e977a
-ms.openlocfilehash: 91fd850f055a7e892a54487307109a291e336696
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/15/2017
 ---
 # <a name="capabilities-in-technical-preview-1707-for-system-center-configuration-manager"></a>Fonctionnalités de la version Technical Preview 1707 de System Center Configuration Manager
 
 *S’applique à : System Center Configuration Manager (Technical Preview)*
 
-Cet article présente les fonctionnalités qui sont disponibles dans la version Technical Preview 1707 de System Center Configuration Manager. Vous pouvez installer cette version pour mettre à jour et ajouter de nouvelles fonctionnalités à votre site Configuration Manager Technical Preview. Avant d’installer cette versionTechnical Preview, passez en revue [Technical Preview de System Center Configuration Manager](../../core/get-started/technical-preview.md) pour vous familiariser avec les conditions générales et les limitations d’utilisation d’une version Technical Preview, la mise à jour entre les versions et l’envoi de commentaires sur les fonctionnalités d’une version Technical Preview.     
+Cet article présente les fonctionnalités qui sont disponibles dans la version Technical Preview 1707 de System Center Configuration Manager. Vous pouvez installer cette version pour mettre à jour et ajouter de nouvelles fonctionnalités à votre site Configuration Manager Technical Preview. Avant d’installer cette version Technical Preview, passez en revue [Technical Preview pour System Center Configuration Manager](../../core/get-started/technical-preview.md) pour vous familiariser avec les conditions générales et les limitations d’utilisation d’une version Technical Preview, la mise à jour entre les versions et l’envoi de commentaires sur les fonctionnalités d’une version Technical Preview.     
 
 
 <!--  Known Issues Template   
@@ -33,6 +31,17 @@ Cet article présente les fonctionnalités qui sont disponibles dans la version 
 -   **Issue Name**. Details
     Workaround details.
 -->
+
+**Problèmes connus dans cette version Technical Preview :**
+-   **La mise à jour vers la préversion 1707 échoue s’il existe un serveur de site en mode passif**. Si vous exécutez la préversion 1706 et que vous avez un [serveur de site principal en mode passif](/sccm/core/get-started/capabilities-in-technical-preview-1706#site-server-role-high-availability), vous devez le désinstaller pour pouvoir mettre à jour votre site de la préversion vers la version 1707. Vous pourrez réinstaller le serveur de site en mode passif lorsque votre site sera passé à la version 1707.
+
+  Pour désinstaller le serveur de site en mode passif :
+  1. Dans la console, accédez à **Administration** > **Vue d’ensemble** > **Configuration du site** > **Serveurs et rôles de système de site**, puis sélectionnez le serveur de site en mode passif.
+  2. Dans le volet **Rôles de système de site**, cliquez avec le bouton droit sur le rôle **Serveur de site**, puis choisissez **Supprimer le rôle**.
+  3. Cliquez avec le bouton droit sur le serveur de site en mode passif, puis choisissez **Supprimer**.
+  4. Après la désinstallation du serveur de site, redémarrez le service **CONFIGURATION_MANAGER_UPDATE** sur le serveur de site principal actif.
+
+
 
 **Vous trouverez ci-dessous les nouvelles fonctionnalités propres à cette version.**  
 
@@ -89,13 +98,13 @@ Pour en savoir plus sur Windows Defender Application Guard, consultez [ce billet
 
 Dans la dernière version Technical Preview, nous avons introduit une nouvelle fonctionnalité qui vous permet de [créer et exécuter des scripts PowerShell à partir de la console Configuration Manager](/sccm/core/get-started/capabilities-in-technical-preview-1706#create-and-run-powershell-scripts-from-the-configuration-manager-console).
 Dans cette version, nous avons étendu cette fonctionnalité. Maintenant, Configuration Manager lit le script PowerShell et affiche tous les paramètres dans l’Assistant Création d’un script. Vous pouvez fournir une valeur pour le paramètre de l’Assistant qui sera utilisée lors de l’exécution du script. Vous pouvez également laisser le paramètre vide. Dans ce cas, vous devrez fournir une valeur pour le paramètre lorsque vous exécuterez le script.
+Dans cette préversion technique, vous devez fournir tous les paramètres requis par le script. Nous prévoyons de rendre les paramètres de script facultatifs dans une version ultérieure.
 
 ### <a name="try-it-out"></a>Essayez !
 
-1. Suivez les instructions dans [Créer et exécuter des scripts PowerShell à partir de la console Configuration Manager](/sccm/core/get-started/capabilities-in-technical-preview-1706#create-and-run-powershell-scripts-from-the-configuration-manager-console). 
+1. Suivez les instructions dans [Créer et exécuter des scripts PowerShell à partir de la console Configuration Manager](/sccm/core/get-started/capabilities-in-technical-preview-1706#create-and-run-powershell-scripts-from-the-configuration-manager-console).
 2. Sur la nouvelle page **Paramètres du script** de l’**Assistant Création d’un script**, choisissez un paramètre et cliquez sur **Modifier**.
 3. Fournissez une valeur de paramètre pour le paramètre sélectionné, puis cliquez sur **OK**.
 4. Effectuez toutes les étapes de l'Assistant.
 
 Lorsque le script s’exécute, il utilise les valeurs de paramètre que vous avez définies.
-

@@ -2,32 +2,29 @@
 title: "Inscrire des appareils avec un gestionnaire d’inscription des appareils - Configuration Manager | Microsoft Docs"
 description: "Inscrivez les appareils d’entreprise avec le compte du gestionnaire d’inscription d’appareil à l’aide de System Center Configuration Manager."
 ms.custom: na
-ms.date: 03/24/2017
+ms.date: 08/15/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2905f26e-7859-497d-b995-5ff48261efa2
-caps.latest.revision: 8
+caps.latest.revision: "8"
 author: nathbarn
 ms.author: nathbarn
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7573590763c68a4c97d388be1e64054c318da9cc
-ms.openlocfilehash: 8c491636925670732e6af67d8c1c741e4793ef96
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
-
+ms.openlocfilehash: c90ecca1ee46523d16fc1cf11495e40707631e03
+ms.sourcegitcommit: db7b7ec347638efd05cdba474e8a8f8535516116
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/16/2017
 ---
 # <a name="enroll-devices-with-device-enrollment-manager-with-configuration-manager"></a>Inscrire des appareils avec un gestionnaire d’inscription d’appareil à l’aide de Configuration Manager
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
-Les organisations peuvent utiliser Intune pour gérer un grand nombre d'appareils mobiles avec un seul compte d'utilisateur. Le compte *Gestionnaire d’inscription d’appareil* (DEM) est un compte d’utilisateur spécial qui permet d’inscrire jusqu’à 1 000 appareils. Vous ajoutez des utilisateurs existants au compte DEM afin de leur accorder des fonctionnalités DEM spéciales. Chaque appareil inscrit utilise une licence unique. Nous vous recommandons d’utiliser les appareils inscrits via ce compte en tant qu’appareils partagés sans affinité utilisateur plutôt qu’en tant qu’appareils personnels et dédiés.  
+Les organisations peuvent utiliser Intune pour gérer un grand nombre d'appareils mobiles avec un seul compte d'utilisateur. Le compte *Gestionnaire d’inscription des appareils* (DEM) est un compte d’utilisateur spécial servant à inscrire des appareils. Vous ajoutez des utilisateurs existants au compte DEM afin de leur accorder des fonctionnalités DEM spéciales. Chaque appareil inscrit utilise une licence unique. Nous vous recommandons d’utiliser les appareils inscrits via ce compte en tant qu’appareils partagés sans affinité utilisateur plutôt qu’en tant qu’appareils personnels et dédiés.  
 
 ## <a name="enroll-corporate-owned-devices-with-the-device-enrollment-manager"></a>Inscrire des appareils d’entreprise avec le gestionnaire d’inscription d’appareil  
  Vous pouvez affecter à un directeur ou responsable de magasin, par exemple, un compte de gestionnaire d'inscription d'appareil pour lui permettre d'effectuer les opérations suivantes :  
@@ -67,24 +64,14 @@ Un restaurant souhaite que son personnel de service utilise des tablettes et com
 7.  Le gestionnaire d’inscription d’appareil peut maintenant inscrire des appareils mobiles en appliquant la même procédure qu’un utilisateur final pour un scénario BYOD dans le portail d’entreprise.  
 
 #### <a name="delete-a-device-enrollment-manager-from-intune"></a>Supprimer un gestionnaire d'inscription d'appareil d'Intune  
+La suppression d'un gestionnaire d'inscription d'appareil n'affecte pas les appareils inscrits. Quand un gestionnaire d'inscription d'appareil est supprimé :  
+- aucun appareil inscrit n’est désinscrit ;  
+- les appareils inscrits continuent à être entièrement gérés ;  
+- les informations d’identification de compte du gestionnaire d’inscription d’appareil supprimé restent valides et vous permettent de vous connecter au portail d’entreprise pour accéder aux applications ;  
+- la suppression du gestionnaire d'inscription d'appareil n'entraîne pas la réinitialisation ou la mise hors service des appareils ;  
+- il existe toujours une relation entre le compte du gestionnaire d'inscription d'appareil supprimé et les appareils inscrits, mais aucun appareil supplémentaire ne peut être inscrit.
 
 1.  Dans la console Configuration Manager, cliquez sur **Administration**.  
-
 2.  Dans l'espace de travail **Administration** , développez **Services cloud**, puis cliquez sur **Abonnements Microsoft Intune**. Sélectionnez l’abonnement Microsoft Intune auquel vous allez ajouter un gestionnaire d’inscription d’appareil, puis cliquez sur **Propriétés**.  
-
 3.  Dans la boîte de dialogue Propriétés de l’abonnement Microsoft Intune, cliquez sur l’onglet **Gestionnaire d’inscription d’appareil**.  
-
 4.  **Recherchez** le gestionnaire d’inscription d’appareil à supprimer et cliquez sur **Supprimer**, puis sur **OK**.  
-
- La suppression d'un gestionnaire d'inscription d'appareil n'affecte pas les appareils inscrits. Quand un gestionnaire d'inscription d'appareil est supprimé :  
-
--   aucun appareil inscrit n'est affecté ;  
-
--   les appareils inscrits continuent à être entièrement gérés ;  
-
--   les informations d’identification de compte du gestionnaire d’inscription d’appareil supprimé restent valides et vous permettent de vous connecter au portail d’entreprise pour accéder aux applications ;  
-
--   la suppression du gestionnaire d'inscription d'appareil n'entraîne pas la réinitialisation ou la mise hors service des appareils ;  
-
--   il existe toujours une relation entre le compte du gestionnaire d'inscription d'appareil supprimé et les appareils inscrits, mais aucun appareil supplémentaire ne peut être inscrit.
-

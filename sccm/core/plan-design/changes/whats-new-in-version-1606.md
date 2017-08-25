@@ -1,24 +1,24 @@
 ---
-title: "Nouveau dans System Center Configuration Manager version 1606 | Microsoft Docs"
+title: "Nouveautés de System Center Configuration Manager version 1606 | Microsoft Docs"
 description: "Obtenez des informations détaillées sur les modifications et les nouvelles fonctionnalités introduites dans la version 1606 de System Center Configuration Manager."
 ms.custom: na
 ms.date: 12/30/2016
 ms.reviewer: na
 ms.suite: na
 ms.prod: configuration-manager
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: df2e57b9-6445-4067-98e7-ace85d4e6aa6
-caps.latest.revision: 40
+caps.latest.revision: "40"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: 34809ddf7819eab5deb3995cd8138c7b38cd2f9a
 ms.openlocfilehash: 9fdff6049d6e5cde1032864e5d7aa8df71e53686
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="what39s-new-in-version-1606-of-system-center-configuration-manager"></a>Nouveautés dans la version 1606 de System Center Configuration Manager
 
@@ -35,7 +35,7 @@ La mise à jour 1606 pour System Center Configuration Manager est disponible so
 
 
 
-## <a name="a-nameupdatesandservicingaupdates-and-servicing"></a><a name="updatesandservicing"></a>Mises à jour et maintenance
+## <a name="updatesandservicing"></a>Mises à jour et maintenance
 
 ### <a name="changes-for-the-updates-and-servicing-node"></a>Modifications pour le nœud Mises à jour et maintenance
 Les modifications apportées au nœud Mises à jour et maintenance dans la console Configuration Manager sont les suivantes :
@@ -50,7 +50,7 @@ Les modifications apportées au nœud Mises à jour et maintenance dans la conso
     Quand vous affichez l’état de l’installation d’une mise à jour pour un site, la console affiche maintenant les détails pour chacune des actions suivantes :
     - **Téléchargement** (Ceci s’applique uniquement au site de niveau de plus haut niveau où est installé le rôle de système de site de point de connexion de service.)
     - **Réplication**
-    - **Vérification de la configuration requise**
+    - **Vérification des prérequis**
     - **Installation**
 
   De plus, des informations plus détaillées sont désormais fournies pour chaque étape, notamment le fichier journal que vous pouvez consulter pour obtenir plus d’informations.  
@@ -81,10 +81,10 @@ Si, après avoir installé la mise à jour 1606, vous installez une nouvelle mi
 
 
 
-## <a name="a-nameaccessibilitya-accessibility"></a><a name="accessibility"></a> Accessibilité
+## <a name="accessibility"></a> Accessibilité
 Vous pouvez désormais accéder aux différents nœuds d’un espace de travail en entrant la première lettre du nom d’un nœud. Chaque appui sur une touche déplace le curseur au nœud suivant qui commence par cette lettre. Pour les utilisateurs disposant d’un lecteur d’écran, le lecteur lit le nom de ce nœud. Pour plus d’informations sur les options d’accessibilité, consultez [Fonctionnalités d’accessibilité dans System Center Configuration Manager](../../../core/understand/accessibility-features.md).
 
-## <a name="a-nameadministrationaadministration"></a><a name="administration"></a>Administration
+## <a name="administration"></a>Administration
 Les modifications apportées au nœud Administration dans la console Configuration Manager sont les suivantes :
 ### <a name="oms-connector"></a>Connecteur OMS
 
@@ -225,9 +225,3 @@ Pour plus d’informations, consultez [Attestation d’intégrité pour System C
 
 ## <a name="remote-control"></a>Contrôle à distance
 Donnez à vos utilisateurs la possibilité d’accepter ou de refuser des transferts de fichiers avant de transférer le contenu du Presse-papiers partagé dans une session de contrôle à distance. Les utilisateurs n’ont besoin d’accorder l’autorisation qu’une seule fois par session tandis que l’observateur ne peut pas s’accorder l’autorisation d’effectuer le transfert de fichiers. Vous pouvez trouver ce nouveau paramètre dans l’espace de travail **Administration**. Accédez à **Paramètres du client** puis, dans **Paramètres par défaut**, ouvrez le panneau **Outils de contrôle à distance**.
-
-
-
-<!--HONumber=Dec16_HO5-->
-
-

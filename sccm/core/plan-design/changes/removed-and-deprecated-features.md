@@ -2,26 +2,24 @@
 title: "Fonctionnalités dépréciées | Microsoft Docs"
 description: "Découvrez les fonctionnalités, produits et systèmes d’exploitation que System Center Configuration Manager ne prend plus en charge."
 ms.custom: na
-ms.date: 06/27/2017
+ms.date: 08/16/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: d8c8b44c-1e8a-42b6-bab4-23c72a0a6169
-caps.latest.revision: 15
-caps.handback.revision: 0
+caps.latest.revision: "15"
+caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
+ms.openlocfilehash: 8ac7009014a4652a36acf69ebfe9ccab3ba8ecbd
+ms.sourcegitcommit: 3ce56c7350411d8cc3d3cb9b4054f9ada9b0ed54
 ms.translationtype: HT
-ms.sourcegitcommit: ef42d1483053e9a6c502f4ebcae5a231aa6ba727
-ms.openlocfilehash: 98fa323cb94013d875e2cea41b80fff8cc75b6b2
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/26/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/17/2017
 ---
 # <a name="removed-and-deprecated-features-for-system-center-configuration-manager"></a>Fonctionnalités supprimées et déconseillées dans System Center Configuration Manager
 
@@ -71,7 +69,7 @@ Pour plus d'informations, voir :
 |**Systèmes d’exploitation**|**Première annonce de dépréciation**|**Support supprimé**|  
 |-|-|-|  
 |Windows XP|10 juillet 2015|Version 1511|  
-|Windows XP Embedded|10 juillet 2015|Version 1702|  
+|Windows XP Embedded <br><br> Cela inclut tous les [systèmes d’exploitation embarqués basés sur XP](/sccm/core/plan-design/configs/supported-operating-systems-for-clients-and-devices#windows-embedded-computers).|10 juillet 2015|Version 1702|  
 |Windows Server 2003|10 juillet 2015|Version 1511|  
 |Windows Server 2003 R2|10 juillet 2015|Version 1511|  
 |Windows Vista|10 juillet 2015|Version 1511|  
@@ -102,9 +100,10 @@ Si vous devez mettre à niveau votre version de SQL Server, nous vous recommando
 |Gestion hors bande : telle que dans System Center 2012 Configuration Manager|16 octobre 2015|Version 1511|
 |Séquences de tâches : <br /> - OSDPreserveDriveLetter  <br /><br /> Lors d’un déploiement de système d’exploitation, par défaut, le programme d’installation Windows détermine désormais la meilleure lettre de lecteur à utiliser (généralement C:). Si vous souhaitez spécifier un autre lecteur à utiliser, vous pouvez modifier l’emplacement dans l’étape de séquence de tâches Appliquer le système d’exploitation. Accédez au paramètre **Sélectionnez l’emplacement où vous souhaitez appliquer ce système d’exploitation**, sélectionnez **Lettre de lecteur logique spécifique**, puis choisissez le lecteur que vous souhaitez utiliser. |20 juin 2016 |Version 1606 |
 |Séquences de tâches : <br /> - Convertir en disque dynamique <br /> - Installer les outils de déploiement |18 novembre 2016|La prise en charge de ces séquences de tâches prend fin avec la première mise à jour publiée après le 1er juin 2017.|
-|Le Centre logiciel a été modernisé. Les applications qui seraient apparues uniquement dans le catalogue des applications dépendant de Silverlight (applications accessibles à l’utilisateur) apparaissent désormais dans le Centre logiciel, sous l’onglet **Applications**. Il est toujours possible d’accéder au catalogue des applications via le lien situé sous l’onglet **État de l’installation** du Centre logiciel.<br><br>Dans les prochains mois, la version précédente du Centre logiciel ne sera plus disponible.<br><br>Vous pouvez configurer les clients pour qu’ils utilisent le nouveau Centre logiciel en activant le paramètre client **Agent ordinateur** > **Utiliser le nouveau Centre logiciel**.<br><br>Pour plus d’informations sur le Centre logiciel, consultez [Planifier et configurer la gestion des applications dans System Center Configuration Manager](https://docs.microsoft.com/sccm/apps/plan-design/plan-for-and-configure-application-management).|13 décembre 2016|La prise en charge de la version précédente du centre logiciel se termine avec la première mise à jour publiée après le 1 janvier 2018.|
+|Le Centre logiciel a été modernisé. Dans les prochains mois, la version précédente du Centre logiciel ne sera plus disponible.<br><br>Vous pouvez configurer les clients pour qu’ils utilisent le nouveau Centre logiciel en activant le paramètre client **Agent ordinateur** > **Utiliser le nouveau Centre logiciel**.<br><br>Pour plus d’informations sur le Centre logiciel, consultez [Planifier et configurer la gestion des applications dans System Center Configuration Manager](https://docs.microsoft.com/sccm/apps/plan-design/plan-for-and-configure-application-management).|13 décembre 2016|La prise en charge de la version précédente du centre logiciel se termine avec la première mise à jour publiée après le 1 janvier 2018.|
+|Avec l’arrivée de la nouvelle expérience du Centre logiciel dans la version 1511, les applications qui seraient apparues uniquement dans le catalogue d’applications (applications accessibles à l’utilisateur) apparaissent maintenant dans le Centre logiciel. </br></br>Cette fonctionnalité principale du catalogue d’applications étant à présent incluse dans le Centre logiciel, l’expérience web du catalogue d’applications ne sera plus disponible dans les prochains mois.|11 août 2017| La prise en charge de l’expérience utilisateur du site web du catalogue d’applications se termine avec la première mise à jour publiée après le 1er juin 2018.|
 |Gestion de disques durs virtuels avec Configuration Manager. </br></br>Cela inclut la suppression des options permettant de créer un nouveau disque dur virtuel ou de gérer un disque dur virtuel à l’aide d’une séquence de tâches, ainsi que la suppression du nœud Disques durs virtuels dans la console Configuration Manager. </br></br>Une fois cette prise en charge supprimée, les disques durs virtuels existants ne seront pas supprimés, mais ils ne seront plus accessibles à partir de la console Configuration Manager.  |6 janvier 2017 |La prise en charge des disques durs virtuels prend fin avec la première mise à jour publiée après le 1er juin 2017.|
-|Outil d'évaluation de mise à niveau System Center Configuration Manager. </br></br>L’outil d’évaluation de mise à niveau dépend à la fois de System Center Configuration Manager et des outils d'analyse de compatibilité des applications (ACT) 6.x. La dernière version d’ACT a été intégrée à Windows 10 v1511 ADK. Comme il n’y aura plus aucune mise à jour d’ACT, la prise en charge de l’outil d’évaluation de mise à niveau cessera. </br></br>L’outil d’évaluation de mise à niveau est remplacé par la fonctionnalité [Disponibilité pour la mise à niveau](/sccm/core/clients/manage/upgrade/upgrade-analytics). Une note de dépréciation a été ajoutée à la [page de téléchargement UAT](https://www.microsoft.com/download/details.aspx?id=37145) le 12/09/2016. |12/09/2016  | 11 juillet 2017 |  
+|Outil d'évaluation de mise à niveau System Center Configuration Manager. </br></br>L’outil d’évaluation de mise à niveau dépend à la fois de System Center Configuration Manager et des outils d'analyse de compatibilité des applications (ACT) 6.x. La dernière version d’ACT a été intégrée à Windows 10 v1511 ADK. Comme il n’y aura plus aucune mise à jour d’ACT, la prise en charge de l’outil d’évaluation de mise à niveau cessera. </br></br>L’outil d’évaluation de mise à niveau est remplacé par la fonctionnalité [Disponibilité pour la mise à niveau](/sccm/core/clients/manage/upgrade/upgrade-analytics). Une note de dépréciation a été ajoutée à la [page de téléchargement UAT](https://www.microsoft.com/download/details.aspx?id=37145) le 12/09/2016. |12/09/2016  | 11 juillet 2017 |
 
 
 <br></br>
@@ -121,4 +120,3 @@ Informations supplémentaires sur les fonctionnalités supprimées avec la versi
  System Center Configuration Manager ne prend pas en charge la protection d’accès réseau. La fonctionnalité est dépréciée dans Windows Server 2012 R2 et a été supprimée dans Windows 10.  
 
  Pour les solutions de protection d'accès réseau, consultez la section *Fonctionnalités déconseillées* dans [Vue d'ensemble des services de stratégie et d'accès réseau](https://technet.microsoft.com/library/hh831683.aspx).
-

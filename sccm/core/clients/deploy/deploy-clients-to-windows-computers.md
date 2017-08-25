@@ -2,27 +2,24 @@
 title: "Déployer des clients Windows | Microsoft Docs"
 description: "Découvrez comment déployer des clients sur des ordinateurs Windows dans System Center Configuration Manager."
 ms.custom: na
-ms.date: 04/23/2017
+ms.date: 08/20/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-client
+ms.technology: configmgr-client
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 341f0d0b-f907-44cf-9e10-e1b41fc15f82
-caps.latest.revision: 13
-caps.handback.revision: 0
+caps.latest.revision: "13"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9555a16d97224a1cf49a426ab225468b07403f60
-ms.openlocfilehash: 0e5e624fdfc2b5ee5b497d1063bd4e2d15df578b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 12/29/2016
-
-
+ms.openlocfilehash: 9ac54136b93ee366c16cafe89036a79e808980dc
+ms.sourcegitcommit: 06aef618f72c700f8a716a43fb8eedf97c62a72b
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/21/2017
 ---
 # <a name="how-to-deploy-clients-to-windows-computers-in-system-center-configuration-manager"></a>Comment déployer des clients sur des ordinateurs Windows dans System Center Configuration Manager
 
@@ -58,13 +55,10 @@ Les fichiers journaux des clients fournissent des informations de dépannage plu
 6.  Indiquez si vous souhaitez installer le client sur les contrôleurs de domaine.  
 
 7.  Sous l’onglet **Comptes**, spécifiez un ou plusieurs comptes que doit utiliser Configuration Manager pour se connecter à l’ordinateur sur lequel installer le logiciel client. Cliquez sur l’icône **Créer**, entrez le **nom d’utilisateur** et le **mot de passe** (pas plus de 38 caractères), confirmez le mot de passe, puis cliquez sur **OK**. Vous devez spécifier au moins un compte d'installation poussée du client, qui doit avoir des droits d'administrateur local sur chaque ordinateur sur lequel vous souhaitez installer le client. Si vous ne spécifiez pas de compte d’installation Push du client, Configuration Manager essaie d’utiliser le compte d’ordinateur de système de site, ce qui provoque l’échec de l’installation Push du client sur plusieurs domaines.  
-
-    
     > [!NOTE]  
     >  Si vous avez l'intention d'utiliser la méthode d'installation poussée du client à partir d'un site secondaire, le compte doit être spécifié sur le site secondaire qui déclenche l'installation poussée du client.  
     >   
     >  Pour plus d’informations sur le compte d’installation Push du client, consultez la procédure « Pour utiliser l’Assistant Installation Push du client », ci-dessous.  
-
 8.  Renseignez l’onglet **Propriétés de l’installation**.
 
      Les [propriétés d’installation du client](../../../core/clients/deploy/about-client-installation-properties.md) spécifiées sous cet onglet sont publiées sur les services de domaine Active Directory si le schéma est étendu pour Configuration Manager et sont lues par les installations du client dans lesquelles CCMSetup est exécuté sans propriétés d’installation.  
@@ -296,8 +290,8 @@ Vous pouvez préinstaller le logiciel client Configuration Manager sur un ordina
     > [!IMPORTANT]  
     >  Ne spécifiez aucun code de site Configuration Manager pour le client dans les propriétés de la ligne de commande CCMSetup.exe.  
 
-2.  Entrez **net stop ccmexec** dans l'invite de commande pour vérifier que le service **Hôte de l'agent SMS** (Ccmexec.exe) ne s'exécute pas sur l'ordinateur d'image maître.  
-
+2.  Entrez **net stop ccmexec** dans l'invite de commande pour vérifier que le service **Hôte de l'agent SMS** (Ccmexec.exe) ne s'exécute pas sur l'ordinateur d'image maître.
+3.  Supprimez le fichier **SMSCFG.INI** du dossier **Windows** sur l’ordinateur de référence.  
 3.  Supprimez tous les certificats enregistrés dans le magasin local sur l'ordinateur d'image maître.  Par exemple, si vous utilisez des certificats d'infrastructure à clé publique (PKI), vous devez supprimer les certificats dans le magasin **Personnel** de l' **Ordinateur** et de l' **Utilisateur** avant de mettre l'ordinateur en image.
 
 4.  Si les clients sont installés dans une hiérarchie Configuration Manager différente de celle de l’ordinateur d’image maître, supprimez la clé racine approuvée de cet ordinateur.  
@@ -470,7 +464,7 @@ Vérifiez les conditions préalables et suivez les instructions de la section [C
 
 5.  Attribuez l’objet stratégie de groupe aux ordinateurs auxquels vous souhaitez fournir les propriétés d’installation du client Configuration Manager.  
 
- Pour plus d'informations sur la stratégie de groupe Windows, voir la documentation de Windows Server.  
+Pour plus d'informations sur la stratégie de groupe Windows, voir la documentation de Windows Server.  
 
-### <a name="see-also"></a>Voir aussi
-[Méthodes d’installation du client dans System Center Configuration Manager](../../../core/clients/deploy/plan/client-installation-methods.md)
+## <a name="next-steps"></a>Étapes suivantes
+Pour obtenir de l’aide sur l’installation du client Gestionnaire de configuration, consultez la page [Méthodes d’installation du client dans System Center Configuration Manager](../../../core/clients/deploy/plan/client-installation-methods.md).

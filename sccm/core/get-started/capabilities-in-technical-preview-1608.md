@@ -4,23 +4,21 @@ description: "Découvrez les fonctionnalités disponibles dans la version d’é
 ms.custom: na
 ms.date: 01/23/2017
 ms.prod: configuration-manager
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 63e1df5e-637c-4b07-b7ec-95340f43a805
-caps.latest.revision: 15
+caps.latest.revision: "15"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5d08d1f9ccd995d544c3c21c4af52ede73343077
 ms.openlocfilehash: c22e29da8036d69db917205f28a19a69281a64db
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="capabilities-in-technical-preview-1608-for-system-center-configuration-manager"></a>Fonctionnalités de la version d’évaluation technique 1608 pour System Center Configuration Manager
 
@@ -51,7 +49,7 @@ Nous avons ajouté un champ dans les propriétés pour les logiciels inventorié
 
 ### <a name="filter-the-software-display"></a>Filtrer l’affichage des logiciels
 Après avoir défini des relations parent-enfant, vous pouvez filtrer votre vue pour afficher uniquement les logiciels qui sont parents ou qui n’ont aucune relation définie. Cela masque tout logiciel défini en tant qu’enfant d’un autre logiciel inventorié. Pour cela :
-   1.    Pour le volet de recherche, choisissez **Ajouter des critères**.
+   1.   Pour le volet de recherche, choisissez **Ajouter des critères**.
    2. Sélectionnez **Logiciel parent** et modifiez la valeur du critère en spécifiant **est vide**, puis cliquez sur **Rechercher**.
 
 L’affichage indique à présent uniquement les éléments logiciels parents et les logiciels qui n’ont pas de relations définies. Un logiciel qui n’est qu’un enfant d’un autre titre n’apparaît pas.
@@ -63,5 +61,4 @@ Ce comportement peut être désactivé par l’afficheur s’il préfère taper 
 
 > [!NOTE]
 >
-> Les touches spéciales, telles que ~!#@$%,, ne seront pas traduites correctement.
-
+> Les touches spéciales, notamment ~!#@$%, ne seront pas traduites correctement.

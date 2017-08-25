@@ -6,21 +6,20 @@ ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-app
+ms.technology: configmgr-app
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 0ea3edaa-27c6-4391-9896-cd97d9c5d06d
-caps.latest.revision: 4
-caps.handback.revision: 0
+caps.latest.revision: "4"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: 2d0c0bc2e4e080e6061d8d3fe6cafd264d95c42a
 ms.openlocfilehash: f42fee5974567f667c015a6b0bf34d9a9a7d2dab
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="uninstall-applications-with-system-center-configuration-manager"></a>Désinstaller des applications avec System Center Configuration Manager
 
@@ -64,15 +63,9 @@ Effectuez les actions suivantes pour désinstaller une application que vous avez
         > [!NOTE]  
         >  La page **Contenu** ne s’affiche que si vous sélectionnez l’option **Spécifier manuellement les informations sur le type de déploiement** dans la page **Général** de l’Assistant Création d’un type de déploiement.  
 
-    -   Sous l’onglet **Programmes** de la boîte de dialogue **Propriétés de <*nom_type_déploiement*>**, spécifiez la ligne de commande pour désinstaller l’application dans le champ **Programme de désinstallation**.  
+    -   Dans l’onglet **Programmes** de la boîte de dialogue Propriétés** de **<*nom_type_déploiement*>, spécifiez la ligne de commande pour désinstaller l’application dans le champ **Programme de désinstallation**.  
 
 2.  Déployez l’application et sélectionnez l’action de déploiement **Désinstaller** dans la page **Paramètres de déploiement** de l’Assistant Déploiement logiciel.  
 
     > [!NOTE]  
     >  Lorsque vous sélectionnez l'action de déploiement **Désinstaller**, l'objet du déploiement est automatiquement configuré comme **Obligatoire**.  
-
-
-
-<!--HONumber=Dec16_HO3-->
-
-

@@ -6,21 +6,19 @@ ms.date: 7/31/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 7e4ec207-bb49-401f-af1b-dd705ecb465d
-caps.latest.revision: 0
+caps.latest.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
+ms.openlocfilehash: e0b887169f0c8ae6901d1c6fd6a498df9596c2b4
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.sourcegitcommit: 3c75c1647954d6507f9e28495810ef8c55e42cda
-ms.openlocfilehash: 0d6527abba24b685151ae63feaae29b30d1e2cc9
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/29/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="configure-sql-server-always-on-availability-groups-for-configuration-manager"></a>Configurer des groupes de disponibilité SQL Server Always On pour Configuration Manager
 
@@ -106,7 +104,7 @@ Pour effectuer cette procédure, le compte que vous utilisez pour exécuter le p
 
 
 
-## <a name="add-and-remove-synchronous-replica-members"></a>Ajouter et supprimer des membres réplicas synchrones  
+## <a name="add-or-remove-synchronous-replica-members"></a>Ajouter ou supprimer des membres réplicas synchrones  
 Si votre base de données de site est hébergée dans un groupe de disponibilité, utilisez les procédures suivantes pour ajouter ou supprimer des membres réplicas synchrones. Pour plus d’informations sur le type et le nombre de réplicas qui sont pris en charge, consultez **Configurations des groupes de disponibilité** sous [Prérequis](/sccm/core/servers/deploy/configure/sql-server-alwayson-for-a-highly-available-site-database#prerequisites) dans la rubrique traitant de la préparation des groupes de disponibilité.
 
 Pour effectuer les procédures suivante, le compte doit que vous utilisez doit être :
@@ -114,25 +112,13 @@ Pour effectuer les procédures suivante, le compte doit que vous utilisez doit �
 -   **sysadmin** sur chaque instance SQL Server qui héberge ou hébergera la base de données du site.
 
 
-### <a name="to-add-a-new-synchronous-replica-member"></a>Pour ajouter un nouveau membre réplica synchrone
-1.  Ajoutez le nouveau serveur en tant que réplica secondaire au groupe de disponibilité. Consultez [Ajouter un réplica secondaire à un groupe de disponibilité (SQL Server)](/sql/database-engine/availability-groups/windows/add-a-secondary-replica-to-an-availability-group-sql-server)dans la bibliothèque de documentation de SQL Server.
-
-2.  Arrêtez le site Configuration Manager en exécutant **Preinst.exe /stopsite**. Consultez [Outil Maintenance de la hiérarchie](/sccm/core/servers/manage/hierarchy-maintenance-tool-preinst.exe).
-
-3.  Utilisez SQL Server pour créer une sauvegarde de la base de données du site à partir du réplica principal, puis restaurez cette sauvegarde sur le nouveau serveur réplica secondaire. Consultez [Créer une sauvegarde complète de base de données](/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server) et [Restaurer une sauvegarde de base de données à l’aide de SSMS](/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms) dans la documentation de SQL Server.
-
-4.  Configurez chaque réplica secondaire. Pour chaque réplica secondaire dans le groupe de disponibilité, effectuez les opérations suivantes :
-
-    1.  Vérifiez que le compte d’ordinateur du serveur de site est un membre du groupe **Administrateurs locaux** sur chaque ordinateur membre du groupe de disponibilité.
-
-    2.  Exécutez le [script de vérification](/sccm/core/servers/deploy/configure/sql-server-alwayson-for-a-highly-available-site-database#prerequisites) indiqué dans la configuration requise pour confirmer que la base de données de site est correctement configurée sur chaque réplica.
-
-    3.  S’il est nécessaire de configurer le nouveau réplica, basculez manuellement le réplica principal vers le nouveau réplica secondaire, puis modifiez les paramètres requis. Consultez [Effectuer un basculement manuel planifié d’un groupe de disponibilité (SQL Server)](/sql/database-engine/availability-groups/windows/perform-a-planned-manual-failover-of-an-availability-group-sql-server) dans la documentation de SQL Server.
-
-5.  Redémarrez le site en démarrant le Gestionnaire de composant de site (**sitecomp**) et les services **SMS_Executive** .
+### <a name="to-add-a-new-synchronous-replica-member"></a>Pour ajouter un nouveau membre réplica synchrone  
+Le processus pour ajouter un réplica secondaire à un groupe de disponibilité utilisé avec Configuration Manager peut être complexe et dynamique et passer par des étapes et des procédures qui varient en fonction des environnements. Nous travaillons à améliorer Configuration Manager pour simplifier ce processus. D’ici-là, si vous devez ajouter des réplicas secondaires, consultez le blog suivant sur TechNet pour obtenir de l’aide.
+-   [ConfigMgr 1702 : Ajouter un nœud (réplica secondaire) à un groupe de disponibilité AO SQL existant](https://blogs.technet.microsoft.com/umairkhan/2017/07/17/configmgr-1702-adding-a-new-node-secondary-replica-to-an-existing-sql-ao-ag/)
 
 ### <a name="to-remove-a-replica-member"></a>Pour supprimer un membre réplica
-Pour cette procédure, utilisez les informations de [Supprimer un réplica secondaire d’un groupe de disponibilité (SQL Server)](/sql/database-engine/availability-groups/windows/remove-a-secondary-replica-from-an-availability-group-sql-server) dans la documentation de SQL Server.
+Pour cette procédure, utilisez les informations de [Supprimer un réplica secondaire d’un groupe de disponibilité (SQL Server)](/sql/database-engine/availability-groups/windows/remove-a-secondary-replica-from-an-availability-group-sql-server) dans la documentation de SQL Server.  
+
 
 ## <a name="configure-an-asynchronous-commit-replica"></a>Configurer un réplica avec validation asynchrone
 À partir de Configuration Manager version 1706, vous pouvez ajouter un réplica asynchrone à un groupe de disponibilité que vous utilisez avec Configuration Manager. Pour ce faire, vous n’avez pas besoin d’exécuter les scripts de configuration requis pour configurer un réplica synchrone. (en effet, il n’existe aucune prise en charge pour l’utilisation de ce réplica asynchrone en tant que base de données de site.) Consultez [la documentation de SQL Server](https://msdn.microsoft.com/library/hh213247(v=sql.120).aspx(d=robot)) pour plus d’informations sur l’ajout de réplicas secondaires aux groupes de disponibilité.
@@ -186,4 +172,3 @@ Pour effectuer cette procédure, le compte que vous utilisez doit être :
 9.  Après avoir fourni les informations relatives au nouvel emplacement de la base de données, exécutez le programme d’installation avec vos processus et configurations normaux. Une fois l’exécution du programme d’installation terminée, le site redémarre et commence à utiliser le nouvel emplacement de la base de données.    
 
 10. Pour nettoyer les serveurs qui étaient membres du groupe de disponibilité, suivez les instructions de [Supprimer un groupe de disponibilité (SQL Server)](/sql/database-engine/availability-groups/windows/remove-an-availability-group-sql-server) dans la documentation de SQL Server.
-

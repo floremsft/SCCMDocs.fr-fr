@@ -2,23 +2,21 @@
 title: "Nouvelle version 1706 | Microsoft Docs"
 description: "Obtenez des détails sur les nouvelles fonctionnalités et les changements introduits dans la version 1706 de System Center Configuration Manager."
 ms.custom: na
-ms.date: 07/31/2017
+ms.date: 08/11/2017
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ac034143-003e-4629-aac2-99eaffef4db1
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
+ms.openlocfilehash: 30bd5f1244534511e5cde8ee0e1a8c74819b1634
+ms.sourcegitcommit: 9a6f8e028fb5eb2e752da70f42a5b548339bd8f4
 ms.translationtype: HT
-ms.sourcegitcommit: afe0ecc4230733fa76e41bf08df5ccfb221da7c8
-ms.openlocfilehash: c686b1674f4ead702fa2b4329df6356a558726f6
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/04/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/14/2017
 ---
 # <a name="what39s-new-in-version-1706-of-system-center-configuration-manager"></a>Nouveautés de la version 1706 de System Center Configuration Manager
 
@@ -207,7 +205,7 @@ L’inventaire matériel collecte désormais des informations indiquant si le d�
 Cette version permet de développer et réduire des groupes de séquences de tâches. Vous pouvez développer ou réduire des groupes individuels ou tous les groupes à la fois.
 
 ### <a name="reload-boot-images-with-current-windows-pe-version"></a>Recharger les images de démarrage avec la version actuelle de Windows PE
-Lorsque vous exécutez l’option **Mise à jour des points de distribution** sur une image de démarrage sélectionnée, vous pouvez maintenant choisir de recharger la dernière version de Windows PE (depuis le répertoire d’installation de Windows ADK) dans l’image de démarrage. Pour plus d’informations, consultez [Mettre à jour des points de distribution avec l’image de démarrage](/sccm/osd/get-started/manage-boot-images.md#update-distribution-points-with-the-boot-image).
+Lorsque vous exécutez l’option **Mise à jour des points de distribution** sur une image de démarrage sélectionnée, vous pouvez maintenant choisir de recharger la dernière version de Windows PE (depuis le répertoire d’installation de Windows ADK) dans l’image de démarrage. Pour plus d’informations, consultez [Mettre à jour des points de distribution avec l’image de démarrage](/sccm/osd/get-started/manage-boot-images#update-distribution-points-with-the-boot-image).
 
 ## <a name="software-updates"></a>Mises à jour logicielles
 
@@ -226,7 +224,7 @@ Vous pouvez maintenant utiliser Configuration Manager pour gérer les mises à j
 #### <a name="to-manage-surface-driver-updates"></a>Pour gérer les mises à jour du pilote Surface
 
 1. Activer la synchronisation pour les pilotes Microsoft Surface. Utilisez la procédure décrite dans [Configurer la classification et les produits](/sccm/sum/get-started/configure-classifications-and-products) et cochez la case **Inclure les mises à jour du microprogramme et des pilotes Microsoft Surface** sous l’onglet **Classifications** pour activer les pilotes Surface.
-2. [Synchroniser les pilotes Microsoft Surface](/sccm/sum/get-started/synchronize-software-updates.md).
+2. [Synchroniser les pilotes Microsoft Surface](/sccm/sum/get-started/synchronize-software-updates).
 3. [Déployer des pilotes Microsoft Surface synchronisés](/sccm/sum/deploy-use/deploy-software-updates)
 
 ### <a name="configure-windows-update-for-business-deferral-policies"></a>Configuration de Windows Update pour les stratégies d’entreprise de report d’entreprise
@@ -257,6 +255,12 @@ Dans cette version, les valeurs du paramètre **Autoriser le partage de données
 
 Pour plus d’informations, consultez [Éléments de configuration pour les appareils Android for Work](/sccm/mdm/deploy-use/create-configuration-items-for-android-for-work-devices-managed-without-the-client).
 
+### <a name="android-and-ios-enrollment-restrictions"></a>Restrictions de l’inscription Android et iOS
+<!-- 1290826 -->
+Avec cette version, vous pouvez à présent spécifier que les utilisateurs ne peuvent pas inscrire des appareils Android ou iOS personnels. Les nouveaux paramètres de restriction des appareils permettent de limiter l’inscription des appareils Android aux appareils prédéclarés. Pour les appareils iOS, vous pouvez bloquer l’inscription de tous les appareils à l’exception de ceux qui sont inscrits auprès du Programme d’inscription des appareils d’Apple, d’Apple Configurator ou du compte du gestionnaire d’inscription des appareils Intune.
+- Pour plus d’informations sur les restrictions d’inscription Android, consultez la page [Configurer la gestion des appareils Android](/sccm/mdm/deploy-use/enroll-hybrid-android).
+- Pour plus d’informations sur les restrictions d’inscription iOS, consultez la page [Configurer des restrictions d’inscription iOS](/sccm/mdm/deploy-use/enroll-hybrid-ios-mac#configure-enrollment-restrictions).
+
 ## <a name="protect-devices"></a>Protéger les appareils
 
 ### <a name="include-trust-for-specific-files-and-folders-in-a-device-guard-policy"></a>Inclure la confiance pour des fichiers et dossiers spécifiques dans une stratégie de protection des appareils
@@ -270,4 +274,3 @@ Vous pouvez éventuellement ajouter l’approbation pour des fichiers spécifiqu
 - Approuver des applications qui sont incluses dans une image de déploiement de système d’exploitation
 
 Pour plus d’informations, consultez [Gestion de Device Guard avec Configuration Manager](/sccm/protect/deploy-use/use-device-guard-with-configuration-manager).
-

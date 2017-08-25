@@ -6,8 +6,7 @@ ms.date: 07/31/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 14ee4fb0-7790-45a6-906e-6e55627d4079
@@ -33,12 +32,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
+ms.openlocfilehash: 12f1e810c1eb194ec322a916e4e0c1a4c19be414
+ms.sourcegitcommit: db7b7ec347638efd05cdba474e8a8f8535516116
 ms.translationtype: HT
-ms.sourcegitcommit: 0663ba84762c44a5c303562548499f195bae9e1c
-ms.openlocfilehash: df28bfbb49c78cafe11b87c04ac4c6c9cf370a08
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/01/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/16/2017
 ---
 # <a name="levels-of-diagnostic-usage-data-collection-for-version-1706-of-system-center-configuration-manager"></a>Niveaux de la collecte de données des données de diagnostic et d’utilisation pour la version 1706 de System Center Configuration Manager
 
@@ -191,6 +189,10 @@ Pour System Center Configuration Manager version 1706, ce niveau inclut les él
    - Version du client AMT (Active Management Technology)
 
    - Âge du BIOS en années
+   
+   - ***[Nouveau]*** Nombre d’appareils avec démarrage sécurisé
+   
+   - ***[Nouveau]*** Nombre d’appareils par état TPM
 
    - Mise à niveau automatique du client : configuration du déploiement, notamment le test du client et l’utilisation de l’exclusion (client d’interopérabilité étendue)
 
@@ -503,4 +505,3 @@ Pour System Center Configuration Manager version 1706, ce niveau inclut les él
 - Type de stratégies d’accès conditionnel EAS (bloquer ou mettre en quarantaine) pour les appareils gérés par Intune
 
 - Détails des applications du Windows Store pour Entreprises (liste de non-agrégation des applications synchronisées, notamment l’ID de l’application, l’état (en ligne ou hors connexion) et le nombre total de licences achetées)
-
