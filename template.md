@@ -23,7 +23,7 @@ Ce modèle docs.ms contient des exemples de syntaxe Markdown, ainsi que de l’a
 Lorsque vous créez un fichier Markdown, il est recommandé de copier le modèle dans un nouveau fichier, de remplir les métadonnées de la manière indiquée ci-dessous, de définir le titre H1 ci-dessus sur le titre de l’article et de supprimer le contenu.
 
 
-## <a name="metadata"></a>Metadata
+## <a name="metadata"></a>Métadonnées
 
 Le bloc de métadonnées complet, situé au-dessus, est divisé entre les champs obligatoires et les champs facultatifs ; consultez la [Fiche récapitulative des métadonnées OPS](https://ppe.msdn.microsoft.com/en-us/ce-csi-docs/ops/ops-onboarding/managing-content/content-meta-data) pour plus d’informations. Remarques importantes :
 
@@ -91,39 +91,39 @@ Si une URL apparaît dans un fichier Markdown, elle est transformée en lien int
 
 ### <a name="ordered-lists"></a>Listes triées
 
-1. Voici
+1. Ceci
+1. est
 1. une
 1. liste
-1. ordonnée
-1. Liste  
+1. ordonnée  
 
 
 #### <a name="ordered-list-with-an-embedded-list"></a>Liste triée avec liste intégrée
 
-1. Voici
+1. Ceci
+1. est
 1. une
 1. liste
-1. ordonnée
     1. Mademoiselle Rose
     1. Professeur Violet
+1. ordonnée
 1. intégrée
-1. liste
 
 
 ### <a name="unordered-lists"></a>Listes non triées
 
-- Voici
+- Ceci
 - est
-- a
-- à
+- une
 - liste
+- à puces
 
 
 ##### <a name="unordered-list-with-an-embedded-lists"></a>Liste non triée avec listes intégrées
 
 - Cette
 - liste
-- liste
+- à puces
     - Madame Pervenche
     - Révérend Olive
 - contient  
@@ -137,9 +137,9 @@ Si une URL apparaît dans un fichier Markdown, elle est transformée en lien int
 
 ---
 
-## <a name="tables"></a>Tables
+## <a name="tables"></a>Tableaux
 
-| Tables        | Sont           | Cool  |
+| Les tableaux        | Sont           | Cool  |
 | ------------- |:-------------:| -----:|
 | La 3e colonne est      | alignée à droite | 1 600 $ |
 | La 2e colonne est      | centrée      |   12 $ |
