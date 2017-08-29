@@ -2,7 +2,7 @@
 title: "Prise en charge des fonctionnalités de Windows | Microsoft Docs"
 description: "Découvrez les fonctionnalités de Windows et des réseaux que System Center Configuration Manager prend en charge."
 ms.custom: na
-ms.date: 3/30/2017
+ms.date: 8/24/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,11 +15,11 @@ caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: e040552dab21ba9a71e06a78f6acc2ffe1b0eb61
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: be9b7e84fecfa7a07c411c3d46168e5485e0dfab
+ms.sourcegitcommit: 974fbc4408028c8be28911e5cd646efcf47c7f15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/28/2017
 ---
 # <a name="support-for-windows-features-and-networks-in-system-center-configuration-manager"></a>Prise en charge des fonctionnalités de Windows et des réseaux dans System Center Configuration Manager
 
@@ -49,7 +49,7 @@ Ces clients mettent également en cache le contenu. De cette façon, les clients
 -   **Configurer des clients :**    
     -   Les clients pouvant prendre en charge BranchCache doivent être configurés pour le mode de cache distribué de BranchCache.  
     -   Le paramètre de système d’exploitation pour les paramètres du client BITS doit être activé pour prendre en charge BranchCache.   <br /> <br />
-        
+
     Pour plus d’informations sur la configuration des clients pour qu’ils prennent en charge BranchCache, consultez la section [Configurer des clients](https://technet.microsoft.com/itpro/windows/manage/waas-branchcache#configure-clients-for-branchcache) dans [Configurer BranchCache pour les mises à jour Windows 10](https://technet.microsoft.com/itpro/windows/manage/waas-branchcache).
 
 
@@ -80,9 +80,11 @@ Configuration Manager prend en charge les clients dans des groupes de travail.
 ##  <a name="bkmmk_datadedup"></a> Déduplication des données  
 Configuration Manager prend en charge l’utilisation de la déduplication des données avec des points de distribution sur les systèmes d’exploitation suivants :  
 
+-   Windows Server 2016
+-   Windows Server 2012 R2  
 -   Windows Server 2012  
 
--   Windows Server 2012 R2  
+
 
 > [!IMPORTANT]  
 >  Le volume qui héberge les fichiers sources de package ne peut pas être marqué pour la déduplication des données. En effet, la déduplication des données utilise des points d’analyse et Configuration Manager ne prend pas en charge l’utilisation d’un emplacement source de contenu avec des fichiers stockés sur des points d’analyse.  

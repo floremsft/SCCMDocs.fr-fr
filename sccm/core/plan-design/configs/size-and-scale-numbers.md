@@ -14,11 +14,11 @@ caps.latest.revision: "4"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: f539e2d282b56e56a9c58c773788325b27ea6b37
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 9c50f6633a5ca04b62f4c3b06119fb1fbcab2643
+ms.sourcegitcommit: 974fbc4408028c8be28911e5cd646efcf47c7f15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/28/2017
 ---
 # <a name="size-and-scale-numbers-for-system-center-configuration-manager"></a>Taille et échelle de System Center Configuration Manager en chiffres
 
@@ -56,18 +56,9 @@ Les numéros de support suivants sont basés sur l’utilisation du matériel re
 
 -   Un site d’administration centrale peut prendre en charge jusqu’à 25 sites principaux enfants.  
 
-**Point du site web du catalogue des applications :**  
-
--   Vous pouvez installer plusieurs instances du point de site Web du catalogue d'applications sur des sites principaux.  
-
-    > [!TIP]  
-    >  Comme bonne pratique, installez le point du site web du catalogue d'applications et le point de service web du catalogue d'applications sur le même système de site lorsque ces points fournissent le service aux clients Intranet.  
-
-    -   Pour améliorer les performances, envisagez prendre en charge jusqu'à 50 000 clients par instance.  
-
-    -   Chaque instance de ce rôle de système de site prend en charge le nombre maximal de clients pris en charge par la hiérarchie.  
 
 ## <a name="bkmk_roles"></a> Rôles système de site    
+
 
 **Point de service web du catalogue des applications :**  
 
@@ -79,6 +70,18 @@ Les numéros de support suivants sont basés sur l’utilisation du matériel re
     -   Pour améliorer les performances, envisagez prendre en charge jusqu'à 50 000 clients par instance.  
 
     -   Chaque instance de ce rôle de système de site prend en charge le nombre maximal de clients pris en charge par la hiérarchie.  
+
+**Point du site web du catalogue des applications :**  
+
+-   Vous pouvez installer plusieurs instances du point de site Web du catalogue d'applications sur des sites principaux.  
+
+    > [!TIP]  
+    >  Comme bonne pratique, installez le point du site web du catalogue d'applications et le point de service web du catalogue d'applications sur le même système de site lorsque ces points fournissent le service aux clients Intranet.  
+
+    -   Pour améliorer les performances, envisagez prendre en charge jusqu'à 50 000 clients par instance.  
+
+    -   Chaque instance de ce rôle de système de site prend en charge le nombre maximal de clients pris en charge par la hiérarchie.  
+
 
 **Point de distribution :**  
 
