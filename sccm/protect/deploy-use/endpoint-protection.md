@@ -14,11 +14,11 @@ caps.latest.revision: "11"
 author: NathBarn
 ms.author: nathbarn
 manager: angrobe
-ms.openlocfilehash: 3c31271f3e3ae7aa45da03b3d75fd78242330646
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 76319b935695df204b4b83a645504079c60db12b
+ms.sourcegitcommit: 974fbc4408028c8be28911e5cd646efcf47c7f15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/28/2017
 ---
 # <a name="endpoint-protection"></a>Endpoint Protection
 
@@ -91,9 +91,9 @@ Windows Defender est déjà installé sur les ordinateurs Windows 10 et Windows 
 ## <a name="endpoint-protection-client-for-mac-computers-and-linux-servers"></a>Client Endpoint Protection pour les ordinateurs Mac et les serveurs Linux  
  System Center Endpoint Protection comprend un client Endpoint Protection pour Linux et pour les ordinateurs Mac. Ces clients ne sont pas fournis avec Configuration Manager. Vous devez télécharger les produits suivants à partir du [Centre de gestion des licences en volume Microsoft](https://www.microsoft.com/licensing/servicecenter/default.aspx).  
 
--   System Center 2012 Endpoint Protection pour Mac  
+-   System Center Endpoint Protection pour Mac  
 
--   System Center 2012 Endpoint Protection pour Linux  
+-   System Center Endpoint Protection pour Linux  
 
 
 > [!IMPORTANT]  
@@ -108,7 +108,13 @@ Procédez comme suit pour télécharger le fichier image contenant le logiciel c
 2. Sélectionnez l’onglet **Téléchargements et clés** situé en haut du site web.
 3. Filtrez sur le produit **System Center Endpoint Protection (Current Branch)**.
 4. Cliquez sur le lien vers **Télécharger**
-5. Cliquez sur **Continuer**. Vous devez voir plusieurs fichiers, dont un nommé : **System Center Endpoint Protection (current branch - version 1606) for Linux OS and Macintosh OS Multilanguage   32/64 bit   1507 MB ISO**.
-6. Cliquez sur l’icône de flèche pour télécharger le fichier. Le nom de fichier est **SW_DVD5_Sys_Ctr_Endpnt_Prtctn_1606_MultiLang_EptProt_Lin_Mac_MLF_X21-30777.ISO**.
+5. Cliquez sur **Continuer**. Vous devez voir plusieurs fichiers, dont un nommé : **System Center Endpoint Protection (current branch - version 1606) for Linux OS and Macintosh OS Multilanguage   32/64 bit   1579 MB ISO**.
+6. Cliquez sur l’icône de flèche pour télécharger le fichier. Le nom de fichier est **SW_DVD5_Sys_Ctr_Endpnt_Prtctn_1606_MultiLang_-2_EptProt_Lin_Mac_MLF_X21-44498.ISO**.
+
+Cette mise à jour de juillet 2017 (X21-44498) inclut les éléments suivants :
+
+- System Center Endpoint Protection pour Mac 4.5.28.1 (certificat d’installation mis à jour)
+- System Center Endpoint Protection pour Linux 4.5.18.0 (nouveaux modules linguistiques)
+- Documentation System Center Endpoint Protection pour Linux (révision de l’aide concernant la protection en temps réel)
 
  Pour plus d’informations sur l’installation et la gestion des clients Endpoint Protection sur les ordinateurs Mac et Linux, utilisez la documentation qui accompagne ces produits, disponible dans le dossier **Documentation** .

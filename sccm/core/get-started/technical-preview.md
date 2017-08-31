@@ -2,7 +2,7 @@
 title: Version Technical Preview pour Configuration Manager | Microsoft Docs
 description: "Découvrez la version Technical Preview qui vous permet de tester les nouvelles fonctions et fonctionnalités de System Center Configuration Manager."
 ms.custom: na
-ms.date: 08/11/2017
+ms.date: 08/25/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -14,11 +14,11 @@ caps.latest.revision: "157"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 6d7bac392cf5a4ba01b25758fd91f1003b153589
-ms.sourcegitcommit: 398e30ec703218c4b3680bbb055d686807ca7f1d
+ms.openlocfilehash: 0cdbccc0147cb1f4d5130863b9610d0b190d6658
+ms.sourcegitcommit: 974fbc4408028c8be28911e5cd646efcf47c7f15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 08/28/2017
 ---
 # <a name="technical-preview-for-system-center-configuration-manager"></a>Technical Preview pour System Center Configuration Manager
 
@@ -84,7 +84,7 @@ Les produits et technologies suivants sont pris en charge par cette branche de C
 
  Pour utiliser la version Technical Preview, vous devez d’abord installer une **version de référence** de la build de la version Technical Preview. Après avoir installé une version de référence, vous pouvez utiliser des **mises à jour dans la console** pour actualiser votre installation avec la version Preview la plus récente.     En règle générale, de nouvelles versions Technical Preview sont disponibles chaque mois.
 
-Chaque préversion est prise en charge pendant la durée de disponibilité de trois versions successives. Autrement dit, quand la version 1702 est publiée, la version 1610 n’est plus prise en charge, mais les versions 1611, 1612 et 1701 le sont toujours. Quand une base de référence n’est plus prise en charge (comme version 1610), elle l’est toujours pour l’installation d’un nouveau site Technical Preview jusqu’à ce qu’une nouvelle version de base de référence soit disponible, tant que vous mettez ensuite à jour cette installation vers une version prise en charge. Lors de la mise à jour, si vous ne voyez pas la version la plus récente disponible dans la console, mettez à jour vers la dernière version proposée, puis répétez ce processus jusqu’à pouvoir installer la version la plus récente de la version Technical Preview.
+Chaque préversion est prise en charge pendant la durée de disponibilité de trois versions successives. Autrement dit, quand la version 1708 est publiée, la version 1704 n’est plus prise en charge, mais les versions 1705, 1706 et 1707 le sont toujours. Quand une base de référence n’est plus prise en charge (comme version 1703), elle l’est toujours pour l’installation d’un nouveau site Technical Preview jusqu’à ce qu’une nouvelle version de base de référence soit disponible, tant que vous mettez ensuite à jour cette installation vers une version prise en charge. Lors de la mise à jour, si vous ne voyez pas la version la plus récente disponible dans la console, mettez à jour vers la dernière version proposée, puis répétez ce processus jusqu’à pouvoir installer la version la plus récente de la version Technical Preview.
 
 > [!TIP]  
 >  Quand vous installez une mise à jour de la version Technical Preview, vous mettez à jour votre installation vers cette nouvelle version Technical Preview.    Une installation de la version Technical Preview n’a jamais la possibilité d’effectuer une mise à niveau vers une installation de la version Current Branch, ni de recevoir des mises à jour de la version Current Branch.  
@@ -93,8 +93,9 @@ Chaque préversion est prise en charge pendant la durée de disponibilité de tr
 Vous pouvez installer une version de référence dans un délai d’un an après sa date de publication. Toutefois, lorsque vous installez un nouveau site Technical Preview, nous vous recommandons d’utiliser la dernière version de base de référence disponible.
 -  **Technical Preview 1703** : Configuration Manager Technical Preview 1703 est disponible à la fois sous la forme d’une mise à jour dans la console pour Configuration Manager Technical Preview et en tant que nouvelle version de référence [disponible sur le site web Centre d’évaluation TechNet](http://www.microsoft.com/evalcenter/evaluate-system-center-configuration-manager-and-endpoint-protection-technical-preview).
 
--  **Technical Preview 1610** : Configuration Manager Technical Preview 1610 est disponible à la fois sous la forme d’une mise à jour dans la console pour Configuration Manager Technical Preview et en tant que version de référence. Si vous disposez du support d’installation 1610, nous vous recommandons de télécharger la version 1703 et d’installer cette version à la place.
-
+<!-- out of support. Use baseline 1703
+-  **Technical Preview 1610** - The Configuration Manager Technical Preview 1610 was available as both an in-console update for the Configuration Manager Technical Preview, and as a baseline version. If you have media for installing 1610, we recommend you download version 1703 and install that version instead.
+-->
 
 
 
@@ -114,10 +115,10 @@ Technical Preview. Pour envoyer des commentaires sur les fonctionnalités de cha
 
  |Fonctionnalité |Version Technical Preview |Version Current Branch|  
  |----------------|---------------------|--------------------|
- |Prise en charge du cache d’homologue client pour les fichiers d’installation rapide de Windows 10 et Office 365|[Tech Preview 1707](capabilities-in-technical-preview-1707.md#client-peer-cache-support-for-express-installation-files-for-windows-10-and-office-365)|![Non ajouté](media/Red_X.gif)|
- |Tableau de bord Surface|[Tech Preview 1707](capabilities-in-technical-preview-1707.md#surface-device-dashboard)|![Non ajouté](media/Red_X.gif)|
- |Configurer et déployer des stratégies Windows Defender Application Guard|[Tech Preview 1707](capabilities-in-technical-preview-1707.md#configure-and-deploy-windows-defender-application-guard-policies)|![Non ajouté](media/Red_X.gif)|
- |Ajouter des paramètres lorsque vous déployez des scripts PowerShell à partir de Configuration Manager|[Tech Preview 1707](capabilities-in-technical-preview-1707.md#add-parameters-when-you-deploy-powershell-scripts-from-configuration-manager)|![Non ajouté](media/Red_X.gif)|
+ |Améliorations dans la spécification des paramètres du script lorsque vous déployez des scripts PowerShell à partir de Configuration Manager <!-- 1236459 -->|[Tech Preview 1708](capabilities-in-technical-preview-1708.md#improvements-for-specifying-script-parameters-when-you-deploy-powershell-scripts-from-configuration-manager)|![Non ajouté](media/Red_X.gif)|
+ |Management insights  <!-- 1353967 --> |[Tech Preview 1708](capabilities-in-technical-preview-1708.md#management-insights)|![Non ajouté](media/Red_X.gif)|
+ |Redémarrer les ordinateurs à partir de la console Configuration Manager <!-- 1356283 --> |[Tech Preview 1708](capabilities-in-technical-preview-1708.md#restart-computers-from-the-configuration-manager-console)|![Non ajouté](media/Red_X.gif)|
+ |Personnalisation du Centre logiciel <!-- 1351224 --> |[Tech Preview 1708](capabilities-in-technical-preview-1708.md#software-center-customization)|![Non ajouté](media/Red_X.gif)|
 
 
 ## <a name="capabilities-delivered-in-previous-technical-previews"></a>Fonctionnalités fournies dans les versions Technical Preview précédentes
@@ -125,6 +126,10 @@ Technical Preview. Pour envoyer des commentaires sur les fonctionnalités de cha
 
  |Fonctionnalité |Version Technical Preview |Version Current Branch|  
  |----------------|---------------------|--------------------|
+ |Prise en charge du cache d’homologue client pour les fichiers d’installation rapide de Windows 10 et Office 365|[Tech Preview 1707](capabilities-in-technical-preview-1707.md#client-peer-cache-support-for-express-installation-files-for-windows-10-and-office-365)|![Non ajouté](media/Red_X.gif)|
+ |Tableau de bord Surface|[Tech Preview 1707](capabilities-in-technical-preview-1707.md#surface-device-dashboard)|![Non ajouté](media/Red_X.gif)|
+ |Configurer et déployer des stratégies Windows Defender Application Guard|[Tech Preview 1707](capabilities-in-technical-preview-1707.md#configure-and-deploy-windows-defender-application-guard-policies)|![Non ajouté](media/Red_X.gif)|
+ |Ajouter des paramètres lorsque vous déployez des scripts PowerShell à partir de Configuration Manager|[Tech Preview 1707](capabilities-in-technical-preview-1707.md#add-parameters-when-you-deploy-powershell-scripts-from-configuration-manager)|![Non ajouté](media/Red_X.gif)|
  |Nouveaux paramètres de stratégie de gestion d’application mobile|[Tech Preview 1706](capabilities-in-technical-preview-1706.md#new-mobile-application-management-policy-settings)|![Non ajouté](media/Red_X.gif)|
  |Améliorations des groupes de limites pour les points de mise à jour logicielle|[Tech Preview 1706](capabilities-in-technical-preview-1706.md#improved-boundary-groups-for-software-update-points)|[Version 1706](/sccm/core/servers/deploy/configure/boundary-groups#software-update-points)|
  |Rôle serveur site haute disponibilité|[Tech Preview 1706](capabilities-in-technical-preview-1706.md#site-server-role-high-availability) |![Non ajouté](media/Red_X.gif)|

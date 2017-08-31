@@ -13,11 +13,11 @@ ms.assetid: cb405ba0-8792-4ab7-988b-2f835f3a9550
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 7ee2fd78c6c502394016ba077d42714041ad01c6
-ms.sourcegitcommit: 10f17229c5a359f040cb7f8f5e7bd868a34ac086
+ms.openlocfilehash: 3572004fa43db3e84295b68599dd95e0447f4c65
+ms.sourcegitcommit: 974fbc4408028c8be28911e5cd646efcf47c7f15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2017
+ms.lasthandoff: 08/28/2017
 ---
 # <a name="capabilities-in-technical-preview-1707-for-system-center-configuration-manager"></a>Fonctionnalités de la version Technical Preview 1707 de System Center Configuration Manager
 
@@ -32,7 +32,7 @@ Cet article présente les fonctionnalités qui sont disponibles dans la version 
     Workaround details.
 -->
 
-**Problèmes connus dans cette version Technical Preview :**
+**Problèmes connus dans cette version d’évaluation technique :**
 -   **La mise à jour vers la préversion 1707 échoue s’il existe un serveur de site en mode passif**. Si vous exécutez la préversion 1706 et que vous avez un [serveur de site principal en mode passif](/sccm/core/get-started/capabilities-in-technical-preview-1706#site-server-role-high-availability), vous devez le désinstaller pour pouvoir mettre à jour votre site de la préversion vers la version 1707. Vous pourrez réinstaller le serveur de site en mode passif lorsque votre site sera passé à la version 1707.
 
   Pour désinstaller le serveur de site en mode passif :

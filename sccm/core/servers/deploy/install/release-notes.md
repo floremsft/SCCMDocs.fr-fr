@@ -2,7 +2,7 @@
 title: "Notes de publication - Configuration Manager | Microsoft Docs"
 description: "Consultez ces notes pour les problèmes urgents qui ne sont pas encore résolus dans le produit ou traités dans un article de la Base de connaissances Microsoft."
 ms.custom: na
-ms.date: 08/21/2017
+ms.date: 08/23/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,11 +15,11 @@ caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 24f30bddb345e3a08d4b655d89693c226005cb0e
-ms.sourcegitcommit: 06aef618f72c700f8a716a43fb8eedf97c62a72b
+ms.openlocfilehash: e54c2cd1c3e83609bff6a8cb64fb3c23b26a4eaa
+ms.sourcegitcommit: 974fbc4408028c8be28911e5cd646efcf47c7f15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 08/28/2017
 ---
 # <a name="release-notes-for-system-center-configuration-manager"></a>Notes de publication de System Center Configuration Manager
 
@@ -27,15 +27,23 @@ ms.lasthandoff: 08/21/2017
 
 Avec System Center Configuration Manager, les notes de publication de produit sont limitées aux problèmes urgents qui n’ont pas encore été résolus dans le produit (disponibles par le biais d’une mise à jour dans la console) ou détaillés dans un article de la Base de connaissances Microsoft.  
 
- Pour les problèmes connus qui affectent des scénarios de base, ces informations sont transmises dans la documentation du produit en ligne accessible dans la bibliothèque de documentation de System Center Configuration Manager.  
+Les informations sur les problèmes connus qui affectent des scénarios de base sont transmises dans la documentation du produit en ligne accessible dans la bibliothèque de documentation de System Center Configuration Manager.  
 
 > [!TIP]  
 >  Cette rubrique contient les notes de publication de la branche CB (Current Branch) de System Center Configuration Manager. Pour la préversion technique de System Center Configuration Manager, consultez [Technical Preview pour System Center Configuration Manager](../../../../core/get-started/technical-preview.md).  
+
+Pour plus d’informations sur les nouvelles fonctionnalités introduites dans les différentes versions, consultez les rubriques suivantes :
+- [Nouveautés dans la version 1706](/sccm/core/plan-design/changes/whats-new-in-version-1706)  
+- [Nouveautés dans la version 1702](/sccm/core/plan-design/changes/whats-new-in-version-1702)
+- [Nouveautés dans la version 1610](/sccm/core/plan-design/changes/whats-new-in-version-1610)
+   
+
 
 ## <a name="setup-and-upgrade"></a>Installation et mise à niveau  
 
 ### <a name="after-you-update-a-configuration-manager-console-using-consolesetupexe-from-the-site-server-folder-recent-language-pack-changes-are-not-available"></a>Après avoir mis à jour une console Configuration Manager à l’aide du fichier ConsoleSetup.exe du dossier du serveur de site, les dernières modifications du pack linguistique ne sont pas disponibles
 <!--  SMS 486420  Applicability should be 1610 and 1702.  -->
+*Les éléments suivants s’appliquent aux versions 1610 et 1702.*   
 Après une mise à jour sur place exécutée sur une console à l’aide du fichier ConsoleSetup.exe d’un dossier d’installation de serveurs de site, il est possible que les modules linguistiques récemment installés ne soient pas disponibles. Cela se produit lorsque :
 - Votre site exécute la version 1610 ou 1702.
 - La console est mise à jour sur place à l’aide du fichier ConsoleSetup.exe du dossier d’installation du serveur de site.
@@ -47,7 +55,8 @@ Lorsque ce problème se produit, la console réinstallée n’utilise pas la der
 
 ### <a name="with-version-1702-the-default-site-boundary-group-is-configured-for-use-for-site-assignment"></a>Avec la version 1702, le groupe de limites de site par défaut est configuré pour une utilisation dans le cadre d’une attribution de site
 <!--  SMS 486380   Applicability should only be to 1702. -->
-Avec la version 1702, l’onglet Référence des groupes de limites de site par défaut affiche une coche pour l’option **Utiliser ce groupe de limites pour l'attribution de site**, répertorie le site en tant que **site attribué** et apparaît en grisé indiquant que la configuration ne peut pas être modifiée ou supprimée.
+*Les éléments suivants s’appliquent à la version 1702.*  
+L’onglet Référence des groupes de limites de site par défaut affiche une coche pour l’option **Utiliser ce groupe de limites pour l'attribution de site**, répertorie le site en tant que **site attribué** et apparaît en grisé indiquant que la configuration ne peut pas être modifiée ou supprimée.
 
 **Solution de contournement :** aucune. Vous pouvez ignorer ce paramètre. Même si le groupe est activé pour l’attribution de site, le groupe de limites de site par défaut n’est pas utilisé pour l’attribution de site. Avec la version 1702, cette configuration garantit que le groupe de limites de site par défaut est associé au site approprié.
 
@@ -104,7 +113,8 @@ Quand vous exécutez le programme d’installation à partir d’un dossier CD.L
 
 ### <a name="service-connection-tool-throws-an-exception-when-sql-server-is-remote-or-when-shared-memory-is-disabled"></a>L’outil de connexion de service lève une exception quand le serveur SQL Server est distant ou quand la mémoire partagée est désactivée
 <!-- 479223   Fixed in 1702 and later   -->
-À compter de la version 1606, l’outil de connexion de service génère une exception si l’une des conditions suivantes s’applique :  
+*Les éléments suivants s’appliquent à la version 1610 et versions antérieures.*  
+L’outil de connexion de service génère une exception si l’une des conditions suivantes s’applique :  
  -  Votre base de données de site est distante de l’ordinateur qui héberge le point de connexion de service et utilise un port non standard (autre que le port 1433)
  -  Votre base de données de site se trouve sur le même serveur que le point de connexion de service, mais l’option **Mémoire partagée** du protocole SQL est désactivée
 
@@ -131,7 +141,8 @@ L’exception est semblable à la suivante :
 ## <a name="client-deployment-and-upgrade"></a>Mise à niveau et déploiement du client  
 
 ### <a name="client-installation-fails-with-error-code-0x8007064c"></a>L’installation du client échoue avec le code d’erreur 0x8007064c
-<!--- SMS 486973 -->
+<!--- SMS 486973  applies 1606 to 1706. Not yet fixed. -->
+*Les éléments suivants s’appliquent à toutes les versions actives de Configuration Manager.*   
 Lorsque vous déployez le client sur des ordinateurs Windows, l’installation échoue. Le fichier ccmsetup.log contient une entrée « File 'C:\WINDOWS\ccmsetup\Silverlight.exe' returned failure exit code 1612. Fail the installation » suivie de "InstallFromManifest failed 0x8007064c ».
 
 **Solution de contournement** Cette erreur est due à une version endommagée de Silverlight, précédemment installée. Vous pouvez essayer d’exécuter l’outil suivant sur l’ordinateur concerné pour résoudre ce problème : [https://support.microsoft.com/help/17588/fix-problems-that-block-programs-from-being-installed-or-removed](https://support.microsoft.com/help/17588/fix-problems-that-block-programs-from-being-installed-or-removed)
@@ -158,6 +169,7 @@ après avoir créé un plan de maintenance, ouvrez les propriétés de celui-ci,
 
 ### <a name="when-a-high-risk-deployment-dialog-is-visible-to-a-user-subsequent-high-risk-dialogs-with-a-sooner-deadline-are-not-displayed"></a>Quand une boîte de dialogue de déploiement à haut risque est visible pour l’utilisateur, les boîtes de dialogue à haut risque ultérieures avec une échéance plus courte ne sont pas affichées
 <!-- Fixed in 1702 and later -->
+*Les éléments suivants s’appliquent à la version 1610 et versions antérieures.*   
 Une fois que vous avez créé et déployé un déploiement de tâches à haut risque sur les utilisateurs, une boîte de dialogue à haut risque s’affiche pour l’utilisateur. Si l’utilisateur ne ferme pas la boîte de dialogue et que vous créez et déployez un autre déploiement à haut risque avec une échéance plus courte que la première, l’utilisateur ne reçoit pas de boîte de dialogue mise à jour tant qu’il ne ferme pas la boîte de dialogue d’origine. Les déploiements continuent de s’exécuter selon les échéances configurées.
 
 **Solution de contournement** :  
@@ -169,6 +181,7 @@ L’utilisateur doit fermer la boîte de dialogue pour que le premier déploieme
 
 ### <a name="importing-an-office-365-client-settings-from-a-configuration-file-fails-when-it-contains-unsupported-languages"></a>L’importation des paramètres d’un client Office 365 à partir d’un fichier de configuration échoue s’il contient des langages non pris en charge
 <!-- 489258  Fixed in 1706  -->
+*Les éléments suivants s’appliquent à la version 1702 et versions antérieures.*   
 Lorsque vous importez les paramètres d’un client Office 365 à partir d’un fichier de configuration XML existant et que le fichier contient des langues qui ne sont pas prises en charge par le client Office 365 ProPlus, une erreur se produit. Pour plus d’informations, voir [Déployer des applications Office 365 sur des clients depuis le tableau de bord Gestion des clients Office 365](/sccm/sum/deploy-use/manage-office-365-proplus-updates#to-deploy-office-365-apps-to-clients-from-the-office-365-client-management-dashboard).
 
 **Solution de contournement** :    
@@ -207,6 +220,7 @@ Lorsqu’un profil de messagerie Android for Work est créé, deux options d’a
 
 ### <a name="antimalware-policy-fails-to-apply-on-windows-server-2016-core"></a>La stratégie de logiciel anti-programme malveillant ne parvient pas à s’appliquer sur Windows Server 2016 Core
 <!--  Product Studio bug 485370 added 04 19 2017   Fixed in 1702 -->
+*Les éléments suivants s’appliquent à la version 1610 et versions antérieures.*  
 La stratégie de logiciel anti-programme malveillant ne parvient pas à s’appliquer sur Windows Server 2016 Core.  Le code d’erreur est 0x80070002.  Il existe une dépendance manquante pour ConfigSecurityPolicy.exe.
 
 **Solution de contournement :** Ce problème est résolu par [l’article 4019472 de la Base de connaissances](https://support.microsoft.com/help/4019472/windows-10-update-kb4019472) publié le 9 mai 2017.

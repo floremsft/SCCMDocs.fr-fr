@@ -2,7 +2,7 @@
 title: "Entrepôt de données | Microsoft Docs"
 description: "Base de données et point de service de l’entrepôt de données pour System Center Configuration Manager"
 ms.custom: na
-ms.date: 7/31/2017
+ms.date: 8/25/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -14,11 +14,11 @@ caps.latest.revision:
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: eedbf12d3bf628666efc90c85a8dfab37e4dc9ab
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 744614d7e1ec97a4d4b4646c45cb41d734c6be34
+ms.sourcegitcommit: 974fbc4408028c8be28911e5cd646efcf47c7f15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/28/2017
 ---
 #  <a name="the-data-warehouse-service-point-for-system-center-configuration-manager"></a>Point de service de l’entrepôt de données pour System Center Configuration Manager
 *S’applique à : System Center Configuration Manager (Current Branch)*
@@ -49,8 +49,8 @@ Une fois installé, le rôle de système de site installe et configure la base d
 - L’ordinateur sur lequel vous installez le rôle de système de site nécessite .NET Framework 4.5.2 ou version ultérieure.
 - Le compte de l’ordinateur sur lequel vous installez le rôle de système de site est utilisé pour synchroniser les données avec la base de données de l’entrepôt de données. Ce compte nécessite les autorisations suivantes :  
   - des autorisations de niveau **administrateur local** sur l’ordinateur qui hébergera la base de données de l’entrepôt de données ;
-  - des autorisations **DB_owner** la base de données de l’entrepôt de données.
-  - des autorisations **DB_reader** et **execute** sur la base de données des sites de niveau supérieur.
+  - une autorisation **DB_Creator** sur la base de données de l’entrepôt de données ;
+  - **DB_owner** ou **DB_reader** avec une autorisation **execute** sur la base de données des sites de niveau supérieur.
 - La base de données de l’entrepôt de données nécessite l’utilisation de SQL Server 2012 ou version ultérieure. L’édition peut être Standard, Entreprise ou Datacenter.
 - Les configurations de SQL Server suivantes sont prises en charge pour héberger la base de données de l’entrepôt :  
   - Une instance par défaut
