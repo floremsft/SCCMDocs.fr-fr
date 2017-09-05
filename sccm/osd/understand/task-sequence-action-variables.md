@@ -15,11 +15,11 @@ caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 6049ec2369e0a97b21ce6523ba8448335385ab9a
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 675ebf053de98c6ad93a53ae218696012aef96f7
+ms.sourcegitcommit: 5b4fd2d36f06be5bcc7f8ebbfb92c48b7240085d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/30/2017
 ---
 # <a name="task-sequence-action-variables-in-system-center-configuration-manager"></a>Variables d’action de séquence de tâches dans System Center Configuration Manager
 
@@ -187,15 +187,6 @@ Les variables d’action de séquence de tâches spécifient les paramètres de 
 |SMSConnectNetworkFolderPassword<br /><br /> (entrée)|Spécifie le mot de passe réseau utilisé pour se connecter au partage réseau.|  
 |SMSConnectNetworkFolderPath<br /><br /> (entrée)|Spécifie le chemin d'accès réseau pour la connexion.<br /><br /> Exemple :<br /><br /> **« \\\nom_serveur\nom_partage »**|  
 
-###  <a name="BKMK_ConvertDisk"></a> Variables de l'action de séquence de tâches Convertir en disque dynamique  
- La variable pour cette action indique le numéro du disque physique à convertir d'un disque standard en disque dynamique. Pour plus d’informations sur l’étape de séquence de tâches associée à ces variables, consultez [Convertir en disque dynamique](task-sequence-steps.md#BKMK_ConvertDisktoDynamic).  
-
-#### <a name="details"></a>Détails  
-
-|Nom de la variable d'action|Description|  
-|--------------------------|-----------------|  
-|OSDConvertDiskIndex<br /><br /> (entrée)|Spécifie le numéro du disque physique converti.|  
-
 ###  <a name="BKMK_EnableBitLocker"></a> Variables de l'action de séquence de tâches Activer BitLocker  
  Les variables pour cette action spécifient les options de mot de passe de récupération et de clé de démarrage utilisées pour activer BitLocker sur l'ordinateur de destination. Pour plus d’informations sur l’étape de séquence de tâches associée à ces variables, consultez [Activer BitLocker](task-sequence-steps.md#BKMK_EnableBitLocker).  
 
@@ -276,7 +267,7 @@ Les variables d’action de séquence de tâches spécifient les paramètres de 
 |OSDStateStorePath<br /><br /> (sortie)|Le chemin d'accès UNC au dossier sur le point de migration d'état où est stocké l'état d'utilisateur.|  
 
 ###  <a name="BKMK_RestartComputer"></a> Variables d'action de séquence de tâches Redémarrer l'ordinateur  
- Les variables pour cette action spécifient les informations utilisées pour redémarrer l'ordinateur de destination. Pour plus d’informations sur l’étape de séquence de tâches associée à ces variables, consultez [Redémarrer l’ordinateur](task-sequence-steps.md#a-namebkmkrestartcomputera-restart-computer).  
+ Les variables pour cette action spécifient les informations utilisées pour redémarrer l'ordinateur de destination. Pour plus d’informations sur l’étape de séquence de tâches associée à ces variables, consultez [Redémarrer l’ordinateur](task-sequence-steps.md#BKMK_RestartComputer).  
 
 #### <a name="details"></a>Détails  
 
