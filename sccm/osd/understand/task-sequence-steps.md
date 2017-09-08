@@ -15,11 +15,11 @@ caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: e0726febc4c36a26c5e067914734838bf2681e6c
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 18a987141e212158424924402859799ba42f8eae
+ms.sourcegitcommit: 5b4fd2d36f06be5bcc7f8ebbfb92c48b7240085d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/30/2017
 ---
 # <a name="task-sequence-steps-in-system-center-configuration-manager"></a>Étapes de séquence de tâches dans System Center Configuration Manager
 
@@ -139,7 +139,7 @@ Vous trouverez ci-dessous les différentes étapes de séquence de tâches qui p
  Sélectionnez cette option pour que l'ordinateur de destination fasse partie du groupe de travail spécifié. Entrez le nom du groupe de travail sur la ligne **Groupe de travail** . Cette valeur peut être remplacée par la valeur capturée par l'étape de séquence de tâches **Capturer les paramètres réseau** .  
 
  **Joindre un domaine**  
- Sélectionnez cette option pour que l'ordinateur de destination fasse partie du domaine spécifié. Spécifiez ou accédez au domaine, tel que *fabricam.com*. Spécifiez un chemin d’accès LDAP (Lightweight Directory Access Protocol) à une unité d’organisation ou accédez-y (par ex. LDAP//OU=computers, DC=Fabricam.com, C=com).  
+ Sélectionnez cette option pour que l'ordinateur de destination fasse partie du domaine spécifié. Spécifiez ou accédez au domaine, tel que *fabricam.com*. Spécifiez un chemin d'accès LDAP (Lightweight Directory Access Protocol) à une unité d'organisation ou accédez-y (par ex. LDAP//OU=computers, DC=Fabricam.com, C=com).  
 
  **Compte**  
  Cliquez sur **Définir** pour spécifier un compte bénéficiant des autorisations nécessaires pour associer l'ordinateur au domaine. Dans la boîte de dialogue **Compte d’utilisateur Windows** , vous pouvez entrer le nom d’utilisateur au format suivant : **Domaine\Utilisateur** .  
@@ -551,31 +551,6 @@ Cette étape de séquence de tâches s'exécute uniquement dans Windows PE. Elle
 
 -   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
 
-##  <a name="BKMK_ConvertDisktoDynamic"></a> Convertir en disque dynamique  
- Utilisez la séquence de tâches **Convertir en disque dynamique** pour convertir un disque physique de type standard en disque dynamique.  
-
- Cette étape s'exécute dans un système d'exploitation standard ou Windows PE. Pour plus d’informations sur les variables de séquence de tâches pour cette action, consultez [Variables d’action de séquence de tâches Convertir en disque dynamique](task-sequence-action-variables.md#BKMK_ConvertDisk).  
-
-### <a name="details"></a>Détails  
- Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
-
- En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
-
--   Désactiver l'étape.  
-
--   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
-
--   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
-
- **Nom**  
- Nom court défini par l'utilisateur qui décrit l'action effectuée dans cette étape.  
-
- **Description**  
- Informations plus détaillées sur l'action effectuée dans cette étape.  
-
- **Numéro du disque**  
- Numéro du disque physique à convertir.  
-
 ##  <a name="BKMK_DisableBitLocker"></a> Désactiver BitLocker  
  Utilisez l'étape de la séquence de tâches **Désactiver BitLocker** pour désactiver le chiffrement BitLocker sur le disque du système d'exploitation actuel ou sur un lecteur spécifique. Cette action laisse les protecteurs de clé visibles en texte clair sur le disque dur, mais elle ne déchiffre pas le contenu du lecteur. En conséquence, cette action est terminée presque instantanément.  
 
@@ -874,35 +849,6 @@ Cette étape s'exécute dans un système d'exploitation standard ou Windows PE. 
  **Si l’installation d’une application échoue, continuer d’installer les autres applications de la liste**  
  Ce paramètre spécifie que l'étape se poursuit si l'installation d'une application individuelle échoue. Si ce paramètre est spécifié, la séquence de tâches continue indépendamment des erreurs d'installation renvoyées. Si ce paramètre n'est pas spécifié et qu'une installation échoue, l'étape de séquence de tâches s'interrompt immédiatement.  
 
-##  <a name="BKMK_InstallDeploymentTools"></a> Installer les outils de déploiement  
- Utilisez l’étape de séquence de tâches **Installer les outils de déploiement** pour installer le package Configuration Manager qui contient les outils de déploiement Sysprep.  
-
-### <a name="details"></a>Détails  
- Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
-
- En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
-
--   Désactiver l'étape.  
-
--   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
-
--   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
-
- **Nom**  
- Nom court défini par l'utilisateur qui décrit l'action effectuée dans cette étape.  
-
- **Description**  
- Informations plus détaillées sur l'action effectuée dans cette étape.  
-
- **Package Sysprep**  
- Ce paramètre permet de spécifier le package Configuration Manager qui contient les outils de déploiement Sysprep pour les systèmes d’exploitation suivants :  
-
--   Windows XP SP3  
-
--   Windows XP X64 SP2  
-
--   Windows Server 2003 SP2  
-
 ##  <a name="BKMK_InstallPackage"></a> Installer le package
 
  Utilisez l'étape de séquence de tâches **Installer le package** pour installer des logiciels dans le cadre de la séquence de tâches. Lorsque cette étape est exécutée, l'installation commence immédiatement sans attendre un intervalle d'interrogation de stratégie.  
@@ -1068,6 +1014,9 @@ Une nouvelle variable de séquence de tâches, SMSTSSoftwareUpdateScanTimeout, a
 Utilisez l’étape **Préparer le client ConfigMgr pour capture** pour supprimer le client Configuration Manager ou configurer le client sur l’ordinateur de référence afin de le préparer pour la capture pendant le processus de création d’image.
 
 À partir de Configuration Manager version 1610, l’étape de préparation du client ConfigMgr supprime complètement le client Configuration Manager, au lieu de supprimer uniquement des informations clés. Lorsque la séquence de tâches déploie l’image capturée du système d’exploitation, elle installe un nouveau client Configuration Manager chaque fois.  
+
+> [!Note]  
+>  Le client est supprimé seulement pendant la séquence de tâches **Créez et capturez une image de système d’exploitation**. Les autres méthodes de capture, comme un média de capture ou une séquence de tâches personnalisée, ne suppriment pas le client.
 
 Avant Configuration Manager version 1610, cette étape effectuait les tâches suivantes :  
 
