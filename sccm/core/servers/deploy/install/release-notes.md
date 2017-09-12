@@ -15,11 +15,11 @@ caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: e54c2cd1c3e83609bff6a8cb64fb3c23b26a4eaa
-ms.sourcegitcommit: 974fbc4408028c8be28911e5cd646efcf47c7f15
+ms.openlocfilehash: 4e818ffd943208eab323b1558f825bd87f3ddc4c
+ms.sourcegitcommit: 13599667ea77c16db1aebe64f8a6748c268f0b45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/11/2017
 ---
 # <a name="release-notes-for-system-center-configuration-manager"></a>Notes de publication de System Center Configuration Manager
 
@@ -148,17 +148,6 @@ Lorsque vous déployez le client sur des ordinateurs Windows, l’installation �
 **Solution de contournement** Cette erreur est due à une version endommagée de Silverlight, précédemment installée. Vous pouvez essayer d’exécuter l’outil suivant sur l’ordinateur concerné pour résoudre ce problème : [https://support.microsoft.com/help/17588/fix-problems-that-block-programs-from-being-installed-or-removed](https://support.microsoft.com/help/17588/fix-problems-that-block-programs-from-being-installed-or-removed)
 
 ## <a name="operating-system-deployment"></a>Déploiement du système d'exploitation  
-
-### <a name="if-the-boot-image-contains-drivers-the-image-fails-to-reload-the-current-windows-pe-version-from-the-windows-assessment-and-deployment-kit-adk"></a>Si l’image de démarrage contient des pilotes, l’image ne parvient pas à recharger la version actuelle de Windows PE à partir du Kit de déploiement et d’évaluation Windows (ADK)
-<!-- 495087 -->
-Vous pouvez utiliser l’Assistant Mise à jour de point de distribution pour mettre à jour les points de distribution grâce à une image de démarrage stockée avec la dernière version de Windows PE dans le répertoire d’installation du Kit de déploiement et d’évaluation Windows (ADK). Pour effectuer la mise à jour, ouvrez l’Assistant Mise à jour de point de distribution et sélectionnez **Recharger cette image de démarrage avec la version actuelle de PE à partir de Windows ADK**.
-
-Toutefois, si votre image de démarrage contient des pilotes, la mise à jour échoue. L’Assistant recharge l’image à partir de l’ADK et affiche une boîte de dialogue d’exception, que l’utilisateur peut ignorer, puis un écran de réussite. Toutefois, les derniers composants du client Gestionnaire de configuration ne seront pas ajoutés à l’image de démarrage. Celle-ci ne sera pas mise à jour sur le point de distribution.
-
-**Solution de contournement** : exécutez deux fois l’Assistant Mise à jour de point de distribution.
-
-1. Exécutez l’Assistant en sélectionnant **Recharger cette image de démarrage avec la version actuelle de Windows PE à partir de Windows ADK**. Vous obtiendrez la dernière version de Windows PE.
-2. Exécutez à nouveau l’Assistant sans sélectionner **Recharger cette image de démarrage avec la version actuelle de Windows PE à partir de Windows ADK**. Vous obtiendrez la dernière version des binaires du client, et l’image de démarrage sera mise à jour sur le point de distribution.
 
 ### <a name="servicing-plans-create-a-lot-of-duplicate-software-update-groups-and-deployments-by-default"></a>Les plans de maintenance créent un grand nombre de groupes et de déploiements de mises à jour logicielles en double  
 Par défaut, l’Assistant Créer un plan de maintenance s’exécute actuellement après chaque synchronisation des mises à jour logicielles. Chaque fois que l’Assistant s’exécute, il crée un groupe et un déploiement de mises à jour logicielles. Par exemple, si vous avez une planification de la synchronisation des mises à jour logicielles qui s’exécute plusieurs fois par jour, l’Assistant Créer un plan de maintenance génère quotidiennement plusieurs groupes et déploiements de mises à jour logicielles, probablement identiques.  
