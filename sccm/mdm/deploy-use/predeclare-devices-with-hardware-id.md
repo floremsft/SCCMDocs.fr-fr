@@ -2,7 +2,7 @@
 title: "Prédéclarer des appareils avec des numéros IMEI ou numéros de série iOS | Microsoft Docs"
 description: "Prédéclarez vos appareils d’entreprise avec leur numéro IMEI ou leur numéro de série iOS."
 ms.custom: na
-ms.date: 08/15/2017
+ms.date: 09/01/2017
 ms.reviewer: na
 ms.suite: na
 ms.prod: configuration-manager
@@ -14,11 +14,11 @@ caps.latest.revision: "3"
 author: nathbarn
 ms.author: nathbarn
 manager: angrobe
-ms.openlocfilehash: 7d139a2c74c0f29604f2f3d9b8e2739364633f17
-ms.sourcegitcommit: db7b7ec347638efd05cdba474e8a8f8535516116
+ms.openlocfilehash: 424f04b2b3ad4c7ef91f884bbf5bae3580ea6b85
+ms.sourcegitcommit: cd1f9c58e55f1c9a19acd743ec6a8824c39fd3a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/05/2017
 ---
 # <a name="predeclare-devices-with-imei-or-ios-serial-numbers"></a>Prédéclarer des appareils avec des numéros IMEI ou numéros de série iOS
 
@@ -29,7 +29,7 @@ Vous pouvez identifier des appareils d’entreprise en important leur numéro IM
 Lorsque vous téléchargez des numéros de série d’appareils iOS appartenant à l’entreprise, ils doivent être associés à un profil d’inscription d’entreprise. Les appareils doivent être ensuite inscrits à l’aide du programme d’inscription des appareils Apple (DEP) ou d’Apple Configurator pour qu’ils apparaissent comme appartenant à l’entreprise.
 
 >[!NOTE]
->À l’exception des appareils Samsung Knox Standard, une carte SIM est nécessaire pour prédéclarer et inscrire les appareils Android en tant qu’appareils d’entreprise avec un numéro IMEI.
+>Pour pouvoir prédéclarer et inscrire des appareils Android (à l’exception des appareils Samsung Knox Standard) comme appareils d’entreprise avec un numéro IMEI, vous devez leur affecter un numéro de téléphone.
 
 ## <a name="how-to-predeclare-corporate-owned-devices"></a>Comment prédéclarer des appareils d’entreprise
 

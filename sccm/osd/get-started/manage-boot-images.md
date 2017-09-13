@@ -15,11 +15,11 @@ caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: cc678c1133b1944f55bcad309cf9ede9f0660b57
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 5668ba3ead3b7415508f9ecf02f2e119c3cd9cc6
+ms.sourcegitcommit: 2a1328da3facb20b0c78f3b12adbb5fdbe0dcc11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="manage-boot-images-with-system-center-configuration-manager"></a>Gérer les images de démarrage avec System Center Configuration Manager
 
@@ -49,11 +49,10 @@ Avant la version 1702, Configuration Manager mettait à jour l’image de déma
 Quand vous mettez à niveau Configuration Manager 2012 vers Configuration Manager CB par le biais du processus d’installation, Configuration Manager regénère les images de démarrage par défaut. Ceci inclut la nouvelle version de Windows PE du Windows ADK mis à jour et la nouvelle version du client Configuration Manager. Toutes les personnalisations restent inchangées. Les images de démarrage personnalisées ne sont pas modifiées.
 
 ### <a name="update-distribution-points-with-the-boot-image"></a>Mettre à jour les points de distribution avec l’image de démarrage
-Quand vous utilisez l’action **Mettre à jour les points de distribution** à partir du nœud **Images de démarrage** dans la console Configuration Manager, Configuration Manager met à jour les images de démarrage par défaut avec les composants du client, les pilotes, les personnalisations, etc.    
+Quand vous utilisez l’action **Mettre à jour les points de distribution** à partir du nœud **Images de démarrage** dans la console Configuration Manager, Configuration Manager met à jour l’image de démarrage cible avec les composants du client, les pilotes, les personnalisations, etc.    
 
 À compter de Configuration Manager version 1706, vous pouvez choisir de recharger la dernière version de Windows PE (à partir du répertoire d’installation de Windows ADK) dans l’image de démarrage. La page **Général** de l’Assistant Mettre à jour les points de distribution fournit des informations sur la version de Windows ADK installée sur le serveur du site, la version de Windows ADK à partir de laquelle Windows PE a été utilisé dans l’image de démarrage, et la version du client Configuration Manager. Vous pouvez utiliser ces informations pour vous aider à décider s’il faut recharger l’image de démarrage. En outre, une nouvelle colonne (**Version du client**) a été ajoutée lorsque vous affichez des images de démarrage dans le nœud **Images de démarrage** et vous indique la version du client Configuration Manager utilisée par chaque image de démarrage.    
 
-Les images de démarrage personnalisées ne sont pas modifiées.
 
 ##  <a name="BKMK_BootImageCustom"></a> Personnaliser une image de démarrage  
  Vous pouvez personnaliser ou [modifier une image de démarrage](#BKMK_ModifyBootImages) depuis la console Configuration Manager si cette image est basée sur une version de Windows PE de la version prise en charge de Windows ADK. Quand un site est mis à niveau avec une nouvelle version et qu’une nouvelle version de Windows ADK est installée, les images de démarrage personnalisées (ne figurant pas dans l’emplacement d’image de démarrage par défaut) ne sont pas mises à jour avec la nouvelle version de Windows ADK. Dans ce cas, vous ne pouvez plus personnaliser les images de démarrage dans la console Configuration Manager. En revanche, elles continuent à fonctionner comme avant la mise à niveau.  

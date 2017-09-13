@@ -2,7 +2,7 @@
 title: "Présentation des profils de certificat | Microsoft Docs"
 description: "Découvrez le fonctionnement des profils de certificat dans System Center Configuration Manager avec les services de certificats Active Directory."
 ms.custom: na
-ms.date: 07/25/2017
+ms.date: 09/11/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -14,18 +14,18 @@ caps.latest.revision: "7"
 author: lleonard-msft
 ms.author: alleonar
 manager: angrobe
-ms.openlocfilehash: 7b1c0e449f3d1ef42e279e8707df6bf1df163b3f
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: e269b5836648d0d227e91a017512c16217e42646
+ms.sourcegitcommit: 13599667ea77c16db1aebe64f8a6748c268f0b45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/11/2017
 ---
 # <a name="introduction-to-certificate-profiles-in-system-center-configuration-manager"></a>Présentation des profils de certificat dans System Center Configuration Manager
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
 
-Les profils de certificat fonctionnent avec les services de certificats Active Directory et le rôle Service d’inscription d’appareil réseau pour configurer des certificats d’authentification pour les appareils gérés afin que les utilisateurs puissent accéder en toute transparence aux ressources d’entreprise. Par exemple, vous pouvez créer et déployer des profils de certificat pour fournir les certificats nécessaires aux utilisateurs pour établir des connexions VPN et sans fil. 
+Les profils de certificat fonctionnent avec les services de certificats Active Directory et le rôle Service d’inscription d’appareil réseau pour configurer des certificats d’authentification pour les appareils gérés afin que les utilisateurs puissent accéder en toute transparence aux ressources d’entreprise. Par exemple, vous pouvez créer et déployer des profils de certificat pour fournir les certificats nécessaires aux utilisateurs pour établir des connexions VPN et sans fil.
 
 Les profils de certificat peuvent automatiquement configurer des appareils d'utilisateur pour que les ressources d'entreprise, telles que les réseaux Wi-Fi et les serveurs VPN, soient accessibles sans avoir à installer manuellement des certificats ou à utiliser un processus hors bande. Les profils de certificat peuvent également contribuer à sécuriser les ressources d'entreprise, car vous pouvez utiliser les paramètres plus sécurisés pris en charge par votre infrastructure à clé publique (PKI) d'entreprise. Par exemple, vous pouvez exiger l'authentification du serveur pour toutes les connexions VPN et Wi-Fi car vous avez provisionné les certificats requis sur les appareils gérés.   
 
@@ -52,7 +52,7 @@ Les profils de certificat fournissent les fonctionnalités de gestion suivantes�
 
 -   **Échange d’informations personnelles (.pfx)** : vous permet de demander un certificat .pfx (également appelé PKCS #12) pour un appareil ou un utilisateur.
 
-    Vous pouvez créer des profils de certificat PFX en [important des informations d’identification](/sccm/mdm/deploy-use/import-pfx-certificate-profiles.md) à partir de certificats existants ou en [définissant une autorité de certification](/sccm/mdm/deploy-use/create-pfx-certificate-profiles.md) pour traiter les requêtes.
+    Vous pouvez créer des profils de certificat PFX en [important des informations d’identification](/sccm/mdm/deploy-use/import-pfx-certificate-profiles) à partir de certificats existants ou en [définissant une autorité de certification](/sccm/mdm/deploy-use/create-pfx-certificate-profiles) pour traiter les demandes.
 
     À compter de la version 1706, vous pouvez utiliser Microsoft ou Entrust comme autorités de certification pour les certificats **Échange d’informations personnelles (.pfx)**.
 
