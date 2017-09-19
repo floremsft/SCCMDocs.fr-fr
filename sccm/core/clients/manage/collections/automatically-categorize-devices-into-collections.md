@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 98b038b4-1a13-4228-bdb8-a12194e32b0e
 caps.latest.revision: "5"
-author: robstackmsft
-ms.author: robstack
+author: andredm7
+ms.author: andredm
 manager: angrobe
-ms.openlocfilehash: d1b79fb091a6ae4b967d63843ae7b45a0cbeb555
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 0de7a3d4183fb00f444a27c45d178141dc4e9375
+ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/15/2017
 ---
 # <a name="automatically-categorize-devices-into-collections-with-system-center-configuration-manager"></a>Classer automatiquement des appareils dans des regroupements avec System Center Configuration Manager
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 08/07/2017
 Vous pouvez créer des catégories d’appareils pour classer automatiquement les appareils dans des regroupements d’appareils quand vous utilisez Configuration Manager avec Microsoft Intune. Les utilisateurs doivent ensuite choisir une catégorie d’appareils quand ils inscrivent un appareil dans Intune. Vous pouvez changer une catégorie d’appareils dans la console Configuration Manager.
 
 > [!IMPORTANT]  
-    >  Cette fonctionnalité est opérationnelle avec la version de Microsoft Intune de **juin 2016**  et ultérieure. Vérifiez que vous avez effectué la mise à jour vers cette version avant d’essayer ces procédures.
+    >  Cette fonctionnalité est opérationnelle avec la version de Microsoft Intune de **juin 2016 ** et ultérieure. Vérifiez que vous avez effectué la mise à jour vers cette version avant d’essayer ces procédures.
 
 ## <a name="create-device-categories"></a>Créer des catégories d’appareils
 

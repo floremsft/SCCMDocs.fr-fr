@@ -15,11 +15,11 @@ caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 5fef04f26b12bced073332fd1f7b4e7c7bd7d398
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 35f527f83799125aa298b99e2cc56867435272ec
+ms.sourcegitcommit: 31c670a4bce74fd64a7d46ebf7702f65b80d4147
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="manage-operating-system-upgrade-packages-with-system-center-configuration-manager"></a>Gérer des packages de mise à niveau de système d’exploitation avec System Center Configuration Manager
 
@@ -59,7 +59,7 @@ Dans System Center Configuration Manager, un package de mise à niveau contient 
  Vous pouvez désormais distribuer le programme d'installation de système d'exploitation aux points de distribution auxquels vos séquences de tâches de déploiement accèdent.  
 
 ##  <a name="BKMK_DistributeBootImages"></a> Distribuer des images de système d’exploitation à un point de distribution  
- Les images de système d’exploitation sont distribuées aux points de distribution de la même façon que vous distribuez d’autre contenu. Dans la plupart des cas, vous devez distribuer l’image de système d’exploitation à au moins un point de distribution avant de déployer le système d’exploitation. Pour découvrir comment distribuer une image de système d’exploitation, consultez [Distribute content](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkdistributea-distribute-content).  
+ Les images de système d’exploitation sont distribuées aux points de distribution de la même façon que vous distribuez d’autre contenu. Dans la plupart des cas, vous devez distribuer l’image de système d’exploitation à au moins un point de distribution avant de déployer le système d’exploitation. Pour découvrir comment distribuer une image de système d’exploitation, consultez [Distribute content](../../core/servers/deploy/configure/deploy-and-manage-content.md#bkmk_distribute).  
 
 ##  <a name="BKMK_OSUpgradePkgApplyUpdates"></a> Appliquer des mises à jour logicielles à un package de mise à niveau du système d’exploitation  
  À compter de Configuration Manager version 1602, vous pouvez appliquer les nouvelles mises à jour logicielles à l’image de système d’exploitation dans votre package de mise à niveau du système d’exploitation. Avant de pouvoir appliquer des mises à jour logicielles à un package de mise à niveau, votre infrastructure de mises à jour logicielles doit être en place, et vous devez avoir synchronisé les mises à jour logicielles et téléchargé les mises à jour logicielles dans la bibliothèque de contenu sur le serveur de site. Pour plus d’informations, consultez [Déployer des mises à jour logicielles](../../sum/deploy-use/deploy-software-updates.md).  

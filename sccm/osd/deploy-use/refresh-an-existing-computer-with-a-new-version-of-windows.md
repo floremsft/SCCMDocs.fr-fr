@@ -14,11 +14,11 @@ caps.latest.revision: "7"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: b247cbb68ed63a8eb99715a248686d68a28c53e2
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 4a87b8489e9f0ed72426364a1de02e033c1c6f82
+ms.sourcegitcommit: 31c670a4bce74fd64a7d46ebf7702f65b80d4147
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="refresh-an-existing-computer-with-a-new-version-of-windows-using-system-center-configuration-manager"></a>Actualiser un ordinateur existant avec une nouvelle version de Windows à l’aide de System Center Configuration Manager
 
@@ -48,7 +48,7 @@ Cette rubrique indique les étapes générales à effectuer dans System Center C
 
     -   Pour plus d’informations sur la personnalisation d’une image de démarrage, consultez [Personnaliser des images de démarrage](../get-started/customize-boot-images.md).  
 
-    -   Distribuez l’image de démarrage à des points de distribution. Pour plus d’informations, consultez [Distribuer du contenu](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkdistributea-distribute-content).  
+    -   Distribuez l’image de démarrage à des points de distribution. Pour plus d’informations, consultez [Distribuer du contenu](../../core/servers/deploy/configure/deploy-and-manage-content.md#bkmk_distribute).  
 
 2.  **Préparer une image de système d’exploitation**  
 
@@ -56,7 +56,7 @@ Cette rubrique indique les étapes générales à effectuer dans System Center C
 
     -   Pour en savoir plus sur la création d’une image de système d’exploitation, consultez [Gérer les images de système d’exploitation](../get-started/manage-operating-system-images.md).  
 
-    -   Distribuez l’image du système d’exploitation à des points de distribution. Pour plus d’informations, consultez [Distribuer du contenu](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkdistributea-distribute-content).  
+    -   Distribuez l’image du système d’exploitation à des points de distribution. Pour plus d’informations, consultez [Distribuer du contenu](../../core/servers/deploy/configure/deploy-and-manage-content.md#bkmk_distribute).  
 
 3.  **Créer une séquence de tâches pour déployer des systèmes d’exploitation sur le réseau**  
 

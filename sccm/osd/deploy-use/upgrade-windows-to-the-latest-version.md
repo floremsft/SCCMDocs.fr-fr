@@ -14,11 +14,11 @@ caps.latest.revision: "13"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 026d61113a918e43ac4395ef092b1931f33f16d3
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 412c2c644cc7f17f307c02b84471f3ee494045ec
+ms.sourcegitcommit: 31c670a4bce74fd64a7d46ebf7702f65b80d4147
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="upgrade-windows-to-the-latest-version-with-system-center-configuration-manager"></a>Mettre à niveau Windows vers la dernière version avec System Center Configuration Manager
 
@@ -74,7 +74,7 @@ Cette rubrique indique les étapes à suivre dans System Center Configuration Ma
     > Quand vous utilisez un support autonome, vous devez inclure une image de démarrage dans la séquence de tâches pour qu’elle soit disponible dans l’Assistant Support de séquence de tâches.
 
     > [!NOTE]  
-    > En général, vous utilisez les étapes indiquées dans [Créer une séquence de tâches pour mettre à niveau un système d’exploitation](create-a-task-sequence-to-upgrade-an-operating-system.md) afin de créer une séquence de tâches pour mettre à niveau un système d’exploitation vers Windows 10. La séquence de tâches comprend l’étape Mettre à niveau le système d’exploitation, ainsi que d’autres groupes et étapes recommandés pour gérer le processus de mise à niveau de bout en bout. Toutefois, vous pouvez créer une séquence de tâches personnalisée et ajouter l’étape de séquence de tâches [Mettre à niveau le système d’exploitation](../understand/task-sequence-steps.md#BKMK_UpgradeOS) pour mettre à niveau le système d’exploitation. Il s’agit de la seule étape requise pour mettre à niveau le système d’exploitation vers Windows 10. Si vous choisissez cette méthode, ajoutez également l’étape [Redémarrer l’ordinateur](../understand/task-sequence-steps.md#a-namebkmkrestartcomputera-restart-computer) après l’étape Mettre à niveau le système d’exploitation pour terminer la mise à niveau. Veillez à activer le paramètre **Le système d’exploitation par défaut installé actuellement** pour redémarrer l’ordinateur dans le système d’exploitation installé, et non dans Windows PE.  
+    > En général, vous utilisez les étapes indiquées dans [Créer une séquence de tâches pour mettre à niveau un système d’exploitation](create-a-task-sequence-to-upgrade-an-operating-system.md) afin de créer une séquence de tâches pour mettre à niveau un système d’exploitation vers Windows 10. La séquence de tâches comprend l’étape Mettre à niveau le système d’exploitation, ainsi que d’autres groupes et étapes recommandés pour gérer le processus de mise à niveau de bout en bout. Toutefois, vous pouvez créer une séquence de tâches personnalisée et ajouter l’étape de séquence de tâches [Mettre à niveau le système d’exploitation](../understand/task-sequence-steps.md#BKMK_UpgradeOS) pour mettre à niveau le système d’exploitation. Il s’agit de la seule étape requise pour mettre à niveau le système d’exploitation vers Windows 10. Si vous choisissez cette méthode, ajoutez également l’étape [Redémarrer l’ordinateur](../understand/task-sequence-steps.md#BKMK_RestartComputer) après l’étape Mettre à niveau le système d’exploitation pour terminer la mise à niveau. Veillez à activer le paramètre **Le système d’exploitation par défaut installé actuellement** pour redémarrer l’ordinateur dans le système d’exploitation installé, et non dans Windows PE.  
 
 ##  <a name="BKMK_Deploy"></a> Déployer  
 

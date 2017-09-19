@@ -15,11 +15,11 @@ caps.handback.revision: "0"
 author: mtillman
 ms.author: mtillman
 manager: angrobe
-ms.openlocfilehash: ad4b923bd6d3e8acfe799a4ebe2adec737939d75
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: f50331f107ead5f83c3f76658718ff3ad6a2f4d7
+ms.sourcegitcommit: 31c670a4bce74fd64a7d46ebf7702f65b80d4147
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="verify-mdm-configuration-with-system-center-configuration-manager"></a>Vérifier une configuration MDM via System Center Configuration Manager
 
@@ -31,7 +31,7 @@ Vous pouvez vérifier certains composants de gestion des périphériques en cons
 
 -   Consultez le fichier Sitecomp.log pour vérifier que le point de connexion de service a bien été créé.
 
-Vous pouvez consulter la section [Fichiers journaux dans System Center Configuration Manager](../../core/plan-design/hierarchy/log-files.md#a-namebkmkfunctionlogsa-log-files-for-configuration-manager-functionality) pour en savoir plus sur ces fichiers journaux spécifiques et la procédure permettant de les afficher.
+Vous pouvez consulter la section [Fichiers journaux dans System Center Configuration Manager](../../core/plan-design/hierarchy/log-files.md##BKMK_FunctionLogs) pour en savoir plus sur ces fichiers journaux spécifiques et la procédure permettant de les afficher. 
 
 > [!div class="button"]
 [< Étape précédente](set-up-additional-management.md)
