@@ -14,11 +14,11 @@ caps.latest.revision: "10"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 2f3d66362c49d28a52d7f9c535eb0b3b4cc4eaf7
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: c9d94ffb61ed7a7fa40a01eedc763a16a8df30cb
+ms.sourcegitcommit: 31c670a4bce74fd64a7d46ebf7702f65b80d4147
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="manage-task-sequences-to-automate-tasks-in-system-center-configuration-manager"></a>Gérer les séquences de tâches pour automatiser des tâches dans System Center Configuration Manager
 
@@ -196,7 +196,7 @@ Le message de notification suivant s’affiche quand l’utilisateur final ouvre
 
 8.  Effectuez toutes les étapes de l'Assistant.  
 
- Vous pouvez préparer le contenu référencé dans la séquence de tâches. Configuration Manager crée un fichier de contenu compressé et préparé qui contient les fichiers, les dépendances associées et les métadonnées associées pour le contenu que vous sélectionnez. Vous pouvez ensuite importer manuellement le contenu au niveau d'un serveur de site, d'un site secondaire ou d'un point de distribution. Pour plus d’informations sur la façon de préparer des fichiers de contenu, consultez [Préparer du contenu](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkprestagea-use-prestaged-content).  
+ Vous pouvez préparer le contenu référencé dans la séquence de tâches. Configuration Manager crée un fichier de contenu compressé et préparé qui contient les fichiers, les dépendances associées et les métadonnées associées pour le contenu que vous sélectionnez. Vous pouvez ensuite importer manuellement le contenu au niveau d'un serveur de site, d'un site secondaire ou d'un point de distribution. Pour plus d’informations sur la façon de préparer des fichiers de contenu, consultez [Préparer du contenu](../../core/servers/deploy/configure/deploy-and-manage-content.md#bkmk_prestage).  
 
 ##  <a name="BKMK_DeployTS"></a> Déployer une séquence de tâches  
  Pour déployer une séquence de tâches sur les ordinateurs d'un regroupement, procédez comme suit.  
@@ -464,7 +464,7 @@ Vous pouvez gérer les variables par ordinateur sur un site principal ou sur un 
 |**Copier**|Effectue une copie de la séquence de tâches sélectionnée. Cette action peut vous être utile lorsque vous voulez créer une nouvelle séquence de tâches basée sur une séquence de tâches existante.<br /><br /> Lorsque vous faites une copie d'une séquence de tâches dans un dossier, la copie est répertoriée dans ce dossier jusqu'à ce que vous actualisiez le nœud de séquence de tâches.  Après l'actualisation, la copie s'affiche dans le dossier racine.|  
 |**Désactiver**|Désactive la séquence de tâches afin qu'elle ne puisse pas s'exécuter sur des ordinateurs. Des séquences de tâches désactivées peuvent être déployées sur des ordinateurs, mais les ordinateurs n'exécutent pas la séquence de tâches tant qu'elle n'est pas activée.|  
 |**Activer**|Active la séquence de tâches afin qu'elle puisse être exécutée. Il est inutile de redéployer une séquence de tâches déployée une fois qu'elle est activée.|  
-|**Créer un fichier de contenu préparé**|Démarre l'Assistant Création du fichier de contenu préparé pour préparer le contenu de séquence de tâches. Pour plus d’informations sur la création d’un fichier de contenu préparé, consultez [Préparer du contenu](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkprestagea-use-prestaged-content).|  
+|**Créer un fichier de contenu préparé**|Démarre l'Assistant Création du fichier de contenu préparé pour préparer le contenu de séquence de tâches. Pour plus d’informations sur la création d’un fichier de contenu préparé, consultez [Préparer du contenu](../../core/servers/deploy/configure/deploy-and-manage-content.md#bkmk_prestage).|  
 |**Déplacer**|Déplace la séquence de tâches sélectionnée vers un autre dossier.|  
 
 ## <a name="next-steps"></a>Étapes suivantes

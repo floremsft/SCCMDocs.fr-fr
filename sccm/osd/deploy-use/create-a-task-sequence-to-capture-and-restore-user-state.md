@@ -15,11 +15,11 @@ caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 4b3668094d576b1b8710f08b384aa2f7c5eb0cca
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 3a8e2759812dae2a328cd09efdc13f8534d14379
+ms.sourcegitcommit: 31c670a4bce74fd64a7d46ebf7702f65b80d4147
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="create-a-task-sequence-to-capture-and-restore-user-state-in-system-center-configuration-manager"></a>Créer une séquence de tâches pour capturer et restaurer l’état utilisateur dans System Center Configuration Manager
 
@@ -56,7 +56,7 @@ Vous pouvez utiliser des séquences de tâches System Center Configuration Manag
 
     -   Dans la zone **Délai de nouvelle tentative (en secondes)** , spécifiez le nombre de secondes d'attente avant que la séquence de tâches retente de capturer les données.  
 
-    -   Cochez la case **Si le compte d’ordinateur ne parvient pas à se connecter au magasin d’état, utiliser le compte d’accès réseau** pour indiquer si vous voulez utiliser le [compte d’accès réseau](../../core/plan-design/hierarchy/manage-accounts-to-access-content.md#a-namebkmknaaa-network-access-account) Configuration Manager pour vous connecter aux données d’état utilisateur.  
+    -   Cochez la case **Si le compte d’ordinateur ne parvient pas à se connecter au magasin d’état, utiliser le compte d’accès réseau** pour indiquer si vous voulez utiliser le [compte d’accès réseau](../../core/plan-design/hierarchy/manage-accounts-to-access-content.md#bkmk_NAA) Configuration Manager pour vous connecter aux données d’état utilisateur.  
 
      Dans l'onglet **Options** , spécifiez les options suivantes :  
 
@@ -141,7 +141,7 @@ Vous pouvez utiliser des séquences de tâches System Center Configuration Manag
 
     -   Sélectionnez **Continuer si certains fichiers ne peuvent pas être restaurés** si vous souhaitez que l'étape **Restaurer l'état utilisateur** se poursuive si un fichier ne peut pas être restauré.  
 
-         Si vous stockez l'état utilisateur à l'aide de liens locaux et si la restauration échoue, l'utilisateur administratif peut supprimer manuellement les liens directs qui ont été créés pour stocker les données ou la séquence de tâches peut exécuter l'outil USMTUtils. Si vous utilisez USMTUtils pour supprimer le lien physique, ajoutez l’étape [Redémarrer l’ordinateur](../understand/task-sequence-steps.md#a-namebkmkrestartcomputera-restart-computer) après l’exécution de USMTUtils.  
+         Si vous stockez l'état utilisateur à l'aide de liens locaux et si la restauration échoue, l'utilisateur administratif peut supprimer manuellement les liens directs qui ont été créés pour stocker les données ou la séquence de tâches peut exécuter l'outil USMTUtils. Si vous utilisez USMTUtils pour supprimer le lien physique, ajoutez l’étape [Redémarrer l’ordinateur](../understand/task-sequence-steps.md#BKMK_RestartComputer) après l’exécution de USMTUtils.  
 
     -   Sélectionnez **Activer la journalisation documentée** pour spécifier la quantité d'informations à écrire dans des fichiers journaux si une erreur se produit.  
 

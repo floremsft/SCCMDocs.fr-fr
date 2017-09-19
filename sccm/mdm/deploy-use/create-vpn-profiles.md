@@ -15,11 +15,11 @@ caps.handback.revision: "0"
 author: lleonard-msft
 ms.author: alleonar
 manager: angrobe
-ms.openlocfilehash: 23ff28189c8010c21ed8b23c35598746a4f09fe7
-ms.sourcegitcommit: 13599667ea77c16db1aebe64f8a6748c268f0b45
+ms.openlocfilehash: 5b5385cebe7952e519d59a239983733dd93e661e
+ms.sourcegitcommit: 31c670a4bce74fd64a7d46ebf7702f65b80d4147
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="vpn-profiles-on-mobile-devices-in-system-center-configuration-manager"></a>Utilisation de profils VPN sur des appareils mobiles dans System Center Configuration Manager
 
@@ -52,7 +52,7 @@ Découvrez comment utiliser des profils VPN dans System Center Configuration�
 ## <a name="create-vpn-profiles"></a>Création de profils VPN
 La section [Guide pratique pour créer des profils VPN dans System Center Configuration Manager](../../protect/deploy-use/create-vpn-profiles.md) fournit des informations générales sur la création de profils VPN.
 
-###   <a name="windows-10-vpn-features-available-when-using-configuration-manager-with-intune"></a>Fonctionnalités VPN Windows 10 disponibles quand vous utilisez Configuration Manager avec Intune  
+## <a name="windows-10-vpn-features-available-when-using-configuration-manager-with-intune"></a>Fonctionnalités VPN Windows 10 disponibles quand vous utilisez Configuration Manager avec Intune  
 
 
 > [!NOTE]  
@@ -157,7 +157,7 @@ La section [Guide pratique pour créer des profils VPN dans System Center Config
 
 **Déploiement :** consultez [Déployer des profils Wi-Fi, VPN, de messagerie et de certificat](../../protect/deploy-use/deploy-wifi-vpn-email-cert-profiles.md) pour en savoir plus sur le déploiement des profils VPN.
 
-### <a name="next-steps"></a>Étapes suivantes  
+## <a name="next-steps"></a>Étapes suivantes  
  Utilisez les rubriques suivantes pour planifier, configurer, utiliser et gérer des profils VPN dans Configuration Manager.  
 
 -   [Configuration requise pour les profils VPN dans System Center Configuration Manager](../../protect/plan-design/prerequisites-for-wifi-vpn-profiles.md)  

@@ -14,18 +14,18 @@ caps.latest.revision: "10"
 author: dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 26c36df77c21254c7ad2b8a45906bd3706f9ec65
-ms.sourcegitcommit: 06aef618f72c700f8a716a43fb8eedf97c62a72b
+ms.openlocfilehash: 5c9e80fc5bc3f0629e1c27a4928b8a51cfe1ee7e
+ms.sourcegitcommit: 948644072bd158b156f782a4376bcd50fac7c73a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/14/2017
 ---
 # <a name="choose-between-microsoft-intune-standalone-and-hybrid-mobile-device-management-with-system-center-configuration-manager"></a>Choisir entre Intune autonome et la gestion des appareils mobiles hybride avec System Center Configuration Manager
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
 L’une des questions les plus fréquentes relatives à la gestion des appareils mobiles avec Microsoft Intune est la suivante : « Dois-je intégrer Intune à Configuration Manager (gestion des appareils mobiles hybride) ou exécuter Intune autonome dans la configuration cloud ? ». Pour répondre à cette question, vous devez soigneusement comparer les deux options.
-
+ 
 ## <a name="intune-standalone"></a>Intune autonome
 Intune autonome est la topologie de déploiement recommandée par Microsoft. Intune autonome est une solution cloud de gestion des périphériques mobiles (GPM) qui est gérée à l’aide d’une console web accessible n’importe où dans le monde. Les centres de données Intune sont hébergés en Amérique du Nord, en Europe et en Asie. Intune étant un service cloud, vous pouvez déployer la gestion Intune sur vos appareils dans des délais relativement courts.
 

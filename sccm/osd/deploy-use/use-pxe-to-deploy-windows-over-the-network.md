@@ -15,11 +15,11 @@ caps.handback.revision: "0"
 author: mattbriggs
 ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: b88ab3799027c78a8c605e934b247097b31e1d21
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 57292b1c6f6e8b6be91eace06dbf12d788522e0b
+ms.sourcegitcommit: 31c670a4bce74fd64a7d46ebf7702f65b80d4147
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="use-pxe-to-deploy-windows-over-the-network-with-system-center-configuration-manager"></a>Utiliser PXE pour déployer Windows sur le réseau avec System Center Configuration Manager
 
@@ -46,7 +46,7 @@ Pour utiliser PXE pour déployer un système d’exploitation, vous avez besoin 
 
 -   Pour activer PXE sur une image de démarrage, sélectionnez **Déployer cette image de démarrage depuis le point de distribution PXE** sous l’onglet **Source de données** dans les propriétés de l’image de démarrage.
 
--   Si vous modifiez les propriétés de l’image de démarrage, redistribuez-la sur les points de distribution. Pour plus d’informations, consultez [Distribuer du contenu](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkdistributea-distribute-content).
+-   Si vous modifiez les propriétés de l’image de démarrage, redistribuez-la sur les points de distribution. Pour plus d’informations, consultez [Distribuer du contenu](../../core/servers/deploy/configure/deploy-and-manage-content.md#bkmk_distribute).
 
 ##  <a name="BKMK_PXEExclusionList"></a> Créer une liste d’exclusion pour les déploiements PXE
 Si vous utilisez PXE pour déployer des systèmes d’exploitation, vous pouvez créer des listes d’exclusion sur chaque point de distribution. Ajoutez les adresses MAC à la liste d’exclusion des ordinateurs qui doivent être ignorés par le point de distribution. Les ordinateurs répertoriés ne recevront pas les séquences de tâches de déploiement que Configuration Manager utilise pour le déploiement PXE.

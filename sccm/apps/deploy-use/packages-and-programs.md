@@ -12,14 +12,14 @@ ms.topic: article
 ms.assetid: caad0507-9913-415a-b13d-d36f8f0a1b80
 caps.latest.revision: "8"
 caps.handback.revision: "0"
-author: robstackmsft
-ms.author: robstack
+author: mattbriggs
+ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: 6146bcf4e5aa9df6fe0b8cf71898e488ecf217cc
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 05dd67bab32c4ac5adfb03b6dd149886955a32e1
+ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/15/2017
 ---
 # <a name="packages-and-programs-in-system-center-configuration-manager"></a>Packages et programmes dans System Center Configuration Manager
 
@@ -95,7 +95,7 @@ Les packages peuvent utiliser certaines nouvelles fonctionnalités de Configurat
 
              Quand le programme est exécuté sur un client, Configuration Manager commence par rechercher le nom du fichier de ligne de commande au sein du package, dans le dossier Windows local, puis dans le dossier *%chemin%* local. Si le fichier demeure introuvable, le programme échoue.  
 
-        -   **Dossier de démarrage**  (facultatif) : spécifiez le dossier à partir duquel le programme s’exécute, avec un maximum de 127 caractères. Ce dossier peut être un chemin absolu sur le client ou un chemin relatif au dossier du point de distribution qui contient le package.
+        -   **Dossier de démarrage ** (facultatif) : spécifiez le dossier à partir duquel le programme s’exécute, avec un maximum de 127 caractères. Ce dossier peut être un chemin absolu sur le client ou un chemin relatif au dossier du point de distribution qui contient le package.
 
         -   **Exécuter** : spécifiez le mode dans lequel le programme s’exécute sur les ordinateurs clients. Sélectionnez l’un des paramètres suivants :  
 

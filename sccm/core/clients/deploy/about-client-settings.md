@@ -12,14 +12,14 @@ ms.topic: article
 ms.assetid: f7560876-8084-4570-aeab-7fd44f4ba737
 caps.latest.revision: "15"
 caps.handback.revision: "0"
-author: robstackmsft
-ms.author: robstack
+author: arob98
+ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: a8233c361e1a78b14a02f328da445814624e38d8
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 5eeeb9337926b983c26f681bff043fa1598dd4ee
+ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/15/2017
 ---
 # <a name="about-client-settings-in-system-center-configuration-manager"></a>À propos des paramètres client dans System Center Configuration Manager
 
@@ -575,7 +575,7 @@ Active le cache d’homologue pour les clients Configuration Manager. Ensuite, s
 
      Lors d'un inventaire logiciel, les noms des fabricants et des produits sont extraits des informations d'en-tête des fichiers installés sur les clients du site. Du fait que ces noms ne sont pas systématiquement normalisés dans les informations d'en-tête de fichier, lorsque vous affichez les informations de l'inventaire logiciel dans l'Explorateur de ressources ou exécutez des requêtes, différentes versions du même nom de fabricant ou de produit peuvent parfois apparaître. Si vous souhaitez normaliser ces noms d’affichage, choisissez **Définir des noms** et configurez les éléments suivants dans la boîte de dialogue **Configurer le paramètre client** :  
 
-    -   **Type de nom**  : l’inventaire logiciel collecte des informations sur les produits et les fabricants. Dans la liste déroulante, indiquez si vous souhaitez configurer des noms complets pour un **fabricant** ou un **produit**.  
+    -   **Type de nom ** : l’inventaire logiciel collecte des informations sur les produits et les fabricants. Dans la liste déroulante, indiquez si vous souhaitez configurer des noms complets pour un **fabricant** ou un **produit**.  
 
     -   **Nom complet** : spécifiez le nom complet que vous souhaitez utiliser à la place des noms dans la liste **Noms inventoriés**. Vous pouvez choisir l’icône **Nouveau** pour spécifier un nouveau nom complet.  
 

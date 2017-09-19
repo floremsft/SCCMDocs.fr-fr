@@ -15,11 +15,11 @@ caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 6953c3834ca303b949f22436010a87b3da9688dc
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 9edefdbe77085d157b524904a514a2b5c472b1be
+ms.sourcegitcommit: 31c670a4bce74fd64a7d46ebf7702f65b80d4147
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="manage-operating-system-images-with-system-center-configuration-manager"></a>Gérer les images de système d’exploitation avec System Center Configuration Manager
 
@@ -81,7 +81,7 @@ Pour en savoir plus sur les étapes de création d’une image de système d’e
  Vous pouvez maintenant distribuer l’image du système d’exploitation à des points de distribution.  
 
 ##  <a name="BKMK_DistributeBootImages"></a> Distribuer des images de système d’exploitation à des points de distribution  
- Les images de système d’exploitation sont distribuées aux points de distribution de la même façon que vous distribuez d’autre contenu. Dans la plupart des cas, vous devez distribuer l’image de système d’exploitation à au moins un point de distribution avant de déployer le système d’exploitation. Pour découvrir comment distribuer une image de système d’exploitation, consultez [Distribute content](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkdistributea-distribute-content).  
+ Les images de système d’exploitation sont distribuées aux points de distribution de la même façon que vous distribuez d’autre contenu. Dans la plupart des cas, vous devez distribuer l’image de système d’exploitation à au moins un point de distribution avant de déployer le système d’exploitation. Pour découvrir comment distribuer une image de système d’exploitation, consultez [Distribute content](../../core/servers/deploy/configure/deploy-and-manage-content.md#bkmk_distribute).  
 
 ##  <a name="BKMK_OSImagesApplyUpdates"></a> Appliquer des mises à jour logicielles à une image de système d’exploitation  
  De nouvelles mises à jour logicielles applicables au système d'exploitation figurant dans votre image de système d'exploitation sont régulièrement publiées. Avant de pouvoir appliquer des mises à jour logicielles à une image, votre infrastructure de mises à jour logicielles doit être en place, vous devez avoir synchronisé correctement les mises à jour logicielles et vous devez avoir téléchargé les mises à jour logicielles dans la bibliothèque de contenu sur le serveur de site. Pour plus d’informations, consultez [Déployer des mises à jour logicielles](../../sum/deploy-use/deploy-software-updates.md).  

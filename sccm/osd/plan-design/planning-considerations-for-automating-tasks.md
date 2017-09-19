@@ -15,11 +15,11 @@ caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 830f715b688cc9929a179da94eba9c81de8db11a
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: f44fa4ef0946d3500d15db536333adab571a5f64
+ms.sourcegitcommit: 31c670a4bce74fd64a7d46ebf7702f65b80d4147
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="planning-considerations-for-automating-tasks-in-system-center-configuration-manager"></a>Considérations relatives à la planification de l’automatisation des tâches dans System Center Configuration Manager
 
@@ -282,7 +282,7 @@ Vous pouvez créer des séquences de tâches pour automatiser les tâches dans v
 ##  <a name="BKMK_TSNetworkAccessAccount"></a> Séquences de tâches et compte d’accès réseau  
  Même si les séquences de tâches s'exécutent uniquement dans le contexte du compte Système local, il peut être nécessaire de configurer le compte d'accès réseau dans les circonstances suivantes :  
 
--   Vous devez configurer correctement le compte d’accès réseau, sinon la séquence de tâches ne pourra pas accéder aux packages Configuration Manager des points de distribution pour s’effectuer. Pour plus d’informations sur le compte d’accès réseau, consultez [Compte d’accès réseau](../../core/plan-design/hierarchy/manage-accounts-to-access-content.md#a-namebkmknaaa-network-access-account).  
+-   Vous devez configurer correctement le compte d’accès réseau, sinon la séquence de tâches ne pourra pas accéder aux packages Configuration Manager des points de distribution pour s’effectuer. Pour plus d’informations sur le compte d’accès réseau, consultez [Compte d’accès réseau](../../core/plan-design/hierarchy/manage-accounts-to-access-content.md#bkmk_NAA).  
 
     > [!NOTE]  
     >  Le compte d'accès réseau n'est jamais utilisé comme contexte de sécurité pour l'exécution de programmes, l'installation d'applications ou de mises à jour ou bien l'exécution de séquences de tâches. En revanche, il est utilisé pour accéder aux ressources associées sur le réseau.  

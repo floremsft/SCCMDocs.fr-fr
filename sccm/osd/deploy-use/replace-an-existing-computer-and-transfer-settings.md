@@ -14,11 +14,11 @@ caps.latest.revision: "6"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 243433980e1720fd468d52a4a61f2c3a8e3659b5
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 08e9603944e378593598d70c1c11c8a1b1f2f13b
+ms.sourcegitcommit: f6a428a8db7145affa388f59e0ad880bdfcf17b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/14/2017
 ---
 # <a name="replace-an-existing-computer-and-transfer-settings-with-system-center-configuration-manager"></a>Remplacer un ordinateur existant et transférer des paramètres avec System Center Configuration Manager
 
@@ -48,7 +48,7 @@ Cette rubrique indique les étapes générales à suivre dans System Center Conf
 
     -   Pour plus d’informations sur la personnalisation d’une image de démarrage, consultez [Personnaliser des images de démarrage](../get-started/customize-boot-images.md).  
 
-    -   Distribuez l’image de démarrage à des points de distribution. Pour plus d’informations, consultez [Distribuer du contenu](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkdistributea-distribute-content).  
+    -   Distribuez l’image de démarrage à des points de distribution. Pour plus d’informations, consultez [Distribuer du contenu](../../core/servers/deploy/configure/deploy-and-manage-content.md#bkmk_distribute).  
 
 2.  **Préparer une image de système d’exploitation**  
 
@@ -56,7 +56,7 @@ Cette rubrique indique les étapes générales à suivre dans System Center Conf
 
     -   Pour en savoir plus sur la création d’une image de système d’exploitation, consultez [Gérer les images de système d’exploitation](../get-started/manage-operating-system-images.md).  
 
-    -   Distribuez l’image du système d’exploitation à des points de distribution. Pour plus d’informations, consultez [Distribuer du contenu](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkdistributea-distribute-content).  
+    -   Distribuez l’image du système d’exploitation à des points de distribution. Pour plus d’informations, consultez [Distribuer du contenu](../../core/servers/deploy/configure/deploy-and-manage-content.md#bkmk_distribute).  
 
 3.  **Créer une séquence de tâches pour déployer des systèmes d’exploitation sur le réseau**  
 

@@ -12,14 +12,14 @@ ms.topic: get-started-article
 ms.assetid: c1d71899-308f-49d5-adfa-3a3ec0163ed8
 caps.latest.revision: "10"
 caps.handback.revision: "0"
-author: robstackmsft
-ms.author: robstack
+author: arob98
+ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: 1d871b0e1a2897c236d17211a23c9c7d93e42313
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: b354155d83ce6f3a14b13b98fb54e1f3bd2f54da
+ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/15/2017
 ---
 # <a name="security-and-privacy-for-clients-in-system-center-configuration-manager"></a>Sécurité et confidentialité pour les clients dans System Center Configuration Manager
 
@@ -166,7 +166,7 @@ Cet article contient des informations de sécurité et de confidentialité pour 
 
  Pour d'autres appareils mobiles qui sont inscrits par Configuration Manager : Utiliser un élément de configuration d'appareil mobile pour configurer le paramètre de mot de passe **Durée d'inactivité en minutes avant le verrouillage du périphérique mobile**.  
 
- Pour les appareils mobiles sur lesquels le client Gestionnaire de configuration n'est pas installé mais qui sont gérés par le connecteur Exchange Server : Configurez les **Paramètres de mot de passe** pour le connecteur Exchange Server afin de configurer la **Durée d'inactivité en minutes avant le verrouillage du périphérique mobile** .  
+ Pour les appareils mobiles sur lesquels le client Gestionnaire de configuration n'est pas installé mais qui sont gérés par le connecteur Exchange Server : Configurez les **Paramètres de mot de passe** pour le connecteur Exchange Server afin de configurer la **Durée d'inactivité en minutes avant le verrouillage du périphérique mobile **.  
 
  **Pour les appareils mobiles : Empêchez l'élévation de privilèges en limitant les utilisateurs qui peuvent inscrire leurs appareils mobiles**  
 

@@ -14,11 +14,11 @@ caps.latest.revision: "26"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 2c2c0f81736c1b00ea487ae1261803a8105bb5e4
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: fe02981433482ebf6880feec3e1822e6e8f4550f
+ms.sourcegitcommit: 31c670a4bce74fd64a7d46ebf7702f65b80d4147
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="manage-windows-as-a-service-using-system-center-configuration-manager"></a>Gérer Windows as a Service (WaaS) à l’aide de System Center Configuration Manager
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 08/07/2017
 
 -   WSUS 4.0 avec le [correctif logiciel 3159706](https://support.microsoft.com/kb/3159706) doit être installé sur les points de mise à jour logicielle et les serveurs de site pour mettre à niveau les ordinateurs avec la mise à jour anniversaire Windows 10 ou une version ultérieure. Pour installer ce correctif logiciel, vous devez effectuer manuellement certaines étapes, comme décrit dans l’article du support technique. Pour plus d’informations, consultez le [Blog de l’équipe Enterprise Mobility and Security](https://blogs.technet.microsoft.com/enterprisemobility/2016/08/05/update-your-configmgr-1606-sup-servers-to-deploy-the-windows-10-anniversary-update/).
 
--   Activez la découverte par pulsations d’inventaire. Les données affichées dans le tableau de bord de maintenance de Windows 10 sont trouvées à l’aide de la détection. Pour plus d’informations, consultez [Configurer la découverte par pulsations d’inventaire](../../core/servers/deploy/configure/configure-discovery-methods.md#a-namebkmkconfighbdisca-configure-heartbeat-discovery).  
+-   Activez la découverte par pulsations d’inventaire. Les données affichées dans le tableau de bord de maintenance de Windows 10 sont trouvées à l’aide de la détection. Pour plus d’informations, consultez [Configurer la découverte par pulsations d’inventaire](../../core/servers/deploy/configure/configure-discovery-methods.md#BKMK_ConfigHBDisc).  
 
      Les informations de branche et de build Windows 10 suivantes sont découvertes et stockées dans les attributs suivants :  
 
