@@ -2,7 +2,7 @@
 title: "Mises à jour dans la console | Microsoft Docs"
 description: "System Center Configuration Manager se synchronise avec le cloud Microsoft pour obtenir les mises à jour que vous pouvez installer dans la console."
 ms.custom: na
-ms.date: 06/13/2017
+ms.date: 09/14/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -14,11 +14,11 @@ caps.latest.revision: "36"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 2bbc8935bee306ed0bc312cc43b8f5374a8df7ff
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 10ddbcc19da8c5fc6451f62500f17790a0349389
+ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/15/2017
 ---
 # <a name="install-in-console-updates-for-system-center-configuration-manager"></a>Installation de mises à jour dans la console pour System Center Configuration Manager
 
@@ -105,6 +105,9 @@ Avant d’installer une mise à jour, envisagez d’exécuter la vérification d
 -   Les fichiers de mise à jour sont répliqués vers d’autres sites avant l’installation de la mise à jour.  
 
 -   La vérification des prérequis est automatiquement réexécutée lorsque vous choisissez d’installer la mise à jour.  
+
+> [!NOTE]
+> Si vous lancez une vérification des prérequis, puis que vous affichez l’état, la phase **Installation** semble active, mais la mise à jour n’est pas réellement en cours d’installation. La phase d’installation s’affiche en raison du fait que certaines tâches, par exemple extraire les binaires nécessaires pour effectuer la vérification, font également partie de la phase d’installation.  
 
 Par la suite, lorsque vous installez la mise à jour, vous pouvez configurer la mise à jour de manière à ignorer les avertissements relatifs à la vérification des prérequis.  
 
@@ -288,7 +291,7 @@ Les tâches post-installation incluent :
 Quand l’installation d’une mise à jour échoue, passez en revue les commentaires dans la console pour identifier les résolutions possibles des avertissements et des erreurs. Vous pouvez également consulter le fichier ConfigMgrPrereq.log sur le serveur du site pour plus de détails. Avant de réessayer l’installation d’une mise à jour, vous devez corriger les erreurs et il est recommandé de corriger aussi les avertissements.  
 
 > [!TIP]  
-> Si une mise à jour a des problèmes lors du téléchargement ou de réplication, vous pouvez utiliser la [outil de réinitialisation de mise à jour](/sccm/core/servers/manage/update-reset-tool). Cet outil est disponible à partir de sites qui exécutent la version 1706 ou version ultérieure. 
+> Si une mise à jour a des problèmes lors du téléchargement ou de réplication, vous pouvez utiliser la [outil de réinitialisation de mise à jour](/sccm/core/servers/manage/update-reset-tool). Cet outil est disponible à partir de sites qui exécutent la version 1706 ou version ultérieure.
 
 Quand vous êtes prêt à réessayer l’installation d’une mise à jour, sélectionnez la mise à jour ayant échoué, puis choisissez une option applicable. Le comportement de nouvelle tentative d’installation de mise à jour dépend du nœud où vous lancez la nouvelle tentative et de l’option de nouvelle tentative que vous utilisez.  
 

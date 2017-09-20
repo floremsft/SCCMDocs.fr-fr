@@ -2,7 +2,7 @@
 title: "Créer et exécuter des scripts avec Configuration Manager | Microsoft Docs"
 description: "Créez et exécutez des scripts sur les appareils clients avec Configuration Manager."
 ms.custom: na
-ms.date: 08/09/2017
+ms.date: 09/15/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -12,14 +12,14 @@ ms.topic: article
 ms.assetid: cc230ff4-7056-4339-a0a6-6a44cdbb2857
 caps.latest.revision: "14"
 caps.handback.revision: "0"
-author: robstackmsft
-ms.author: robstack
+author: lleonard-msft
+ms.author: alleonar
 manager: angrobe
-ms.openlocfilehash: ed84f7900eee5c04728d0e4d1b46027c36327bec
-ms.sourcegitcommit: b41d3e5c7f0c87f9af29e02de3e6cc9301eeafc4
+ms.openlocfilehash: e6b29cd85504742e8638a55db2f6c4ecc8ab3e55
+ms.sourcegitcommit: 5ca89204716750eaaceb01bba40b35b85c7122ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/18/2017
 ---
 # <a name="create-and-run-powershell-scripts-from-the-configuration-manager-console"></a>Créer et exécuter des scripts PowerShell à partir de la console Configuration Manager
 
@@ -44,8 +44,8 @@ Les clients Configuration Manager doivent exécuter le client à partir de la ve
 
 Pour utiliser des scripts, vous devez être membre du rôle de sécurité Configuration Manager approprié.
 
-- Pour importer et créer des scripts, votre compte doit avoir les autorisations **Créer** pour les **Scripts SMS** dans le rôle de sécurité **Gestionnaire de paramètres de conformité**.
-- Pour approuver ou refuser des scripts, votre compte doit avoir les autorisations **Approuver** pour les **Scripts SMS** dans le rôle de sécurité **Gestionnaire de paramètres de conformité**.
+- Pour importer et créer des scripts, votre compte doit avoir les autorisations **Créer** pour les **Scripts SMS** dans le rôle de sécurité **Administrateur complet**.
+- Pour approuver ou refuser des scripts, votre compte doit avoir les autorisations **Approuver** pour les **Scripts SMS** dans le rôle de sécurité **Administrateur complet**.
 - Pour exécuter des scripts, votre compte doit avoir les autorisations **Exécuter des scripts** pour les **Collections** dans le rôle de sécurité **Gestionnaire de paramètres de conformité**.
 
 Pour plus d'informations sur les rôles de sécurité de Configuration Manager, voir [Principes de base de l’administration basée sur des rôles](/sccm/core/understand/fundamentals-of-role-based-administration).
@@ -68,7 +68,7 @@ Par défaut, les utilisateurs ne peuvent pas approuver un script qu'ils ont cré
     - **Nom de script** : entrez un nom pour le script. Vous pouvez créer plusieurs scripts portant le même nom, mais utiliser des noms en double complique la recherche d’un script spécifique dans la console Configuration Manager.
     - **Langage de script** : seuls les scripts PowerShell sont pris en charge.
     - **Importer** : importez un script PowerShell dans la console. Le script s’affiche dans le champ **Script**.
-    - **Effacer**  : supprime le script en cours du champ Script.
+    - **Effacer ** : supprime le script en cours du champ Script.
     - **Script** : affiche le script actuellement importé. Vous pouvez modifier le script dans ce champ si nécessaire.
 5. Effectuez toutes les étapes de l'Assistant. Le nouveau script s’affiche dans la liste **Script** avec l’état **En attente d’approbation**. Avant de pouvoir exécuter ce script sur les appareils clients, vous devez l’approuver.
 
@@ -78,9 +78,9 @@ Voici quelques exemples de scripts utilisables avec cette fonctionnalité.
 
 #### <a name="create-a-folder"></a>Créer un dossier
 
-*New-Item "c:\scripts" -type folder name* 
- 
- 
+*New-Item "c:\scripts" -type folder name*
+
+
 #### <a name="create-a-file"></a>Créer un fichier
 
 *New-Item c:\scripts\nouveau_fichier.txt -type file name*

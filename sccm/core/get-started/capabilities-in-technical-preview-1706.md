@@ -2,7 +2,7 @@
 title: Technical Preview 1706 | Microsoft Docs
 description: "Découvrez les fonctionnalités disponibles dans la version d’évaluation technique 1706 pour System Center Configuration Manager."
 ms.custom: na
-ms.date: 06/30/2017
+ms.date: 09/15/2017
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.reviewer: na
@@ -13,11 +13,11 @@ ms.assetid: ca3b4714-2a16-495e-8a17-1d87991d5556
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: d45f504dfe0a4c7852b0e2c8ff60d54005346c02
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 5633047669f9730446159781c4ac0b1248178bf4
+ms.sourcegitcommit: 5ca89204716750eaaceb01bba40b35b85c7122ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/18/2017
 ---
 # <a name="capabilities-in-technical-preview-1706-for-system-center-configuration-manager"></a>Fonctionnalités de la version d’évaluation technique 1706 pour System Center Configuration Manager
 
@@ -328,8 +328,8 @@ Dans Configuration Manager, vous pouvez déployer des scripts sur des appareils 
 
 Pour utiliser des scripts, vous devez être membre du rôle de sécurité Configuration Manager approprié.
 
-- **Pour importer et créer des scripts**, votre compte doit avoir les autorisations **Créer** pour les **Scripts SMS** dans le rôle de sécurité **Gestionnaire de paramètres de conformité**.
-- **Pour approuver ou refuser des scripts**, votre compte doit avoir les autorisations **Approuver** pour les **Scripts SMS** dans le rôle de sécurité **Gestionnaire de paramètres de conformité**.
+- **Pour importer et créer des scripts**, votre compte doit avoir les autorisations **Créer** pour les **Scripts SMS** dans le rôle de sécurité **Administrateur complet**.
+- **Pour approuver ou refuser des scripts**, votre compte doit avoir les autorisations **Approuver** pour les **Scripts SMS** dans le rôle de sécurité **Administrateur complet**.
 - **Pour exécuter des scripts**, votre compte doit avoir les autorisations **Exécuter des scripts** pour les **Collections** dans le rôle de sécurité **Gestionnaire de paramètres de conformité**.
 
 Pour plus d'informations sur les rôles de sécurité de Configuration Manager, voir [Principes de base de l’administration basée sur des rôles](/sccm/core/understand/fundamentals-of-role-based-administration).
@@ -355,7 +355,7 @@ Pour autoriser les utilisateurs à approuver leurs propres scripts :
     - **Nom de script** : entrez un nom pour le script. Vous pouvez créer plusieurs scripts portant le même nom, mais il sera alors difficile de trouver le script dont vous avez besoin dans la console Configuration Manager.
     - **Langage du script** : actuellement, seuls les scripts **PowerShell** sont pris en charge.
     - **Importer** : importez un script PowerShell dans la console. Le script s’affiche dans le champ **Script**.
-    - **Effacer**  : supprime le script en cours du champ **Script**.
+    - **Effacer ** : supprime le script en cours du champ **Script**.
     - **Script** : affiche le script actuellement importé. Vous pouvez modifier le script dans ce champ si nécessaire.
 5. Effectuez toutes les étapes de l'Assistant. Le nouveau script s’affiche dans la liste **Script** avec l’état **En attente d’approbation**. Avant de pouvoir exécuter ce script sur les appareils clients, vous devez l’approuver.
 

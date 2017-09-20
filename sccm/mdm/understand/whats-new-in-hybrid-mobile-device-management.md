@@ -14,11 +14,11 @@ caps.latest.revision: "40"
 author: Mtillman
 ms.author: mtillman
 manager: angrobe
-ms.openlocfilehash: 93609815ab4d93eddb99b8461dda9f4b4bf8058e
-ms.sourcegitcommit: 9a6f8e028fb5eb2e752da70f42a5b548339bd8f4
+ms.openlocfilehash: c93ba688ba33c309e4d12e924061718e5a33759e
+ms.sourcegitcommit: 31c670a4bce74fd64a7d46ebf7702f65b80d4147
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="whats-new-in-hybrid-mobile-device-management-with-system-center-configuration-manager-and-microsoft-intune"></a>Nouveautés de la gestion hybride des appareils mobiles avec System Center Configuration Manager et Microsoft Intune
 
@@ -28,13 +28,19 @@ Cet article fournit des informations sur les nouvelles fonctionnalités de gesti
 
 ##  <a name="compatibility-with-configuration-manager-versions"></a>Compatibilité avec les versions de Configuration Manager  
 
- Chaque section de cet article répertorie les fonctionnalités hybrides sous trois catégories différentes. Utilisez les indications suivantes pour déterminer la compatibilité des fonctionnalités dans chaque catégorie avec différentes versions de Configuration Manager :  
+ Chaque section de cet article répertorie les fonctionnalités hybrides sous trois catégories différentes. Utilisez l’aide suivante pour déterminer la compatibilité des fonctionnalités de chaque catégorie avec différentes versions de Configuration Manager :  
 
 |Catégories de fonctionnalités|Description|
 |-|-|
-|**Nouveautés de Microsoft Intune** | En général, toutes les fonctionnalités répertoriées dans cette catégorie doivent fonctionner avec toutes les versions de Configuration Manager, notamment les versions de System Center 2012 R2 Configuration Manager, dans la mesure où ces fonctionnalités nécessitent seulement le service Intune mais aucune fonctionnalité supplémentaire dans Configuration Manager.|
+|**Nouveautés de Microsoft Intune** | En règle générale, toutes les fonctionnalités listées dans cette catégorie fonctionnent avec chacune des versions de Configuration Manager. Sont notamment comprises les versions de System Center 2012 R2 Configuration Manager, dans la mesure où ces fonctionnalités ont seulement besoin du service Intune, sans aucune fonctionnalité supplémentaire dans Configuration Manager.|
 |**Nouveautés de Configuration Manager Technical Preview**| Toutes les fonctionnalités répertoriées dans cette catégorie fonctionnent uniquement avec la version d’évaluation technique spécifiée. Pour tester ces fonctionnalités, vous devez installer la version d’évaluation technique spécifiée dans la description de la fonctionnalité. Pour plus d’informations, consultez [Technical Preview pour System Center Configuration Manager](../../core/get-started/technical-preview.md).|
 |**Nouveautés de Configuration Manager (Current Branch)**| Toutes les fonctionnalités répertoriées dans cette catégorie fonctionnent uniquement avec la version spécifiée de Configuration Manager (Current Branch), comme la version 1511 ou 1602. Si vous utilisez une version antérieure de Configuration Manager pour votre déploiement hybride, vous devez effectuer la mise à niveau vers la version de Configuration Manager (Current Branch) spécifiée dans la description de la fonctionnalité. Pour plus d’informations, consultez [Mettre à niveau vers System Center Configuration Manager](../../core/servers/deploy/install/upgrade-to-configuration-manager.md).|
+
+## <a name="august-2017"></a>Août 2017
+
+### <a name="new-signed-in-experience-for-android-company-portal-users-and-app-protection-policy-users----621669---"></a>Nouvelle expérience pour les utilisateurs connectés du Portail d’entreprise Android et de la stratégie App Protection<!-- 621669 -->
+Les utilisateurs peuvent maintenant parcourir les applications, gérer les appareils et consulter les coordonnées du service informatique sur l’application du Portail d’entreprise Android sans inscrire leurs appareils Android. En outre, s’ils utilisent déjà une application protégée par les stratégies Intune App Protection et lancent le Portail d’entreprise Android, ils ne sont plus invités à inscrire l’appareil.
+
 
 ## <a name="july-2017"></a>Juillet 2017
 
@@ -42,8 +48,7 @@ Cet article fournit des informations sur les nouvelles fonctionnalités de gesti
 
 - **Notifications de fin de support ajoutées pour Android et Windows Phone**
 
-    De nouvelles notifications ont été ajoutées concernant la fin du support des versions Android et Windows Phone. Pour plus d’informations, consultez [Notifications](#notices).
-
+    De nouvelles informations préalables ont été ajoutées concernant la fin du support des versions Android et Windows Phone. Pour plus d’informations, consultez [Notifications](#notices).
 
 
 ### <a name="new-in-configuration-manager-current-branch"></a>Nouveautés de Configuration Manager (Current Branch)
@@ -64,15 +69,15 @@ Les fonctionnalités suivantes qui étaient disponibles dans les versions Config
 
 - **Changer d’autorité MDM**
 
-  À compter de Configuration Manager version 1610 et de Microsoft Intune version 1705, vous pouvez modifier votre autorité de gestion des appareils mobiles sans avoir à contacter le Support Microsoft et sans devoir annuler l’inscription de vos appareils gérés existants et les réinscrire. Pour plus d’informations, consultez [Changer d’autorité MDM]( /sccm/mdm/deploy-use/change-mdm-authority).
+  À compter de Configuration Manager version 1610, vous pouvez modifier votre autorité MDM sans avoir à contacter le Support Microsoft et sans devoir annuler l’inscription de vos appareils gérés existants et les réinscrire. Pour plus d’informations, consultez [Changer d’autorité MDM]( /sccm/mdm/deploy-use/change-mdm-authority).
 
 - **Intégration de Managed Browser avec le proxy d’application**
 
-  Intune Managed Browser peut à présent s’intégrer avec le service de proxy d’application Azure AD pour permettre aux utilisateurs d’accéder aux sites web internes, même quand ils travaillent à distance. Les utilisateurs du navigateur entrent simplement l’URL du site comme ils le feraient normalement, et Managed Browser achemine la demande via la passerelle web du proxy d’application proxy. Pour plus d’informations, consultez [Gérer l’accès à Internet à l’aide de stratégies Managed Browser](/intune/app-configuration-managed-browser).
+  Intune Managed Browser peut à présent s’intégrer avec le service de proxy d’application Azure AD pour permettre aux utilisateurs d’accéder aux sites web internes, même quand ils travaillent à distance. Les utilisateurs du navigateur entrent l’URL du site comme d’habitude, et Managed Browser achemine la demande via la passerelle web du proxy d’application. Pour plus d’informations, consultez [Gérer l’accès à Internet à l’aide de stratégies Managed Browser](/intune/app-configuration-managed-browser).
 
 - **L’application Portail d’entreprise pour Android a maintenant une nouvelle expérience utilisateur final pour les stratégies de protection d’application**
 
-  Sur la base des retours des clients, nous avons modifié l’application de portail d’entreprise pour Android afin d’afficher un bouton **Accéder au contenu de l’entreprise**. L’objectif est d’empêcher les utilisateurs finaux d’avoir à passer par le processus d’inscription lorsqu’ils ont seulement besoin d’accéder aux applications qui prennent en charge les stratégies de protection des applications, une fonctionnalité de la gestion des applications mobiles d’Intune. Vous pouvez voir ces modifications sur la page [Nouveautés de l’interface utilisateur de l’application](/intune/whats-new-app-ui).
+  Sur la base des retours des clients, nous avons modifié l’application de portail d’entreprise pour Android afin d’afficher un bouton **Accéder au contenu de l’entreprise**. L’objectif est d’empêcher les utilisateurs finaux d’avoir à passer par le processus d’inscription lorsqu’ils ont seulement besoin d’accéder aux applications qui prennent en charge les stratégies de protection des applications, une fonctionnalité de gestion des applications mobiles d’Intune. Vous pouvez voir ces modifications sur la page [Nouveautés de l’interface utilisateur de l’application](/intune/whats-new-app-ui).
 
 - **Nouvelle action de menu pour supprimer facilement le portail d’entreprise**
 
@@ -84,7 +89,7 @@ Les fonctionnalités suivantes qui étaient disponibles dans les versions Config
 
 - **Nouvelle expérience interactive pour le portail d’entreprise Windows 10**
 
-  L’application de portail d’entreprise pour Windows 10 inclut une expérience de procédure pas à pas interactive Intune pour les appareils qui n’ont pas été identifiés ou inscrits. La nouvelle expérience fournit des instructions pas à pas qui guident l’utilisateur lors de l’inscription dans Azure Active Directory (obligatoire pour les fonctionnalités d’accès conditionnel) et l’inscription à la gestion des appareils mobiles (requis pour les fonctionnalités de gestion d’appareils). L’expérience interactive sera accessible à partir de la page d’accueil du portail d’entreprise. Les utilisateurs peuvent continuer à utiliser l’application s’ils ne terminent pas l’inscription, mais seront confrontés à des fonctionnalités limitées.
+  L’application du Portail d’entreprise pour Windows 10 comprend une expérience guidée pas à pas d’Intune pour les appareils non identifiés ni inscrits. La nouvelle expérience fournit des instructions pas à pas qui guident l’utilisateur lors de l’inscription dans Azure Active Directory (obligatoire pour les fonctionnalités d’accès conditionnel) et l’inscription à la gestion des appareils mobiles (requis pour les fonctionnalités de gestion d’appareils). L’expérience interactive sera accessible à partir de la page d’accueil du portail d’entreprise. Les utilisateurs peuvent continuer à utiliser l’application s’ils ne terminent pas l’inscription, mais seront confrontés à des fonctionnalités limitées.
 
   Cette mise à jour est uniquement visible sur les appareils exécutant la Mise à jour anniversaire Windows 10 (build 1607) ou une version ultérieure. Vous pouvez voir ces modifications sur la page [Nouveautés de l’interface utilisateur de l’application](/intune/whats-new-app-ui).
 

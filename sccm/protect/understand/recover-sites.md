@@ -14,11 +14,11 @@ caps.latest.revision:
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 49eea15ea2888f8f93c33eb771c09147ba21529e
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: f5aff56e9948536944140fbadb0539c7a4e20f26
+ms.sourcegitcommit: 5ca89204716750eaaceb01bba40b35b85c7122ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/18/2017
 ---
 #  <a name="recover-a-configuration-manager-site"></a>Récupération d'un site Configuration Manager
 
@@ -29,7 +29,7 @@ Lancez la récupération d'un site Configuration Manager à chaque défaillance 
 Les sections de cette rubrique peuvent vous aider à récupérer un site Configuration Manager. Pour créer une sauvegarde, consultez [Sauvegarde pour Configuration Manager](/sccm/protect/understand/backup-and-recovery).
 
 ## <a name="considerations-before-recovering-a-site"></a>Considérations à prendre en compte avant la récupération d’un site
-**Vous devez utiliser les mêmes version et édition de SQL Server :** par exemple, la restauration d’une base de données exécutée sur SQL Server 2014 vers SQL Server 2016 n’est pas prise en charge. De la même manière, il n’est pas possible de restaurer une base de données de site qui s’exécutait sur une édition Standard de SQL Server 2016 vers une édition Enterprise de SQL Server 2016.
+**Vous devez utiliser la même version et la même édition de SQL Server :** par exemple, la restauration sur SQL Server 2016 d’une base de données qui fonctionnait sur SQL Server 2014 n’est pas prise en charge. De la même manière, il n’est pas possible de restaurer une base de données de site qui s’exécutait sur une édition Standard de SQL Server 2016 vers une édition Enterprise de SQL Server 2016.
 -   SQL Server ne doit pas être configuré en **mode mono-utilisateur**.
 -   Vérifiez que les fichiers .MDF et .LDF sont valides. Quand vous récupérez un site, l’état des fichiers que vous restaurez n’est pas vérifié.
 
