@@ -14,11 +14,11 @@ caps.latest.revision: "36"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 10ddbcc19da8c5fc6451f62500f17790a0349389
-ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
+ms.openlocfilehash: 5302b5712e33c753d0193a32498bc02a2241428c
+ms.sourcegitcommit: 474e6ddbaaeac4ba17d8172321e08deeb0140d0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="install-in-console-updates-for-system-center-configuration-manager"></a>Installation de mises à jour dans la console pour System Center Configuration Manager
 
@@ -106,8 +106,8 @@ Avant d’installer une mise à jour, envisagez d’exécuter la vérification d
 
 -   La vérification des prérequis est automatiquement réexécutée lorsque vous choisissez d’installer la mise à jour.  
 
-> [!NOTE]
-> Si vous lancez une vérification des prérequis, puis que vous affichez l’état, la phase **Installation** semble active, mais la mise à jour n’est pas réellement en cours d’installation. La phase d’installation s’affiche en raison du fait que certaines tâches, par exemple extraire les binaires nécessaires pour effectuer la vérification, font également partie de la phase d’installation.  
+> [!NOTE]   
+> Si vous lancez une vérification des prérequis, puis que vous affichez l’état, la phase **Installation** semble active, mais la mise à jour n’est pas réellement en cours d’installation. Pour effectuer la vérification des prérequis, le processus de mise à jour extrait le package dans la bibliothèque de contenu et le place dans un dossier intermédiaire où sont accessibles les vérifications de prérequis en cours.  Le même processus s’exécute à l’installation d’une mise à jour. C’est pourquoi l’installation s’affiche comme étant « En cours ». Seule l’étape *Extraire la mise à jour* apparaît dans la catégorie Installation.  
 
 Par la suite, lorsque vous installez la mise à jour, vous pouvez configurer la mise à jour de manière à ignorer les avertissements relatifs à la vérification des prérequis.  
 

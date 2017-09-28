@@ -2,7 +2,7 @@
 title: "Gérer les points de distribution | Microsoft Docs"
 description: "Hébergez le contenu (fichiers et logiciels) que vous déployez pour les appareils et les utilisateurs sur des points de distribution. Voici comment les installer et les configurer."
 ms.custom: na
-ms.date: 2/14/2017
+ms.date: 09/18/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -14,16 +14,16 @@ caps.latest.revision: "5"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 4c94e4de5bbfe621492e8682c9424a48eb38196d
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 0213b48c24461cbab5a9acab720064e0e26fa568
+ms.sourcegitcommit: 474e6ddbaaeac4ba17d8172321e08deeb0140d0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="install-and-configure-distribution-points-for-system-center-configuration-manager"></a>Installer et configurer des points de distribution pour System Center Configuration Manager
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
- 
+
 Vous pouvez installer des points de distribution System Center Configuration Manager pour héberger le contenu (fichiers et logiciels) que vous déployez sur des appareils et des utilisateurs. Vous pouvez aussi créer des groupes de points de distribution de façon à simplifier la gestion des points de distribution, ainsi que la distribution du contenu aux points de distribution.  
 
  Lorsque vous *installez un nouveau point de distribution* (à l’aide de l’Assistant Installation) ou que vous *gérez les propriétés d’un point de distribution* (en les modifiant), vous pouvez configurer la plupart des paramètres du point de distribution. Certains paramètres ne sont disponibles que lorsque vous effectuez une installation ou une modification, mais pas les deux :  
@@ -45,7 +45,8 @@ Vous pouvez installer des points de distribution System Center Configuration Man
     -   **Configure Schedules for data transfers to distribution points (Configurer des planifications pour les transferts de données vers les points de distribution)**  
 
 ##  <a name="bkmk_install"></a> Installer un point de distribution  
- Vous devez désigner un serveur de système de site en tant que point de distribution pour rendre le contenu disponible pour les ordinateurs clients. Vous pouvez ajouter un rôle de site de point de distribution à un nouveau serveur de système de site ou ajouter le rôle de site à un système de site existant.  
+Vous devez désigner un serveur de système de site en tant que point de distribution pour rendre le contenu disponible pour les ordinateurs clients. Vous devez également affecter un point de distribution à au moins un [groupe de limites](/sccm/core/servers/deploy/configure/boundary-groups#distribution-points) pour que les ordinateurs clients locaux puissent utiliser ce point de distribution comme emplacement source de contenu. Vous pouvez ajouter un rôle de site de point de distribution à un nouveau serveur de système de site ou ajouter le rôle de site à un système de site existant.
+
 
  Quand vous installez un nouveau point de distribution, vous utilisez un Assistant d’installation qui vous guide à travers les paramètres disponibles. Avant de commencer, tenez compte des points suivants :  
 
@@ -339,7 +340,7 @@ Pour afficher les résultats du processus de validation du contenu, dans l’esp
 >  Même si vous planifiez la validation du contenu en utilisant l’heure locale de l’ordinateur, la planification affichée dans la console Configuration Manager est exprimée en heure UTC.  
 
 ### <a name="boundary-group"></a>Groupes de limites  
-Gérez les groupes de limites pour lesquels ce point de distribution est attribué. Vous pouvez associer des groupes de limites à un point de distribution. Au cours de déploiement de contenu, les clients doivent se trouver dans un groupe de limites associé au point de distribution pour l'utiliser en tant qu'emplacement source pour le contenu.
+Gérez les groupes de limites pour lesquels ce point de distribution est attribué. Prévoyez d’ajouter le point de distribution à au moins un groupe de limites. Au cours du déploiement de contenu, les clients doivent se trouver dans un groupe de limites associé à un point de distribution pour utiliser ce dernier comme emplacement source de contenu.
 
 En outre :
 

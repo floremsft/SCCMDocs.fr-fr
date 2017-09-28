@@ -2,7 +2,7 @@
 title: "Ports utilisés par Configuration Manager | Microsoft Docs"
 description: "Découvrez les ports requis et personnalisables qu’utilise System Center Configuration Manager pour les connexions."
 ms.custom: na
-ms.date: 3/20/2017
+ms.date: 09/19/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,18 +15,18 @@ caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 78caa69e10f5d386daab1e61e484d4d134469708
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: ac443971a725a7eeecaeea877b8e9636ebb4990b
+ms.sourcegitcommit: 51654bf8b5615eb99084d0a20d18ca3fccfa83a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/20/2017
 ---
 # <a name="ports-used-in-system-center-configuration-manager"></a>Ports utilisés dans System Center Configuration Manager
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
 System Center Configuration Manager est un système client/serveur distribué. Du fait de la nature distribuée de Configuration Manager, il est possible d’établir des connexions entre les serveurs de site, les systèmes de site et les clients. Certaines connexions utilisent des ports qui ne sont pas configurables et certaines prennent en charge des ports personnalisés que vous spécifiez. Si vous utilisez une technologie de filtrage de port, telle que des pare-feu, des routeurs, des serveurs proxy ou IPSec, vous devez vérifier que les ports requis sont disponibles.  
-
+    
 > [!NOTE]  
 >  Si vous prenez en charge les clients Internet par pontage SSL, parallèlement aux exigences de port, vous devrez peut-être également autoriser certains verbes et en-têtes HTTP pour traverser le pare-feu.   
 
@@ -167,7 +167,7 @@ Cette communication permet de savoir si l'autre ordinateur client est en éveil 
 |Description|UDP|TCP|  
 |-----------------|---------|---------|  
 |LDAP de catalogue global|--|3268|  
-|SSL LDAP de catalogue global|--|3269|  
+
 
 ###  <a name="BKMK_PortsClient-MP"></a> Client -- > Point de gestion  
 
@@ -295,9 +295,7 @@ Cette communication permet de savoir si l'autre ordinateur client est en éveil 
 |Description|UDP|TCP|  
 |-----------------|---------|---------|  
 |LDAP (Lightweight Directory Access Protocol)|--|389|  
-|LDAP (connexion SSL [Secure Sockets Layer])|636|636|  
 |LDAP de catalogue global|--|3268|  
-|SSL LDAP de catalogue global|--|3269|  
 |Mappeur de point de terminaison RPC|135|135|  
 |RPC|--|DYNAMIQUE (voir la note 6, **Ports dynamiques**)|  
 
@@ -391,9 +389,7 @@ Pour plus d’informations, consultez [Conditions requises pour l’accès Inter
 |Description|UDP|TCP|  
 |-----------------|---------|---------|  
 |LDAP (Lightweight Directory Access Protocol)|--|389|  
-|LDAP (connexion SSL [Secure Sockets Layer])|636|636|  
 |LDAP de catalogue global|--|3268|  
-|SSL LDAP de catalogue global|--|3269|  
 |Mappeur de point de terminaison RPC|135|135|  
 |RPC|--|DYNAMIQUE (voir la note 6, **Ports dynamiques**)|  
 
@@ -641,17 +637,9 @@ Pour obtenir un exemple montrant comment configurer SQL Server pour utiliser un 
 ### <a name="bkmk_discovery"> </a> Découverte et publication
 Les ports suivants sont utilisés pour la découverte et la publication d’informations de site :
  - LDAP (Lightweight Directory Access Protocol) : 389
- - LDAP (connexion SSL [Secure Sockets Layer]) : 636
-
-
  - LDAP de catalogue global : 3268
- - SSL LDAP de catalogue global : 3269
-
-
  - Mappeur de point de terminaison RPC : 135
  - RPC : ports TCP à numéro élevé alloués dynamiquement
-
-
  - TCP : 1024 : 5000
  - TCP :  49152 : 65535
 

@@ -2,7 +2,7 @@
 title: "Surveiller l’utilisation des applications avec le contrôle de logiciel | Microsoft Docs"
 description: 
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 09/20/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -14,11 +14,11 @@ caps.latest.revision: "8"
 author: mattbriggs
 ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: d7bc0bebeb0355156553376a3535ed76d5e44835
-ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
+ms.openlocfilehash: 87bafd8ce28d58993666057b6c5bfd8bdc0c4ed9
+ms.sourcegitcommit: 51654bf8b5615eb99084d0a20d18ca3fccfa83a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/20/2017
 ---
 # <a name="software-metering-in-system-center-configuration-manager"></a>Contrôle de logiciel dans System Center Configuration Manager
 
@@ -86,7 +86,7 @@ Le contrôle de logiciel ne présente aucune dépendance externe, seulement des 
         >
         >  Cette zone est facultative si une valeur est spécifiée pour **Nom du fichier** .
 
-    -   **Version** : version du fichier exécutable que vous voulez contrôler. Vous pouvez utiliser le caractère générique (*) pour représenter toute chaîne de caractères, ou le caractère générique (?) pour représenter tout caractère unique. Si vous voulez contrôler toutes les versions d’un fichier exécutable, utilisez la valeur par défaut (\*).
+    -   **Version** : version du fichier exécutable que vous voulez contrôler. Vous pouvez utiliser le caractère générique ( &#42; ) pour représenter toute chaîne de caractères, ou le caractère générique ( ? ) pour représenter tout caractère unique. Si vous voulez effectuer l’analyse de toutes les versions d’un fichier exécutable, utilisez la valeur par défaut ( &#42; ).
 
     -   **Langue** : langue du fichier exécutable à contrôler. La valeur par défaut est le paramètre régional actuel du système d'exploitation que vous utilisez. Si vous sélectionnez un fichier exécutable à contrôler en cliquant sur le bouton **Parcourir** , cette zone est automatiquement remplie si les informations sur la langue sont présentes dans l’en-tête du fichier. Pour contrôler toutes les versions linguistiques d’un fichier, sélectionnez **N’importe laquelle** dans la liste déroulante.
 

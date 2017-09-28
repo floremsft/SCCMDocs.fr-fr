@@ -14,11 +14,11 @@ caps.latest.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 82ec84923cc60e7a91d4afa4e9f59564fd416055
-ms.sourcegitcommit: 2a1328da3facb20b0c78f3b12adbb5fdbe0dcc11
+ms.openlocfilehash: 06565bc52e2c409b905bbc448262cf9da25eabb0
+ms.sourcegitcommit: 4c3906cf9614420cb8527da9e48978eb0b8f0e7a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="install-and-upgrade-with-the-version-1606-baseline-media-for-system-center-configuration-manager"></a>Installer et mettre à niveau avec le support de la base de référence de la version 1606 pour System Center Configuration Manager
 
@@ -126,7 +126,7 @@ Quand vous effectuez une mise à niveau à partir de System Center 2012 Configu
 ### <a name="in-place-upgrade-paths-for-the-1606-baseline-media"></a>Chemins de mise à niveau sur place pour le support de la base de référence 1606
 Vous pouvez utiliser le support de la base de référence 1606 pour mettre à niveau les produits suivants vers une édition sous licence de System Center Configuration Manager :
 - System Center 2012 R2 Configuration Manager avec Service Pack 1
-- System Center 2012 R2 Configuration Manager (sans Service Pack)
+- System Center 2012 R2 Configuration Manager sans service Pack (requiert l’utilisation de médias de référence pour la version 1606 republiée le 15 décembre 2016)
 - System Center 2012 Configuration Manager avec Service Pack 2
 - System Center 2012 Configuration Manager avec Service Pack 1
 

@@ -69,7 +69,7 @@ ms.lasthandoff: 08/07/2017
 ### <a name="configure-ssl-communications-to-wsus"></a>Configurer les communications SSL vers WSUS  
  Vous pouvez configurer la communication SSL sur la page **Général** de l'Assistant ou sous l'onglet **Général** des propriétés du point de mise à jour logicielle.  
 
- Pour plus d’informations sur l’utilisation de SSL, consultez [Decide whether to configure WSUS to use SSL](../plan-design/plan-for-software-updates.md#BKMK_WSUSandSSL).  
+ Pour plus d’informations sur l’utilisation de SSL, consultez [Déterminer si WSUS doit être configuré pour utiliser SSL](../plan-design/plan-for-software-updates.md#BKMK_WSUSandSSL).  
 
 ### <a name="wsus-server-connection-account"></a>Compte de connexion au serveur SMTP  
  Vous pouvez configurer un compte pour qu'il soit utilisé par le serveur de site lorsqu'il se connecte au service WSUS exécuté sur le point de mise à jour logicielle. Si vous ne configurez pas ce compte, Configuration Manager utilise le compte d’ordinateur du serveur de site pour se connecter à WSUS. Configurez le compte de connexion du serveur WSUS dans la page **Paramètres de compte et proxy** de l’Assistant ou sous l’onglet **Paramètres de compte et proxy** dans les propriétés du point de mise à jour logicielle.  Vous pouvez configurer le compte à différentes étapes de l’Assistant selon la version de Configuration Manager que vous utilisez.  

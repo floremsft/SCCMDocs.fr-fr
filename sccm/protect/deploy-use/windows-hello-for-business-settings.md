@@ -2,7 +2,7 @@
 title: "Paramètres Windows Hello Entreprise | Microsoft Docs"
 description: "Découvrez comment intégrer Windows Hello Entreprise dans System Center Configuration Manager."
 ms.custom: na
-ms.date: 08/10/2017
+ms.date: 09/21/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -14,11 +14,11 @@ caps.latest.revision: "17"
 author: lleonard-msft
 ms.author: alleonar
 manager: angrobe
-ms.openlocfilehash: 1985428df0f82ef2e0a92fdec86189d5ffa03aee
-ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
+ms.openlocfilehash: 43586e55f2c0c5cf117b94c61250f26ba4233f53
+ms.sourcegitcommit: 4c3906cf9614420cb8527da9e48978eb0b8f0e7a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="windows-hello-for-business-settings-in-system-center-configuration-manager"></a>Les paramètres Windows Hello Entreprise dans System Center Configuration Manager
 
@@ -65,8 +65,11 @@ Il est possible que certaines configurations ne requièrent pas de configuration
 |||||
 |-|-|-|-|
 |Version du client Windows|Configuration Manager 1602 ou 1606|Configuration Manager 1610|Configuration Manager 1702 ou version ultérieure|
-|Mise à jour anniversaire Windows 10|Pas de correctif logiciel requis<br><br>Pas d’autorisation requise<br><br>Pas de mise à jour de schéma Windows requise|Pas de correctif logiciel requis<br><br>Pas d’autorisation requise<br><br>Pas de mise à jour de schéma Windows requise|Aucune action requise|
+|Mise à jour anniversaire Windows 10|Pas de correctif logiciel requis<br><br>Pas d’autorisation requise<br><br>Pas de mise à jour de schéma Windows requise|Pas de correctif logiciel requis (voir **Avertissement**)<br><br>Pas d’autorisation requise<br><br>Pas de mise à jour de schéma Windows requise|Configurer les autorisations<br><br>Appliquer le schéma de Windows Server 2016 à Active Directory|
 |Windows 10 Creators Update ou version ultérieure|Non pris en charge|Installer [ce correctif logiciel](https://support.microsoft.com/help/4010155/update-rollup-for-system-center-configuration-manager-current-branch-v)<br><br>Configurer les autorisations<br><br>Appliquer le schéma de Windows Server 2016 à Active Directory|Configurer les autorisations<br><br>Appliquer le schéma de Windows Server 2016 à Active Directory|
+
+> [!WARNING]
+> Si le [correctif logiciel](https://support.microsoft.com/help/4010155/update-rollup-for-system-center-configuration-manager-current-branch-v) n’est pas obligatoire pour Configuration Manager 1610 et la Mise à jour anniversaire Windows 10, il peut néanmoins être installé.  Dans ce cas, vous devez configurer les autorisations et appliquer le schéma Windows Server 2016 à Active Directory.
 
 ## <a name="to-configure-permissions"></a>Configurer les autorisations
 
