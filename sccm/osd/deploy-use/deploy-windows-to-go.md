@@ -222,7 +222,7 @@ Cette rubrique fournit les étapes permettant de mettre en service Windows To Go
     > [!NOTE]  
     >  Le compte d'ordinateur du serveur de site doit disposer de droits d'accès en **Lecture** sur le dossier source.  
 
-2.  Copiez le fichier du média préparé que vous avez créé dans la section [Create prestaged media](#BKMK_CreatePrestagedMedia) vers le dossier source du package.  
+2.  Copiez le fichier du média préparé que vous avez créé dans la section [Créer un média préparé](#BKMK_CreatePrestagedMedia) vers le dossier source du package.  
 
 3.  Copiez l'outil Windows To Go Creator (WTGCreator.exe) vers le dossier source du package. L’outil Creator est disponible sur n’importe quel serveur de site principal à l’emplacement suivant : <*dossier_installation_Configuration_Manager*>\OSD\Tools\WTG\Creator.  
 
@@ -281,7 +281,7 @@ Cette rubrique fournit les étapes permettant de mettre en service Windows To Go
  Windows To Go active BitLocker sur un lecteur externe démarrable sans utiliser le Module de plateforme sécurisée (TPM). Par conséquent, vous devez utiliser un outil distinct pour configurer BitLocker sur le lecteur Windows To Go. Pour activer BitLocker, vous devez ajouter une action à la séquence de tâches après l'étape **Configurer Windows et ConfigMgr** .  
 
 > [!NOTE]  
->  BitLocker pour Windows To Go nécessite une phrase secrète. À l'étape [Create prestaged media](#BKMK_CreatePrestagedMedia) , vous avez défini la phrase secrète dans le cadre d'une commande de prédémarrage à l'aide de la variable OSDBitLockerPIN.  
+>  BitLocker pour Windows To Go nécessite une phrase secrète. À l'étape [Créer un média préparé](#BKMK_CreatePrestagedMedia) , vous avez défini la phrase secrète dans le cadre d'une commande de prédémarrage à l'aide de la variable OSDBitLockerPIN.  
 
  Appliquez la procédure suivante pour mettre à jour la séquence de tâches Windows 8 pour activer BitLocker pour Windows To Go.  
 
@@ -410,7 +410,7 @@ Cette rubrique fournit les étapes permettant de mettre en service Windows To Go
     2.  **Regroupement**: cliquez sur **Parcourir** pour sélectionner le regroupement qui contient tous les appareils pour lesquels un utilisateur peut configurer Windows To Go.  
 
         > [!IMPORTANT]  
-        >  Si le média préparé que vous avez créé dans dans la section [Create prestaged media](#BKMK_CreatePrestagedMedia) utilise la variable SMSTSPreferredAdvertID, vous pouvez déployer la séquence de tâches sur le regroupement **Tous les systèmes** et définir le paramètre **Windows PE uniquement (masqué)** sur la page **Contenu** . La séquence de tâches étant masquée, elle ne sera disponible que pour le média.  
+        >  Si le média préparé que vous avez créé dans dans la section [Créer un média préparé](#BKMK_CreatePrestagedMedia) utilise la variable SMSTSPreferredAdvertID, vous pouvez déployer la séquence de tâches sur le regroupement **Tous les systèmes** et définir le paramètre **Windows PE uniquement (masqué)** sur la page **Contenu** . La séquence de tâches étant masquée, elle ne sera disponible que pour le média.  
 
     3.  **Utiliser des groupes de points de distribution par défaut associés à ce regroupement**: sélectionnez cette option si vous voulez stocker le contenu du package sur le groupe de points de distribution par défaut du regroupement. Si vous n'avez pas associé le regroupement sélectionné à un groupe de points de distribution, cette option ne sera pas disponible.  
 
@@ -421,7 +421,7 @@ Cette rubrique fournit les étapes permettant de mettre en service Windows To Go
     -   **Rendre disponible aux éléments suivants** : spécifiez si la séquence de tâches est disponible pour les clients Configuration Manager, les médias ou les environnements PXE.  
 
         > [!IMPORTANT]  
-        >  Utilisez le paramètre **Média et environnement PXE uniquement (masqué)** pour les déploiements de séquence de tâches automatisés. Sélectionnez **Autoriser le déploiement du système d'exploitation de manière autonome** et définissez la variable SMSTSPreferredAdvertID à inclure dans le média préparé de sorte que l'ordinateur démarre automatiquement le déploiement de Windows To Go sans aucune interaction utilisateur lorsqu'il détecte un lecteur Windows To Go. Pour plus d'informations sur ces paramètres de média préparé, voir la section [Create prestaged media](#BKMK_CreatePrestagedMedia) .  
+        >  Utilisez le paramètre **Média et environnement PXE uniquement (masqué)** pour les déploiements de séquence de tâches automatisés. Sélectionnez **Autoriser le déploiement du système d'exploitation de manière autonome** et définissez la variable SMSTSPreferredAdvertID à inclure dans le média préparé de sorte que l'ordinateur démarre automatiquement le déploiement de Windows To Go sans aucune interaction utilisateur lorsqu'il détecte un lecteur Windows To Go. Pour plus d'informations sur ces paramètres de média préparé, voir la section [Créer un média préparé](#BKMK_CreatePrestagedMedia) .  
 
 7.  Sur la page **Planification** , configurez les paramètres suivants, puis cliquez sur **Suivant**.  
 
@@ -459,7 +459,7 @@ Cette rubrique fournit les étapes permettant de mettre en service Windows To Go
  Suite au déploiement du package Windows To Go et de la séquence de tâches de Windows 8, Windows To Go Creator est disponible pour l'utilisateur. L'utilisateur peut accéder au catalogue de logiciels ou au centre logiciel si Windows To Go Creator a été déployé sur les périphériques et exécute le programme Windows To Go Creator. Une fois le package Creator téléchargé, une icône clignotante s'affiche dans la barre des tâches. Lorsque l'utilisateur clique sur cette icône, une boîte de dialogue s'affiche et permet à l'utilisateur de sélectionner le lecteur Windows To Go à préparer (sauf si l'option de ligne de commande /drive est utilisée). Si le lecteur n'est pas conforme à la configuration requise pour Windows To Go ou si l'espace disque disponible est insuffisant pour installer l'image, le programme Creator affiche un message d'erreur. L'utilisateur peut vérifier le lecteur et l'image qui sera appliquée à partir de la page de confirmation. Lorsque Creator configure et prépare un contenu pour le lecteur Windows To Go, une boîte de dialogue indique la progression. Une fois la préparation terminée, Creator vous invite à redémarrer l'ordinateur pour démarrer sur le lecteur Windows Go To.  
 
 > [!NOTE]  
->  Si vous n'avez pas activé la redirection de démarrage dans le cadre de la ligne de commande du programme Creator dans la section [Create a Windows To Go Creator package](#BKMK_CreatePackage) , l'utilisateur devra peut-être effectuer manuellement le démarrage sur le lecteur Windows To Go à chaque redémarrage du système.  
+>  Si vous n'avez pas activé la redirection de démarrage dans le cadre de la ligne de commande du programme Creator dans la section [Créer un package Windows To Go Creator](#BKMK_CreatePackage) , l'utilisateur devra peut-être effectuer manuellement le démarrage sur le lecteur Windows To Go à chaque redémarrage du système.  
 
 ###  <a name="BKMK_ConfigureStageDrive"></a> Configuration Manager configure et prépare le lecteur Windows To Go  
  Après le redémarrage de l'ordinateur sur le lecteur Windows To Go, le lecteur démarre dans Windows PE et se connecte au point de gestion pour obtenir la stratégie de finalisation du déploiement du système d'exploitation. Configuration Manager configure et prépare le lecteur. Après la préparation du lecteur par Configuration Manager, l’utilisateur peut redémarrer l’ordinateur pour finaliser le processus de mise en service (par exemple, joindre un domaine ou installer des applications). Ce processus est le même pour tous les médias préparés.  
