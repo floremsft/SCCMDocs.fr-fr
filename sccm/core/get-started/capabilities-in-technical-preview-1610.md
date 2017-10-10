@@ -14,11 +14,11 @@ caps.latest.revision: "2"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 59633ce68e2bb2d722900215751f345d6d098721
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: b164b6a177b8b4d1eebd0bbd54e67e90376929be
+ms.sourcegitcommit: c145e515843a0f37c2e5ca5dbd22072a219d06b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/03/2017
 ---
 # <a name="capabilities-in-technical-preview-1610-for-system-center-configuration-manager"></a>Fonctionnalités dans la version d’évaluation technique 1610 de System Center Configuration Manager
 
@@ -63,7 +63,7 @@ En tant qu’administrateur, vous pouvez maintenant refuser une demande d’appl
 #### <a name="try-it-out"></a>Faîtes un essai
 Pour refuser une demande approuvée d’application :
 
-1.  Dans la console Configuration Manager, [créez et déployez une application](https://docs.microsoft.com/en-us/sccm/apps/deploy-use/create-applications) qui nécessite une approbation.
+1.  Dans la console Configuration Manager, [créez et déployez une application](https://docs.microsoft.com/sccm/apps/deploy-use/create-applications) qui nécessite une approbation.
 2.  Sur un ordinateur client, ouvrez le Centre logiciel et soumettez une demande pour l’application.
 3.  Dans la console Configuration Manager, approuvez la demande d’application.
 4.  Refusez la demande d’application approuvée : Dans la console Configuration Manager, accédez à **Bibliothèque de logiciels** > **Vue d’ensemble** > **Gestion des applications** > **Demandes d’approbation** et sélectionnez la demande d’application que vous souhaitez refuser.  Dans le ruban, cliquez sur **Refuser**.
