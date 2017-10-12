@@ -2,7 +2,7 @@
 title: "Attestation d’intégrité | Microsoft Docs"
 description: "Découvrez les fonctionnalités d’attestation d’intégrité de l’appareil disponibles dans la console Configuration Manager."
 ms.custom: na
-ms.date: 03/27/2017
+ms.date: 10/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -14,11 +14,11 @@ caps.latest.revision: "17"
 author: NathBarn
 ms.author: nathbarn
 manager: angrobe
-ms.openlocfilehash: 54b3433a002b8ef29059bab04458138348f95d66
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 11d58237ea1e88785f6991450b3e898562b23918
+ms.sourcegitcommit: a17f5dece340a70cedbec03d19938dab90ae60b1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="health-attestation-for-system-center-configuration-manager"></a>Attestation d’intégrité pour System Center Configuration Manager
 
@@ -37,9 +37,9 @@ Cette fonctionnalité est disponible pour les PC et les ressources locales gér�
 
  **Configuration requise :**  
 
--   Appareils clients sous Windows 10 version 1607 ou Windows Server 2016 1607 avec [attestation d’intégrité d’appareil activée](https://technet.microsoft.com/windows-server-docs/security/device-health-attestation)
--    Appareils TPM 1.2 ou TPM 2 compatibles
--   Communication entre l’agent du client Configuration Manager et le service d’attestation d’intégrité has.spserv.microsoft.com (port 443) (gestion du cloud) ou avec le point de gestion avec attestation d’intégrité d’appareil (local) activée
+-   Appareils clients exécutant Windows 10 version 1607 ou Windows Server 2016 version 1607 avec l’option [Attestation d’intégrité de l’appareil](https://technet.microsoft.com/windows-server-docs/security/device-health-attestation) activée.
+-   Appareils TPM 1.2 ou TPM 2 compatibles.
+-   Lors de l’utilisation de la gestion cloud, communication entre l’agent du client Configuration Manager et le point de gestion avec le service d’attestation d’intégrité (gestion du cloud) via *has.spserv.microsoft.com* (port 443). Localement, le client doit être en mesure de communiquer avec le point de gestion dont l’attestation d’intégrité de l’appareil est activée.
 
 ### <a name="how-to-enable-health-attestation-service-communication-on-configuration-manager-client-computers"></a>Comment activer la communication avec le service d’attestation d’intégrité sur des ordinateurs clients Configuration Manager
 

@@ -1,18 +1,18 @@
 ---
 title: Planifier la passerelle de gestion cloud | Microsoft Docs
 description: 
-ms.date: 06/07/2017
+ms.date: 10/06/2017
 ms.prod: configuration-manager
 ms.technology: configmgr-client
 ms.assetid: 2dc8c9f1-4176-4e35-9794-f44b15f4e55f
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: d3e658714c30a1eba64f94e248d5e11095ca1dcb
-ms.sourcegitcommit: f6a428a8db7145affa388f59e0ad880bdfcf17b5
+ms.openlocfilehash: c3d036eb91d16ed95c26bbf2bcce1e37851f90a2
+ms.sourcegitcommit: 8ac9c2c9ba1fdcbb7cc8d5be898586865fcf67c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 10/07/2017
 ---
 # <a name="plan-for-the-cloud-management-gateway-in-configuration-manager"></a>Planifier la passerelle de gestion cloud dans Configuration Manager
 
@@ -46,9 +46,9 @@ Les certificats clients et les certificats Secure Socket Layer (SSL) sont requis
 
     -   Déploiement des clients
     -   Attribution automatique du site
-    -   Stratégies utilisateur
     -   Catalogue d’applications (notamment les demandes d’approbation de logiciels)
     -   Déploiement de système d’exploitation (OSD) complet
+    -   Séquences de tâches (toutes)
     -   Console Configuration Manager
     -   outils de contrôle à distance.
     -   Site web de création de rapports
@@ -61,7 +61,7 @@ Les certificats clients et les certificats Secure Socket Layer (SSL) sont requis
 ## <a name="cost-of-cloud-management-gateway"></a>Coût de la passerelle de gestion cloud
 
 >[!IMPORTANT]
->Les informations sur les coûts fournies ci-dessous sont données à titre d’estimation seulement. Votre environnement peut avoir d’autres variables qui affectent le coût total d’utilisation de la passerelle de gestion cloud.
+>Les informations suivantes sur les coûts sont données à titre d’estimation seulement. Votre environnement peut avoir d’autres variables qui affectent le coût total d’utilisation de la passerelle de gestion cloud.
 
 La passerelle de gestion cloud utilise les fonctionnalités Microsoft Azure suivantes, celles-ci donnant lieu à des frais qui sont imputés au compte d’abonnement Azure :
 
@@ -78,7 +78,7 @@ La passerelle de gestion cloud utilise les fonctionnalités Microsoft Azure suiv
 
 -   Transfert de données sortantes
 
-    -   Le flux de données sortantes en provenance du service génère des frais. Pour vous aider à déterminer les coûts potentiels, consultez les [détails de la tarification de la bande passante](https://azure.microsoft.com/en-us/pricing/details/bandwidth/).
+    -   Le flux de données sortantes en provenance du service génère des frais. Pour vous aider à déterminer les coûts potentiels, consultez les [détails de la tarification de la bande passante](https://azure.microsoft.com/pricing/details/bandwidth/).
 
     -   À titre d’estimation seulement, prévoyez environ 100 Mo par client par mois pour les clients basés sur Internet effectuant des actualisations de la stratégie toutes les heures.
 
@@ -93,7 +93,7 @@ La passerelle de gestion cloud utilise les fonctionnalités Microsoft Azure suiv
 
     - Pour plus de détails, consultez le coût d’utilisation d’une [distribution cloud](/sccm/core/plan-design/hierarchy/use-a-cloud-based-distribution-point#cost-of-using-cloud-based-distribution).
 
-## <a name="frequently-asked-questions-about-the-cloud-management-gateway-cmg"></a>Forum aux questions sur la passerelle de gestion cloud (Cloud Management Gateway ou CMG)
+## <a name="frequently-asked-questions-about-the-cloud-management-gateway-cmg"></a>Forum aux questions sur la passerelle de gestion cloud (CMG, Cloud Management Gateway)
 
 ### <a name="why-use-the-cloud-management-gateway"></a>Pourquoi utiliser la passerelle de gestion cloud ?
 
@@ -105,25 +105,25 @@ Utilisez ce rôle pour simplifier la gestion des clients basés Internet en troi
 
 ### <a name="how-does-the-cloud-management-gateway-work"></a>Comment la passerelle de gestion cloud fonctionne-t-elle ?
 
-- Le point de connexion de la passerelle de gestion cloud permet une connexion cohérente et très performante depuis Internet vers la passerelle de gestion cloud.
+- Le point de connexion de la passerelle de gestion cloud permet une connexion stable et très performante depuis Internet vers la passerelle de gestion cloud.
 - Configuration Manager transmet les paramètres à la passerelle CMG, notamment les informations de connexion et les paramètres de sécurité.
 - La passerelle CMG authentifie et transfère les demandes des clients Configuration Manager au point de connexion de la passerelle de gestion cloud. Ces demandes sont transmises aux rôles dans le réseau d’entreprise selon les mappages d’URL.
 
 ### <a name="how-is-the-cloud-management-gateway-deployed"></a>Comment la passerelle de gestion cloud est-elle déployée ?
 
-Le composant de gestionnaire de service cloud sur le point de connexion de service gère toutes les tâches de déploiement CMG. En outre, il surveille et transmet les informations d’intégrité du service et de journalisation à partir d’Azure AD.
+Le composant de gestionnaire de service cloud sur le point de connexion de service gère toutes les tâches de déploiement CMG. En outre, il surveille et transmet les informations d’intégrité du service et de journalisation à partir d’Azure AD. Vérifiez que votre point de connexion de service est en [mode en ligne](/sccm/core/servers/deploy/configure/about-the-service-connection-point#bkmk_modes).
 
 #### <a name="certificate-requirements"></a>Conditions de certificat
 
-Les certificats suivants sont nécessaires pour sécuriser la passerelle CMG :
+Les certificats suivants sont nécessaires pour sécuriser la passerelle de gestion cloud :
 
 - **Certificat de gestion** - Vous pouvez utiliser tout type de certificat, y compris des certificats auto-signés. Vous pouvez utiliser un certificat public téléchargé sur Azure AD ou un [fichier PFX avec une clé privée](/sccm/mdm/deploy-use/create-pfx-certificate-profiles) importé dans Configuration Manager pour permettre l’authentification auprès d’Azure AD.
-- **Certificat de service Web** - Nous vous recommandons d’utiliser un certificat public délivré par une autorité de certification afin d’obtenir une approbation native par les clients. L’élément CName doit être créé dans le registre DNS public. Les certificats génériques ne sont pas pris en charge.
+- **Certificat de service Web** - Nous vous recommandons d’utiliser un certificat public délivré par une autorité de certification afin d’obtenir une approbation native par les clients. Créez l’enregistrement CName dans le bureau d’enregistrement DNS public. Les certificats génériques ne sont pas pris en charge.
 - **Certificats racine/SubCA téléchargés sur la passerelle CMG** - La passerelle CMG doit effectuer une validation complète de la chaîne sur les certificats client PKI. Si vous utilisez une autorité de certification d’entreprise pour émettre des certificats client PKI et que leur autorité de certification racine ou secondaire n’est pas disponible sur Internet, vous devez également télécharger ces certificats sur la passerelle CMG.
 
 #### <a name="deployment-process"></a>Processus de déploiement
 
-Le déploiement s’effectue en deux phases :
+Le déploiement s’effectue en deux phases :
 
 - Déployer le service cloud
     - Télécharger votre fichier de [schéma de définition du service Azure](https://msdn.microsoft.com/library/azure/ee758711.aspx) (csdef)
@@ -131,6 +131,9 @@ Le déploiement s’effectue en deux phases :
 - Configurer le composant CMG sur votre serveur Azure AD et configurer les points de terminaison, les gestionnaires HTTP et les services dans Internet Information Services (IIS)
 
 Si vous modifiez la configuration de la passerelle CMG, un déploiement de configuration est lancé sur CMG.
+
+### <a name="where-do-i-set-up-the-cloud-management-gateway"></a>Où puis-je configurer la passerelle de gestion cloud ?
+Vous pouvez créer la passerelle de gestion cloud sur le site de niveau supérieur de votre hiérarchie. S’il s’agit d’un site d’administration centrale, vous pouvez créer des points de connexion de passerelle de gestion cloud sur les sites principaux enfants.
 
 ### <a name="how-does-the-cloud-management-gateway-help-ensure-security"></a>Comment la passerelle de gestion cloud garantit-elle la sécurité ?
 
@@ -147,10 +150,10 @@ La passerelle CMG garantit la sécurité de plusieurs façons :
 
 - Sécurise le point de connexion CMG
     - Crée des connexions HTTP/TCP cohérentes pour toutes les instances virtuelles de la passerelle CMG qui se connecte. Vérifie et gère les connexions toutes les minutes.
-    - Authentifie mutuellement la connexion SSL avec CMG à l’aide de certificats internes.
+    - Authentifie mutuellement la connexion SSL avec la passerelle de gestion cloud à l’aide de certificats internes.
     - Transfère les requêtes HTTP basées sur des mappages d’URL.
     - Indique l’état de la connexion pour afficher l’état d’intégrité du service d’administration.
-    - Indique le rapport de trafic du point de terminaison pour chaque point de terminaison toutes les 5 minutes.
+    - Indique le rapport de trafic du point de terminaison pour chaque point de terminaison toutes les cinq minutes.
 
 - Sécurisez les rôles du côté du client Configuration Manager du point de terminaison de publication, notamment le point de gestion et les points de terminaison hôtes de mise à jour logicielle dans IIS afin de traiter les demandes des clients. Chaque point de terminaison publié sur la passerelle CMG comporte un mappage d’URL.
 L’URL externe est celle que le client utilise pour communiquer avec la passerelle CMG.
@@ -164,7 +167,7 @@ Toutes les URL externes publiées sont téléchargées automatiquement sur la pa
 
 ### <a name="what-ports-are-used-by-the-cloud-management-gateway"></a>Quels sont les ports utilisés par la passerelle de gestion cloud ?
 
-- Aucun port entrant n’est requis sur le réseau local. Le déploiement de CMG crée automatiquement un ensemble de passerelles CMG.
+- Aucun port entrant n’est nécessaire pour le réseau local. Le déploiement de CMG crée automatiquement un ensemble de passerelles CMG.
 - Outre le port 443, certains ports sortants sont requis par le point de connexion CMG.
 
 |||||
@@ -179,7 +182,7 @@ Toutes les URL externes publiées sont téléchargées automatiquement sur la pa
 
 - Si possible, configurez la passerelle CMG, le point de connexion CMG et le serveur de site Configuration Manager dans la même région pour réduire la latence du réseau.
 - Actuellement, la connexion entre le client Configuration Manager et la passerelle CMG ne tient pas compte de la région.
-- Pour obtenir une disponibilité optimale, nous vous recommandons d’utiliser au moins 2 instances virtuelles de la passerelle CMG et deux points de connexion CMG par site
+- Pour obtenir une disponibilité optimale, nous vous recommandons d’utiliser au moins deux instances virtuelles de la passerelle CMG et deux points de connexion CMG par site
 - Vous pouvez faire évoluer la passerelle CMG pour prendre en charge davantage de clients en ajoutant d’autres instances de machine virtuelle. Leur charge est équilibrée par l’équilibreur de charge Azure AD.
 - Créez plusieurs points de connexion CMG pour répartir la charge entre ces points. La passerelle CMG acheminera via un système de tourniquet (round-robin) le trafic vers ses points de connexion CMG.
 - Le nombre de clients pris en charge par instance de machine virtuelle CMG est de 6 000 dans la version 1702. Lorsque le canal CMG est soumis à une forte charge, la demande est toujours gérée mais son traitement peut prendre plus longtemps que prévu.

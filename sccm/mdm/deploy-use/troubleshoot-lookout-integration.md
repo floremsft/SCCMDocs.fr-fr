@@ -14,11 +14,11 @@ caps.latest.revision:
 author: mtillman
 ms.author: mtillman
 manager: angrobe
-ms.openlocfilehash: 4fd2d3b8aae6a2f42e7c6a87723d16368be30984
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: d353f47671a0c1e67c34bb9641fa9dd007b9f8be
+ms.sourcegitcommit: c145e515843a0f37c2e5ca5dbd22072a219d06b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/03/2017
 ---
 # <a name="troubleshoot-lookout-integration-with-intune"></a>Résoudre les problèmes liés à l’intégration de Lookout à Intune
 
@@ -34,7 +34,7 @@ Pour contacter le support de Lookout, choisissez l’une des méthodes suivantes
 
 * Envoyez un e-mail à enterprisesupport@lookout.com.
 * Connectez-vous à la [Console MTP](http://aad.lookout.com)et accédez au module **Support**.
-* Accédez à : https://enterprise.support.lookout.com/hc/en-us/requests et créez une demande de support.
+* Accédez à : https://enterprise.support.lookout.com/hc/requests et créez une demande de support.
 
 ### <a name="unable-to-sign-in"></a>Connexion impossible
 L’erreur suivante peut se produire si l’utilisateur administrateur général Azure AD n’accepte pas l’installation initiale de Lookout.
@@ -73,7 +73,7 @@ Un état déconnecté signifie que Lookout MTP n’a pas reçu d’informations 
 À partir du module **Devices** (Appareils) de la console Lookout MTP, l’administrateur peut sélectionner l’appareil et le supprimer.   La prochaine fois que le propriétaire de l’appareil ouvre l’application Lookout for Work et appuie sur **Activate** (Activer), l’appareil effectue une resynchronisation complète.
 
 ### <a name="the-owner-of-the-device-is-no-longer-using-this-device"></a>Le propriétaire de l’appareil n’utilise plus cet appareil
-Vous devez réinitialiser l’appareil et demander au nouvel utilisateur de s’inscrire, comme indiqué dans [cette rubrique](https://docs.microsoft.com/en-us/sccm/mdm/deploy-use/wipe-lock-reset-devices#full-wipe).
+Vous devez réinitialiser l’appareil et demander au nouvel utilisateur de s’inscrire, comme indiqué dans [cette rubrique](https://docs.microsoft.com/sccm/mdm/deploy-use/wipe-lock-reset-devices#full-wipe).
 
 
 Vous pouvez également accéder au module **Devices** (Appareils) de la console MTP Console et choisir **Delete** (Supprimer).

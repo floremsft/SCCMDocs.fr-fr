@@ -2,7 +2,7 @@
 title: SQL Server Always On | Microsoft Docs
 description: "Planifiez l’utilisation d’un groupe de disponibilité SQL Server Always On avec SCCM."
 ms.custom: na
-ms.date: 7/31/2017
+ms.date: 09/22/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -14,11 +14,11 @@ caps.latest.revision: "16"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: c746365238e1255d73387a9496521bb03a56b21b
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 3e275f6203a9e0b9210bfbadbf9addf64f6533d8
+ms.sourcegitcommit: 8faf42135a8dc9c384407e64f3f8ba204fb15847
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="prepare-to-use-sql-server-always-on-availability-groups-with-configuration-manager"></a>Se préparer à l’utilisation de groupes de disponibilité SQL Server Always On avec Configuration Manager
 
@@ -210,8 +210,11 @@ Vous pouvez exécuter le script suivant afin de vérifier les configurations de 
 ## <a name="limitations-and-known-issues"></a>Limitations et problèmes connus
 Les limitations suivantes s’appliquent à tous les scénarios.   
 
-**Les groupes de disponibilité de base ne sont pas pris en charge :**  
-Depuis l’édition standard de SQL Server 2016, les [groupes de disponibilité de base](https://msdn.microsoft.com/library/mt614935.aspx) ne prennent pas en charge les accès en lecture aux réplicas secondaires, ce qui est obligatoire pour une utilisation avec Configuration Manager.
+**Configurations et options SQL Server qui ne sont pas prises en charge :**
+- **Groupes de disponibilité de base**  
+  Depuis l’édition standard de SQL Server 2016, les [groupes de disponibilité de base](https://msdn.microsoft.com/library/mt614935.aspx) ne prennent pas en charge les accès en lecture aux réplicas secondaires, ce qui est obligatoire pour une utilisation avec Configuration Manager.
+- **Instance de cluster de basculement**  
+  Les [instances de cluster de basculement](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server) ne sont pas prises en charge pour un réplica que vous utilisez avec Configuration Manager.
 
 **Serveurs SQL qui hébergent des groupes de disponibilité supplémentaires :**   
 Avant la version 1610 de Configuration Manager, si un groupe de disponibilité sur un serveur SQL Server héberge un ou plusieurs groupes de disponibilité en plus du groupe que vous utilisez pour Configuration Manager, chaque réplica de chacun des ces groupes de disponibilité supplémentaires doit disposer des configurations suivantes lorsque vous exécutez le programme d’installation de Configuration Manager ou installez une mise à jour pour Configuration Manager :

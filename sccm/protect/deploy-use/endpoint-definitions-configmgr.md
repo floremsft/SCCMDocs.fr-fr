@@ -2,7 +2,7 @@
 title: "Définitions de programmes malveillants Endpoint Protection | Microsoft Docs"
 description: "Apprenez à configurer les mises à jour logicielles Configuration Manager pour remettre des mises à jour de définitions aux ordinateurs clients."
 ms.custom: na
-ms.date: 02/14/2017
+ms.date: 10/06/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -14,11 +14,11 @@ caps.latest.revision: "21"
 author: NathBarn
 ms.author: nathbarn
 manager: angrobe
-ms.openlocfilehash: ca40c2c745ea516b56b637249b892cd44e570a9d
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: d2c29ea4c2b49142c6e63e2b5e829271098eac70
+ms.sourcegitcommit: 8ac9c2c9ba1fdcbb7cc8d5be898586865fcf67c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/07/2017
 ---
 #  <a name="using-configuration-manager-software-updates-to-deliver-definition-updates"></a>Utilisation des mises à jour logicielles Configuration Manager pour remettre des mises à jour de définitions
 
@@ -68,15 +68,15 @@ ms.lasthandoff: 08/07/2017
 
 13. Cliquez sur **OK** pour fermer la boîte de dialogue **Critères de recherche** , puis cliquez sur **Suivant**.
 
-14. Dans la liste **Filtres de propriétés** , cochez la case **Remplacé** .
+14. Si vous le souhaitez, vous pouvez filtrer les mises à jour remplacées.   Pour cela :
+  1.  Dans la liste **Filtres de propriétés** , cochez la case **Remplacé** .
+  2.  Dans la liste **Critères de recherche**, cliquez sur **<éléments à rechercher\>**. Ensuite, dans la boîte de dialogue **Critères de recherche** , dans la liste **Spécifiez la valeur à rechercher** , sélectionnez **on**.  <br><br>
 
-15. Dans la liste **Critères de recherche**, cliquez sur **<éléments à rechercher\>**. Ensuite, dans la boîte de dialogue **Critères de recherche** , dans la liste **Spécifiez la valeur à rechercher** , sélectionnez **on**.
+15. Cliquez sur **OK** pour fermer la boîte de dialogue **Critères de recherche** , puis cliquez sur **Suivant**.
 
-16. Cliquez sur **OK** pour fermer la boîte de dialogue **Critères de recherche** , puis cliquez sur **Suivant**.
+16. Dans la page **Calendrier d’évaluation** de l’Assistant, sélectionnez **Exécuter la règle selon un calendrier**, puis configurez le calendrier de téléchargement des mises à jour de définition. Définissez au minimum la règle pour qu’elle s’exécute deux heures après chaque synchronisation de point de mise à jour logicielle. Cliquez sur **Suivant**.
 
-17. Dans la page **Calendrier d’évaluation** de l’Assistant, sélectionnez **Exécuter la règle selon un calendrier**, puis configurez le calendrier de téléchargement des mises à jour de définition. Définissez au minimum la règle pour qu’elle s’exécute deux heures après chaque synchronisation de point de mise à jour logicielle. Cliquez sur **Suivant**.
-
-18. Sur la page **Calendrier de déploiement** de l'Assistant, configurez les paramètres suivants :
+17. Sur la page **Calendrier de déploiement** de l'Assistant, configurez les paramètres suivants :
 
     -   **Heure basée sur**: sélectionnez **UTC** si vous voulez que tous les clients de la hiérarchie installent les dernières définitions simultanément. L’heure d’installation réelle varie dans une plage de deux heures. Il est recommandé de définir ce paramètre.
 
@@ -87,28 +87,28 @@ ms.lasthandoff: 08/07/2017
         > [!NOTE]
         >  Les échéances des mises à jour logicielles varient sur une période de deux heures pour empêcher que tous les clients demandent une mise à jour en même temps.
 
-19. Cliquez sur **Suivant**.
+18. Cliquez sur **Suivant**.
 
-20. Dans la page **Expérience utilisateur** de l’Assistant, dans la liste **Notifications à l’utilisateur** , sélectionnez **Masquer dans le Centre logiciel et toutes les notifications**.   Cette opération garantit que les mises à jour de définition s’installent en mode silencieux. Cliquez sur **Suivant**.
+19. Dans la page **Expérience utilisateur** de l’Assistant, dans la liste **Notifications à l’utilisateur** , sélectionnez **Masquer dans le Centre logiciel et toutes les notifications**.   Cette opération garantit que les mises à jour de définition s’installent en mode silencieux. Cliquez sur **Suivant**.
 
-21. Dans la page **Alertes** de l’Assistant, vous n’avez pas à configurer d’alertes. Dans Configuration Manager, Endpoint Protection génère les alertes qui peuvent être nécessaires. Cliquez sur **Suivant**.
+20. Dans la page **Alertes** de l’Assistant, vous n’avez pas à configurer d’alertes. Dans Configuration Manager, Endpoint Protection génère les alertes qui peuvent être nécessaires. Cliquez sur **Suivant**.
 
-22. Dans la page **Paramètres de téléchargement** de l’Assistant, sélectionnez le comportement de téléchargement des mises à jour approprié, puis cliquez sur **Suivant**.
+21. Dans la page **Paramètres de téléchargement** de l’Assistant, sélectionnez le comportement de téléchargement des mises à jour approprié, puis cliquez sur **Suivant**.
 
-23. Sur la page **Package de déploiement** de l'Assistant, sélectionnez un package de déploiement existant ou créez un package de déploiement contenant les fichiers de mise à jour logicielle associés à la règle.
+22. Sur la page **Package de déploiement** de l'Assistant, sélectionnez un package de déploiement existant ou créez un package de déploiement contenant les fichiers de mise à jour logicielle associés à la règle.
 
     > [!NOTE]
     >  Envisagez de placer les mises à jour de définition dans un package qui ne contient pas d’autres mises à jour logicielles. Cette stratégie garantit une taille réduite du package de mise à jour de définition, ce qui permet de le répliquer plus rapidement sur les points de distribution.
 
-24. Dans la page **Points de distribution** de l’Assistant, sélectionnez un ou plusieurs points de distribution vers lesquels le contenu de ce package sera copié, puis cliquez sur **Suivant**.
+23. Dans la page **Points de distribution** de l’Assistant, sélectionnez un ou plusieurs points de distribution vers lesquels le contenu de ce package sera copié, puis cliquez sur **Suivant**.
 
-25. Dans la page **Emplacement de téléchargement** de l’Assistant, sélectionnez **Télécharger les mises à jour logicielles depuis Internet**, puis cliquez sur **Suivant**.
+24. Dans la page **Emplacement de téléchargement** de l’Assistant, sélectionnez **Télécharger les mises à jour logicielles depuis Internet**, puis cliquez sur **Suivant**.
 
-26. Dans la page **Sélection de la langue** de l’Assistant, sélectionnez chaque version linguistique des mises à jour à télécharger, puis cliquez sur **Suivant**.
+25. Dans la page **Sélection de la langue** de l’Assistant, sélectionnez chaque version linguistique des mises à jour à télécharger, puis cliquez sur **Suivant**.
 
-27. Terminez l'Assistant Création d'une règle de déploiement automatique.
+26. Terminez l'Assistant Création d'une règle de déploiement automatique.
 
-28. Vérifiez que la nouvelle règle figure dans le nœud **Règles de déploiement automatique** de la console Configuration Manager.
+27. Vérifiez que la nouvelle règle figure dans le nœud **Règles de déploiement automatique** de la console Configuration Manager.
 
 
 > [!div class="button"]

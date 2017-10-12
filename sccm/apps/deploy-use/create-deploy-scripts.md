@@ -15,11 +15,11 @@ caps.handback.revision: "0"
 author: lleonard-msft
 ms.author: alleonar
 manager: angrobe
-ms.openlocfilehash: e6b29cd85504742e8638a55db2f6c4ecc8ab3e55
-ms.sourcegitcommit: 5ca89204716750eaaceb01bba40b35b85c7122ba
+ms.openlocfilehash: 4c90617890ba3751a7215e9ac54042d64cc1a227
+ms.sourcegitcommit: 96b79fa091f44e8e6ac5652f6cbbb4b873a8bad9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2017
+ms.lasthandoff: 10/09/2017
 ---
 # <a name="create-and-run-powershell-scripts-from-the-configuration-manager-console"></a>Créer et exécuter des scripts PowerShell à partir de la console Configuration Manager
 
@@ -59,6 +59,9 @@ Par défaut, les utilisateurs ne peuvent pas approuver un script qu'ils ont cré
 3. Dans la liste des sites, sélectionnez votre site, puis, dans l’onglet **accueil**, sous le groupe **Sites**, cliquez sur **Paramètres de hiérarchie**.
 4. Dans l’onglet **Général** de la boîte de dialogue **Propriétés des paramètres de hiérarchie**, décochez la case **Ne pas autoriser les auteurs à approuver leurs propres scripts**.
 
+>[!IMPORTANT]
+>En tant que bonne pratique, vous ne devriez pas autoriser un auteur de script à approuver ses propres scripts. Cette autorisation ne devrait être accordée que dans un environnement de laboratoire. Veuillez mesurer minutieusement l’impact qu’aurait la modification de ce paramètre dans un environnement de production.
+
 ## <a name="import-and-edit-a-script"></a>Importer et modifier un script
 
 1. Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.
@@ -68,7 +71,7 @@ Par défaut, les utilisateurs ne peuvent pas approuver un script qu'ils ont cré
     - **Nom de script** : entrez un nom pour le script. Vous pouvez créer plusieurs scripts portant le même nom, mais utiliser des noms en double complique la recherche d’un script spécifique dans la console Configuration Manager.
     - **Langage de script** : seuls les scripts PowerShell sont pris en charge.
     - **Importer** : importez un script PowerShell dans la console. Le script s’affiche dans le champ **Script**.
-    - **Effacer ** : supprime le script en cours du champ Script.
+    - **Effacer**  : supprime le script en cours du champ Script.
     - **Script** : affiche le script actuellement importé. Vous pouvez modifier le script dans ce champ si nécessaire.
 5. Effectuez toutes les étapes de l'Assistant. Le nouveau script s’affiche dans la liste **Script** avec l’état **En attente d’approbation**. Avant de pouvoir exécuter ce script sur les appareils clients, vous devez l’approuver.
 
@@ -108,6 +111,9 @@ Une fois approuvé, un script peut être exécuté sur une collection que vous c
 
 >[!IMPORTANT]
 >Le script dispose alors d’une heure pour s’exécuter. S’il ne s’exécute pas (par exemple, si l’ordinateur est mis hors tension) durant cette période, vous devez le réexécuter.
+
+>[!IMPORTANT]
+>Le script est exécuté en tant que compte d’ordinateur ou compte du système sur le ou les clients ciblés. Ce compte n’a qu’un accès réseau limité. L’accès à des emplacements et systèmes distants par le script doit être configuré en tenant compte de cela.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

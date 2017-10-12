@@ -15,11 +15,11 @@ caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 8dac6df60b07461d6410d305723b3f03fb09fa16
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 0619da4cba35d6163761a90e28b39c1976f61b48
+ms.sourcegitcommit: 96b79fa091f44e8e6ac5652f6cbbb4b873a8bad9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/09/2017
 ---
 # <a name="recommended-hardware-for-system-center-configuration-manager"></a>Matériel recommandé pour System Center Configuration Manager
 
@@ -43,7 +43,7 @@ Pour des performances optimales, utilisez des configurations RAID 10 pour tous 
 
 ###  <a name="bkmk_ScaleSiteServer"></a> Serveurs de site  
 
-|Site principal autonome|Cœurs de processeur|Mémoire (Go)|% d’allocation de mémoire pour SQL Server|  
+|Configuration de site|Cœurs de processeur|Mémoire (Go)|% d’allocation de mémoire pour SQL Server|  
 |-------------------------------|---------------|---------------|----------------------------------------|  
 |Serveur de site principal autonome avec un rôle site de base de données sur le même serveur<sup>1</sup>|16|96|80|  
 |Serveur de site principal autonome avec une base de données de site distante|8|16|-|  

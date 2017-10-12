@@ -2,7 +2,7 @@
 title: "Protéger les données à l’aide de la réinitialisation à distance, du verrouillage ou de la réinitialisation du code d’accès en utilisant System Center Configuration Manager | Microsoft Docs"
 description: "Protégez les données des appareils à l’aide de la réinitialisation complète, de la réinitialisation sélective, du verrouillage à distance ou de la réinitialisation du code d’accès en utilisant System Center Configuration Manager."
 ms.custom: na
-ms.date: 03/27/2017
+ms.date: 09/28/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -12,14 +12,14 @@ ms.topic: article
 ms.assetid: 770da7bd-02dd-474a-9604-93ff1ea0c1e4
 caps.latest.revision: "18"
 caps.handback.revision: "0"
-author: nathbarn
-ms.author: nathbarn
+author: dougeby
+ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 351fdc6328dd0859d60e00b128963df738e69f81
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: ea92d7b4656a04f312f04c19cac6b17df931c9c5
+ms.sourcegitcommit: db079cd7322e7d4926b2df0ccb37e752c570d902
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="protect-data-with-remote-wipe-lock-or-passcode-reset-by-using-system-center-configuration-manager"></a>Protéger les données à l’aide de la réinitialisation à distance, du verrouillage ou de la réinitialisation du code d’accès en utilisant System Center Configuration Manager
 
@@ -179,6 +179,9 @@ Si un utilisateur oublie son code d'accès, vous pouvez l'aider à résoudre ce 
 |Windows RT 8.1 |Non pris en charge.|  
 |PC Windows 8.1 |Non pris en charge.|  
 
+> [!Note]    
+> Vous devez procéder à la réinitialisation du code secret à partir du site de niveau supérieur dans votre environnement. Par exemple, si vous utilisez un site d’administration centrale, vous ne pouvez effectuer cette action que sur ce site. Si vous utilisez un site principal autonome, vous ne pouvez effectuer cette action que sur ce site.
+
 #### <a name="to-reset-the-passcode-on-a-mobile-device-remotely-in-configuration-manager"></a>Pour réinitialiser le mot de passe sur un appareil mobile à distance dans Configuration Manager  
 
 1. Dans la console Configuration Manager, choisissez **Ressources et Conformité** et **Appareils**. Vous pouvez également choisir **Regroupements d’appareils** , puis sélectionner un regroupement.  
@@ -206,6 +209,9 @@ Si un utilisateur perd son appareil, vous pouvez verrouiller ce dernier à dista
 |Windows Phone 8 et Windows Phone 8.1|Pris en charge.|  
 |Windows RT 8.1 |Prise en charge si l'utilisateur actuel de l'appareil est le même utilisateur qui a inscrit l'appareil.|  
 |Windows 8.1|Prise en charge si l'utilisateur actuel de l'appareil est le même utilisateur qui a inscrit l'appareil.|  
+
+> [!Note]    
+> Vous devez effectuer l’action de verrouillage à distance à partir du site de niveau supérieur dans votre environnement. Par exemple, si vous utilisez un site d’administration centrale, vous ne pouvez effectuer cette action que sur ce site. Si vous utilisez un site principal autonome, vous ne pouvez effectuer cette action que sur ce site.
 
 #### <a name="to-lock-a-mobile-device-remotely-through-the-configuration-manager-console"></a>Pour verrouiller un appareil mobile à distance via la console Microsoft Intune  
 
