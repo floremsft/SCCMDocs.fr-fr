@@ -27,7 +27,7 @@ ms.lasthandoff: 09/15/2017
 Vous pouvez créer des catégories d’appareils pour classer automatiquement les appareils dans des regroupements d’appareils quand vous utilisez Configuration Manager avec Microsoft Intune. Les utilisateurs doivent ensuite choisir une catégorie d’appareils quand ils inscrivent un appareil dans Intune. Vous pouvez changer une catégorie d’appareils dans la console Configuration Manager.
 
 > [!IMPORTANT]  
-    >  Cette fonctionnalité est opérationnelle avec la version de Microsoft Intune de **juin 2016 ** et ultérieure. Vérifiez que vous avez effectué la mise à jour vers cette version avant d’essayer ces procédures.
+    >  Cette fonctionnalité est opérationnelle avec la version de Microsoft Intune de **juin 2016**  et ultérieure. Vérifiez que vous avez effectué la mise à jour vers cette version avant d’essayer ces procédures.
 
 ## <a name="create-device-categories"></a>Créer des catégories d’appareils
 
