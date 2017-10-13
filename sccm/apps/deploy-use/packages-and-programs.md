@@ -95,7 +95,7 @@ Les packages peuvent utiliser certaines nouvelles fonctionnalités de Configurat
 
              Quand le programme est exécuté sur un client, Configuration Manager commence par rechercher le nom du fichier de ligne de commande au sein du package, dans le dossier Windows local, puis dans le dossier *%chemin%* local. Si le fichier demeure introuvable, le programme échoue.  
 
-        -   **Dossier de démarrage ** (facultatif) : spécifiez le dossier à partir duquel le programme s’exécute, avec un maximum de 127 caractères. Ce dossier peut être un chemin absolu sur le client ou un chemin relatif au dossier du point de distribution qui contient le package.
+        -   **Dossier de démarrage**  (facultatif) : spécifiez le dossier à partir duquel le programme s’exécute, avec un maximum de 127 caractères. Ce dossier peut être un chemin absolu sur le client ou un chemin relatif au dossier du point de distribution qui contient le package.
 
         -   **Exécuter** : spécifiez le mode dans lequel le programme s’exécute sur les ordinateurs clients. Sélectionnez l’un des paramètres suivants :  
 

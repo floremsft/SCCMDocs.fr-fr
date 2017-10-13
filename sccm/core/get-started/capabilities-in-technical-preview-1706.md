@@ -355,7 +355,7 @@ Pour autoriser les utilisateurs à approuver leurs propres scripts :
     - **Nom de script** : entrez un nom pour le script. Vous pouvez créer plusieurs scripts portant le même nom, mais il sera alors difficile de trouver le script dont vous avez besoin dans la console Configuration Manager.
     - **Langage du script** : actuellement, seuls les scripts **PowerShell** sont pris en charge.
     - **Importer** : importez un script PowerShell dans la console. Le script s’affiche dans le champ **Script**.
-    - **Effacer ** : supprime le script en cours du champ **Script**.
+    - **Effacer**  : supprime le script en cours du champ **Script**.
     - **Script** : affiche le script actuellement importé. Vous pouvez modifier le script dans ce champ si nécessaire.
 5. Effectuez toutes les étapes de l'Assistant. Le nouveau script s’affiche dans la liste **Script** avec l’état **En attente d’approbation**. Avant de pouvoir exécuter ce script sur les appareils clients, vous devez l’approuver.
 
