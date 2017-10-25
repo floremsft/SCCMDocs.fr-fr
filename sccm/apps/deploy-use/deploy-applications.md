@@ -75,7 +75,7 @@ Il n'est pas possible de modifier l'action d'un déploiement après sa création
 
 - **Fonction**  
 Dans la liste déroulante, choisissez l'une des options suivantes :
-    - ** Disponible**  
+    -  **Disponible**  
     Si l’application est déployée sur un utilisateur, celui-ci voit l’application publiée dans le Centre logiciel et il peut l’installer à la demande.
     - **Obligatoire**  
     L’application est déployée automatiquement, conformément à la planification. Si l’état du déploiement de l’application n’est pas masqué, toute personne utilisant l’application peut suivre l’état de son déploiement et installer l’application à partir du Centre logiciel avant l’échéance.

@@ -73,7 +73,7 @@ Pour System Center Configuration Manager version 1702, ce niveau inclut les él
 
 - Configuration de base de données simple (processeurs, configuration du cluster et configuration des vues distribuées)
 
-- ***[Mis à jour] *** Statistiques élémentaires de découverte (nombre de découvertes et tailles de groupe minimum/maximum/moyenne) y compris lorsque le site est entièrement exécuté avec les services Active Directory Azure.
+- ***[Mis à jour]***  Statistiques élémentaires de découverte (nombre de découvertes et tailles de groupe minimum/maximum/moyenne) y compris lorsque le site est entièrement exécuté avec les services Active Directory Azure.
 
 - Informations Endpoint Protection de base (versions du client de logiciel anti-programme malveillant)
 

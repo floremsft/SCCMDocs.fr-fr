@@ -575,7 +575,7 @@ Active le cache d’homologue pour les clients Configuration Manager. Ensuite, s
 
      Lors d'un inventaire logiciel, les noms des fabricants et des produits sont extraits des informations d'en-tête des fichiers installés sur les clients du site. Du fait que ces noms ne sont pas systématiquement normalisés dans les informations d'en-tête de fichier, lorsque vous affichez les informations de l'inventaire logiciel dans l'Explorateur de ressources ou exécutez des requêtes, différentes versions du même nom de fabricant ou de produit peuvent parfois apparaître. Si vous souhaitez normaliser ces noms d’affichage, choisissez **Définir des noms** et configurez les éléments suivants dans la boîte de dialogue **Configurer le paramètre client** :  
 
-    -   **Type de nom ** : l’inventaire logiciel collecte des informations sur les produits et les fabricants. Dans la liste déroulante, indiquez si vous souhaitez configurer des noms complets pour un **fabricant** ou un **produit**.  
+    -   **Type de nom**  : l’inventaire logiciel collecte des informations sur les produits et les fabricants. Dans la liste déroulante, indiquez si vous souhaitez configurer des noms complets pour un **fabricant** ou un **produit**.  
 
     -   **Nom complet** : spécifiez le nom complet que vous souhaitez utiliser à la place des noms dans la liste **Noms inventoriés**. Vous pouvez choisir l’icône **Nouveau** pour spécifier un nouveau nom complet.  
 
