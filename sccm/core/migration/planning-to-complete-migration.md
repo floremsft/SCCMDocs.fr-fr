@@ -1,5 +1,6 @@
 ---
-title: Terminer la migration | Microsoft Docs
+title: Terminer la migration
+titleSuffix: Configuration Manager
 description: "Découvrez comment terminer la migration vers une hiérarchie de destination System Center Configuration Manager une fois qu’une hiérarchie source ne contient plus de données."
 ms.custom: na
 ms.date: 1/12/2017
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: eb1d2e320df02b26423ed4341d5bd1568b9444ad
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 574e8897043651b7c80c4d61b86773ae02f412c2
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="plan-to-complete-migration-in-system-center-configuration-manager"></a>Planifier la fin de la migration dans System Center Configuration Manager
 

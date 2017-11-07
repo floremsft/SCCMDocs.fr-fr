@@ -1,5 +1,6 @@
 ---
-title: "Gérer la bande passante du réseau pour le contenu | Microsoft Docs"
+title: "Gérer la bande passante réseau pour le contenu"
+titleSuffix: Configuration Manager
 description: "Configurez la planification, la limitation de bande passante et le contenu préparé pour System Center Configuration Manager."
 ms.custom: na
 ms.date: 2/6/2017
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: d9dff97126c34a726677de60dd7647370c553b6e
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 5431f23c16ed452223ad931266adad4c20739124
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="manage-network-bandwidth-for-content"></a>Gérer la bande passante réseau pour le contenu
 Pour mieux gérer la bande passante réseau utilisée pour le processus de gestion du contenu de System Center Configuration Manager, vous pouvez utiliser les commandes Configuration Manager intégrées de planification et de limitation de bande passante. Vous pouvez également utiliser le contenu préparé. Les sections suivantes décrivent ces options plus en détail.

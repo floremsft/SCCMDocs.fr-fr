@@ -1,5 +1,6 @@
 ---
-title: "Remplacer un ordinateur existant et transférer des paramètres | Microsoft Docs"
+title: "Remplacer un ordinateur existant et transférer des paramètres"
+titleSuffix: Configuration Manager
 description: "Dans Configuration Manager, choisissez les méthodes de déploiement, telles que le média de démarrage, la multidiffusion ou le Centre logiciel, pour remplacer un ordinateur existant par un nouveau."
 ms.custom: na
 ms.date: 10/06/2016
@@ -14,11 +15,11 @@ caps.latest.revision: "6"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 08e9603944e378593598d70c1c11c8a1b1f2f13b
-ms.sourcegitcommit: f6a428a8db7145affa388f59e0ad880bdfcf17b5
+ms.openlocfilehash: efa6ad5bd5358139b3da23b226041f8599dc9454
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="replace-an-existing-computer-and-transfer-settings-with-system-center-configuration-manager"></a>Remplacer un ordinateur existant et transférer des paramètres avec System Center Configuration Manager
 

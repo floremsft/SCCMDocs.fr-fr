@@ -1,5 +1,6 @@
 ---
-title: Surveiller le contenu | Microsoft Docs
+title: Surveiller le contenu
+titleSuffix: Configuration Manager
 description: "Apprenez à surveiller le contenu distribué à l’aide de la console Configuration Manager."
 ms.custom: na
 ms.date: 4/17/2017
@@ -14,11 +15,11 @@ caps.latest.revision: "5"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 7659d5789b8ce4e9e0b585a331c8f68869c9492d
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: b260cf989fbda471b514d06d927e9b2c55d35c1b
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="monitor-content-you-have-distributed-with-system-center-configuration-manager"></a>Surveiller le contenu que vous avez distribué avec System Center Configuration Manager
 

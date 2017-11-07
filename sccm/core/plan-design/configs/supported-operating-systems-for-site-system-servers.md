@@ -1,5 +1,6 @@
 ---
-title: "Serveurs de système de site pris en charge | Microsoft Docs"
+title: "Serveurs de système de site pris en charge"
+titleSuffix: Configuration Manager
 description: "Déterminez les versions de Windows que vous pouvez utiliser pour héberger un site ou un rôle de système de site System Center Configuration Manager."
 ms.custom: na
 ms.date: 06/27/2017
@@ -14,11 +15,11 @@ caps.latest.revision: "44"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: be635e4df79b57b6f650287fa3774d2c10613cee
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 4a507c9552eae48e839aa75e71b39257f9586d79
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="supported-operating-systems-for-system-center-configuration-manager-site-system-servers"></a>Systèmes d’exploitation pris en charge pour les serveurs de système de site System Center Configuration Manager
 

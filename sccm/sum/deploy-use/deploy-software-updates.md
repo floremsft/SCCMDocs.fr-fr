@@ -1,5 +1,6 @@
 ---
-title: "Déployer des mises à jour logicielles | Microsoft Docs"
+title: "Déployer des mises à jour logicielles"
+titleSuffix: Configuration Manager
 description: "Choisissez les mises à jour logicielles dans la console Configuration Manager pour démarrer manuellement le processus de déploiement ou déployer automatiquement des mises à jour."
 keywords: 
 author: dougeby
@@ -11,11 +12,11 @@ ms.prod: configuration-manager
 ms.service: 
 ms.technology: configmgr-sum
 ms.assetid: 04536d51-3bf7-45e5-b4af-36ceed10583d
-ms.openlocfilehash: 70a0ad1da03a7ca88df206fec683ab1df2b531e1
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 7166ed594804bf615d309515c01f6f5339518d89
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 #  <a name="BKMK_SUMDeploy"></a> Déployer des mises à jour logicielles  
 

@@ -1,5 +1,6 @@
 ---
-title: "Préparer l’installation de sites | Microsoft Docs"
+title: "Préparer l’installation des sites"
+titleSuffix: Configuration Manager
 description: "Si vous avez l’intention d’installer plusieurs sites Configuration Manager, lisez ces informations pour vous aider à gagner du temps et éviter toute erreur."
 ms.custom: na
 ms.date: 3/1/2017
@@ -14,11 +15,11 @@ caps.latest.revision: "5"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 829f2d44a9b8d203a5b753ebb6d8f759b1a05111
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 56dc57a487e78948538a25d48c344f0ed424b692
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="prepare-to-install-system-center-configuration-manager-sites"></a>Préparer l’installation de sites System Center Configuration Manager
 

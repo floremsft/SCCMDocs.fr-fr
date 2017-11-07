@@ -1,5 +1,6 @@
 ---
-title: "Fonctionnalités en préversion| Microsoft Docs"
+title: "Fonctionnalités de préversion"
+titleSuffix: Configuration Manager
 description: "Fonctionnalités en préversion dans System Center Configuration Manager"
 ms.custom: na
 ms.date: 7/31/2017
@@ -14,11 +15,11 @@ caps.latest.revision: "36"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 7b594daeed81ef2d991ad06489f9184a69804117
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 6d7ec308aa465f2b715ce51b8c6bbbe59faaf2cb
+ms.sourcegitcommit: b36f8c8b06e4b2e13f8c1500a82af79a071ab4f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="pre-release-features-in-system-center-configuration-manager"></a>Fonctionnalités en préversion dans System Center Configuration Manager
 *S’applique à : System Center Configuration Manager (Current Branch)*
@@ -50,7 +51,7 @@ Si vous avez donné votre consentement sur un site principal autonome, et si vou
 |------------------|---------------------|---------------------|
 | Créer et exécuter des scripts PowerShell à partir de la console Configuration Manager |  [Version 1706](/sccm/apps/deploy-use/create-deploy-scripts)|![Pas encore](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
 | Gestion Device Guard avec Configuration Manager |  [Version 1702](/sccm/protect/deploy-use/use-device-guard-with-configuration-manager)|![Pas encore](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
-| Vérifier si des fichiers exécutables sont en cours d’exécution avant d’installer une application  |   [Version 1702](/sccm/apps/deploy-use/deploy-applications#how-to-check-for-running-executable-files-before-installing-an-application) |![Pas encore](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
+| Vérifier si des fichiers exécutables sont en cours d’exécution avant d’installer une application  |   [Version 1702](/sccm/apps/deploy-use/deploy-applications#how-to-check-for-running-executable-files-before-installing-an-application) |[Version 1706](/sccm/apps/deploy-use/deploy-applications#how-to-check-for-running-executable-files-before-installing-an-application)|
 | Point de service de l’entrepôt de données  |  [Version 1702](/sccm/core/servers/manage/data-warehouse) |[Version 1706](/sccm/core/servers/manage/data-warehouse)|
 | Cache d’homologue pour la distribution de contenu aux clients |  [Version 1610](/sccm/core/plan-design/hierarchy/client-peer-cache) |![Pas encore](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
 | Passerelle de gestion cloud |  [Version 1610](/sccm/core/clients/manage/plan-cloud-management-gateway) |![Pas encore](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|

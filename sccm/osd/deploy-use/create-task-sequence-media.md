@@ -1,5 +1,6 @@
 ---
-title: "Créer un média de séquence de tâches avec System Center Configuration Manager | Microsoft Docs"
+title: "Créer un média de séquence de tâches"
+titleSuffix: Configuration Manager
 description: "Créez un média de séquence de tâches, par exemple un CD, pour déployer un système d’exploitation sur un ordinateur de destination dans votre environnement Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: bd5448d70c2d465347de840cb197d4c33075c90a
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: d3ba78ae32f62a74b73d7b1387d11265a9e41f77
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="create-task-sequence-media-with-system-center-configuration-manager"></a>Créer un média de séquence de tâches avec System Center Configuration Manager
 

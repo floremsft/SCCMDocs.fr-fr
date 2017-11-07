@@ -1,5 +1,6 @@
 ---
-title: "Préparer le cache d’homologue Windows PE pour réduire le trafic WAN | Microsoft Docs"
+title: "Préparer la mise en cache d’homologue Windows PE pour réduire le trafic WAN"
+titleSuffix: Configuration Manager
 description: "Le cache d’homologue Windows PE vise à obtenir le contenu d’un homologue local et à réduire le trafic WAN en l’absence de point de distribution local."
 ms.custom: na
 ms.date: 10/06/2016
@@ -14,11 +15,11 @@ caps.latest.revision: "11"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 814c6133a30b1116d05aaeafddb0dfb7fe2a390e
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: bb0ed6809d1350c4ce28e20d1a83082a51c2e687
+ms.sourcegitcommit: 1132886e07d0c0a87dcc7eeef4577dd8d8840023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="prepare-windows-pe-peer-cache-to-reduce-wan-traffic-in-system-center-configuration-manager"></a>Préparer le cache d’homologue Windows PE pour réduire le trafic WAN dans System Center Configuration Manager
 
@@ -26,7 +27,7 @@ ms.lasthandoff: 08/07/2017
 
 Quand vous déployez un nouveau système d’exploitation dans System Center Configuration Manager, les ordinateurs qui exécutent la séquence de tâches peuvent utiliser le cache d’homologue Windows PE pour obtenir du contenu à partir d’un homologue local (source de cache d’homologue) au lieu de le télécharger à partir d’un point de distribution. Cela permet de réduire le trafic du réseau étendu dans les scénarios de succursale où il n'existe aucun point de distribution local.  
 
- La mise en cache d’homologue Windows PE est similaire à [Windows BranchCache](http://technet.microsoft.com/library/mt617255\(TechNet.10\).aspx#bkmk_branchcache), mais elle fonctionne dans l’environnement de préinstallation Windows (Windows PE). Si vous démarrez la séquence de tâches à partir du contexte du système d’exploitation, par exemple à partir du Centre logiciel sur le client, la mise en cache d’homologue Windows PE n’est pas utilisée. Les termes suivants sont employés pour décrire les clients qui utilisent la mise en cache d’homologue Windows PE :  
+ La mise en cache d’homologue Windows PE est similaire à [Windows BranchCache](http://technet.microsoft.com/library/mt617255\(TechNet.10\).aspx#bkmk_branchcache), mais elle fonctionne dans l’environnement de préinstallation Windows (Windows PE). Les termes suivants sont employés pour décrire les clients qui utilisent la mise en cache d’homologue Windows PE :  
 
 -   Un **client de mise en cache d'homologue** est un ordinateur configuré pour utiliser la mise en cache d'homologue Windows PE.  
 

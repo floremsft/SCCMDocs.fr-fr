@@ -1,5 +1,6 @@
 ---
-title: "Variables intégrées de séquence de tâches | Microsoft Docs"
+title: "Variables intégrées de séquence de tâches"
+titleSuffix: Configuration Manager
 description: "Les variables intégrées de séquence de tâches fournissent des informations sur l’environnement dans lequel la séquence de tâches s’exécute. Elles sont disponibles tout au long de la séquence de tâches."
 ms.custom: na
 ms.date: 03/26/2017
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 09e1105521f5e72830c2816d04e16690064f4f64
-ms.sourcegitcommit: 40f2a4e3cc546e6bfd10f195a8e87af2b0780928
+ms.openlocfilehash: d584c6db85a5466e76a79f398e635ba93f8081ff
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="task-sequence-built-in-variables-in-system-center-configuration-manager"></a>Variables intégrées de séquence de tâches dans System Center Configuration Manager
 

@@ -1,5 +1,6 @@
 ---
-title: "Commandes de prédémarrage pour les médias de séquence de tâches | Microsoft Docs"
+title: "Commandes de prédémarrage pour les médias de séquence de tâches"
+titleSuffix: Configuration Manager
 description: "Créez un script à utiliser avec la commande de prédémarrage, distribuez le contenu associé à la commande de prédémarrage et configurez la commande de prédémarrage dans le média."
 ms.custom: na
 ms.date: 10/06/2016
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 1c396534425179c6828d48acc578295167c566be
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 52a4dccfe547f8c25759669dd1b09976302d5c50
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="prestart-commands-for-task-sequence-media-in-system-center-configuration-manager"></a>Commandes de prédémarrage pour les médias de séquence de tâches dans System Center Configuration Manager
 
