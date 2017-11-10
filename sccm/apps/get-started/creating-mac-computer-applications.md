@@ -1,5 +1,6 @@
 ---
-title: "Créer des applications pour ordinateurs Mac | Microsoft Docs"
+title: "Créer des applications pour ordinateurs Mac"
+titleSuffix: Configuration Manager
 description: "Examinez les éléments à prendre en compte quand vous créez et déployez des applications pour des ordinateurs Mac."
 ms.custom: na
 ms.date: 10/06/2016
@@ -14,11 +15,11 @@ caps.latest.revision: "9"
 author: mattbriggs
 ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: 703f2d4d73334ef66a7c217c04e66658a7b56157
-ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
+ms.openlocfilehash: 912632c672c49deefc946e089dad6a82454c4b67
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="create-mac-computer-applications-with-system-center-configuration-manager"></a>Créer des applications pour ordinateurs Mac avec System Center Configuration Manager
 

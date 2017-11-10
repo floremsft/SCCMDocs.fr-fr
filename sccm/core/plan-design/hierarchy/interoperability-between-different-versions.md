@@ -1,5 +1,6 @@
 ---
-title: "Interopérabilité entre les versions de Configuration Manager | Microsoft Docs"
+title: "Interopérabilité entre versions"
+titleSuffix: Configuration Manager
 description: "Découvrez comment éviter les conflits entre les multiples hiérarchies System Center Configuration Manager sur le même réseau."
 ms.custom: na
 ms.date: 1/30/2017
@@ -14,11 +15,11 @@ caps.latest.revision: "8"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 28593d271603ff9775425327996d844d7ed358cd
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 8485011e51d4a9b18d3b89b023e3651e56964f35
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="interoperability-between-different-versions-of-system-center-configuration-manager"></a>Interopérabilité entre les différentes versions de System Center Configuration Manager
 

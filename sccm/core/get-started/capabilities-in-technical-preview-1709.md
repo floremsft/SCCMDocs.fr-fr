@@ -1,5 +1,6 @@
 ---
-title: "Technical Preview 1709 | Microsoft Docs"
+title: Version Technical Preview 1709
+titleSuffix: Configuration Manager
 description: "Découvrez les fonctionnalités disponibles dans la version 1709 de Technical Preview pour System Center Configuration Manager."
 ms.custom: na
 ms.date: 09/28/2017
@@ -13,11 +14,11 @@ ms.assetid: a3ef6bdc-a204-4c4c-a02f-2bd03f35183e
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 3348bc91e6810c873d50cb4efd3efb9fbd024bd3
-ms.sourcegitcommit: 96b79fa091f44e8e6ac5652f6cbbb4b873a8bad9
+ms.openlocfilehash: 90e31c26204323e33560270044ebac7dfe135684
+ms.sourcegitcommit: 1573a1bd0bd58fefb1ea651b3ea8d6fd53eff546
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="capabilities-in-technical-preview-1709-for-system-center-configuration-manager"></a>Fonctionnalités de Technical Preview 1709 pour System Center Configuration Manager
 
@@ -43,8 +44,8 @@ Cet article présente les fonctionnalités qui sont disponibles dans la version�
 
 **Vous trouverez ci-dessous les nouvelles fonctionnalités propres à cette version.**  
 
-## <a name="improved-vpn-profile-experience-in-configuration-manager-console----1313282---"></a>Expérience de profil VPN améliorée dans la console Configuration Manager<!-- 1313282 -->
-
+## <a name="improved-vpn-profile-experience-in-configuration-manager-console"></a>Expérience de profil VPN améliorée dans la console Configuration Manager
+<!-- 1313282 -->
 Avec cette version, nous avons mis à jour l’Assistant Création d’un profil VPN et les pages de propriétés pour afficher uniquement les paramètres appropriés à la plateforme sélectionnée. Plus précisément :
 
 - Chaque plateforme a son propre flux de travail, ce qui signifie que les nouveaux profils VPN ne contiennent que les paramètres pris en charge par la plateforme.
@@ -80,16 +81,15 @@ Lorsque vous sélectionnez différentes plateformes, notez que seuls les paramè
 
 ## <a name="co-management-for-windows-10-devices"></a>Cogestion pour les appareils Windows 10    
 <!-- 1350871 -->
-Nombreux sont les clients qui souhaitent gérer les appareils Windows 10 comme les appareils mobiles, en recourant à une solution cloud plus simple et moins chère. Toutefois, le passage de la gestion classique à la gestion moderne peut s’avérer difficile. La cogestion représente une solution qui permet aux appareils Windows 10 d’être gérés simultanément par Configuration Manager et Intune, et d’être joints à Active Directory (AD) et à Azure Active Directory (Azure AD), ce qui vous offre un moyen de passer à la gestion moderne progressivement. C’est une solution qui établit une passerelle entre la gestion classique et la gestion moderne tout en vous donnant la possibilité d’opérer cette transition selon une approche en plusieurs phases.  
+Nombreux sont les clients qui souhaitent gérer les appareils Windows 10 comme les appareils mobiles, en recourant à une solution cloud plus simple et moins chère. Toutefois, le passage de la gestion classique à la gestion moderne peut s’avérer difficile. À partir de Windows 10 version 1607 (également appelée Mise à jour anniversaire), vous pouvez joindre à la fois un appareil Windows 10 à Active Directory (AD) localement et à Azure AD basé sur le cloud (Azure AD hybride). La cogestion tire parti de cette amélioration et vous permet de gérer simultanément plusieurs appareils Windows 10 à l’aide de Configuration Manager et d’Intune. C’est une solution qui établit une passerelle entre la gestion classique et la gestion moderne tout en vous donnant la possibilité d’opérer cette transition selon une approche en plusieurs phases. 
 
-
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables
 Les prérequis suivants doivent être mis en place avant de pouvoir activer la cogestion. Il existe des prérequis généraux et des prérequis distincts pour les clients Configuration Manager existants et les appareils qui ne sont pas clients.
 
 ### <a name="known-issues"></a>Problèmes connus
 Après avoir créé une stratégie de cogestion, vous ne pouvez plus y apporter de modifications. Il faut la supprimer pour la recréer avec les paramètres dont vous avez besoin. 
 
-#### <a name="general-prerequisites"></a>Prérequis généraux
+#### <a name="general-prerequisites"></a>Conditions préalables
 Les prérequis généraux pour activer la cogestion sont les suivants :  
 
 - Technical Preview pour Configuration Manager version 1709
@@ -210,7 +210,6 @@ Dans la section précédente, vous avez préparé les appareils Windows 10 pour
     - **Production** : lorsque vous sélectionnez ce paramètre, tous les appareils Windows 10 pris en charge sont activés pour la cogestion. Configurez le **Groupe d’exclusions** avec un ou plusieurs regroupements. Les appareils membres d’une des collections de ce groupe sont exclus de l’utilisation de la cogestion. 
 5. Dans la page Activation, choisissez **Pilote** ou **Tout** (selon les paramètres que vous avez configurés dans la page Préparation) pour activer l’inscription automatique dans Intune, puis cliquez sur **suivant**. Lorsque vous choisissez **Pilote**, seuls les clients Configuration Manager membres du groupe pilote sont automatiquement inscrits à Intune. Cela vous permet d’activer la cogestion sur une partie des clients pour tester initialement la cogestion et la déployer au moyen d’une approche progressive. 
 6. Dans la page Charges de travail, choisissez de basculer ou non les charges de travail de Configuration Manager devant être gérées par Intune, puis cliquez sur **suivant**. Utilisez les curseurs pour sélectionner le basculement de la charge de travail vers le groupe pilote, ou pour tous les clients Windows 10 (selon les paramètres que vous avez configurés dans la page Préparation). 
-
 7. Pour activer la cogestion, terminez l’Assistant.  
 
 <!--### Modify your co-management settings

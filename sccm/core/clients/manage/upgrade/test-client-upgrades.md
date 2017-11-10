@@ -1,5 +1,6 @@
 ---
-title: "Tester les mises à niveau du client dans un regroupement de préproduction | Microsoft Docs"
+title: "Tester les mises à niveau du client dans un regroupement de préproduction"
+titleSuffix: Configuration Manager
 description: "Testez les mises à niveau du client dans un regroupement de préproduction dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 05/04/2017
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: 5b6e60e7c6225e37dd345e99c703505e346cd0a4
-ms.sourcegitcommit: f6a428a8db7145affa388f59e0ad880bdfcf17b5
+ms.openlocfilehash: e301c3df57d3f625157015692374e512e00dfc60
+ms.sourcegitcommit: 1132886e07d0c0a87dcc7eeef4577dd8d8840023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="how-to-test-client-upgrades-in-a-pre-production-collection-in-system-center-configuration-manager"></a>Comment tester les mises à niveau du client dans un regroupement de préproduction dans System Center Configuration Manager
 
@@ -39,8 +40,10 @@ Vous pouvez tester une nouvelle version du client Configuration Manager dans un 
 3.  Promouvez le nouveau client en production.  
 
 ##  <a name="to-configure-automatic-client-upgrades-to-use-a-pre-production-collection"></a>Pour configurer les mises à jour automatiques du client pour utiliser un regroupement de préproduction  
+> [!IMPORTANT]
+> Le déploiement du client de préproduction n’est pas pris en charge pour les ordinateurs de groupe de travail. Ils ne peuvent pas utiliser l’authentification nécessaire pour permettre au point de distribution d’accéder au package du client de préproduction.  Ils recevront la dernière version du client quand il sera promu client de production.
 
-1. [Configurez un regroupement](..\collections\create-collections.md) contenant les ordinateurs sur lesquels vous voulez déployer le client de préproduction. N’incluez pas d’ordinateurs de groupe de travail dans les regroupements de préproduction. Ils ne peuvent pas utiliser l’authentification nécessaire pour permettre au point de distribution d’accéder au package du client de préproduction.   
+1. [Configurez un regroupement](..\collections\create-collections.md) contenant les ordinateurs sur lesquels vous voulez déployer le client de préproduction.   
 
 1.  Dans la console Configuration Manager, ouvrez **Administration** > **Configuration du site** > **Sites**, puis choisissez **Paramètres de hiérarchie**.  
 

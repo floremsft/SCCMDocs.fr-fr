@@ -1,5 +1,6 @@
 ---
-title: "Planification d’autorisations de modèles de certificat | Microsoft Docs"
+title: "Planification d’autorisations de modèles de certificat"
+titleSuffix: Configuration Manager
 description: "Informez-vous sur la planification des autorisations à configurer pour les modèles de certificat que System Center Configuration Manager utilise."
 ms.custom: na
 ms.date: 10/06/2016
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: 832be8c9fda727804f57e83768cd8799db722c67
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: e5c748297b318e5256f2064811151ae96a55fccd
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="planning-for-certificate-template-permissions-for-certificate-profiles-in-system-center-configuration-manager"></a>Planification d’autorisations de modèles de certificat pour les profils de certificat dans System Center Configuration Manager
 

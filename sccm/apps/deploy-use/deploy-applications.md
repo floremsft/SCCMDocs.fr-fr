@@ -1,5 +1,6 @@
 ---
-title: "Déployer des applications | Microsoft Docs"
+title: "Déployer des applications"
+titleSuffix: Configuration Manager
 description: "Créez un type de déploiement ou simulez le déploiement d’une application à l’aide de System Center Configuration Manager."
 ms.custom: na
 ms.date: 7/31/2017
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: mattbriggs
 ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: 801c21e0015d63f736fb2207e85f484dc50d56dc
-ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
+ms.openlocfilehash: 31c8a2e212de8c112b68d68e108db3463516142f
+ms.sourcegitcommit: b36f8c8b06e4b2e13f8c1500a82af79a071ab4f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="deploy-applications-with-system-center-configuration-manager"></a>Déployer des applications avec System Center Configuration Manager
 
@@ -75,7 +76,7 @@ Il n'est pas possible de modifier l'action d'un déploiement après sa création
 
 - **Fonction**  
 Dans la liste déroulante, choisissez l'une des options suivantes :
-    -  **Disponible**  
+    - **Disponible**  
     Si l’application est déployée sur un utilisateur, celui-ci voit l’application publiée dans le Centre logiciel et il peut l’installer à la demande.
     - **Obligatoire**  
     L’application est déployée automatiquement, conformément à la planification. Si l’état du déploiement de l’application n’est pas masqué, toute personne utilisant l’application peut suivre l’état de son déploiement et installer l’application à partir du Centre logiciel avant l’échéance.
@@ -171,6 +172,7 @@ Par ailleurs, pour un déploiement à haut risque, comme une séquence de tâche
 
 >[!Tip]
 >Cette fonctionnalité, introduite avec la version 1702, est en version préliminaire. Pour l’activer, consultez [Fonctionnalités en version préliminaire dans System Center Configuration Manager](https://docs.microsoft.com/sccm/core/servers/manage/pre-release-features).
+> À compter de la version 1706, cette fonctionnalité n’est plus une fonctionnalité en préversion.
 
 Dans la boîte de dialogue **Propriétés** d’un type de déploiement, sous l’onglet **Comportement à l’installation**, vous pouvez spécifier un ou plusieurs fichiers exécutables qui, s’ils sont en cours d’exécution, bloquent l’installation du type de déploiement. L’utilisateur doit fermer le fichier exécutable en cours d’exécution (ou il peut être fermé automatiquement pour les déploiements dont l’objet est défini sur Obligatoire) pour que le type de déploiement puisse être installé. Pour configurer cela :
 

@@ -1,5 +1,6 @@
 ---
-title: "Synchroniser à distance la stratégie sur des appareils inscrits auprès d’Intune | Microsoft Docs"
+title: "Synchroniser à distance la stratégie sur des appareils inscrits auprès d’Intune"
+titleSuffix: Configuration Manager
 description: "Découvrir comment synchroniser la stratégie sur des appareils inscrits auprès d’Intune à partir de la console Configuration Manager"
 ms.custom: na
 ms.date: 03/05/2017
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: 387f6303611010ab3d72f796455409ebfff65099
-ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
+ms.openlocfilehash: a03ba69c679bcfdc54744314c7a4cb3ef8b2a7a0
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="remotely-synchronize-policy-on-intune-enrolled-devices-from-the-configuration-manager-console"></a>Synchroniser à distance la stratégie sur des appareils inscrits auprès d’Intune à partir de la console Configuration Manager
 

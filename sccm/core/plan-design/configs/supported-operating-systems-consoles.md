@@ -1,5 +1,6 @@
 ---
-title: Prise en charge de la console | Microsoft Docs
+title: Prise en charge des consoles
+titleSuffix: Configuration Manager
 description: "Découvrez quels systèmes d’exploitation sont pris en charge par les consoles System Center Configuration Manager."
 ms.custom: na
 ms.date: 1/3/2017
@@ -14,11 +15,11 @@ caps.latest.revision: "3"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 493fe98787591d44b2deb9a4474d38e54f4127e8
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 8c7c582902ed856567ab496f774625acdb323887
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="supported-operating-systems-for-system-center-configuration-manager-consoles"></a>Systèmes d’exploitation pris en charge pour les consoles System Center Configuration Manager
 

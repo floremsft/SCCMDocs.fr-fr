@@ -1,5 +1,6 @@
 ---
-title: "Gérer Windows Device Guard | Microsoft Docs"
+title: "Gérer Windows Device Guard"
+titleSuffix: Configuration Manager
 description: "Découvrez comment gérer Windows Device Guard avec System Center Configuration Manager."
 ms.custom: na
 ms.date: 07/31/2017
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: 4555f7a9a6b5efd0fa01e9a101ea16bae7685117
-ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
+ms.openlocfilehash: db96f69ed0330447bf473fbef86b5f02462a679c
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="device-guard-management-with-configuration-manager"></a>Gestion de Device Guard avec Configuration Manager
 

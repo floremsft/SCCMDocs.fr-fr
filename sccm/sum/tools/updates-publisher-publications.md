@@ -1,5 +1,6 @@
 ---
-title: "Gérer les publications | Microsoft Docs"
+title: "Gérer des publications"
+titleSuffix: Configuration Manager
 description: "Gérer des groupes de mises à jour logicielles comme une publication avec l’éditeur de mise à jour System Center"
 ms.custom: na
 ms.date: 4/29/2017
@@ -15,11 +16,11 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 robots: NOINDEX, NOFOLLOW
-ms.openlocfilehash: ddea7af935d5be880b96e383401061f8aa11e6da
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 07e0acadae6cab050f7f0c0b0165e2baa5ff4d68
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="manage-publications-in-updates-publisher"></a>Gérer des publications dans l’éditeur de mises à jour
 

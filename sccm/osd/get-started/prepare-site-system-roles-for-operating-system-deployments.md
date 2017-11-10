@@ -1,5 +1,6 @@
 ---
-title: "Préparer les rôles de système de site pour les déploiements de système d’exploitation | Microsoft Docs"
+title: "Préparer les rôles de système de site pour les déploiements de système d’exploitation"
+titleSuffix: Configuration Manager
 description: "Configurez les rôles de système de site avant de déployer des systèmes d’exploitation dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 11c0f169afebdb071fefb5ce300fd1ae3481a94f
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: c07172bec1032b021c2d7b7ccaabe33c96b930d2
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="prepare-site-system-roles-for-operating-system-deployments-with-system-center-configuration-manager"></a>Préparer les rôles de système de site pour les déploiements de système d’exploitation avec System Center Configuration Manager
 
@@ -67,7 +68,7 @@ Pour déployer des systèmes d’exploitation dans System Center Configuration M
 
 2.  Sélectionnez le point de distribution à configurer et, sur l’onglet **Accueil** du groupe **Propriétés** , cliquez sur **Propriétés**.  
 
-3.  Sur la page des propriétés pour le point de distribution, cliquez sur l'onglet **PXE** . et sélectionnez **Activer la prise en charge PXE pour les clients** pour activer PXE sur ce point de distribution.  
+3.  Sur la page des propriétés du point de distribution, cliquez sur l’onglet **PXE** et sélectionnez **Activer la prise en charge PXE pour les clients** pour activer PXE sur ce point de distribution.  
 
 4.  Cliquez sur **Oui** dans la boîte de dialogue **Consulter les ports requis pour PXE** pour confirmer que vous souhaitez activer PXE. Configuration Manager configure automatiquement les ports par défaut sur un Pare-feu Windows. Vous devez configurer manuellement les ports si vous utilisez un autre pare-feu.  
 

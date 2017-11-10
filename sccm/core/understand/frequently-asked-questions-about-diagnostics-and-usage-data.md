@@ -1,5 +1,6 @@
 ---
-title: "FAQ sur les données de diagnostic | Microsoft Docs"
+title: "Questions fréquemment posées sur les données de diagnostic"
+titleSuffix: Configuration Manager
 description: "Consultez les questions fréquemment posées sur les données de diagnostic et d’utilisation pour System Center Configuration Manager."
 ms.custom: na
 ms.date: 2/8/2017
@@ -14,11 +15,11 @@ caps.latest.revision: "6"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 177a30a30f6b8579fa1956d28581d4f9d3a11838
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: cf5b44c9d838f49e2de795338f3068621febf6c8
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="frequently-asked-questions-about-diagnostics-and-usage-data-for-system-center-configuration-manager"></a>Questions fréquemment posées sur les données d’utilisation et de diagnostic pour System Center Configuration Manager
 

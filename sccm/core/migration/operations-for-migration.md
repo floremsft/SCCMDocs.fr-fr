@@ -1,5 +1,6 @@
 ---
-title: "Opérations de migration | Microsoft Docs"
+title: "Opérations de migration"
+titleSuffix: Configuration Manager
 description: "Créez et exécutez des tâches pour migrer les données et les clients vers System Center Configuration Manager."
 ms.custom: na
 ms.date: 12/30/2016
@@ -14,11 +15,11 @@ caps.latest.revision: "6"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: fb8a292c4fecbe5744e2cd09bc1442fab11046bc
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 0139d4227270d3aacf1da093a029a0b54f07fdf9
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="operations-for-migrating-to-system-center-configuration-manager"></a>Opérations de migration vers System Center Configuration Manager
 

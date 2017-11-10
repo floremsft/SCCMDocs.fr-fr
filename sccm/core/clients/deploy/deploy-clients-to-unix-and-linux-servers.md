@@ -1,5 +1,6 @@
 ---
-title: "Déployer les clients UNIX/Linux | Microsoft Docs"
+title: "Déployer des clients UNIX/Linux"
+titleSuffix: Configuration Manager
 description: "Découvrez comment déployer un client sur un serveur UNIX ou Linux dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 04/23/2017
@@ -14,11 +15,11 @@ caps.latest.revision: "9"
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: 1741506f390430c85dab9a5b8e8cc26dda7b57e3
-ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
+ms.openlocfilehash: 808997a423dbac6785c9da82f7b6bc8663168486
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="how-to-deploy-clients-to-unix-and-linux-servers-in-system-center-configuration-manager"></a>Comment déployer des clients sur des serveurs UNIX et Linux dans System Center Configuration Manager
 

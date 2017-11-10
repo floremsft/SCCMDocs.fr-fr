@@ -1,5 +1,6 @@
 ---
-title: "Planification du déploiement du client sur des ordinateurs Mac | Microsoft Docs"
+title: "Planification du déploiement du client sur des ordinateurs Mac"
+titleSuffix: Configuration Manager
 description: "Planifiez le déploiement de clients sur des ordinateurs Mac dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 04/23/2017
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: c3108813a04cf464bfc05961113bbdffb9a81419
-ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
+ms.openlocfilehash: 93f6313e25c7015bde10a5770cb4a8e170bff880
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="planning-for-client-deployment-to-mac-computers-in-system-center-configuration-manager"></a>Planification du déploiement du client pour les ordinateurs Mac dans System Center Configuration Manager
 

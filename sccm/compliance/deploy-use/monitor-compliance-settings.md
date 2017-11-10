@@ -1,5 +1,6 @@
 ---
-title: "Surveiller les paramètres de compatibilité | Microsoft Docs"
+title: "Surveiller les paramètres de compatibilité"
+titleSuffix: Configuration Manager
 description: "Utilisez une ou plusieurs des procédures de cette rubrique pour afficher l’état de compatibilité de la base de référence de configuration."
 ms.custom: na
 ms.date: 10/06/2016
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.openlocfilehash: 12a75e8bdda681a2ef1520e834f764722788f0a4
-ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
+ms.openlocfilehash: 1da8bf6ab83be7c72cc95ec5e07cb9b1a17526d5
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="monitor-compliance-settings-in-system-center-configuration-manager"></a>Surveiller les paramètres de compatibilité dans System Center Configuration Manager
 

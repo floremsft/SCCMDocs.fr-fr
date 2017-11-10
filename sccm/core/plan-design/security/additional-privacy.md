@@ -1,8 +1,8 @@
 ---
-title: "Déclaration de confidentialité de System Center Configuration Manager - Informations supplémentaires | Microsoft Docs"
+title: "Déclaration de confidentialité de System Center Configuration Manager - Informations supplémentaires"
 description: "Découvrez comment Microsoft collecte et utilise les données d’un déploiement de System Center Configuration Manager."
 ms.custom: na
-ms.date: 12/30/2016
+ms.date: 10/13/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -34,11 +34,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-ms.openlocfilehash: ef7b3656f9b4a31e07227aa4e864448d0dd1fcdc
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 28caf163507692ad7d7b3cfa85536a88d94584ec
+ms.sourcegitcommit: 18ac58374d2d513fe2a197c80f7c8c6890a7d612
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="additional-information-about-privacy-for-system-center-configuration-manager"></a>Informations supplémentaires sur la confidentialité pour System Center Configuration Manager
 
@@ -107,7 +107,7 @@ Vous pouvez choisir de ne pas utiliser la vue géographique pour la hiérarchie 
 ## <a name="microsoft-intune-subscription"></a>Abonnement Microsoft Intune
 Les clients qui ont souscrit un abonnement à Microsoft Intune peuvent utiliser Configuration Manager pour gérer leurs appareils mobiles connectés via Microsoft Intune. La [déclaration de confidentialité des Services en ligne de Microsoft](http://go.microsoft.com/fwlink/?LinkId=262214) s’applique à Microsoft Online Services, qui inclut Microsoft Intune. Si les clients possèdent également un abonnement à Microsoft Intune, la [déclaration de confidentialité Microsoft Online Services](http://go.microsoft.com/fwlink/?LinkId=262214) doit être lue conjointement avec la présente déclaration de confidentialité.
 
-Toutes les communications avec Microsoft Intune utilisent le protocole HTTPS. Pour configurer l’abonnement à Microsoft Intune et télécharger la Demande de signature de certificat (DSC) qui est nécessaire à la configuration de la prise en charge d’iOS, un administrateur doit se connecter à Microsoft Intune en utilisant son compte et son mot de passe d’entreprise. Ces informations d'identification ne sont pas stockées dans Configuration Manager. Toutes les autres communications avec Microsoft Intune sont authentifiées à l’aide de certificats PKI qui sont générés automatiquement par Microsoft Intune.
+Toutes les communications avec Microsoft Intune utilisent le protocole HTTPS. Pour configurer l’abonnement à Microsoft Intune et télécharger la Demande de signature de certificat (DSC) qui est nécessaire à la configuration de la prise en charge d’iOS, un administrateur doit se connecter à Microsoft Intune en utilisant son compte et son mot de passe professionnels. Ces informations d'identification ne sont pas stockées dans Configuration Manager. Toutes les autres communications avec Microsoft Intune sont authentifiées à l’aide de certificats PKI qui sont générés automatiquement par Microsoft Intune.
 
 Pour gérer les appareils connectés à Microsoft Intune, certaines informations sont envoyées à et reçues de Microsoft Intune. Ces informations incluent le nom principal de l’utilisateur (UPN) de tous les utilisateurs qui sont affectés au service et les informations d’inventaire d’appareils pour les appareils qui sont gérés par Microsoft Intune. Des métadonnées, comme le nom, l’éditeur et la version de l’application, pour le contenu qui est affecté aux points de distribution Manage.Microsoft.com sont envoyées à Microsoft Intune. Le contenu binaire réel affecté à un point de distribution Manage.Microsoft.com est chiffré avant son chargement vers Microsoft Intune.
 

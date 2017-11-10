@@ -1,5 +1,6 @@
 ---
-title: Forum aux questions sur le produit et les licences | Microsoft Docs
+title: Forum aux questions sur le produit et les licences
+titleSuffix: Configuration Manager
 description: "Trouvez des réponses aux questions courantes sur le produit et les licences pour System Center Configuration Manager."
 ms.custom: na
 ms.date: 2/28/2017
@@ -14,11 +15,11 @@ caps.latest.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: c1a276ad1ed6d10d286ab389ab3f05ec780c4e58
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 99a28c8cd2311f23d26d8a105c3aef179dd634e1
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="frequently-asked-questions-for-system-center-configuration-manager-branches-and-licensing"></a>Forum aux questions sur les branches et la gestion des licences System Center Configuration Manager
 

@@ -1,5 +1,6 @@
 ---
-title: "Listes de contrôle de la migration | Microsoft Docs"
+title: "Listes de contrôle pour la migration"
+titleSuffix: Configuration Manager
 description: "Utilisez les listes de contrôle de l’administrateur pour vous aider à planifier une stratégie de migration vers System Center Configuration Manager."
 ms.custom: na
 ms.date: 12/29/2016
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 36f7c37e4da3f2bce64a25d266dae57d9fe98c36
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 3476709feb8524dda92694efb16af1569f490f62
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="administrator-checklists-for-migration-planning-in-system-center-configuration-manager"></a>Listes de vérifications de l’administrateur pour la planification de la migration dans System Center Configuration Manager
 

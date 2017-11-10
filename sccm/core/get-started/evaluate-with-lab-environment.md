@@ -1,5 +1,6 @@
 ---
-title: "Évaluer Configuration Manager | Microsoft Docs"
+title: "Évaluer dans un environnement lab"
+titleSuffix: Configuration Manager
 description: "Créez un environnement lab pour évaluer System Center Configuration Manager pour une utilisation dans votre organisation."
 ms.custom: na
 ms.date: 2/28/2017
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: d7ea785ab1beee09b9adda735a87f89bc9481620
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 8649f6686adad908b7806d22983aaf20171609ba
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="evaluate-system-center-configuration-manager-by-building-your-own-lab-environment"></a>Évaluer System Center Configuration Manager en créant votre propre environnement lab
 

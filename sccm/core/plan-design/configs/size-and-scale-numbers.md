@@ -1,5 +1,6 @@
 ---
-title: "Taille et échelle | Microsoft Docs"
+title: "Taille et échelle"
+titleSuffix: Configuration Manager
 description: "Déterminez le nombre de rôles de système de site et de sites dont vous avez besoin pour prendre en charge les appareils dans votre environnement System Center Configuration Manager."
 ms.custom: na
 ms.date: 07/24/2017
@@ -14,11 +15,11 @@ caps.latest.revision: "4"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 9c50f6633a5ca04b62f4c3b06119fb1fbcab2643
-ms.sourcegitcommit: 974fbc4408028c8be28911e5cd646efcf47c7f15
+ms.openlocfilehash: c0277fed7db5803aa2b2246ca879640136dce02a
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="size-and-scale-numbers-for-system-center-configuration-manager"></a>Taille et échelle de System Center Configuration Manager en chiffres
 
@@ -54,7 +55,6 @@ Les numéros de support suivants sont basés sur l’utilisation du matériel re
 
 -   Les sites secondaires ne prennent pas en charge les sites enfants.  
 
--   Un site d’administration centrale peut prendre en charge jusqu’à 25 sites principaux enfants.  
 
 
 ## <a name="bkmk_roles"></a> Rôles système de site    

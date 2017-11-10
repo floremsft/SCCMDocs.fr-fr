@@ -1,5 +1,6 @@
 ---
-title: "Comptes pour accéder au contenu dans System Center Configuration Manager | Microsoft Docs"
+title: "Comptes pour accéder au contenu"
+titleSuffix: Configuration Manager
 description: "En savoir plus sur les comptes où les clients accèdent au contenu System Center Configuration Manager."
 ms.custom: na
 ms.date: 2/6/2017
@@ -14,11 +15,11 @@ caps.latest.revision: "4"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 0e982d08d54af39b13f553fc531a200f921e94a6
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 3767fe81db62d8604de02d7a5867ce03a09ba2e4
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="manage-accounts-to-access-content-in-system-center-configuration-manager"></a>Gérer les comptes pour accéder au contenu dans System Center Configuration Manager
 

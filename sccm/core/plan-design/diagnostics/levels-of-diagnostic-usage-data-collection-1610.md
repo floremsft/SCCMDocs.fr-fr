@@ -1,5 +1,6 @@
 ---
-title: "Données de diagnostic pour 1610 | System Center Configuration Manager"
+title: "Données de diagnostic pour 1610"
+titleSuffix: Configuration Manager
 description: "En savoir plus sur les niveaux des données de diagnostic et d’utilisation collectées par System Center Configuration Manager version 1610."
 ms.custom: na
 ms.date: 12/29/2016
@@ -32,11 +33,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-ms.openlocfilehash: ba1e53fdc895690bb958c12d59f82a26067ecad3
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 90e1b609061e4447e1ad3fa3cc21d48c7f294a34
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="levels-of-diagnostic-usage-data-collection-for-version-1610-of-system-center-configuration-manager"></a>Niveaux de collecte des données de diagnostic et d’utilisation pour la version 1610 de System Center Configuration Manager
 

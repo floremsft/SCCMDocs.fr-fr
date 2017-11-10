@@ -1,5 +1,6 @@
 ---
-title: "Liste de contrôle pour 1602 | Microsoft Docs"
+title: "Liste de contrôle pour 1602"
+titleSuffix: Configuration Manager
 description: "Découvrez les actions à entreprendre avant d’effectuer la mise à jour de System Center Configuration Manager version 1511 vers la version 1602."
 ms.custom: na
 ms.date: 2/7/2017
@@ -15,11 +16,11 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 robots: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 3e0de56b7a592b105e6a61b3d6654b1d0142584d
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 629f09a8e4306a7030850d377f26311f962a9e7a
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="checklist-for-installing-update-1602-for-system-center-configuration-manager"></a>Liste de contrôle pour l’installation de la mise à jour 1602 pour System Center Configuration Manager
 

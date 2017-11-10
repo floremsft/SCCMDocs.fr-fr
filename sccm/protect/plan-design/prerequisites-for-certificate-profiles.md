@@ -1,5 +1,6 @@
 ---
-title: "Prérequis des profils de certificat | Microsoft Docs"
+title: "Prérequis des profils de certificat"
+titleSuffix: Configuration Manager
 description: "Renseignez-vous sur les profils de certificat dans System Center Configuration Manager et leurs dépendances externes et dépendances dans le produit."
 ms.custom: na
 ms.date: 03/29/2017
@@ -14,11 +15,11 @@ caps.latest.revision: "9"
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: fba52ee305fe67418f2fe544bfe94d10467236d0
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: a7316171430f0276a33d917794a7eb0b95666bcd
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="prerequisites-for-certificate-profiles-in-system-center-configuration-manager"></a>Configuration requise pour les profils de certificat dans System Center Configuration Manager
 
