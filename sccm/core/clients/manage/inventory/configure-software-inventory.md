@@ -1,5 +1,6 @@
 ---
-title: "Configurer l’inventaire logiciel | Microsoft Docs"
+title: "Configurer l’inventaire logiciel"
+titleSuffix: Configuration Manager
 description: "Configurez l’inventaire logiciel, et excluez des dossiers de l’inventaire logiciel dans Configuration Manager."
 ms.custom: na
 ms.date: 02/22/2017
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.openlocfilehash: e60cec71c425e5e42d450cbeee366528d4b42405
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 3aac8bdf45a90f0c9c734d2f796e590e5dc9b90e
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="how-to-configure-software-inventory-in-system-center-configuration-manager"></a>Guide pratique pour configurer l’inventaire logiciel dans System Center Configuration Manager
 

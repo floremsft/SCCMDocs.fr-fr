@@ -1,8 +1,9 @@
 ---
-title: "Prise en charge de Windows 10 | Microsoft Docs"
+title: Prise en charge de Windows 10
+titleSuffix: Configuration Manager
 description: "Découvrez-en plus sur les versions de Windows 10 prises en charge comme clients ou pour OSD avec System Center Configuration Manager."
 ms.custom: na
-ms.date: 7/31/2017
+ms.date: 10/11/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -14,11 +15,11 @@ caps.latest.revision: "5"
 author: brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 1d2e6e128531237ed76f94584aa42f76067db164
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 8ce7230a3aa64b78937b305fee4dc8e3f38abead
+ms.sourcegitcommit: f9c38b87fcd543ab8a5d7a7f446b42fd3e55450c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="support-for-windows-10-for-system-center-configuration-manager"></a>Prise en charge de Windows 10 pour System Center Configuration Manager  
 
@@ -40,10 +41,11 @@ Par exemple, une version de Configuration Manager sera supprimée de la matrice 
 |Version de Windows 10                    |Configuration Manager 1610          |    Configuration Manager 1702          |    Configuration Manager 1706 |
 |---------------------|-----|-----|-----|
 |Entreprise 2015 LTSB                   |![Pris en charge](media/green_check.png) |![Pris en charge](media/green_check.png) |![Pris en charge](media/green_check.png) |
-|1511  <br />(*voir éditions*)           |![Pris en charge](media/green_check.png) |![Pris en charge](media/green_check.png) |![Pris en charge](media/green_check.png) |
 |Entreprise 2016 LTSB                   |![Pris en charge](media/green_check.png) |![Pris en charge](media/green_check.png) |![Pris en charge](media/green_check.png) |
-|1607   <br />Mise à jour anniversaire<br />(*voir éditions*)   |![Pris en charge](media/green_check.png) |![Pris en charge](media/green_check.png)            |![Pris en charge](media/green_check.png) |
-|1703   <br />Creators Update<br />(*voir éditions*)      |![Non pris en charge](media/Red_X.png)   |![Compatibilité descendante](media/blue_compat.png) |![Pris en charge](media/green_check.png) |
+|1607   <br />(également appelée Mise à jour anniversaire)<br />(*voir éditions*)   |![Pris en charge](media/green_check.png) |![Pris en charge](media/green_check.png)            |![Pris en charge](media/green_check.png) |
+|1703   <br />(également appelée Creators Update)<br />(*voir éditions*)      |![Non pris en charge](media/Red_X.png)   |![Compatibilité descendante](media/blue_compat.png) |![Pris en charge](media/green_check.png) |
+|1709   <br />(également appelée Fall Creators Update)<br />(*voir éditions*) |![Non pris en charge](media/Red_X.png)   |![Non pris en charge](media/Red_X.png)   |![Compatibilité descendante](media/blue_compat.png) |
+
 
 
 **Éditions :** Entreprise, Professionnel, Éducation, Professionnel Éducation   
@@ -62,9 +64,9 @@ Le tableau suivant répertorie les versions du Windows 10 ADK que vous pouvez u
 
 |Version de Windows 10 ADK  |Configuration Manager 1610 |Configuration Manager 1702   |Configuration Manager 1706 |
 |--------------------|-----|-----|-----|
-|1511  |![Non pris en charge](media/Red_X.png)             |![Non pris en charge](media/Red_X.png)              |![Non pris en charge](media/Red_X.png)|
 |1607  |![Pris en charge](media/green_check.png)           |![Compatibilité descendante](media/blue_compat.png) |![Non pris en charge](media/Red_X.png)|
 |1703  |![Non pris en charge](media/Red_X.png)             |![Pris en charge](media/green_check.png)            |![Pris en charge](media/green_check.png) |  
+|1709  |![Non pris en charge](media/Red_X.png)             |![Non pris en charge](media/Red_X.png)              |![Pris en charge](media/green_check.png) |  
 
 |Clé|
 |--|
