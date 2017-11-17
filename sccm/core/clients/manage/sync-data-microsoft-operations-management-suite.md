@@ -15,11 +15,11 @@ caps.latest.revision: "9"
 author: mattbriggs
 ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: bbb76fda4ef831f358923946b3c16b821194bf6b
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 166f7c73f2050657a85bd5160f74c40cfd87fd7f
+ms.sourcegitcommit: 922d6d9c91ba2158b938df381277be1b5f1d434a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/13/2017
 ---
 #  <a name="sync-data-from-configuration-manager-to-the-microsoft-operations-management-suite"></a>Synchroniser les données de System Center Configuration Manager vers Microsoft Operations Management Suite
 
@@ -90,8 +90,8 @@ Depuis la version 1702, vous pouvez utiliser le connecteur OMS pour vous connect
 
 ### <a name="install-the-oms-connector"></a>Installer le connecteur OMS  
 1. Dans la console Configuration Manager, configurez votre [hiérarchie pour utiliser les fonctionnalités de la version préliminaire](/sccm/core/servers/manage/pre-release-features), puis activez l’utilisation du connecteur OMS.  
-
-2. Ensuite, accédez à **Administration** > **Services de cloud** > **Connecteur OMS**. Dans le ruban, cliquez sur « Créer une connexion à Operations Management Suite ». L’**Assistant Connexion à Operation Management Suite** s’ouvre. Sélectionnez **Suivant**.  
+0
+2. Ensuite, accédez à **Administration** > **Services cloud** > **Connecteur OMS**. Dans le ruban, cliquez sur « Créer une connexion à Operations Management Suite ». L’**Assistant Connexion à Operation Management Suite** s’ouvre. Sélectionnez **Suivant**.  
 
 
 3.  Dans la page **Général**, vérifiez que vous disposez des informations suivantes, puis sélectionnez **Suivant**.  
@@ -112,7 +112,7 @@ Après avoir lié Configuration Manager à OMS, vous pouvez ajouter ou supprimer
 1.  Dans la console Configuration Manager, accédez à **Administration** > **Services cloud**, puis sélectionnez **Connecteur OMS** afin d’ouvrir la page **Connexion OMS****.
 2.  Cette page contient deux onglets :
   - **Azure Active Directory :**   
-    Cet onglet affiche votre **Llcataire**, l’**ID client**, l’**expiration de la clé secrète client** et vous permet de vérifier si votre clé secrète client a expiré.
+    Cet onglet affiche votre **Locataire**, l’**ID client**, l’**expiration de la clé secrète cliente** et vous permet de vérifier si votre clé secrète cliente a expiré.
 
   - **Propriétés de connexion OMS :**  
     Cet onglet affiche votre **Abonnement Azure**, votre **Groupe de ressources Azure**, l’**Espace de travail Operations Management Suite**, ainsi que la liste des **Regroupements d’appareils pour lesquels Operations Management Suite peut obtenir des données**. Utilisez les boutons **Ajouter** et **Supprimer** pour modifier les collections autorisées.
@@ -134,13 +134,13 @@ Après avoir lié Configuration Manager à OMS, vous pouvez ajouter ou supprimer
       &lt;nom du paramètre="FairFaxArmResourceId" serializeAs="String"> &lt;value>https://management.usgovcloudapi.net/&lt;/value>  
       &lt;/setting>
 
-  Modifiez la valeur du nom de paramètre *FairFaxAuthorityResource* pour qu’elle corresponde à « https://login.microsoftonline.com/ »
+  Modifiez la valeur du nom de paramètre *FairFaxAuthorityResource* pour qu’elle corresponde à « https://login.microsoftonline.us/ »
 
   - **Avant modification :** &lt;nom de paramètre="FairFaxAuthorityResource" serializeAs="String">   
     &lt;value>&lt;/value>
 
     - **Après modification :** &lt;nom du paramètre="FairFaxAuthorityResource" serializeAs="String">   
-    &lt;value>https://login.microsoftonline.com/&lt;/value>
+    &lt;value>https://login.microsoftonline.us/&lt;/value>
 
 2.  Après avoir apporté ces deux modifications et enregistré le fichier, redémarrez la console Configuration Manager sur le même ordinateur, puis utilisez cette console pour installer le connecteur OMS. Pour installer le connecteur, utilisez les informations situées sous [Synchroniser les données de System Center Configuration Manager vers Microsoft Operations Management Suite](/sccm/core/clients/manage/sync-data-microsoft-operations-management-suite), puis sélectionnez l’**Espace de travail Operations Management Suite** qui se trouve dans Microsoft Azure Government Cloud.
 

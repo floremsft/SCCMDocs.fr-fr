@@ -16,11 +16,11 @@ caps.handback.revision: "0"
 author: dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 12633eced1850b718bf7cad019cd943305a7d9fb
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 4eedd96fd399cf9577da8069bd0c8d5702f50d7b
+ms.sourcegitcommit: 922d6d9c91ba2158b938df381277be1b5f1d434a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="protect-apps-using-mobile-application-management-policies-in-system-center-configuration-manager"></a>Protéger des applications à l’aide de stratégies de gestion des applications mobiles dans System Center Configuration Manager
 
@@ -28,9 +28,9 @@ ms.lasthandoff: 10/12/2017
 
 Les stratégies de gestion des applications System Center Configuration Manager vous permettent de modifier les fonctionnalités des applications que vous déployez pour qu’elles respectent les stratégies de conformité et de sécurité de votre entreprise. Par exemple, vous pouvez restreindre les opérations Couper, Copier et Coller au sein d’une application limitée, ou configurer une application pour ouvrir toutes les URL dans Managed Browser. Les stratégies de gestion des applications prennent en charge :  
 
--   les appareils qui exécutent Android 4 et versions ultérieures ;  
+-   Appareils qui exécutent Android 4 et versions ultérieures  
 
--   appareils qui exécutent iOS 7 et versions ultérieures.  
+-   Appareils qui exécutent iOS 9 et versions ultérieures  
 
 Vous pouvez également utiliser des stratégies de gestion des applications mobiles pour protéger des applications sur des appareils non gérés par Intune. Grâce à cette nouvelle fonctionnalité, vous pouvez appliquer des stratégies de gestion des applications mobiles aux applications se connectant aux services Office 365. Ces stratégies ne sont pas prises en charge pour les applications qui se connectent à Exchange ou SharePoint au niveau local.  
 

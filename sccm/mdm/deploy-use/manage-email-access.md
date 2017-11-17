@@ -15,11 +15,11 @@ caps.latest.revision: "24"
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.openlocfilehash: 8ab177067d0308b863274a7ae05574374b0af4ba
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: a83c2030de8a146dad7bf2258e8a983c8ab6c45e
+ms.sourcegitcommit: 922d6d9c91ba2158b938df381277be1b5f1d434a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="manage-email-access-in-system-center-configuration-manager"></a>Gérer l’accès à la messagerie dans System Center Configuration Manager
 
@@ -39,9 +39,9 @@ Vous pouvez contrôler l'accès à Exchange Online et Exchange sur site à parti
 
 -   Android 4.0 et ultérieur, Samsung Knox Standard 4.0 et ultérieur  
 
--   iOS 7.1 et versions ultérieures  
+-   iOS 9.0 et ultérieur  
 
--   Windows Phone 8.1 et versions ultérieures  
+-   Windows Phone 8.1 et versions ultérieures  
 
 -   Application de messagerie sur Windows 8.1 et versions ultérieures
 
@@ -93,13 +93,13 @@ Les navigateurs non pris en charge seront bloqués. Les applications OWA pour iO
 
 -   Android 4.0 et ultérieur, Samsung Knox Standard 4.0 et ultérieur  
 
--   iOS 7.1 et versions ultérieures  
+-   iOS 9.0 et ultérieur  
 
--   Windows Phone 8.1 et versions ultérieures  
+-   Windows Phone 8.1 et versions ultérieures  
 
 -   Application **Courrier** sur Windows 8.1 et versions ultérieures  
 
- L’application Outlook pour iOS et Android, ainsi que l’application de bureau Outlook 2013 et versions ultérieures, sont prises en charge uniquement pour Exchange Online.  
+ L’application Outlook pour iOS et Android, ainsi que l’application de bureau Outlook 2013 et ultérieur, sont prises en charge uniquement pour Exchange Online.  
 
  Le **connecteur Exchange local** entre Configuration Manager et Exchange est nécessaire au fonctionnement de l’accès conditionnel.  
 
