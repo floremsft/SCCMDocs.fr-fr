@@ -1,5 +1,6 @@
 ---
-title: "Maintenance d’un groupe de serveurs | Documents Microsoft"
+title: Maintenance de groupe de serveurs
+titleSuffix: Configuration Manager
 description: "La console System Center Configuration Manager fournit des alertes et des états pour surveiller les mises à jour et la compatibilité."
 keywords: 
 author: dougeby
@@ -11,19 +12,18 @@ ms.prod: configuration-manager
 ms.service: 
 ms.technology: configmgr-sum
 ms.assetid: 304a83ea-0f72-437d-9688-2e6e0c7526dd
-ms.openlocfilehash: ae09a02dd5d67113b9a7e2ce146c844efa4caf55
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 12382015f2b673103c3c0d8fc9c0cbf29511a434
+ms.sourcegitcommit: 986fc2d54f7c5fa965fd4df42f4db4ecce6b79cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 11/17/2017
 ---
->[!IMPORTANT]
->Il s’agit d’une fonctionnalité préliminaire disponible dans Configuration Manager version 1606 et version 1610. Des fonctionnalités en préversion sont incluses dans le produit à des fins de test anticipé en environnement de production, mais ne doivent pas être considérées comme prêtes pour une utilisation en production. Vous devez activer cette fonctionnalité pour qu’elle soit disponible. Pour plus d’informations, consultez [Utiliser des fonctionnalités de préversions de mises à jour](https://docs.microsoft.com/sccm/core/servers/manage/install-in-console-updates#bkmk_prerelease).
-
-
 # <a name="service-a-server-group"></a>Maintenance de groupe de serveurs
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
+
+>[!IMPORTANT]
+>Les fonctionnalités de préversion sont des fonctions incluses dans la branche Current Branch à des fins de test préalable dans un environnement de production. Ces fonctionnalités sont entièrement prises en charge mais sont toujours en cours de développement. Elles peuvent donc être modifiées jusqu'à ce qu’elles passent en préversion. Vous devez activer cette fonctionnalité pour qu’elle soit disponible. Pour plus d’informations, consultez [Utiliser des fonctionnalités de préversions de mises à jour](https://docs.microsoft.com/sccm/core/servers/manage/install-in-console-updates#bkmk_prerelease).
 
 À partir de System Center Configuration Manager version 1606, vous pouvez configurer les paramètres de groupe de serveurs pour un regroupement, afin de définir le nombre, le pourcentage ou l’ordre des ordinateurs du regroupement qui installeront les mises à jour logicielles. Vous pouvez également configurer des scripts PowerShell de prédéploiement et de post-déploiement pour exécuter des actions personnalisées.
 
