@@ -235,7 +235,7 @@ Cette rubrique fournit les étapes permettant de mettre en service Windows To Go
 
 7.  Sous l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer le package**.  
 
-8.  Sur la page **Package** , spécifiez le nom et la description du package. Par exemple, entrez **Windows To Go** comme nom de package et spécifiez **Package to configure a Windows To Go drive using System Center Configuration Manager** comme description de package.  
+8.  Sur la page **Package** , spécifiez le nom et la description du package. Par exemple, entrez **Windows To Go** pour le nom du package et spécifiez **Package pour configurer un lecteur Windows To Go à l'aide de System Center Configuration Manager** pour sa description.  
 
 9. Sélectionnez **Ce package contient des fichiers sources**, spécifiez le chemin d'accès au dossier source du package que vous avez créé à l'étape 1, puis cliquez sur **Suivant**.  
 
