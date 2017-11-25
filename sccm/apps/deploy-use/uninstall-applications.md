@@ -64,7 +64,7 @@ Effectuez les actions suivantes pour désinstaller une application que vous avez
         > [!NOTE]  
         >  La page **Contenu** ne s’affiche que si vous sélectionnez l’option **Spécifier manuellement les informations sur le type de déploiement** dans la page **Général** de l’Assistant Création d’un type de déploiement.  
 
-    -   Dans l’onglet **Programmes** de la boîte de dialogue Propriétés** de **<*nom_type_déploiement*>, spécifiez la ligne de commande pour désinstaller l’application dans le champ **Programme de désinstallation**.  
+    -   Dans l’onglet **Programmes** de la boîte de dialogue **Propriétés de <*nom_type_déploiement*>**, spécifiez la ligne de commande pour désinstaller l’application dans le champ **Programme de désinstallation**.  
 
 2.  Déployez l’application et sélectionnez l’action de déploiement **Désinstaller** dans la page **Paramètres de déploiement** de l’Assistant Déploiement logiciel.  
 
