@@ -3,7 +3,7 @@ title: Version Technical Preview 1710 | Microsoft Docs
 titleSuffix: Configuration Manager
 description: "Découvrez les fonctionnalités disponibles dans la version Technical Preview 1710 de System Center Configuration Manager."
 ms.custom: na
-ms.date: 10/30/2017
+ms.date: 11/20/2017
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.reviewer: na
@@ -14,11 +14,11 @@ ms.assetid: f4706a58-1f11-4eab-b1eb-3d1a0da02d0f
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 813fdc40c4a0eb7c2dd3c1831bac1ba1667fe247
-ms.sourcegitcommit: 5437b2823bada8f8c9e67940f584953b9d190628
+ms.openlocfilehash: 309d677c0b8c692548d649346bb35bfa9d2a81f3
+ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="capabilities-in-technical-preview-1710-for-system-center-configuration-manager"></a>Fonctionnalités de Technical Preview 1710 pour System Center Configuration Manager
 
@@ -53,12 +53,25 @@ Cet article présente les fonctionnalités qui sont disponibles dans la version�
  -  Task 2              
 -->
 
+## <a name="improvements-for-deploying-powershell-scripts-from-configuration-manager"></a>Améliorations du déploiement de scripts PowerShell à partir de Configuration Manager
+Avec cette version, les scripts PowerShell que vous déployez prennent désormais en charge les améliorations suivantes : 
+- **Étendues de sécurité**.  Les scripts utilisent désormais des étendues de sécurité pour contrôler leur création et leur exécution. Leur utilisation passe par l’affectation d’étiquettes qui représentent des groupes d’utilisateurs. Pour plus d’informations sur l’utilisation des étendues de sécurité, consultez [Configurer l’administration basée sur des rôles pour System Center Configuration Manager](../../core/servers/deploy/configure/configure-role-based-administration.md).
+- **Surveillance en temps réel**. Lorsque vous surveillez l’exécution d’un script, vous le faites maintenant en temps réel pendant qu’il s’exécute.
+- **Validation du paramètre**. Chaque paramètre inclus dans votre script a une boîte de dialogue **Propriétés du paramètre de script** qui vous permet d’ajouter la validation de ce paramètre. Après avoir ajouté la validation, vous devez obtenir des erreurs si vous entrez une valeur pour un paramètre qui ne satisfait pas à sa validation.
+
+Le déploiement de scripts PowerShell a été introduit pour la première fois dans Technical Preview [Tech Preview 1706](/sccm/core/get-started/capabilities-in-technical-preview-1706#create-and-run-powershell-scripts-from-the-configuration-manager-console). D’autres améliorations ont été apportées dans [Tech Preview 1707](/sccm/core/get-started/capabilities-in-technical-preview-1707#add-parameters-when-you-deploy-powershell-scripts-from-configuration-manager), puis [Tech Preview 1708](/sccm/core/get-started/capabilities-in-technical-preview-1708#improvements-for-specifying-script-parameters-when-you-deploy-powershell-scripts-from-configuration-manager).
+
+
+### <a name="try-it-out"></a>Essayez !
+
+Pour tester l’utilisation de la fonctionnalité Exécuter les scripts, consultez [Créer et exécuter des scripts](../../apps/deploy-use/create-deploy-scripts.md).
+
 
 
 ## <a name="limit-windows-10-enhanced-telemetry-to-only-send-data-relevant-to-windows-analytics-device-health"></a>Limiter la télémétrie avancée dans Windows 10 pour envoyer uniquement les données pertinentes à Windows Analytics Device Health
 <!-- 1356148 -->
 
-Avec cette version, vous pouvez désormais définir la collecte de données de télémétrie dans Windows 10 sur le niveau **Avancé (limité)**. Ce paramètre vous permet d’obtenir un insight actionnable sur les périphériques de votre environnement sans que ces derniers aient à envoyer toutes les données au niveau de télémétrie **Avancé** avec Windows 10 version 1709 ou ultérieure.
+Avec cette version, vous pouvez désormais définir la collecte de données de télémétrie dans Windows 10 sur le niveau **Avancé (limité)**. Ce paramètre vous permet d’obtenir un insight actionnable sur les appareils de votre environnement sans que ces derniers aient à envoyer toutes les données de niveau de télémétrie **Avancé** avec Windows 10 version 1709 ou ultérieure.
 
 Le niveau de télémétrie Avancé (limité) inclut les mesures du niveau de base, ainsi qu’un sous-ensemble de données collectées au niveau **Avancé** et pertinentes pour Windows Analytics. Pour plus d’informations sur les niveaux de télémétrie, consultez [Niveaux de télémétrie](https://docs.microsoft.com/windows/configuration/configure-windows-telemetry-in-your-organization#telemetry-levels).
 
@@ -75,7 +88,7 @@ Avec cette version, le Centre logiciel ne déforme plus les icônes aux dimensio
 Ajoutez une icône pour votre application dans le Centre logiciel. Pour ce faire, consultez [Créer des applications](/sccm/apps/deploy-use/create-applications).
 
 
-## <a name="check-compliance-from-software-center-for-co-managed-devices"></a>Vérifier auprès du Centre logiciel la conformité des périphériques cogérés
+## <a name="check-compliance-from-software-center-for-co-managed-devices"></a>Vérifier auprès du Centre logiciel la conformité des appareils cogérés
 <!-- 1356374 -->
 Dans cette version, les utilisateurs peuvent utiliser le Centre logiciel pour vérifier la conformité de leurs appareils Windows 10 cogérés, même quand l’accès conditionnel est géré par Intune. Pour plus d’informations, consultez [Cogestion pour les appareils Windows 10](./capabilities-in-technical-preview-1709.md#co-management-for-windows-10-devices).
 
@@ -116,7 +129,7 @@ Les appareils gérés doivent exécuter Windows 10 Fall Creators Update version 
 Après avoir créé des stratégies Exploit Guard, utilisez l’assistant de déploiement de stratégies Exploit Guard pour les déployer. Pour ce faire, ouvrez la console Configuration Manager, accédez à **Ressources et Conformité** > **Endpoint Protection**, puis cliquez sur **Déployer la stratégie Exploit Guard**.
 
 ## <a name="limited-support-for-cng-certificates"></a>Prise en charge limitée des certificats CNG
-<!-- 1356191 --> 
+<!-- 1356191 -->
 À partir de cette version, vous pouvez désormais utiliser les modèles de certificat [Cryptography API: Next Generation (CNG)](https://msdn.microsoft.com/library/windows/desktop/bb204775.aspx) pour les scénarios suivants :
 
 - L’inscription du client et la communication avec un point de gestion HTTPS.   
@@ -184,13 +197,13 @@ Pour permettre à un appareil exécutant Windows Defender SmartScreen d’exécu
 ## <a name="configure-and-deploy-windows-defender-application-guard-policies----1351960---"></a>Configurer et déployer des stratégies Windows Defender Application Guard <!-- 1351960 -->
 
 [Windows Defender Application Guard](https://blogs.windows.com/msedgedev/2016/09/27/application-guard-microsoft-edge/#XLxEbcpkuKcFebrw.97) est une nouvelle fonctionnalité de Windows qui permet de protéger vos utilisateurs en ouvrant les sites web non approuvés dans un conteneur isolé et sécurisé qui n’est pas accessible par les autres parties du système d’exploitation. Dans cette version Technical Preview, nous avons ajouté la prise en charge pour configurer cette fonctionnalité à l’aide des paramètres de conformité de Configuration Manager que vous configurez, puis déployez sur une collection. Cette fonctionnalité sera disponible dans la version préliminaire de la version 64 bits de mise à jour de Windows 10 Creators Update (nom de code : RS2). Pour tester cette fonctionnalité maintenant, vous devez utiliser une version préliminaire de cette mise à jour.
- 
+
 ### <a name="before-you-start"></a>Avant de commencer
 Pour créer et déployer des stratégies Windows Defender Application Guard, les appareils Windows 10 sur lesquels vous déployez la stratégie doivent être configurés avec une stratégie d’isolation de réseau. Pour plus d’informations, consultez le billet de blog référencé plus loin. Cette fonctionnalité fonctionne uniquement avec les versions actuelles de Windows 10 Insider. Pour la tester, vos clients doivent exécuter une version récente de Windows 10 Insider.
 
 ### <a name="try-it-out"></a>Essayez !
 
-Pour comprendre les principes de base de Windows Defender Application Guard, lisez le [billet de blog]((https://blogs.windows.com/msedgedev/2016/09/27/application-guard-microsoft-edge/#XLxEbcpkuKcFebrw.97)).
+Pour comprendre les principes de base de Windows Defender Application Guard, lisez le [billet de blog](https://blogs.windows.com/msedgedev/2016/09/27/application-guard-microsoft-edge/#XLxEbcpkuKcFebrw.97).
 
 Pour créer une stratégie et pour parcourir les paramètres disponibles :
 1. Dans la console **Configuration Manager**, choisissez **Ressources et Conformité**.
@@ -202,7 +215,7 @@ Pour créer une stratégie et pour parcourir les paramètres disponibles :
     > [!NOTE]
     > Les PC Windows 10 stockent une seule liste d’isolements réseau sur le client. Dans cette version, vous pouvez créer deux types de listes d’isolements réseau (une de la Protection des informations Windows et une de Windows Defender Application Guard) et les déployer sur le client. Si vous déployez les deux stratégies, les listes d’isolements réseau doivent correspondre. Si vous déployez des listes qui ne correspondent pas au même client, le déploiement échoue.
 
-    Vous trouverez plus d’informations sur la façon de spécifier des définitions de réseau dans la [documentation sur la Protection des informations Windows](https://docs.microsoft.com/windows/threat-protection/windows-information-protection/create-wip-policy-using-sccm). 
+    Vous trouverez plus d’informations sur la façon de spécifier des définitions de réseau dans la [documentation sur la Protection des informations Windows](https://docs.microsoft.com/windows/threat-protection/windows-information-protection/create-wip-policy-using-sccm).
 
 6. Lorsque vous avez terminé, effectuez l’Assistant et déployez la stratégie sur un ou plusieurs appareils Windows 10.
 

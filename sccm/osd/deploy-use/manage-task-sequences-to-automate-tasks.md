@@ -3,9 +3,9 @@ title: "Gérer les séquences de tâches pour automatiser des tâches"
 titleSuffix: Configuration Manager
 description: "Vous pouvez créer, modifier, déployer, importer et exporter des séquences de tâches pour les gérer dans votre environnement System Center Configuration Manager."
 ms.custom: na
-ms.date: 03/24/2017
+ms.date: 11/15/2017
 ms.prod: configuration-manager
-ms.reviewer: na
+ms.reviewer: nac
 ms.suite: na
 ms.technology: configmgr-osd
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ caps.latest.revision: "10"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 0174a95f1d3a487cab66d8152a3de70d91b07635
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 44e6afbfac3ef1e8318991854c8fdd22ead4c6ed
+ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="manage-task-sequences-to-automate-tasks-in-system-center-configuration-manager"></a>Gérer les séquences de tâches pour automatiser des tâches dans System Center Configuration Manager
 
@@ -446,6 +446,22 @@ Vous pouvez gérer les variables par ordinateur sur un site principal ou sur un 
 5.  Si vous le souhaitez, spécifiez la priorité que Configuration Manager doit utiliser quand les variables de séquence de tâches sont évaluées.  
 
 6.  Après avoir ajouté toutes les variables au regroupement, cliquez sur **OK**.  
+
+## <a name="add-child-task-sequences-to-a-task-sequence"></a>Ajouter des séquences de tâches enfants à une séquence de tâches
+
+À partir de Configuration Manager version 1710, vous pouvez ajouter une nouvelle étape de séquence de tâches qui exécute une autre séquence de tâches. Ainsi, une relation parent-enfant est créée entre les séquences de tâches. Cela vous permet de créer et d’utiliser des séquences de tâches plus modulaires.
+
+Lorsque vous ajoutez une séquence de tâches enfant à une séquence de tâches, considérez les éléments suivants :
+
+ - Les séquences de tâches parent et enfant sont en fait combinées en une stratégie unique exécutée par le client.
+ - L’environnement est global. Par exemple, si une variable est définie par la séquence de tâches parent avant d’être modifiée par la séquence de tâches enfant, la variable restera modifiée. De même, si la séquence de tâches enfant crée une nouvelle variable, la variable est disponible pour les étapes restantes de la séquence de tâches parent.
+ - Les messages d’état sont envoyés normalement pour une opération de séquence de tâches unique.
+ - Les séquences de tâches inscrivent des entrées dans le fichier smsts.log et le nouveau journal écritures indique clairement lorsqu’une séquence de tâches enfant démarre.
+
+### <a name="to-add-a-child-task-sequence-to-a-task-sequence"></a>Pour ajouter une séquence de tâches enfant à une séquence de tâches
+
+1. Dans l’Éditeur de séquence de tâches, cliquez sur **Ajouter**, sélectionnez **Général**, puis cliquez sur **Exécuter la séquence de tâches**.
+2. Cliquez sur **Parcourir** pour sélectionner la séquence de tâches enfant.  
 
 ##  <a name="BKMK_AdditionalActionsTS"></a> Actions supplémentaires pour gérer des séquences de tâches  
  Vous pouvez gérer des séquences de tâches en utilisant des actions supplémentaires lorsque vous sélectionnez une séquence de tâches.  

@@ -52,6 +52,8 @@
 
 ### [Stratégies de Pare-feu Windows](deploy-use/create-windows-firewall-policies.md)
 ### [Protection avancée contre les menaces Windows Defender](deploy-use/windows-defender-advanced-threat-protection.md)
+### [Créer et déployer une stratégie Exploit Guard](deploy-use/create-deploy-exploit-guard-policy.md)
+### [Créer et déployer une stratégie Application Guard](deploy-use/create-deploy-application-guard-policy.md)
 ### [Tâches de pare-feu et anti-programme malveillant](deploy-use/endpoint-antimalware-firewall.md)
 ### [Scénario Endpoint Protection](deploy-use/scenarios-endpoint-protection.md)
 ### [Aide du client Endpoint Protection](deploy-use/endpoint-protection-client-help.md)

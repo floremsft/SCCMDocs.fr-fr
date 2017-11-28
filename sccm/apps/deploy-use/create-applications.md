@@ -3,7 +3,7 @@ title: "Créer des applications"
 titleSuffix: Configuration Manager
 description: "Créez et déployez des applications et des types de déploiement avec System Center Configuration Manager."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 11/07/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,11 +16,11 @@ caps.handback.revision: "0"
 author: mattbriggs
 ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: 6896a4905b9eecf520dae2c887100df472963356
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: f680b692f3ae92fb8a5e8b6640ed053ceedba436
+ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="create-applications-with-system-center-configuration-manager"></a>Créer des applications avec System Center Configuration Manager
 
@@ -119,7 +119,7 @@ La nouvelle application s’affiche dans le nœud **Applications** de la console
 
     -   **Mots-clés** : entrez une liste de mots-clés dans la langue que vous avez sélectionnée dans la liste déroulante **Langue sélectionnée**. Ils permettront aux utilisateurs du Centre logiciel de rechercher l’application.  
 
-    -   **Icône** : choisissez **Parcourir** pour sélectionner une icône pour cette application parmi les icônes disponibles. Si vous ne spécifiez pas d'icône, une icône par défaut sera utilisée pour cette application.  
+    -   **Icône** : choisissez **Parcourir** pour sélectionner une icône pour cette application parmi les icônes disponibles. Si vous ne spécifiez pas d'icône, une icône par défaut sera utilisée pour cette application. Désormais, vous pouvez définir une icône avec des dimensions maximales de 512 x 512 pixels.
 
     -   **Afficher en tant qu’application proposée et la mettre en exergue sur le portail de l’entreprise** : sélectionnez cette option pour afficher l’application de façon visible sur le portail de l’entreprise.  
 

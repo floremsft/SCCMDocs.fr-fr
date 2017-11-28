@@ -16,11 +16,11 @@ caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 98f9f44373b854b61714c21105a28b3240b4a7f7
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 48530c177a03b66dbc126025ca61e0078bc89d9f
+ms.sourcegitcommit: 5ec9f8c312688bf7f4de4d6007b121d743b80c4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="create-a-task-sequence-to-capture-an-operating-system-in-system-center-configuration-manager"></a>Créer une séquence de tâches pour capturer un système d’exploitation dans System Center Configuration Manager
 
@@ -171,6 +171,9 @@ Quand vous utilisez une séquence de tâches pour déployer un système d’expl
 9. Effectuez cette étape uniquement si le client Configuration Manager est installé sur l’ordinateur de référence.  
 
      Cliquez sur **Ajouter**, sur **Images**, puis sur [Préparer le client ConfigMgr pour capture](../understand/task-sequence-steps.md#BKMK_PrepareConfigMgrClientforCapture). Cette étape de séquence de tâches prend le client Configuration Manager sur l’ordinateur de référence et le prépare pour la capture pendant le processus de création d’images.  
+
+    > [!Note]  
+    >  La séquence de tâches ne prend pas en charge la désinstallation du client Configuration Manager.
 
 10. Cliquez sur **Ajouter**, sur **Images**, puis sur [Préparer Windows pour capture](../understand/task-sequence-steps.md#BKMK_PrepareWindowsforCapture). Cette action de séquence de tâches exécute Sysprep, puis redémarre l'ordinateur dans l'image de démarrage Windows PE spécifiée pour la séquence de tâches. L'ordinateur de référence ne doit pas être lié à un domaine pour que cette action s'effectue correctement.  
 

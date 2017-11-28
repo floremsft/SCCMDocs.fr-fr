@@ -72,6 +72,7 @@
 
 ## [Gérer l’accès conditionnel](deploy-use/manage-access-to-services.md)
 ### [Stratégies de conformité des appareils](deploy-use/device-compliance-policies.md)
+#### [Actions en cas de non-conformité](deploy-use/actions-for-noncompliance.md)
 ### [Créer une stratégie de conformité des appareils](deploy-use/create-compliance-policy.md)
 ### [Gérer l’accès à la messagerie](deploy-use/manage-email-access.md)
 ### [Gérer l’accès à SharePoint Online](deploy-use/manage-sharepoint-online-access.md)

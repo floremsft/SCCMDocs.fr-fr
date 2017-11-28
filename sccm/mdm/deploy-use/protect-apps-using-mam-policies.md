@@ -3,7 +3,7 @@ title: "Protection d’applications à l’aide de stratégies de gestion des ap
 titleSuffix: Configuration Manager
 description: "Modifiez les fonctionnalités des applications que vous déployez pour qu’elles respectent les stratégies de sécurité et de conformité de votre entreprise."
 ms.custom: na
-ms.date: 03/05/2017
+ms.date: 11/20/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,11 +16,11 @@ caps.handback.revision: "0"
 author: dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 4eedd96fd399cf9577da8069bd0c8d5702f50d7b
-ms.sourcegitcommit: 922d6d9c91ba2158b938df381277be1b5f1d434a
+ms.openlocfilehash: 3365f46026178d30c9bffa5078d251186d0ffba3
+ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="protect-apps-using-mobile-application-management-policies-in-system-center-configuration-manager"></a>Protéger des applications à l’aide de stratégies de gestion des applications mobiles dans System Center Configuration Manager
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 11/13/2017
 
 Les stratégies de gestion des applications System Center Configuration Manager vous permettent de modifier les fonctionnalités des applications que vous déployez pour qu’elles respectent les stratégies de conformité et de sécurité de votre entreprise. Par exemple, vous pouvez restreindre les opérations Couper, Copier et Coller au sein d’une application limitée, ou configurer une application pour ouvrir toutes les URL dans Managed Browser. Les stratégies de gestion des applications prennent en charge :  
 
--   Appareils qui exécutent Android 4 et versions ultérieures  
+-   appareils qui exécutent Android 4 et versions ultérieures ;  
 
 -   Appareils qui exécutent iOS 9 et versions ultérieures  
 
@@ -134,6 +134,8 @@ Pour appliquer des restrictions à une application, celle-ci doit intégrer le K
 |**Revérifier les exigences d'accès après (minutes)**|Indique le délai au bout duquel les conditions d’accès pour l’application sont revérifiées après son démarrage (dans le champ **Délai**).<br /><br /> Dans le champ **Période de grâce hors connexion**, si l’appareil est hors connexion, spécifie le délai au bout duquel les conditions d’accès pour l’application sont revérifiées.|  
 |**Chiffrer les données de l'application**|Spécifie que toutes les données associées à cette application sont chiffrées, notamment les données stockées en externe, comme les données stockées sur des cartes SD.<br /><br /> **Chiffrement pour iOS**<br /><br /> Pour les applications associées à une stratégie de gestion des applications mobiles Configuration Manager, les données sont chiffrées au repos à l’aide du chiffrement au niveau de l’appareil fourni par le système d’exploitation. Cette option est activée par le biais de la stratégie de code confidentiel d’appareil qui doit être définie par l’administrateur informatique. Quand un code confidentiel est nécessaire, les données sont chiffrées selon les paramètres de la stratégie de gestion des applications mobiles. Comme indiqué dans la documentation Apple, [les modules utilisés par iOS 7 sont certifiés FIPS 140-2](http://support.apple.com/en-us/HT202739).<br /><br /> **Chiffrement pour Android**<br /><br /> Pour les applications associées à une stratégie de gestion des applications mobiles Configuration Manager, le chiffrement est fourni par Microsoft. Les données sont chiffrées de manière synchrone durant les opérations d'E/S de fichier conformément au paramètre indiqué dans la stratégie de gestion des applications mobiles. Les applications gérées sur Android utilisent le chiffrement AES-128 en mode CBC, avec utilisation des bibliothèques de chiffrement de plateforme. La méthode de chiffrement n'est pas certifiée FIPS 140-2. Le contenu figurant sur le stockage de l’appareil est toujours chiffré.|  
     |**Bloquer la capture d'écran** (appareils Android uniquement)|Spécifie que les fonctionnalités de capture d'écran de l'appareil sont bloquées lors de l'utilisation de cette application.|  
+    |**Désactiver la synchronisation des contacts**| À compter de la version 1710, cette option empêche l’application d’enregistrer des données sur l’application Contacts native de l’appareil. Si vous choisissez Non, l’application peut enregistrer des données sur l’application Contacts native sur l’appareil.|  
+    |**Désactiver l’impression**| À compter de la version 1710, cette option empêche l’application d’imprimer des données scolaires ou de travail. |  
 
 6)  Dans la page **Managed Browser**, indiquez si Managed Browser est autorisé à ouvrir uniquement les URL figurant dans la liste ou si vous souhaitez l’empêcher d’ouvrir les URL figurant dans la liste, puis choisissez **Suivant**.  
 Pour plus d’informations, consultez [Gérer l’accès à Internet à l’aide de stratégies Managed Browser](manage-internet-access-using-managed-browser-policies.md).  

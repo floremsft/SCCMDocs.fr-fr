@@ -1,21 +1,22 @@
 ---
-title: "Introduction aux mises à jour logicielles | Microsoft Docs"
+title: "Présentation des mises à jour logicielles"
+titleSuffix: Configuration Manager
 description: "Découvrez les principes de base des mises à jour logicielles dans System Center Configuration Manager."
 keywords: 
 author: dougeby
 ms.author: dougeby
 manager: angrobe
-ms.date: 10/06/2016
+ms.date: 10/30/2017
 ms.topic: article
 ms.prod: configuration-manager
 ms.service: 
 ms.technology: configmgr-sum
 ms.assetid: e9778b13-c8a3-40eb-8655-34ac8ce9cdaa
-ms.openlocfilehash: 2904b904bbaf155f016f55fbd36af80308a42d76
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 66aa73e5c1aae68feeacb0eabe6233845289d104
+ms.sourcegitcommit: 986fc2d54f7c5fa965fd4df42f4db4ecce6b79cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="introduction-to-software-updates-in-system-center-configuration-manager"></a>Présentation des mises à jour logicielles dans System Center Configuration Manager
 
@@ -254,7 +255,7 @@ Pour obtenir un exemple de scénario illustrant la façon dont vous pouvez dépl
 ##  <a name="BKMK_DeploymentProcess"></a> Processus de déploiement des mises à jour logicielles  
  Après avoir déployé des mises à jour logicielles ou lorsqu'une règle de déploiement automatique exécute et déploie des mises à jour logicielles, une stratégie d'attribution du déploiement est ajoutée à la stratégie de l'ordinateur pour le site. Les mises à jour logicielles sont téléchargées à partir de l'emplacement de téléchargement, d'Internet, ou du dossier réseau, vers la source du package. Les mises à jour logicielles sont copiées depuis la source du package vers la bibliothèque de contenu sur le serveur de site, puis copiées dans la bibliothèque de contenu sur le point de distribution.  
 
- Lorsqu'un ordinateur client du regroupement cible pour le déploiement reçoit la stratégie d'ordinateur, l'Agent du client de mise à jour logicielle démarre une analyse d'évaluation. L'agent du client télécharge le contenu pour les mises à jour logicielles requises depuis un point de distribution vers le cache du client local juste après avoir reçu le déploiement, mais attend la fin du paramètre **Temps disponible du logiciel** pour le déploiement avant que les mises à jour logicielles soient disponibles pour l'installation. Les mises à jour logicielles dans les déploiements facultatifs (déploiements qui ne possèdent pas d'échéance d'installation) ne sont pas téléchargées avant qu'un utilisateur démarre manuellement l'installation.  
+ Lorsqu'un ordinateur client du regroupement cible pour le déploiement reçoit la stratégie d'ordinateur, l'Agent du client de mise à jour logicielle démarre une analyse d'évaluation. L’agent du client télécharge le contenu pour les mises à jour logicielles requises depuis un point de distribution vers le cache du client local selon le paramètre **Temps disponible du logiciel** pour le déploiement, puis les mises à jour logicielles sont disponibles pour l’installation. Les mises à jour logicielles dans les déploiements facultatifs (déploiements qui ne possèdent pas d'échéance d'installation) ne sont pas téléchargées avant qu'un utilisateur démarre manuellement l'installation.  
 
  Une fois l'échéance configurée dépassée, l'Agent client des mises à jour logicielles effectue une analyse pour vérifier que les mises à jour logicielles sont toujours nécessaires. Il vérifie ensuite le cache local sur l'ordinateur client pour s'assurer que les fichiers sources de mise à jour logicielle sont toujours disponibles. Enfin, le client installe les mises à jour logicielles. Si le contenu a été supprimé de la mémoire cache du client pour laisser de la place à un autre déploiement, le client télécharge à nouveau les mises à jour logicielles depuis le point de distribution vers la mémoire cache du client. Les mises à jour logicielles sont toujours téléchargées sur la mémoire cache du client indépendamment de la taille maximale de la mémoire cache configurée pour le client. Lorsque l'installation est terminée, l'agent du client vérifie que les mises à jour logicielles ne sont plus requises, puis il envoie un message d'état au point de gestion pour indiquer que les mises à jour logicielles sont désormais installées sur le client.  
 

@@ -3,7 +3,7 @@ title: "Étapes de séquence de tâches"
 titleSuffix: Configuration Manager
 description: "Découvrez les différentes étapes de séquence de tâches que vous pouvez ajouter à une séquence de tâches Configuration Manager."
 ms.custom: na
-ms.date: 03/26/2017
+ms.date: 11/20/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,17 +16,20 @@ caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 8bc73b8aaafa9af4e12589b2d2a742bfc18afd0e
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 02d3ca5ed494c20266125686f26b66cebcc7c2a2
+ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="task-sequence-steps-in-system-center-configuration-manager"></a>Étapes de séquence de tâches dans System Center Configuration Manager
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
 Vous trouverez ci-dessous les différentes étapes de séquence de tâches qui peuvent être ajoutées à une séquence de tâches Configuration Manager. Pour plus d’informations sur la modification d’une séquence de tâches, consultez [Modifier une séquence de tâches](../deploy-use/manage-task-sequences-to-automate-tasks.md#BKMK_ModifyTaskSequence).  
+
+> [!TIP]  
+> **Prise en charge de Windows 10, version 1709 (également appelée Fall Creators Update)**.  À partir de cette version de Windows, Windows Media inclut plusieurs éditions. Quand vous configurez une séquence de tâches pour utiliser un package de mise à niveau de système d’exploitation ou une image de système d’exploitation, veillez à sélectionner une [édition prise en charge par Configuration Manager](/sccm/core/plan-design/configs/support-for-windows-10#windows-10-as-a-client).
 
 
 ##  <a name="BKMK_ApplyDataImage"></a> Étape de séquence de tâches Appliquer l’image de données  
@@ -536,6 +539,22 @@ Cette étape de séquence de tâches s'exécute uniquement dans Windows PE. Elle
  **S’assurer que le SE à actualiser est**  
  Sélectionnez ce paramètre pour vérifier que le système d'exploitation installé sur l'ordinateur cible remplit la condition que vous spécifiez. Par défaut, ce paramètre est sélectionné avec la valeur **CLIENT**.  
 
+##  <a name="child-task-sequence"></a>Séquence de tâches enfant
+
+À partir de Configuration Manager version 1710, vous pouvez ajouter une nouvelle étape de séquence de tâches qui exécute une autre séquence de tâches. Ainsi, une relation parent-enfant est créée entre les séquences de tâches. Avec un séquence de tâches enfant, vous pouvez créer des séquences de tâches modulaires et réutilisables.
+
+Lorsque vous ajoutez une séquence de tâches enfant à une séquence de tâches, considérez les éléments suivants :
+
+ - Les séquences de tâches parent et enfant sont en fait combinées en une stratégie unique exécutée par le client.
+ - L’environnement est global. Par exemple, si une variable est définie par la séquence de tâches parent avant d’être modifiée par la séquence de tâches enfant, la variable restera modifiée. De même, si la séquence de tâches enfant crée une nouvelle variable, la variable est disponible pour les étapes restantes de la séquence de tâches parent.
+ - Les messages d’état sont envoyés normalement pour une opération de séquence de tâches unique.
+ - Les séquences de tâches inscrivent des entrées dans le fichier smsts.log et le nouveau journal écritures indique clairement lorsqu’une séquence de tâches enfant démarre.
+
+### <a name="details"></a>Détails
+
+1. Dans l’Éditeur de séquence de tâches, cliquez sur **Ajouter**, sélectionnez **Général**, puis cliquez sur **Exécuter la séquence de tâches**.
+2. Cliquez sur **Parcourir** pour sélectionner la séquence de tâches enfant.  
+
 ##  <a name="BKMK_ConnectToNetworkFolder"></a> Se connecter à un dossier réseau  
  Utilisez l'action de la séquence de tâches **Connexion à un dossier réseau** pour établir une connexion avec un dossier réseau partagé.  
 
@@ -745,7 +764,7 @@ Cette étape s'exécute dans un système d'exploitation standard ou Windows PE. 
  Numéro de disque physique à formater. Le numéro se base sur le classement d'énumération du disque Windows.  
 
  **Type du disque**  
- Le type du disque formaté. Deux options sont disponibles dans la liste déroulante :  
+ Le type du disque formaté. Deux options sont disponibles dans la liste déroulante : 
 
 -   Standard (MBR) – Secteur de démarrage principal.  
 

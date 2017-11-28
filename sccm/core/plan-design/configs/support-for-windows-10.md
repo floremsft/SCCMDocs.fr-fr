@@ -3,7 +3,7 @@ title: Prise en charge de Windows 10
 titleSuffix: Configuration Manager
 description: "Découvrez-en plus sur les versions de Windows 10 prises en charge comme clients ou pour OSD avec System Center Configuration Manager."
 ms.custom: na
-ms.date: 10/11/2017
+ms.date: 11/20/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,11 +15,11 @@ caps.latest.revision: "5"
 author: brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 8ce7230a3aa64b78937b305fee4dc8e3f38abead
-ms.sourcegitcommit: f9c38b87fcd543ab8a5d7a7f446b42fd3e55450c
+ms.openlocfilehash: aae4a3d504ea5dad901a6248cb219aff7a03b585
+ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="support-for-windows-10-for-system-center-configuration-manager"></a>Prise en charge de Windows 10 pour System Center Configuration Manager  
 
@@ -38,13 +38,13 @@ Par exemple, une version de Configuration Manager sera supprimée de la matrice 
 -   Les informations suivantes viennent s’ajouter à [Systèmes d’exploitation pris en charge pour les clients et appareils](/sccm/core/plan-design/configs/supported-operating-systems-for-clients-and-devices).
 -   Si vous utilisez LTSB (Long Term Servicing Branch) de Configuration Manager, consultez [Configurations prises en charge pour Long Term Servicing Branch](/sccm/core/understand/supported-configurations-for-ltsb).
 
-|Version de Windows 10                    |Configuration Manager 1610          |    Configuration Manager 1702          |    Configuration Manager 1706 |
+|Version de Windows 10                    |  Configuration Manager 1702          |    Configuration Manager 1706 |Configuration Manager 1710          |  
 |---------------------|-----|-----|-----|
-|Entreprise 2015 LTSB                   |![Pris en charge](media/green_check.png) |![Pris en charge](media/green_check.png) |![Pris en charge](media/green_check.png) |
-|Entreprise 2016 LTSB                   |![Pris en charge](media/green_check.png) |![Pris en charge](media/green_check.png) |![Pris en charge](media/green_check.png) |
+|Entreprise 2015 LTSB                   |![Pris en charge](media/green_check.png) |![Pris en charge](media/green_check.png) | ![Pris en charge](media/green_check.png) |
+|Entreprise 2016 LTSB                   |![Pris en charge](media/green_check.png) |![Pris en charge](media/green_check.png) | ![Pris en charge](media/green_check.png) |
 |1607   <br />(également appelée Mise à jour anniversaire)<br />(*voir éditions*)   |![Pris en charge](media/green_check.png) |![Pris en charge](media/green_check.png)            |![Pris en charge](media/green_check.png) |
-|1703   <br />(également appelée Creators Update)<br />(*voir éditions*)      |![Non pris en charge](media/Red_X.png)   |![Compatibilité descendante](media/blue_compat.png) |![Pris en charge](media/green_check.png) |
-|1709   <br />(également appelée Fall Creators Update)<br />(*voir éditions*) |![Non pris en charge](media/Red_X.png)   |![Non pris en charge](media/Red_X.png)   |![Compatibilité descendante](media/blue_compat.png) |
+|1703   <br />(également appelée Creators Update)<br />(*voir éditions*)      |![Compatibilité descendante](media/blue_compat.png) |![Pris en charge](media/green_check.png) | ![Pris en charge](media/green_check.png) |
+|1709   <br />(également appelée Fall Creators Update)<br />(*voir éditions*) |![Non pris en charge](media/Red_X.png)   |![Compatibilité descendante](media/blue_compat.png) | ![Pris en charge](media/green_check.png) |
 
 
 
@@ -62,11 +62,11 @@ Quand vous déployez des systèmes d’exploitation avec Configuration Manager, 
 
 Le tableau suivant répertorie les versions du Windows 10 ADK que vous pouvez utiliser avec différentes versions de Configuration Manager.
 
-|Version de Windows 10 ADK  |Configuration Manager 1610 |Configuration Manager 1702   |Configuration Manager 1706 |
+|Version de Windows 10 ADK  |Configuration Manager 1702   |Configuration Manager 1706 |Configuration Manager 1710 |
 |--------------------|-----|-----|-----|
-|1607  |![Pris en charge](media/green_check.png)           |![Compatibilité descendante](media/blue_compat.png) |![Non pris en charge](media/Red_X.png)|
-|1703  |![Non pris en charge](media/Red_X.png)             |![Pris en charge](media/green_check.png)            |![Pris en charge](media/green_check.png) |  
-|1709  |![Non pris en charge](media/Red_X.png)             |![Non pris en charge](media/Red_X.png)              |![Pris en charge](media/green_check.png) |  
+|1607  |![Compatibilité descendante](media/blue_compat.png) |![Non pris en charge](media/Red_X.png)| ![Non pris en charge](media/Red_X.png) |
+|1703  |![Pris en charge](media/green_check.png)            |![Pris en charge](media/green_check.png) | ![Compatibilité descendante](media/blue_compat.png)|
+|1709  |![Non pris en charge](media/Red_X.png)              |![Pris en charge](media/green_check.png) | ![Pris en charge](media/green_check.png)|
 
 |Clé|
 |--|

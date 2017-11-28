@@ -3,7 +3,7 @@ title: "Paramètres du client"
 titleSuffix: Configuration Manager
 description: "Choisissez les paramètres client à l’aide de la console d’administration de System Center Configuration Manager."
 ms.custom: na
-ms.date: 08/01/2017
+ms.date: 11/17/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,11 +16,11 @@ caps.handback.revision: "0"
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: f34479d6cf0c1153615c612480f204b71a8d84cb
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 46429a02debaaaa90562b9586af57e43a9aab92c
+ms.sourcegitcommit: b74c1beaabbb628fdf5d6948fa9a6ad719fd5035
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="about-client-settings-in-system-center-configuration-manager"></a>À propos des paramètres client dans System Center Configuration Manager
 
@@ -71,7 +71,7 @@ Active BranchCache sur les ordinateurs clients.
 - **Configurer la taille du cache du client**
 
   Le cache du client sur les ordinateurs Windows stocke les fichiers temporaires utilisés pour installer des applications et des programmes. Choisissez **Oui** puis spécifiez :
-    - **Taille maximale du cache** (mégaoctets). 
+    - **Taille maximale du cache** (mégaoctets).
     - **Taille maximale du cache** (pourcentage du disque).
 La taille du cache du client peut augmenter jusqu’à la taille maximale en Mo ou au pourcentage du disque, **selon la valeur la moins élevée des deux**. Si cette option a la valeur **Non**, la taille par défaut est de 5 120 Mo.
 
@@ -288,6 +288,8 @@ Active le cache d’homologue pour les clients Configuration Manager. Ensuite, s
  Pour plus d’informations sur les fenêtres de maintenance, consultez [Comment utiliser les fenêtres de maintenance dans System Center Configuration Manager](../../../core/clients/manage/collections/use-maintenance-windows.md).  
 
 ##  <a name="endpoint-protection"></a>Endpoint Protection  
+>  [!Tip]   
+> En plus des informations suivantes, vous pouvez trouver d’autres détails sur l’utilisation des paramètres du client Endpoint Protection dans [Exemple de scénario : utilisation de System Center Endpoint Protection pour protéger des ordinateurs contre les programmes malveillants dans System Center Configuration Manager](/sccm/protect/deploy-use/scenarios-endpoint-protection).
 
 -   **Gérer le client Endpoint Protection sur les ordinateurs clients**  
 

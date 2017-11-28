@@ -1,21 +1,22 @@
 ---
-title: "Gérer les mises à jour d’Office 365 ProPlus | Microsoft Docs"
+title: "Gérer les mises à jour Office 365 ProPlus"
+titleSuffix: Configuration Manager
 description: "Configuration Manager synchronise les mises à jour du client Office 365 du catalogue WSUS vers le serveur de site de façon à rendre les mises à jour disponibles pour un déploiement sur les clients."
 keywords: 
 author: dougeby
 ms.author: dougeby
 manager: angrobe
-ms.date: 05/31/2017
+ms.date: 10/04/2017
 ms.topic: article
 ms.prod: configuration-manager
 ms.service: 
 ms.technology: configmgr-sum
 ms.assetid: eac542eb-9aa1-4c63-b493-f80128e4e99b
-ms.openlocfilehash: 902d7f7216ca7bb585afae587a6706e2332da9d3
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: a1ac97e60bc35ee3e98212cf17e33ed2b73301b9
+ms.sourcegitcommit: 986fc2d54f7c5fa965fd4df42f4db4ecce6b79cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="manage-office-365-proplus-with-configuration-manager"></a>Gérer Office 365 ProPlus avec Configuration Manager
 
@@ -46,13 +47,13 @@ Le tableau de bord Gestion des clients Office 365 fournit des graphiques pour le
 Pour afficher le tableau de bord Gestion des clients Office 365 dans la console Configuration Manager, accédez à **Bibliothèque de logiciels** > **Vue d’ensemble** > **Gestion des clients Office 365**. En haut du tableau de bord, utilisez le paramètre de liste déroulante **Regroupement** pour filtrer les données de tableau de bord selon les membres d’un regroupement spécifique.
 
 ### <a name="display-data-in-the-office-365-client-management-dashboard"></a>Afficher des données dans le tableau de bord Gestion des clients Office 365
-Les données affichées dans le tableau de bord Gestion des clients Office 365 sont issues de l’inventaire matériel. Pour permettre l’affichage des données dans ce tableau de bord, vous devez activer l’inventaire matériel et sélectionner la classe d’inventaire matériel **Configurations Office 365 ProPlus**.
+Les données affichées dans le tableau de bord Gestion des clients Office 365 sont issues de l’inventaire matériel. Pour permettre l’affichage des données dans ce tableau de bord, activez l’inventaire matériel et sélectionnez la classe d’inventaire matériel **Configurations Office 365 ProPlus**.
 #### <a name="to-display-data-in-the-office-365-client-management-dashboard"></a>Pour afficher des données dans le tableau de bord Gestion des clients Office 365
 1. Activez l’inventaire matériel si vous ne l’avez pas encore fait. Pour plus d’informations, consultez [Configurer l’inventaire matériel](\sccm\core\clients\manage\configure-hardware-inventory).
 2. Dans la console Configuration Manager, accédez à **Administration** > **Paramètres client** > **Paramètres client par défaut**.  
 3. Dans l'onglet **Accueil** , dans le groupe **Propriétés** , cliquez sur **Propriétés**.  
 4. Dans la boîte de dialogue **Paramètres client par défaut** , cliquez sur **Inventaire matériel**.  
-5. Dans la liste **Paramètres du périphérique** , cliquez sur **Définir des classes**.  
+5. Dans la liste **Paramètres de l’appareil**, cliquez sur **Définir des classes**.  
 6. Dans la boîte de dialogue **Classes d’inventaire matériel**, sélectionnez **Configurations Office 365 ProPlus**.  
 7.  Cliquez sur **OK** pour enregistrer vos modifications et fermer la boîte de dialogue **Classes d'inventaire matériel** .  
 Le tableau de bord Gestion des clients Office 365 commence à afficher des données dès qu’un inventaire matériel est signalé.
@@ -80,7 +81,7 @@ Dans les versions antérieures de Configuration Manager, vous devez exécuter le
 3. Dans la page **Application Settings** (Paramètres de l’application), indiquez le nom et une description de l’application, entrez l’emplacement de téléchargement pour les fichiers, puis cliquez sur **Suivant**. L’emplacement doit être spécifié sous la forme &#92;&#92;*server*&#92;*share*.
 4. Dans la page **Import Client Settings** (Importer les paramètres client), choisissez s’il convient d’importer les paramètres client Office 365 à partir d’un fichier de configuration XML existant ou de spécifier manuellement les paramètres, puis de cliquer sur **Suivant**.  
 
-    Quand vous avez un fichier de configuration, entrez l’emplacement du fichier et passez à l’étape 7. Notez que l’emplacement doit être spécifié sous la forme &#92;&#92;*serveur*&#92;*partage*&#92;*nom_fichier*.XML.
+    Quand vous avez un fichier de configuration, entrez l’emplacement du fichier et passez à l’étape 7. Vous devez spécifier l’emplacement sous la forme &#92;&#92;*serveur*&#92;*partage*&#92;*nom_fichier*.XML.
     > [!IMPORTANT]    
     > Le fichier de configuration XML doit contenir uniquement des [langues prises en charge par le client Office 365 ProPlus](https://technet.microsoft.com/library/cc179219&#40;v=office.16&#41;.aspx).
 
@@ -104,7 +105,7 @@ Procédez comme suit pour déployer les mises à jour d’Office 365 avec le Ge
 1.  [Vérifiez la configuration requise](https://technet.microsoft.com/library/mt628083.aspx) pour utiliser Configuration Manager en vue de gérer les mises à jour du client Office 365 dans la section **Configuration requise pour utiliser Configuration Manager afin de gérer les mises à jour du client Office 365** de la rubrique.  
 
 2.  [Configurez les points de mise à jour logicielle](../get-started/configure-classifications-and-products.md) pour synchroniser les mises à jour du client Office 365. Définissez **Mises à jour** en guise de classification et sélectionnez **Office 365 Client** en guise de produit. Synchronisez les mises à jour logicielles après avoir configuré les points de mise à jour logicielle pour utiliser la classification **Mises à jour**.
-3.  Habilitez les clients Office 365 à recevoir des mises à jour de Configuration Manager. Pour cela, vous pouvez utiliser les paramètres du client Configuration Manager ou la stratégie de groupe. Employez l’une des méthodes suivantes pour activer le client :   
+3.  Habilitez les clients Office 365 à recevoir des mises à jour de Configuration Manager. Utilisez les paramètres du client Configuration Manager ou la stratégie de groupe pour activer le client.   
 
     **Méthode 1** : à compter de Configuration Manager version 1606, vous pouvez utiliser le paramètre du client Configuration Manager pour gérer l’agent client Office 365. Après avoir configuré ce paramètre et déployé les mises à jour d’Office 365, l’agent client Configuration Manager communique avec l’agent Office 365 Client de façon à télécharger les mises à jour d’Office 365 à partir d’un point de distribution et ensuite à les installer. Configuration Manager dresse l’inventaire des paramètres du client Office 365 ProPlus.    
 
@@ -130,6 +131,19 @@ Quand vous déployez une mise à jour sur un client Office 365, le comportement
 |1610|Les applications Office 365 sont fermées sans avertissement avant l’installation de la mise à jour.|
 |1610 avec mise à jour <br/>1702|Un indicateur de redémarrage est défini et la mise à jour est installée après le redémarrage de l’ordinateur.|
 |1706|Le client reçoit des notifications contextuelles et dans l’application, ainsi qu’une boîte de dialogue de compte à rebours avant l’installation de la mise à jour.|
+
+> [!Important]
+> Dans Configuration Manager version 1706, notez les points suivants :
+>
+>- Une icône de notification s’affiche dans la zone de notification de la barre des tâches pour les applications requises dont l’échéance se situe dans un délai de 48 heures et dont le contenu de la mise à jour a été téléchargé. 
+>- Un compte à rebours s’affiche pour les applications requises dont l’échéance se situe dans un délai de 7,5 heures et dont la mise à jour a été téléchargée. L’utilisateur peut reporter le compte à rebours jusqu’à trois fois avant l’échéance. Quand il est reporté, le compte à rebours s’affiche à nouveau au bout de deux heures. S’il n’est pas reporté, un compte à rebours de 30 minutes se déclenche et la mise à jour s’installe quand il est terminé.
+>- Aucune notification contextuelle ne s’affiche tant que l’utilisateur ne clique pas sur l’icône située dans la zone de notification. De plus, si la zone de notification occupe un espace minimal, l’icône de notification peut ne pas être visible si l’utilisateur n’ouvre pas ou ne développe pas la zone de notification. 
+>- La boîte de dialogue de notification et de compte à rebours a pu démarrer alors que l’utilisateur n’est pas en train d’utiliser activement l’appareil, par exemple, quand l’appareil est verrouillé pendant la nuit, donc il est possible que les applications Office en cours d’exécution sur l’appareil soient obligées de se fermer pour installer la mise à jour. Avant de fermer l’application, Office enregistre les données d’application pour empêcher une perte de données. 
+>- Si l’échéance est passée ou configurée pour s’exécuter dès que possible, les applications Office en cours d’exécution peuvent être forcées à se fermer sans notification. 
+>- Si l’utilisateur installe une mise à jour Office avant l’échéance, Configuration Manager vérifie que la mise à jour est installée quand l’échéance est atteinte. Si la mise à jour n’est pas détectée sur l’appareil, elle est installée. 
+>- La barre de notification dans l’application ne s’affiche pas sur une application Office qui est en cours d’exécution avant le téléchargement de la mise à jour. Une fois la mise à jour téléchargée, la notification dans l’application s’affiche uniquement pour les applications nouvellement ouvertes.
+>- Pour les mises à jour Office déclenchées par une fenêtre de service ou planifiées pour s’exécuter en dehors des heures d’ouverture, il est possible que les applications Office en cours d’exécution soient forcées à se fermer pour installer la mise à jour sans notification. 
+
 
 
 ## <a name="add-languages-for-office-365-update-downloads"></a>Ajouter des langues pour les téléchargements des mises à jour Office 365

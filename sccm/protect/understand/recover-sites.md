@@ -3,7 +3,7 @@ title: "Récupération de site"
 titleSuffix: Configuration Manager
 description: "Découvrez comment récupérer vos sites dans System Center Configuration Manager."
 ms.custom: na
-ms.date: 6/5/2017
+ms.date: 11/20/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,11 +15,11 @@ caps.latest.revision:
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 96785ea5abcb4ae67952ad8243c36bf6b238daca
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 497860c9b5698271d7ca6e4683e99350100f596f
+ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/21/2017
 ---
 #  <a name="recover-a-configuration-manager-site"></a>Récupération d'un site Configuration Manager
 
@@ -30,6 +30,12 @@ Lancez la récupération d'un site Configuration Manager à chaque défaillance 
 Les sections de cette rubrique peuvent vous aider à récupérer un site Configuration Manager. Pour créer une sauvegarde, consultez [Sauvegarde pour Configuration Manager](/sccm/protect/understand/backup-and-recovery).
 
 ## <a name="considerations-before-recovering-a-site"></a>Considérations à prendre en compte avant la récupération d’un site
+> [!Important]  
+> Ces informations s’appliquent uniquement aux scénarios de récupération de site.  Lorsque vous mettez à niveau votre infrastructure locale sans récupérer activement un site défaillant, consultez les informations contenues dans les rubriques suivantes :
+> - [Mettre à niveau l’infrastructure locale](/sccm/core/servers/manage/upgrade-on-premises-infrastructure)
+> - [Modifier votre infrastructure](/sccm/core/servers/manage/modify-your-infrastructure)
+
+
 **Vous devez utiliser la même version et la même édition de SQL Server :** par exemple, la restauration sur SQL Server 2016 d’une base de données qui fonctionnait sur SQL Server 2014 n’est pas prise en charge. De la même manière, il n’est pas possible de restaurer une base de données de site qui s’exécutait sur une édition Standard de SQL Server 2016 vers une édition Enterprise de SQL Server 2016.
 -   SQL Server ne doit pas être configuré en **mode mono-utilisateur**.
 -   Vérifiez que les fichiers .MDF et .LDF sont valides. Quand vous récupérez un site, l’état des fichiers que vous restaurez n’est pas vérifié.
@@ -124,7 +130,7 @@ Suite à la restauration d'une base de données de site à partir d'une sauvegar
 Appliquez l'une des procédures suivantes pour récupérer votre serveur de site ainsi que la base de données du site.
 
 ### <a name="to-start-a-site-recovery-in-the-setup-wizard"></a>Pour démarrer une récupération de site avec l'Assistant Installation
-1.  Copiez le [dossier CD.Latest](/sccm/core/servers/manage/the-cd.latest-folde) à un emplacement en dehors du dossier d’installation de Configuration Manager.
+1.  Copiez le [dossier CD.Latest](/sccm/core/servers/manage/the-cd.latest-folder) à un emplacement en dehors du dossier d’installation de Configuration Manager.
 À partir de la copie du dossier CD.Latest, exécutez l’Assistant Installation de Configuration Manager.
 
 2.  Sur la page **Mise en route** , sélectionnez **Récupérer un site**, puis cliquez sur **Suivant**.

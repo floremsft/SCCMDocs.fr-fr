@@ -1,42 +1,41 @@
 ---
-title: Configurer la passerelle de gestion cloud | Microsoft Docs
+title: Configurer la passerelle de gestion cloud
+titleSuffix: Configuration Manager
 description: 
-author: robstackmsft
-ms.author: robstack
+author: arob98
+ms.author: angrobe
 manager: angrobe
-ms.date: 05/01/2017
+ms.date: 09/26/2017
 ms.topic: article
 ms.prod: configuration-manager
 ms.service: 
 ms.technology: configmgr-client
 ms.assetid: e0ec7d66-1502-4b31-85bb-94996b1bc66f
-ms.openlocfilehash: 84b617b3e83636ab4578174ef40e786dcf1178cd
-ms.sourcegitcommit: 06aef618f72c700f8a716a43fb8eedf97c62a72b
+ms.openlocfilehash: 7463cd7199098b21843fd5b99ed284a12ff91e00
+ms.sourcegitcommit: 986fc2d54f7c5fa965fd4df42f4db4ecce6b79cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="set-up-cloud-management-gateway-for-configuration-manager"></a>Configurer la passerelle de gestion cloud pour Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
-
-Depuis la version 1610, le processus de configuration de la passerelle de gestion cloud dans Configuration Manager comprend les étapes suivantes :
+*S’applique à : System Center Configuration Manager (Current Branch)* Le processus de configuration de la passerelle de gestion cloud dans Configuration Manager comprend les étapes suivantes :
 
 ## <a name="step-1-configure-required-certificates"></a>Étape 1 : configurer les certificats requis
 
 > [!TIP]  
-> Avant de demander un certificat, vérifiez que le nom de domaine Azure souhaité (par exemple, GraniteFalls.CloudApp.Net) est unique. Pour cela, ouvrez une session sur le [Portail Microsoft Azure](https://manage.windowsazure.com), cliquez sur **Nouveau** et sélectionnez **Service cloud**, puis **Création personnalisée**. Dans le champ **URL**, tapez le nom de domaine de votre choix (ne cochez pas la case pour créer le service). Le portail indique si le nom de domaine est disponible ou déjà utilisé par un autre service.
+> Avant de demander un certificat, vérifiez que le nom de domaine Azure souhaité (par exemple, GraniteFalls.CloudApp.Net) est unique. Pour cela, ouvrez une session sur le [portail Microsoft Azure](https://manage.windowsazure.com), cliquez sur **Nouveau** et sélectionnez **Service cloud**, puis **Création personnalisée**. Dans le champ **URL**, tapez le nom de domaine de votre choix (ne cochez pas la case pour créer le service). Le portail indique si le nom de domaine est disponible ou déjà utilisé par un autre service.
 
-## <a name="option-1-preferred---use-the-server-authentication-certificate-from-a-public-and-globally-trusted-certificate-provider-like-verisign"></a>Option 1 (recommandée) : utilisez le certificat d’authentification serveur provenant d’un fournisseur de certificats public et largement approuvé (comme VeriSign)
+### <a name="option-1-preferred---use-the-server-authentication-certificate-from-a-public-and-globally-trusted-certificate-provider-like-verisign"></a>Option 1 (recommandée) : utilisez le certificat d’authentification serveur provenant d’un fournisseur de certificats public et largement approuvé (comme VeriSign)
 
-Lorsque vous utilisez cette méthode, les clients approuveront automatiquement le certificat, et vous n’avez pas besoin de créer vous-même un certificat SSL personnalisé.
+Lorsque vous utilisez cette méthode, les clients approuvent automatiquement le certificat, et vous n’avez pas besoin de créer vous-même un certificat SSL personnalisé.
 
 1. Créez un enregistrement de nom canonique (CNAME) dans le service de nom de domaine (DNS) public de votre organisation afin de générer un alias pour le service de passerelle de gestion cloud avec un nom convivial qui sera utilisé dans le certificat public.
-Par exemple, Contoso nomme son service de passerelle de gestion cloud **GraniteFalls** qui, dans Azure, sera **GraniteFalls.CloudApp.Net**. Dans l’espace de noms contoso.com du DNS public de Contoso, l’administrateur DNS crée un enregistrement CNAME pour **GraniteFalls.Contoso.com** pour le nom d’hôte réel, **GraniteFalls.CloudApp.net**.
+Par exemple, Contoso nomme son service de passerelle de gestion cloud **GraniteFalls** qui, dans Azure, devient **GraniteFalls.CloudApp.Net**. Dans l’espace de noms contoso.com du DNS public de Contoso, l’administrateur DNS crée un enregistrement CNAME pour **GraniteFalls.Contoso.com** pour le nom d’hôte réel, **GraniteFalls.CloudApp.net**.
 2. Ensuite, demandez à un fournisseur public un certificat d’authentification serveur en utilisant le nom commun (CN) de l’alias CNAME.
 Par exemple, Contoso utilise **GraniteFalls.Contoso.com** comme nom commun du certificat.
 3. Créez le service de passerelle de gestion cloud dans la console Configuration Manager à l’aide de ce certificat.
-    - Sur la page **Paramètres** de l’Assistant Création de la passerelle de gestion cloud, lorsque vous ajoutez le certificat de serveur pour ce service cloud (à partir du **fichier de certificat**), l’Assistant extrait le nom d’hôte du nom commun du certificat comme nom de service, puis l’ajoute à **cloudapp.net** (ou **usgovcloudapp.net** pour le cloud Azure US Government) en tant que nom de domaine complet du service pour créer le service dans Azure.
+    - Dans la page **Paramètres** de l’Assistant Création de la passerelle de gestion cloud : lorsque vous ajoutez le certificat de serveur pour ce service cloud (à partir du **fichier de certificat**), l’Assistant extrait le nom d’hôte du nom commun du certificat comme nom de service, puis l’ajoute à **cloudapp.net** (ou **usgovcloudapp.net** pour le cloud Azure US Government) en tant que nom de domaine complet du service pour créer le service dans Azure.
 Par exemple, lors de la création de la passerelle de gestion cloud chez Contoso, le nom d’hôte **GraniteFalls** est extrait du nom commun du certificat afin de créer le service réel dans Azure en tant que **GraniteFalls.CloudApp.net**.
 
 ### <a name="option-2---create-a-custom-ssl-certificate-for-cloud-management-gateway-in-the-same-way-as-for-a-cloud-based-distribution-point"></a>Option 2 : vous pouvez créer un certificat SSL personnalisé pour la passerelle de gestion cloud de la même façon que pour un point de distribution cloud
@@ -50,15 +49,15 @@ Vous pouvez créer un certificat SSL personnalisé pour la passerelle de gestion
 
 Le moyen le plus simple pour exporter la racine des certificats clients utilisés sur le réseau consiste à ouvrir un certificat client sur l’une des machines jointes au domaine qui en possède un, et de le copier.
 
-> [!NOTE] 
+> [!NOTE]
 >
 > Des certificats clients sont nécessaires sur chaque ordinateur que vous voulez gérer avec la passerelle de gestion cloud et sur le serveur de système de site qui héberge le point de connexion de la passerelle de gestion cloud. Si vous devez ajouter un certificat client à l’une quelconque de ces machines, consultez [Déploiement du certificat client pour les ordinateurs Windows](/sccm/core/plan-design/network/example-deployment-of-pki-certificates#BKMK_client2008_cm2012).
 
 1.  Dans la fenêtre Exécuter, tapez **mmc** et appuyez sur Entrée.
 
-2.  Dans le menu Fichier, choisissez **Ajouter/supprimer un composant logiciel enfichable...**.
+2.  Dans le menu Fichier, choisissez **Ajouter/supprimer un composant logiciel enfichable**.
 
-3.  Dans la boîte de dialogue Ajouter ou supprimer des composants logiciels enfichables, choisissez **Certificats** > **Ajouter &gt;**  > **Compte d’ordinateur** > **Suivant** > **Ordinateur Local** > **Terminer**. 
+3.  Dans la boîte de dialogue Ajouter ou supprimer des composants logiciels enfichables, choisissez **Certificats** > **Ajouter &gt;**  > **Compte d’ordinateur** > **Suivant** > **Ordinateur Local** > **Terminer**.
 
 4.  Accédez à **Certificats** &gt; **Personnel** &gt;**Certificats**.
 
@@ -66,10 +65,10 @@ Le moyen le plus simple pour exporter la racine des certificats clients utilisé
 
 6.  Sous l’onglet Détails, choisissez **Copier dans un fichier...** .
 
-7.  Terminez l’Assistant Exportation de certificat en utilisant le format de certificat par défaut. Notez le nom et l’emplacement du certificat racine que vous créez. Vous en aurez besoin pour configurer la passerelle de gestion cloud dans une [étape ultérieure](#step-4-set-up-cloud-management-gateway).
+7.  Terminez l’Assistant Exportation de certificat en utilisant le format de certificat par défaut. Notez le nom et l’emplacement du certificat racine que vous créez. Vous en avez besoin pour configurer la passerelle de gestion cloud dans une [étape ultérieure](#step-4-set-up-cloud-management-gateway).
 
 >[!NOTE]
->Si le certificat client a été émis par une autorité de certification secondaire, vous devrez répéter cette étape pour chaque certificat de la chaîne.
+>Si le certificat client a été émis par une autorité de certification secondaire, vous devez répéter cette étape pour chaque certificat de la chaîne.
 
 ## <a name="step-3-upload-the-management-certificate-to-azure"></a>Étape 3 : Charger le certificat de gestion dans Azure
 
@@ -122,7 +121,7 @@ Un certificat de gestion Azure est nécessaire pour que Configuration Manager pu
 
 5. Si vous voulez surveiller le trafic de la passerelle de gestion cloud avec un seuil de 14 jours, cochez la case pour activer l’alerte de seuil. Ensuite, spécifiez le seuil et le pourcentage auquel déclencher les différents niveaux d’alerte. Choisissez **Suivant** quand vous avez terminé.
 
-6. Vérifiez les paramètres, puis choisissez **Suivant**. Configuration Manager commence à configurer le service. Une fois l’Assistant fermé, 5 à 15 minutes sont nécessaires pour approvisionner complètement le service dans Azure. Vérifiez la colonne **État** de la passerelle de gestion cloud nouvellement configurée pour déterminer quand le service est prêt.
+6. Vérifiez les paramètres, puis choisissez **Suivant**. Configuration Manager commence à configurer le service. Une fois l’Assistant fermé, 5 à 15 minutes sont nécessaires pour provisionner complètement le service dans Azure. Vérifiez la colonne **État** de la nouvelle passerelle de gestion cloud pour déterminer quand le service est prêt.
 
 ## <a name="step-5-configure-primary-site-for-client-certification-authentication"></a>Étape 5 : Configurer le site principal pour l’authentification de certification de client
 
@@ -141,7 +140,7 @@ Le point de connexion de passerelle de gestion cloud est un nouveau rôle de sys
 
 ## <a name="step-7-configure-roles-for-cloud-management-gateway-traffic"></a>Étape 7 : Configurer des rôles pour le trafic de la passerelle de gestion cloud
 
-La dernière étape de la configuration de la passerelle de gestion cloud consiste à configurer les rôles de système de site pour qu’ils acceptent le trafic de la passerelle de gestion cloud. Seuls les rôles de point de gestion et de point de mise à jour logicielle sont pris en charge par la Passerelle de gestion cloud. Vous devez configurer chaque rôle séparément.
+La dernière étape de la configuration de la passerelle de gestion cloud consiste à configurer les rôles de système de site pour qu’ils acceptent le trafic de la passerelle de gestion cloud. Seuls les rôles de point de gestion et de point de mise à jour logicielle sont pris en charge par la Passerelle de gestion cloud. Vous configurez chaque rôle séparément.
 
 1. Dans la console Configuration Manager, accédez à **Administration** > **Configuration du site** > **Serveurs et rôles de système de site**.
 
@@ -155,7 +154,7 @@ La dernière étape de la configuration de la passerelle de gestion cloud consis
 
 Une fois que la passerelle de gestion cloud et les rôles de système de site sont entièrement configurés et en cours d’exécution, les clients obtiennent l’emplacement du service de passerelle de gestion cloud automatiquement lors la demande d’emplacement suivante. Les clients doivent être sur le réseau d’entreprise pour recevoir l’emplacement du service de passerelle de gestion cloud. Le cycle d’interrogation pour les demandes d’emplacement est de 24 heures. Si vous ne souhaitez pas attendre la demande d’emplacement normalement planifiée, vous pouvez forcer la demande en redémarrant le service hôte de l’agent SMS (ccmexec.exe) sur l’ordinateur.
 
-Avec l’emplacement du service de passerelle de gestion cloud configuré sur le client, il peut déterminer automatiquement si elle est sur l’intranet ou sur Internet. Si le client peut contacter le contrôleur de domaine ou le point de gestion local, il l’utilise pour communiquer avec Configuration Manager. Dans le cas contraire, il considère qu’elle est sur Internet et utilise l’emplacement du service de passerelle de gestion cloud pour communiquer.
+Avec l’emplacement du service de passerelle de gestion cloud configuré sur le client, il peut déterminer automatiquement si elle est sur l’intranet ou sur Internet. Si le client peut contacter le contrôleur de domaine ou le point de gestion local, il l’utilise pour communiquer avec Configuration Manager. Sinon, il considère qu’elle est sur Internet et utilise l’emplacement du service de la passerelle de gestion cloud pour communiquer.
 
 >[!NOTE]
 > Vous pouvez forcer le client à toujours utiliser la passerelle de gestion cloud, qu’elle soit sur l’intranet ou sur Internet. Pour ce faire, vous définissez la clé de Registre suivante sur l’ordinateur client : \

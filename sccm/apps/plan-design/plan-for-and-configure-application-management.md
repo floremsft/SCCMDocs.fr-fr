@@ -3,7 +3,7 @@ title: Planifier et configurer la gestion des applications
 titleSuffix: Configuration Manager
 description: "Implémentez et configurez les dépendances nécessaires au déploiement d’applications dans System Center Configuration Manager."
 ms.custom: na
-ms.date: 02/09/2017
+ms.date: 11/07/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,11 +15,11 @@ caps.latest.revision: "13"
 author: mattbriggs
 ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: 66317bea84adbddf2d2e94c30a4a72e19229439b
-ms.sourcegitcommit: 18ac58374d2d513fe2a197c80f7c8c6890a7d612
+ms.openlocfilehash: cd06d3ee2ea14c9ff1b9cf09980c2b25a5263db9
+ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="plan-for-and-configure-application-management-in-system-center-configuration-manager"></a>Planifier et configurer la gestion des applications dans System Center Configuration Manager
 
@@ -185,6 +185,26 @@ Une marque personnalisée pour le Centre logiciel est appliquée selon les règl
 1. Si le rôle de serveur de site du point du site web du catalogue des applications n’est pas installé, le Centre logiciel affiche le nom d’organisation spécifié dans le paramètre client de l’**Agent ordinateur** **Nom d’organisation** affiché dans le Centre logiciel. Pour obtenir des instructions, consultez [Guide pratique pour configurer les paramètres client](https://docs.microsoft.com/sccm/core/clients/deploy/configure-client-settings).
 2. Si le rôle de serveur site de point du site web du catalogue des applications est installé, le Centre logiciel affiche le nom d’organisation et la couleur spécifiés dans les propriétés du rôle de serveur de site du point du site web du catalogue des applications. Pour plus d’informations, consultez [Options de configuration pour le point du site web du catalogue des applications](https://docs.microsoft.com/sccm/core/servers/deploy/configure/configuration-options-for-site-system-roles#BKMK_ApplicationCatalog_Website).
 3. Si un abonnement Microsoft Intune est configuré et connecté à Configuration Manager, le Centre logiciel affiche le nom d’organisation, la couleur et le logo de l’entreprise spécifiés dans les propriétés de l’abonnement Intune. Pour plus d’informations, consultez [Configuration de l’abonnement Microsoft Intune](https://docs.microsoft.com/sccm/mdm/deploy-use/setup-hybrid-mdm#step-3-configure-intune-subscription).
+
+#### <a name="to-manually-set-software-center-branding"></a>Pour définir manuellement la marque du Centre logiciel
+<!-- 1351224 -->
+Avec la version 1710, vous pouvez ajouter manuellement des éléments de personnalisation d’entreprise et spécifier la visibilité des onglets du Centre logiciel. Vous pouvez ajouter votre nom de société Centre logiciel spécifique, définir un modèle de couleurs de configuration Centre logiciel, un logo de société et les onglets visibles pour les périphériques clients.
+
+1. Dans la console **Configuration Manager**, cliquez sur **Administration** > **Paramètres client**. Cliquez sur l’instance de paramètre de client souhaitée.
+2. Sous l’onglet **Accueil**, dans le groupe **Propriétés**, choisissez **Propriétés**.
+3. Dans la boîte de dialogue **Paramètres par défaut**, choisissez **Centre logiciel**.
+4. Sélectionnez **Oui** pour **sélectionner de nouveaux paramètres afin de spécifier les informations de l’entreprise** et permettre la modification des paramètres de personnalisation du Centre logiciel.
+5. Spécifiez le **nom de votre entreprise**.
+6. Sélectionnez votre **modèle de couleurs pour le Centre logiciel**.
+7. Cliquez sur **Parcourir** pour sélectionner votre logo pour le Centre logiciel. Le logo doit être de type JPEG ou PNG et au format 400 x 100 pixels, avec une taille maximale de 750 Ko.
+8. Sélectionnez **OUI** pour afficher les onglets dans le Centre logiciel pour les périphériques clients. Au moins un onglet doit être visible :
+
+    -  Activer l’onglet Applications
+    -  Activer l’onglet Mises à jour
+    -  Activer l’onglet Systèmes d'exploitation
+    -  Activer l’onglet État de l’installation
+    -  Activer l’onglet Conformité de l’appareil
+    -  Activer l’onglet Options
 
 > [!IMPORTANT]  
 >  La personnalisation du Centre logiciel est synchronisée avec le service Intune tous les 14 jours. Par conséquent, il peut passer un certain temps avant que les modifications que vous apportez dans Intune ne s’affichent dans Configuration Manager.

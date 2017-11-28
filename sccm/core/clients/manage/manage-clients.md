@@ -3,7 +3,7 @@ title: "Gérer les clients"
 titleSuffix: Configuration Manager
 description: "Découvrez comment gérer les clients dans System Center Configuration Manager."
 ms.custom: na
-ms.date: 04/23/2017
+ms.date: 11/20/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,11 +15,11 @@ caps.latest.revision: "17"
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: d62138f573745a16634e06aeb9301a248f707cae
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: ae1bc53cf15b2a1746656667f7bf546742432c11
+ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="how-to-manage-clients-in-system-center-configuration-manager"></a>Guide pratique pour gérer les clients dans System Center Configuration Manager
 
@@ -42,7 +42,7 @@ Notez que, selon le type d’appareil, certaines de ces options peuvent ne pas �
 
 3.  Sélectionnez un ou plusieurs appareils, puis sélectionnez une des tâches de gestion de client disponible dans le ruban ou en cliquant avec le bouton droit sur l’appareil :  
 
-    -   **Gérer les informations relatives à l'affinité entre périphérique et utilisateur**  
+    -   **Gérer les informations relatives à l'affinité entre appareil et utilisateur**  
 
          Configurez les associations entre les utilisateurs et les appareils, ce qui vous permet de déployer efficacement des logiciels sur les utilisateurs.  
 
@@ -51,7 +51,7 @@ Notez que, selon le type d’appareil, certaines de ces options peuvent ne pas �
     -   **Ajouter l’appareil à un regroupement nouveau ou existant**  
 
          Ajoutez l’appareil à un regroupement avec une règle directe.  
-         
+
     -   **Installer et réinstaller le client à l'aide de l'Assistant Installation poussée du client**  
 
          Installez et réinstallez le client Configuration Manager pour le réparer ou pour le reconfigurer sur les ordinateurs qui exécutent Windows. Inclut des options de configuration de site et les propriétés client.msi que vous définissez pour l’installation Push du client.  
@@ -155,9 +155,9 @@ Notez que, selon le type d’appareil, certaines de ces options peuvent ne pas �
 ##  <a name="BKMK_ManagingClients_DeviceCollectionsNode"></a> Gérer les clients à partir du nœud Regroupements d’appareils  
   Un grand nombre des tâches que vous pouvez réaliser sur un seul appareil ou sur plusieurs appareils dans le nœud **Appareils** peuvent être réalisées sur des regroupements. Ceci s’applique automatiquement l’opération à tous les appareils éligibles du regroupement. Notez que ceci génère un grand nombre de paquets réseau et augmente l’utilisation de l’UC sur le serveur de site.  
 
-  Avant d'effectuer des tâches de gestion du client au niveau du regroupement, vous devez prendre en compte le nombre de périphériques dans le regroupement, s'ils utilisent des connexions réseau à faible bande passante, et le temps que prendra la tâche pour tous les périphériques. Une fois démarrée, vous ne pouvez pas arrêter la tâche à partir de la console.  
+  Avant d'effectuer des tâches de gestion du client au niveau du regroupement, vous devez prendre en compte le nombre d’appareils dans le regroupement, s'ils utilisent des connexions réseau à faible bande passante, et le temps que prendra la tâche pour tous les appareils. Une fois démarrée, vous ne pouvez pas arrêter la tâche à partir de la console.  
 
-#### <a name="to-manage-clients-from-the-device-collections-node"></a>Pour gérer les clients à partir du nœud Regroupements de périphériques  
+#### <a name="to-manage-clients-from-the-device-collections-node"></a>Pour gérer les clients à partir du nœud Regroupements d’appareils  
 
 1.  Dans la console Configuration Manager, choisissez **Ressources et Conformité** > **Regroupements d’appareils**.  
 
@@ -184,6 +184,21 @@ Notez que, selon le type d’appareil, certaines de ces options peuvent ne pas �
          Utilisez une notification de client pour inviter les clients Windows sélectionnés à télécharger la stratégie de l’ordinateur dès que possible en dehors de l’intervalle d’interrogation de stratégie du client.  
 
          Les tâches de notification de client s'affichent dans le nœud **Opérations du client** de l'espace de travail **Surveillance** .  
+
+
+## <a name="restart-clients"></a>Redémarrer les clients
+À compter de la version 1710, vous pouvez utiliser la console Configuration Manager pour identifier les appareils clients qui nécessitent un redémarrage, puis utiliser une action de notification de client pour les redémarrer.
+
+Pour identifier les appareils en attente d’un redémarrage, sélectionnez **Ressources et Conformité** > **Appareils** puis choisissez une collection d’appareils pouvant nécessiter un redémarrage. Après avoir sélectionné une collection, vous pouvez afficher l’état de chaque appareil dans le volet des détails d’une nouvelle colonne nommée **Redémarrage en attente**. Chaque appareil affiche la valeur **Oui** ou **Non**.
+
+**Pour créer la notification invitant le client à redémarrer un appareil :**
+1.  Recherchez l’appareil que vous souhaitez redémarrer dans le nœud Appareils de la console.
+2.  Cliquez avec le bouton droit sur l’appareil, sélectionnez **Notification du client** et **Redémarrer**. Une fenêtre s’ouvre et affiche des informations concernant le redémarrage. Cliquez sur **OK** pour confirmer la demande de redémarrage.
+
+Lorsqu’un client reçoit la notification, une fenêtre de notification **Centre logiciel** s’ouvre et pour informer l’utilisateur du redémarrage. Par défaut, le redémarrage se produit après 90 minutes. Vous pouvez modifier le délai de redémarrage en configurant les [paramètres du client](/sccm/core/clients/deploy/configure-client-settings). Les paramètres qui définissent le comportement du redémarrage se trouvent dans l’onglet [Redémarrage de l’ordinateur](/sccm/core/clients/deploy/about-client-settings#computer-restart) des paramètres par défaut.
+
+
+
 
 ##  <a name="BKMK_ClientCache"></a> Configurer le cache du client pour les clients Configuration Manager  
 Le cache du client stocke les fichiers temporaires utilisés lors de l’installation d’applications et de programmes par les clients. Les mises à jour logicielles utilisent également le cache du client, mais elles ne sont pas limitées par la taille configurée pour le cache et tenteront toujours de télécharger vers le cache. Vous pouvez configurer les paramètres du cache du client, comme la taille et l’emplacement, quand vous installez manuellement le client Configuration Manager, quand vous utilisez une installation Push du client ou après que le client a été installé.
@@ -257,8 +272,8 @@ Pour plus d’informations sur l’utilisation de ces propriétés de ligne de c
 5.  Pour supprimer les fichiers dans le dossier du cache, choisissez **Supprimer les fichiers**.  
 
     > [!NOTE]
-    > 
-    > Le dossier du cache est un dossier Windows normal : vous pouvez donc automatiser la suppression du contenu du dossier à l’aide d’un script ou d’un utilitaire, ou avec l’applet de commande PowerShell `Remove-Item`. 
+    >
+    > Le dossier du cache est un dossier Windows normal : vous pouvez donc automatiser la suppression du contenu du dossier à l’aide d’un script ou d’un utilitaire, ou avec l’applet de commande PowerShell `Remove-Item`.
 
 
 ### <a name="to-configure-client-cache-size-in-client-settings"></a>Pour configurer la taille du cache du client dans les paramètres client
@@ -273,6 +288,8 @@ Pour plus d’informations sur l’utilisation de ces propriétés de ligne de c
  3. Choisissez **Paramètres de cache du client** et choisissez **Oui** pour **Configurer la taille du cache du client**, puis utilisez le paramètre **Mo** ou **Pourcentage du disque**. La taille du cache est ajustée en fonction de la plus petite valeur.
 
      Le client Configuration Manager configurera la taille du cache avec ces paramètres lors du téléchargement de la stratégie client suivante.
+
+
 
 ##  <a name="BKMK_UninstalClient"></a> Désinstaller le client Configuration Manager  
  Vous pouvez désinstaller le client Configuration Manager d’un ordinateur Windows en exécutant **CCMSetup.exe** avec la propriété **/Uninstall**. Exécutez CCMSetup.exe sur un ordinateur individuel à partir de l'invite de commande ou déployez un package et un programme pour désinstaller le client pour un regroupement d'ordinateurs.  
@@ -331,7 +348,7 @@ Depuis Configuration Manager version 1610, vous pouvez fournir la liste des ID 
 Vous pouvez lancer une récupération de stratégie en utilisant :
 
 
-- [Notification du client](#initiate-client-policy-retrieval-using-client-notification) 
+- [Notification du client](#initiate-client-policy-retrieval-using-client-notification)
 - [L’onglet **Actions** sur le client](#manually-initiate-client-policy-retrieval-on-the-actions-tab-of-the-configuration-manager-client)
 - [Un script](#manually-initiate-client-policy-retrieval-by-script)
 
@@ -341,12 +358,12 @@ Vous pouvez lancer une récupération de stratégie en utilisant :
 
 #### <a name="initiate-client-policy-retrieval-using-client-notification"></a>Lancer une récupération de stratégie client en utilisant une notification de client  
 
-1.  Dans la console Configuration Manager, choisissez **Ressources et Conformité** > **Regroupements de périphériques**.  
+1.  Dans la console Configuration Manager, choisissez **Ressources et Conformité** > **Regroupements d’appareils**.  
 
 3.  Sélectionnez le regroupement d’appareils contenant les ordinateurs dont vous voulez télécharger la stratégie. Sous l’onglet **Accueil**, dans le groupe **Regroupements**, choisissez **Notification du Client** > **Télécharger la stratégie d’ordinateur**.  
 
     > [!NOTE]  
-    >  Vous pouvez également utiliser une notification de client pour lancer la récupération de la stratégie pour un ou plusieurs périphériques sélectionnés affichés dans un nœud de regroupement temporaire sous le nœud **Périphériques** .  
+    >  Vous pouvez également utiliser une notification de client pour lancer la récupération de la stratégie pour un ou plusieurs appareils sélectionnés affichés dans un nœud de regroupement temporaire sous le nœud **Appareils**.  
 
 #### <a name="manually-initiate-client-policy-retrieval-on-the-actions-tab-of-the-configuration-manager-client"></a>Lancer manuellement la récupération de stratégie du client sous l’onglet Actions du client Configuration Manager  
 

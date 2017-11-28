@@ -15,11 +15,11 @@ caps.latest.revision: "5"
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: 7d63aa43062b331dde993ae5f59f1d2a7e846482
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 20a8f91d10d98542f08e440bcfbc1a6f98a51932
+ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="how-to-configure-client-settings-in-system-center-configuration-manager"></a>Guide pratique pour configurer les paramètres client dans System Center Configuration Manager
 
@@ -66,6 +66,19 @@ Lorsque vous déployez ces paramètres personnalisés, ceux-ci remplacent les pa
 10. Consultez l'ordre du paramètre client personnalisé que vous venez de créer. Lorsque vous disposez de plusieurs paramètres client personnalisés, ceux-ci sont appliqués en fonction de leur numéro. En cas de conflit, le paramètre dont le numéro d'ordre est le plus petit remplace les autres paramètres. Pour changer le numéro d’ordre, sous l’onglet **Accueil**, dans le groupe **Paramètres client**, cliquez sur **Déplacer l’élément vers le haut** ou **Déplacer l’élément vers le bas**.  
 
  Les ordinateurs client sont configurés avec ces paramètres lorsqu'ils téléchargent la stratégie client. Pour lancer une récupération de stratégie pour un seul client, consultez [Lancer une récupération de stratégie pour un client Configuration Manager](../../../core/clients/manage/manage-clients.md#BKMK_PolicyRetrieval) dans [Comment gérer les clients dans System Center Configuration Manager](../../../core/clients/manage/manage-clients.md).  
+
+## <a name="limit-windows-10-enhanced-telemetry-to-only-send-data-relevant-to-windows-analytics-device-health"></a>Limiter la télémétrie avancée dans Windows 10 pour envoyer uniquement les données pertinentes à Windows Analytics Device Health
+<!-- 1356148 -->
+
+Avec la mise à jour 1710, vous pouvez définir la collecte de données de télémétrie dans Windows 10 sur le niveau **Avancé (limité)**. Ce paramètre vous permet d’obtenir un insight actionnable sur les appareils de votre environnement sans que ces derniers aient à envoyer toutes les données de niveau de télémétrie **Avancé** avec Windows 10 version 1709 ou ultérieure.
+
+Le niveau de télémétrie Avancé (limité) inclut les mesures du niveau de base, ainsi qu’un sous-ensemble de données collectées au niveau **Avancé** et pertinentes pour Windows Analytics. Pour plus d’informations sur les niveaux de télémétrie, consultez [Niveaux de télémétrie](https://docs.microsoft.com/windows/configuration/configure-windows-telemetry-in-your-organization#telemetry-levels).
+
+1.  Dans la console Configuration Manager, choisissez **Administration** > **Paramètres client** > **Paramètres client par défaut**.  
+
+2.  Sous l’onglet **Accueil**, choisissez **Propriétés**.  
+
+3.  Ouvrez **Services cloud** et définissez le niveau de télémétrie Windows 10 sur **Avancé**.
 
 ##  <a name="view-client-settings"></a>Afficher les paramètres client  
  Lorsque plusieurs paramètres client sont déployés sur le même appareil, utilisateur ou groupe d'utilisateurs, la définition des priorités et la combinaison des paramètres peuvent être complexes. Pour afficher les paramètres client :  
