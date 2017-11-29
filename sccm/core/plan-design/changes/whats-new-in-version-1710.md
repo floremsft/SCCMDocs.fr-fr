@@ -13,8 +13,8 @@ ms.assetid: bc6c3e5f-b9e2-400e-9d9d-446ff93c520c
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 310343a6dff97b240b319bed59994349cbd9ae7d
-ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
+ms.openlocfilehash: 33a5bff1e202822ce3ec5755958d34af461957e9
+ms.sourcegitcommit: 536f7295e9ea361f1f9ead6c25f3685deb041ad8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/21/2017
@@ -61,7 +61,7 @@ Vous pouvez maintenant utiliser des [points de distribution cloud](/sccm/core/pl
 À partir de Windows 10 version 1607 (également appelée Mise à jour anniversaire), vous pouvez joindre à la fois un appareil Windows 10 à Active Directory (AD) localement et à Azure AD basé sur le cloud (Azure AD hybride). La cogestion tire parti de cette amélioration et vous permet de gérer simultanément plusieurs appareils Windows 10 à l’aide de Configuration Manager et d’Intune. C’est une solution qui établit une passerelle entre la gestion classique et la gestion moderne tout en vous donnant la possibilité d’opérer cette transition selon une approche en plusieurs phases. Pour plus d’informations, consultez [Cogestion pour les appareils Windows 10](/sccm/core/clients/manage/co-management-overview).
 
 ### <a name="restart-computers-form-the-configuration-manager-console-----1356283---"></a>Redémarrer les ordinateurs à partir de la console Configuration Manager <!-- 1356283 -->
-À compter de cette version, vous pouvez utiliser la console Configuration Manager pour identifier les appareils clients qui nécessitent un redémarrage, puis utiliser une action de notification de client pour les redémarrer.
+À compter de cette version, vous pouvez utiliser la console Configuration Manager pour identifier les périphériques clients qui nécessitent un redémarrage, puis utiliser une action de notification de client pour les redémarrer.
 
 Consultez [Guide pratique pour gérer les clients dans System Center Configuration Manager](/sccm/core/clients/manage/manage-clients#restart-clients)
 
@@ -107,7 +107,7 @@ Pour plus d’informations sur la séquence de tâches enfant, consultez [Séque
 
 ## <a name="software-center-customization"></a>Personnalisation du Centre logiciel
 <!-- 1351224 -->
-Vous pouvez ajouter des éléments de personnalisation d’entreprise et spécifier la visibilité des onglets du Centre logiciel. Vous pouvez ajouter votre nom de société Centre logiciel spécifique, définir un modèle de couleurs de configuration Centre logiciel, un logo de société et les onglets visibles pour les appareils clients.
+Vous pouvez ajouter des éléments de personnalisation d’entreprise et spécifier la visibilité des onglets du Centre logiciel. Vous pouvez ajouter votre nom de société Centre logiciel spécifique, définir un modèle de couleurs de configuration Centre logiciel, un logo de société et les onglets visibles pour les périphériques clients.
 
 Pour plus d’informations, consultez [Planifier et configurer la gestion des applications dans System Center Configuration Manager](/sccm/apps/plan-design/plan-for-and-configure-application-management).
 
@@ -122,7 +122,7 @@ Pour plus d’informations, consultez [Planifier et configurer la gestion des ap
 ### <a name="limit-windows-10-enhanced-telemetry-to-only-send-data-relevant-to-windows-analytics-device-health"></a>Limiter la télémétrie avancée dans Windows 10 pour envoyer uniquement les données pertinentes à Windows Analytics Device Health
 <!-- 1356148 -->
 
-Vous pouvez désormais définir la collecte de données de télémétrie dans Windows 10 sur le niveau **Avancé (limité)**. Ce paramètre vous permet d’obtenir un insight actionnable sur les appareils de votre environnement sans que ces derniers aient à envoyer toutes les données de niveau de télémétrie **Avancé** avec Windows 10 version 1709 ou ultérieure.
+Vous pouvez désormais définir la collecte de données de télémétrie dans Windows 10 sur le niveau **Avancé (limité)**. Ce paramètre vous permet d’obtenir un insight actionnable sur les périphériques de votre environnement sans que ces derniers aient à envoyer toutes les données au niveau de télémétrie **Avancé** avec Windows 10 version 1709 ou ultérieure.
 
 Pour plus d’informations, consultez [Guide pratique pour configurer les paramètres client dans System Center Configuration Manager](/sccm/core/clients/deploy/configure-client-settings).
 
@@ -150,7 +150,8 @@ Ces scénarios sont les suivants :
 - [Configurer une stratégie Windows Hello Entreprise](../../../mdm/deploy-use/windows-hello-for-business-settings.md)
 - [Gérer les applications](../../../mdm/deploy-use/management-tasks-applications.md)
 
-### <a name="improved-vpn-profile-experience-in-configuration-manager-console----1318232---"></a>Expérience de profil VPN améliorée dans la console Configuration Manager <!-- 1318232 -->
+### <a name="improved-vpn-profile-experience-in-configuration-manager-console"></a>Expérience de profil VPN améliorée dans la console Configuration Manager 
+<!-- 1318232 -->
 
 Avec cette version, nous avons mis à jour l’Assistant Création d’un profil VPN et les pages de propriétés pour afficher uniquement les paramètres appropriés à la plateforme sélectionnée :
 
