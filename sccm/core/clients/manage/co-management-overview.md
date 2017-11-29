@@ -10,15 +10,15 @@ ms.prod: configuration-manager
 ms.service: 
 ms.technology: 
 ms.assetid: d6bbc787-83a5-44b4-ad64-016e5da7413f
-ms.openlocfilehash: e05c82be9bffd213d0452565e5c91cb008cbb5ff
-ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
+ms.openlocfilehash: c0a577c6076630f0615f953091f35c4f3c2d0a7d
+ms.sourcegitcommit: 536f7295e9ea361f1f9ead6c25f3685deb041ad8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/21/2017
 ---
 # <a name="co-management-for-windows-10-devices"></a>Cogestion pour les appareils Windows 10    
 <!-- 1350871 -->
-Nombreux sont les clients qui souhaitent gérer les appareils Windows 10 comme les appareils mobiles, en recourant à une solution cloud plus simple et moins chère. Toutefois, le passage de la gestion classique à la gestion moderne peut s’avérer difficile. À partir de Windows 10 version 1607 (également appelée Mise à jour anniversaire), vous pouvez joindre à la fois un appareil Windows 10 à Active Directory (AD) localement et à Azure AD basé sur le cloud (Azure AD hybride). À compter de Configuration Manager version 1710, la cogestion tire parti de cette amélioration et vous permet de gérer simultanément plusieurs appareils Windows 10 à l’aide de Configuration Manager et d’Intune. C’est une solution qui établit une passerelle entre la gestion classique et la gestion moderne tout en vous donnant la possibilité d’opérer cette transition selon une approche en plusieurs phases. 
+Nombreux sont les clients qui souhaitent gérer les appareils Windows 10 comme les appareils mobiles, en recourant à une solution cloud plus simple et moins chère. Toutefois, le passage de la gestion classique à la gestion moderne peut s’avérer difficile. Dans Windows 10 version 1709 (également appelée Fall Creators Update) et ultérieure, vous pouvez joindre un appareil Windows 10 à Active Directory (AD) en local et à Azure AD sur le cloud (Azure AD hybride). À compter de Configuration Manager version 1710, la cogestion tire parti de cette amélioration et vous permet de gérer simultanément plusieurs appareils Windows 10 à l’aide de Configuration Manager et d’Intune. C’est une solution qui établit une passerelle entre la gestion classique et la gestion moderne tout en vous donnant la possibilité d’opérer cette transition selon une approche en plusieurs phases. 
 
 Il existe deux principaux parcours pour accéder à la cogestion.  Le premier a trait à la cogestion provisionnée par Configuration Manager où les appareils Windows 10 gérés conjointement par Configuration Manager et Azure AD hybride sont inscrits dans Intune. Le second fait intervenir les appareils provisionnés par Intune qui sont inscrits dans Intune, puis installés avec le client Configuration Manager pour atteindre l’état de cogestion.  
 
