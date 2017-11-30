@@ -14,17 +14,17 @@ ms.assetid: 7b127cee-61f1-4681-9760-caebed36ddf5
 author: dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 29dd4bff6d35712c23d66751db16a00aa761b8b4
-ms.sourcegitcommit: 922d6d9c91ba2158b938df381277be1b5f1d434a
+ms.openlocfilehash: 4877d05004bd883a3ae0ad353a78643cf559275e
+ms.sourcegitcommit: 536f7295e9ea361f1f9ead6c25f3685deb041ad8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="whats-new-in-hybrid-mobile-device-management-with-system-center-configuration-manager-and-microsoft-intune"></a>Nouveautés de la gestion hybride des appareils mobiles avec System Center Configuration Manager et Microsoft Intune
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
-Cet article fournit des informations sur les nouvelles fonctionnalités de gestion des appareils mobiles (MDM) disponibles pour les déploiements hybrides avec System Center Configuration Manager et Microsoft Intune.     
+Cet article fournit des informations sur les nouvelles fonctionnalités de gestion des appareils mobiles disponibles pour les déploiements hybrides avec System Center Configuration Manager et Microsoft Intune.     
 
 > [!Note]    
 > Intune sur Azure est la solution MDM recommandée de Microsoft.     
@@ -46,9 +46,42 @@ Chaque section de cet article répertorie les fonctionnalités hybrides sous tro
 
 ### <a name="new-in-microsoft-intune"></a>Nouveautés de Microsoft Intune
 
+- **L’application Portail d’entreprise pour macOS est disponible** <!--1541700--> Le Portail d’entreprise Intune sous macOS bénéficie d’une expérience mise à jour. Il a été optimisé pour afficher clairement toutes les informations et les avis de conformité dont vos utilisateurs ont besoin pour tous les appareils qu’ils ont inscrits. Et une fois que le Portail d’entreprise Intune a été déployé sur un appareil, Microsoft AutoUpdate pour macOS fournit les mises à jour requises. Vous pouvez télécharger le nouveau Portail d’entreprise Intune pour macOS en vous connectant au site web Portail d’entreprise Intune sur un appareil macOS.
+
+- **Microsoft Planner fait désormais partie de la liste de gestion des applications mobiles pour les applications approuvées**  <!-- 1248473 --> L’application Microsoft Planner pour iOS et Android fait désormais partie des applications approuvées pour la gestion des applications mobiles. L’application peut être configurée par le biais du panneau Intune App Protection dans le portail Azure de tous les locataires. Pour plus de détails, consultez [Liste GAM d’applications approuvées](https://www.microsoft.com/cloud-platform/microsoft-intune-apps).
+
 - **Accès aux journaux d’applications gérées pour iOS** <!-- 1469920 --> Les utilisateurs finaux disposant de Managed Browser peuvent maintenant afficher l’état de gestion de toutes les applications Microsoft publiées et envoyer des journaux afin de résoudre les problèmes liés à leurs applications iOS gérées.
   
   Pour découvrir comment activer le mode dépannage dans Managed Browser sur un appareil iOS, consultez [Guide pratique pour accéder aux journaux des applications gérées à l’aide de Managed Browser sur iOS](https://docs.microsoft.com/intune/app-configuration-managed-browser#how-to-access-to-managed-app-logs-using-the-managed-browser-on-ios).
+
+- **Améliorations du workflow de configuration d’appareil dans le Portail d’entreprise pour iOS dans la version 2.9.0** Nous avons amélioré le workflow de configuration d’appareil dans l’application Portail d’entreprise pour iOS. La langue est plus conviviale et spécifique à votre entreprise, et nous avons regroupé des écrans quand cela était possible. Le processus est également plus spécifique à votre entreprise car nous utilisons son nom dans le texte de configuration. Vous pouvez voir ces derniers sur la page [Nouveautés de l’interface utilisateur de l’application](https://docs.microsoft.com/intune/whats-new-app-ui#week-of-november-13-2017).
+
+- **Invites pour la saisie de commentaires pour l’application Portail d’entreprise pour Android** <!--1165249--> L’application Portail d’entreprise pour Android demande désormais à l’utilisateur final d’envoyer ses commentaires. Ces commentaires seront envoyés directement à Microsoft et permettent aux utilisateurs finaux de passer l’application en revue dans Google Play Store. La saisie de commentaires n’est pas obligatoire et peut être facilement ignorée, permettant ainsi aux utilisateurs finaux de continuer à utiliser l’application. 
+
+- **Informer les utilisateurs finaux des informations sur l’appareil qui peuvent être affichées pour les appareils Windows 10** <!--1337920--> Nous avons ajouté **Type de propriété** dans l’écran Détails sur l’appareil de l’application Portail d’entreprise pour Windows 10. Ainsi, les utilisateurs auront accès à de plus amples informations sur la confidentialité directement sur cette page à partir de la documentation utilisateur Intune. Ils les trouveront également sur l’écran **À propos de**.
+
+- **Nouvelle action « Resolve » (Résoudre) disponible pour les appareils Android** <!--1583480--> L’application Portail d’entreprise pour Android dispose désormais d’une action « Resolve » (Résoudre) sur la page _Mettre à jour les paramètres de l’appareil_. Si l’utilisateur final sélectionne cette option, il sera directement dirigé vers le paramètre à cause duquel son appareil n’est pas conforme. L’application Portail d’entreprise pour Android prend en charge actuellement cette action pour les paramètres [code d’accès de l’appareil](https://docs.microsoft.com/intune-user-help/set-your-pin-or-password-android), [chiffrement de l’appareil](https://docs.microsoft.com/intune-user-help/encrypt-your-device-android), [débogage USB](https://docs.microsoft.com/intune-user-help/you-need-to-turn-off-usb-debugging-android) et [Sources inconnues](https://docs.microsoft.com/intune-user-help/you-need-to-turn-off-unknown-sources-android). 
+
+
+### <a name="new-in-configuration-manager-current-branch"></a>Nouveautés de Configuration Manager (Current Branch)
+
+- **Nouveaux paramètres de stratégie de gestion des application mobiles** <!-- 1324760 --> Les paramètres suivants ont été ajoutés aux paramètres de stratégie de gestion des applications mobiles :
+  - **Désactiver la synchronisation des contacts :** empêche l’application d’enregistrer des données sur l’application Contacts native de l’appareil.
+  - **Désactiver l’impression :** empêche l’application d’imprimer des données scolaires ou de travail.
+
+  Consultez [Protéger les applications à l’aide des stratégies de protection des applications de Configuration Manager](/sccm/mdm/deploy-use/protect-apps-using-mam-policies) pour essayer de nouveaux paramètres de stratégie de protection d’application.
+
+- **Prise en charge des appareils Windows 10 ARM64** <!-- 1355000 --> Les scénarios de gestion hybride des appareils mobiles seront pris en charge sur les appareils ARM64 exécutant Windows 10 quand ces appareils seront disponibles. Pour plus de détails, consultez [Prise en charge des appareils Windows 10 ARM64](/sccm/core/plan-design/changes/whats-new-in-version-1710#windows-10-arm64-device-support).
+
+- **Expérience améliorée de profil VPN dans la console Configuration Manager** <!-- 1318232 --> Avec cette version, nous avons mis à jour l’Assistant Création d’un profil VPN et les pages de propriétés pour afficher uniquement les paramètres appropriés à la plateforme sélectionnée. Les fonctionnalités suivantes qui étaient précédemment disponibles dans Configuration Manager Technical Preview 1709 sont maintenant disponibles dans les déploiements hybrides avec Intune et Configuration Manager (Current Branch) version 1710 :
+  - [Expérience de profil VPN améliorée dans la console Configuration Manager](/sccm/core/plan-design/changes/whats-new-in-version-1710#improved-vpn-profile-experience-in-configuration-manager-console).
+
+
+Expérience de profil VPN améliorée dans la console Configuration Manager
+
+### <a name="new-in-configuration-manger-technical-preview-1711"></a>Nouveautés de Configuration Manager Technical Preview 1711
+
+- **Nouvelles options des stratégies de conformité pour Windows 10** Vous pouvez désormais configurer de nouvelles options pour les stratégies de conformité pour les appareils Windows 10. Les nouveaux paramètres incluent des stratégies pour les éléments suivants : Pare-feu, Contrôle de compte utilisateur, Anti-virus Windows Defender et contrôle de version de build OS. Pour plus de détails, consultez [Nouvelles options des stratégies de conformité pour Windows 10](/sccm/core/get-started/capabilities-in-technical-preview-1711#new-compliance-policy-options-for-windows-10).
 
 
 ## <a name="october-2017"></a>Octobre 2017
@@ -349,7 +382,7 @@ Les fonctionnalités hybrides supplémentaires suivantes sont également incluse
 
 - **Prise en charge d’Android for Work**
 
-  Vous pouvez désormais gérer les appareils Android à l’aide d’Android for Work dans les environnements MDM hybrides à l’aide de Configuration Manager Technical Preview 1702. Les appareils Android pris en charge peuvent maintenant être inscrits comme appareils Android for Work, ce qui crée un profil professionnel sur l’appareil sur lequel les applications approuvées dans Play for Work peuvent être déployées. Vous pouvez également configurer et déployer des éléments de configuration, des stratégies de conformité et des profils d’accès aux ressources pour ces appareils. Pour plus d’informations, consultez [Prise en charge d’Android for Work](/sccm/core/get-started/capabilities-in-technical-preview-1702#android-for-work-support).
+  Vous pouvez désormais gérer les appareils Android à l’aide d’Android for Work dans les environnements de gestion des appareils mobiles hybrides à l’aide de Configuration Manager Technical Preview 1702. Les appareils Android pris en charge peuvent maintenant être inscrits comme appareils Android for Work, ce qui crée un profil professionnel sur l’appareil sur lequel les applications approuvées dans Play for Work peuvent être déployées. Vous pouvez également configurer et déployer des éléments de configuration, des stratégies de conformité et des profils d’accès aux ressources pour ces appareils. Pour plus d’informations, consultez [Prise en charge d’Android for Work](/sccm/core/get-started/capabilities-in-technical-preview-1702#android-for-work-support).
 
 - **Paramètres de conformité des applications non conformes**
 
@@ -410,13 +443,13 @@ Nous vous recommandons de mettre à niveau les appareils Windows Phone 8.1 éli
 <!---1171127--->
 *6 juillet 2017*
 
-Les applications gérées et l’application Portail d’entreprise pour Android nécessiteront Android 4.4 et versions ultérieures accéder aux ressources d’entreprise. Les appareils qui ne sont pas mis à jour avant le début du mois d’octobre ne pourront plus accéder au Portail d’entreprise ou à ces applications. En décembre, tous les appareils inscrits seront mis hors service, provoquant ainsi la perte de l’accès aux ressources d’entreprise. Si vous utilisez des stratégies de protection d’application sans MDM, les applications ne reçoivent pas de mises à jour et la qualité de l’expérience baisse avec le temps.
+Les applications gérées et l’application Portail d’entreprise pour Android nécessiteront Android 4.4 et versions ultérieures accéder aux ressources d’entreprise. Les appareils qui ne sont pas mis à jour avant le début du mois d’octobre ne pourront plus accéder au Portail d’entreprise ou à ces applications. En décembre, tous les appareils inscrits seront mis hors service, provoquant ainsi la perte de l’accès aux ressources d’entreprise. Si vous utilisez des stratégies de protection d’application sans la Gestion des données de référence, les applications ne recevront pas de mises à jour et la qualité de l’expérience diminuera avec le temps.
 
 
 ### <a name="system-center-2012-configuration-sp1-and-system-center-2012-r2-configuration-manager-rtm-support-for-hybrid-mobile-device-management-ending-on-april-10-2017"></a>System Center 2012 Configuration SP1 et System Center 2012 R2 Configuration Manager (RTM) : fin de la prise en charge de la gestion hybride des appareils mobiles le 10 avril 2017
 *11 janvier 2017*
 
-La prise en charge de System Center 2012 Configuration Manager SP1 et de System Center 2012 R2 Configuration Manager RTM a pris fin le 12 juillet 2016. Par conséquent, la prise en charge de ces versions se connectant au service Microsoft Intune pour la gestion MDM hybride prend fin le 10 avril 2017. Après cette date, la gestion MDM hybride cesse de fonctionner avec ces versions. Les appareils gérés deviendront essentiellement non gérés car le connecteur Intune ne se connectera plus au service Intune. Les données de Configuration Manager (par exemple, les stratégies et les applications) ne seront plus transmises à Intune et les données d’appareil mobile ne parviendront plus à Configuration Manager jusqu’à ce qu’une mise à niveau soit appliquée.
+La prise en charge de System Center 2012 Configuration Manager SP1 et de System Center 2012 R2 Configuration Manager RTM a pris fin le 12 juillet 2016. Par conséquent, la prise en charge de ces versions se connectant au service Microsoft Intune pour la gestion hybride des appareils mobiles prendra fin le 10 avril 2017. Après cette date, la gestion hybride des appareils mobiles cessera de fonctionner avec ces versions. Les appareils gérés deviendront essentiellement non gérés car le connecteur Intune ne se connectera plus au service Intune. Les données de Configuration Manager (par exemple, les stratégies et les applications) ne seront plus transmises à Intune et les données d’appareil mobile ne parviendront plus à Configuration Manager jusqu’à ce qu’une mise à niveau soit appliquée.
 
 Si vous exécutez un déploiement hybride avec Configuration Manager 2012 SP1 ou R2 RTM, nous vous recommandons de mettre à niveau vers Configuration Manager (Current Branch) ou vers le dernier service pack pris en charge pour Configuration Manager 2012 (R2 SP1 ou SP2) avant le 10 avril 2017 afin d’éviter toute interruption du service.
 
