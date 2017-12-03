@@ -70,7 +70,7 @@ Pour appliquer des restrictions à une application, celle-ci doit intégrer le K
 
 4.  Sous l'onglet **Général** , sélectionnez **Détecter automatiquement les informations de cette application à partir des fichiers d'installation**.  
 
-5.  Dans la liste déroulante **Type**, sélectionnez **Package d’application pour iOS (\*fichier *.ipa)**.  
+5.  Dans la liste déroulante **Type**, sélectionnez **Package d’application pour iOS (fichier \*.ipa)**.  
 
 6.  Choisissez **Parcourir** pour sélectionner le package d’application à importer, puis **Suivant**.  
 
