@@ -11,14 +11,14 @@ ms.suite: na
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f4706a58-1f11-4eab-b1eb-3d1a0da02d0f
-author: Brenduns
-ms.author: brenduns
+author: erikje
+ms.author: erikje
 manager: angrobe
-ms.openlocfilehash: 309d677c0b8c692548d649346bb35bfa9d2a81f3
-ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
+ms.openlocfilehash: ed5f977df79114e1209cd3cc82d2e56e8e728c3d
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="capabilities-in-technical-preview-1710-for-system-center-configuration-manager"></a>Fonctionnalités de Technical Preview 1710 pour System Center Configuration Manager
 
@@ -71,7 +71,7 @@ Pour tester l’utilisation de la fonctionnalité Exécuter les scripts, consult
 ## <a name="limit-windows-10-enhanced-telemetry-to-only-send-data-relevant-to-windows-analytics-device-health"></a>Limiter la télémétrie avancée dans Windows 10 pour envoyer uniquement les données pertinentes à Windows Analytics Device Health
 <!-- 1356148 -->
 
-Avec cette version, vous pouvez désormais définir la collecte de données de télémétrie dans Windows 10 sur le niveau **Avancé (limité)**. Ce paramètre vous permet d’obtenir un insight actionnable sur les appareils de votre environnement sans que ces derniers aient à envoyer toutes les données de niveau de télémétrie **Avancé** avec Windows 10 version 1709 ou ultérieure.
+Avec cette version, vous pouvez désormais définir la collecte de données de télémétrie dans Windows 10 sur le niveau **Avancé (limité)**. Ce paramètre vous permet d’obtenir un insight actionnable sur les périphériques de votre environnement sans que ces derniers aient à envoyer toutes les données au niveau de télémétrie **Avancé** avec Windows 10 version 1709 ou ultérieure.
 
 Le niveau de télémétrie Avancé (limité) inclut les mesures du niveau de base, ainsi qu’un sous-ensemble de données collectées au niveau **Avancé** et pertinentes pour Windows Analytics. Pour plus d’informations sur les niveaux de télémétrie, consultez [Niveaux de télémétrie](https://docs.microsoft.com/windows/configuration/configure-windows-telemetry-in-your-organization#telemetry-levels).
 
@@ -88,7 +88,7 @@ Avec cette version, le Centre logiciel ne déforme plus les icônes aux dimensio
 Ajoutez une icône pour votre application dans le Centre logiciel. Pour ce faire, consultez [Créer des applications](/sccm/apps/deploy-use/create-applications).
 
 
-## <a name="check-compliance-from-software-center-for-co-managed-devices"></a>Vérifier auprès du Centre logiciel la conformité des appareils cogérés
+## <a name="check-compliance-from-software-center-for-co-managed-devices"></a>Vérifier auprès du Centre logiciel la conformité des périphériques cogérés
 <!-- 1356374 -->
 Dans cette version, les utilisateurs peuvent utiliser le Centre logiciel pour vérifier la conformité de leurs appareils Windows 10 cogérés, même quand l’accès conditionnel est géré par Intune. Pour plus d’informations, consultez [Cogestion pour les appareils Windows 10](./capabilities-in-technical-preview-1709.md#co-management-for-windows-10-devices).
 

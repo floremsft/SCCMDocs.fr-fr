@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: c64e7483-b4bb-4738-95f4-ecdaeb6a2ba6
 caps.latest.revision: "21"
-author: Brenduns
-ms.author: brenduns
+author: mestew
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: b16d9779c130bd83304d1b369c48c7e691bd8db3
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 770976309fbd5e8884dfec4bdaa29630ef1c02d0
+ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="upgrade-to-system-center-configuration-manager"></a>Mettre à niveau vers System Center Configuration Manager
 
@@ -224,7 +224,7 @@ Pour plus d’informations, consultez [Installer des consoles System Center Conf
 
 **Reconfigurez les réplicas de base de données des points de gestion au niveau des sites principaux :**  
 Si vous utilisez des réplicas de base de données pour les points de gestion au niveau des sites principaux, vous devez désinstaller ces réplicas avant la mise à niveau du site. Après avoir mis à niveau un site principal, reconfigurez le réplica de base de données des points de gestion.   
-Pour plus d’informations, consultez  [Réplicas de base de données pour les points de gestion de System Center Configuration Manager](../../../../core/servers/deploy/configure/database-replicas-for-management-points.md).  
+Pour plus d’informations, consultez  [Database replicas for management points for System Center Configuration Manager](../../../../core/servers/deploy/configure/database-replicas-for-management-points.md).  
 
 **Reconfigurez les tâches de maintenance de base de données désactivées avant la mise à niveau :**  
 Si vous avez désactivé des [tâches de maintenance de base de données pour System Center Configuration Manager](../../../../core/servers/manage/reference-for-maintenance-tasks.md) sur un site avant la mise à niveau, reconfigurez ces tâches sur le site en utilisant les paramètres existants avant la mise à niveau.  

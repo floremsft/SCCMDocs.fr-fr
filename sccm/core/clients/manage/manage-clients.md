@@ -15,11 +15,11 @@ caps.latest.revision: "17"
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: ae1bc53cf15b2a1746656667f7bf546742432c11
-ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
+ms.openlocfilehash: 8afb217524d5c2236fb07b13cb42ca50ae200183
+ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="how-to-manage-clients-in-system-center-configuration-manager"></a>Guide pratique pour gérer les clients dans System Center Configuration Manager
 
@@ -42,7 +42,7 @@ Notez que, selon le type d’appareil, certaines de ces options peuvent ne pas �
 
 3.  Sélectionnez un ou plusieurs appareils, puis sélectionnez une des tâches de gestion de client disponible dans le ruban ou en cliquant avec le bouton droit sur l’appareil :  
 
-    -   **Gérer les informations relatives à l'affinité entre appareil et utilisateur**  
+    -   **Gérer les informations relatives à l'affinité entre périphérique et utilisateur**  
 
          Configurez les associations entre les utilisateurs et les appareils, ce qui vous permet de déployer efficacement des logiciels sur les utilisateurs.  
 
@@ -155,9 +155,9 @@ Notez que, selon le type d’appareil, certaines de ces options peuvent ne pas �
 ##  <a name="BKMK_ManagingClients_DeviceCollectionsNode"></a> Gérer les clients à partir du nœud Regroupements d’appareils  
   Un grand nombre des tâches que vous pouvez réaliser sur un seul appareil ou sur plusieurs appareils dans le nœud **Appareils** peuvent être réalisées sur des regroupements. Ceci s’applique automatiquement l’opération à tous les appareils éligibles du regroupement. Notez que ceci génère un grand nombre de paquets réseau et augmente l’utilisation de l’UC sur le serveur de site.  
 
-  Avant d'effectuer des tâches de gestion du client au niveau du regroupement, vous devez prendre en compte le nombre d’appareils dans le regroupement, s'ils utilisent des connexions réseau à faible bande passante, et le temps que prendra la tâche pour tous les appareils. Une fois démarrée, vous ne pouvez pas arrêter la tâche à partir de la console.  
+  Avant d'effectuer des tâches de gestion du client au niveau du regroupement, vous devez prendre en compte le nombre de périphériques dans le regroupement, s'ils utilisent des connexions réseau à faible bande passante, et le temps que prendra la tâche pour tous les périphériques. Une fois démarrée, vous ne pouvez pas arrêter la tâche à partir de la console.  
 
-#### <a name="to-manage-clients-from-the-device-collections-node"></a>Pour gérer les clients à partir du nœud Regroupements d’appareils  
+#### <a name="to-manage-clients-from-the-device-collections-node"></a>Pour gérer les clients à partir du nœud Regroupements de périphériques  
 
 1.  Dans la console Configuration Manager, choisissez **Ressources et Conformité** > **Regroupements d’appareils**.  
 
@@ -189,10 +189,10 @@ Notez que, selon le type d’appareil, certaines de ces options peuvent ne pas �
 ## <a name="restart-clients"></a>Redémarrer les clients
 À compter de la version 1710, vous pouvez utiliser la console Configuration Manager pour identifier les appareils clients qui nécessitent un redémarrage, puis utiliser une action de notification de client pour les redémarrer.
 
-Pour identifier les appareils en attente d’un redémarrage, sélectionnez **Ressources et Conformité** > **Appareils** puis choisissez une collection d’appareils pouvant nécessiter un redémarrage. Après avoir sélectionné une collection, vous pouvez afficher l’état de chaque appareil dans le volet des détails d’une nouvelle colonne nommée **Redémarrage en attente**. Chaque appareil affiche la valeur **Oui** ou **Non**.
+Pour identifier les périphériques en attente d’un redémarrage, sélectionnez **Ressources et Conformité** > **Périphériques** puis choisissez une collection de périphériques pouvant nécessiter un redémarrage. Après avoir sélectionné une collection, vous pouvez afficher l’état de chaque appareil dans le volet des détails d’une nouvelle colonne nommée **Redémarrage en attente**. Chaque périphérique affiche la valeur **Yes** ou **No**.
 
 **Pour créer la notification invitant le client à redémarrer un appareil :**
-1.  Recherchez l’appareil que vous souhaitez redémarrer dans le nœud Appareils de la console.
+1.  Recherchez le périphérique que vous souhaitez redémarrer dans le nœud Périphériques de la console.
 2.  Cliquez avec le bouton droit sur l’appareil, sélectionnez **Notification du client** et **Redémarrer**. Une fenêtre s’ouvre et affiche des informations concernant le redémarrage. Cliquez sur **OK** pour confirmer la demande de redémarrage.
 
 Lorsqu’un client reçoit la notification, une fenêtre de notification **Centre logiciel** s’ouvre et pour informer l’utilisateur du redémarrage. Par défaut, le redémarrage se produit après 90 minutes. Vous pouvez modifier le délai de redémarrage en configurant les [paramètres du client](/sccm/core/clients/deploy/configure-client-settings). Les paramètres qui définissent le comportement du redémarrage se trouvent dans l’onglet [Redémarrage de l’ordinateur](/sccm/core/clients/deploy/about-client-settings#computer-restart) des paramètres par défaut.
@@ -269,12 +269,7 @@ Pour plus d’informations sur l’utilisation de ces propriétés de ligne de c
 
 2.  Sous l’onglet **Cache**, définissez les propriétés de l’espace et de l’emplacement. L'emplacement par défaut est *%windir%*\ccmcache.  
 
-5.  Pour supprimer les fichiers dans le dossier du cache, choisissez **Supprimer les fichiers**.  
-
-    > [!NOTE]
-    >
-    > Le dossier du cache est un dossier Windows normal : vous pouvez donc automatiser la suppression du contenu du dossier à l’aide d’un script ou d’un utilitaire, ou avec l’applet de commande PowerShell `Remove-Item`.
-
+3.  Pour supprimer les fichiers dans le dossier du cache, choisissez **Supprimer les fichiers**.  
 
 ### <a name="to-configure-client-cache-size-in-client-settings"></a>Pour configurer la taille du cache du client dans les paramètres client
 
@@ -358,12 +353,12 @@ Vous pouvez lancer une récupération de stratégie en utilisant :
 
 #### <a name="initiate-client-policy-retrieval-using-client-notification"></a>Lancer une récupération de stratégie client en utilisant une notification de client  
 
-1.  Dans la console Configuration Manager, choisissez **Ressources et Conformité** > **Regroupements d’appareils**.  
+1.  Dans la console Configuration Manager, choisissez **Ressources et Conformité** > **Regroupements de périphériques**.  
 
 3.  Sélectionnez le regroupement d’appareils contenant les ordinateurs dont vous voulez télécharger la stratégie. Sous l’onglet **Accueil**, dans le groupe **Regroupements**, choisissez **Notification du Client** > **Télécharger la stratégie d’ordinateur**.  
 
     > [!NOTE]  
-    >  Vous pouvez également utiliser une notification de client pour lancer la récupération de la stratégie pour un ou plusieurs appareils sélectionnés affichés dans un nœud de regroupement temporaire sous le nœud **Appareils**.  
+    >  Vous pouvez également utiliser une notification de client pour lancer la récupération de la stratégie pour un ou plusieurs périphériques sélectionnés affichés dans un nœud de regroupement temporaire sous le nœud **Périphériques** .  
 
 #### <a name="manually-initiate-client-policy-retrieval-on-the-actions-tab-of-the-configuration-manager-client"></a>Lancer manuellement la récupération de stratégie du client sous l’onglet Actions du client Configuration Manager  
 

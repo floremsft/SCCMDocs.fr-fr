@@ -15,11 +15,11 @@ caps.latest.revision: "15"
 author: NathBarn
 ms.author: nathbarn
 manager: angrobe
-ms.openlocfilehash: de813a38d6278a60189667165bf4911bd314f14a
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: a3fb0bc39f1606f1a65b5623c9567819b1a0c52e
+ms.sourcegitcommit: 5d46ed593b1cc461ea3f6ff6917bcd272b095ed7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="endpoint-protection-client-frequently-asked-questions"></a>Forum aux questions sur le client Endpoint Protection
 
@@ -63,7 +63,7 @@ Ce forum aux questions est destiné aux utilisateurs dont l’administrateur inf
     |Surveiller l’activité des programmes et des fichiers sur votre ordinateur|Cette option surveille le démarrage de l’exécution des fichiers ou programmes sur votre ordinateur, et vous avertit des actions effectuées par ou sur ces fichiers et programmes. Ceci est important, car les logiciels malveillants peuvent exploiter les vulnérabilités des programmes que vous avez installés pour exécuter à votre insu des logiciels malveillants ou indésirables. Par exemple, un logiciel espion peut s’exécuter lui-même en arrière-plan quand vous démarrez un programme que vous utilisez fréquemment. Windows Defender surveille vos programmes et vous avertit s’il détecte une activité suspecte.|  
     |Activer la surveillance du comportement|Cette option surveille les ensembles de comportements de types suspects qui peuvent ne pas être détectés par les méthodes de détection antivirus traditionnelles.|  
 
-    |Activer le système d’inspection du réseau|Cette option permet de protéger votre ordinateur contre les attaques « zero day » sur des vulnérabilités connues, en réduisant le délai entre la découverte d’une vulnérabilité et l’application d’une mise à jour.|  
+    |Activer le système d’inspection du réseau|Cette option permet de protéger votre ordinateur contre les attaques « zero-day » de vulnérabilités connues, en réduisant le délai entre la découverte d’une vulnérabilité et l’application d’une mise à jour.|  
 
 -   **Options d’analyse** : vous pouvez utiliser Windows Defender pour rechercher les menaces potentielles, notamment des virus, des logiciels espions et d’autres logiciels malveillants susceptibles de mettre votre ordinateur en danger. Il vous permet également de planifier des analyses régulières et de supprimer les logiciels malveillants qu'il détecte au cours d'une analyse.  
 

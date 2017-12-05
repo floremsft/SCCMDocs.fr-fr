@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 9ce0a8cb-f96c-4e41-834c-59ceb54ce44a
 caps.latest.revision: "157"
-author: Brenduns
-ms.author: brenduns
+author: erikje
+ms.author: erikje
 manager: angrobe
-ms.openlocfilehash: c03581ba5d582d6b86f17c7ec34c3e6e0e8d627e
-ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
+ms.openlocfilehash: 209beadba5b575afbd7d00cc52deb7a790d41c38
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="technical-preview-for-system-center-configuration-manager"></a>Technical Preview pour System Center Configuration Manager
 
@@ -113,7 +113,7 @@ Voici la liste des fonctionnalités fournies par chaque version Technical Previe
  |Fonctionnalité |Version Technical Preview |Version Current Branch|  
  |----------------|---------------------|--------------------|
  |Améliorations apportées à l’exécution de l’étape de la séquence de tâches<!-- 1261338 --> | [Tech Preview 1711](capabilities-in-technical-preview-1711.md) |![Non ajouté](media/Red_X.gif)    |
- |Autoriser l’interaction avec l’utilisateur durant l’installation d’une application <!-- 1356976 --> | [Tech Preview 1711](capabilities-in-technical-preview-1711.md) |![Non ajouté](media/Red_X.gif)    |
+ |Autoriser l’interaction utilisateur durant l’installation d’une application <!-- 1356976 --> | [Tech Preview 1711](capabilities-in-technical-preview-1711.md) |![Non ajouté](media/Red_X.gif)    |
  |Nouvelles stratégies de conformité pour Windows 10 <!-- 1356976 --> | [Tech Preview 1711](capabilities-in-technical-preview-1711.md#new-compliance-policy-options-for-windows-10) |![Non ajouté](media/Red_X.gif)    |
 
 
@@ -124,7 +124,7 @@ Voici la liste des fonctionnalités fournies par chaque version Technical Previe
  |----------------|---------------------|--------------------|
  |Télémétrie Windows 10 pour Windows Analytics Device Health <!--1356148 --> | [Tech Preview 1710](capabilities-in-technical-preview-1710.md#limit-windows-10-enhanced-telemetry-to-only-send-data-relevant-to-windows-analytics-device-health) |![Non ajouté](media/Red_X.gif)    |
  |Amélioration des icônes du Centre logiciel <!-- 1356194 --> | [Tech Preview 1710](capabilities-in-technical-preview-1710.md#software-center-no-longer-distorts-icons-larger-than-250x250) |![Non ajouté](media/Red_X.gif)    |
- |Vérifier auprès du Centre logiciel la conformité des appareils cogérés<!-- 1356374 -->|[Tech Preview 1710](capabilities-in-technical-preview-1710.md#check-compliance-from-software-center-for-co-managed-devices)|![Non ajouté](media/Red_X.gif)    |
+ |Vérifier auprès du Centre logiciel la conformité des périphériques cogérés<!-- 1356374 -->|[Tech Preview 1710](capabilities-in-technical-preview-1710.md#check-compliance-from-software-center-for-co-managed-devices)|![Non ajouté](media/Red_X.gif)    |
  |Prise en charge limitée des certificats CNG<!-- 1356191 -->| [Tech Preview 1710](capabilities-in-technical-preview-1710.md#limited-support-for-cng-certificates)|![Non ajouté](media/Red_X.gif)    |
  |Prise en charge d’Exploit Guard<!--1355468 --> | [Tech Preview 1710](capabilities-in-technical-preview-1710.md#support-for-exploit-guard) |[Version 1710](/sccm/protect/deploy-use/create-deploy-exploit-guard-policy)    |
  |Descriptions améliorées pour les redémarrages d’ordinateur en attente   <!-- 1356283  -->| [Tech Preview 1710](capabilities-in-technical-preview-1710.md)|[Version 1710](/sccm/core/clients/manage/manage-clients)    |
