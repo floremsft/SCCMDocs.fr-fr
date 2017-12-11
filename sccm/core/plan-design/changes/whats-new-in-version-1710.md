@@ -10,14 +10,14 @@ ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: bc6c3e5f-b9e2-400e-9d9d-446ff93c520c
-author: Brenduns
-ms.author: brenduns
+author: mestew
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 33a5bff1e202822ce3ec5755958d34af461957e9
-ms.sourcegitcommit: 536f7295e9ea361f1f9ead6c25f3685deb041ad8
+ms.openlocfilehash: 83bd5fc972bc0bef07b206e160463db71837e827
+ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="what39s-new-in-version-1710-of-system-center-configuration-manager"></a>Nouveautés de la version 1710 de System Center Configuration Manager
 
@@ -28,8 +28,8 @@ La mise à jour 1710 de la version Current Branch de System Center Configuratio
 > [!TIP]  
 > Pour installer un nouveau site, vous devez utiliser une version de base de Configuration Manager.  
 >  Informations supplémentaires :    
->   - [Installation de nouveaux sites](https://technet.microsoft.com/library/mt590197.aspx)  
->   - [Installation de mises à jour sur les sites](https://technet.microsoft.com/library/mt607046.aspx)  
+>   - [Installation de nouveaux sites](/sccm/core/servers/deploy/install/installing-sites)  
+>   - [Installation de mises à jour sur les sites](/sccm/core/servers/manage/updates)  
 >   - [Versions de base et de mise à jour](/sccm/core/servers/manage/updates#a-namebkmkbaselinesa-baseline-and-update-versions)  
 
 Les sections suivantes fournissent des détails sur les modifications et les nouvelles fonctionnalités introduites dans la version 1710 de Configuration Manager.  
@@ -60,13 +60,13 @@ Vous pouvez maintenant utiliser des [points de distribution cloud](/sccm/core/pl
 <!-- 1350871 -->
 À partir de Windows 10 version 1607 (également appelée Mise à jour anniversaire), vous pouvez joindre à la fois un appareil Windows 10 à Active Directory (AD) localement et à Azure AD basé sur le cloud (Azure AD hybride). La cogestion tire parti de cette amélioration et vous permet de gérer simultanément plusieurs appareils Windows 10 à l’aide de Configuration Manager et d’Intune. C’est une solution qui établit une passerelle entre la gestion classique et la gestion moderne tout en vous donnant la possibilité d’opérer cette transition selon une approche en plusieurs phases. Pour plus d’informations, consultez [Cogestion pour les appareils Windows 10](/sccm/core/clients/manage/co-management-overview).
 
-### <a name="restart-computers-form-the-configuration-manager-console-----1356283---"></a>Redémarrer les ordinateurs à partir de la console Configuration Manager <!-- 1356283 -->
+### <a name="restart-computers-from-the-configuration-manager-console-----1356283---"></a>Redémarrer les ordinateurs à partir de la console Configuration Manager <!-- 1356283 -->
 À compter de cette version, vous pouvez utiliser la console Configuration Manager pour identifier les périphériques clients qui nécessitent un redémarrage, puis utiliser une action de notification de client pour les redémarrer.
 
 Consultez [Guide pratique pour gérer les clients dans System Center Configuration Manager](/sccm/core/clients/manage/manage-clients#restart-clients)
 
 
-<!--  ## Compliance settings  -->
+<!-- ## Compliance settings -->
 
 
 ## <a name="application-management"></a>Gestion des applications
@@ -130,6 +130,10 @@ Pour plus d’informations, consultez [Guide pratique pour configurer les param�
 
 
 ## <a name="mobile-device-management"></a>Gestion des appareils mobiles
+
+### <a name="actions-for-non-compliance"></a>Actions en cas de non-conformité 
+<!--1321366 -->    
+Vous pouvez désormais configurer une séquence chronologique d’actions appliquées aux appareils qui ne sont pas conformes. Par exemple, vous pouvez notifier les utilisateurs d’appareils non conformes par e-mail ou marquer ces appareils comme non conformes. Pour plus d’informations, consultez [Configurer des actions en cas de non-conformité](/sccm/mdm/deploy-use/actions-for-noncompliance).
 
 ### <a name="windows-10-arm64-device-support"></a>Prise en charge des appareils Windows 10 ARM64
 <!-- 1355000 -->

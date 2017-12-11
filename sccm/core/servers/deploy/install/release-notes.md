@@ -3,7 +3,7 @@ title: 'Notes de publication '
 titleSuffix: Configuration Manager
 description: "Consultez ces notes pour les problèmes urgents qui ne sont pas encore résolus dans le produit ou traités dans un article de la Base de connaissances Microsoft."
 ms.custom: na
-ms.date: 08/23/2017
+ms.date: 11/28/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -13,14 +13,14 @@ ms.topic: get-started-article
 ms.assetid: 030947fd-f5e0-4185-8513-2397fb2ec96f
 caps.latest.revision: "41"
 caps.handback.revision: "0"
-author: Brenduns
-ms.author: brenduns
+author: mestew
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 2571cfbff1373db05279918af776d8be81a5c322
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 8030ce7f98ebb34d9581ad036513b9b1c879c0ad
+ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="release-notes-for-system-center-configuration-manager"></a>Notes de publication de System Center Configuration Manager
 
@@ -37,30 +37,10 @@ Pour plus d’informations sur les nouvelles fonctionnalités introduites dans l
 - [Nouveautés dans la version 1706](/sccm/core/plan-design/changes/whats-new-in-version-1706)  
 - [Nouveautés dans la version 1702](/sccm/core/plan-design/changes/whats-new-in-version-1702)
 - [Nouveautés dans la version 1610](/sccm/core/plan-design/changes/whats-new-in-version-1610)
-   
+
 
 
 ## <a name="setup-and-upgrade"></a>Installation et mise à niveau  
-
-### <a name="after-you-update-a-configuration-manager-console-using-consolesetupexe-from-the-site-server-folder-recent-language-pack-changes-are-not-available"></a>Après avoir mis à jour une console Configuration Manager à l’aide du fichier ConsoleSetup.exe du dossier du serveur de site, les dernières modifications du pack linguistique ne sont pas disponibles
-<!--  SMS 486420  Applicability should be 1610 and 1702.  -->
-*Les éléments suivants s’appliquent aux versions 1610 et 1702.*   
-Après une mise à jour sur place exécutée sur une console à l’aide du fichier ConsoleSetup.exe d’un dossier d’installation de serveurs de site, il est possible que les modules linguistiques récemment installés ne soient pas disponibles. Cela se produit lorsque :
-- Votre site exécute la version 1610 ou 1702.
-- La console est mise à jour sur place à l’aide du fichier ConsoleSetup.exe du dossier d’installation du serveur de site.
-
-Lorsque ce problème se produit, la console réinstallée n’utilise pas la dernière série de modules linguistiques qui ont été configurés. Aucune erreur n’est retournée, mais les modules linguistiques disponibles dans la console n’auront pas changé.  
-
-**Solution de contournement :** désinstallez la console actuelle et réinstallez la console en tant que nouvelle installation. Vous pouvez utiliser le fichier ConsoleSetup.exe du dossier d’installation des serveurs de site. Pendant l’installation, veillez à sélectionner les fichiers du pack linguistique que vous souhaitez utiliser.
-
-
-### <a name="with-version-1702-the-default-site-boundary-group-is-configured-for-use-for-site-assignment"></a>Avec la version 1702, le groupe de limites de site par défaut est configuré pour une utilisation dans le cadre d’une attribution de site
-<!--  SMS 486380   Applicability should only be to 1702. -->
-*Les éléments suivants s’appliquent à la version 1702.*  
-L’onglet Référence des groupes de limites de site par défaut affiche une coche pour l’option **Utiliser ce groupe de limites pour l'attribution de site**, répertorie le site en tant que **site attribué** et apparaît en grisé indiquant que la configuration ne peut pas être modifiée ou supprimée.
-
-**Solution de contournement :** aucune. Vous pouvez ignorer ce paramètre. Même si le groupe est activé pour l’attribution de site, le groupe de limites de site par défaut n’est pas utilisé pour l’attribution de site. Avec la version 1702, cette configuration garantit que le groupe de limites de site par défaut est associé au site approprié.
-
 
 
 ### <a name="when-installing-a-long-term-service-branch-site-using-version-1606-a-current-branch-site-is-installed"></a>Quand vous installez un site Long-Term Service Branch à l’aide de la version 1606, un site Current Branch est installé
@@ -112,29 +92,6 @@ Quand vous exécutez le programme d’installation à partir d’un dossier CD.L
  - Supprimez manuellement le dossier *cd.latest\redist\languagepack\zhh*, puis réexécutez le programme d’installation.
 
 
-### <a name="service-connection-tool-throws-an-exception-when-sql-server-is-remote-or-when-shared-memory-is-disabled"></a>L’outil de connexion de service lève une exception quand le serveur SQL Server est distant ou quand la mémoire partagée est désactivée
-<!-- 479223   Fixed in 1702 and later   -->
-*Les éléments suivants s’appliquent à la version 1610 et versions antérieures.*  
-L’outil de connexion de service génère une exception si l’une des conditions suivantes s’applique :  
- -  Votre base de données de site est distante de l’ordinateur qui héberge le point de connexion de service et utilise un port non standard (autre que le port 1433)
- -  Votre base de données de site se trouve sur le même serveur que le point de connexion de service, mais l’option **Mémoire partagée** du protocole SQL est désactivée
-
-L’exception est semblable à la suivante :
- - *Exception non prise en charge : System.Data.SqlClient.SqlException : Une erreur liée au réseau ou spécifique à l’instance s’est produite lors de l’établissement d’une connexion à SQL Server. Le serveur est introuvable ou n’est pas accessible. Vérifiez que le nom de l’instance est correct et que SQL Server est configuré pour autoriser les connexions distantes. (fournisseur : Fournisseur de canaux nommés, erreur : 40 - Impossible d’ouvrir une connexion à SQL Server) --*
-
-**Solution de contournement** : quand vous utilisez l’outil, vous devez modifier le Registre du serveur qui héberge le point de connexion de service de manière à inclure des informations sur le port SQL Server :
-
-   1.   Avant d’utiliser l’outil, modifiez la clé de Registre suivante et ajoutez le numéro du port utilisé au nom du serveur SQL Server :
-    - Clé : HKLM\Microsoft\SMS\COMPONENTS\SMS_DMP_UPLOADER\
-      - Valeur : &lt;nom du serveur SQL Server>
-    - Ajoutez : **,&lt;PORT>**
-
-    Par exemple, pour ajouter le port *15001* à un serveur nommé *testserver.test.net*, la clé résultante est la suivante : ***HKLM\Software\Microsoft\SMS\COMPONENTS\SMS_DMP_UPLOADER\testserver.test.net,15001***
-
-   2.   Une fois le port ajouté au Registre, l’outil doit fonctionner normalement.  
-
-   3.   Quand vous avez terminé d’utiliser l’outil, pour les étapes **-connect** et **-import**, rétablissez la valeur d’origine de la clé de Registre.  
-
 
 <!-- ## Backup and recovery  -->
 
@@ -157,15 +114,6 @@ Par défaut, l’Assistant Créer un plan de maintenance s’exécute actuelleme
 après avoir créé un plan de maintenance, ouvrez les propriétés de celui-ci, accédez à l’onglet **Calendrier d’évaluation**, sélectionnez **Exécuter la règle dans un calendrier**, cliquez sur **Personnaliser**, puis créez un calendrier personnalisé. Par exemple, vous pouvez faire en sorte que le plan de maintenance s’exécute tous les 60 jours.  
 
 
-### <a name="when-a-high-risk-deployment-dialog-is-visible-to-a-user-subsequent-high-risk-dialogs-with-a-sooner-deadline-are-not-displayed"></a>Quand une boîte de dialogue de déploiement à haut risque est visible pour l’utilisateur, les boîtes de dialogue à haut risque ultérieures avec une échéance plus courte ne sont pas affichées
-<!-- Fixed in 1702 and later -->
-*Les éléments suivants s’appliquent à la version 1610 et versions antérieures.*   
-Une fois que vous avez créé et déployé un déploiement de tâches à haut risque sur les utilisateurs, une boîte de dialogue à haut risque s’affiche pour l’utilisateur. Si l’utilisateur ne ferme pas la boîte de dialogue et que vous créez et déployez un autre déploiement à haut risque avec une échéance plus courte que la première, l’utilisateur ne reçoit pas de boîte de dialogue mise à jour tant qu’il ne ferme pas la boîte de dialogue d’origine. Les déploiements continuent de s’exécuter selon les échéances configurées.
-
-**Solution de contournement** :  
-L’utilisateur doit fermer la boîte de dialogue pour que le premier déploiement à haut risque affiche la boîte de dialogue du déploiement à haut risque suivant.
-
-
 
 ## <a name="software-updates"></a>Mises à jour logicielles
 
@@ -180,6 +128,12 @@ Utilisez uniquement les [langues prises en charge par le client Office 365 ProPl
 
 
 ## <a name="mobile-device-management"></a>Gestion des appareils mobiles  
+
+### <a name="beginning-with-version-1710-you-can-no-longer-deploy-windows-phone-81-vpn-profiles-to-windows-10------503274--should-be-fixed-by-1802-if-not-sooner---"></a>À compter de la version 1710, vous ne pouvez plus déployer de profils VPN Windows Phone 8.1 sur Windows 10   <!-- 503274  Should be fixed by 1802, if not sooner -->
+Dans la version 1710, il n’est plus possible de créer un profil VPN à l’aide du workflow Windows Phone 8.1 qui s’applique aussi aux appareils Windows 10. Pour ces profils, la page Plateformes prises en charge n’est plus affichée dans l’Assistant Création et Windows Phone 8.1 est automatiquement sélectionné sur le back-end ; dans les pages de propriétés, la page Plateformes prises en charge est disponible, mais les options Windows 10 ne sont pas affichées.
+
+**Solution de contournement** : Utilisez le workflow du profil VPN Windows 10 pour les appareils Windows 10. Si ce n’est pas possible pour votre environnement, contactez le support technique. Si nécessaire, le support technique peut vous aider à ajouter le ciblage Windows 10.
+
 
 ### <a name="full-wipe-disables-windows-10-devices-with-less-than-4-gb-ram"></a>Une réinitialisation complète désactive les appareils Windows 10 avec moins de 4 Go de RAM
 L’exécution d’une réinitialisation complète sur les appareils Windows 10 RTM (versions antérieures à la version 1511) avec moins de 4 Go de RAM peut rendre l’appareil inutilisable. Après une tentative de réinitialisation de l’appareil, il ne peut pas démarrer et ne répond pas.
@@ -204,20 +158,4 @@ Lorsqu’un profil de messagerie Android for Work est créé, deux options d’a
 
 <!-- ## Reports and monitoring    -->
 <!-- ## Conditional access   -->
-
-
-## <a name="endpoint-protection"></a>Endpoint Protection
-
-### <a name="antimalware-policy-fails-to-apply-on-windows-server-2016-core"></a>La stratégie de logiciel anti-programme malveillant ne parvient pas à s’appliquer sur Windows Server 2016 Core
-<!--  Product Studio bug 485370 added 04 19 2017   Fixed in 1702 -->
-*Les éléments suivants s’appliquent à la version 1610 et versions antérieures.*  
-La stratégie de logiciel anti-programme malveillant ne parvient pas à s’appliquer sur Windows Server 2016 Core.  Le code d’erreur est 0x80070002.  Il existe une dépendance manquante pour ConfigSecurityPolicy.exe.
-
-**Solution de contournement :** Ce problème est résolu par [l’article 4019472 de la Base de connaissances](https://support.microsoft.com/help/4019472/windows-10-update-kb4019472) publié le 9 mai 2017.
-
-
-### <a name="windows-defender-advanced-threat-protection-policies-fail-on-older-client-agents"></a>Les stratégies Windows Defender Advanced Threat Protection (ATP) échouent sur les agents de clients plus anciens
-<!-- Product Studio bug 462286 added  05 25 2017 and valid until July 2017 GA release      Fixed in 1610 -->
-Les stratégies Windows Defender Advanced Threat Protection créées à partir d’un serveur de site Configuration Manager 1610 ou version ultérieure ne seront pas appliquées à Configuration Manager version 1606 et les clients antérieurs.  Les clients ne sont pas embarqués et l’évaluation de la stratégie signale une erreur. L**’état du déploiement** dans la configuration Windows Defender Advanced Threat Protection affiche **Erreur**.
-
-**Solution de contournement** : mettez à niveau le client Configuration Manager avec la version 1610 ou ultérieure.
+<!-- ## Endpoint Protection -->

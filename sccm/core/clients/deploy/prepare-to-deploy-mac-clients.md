@@ -3,7 +3,7 @@ title: "Préparer le déploiement du logiciel client pour ordinateurs Mac"
 titleSuffix: Configuration Manager
 description: "Tâches de configuration avant le déploiement du client Configuration Manager sur des ordinateurs Mac."
 ms.custom: na
-ms.date: 05/04/2017
+ms.date: 11/28/2017
 ms.prod: configuration-manager
 ms.reviewer: aaroncz
 ms.suite: na
@@ -15,17 +15,17 @@ caps.latest.revision: "12"
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: b878c7b0328e89ff7b12bf44167fd12444a0cba4
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 1d096111250af4061c94e71f8dc602ccae2d4607
+ms.sourcegitcommit: 1dd051d8548a19b724bb8f9e6a2278a4901ed916
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="prepare-to-deploy-client-software-to-macs"></a>Préparer le déploiement du logiciel client pour ordinateurs Mac
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
-Procédez comme suit pour vérifier que vous êtes prêt à [déployer le client Configuration Manager sur les ordinateurs Mac](/sccm/core/clients/deploy/deploy-clients-to-macs). 
+Procédez comme suit pour vérifier que vous êtes prêt à [déployer le client Configuration Manager sur les ordinateurs Mac](/sccm/core/clients/deploy/deploy-clients-to-macs).
 
 ## <a name="mac-prerequisites"></a>Prérequis des ordinateurs Mac
 
@@ -33,9 +33,9 @@ Le package d’installation de client Mac n’est pas fourni avec le support d�
 
 **Versions prises en charge :**  
 
--   **Mac OS X 10.6** (Snow Leopard) 
+-   **Mac OS X 10.6** (Snow Leopard)
 
--   **Mac OS X 10.7** (Lion) 
+-   **Mac OS X 10.7** (Lion)
 
 -   **Mac OS X 10.8** (Mountain Lion)
 
@@ -49,11 +49,13 @@ Le package d’installation de client Mac n’est pas fourni avec le support d�
 
 -   **Mac OS X 10.12** (macOS Sierra)  
 
+-   **Mac OS X 10.13** (macOS High Sierra)  
+
 ## <a name="certificate-requirements"></a>Conditions de certificat
 L’installation et la gestion de clients pour les ordinateurs Mac nécessitent des certificats d’infrastructure à clé publique (PKI). Les certificats PKI permettent de sécuriser les communications entre les ordinateurs Mac et le site Configuration Manager grâce à une authentification mutuelle et des transferts de données chiffrés. Configuration Manager peut demander et installer un certificat client utilisateur à l’aide des services de certificat Microsoft avec une autorité de certification d’entreprise (CA) et les rôles de système de site du point d’inscription et du point proxy d’inscription de Configuration Manager. Vous pouvez également demander et installer un certificat d’ordinateur indépendamment de Configuration Manager si le certificat répond aux critères de Configuration Manager.   
-  
+
 Les clients Mac Configuration Manager procèdent toujours à une vérification de la révocation des certificats. Vous ne pouvez pas désactiver cette fonction.  
-  
+
 Si les clients Mac ne peuvent pas vérifier l’état de révocation du certificat d’un serveur du fait de leur incapacité à localiser la liste CRL, ils ne peuvent pas se connecter aux systèmes de site Configuration Manager. Vérifiez la conception de votre liste CRL pour être certain que les clients Mac (plus particulièrement ceux appartenant à une forêt différente de celle de l'autorité de certification émettrice) seront en mesure de localiser et de se connecter à un point de distribution de la liste CRL (CDP) pour la connexion des serveurs de système de site.  
 
 Avant d’installer le client Configuration Manager sur un ordinateur Mac, choisissez le mode d’installation du certificat client :  
@@ -83,7 +85,7 @@ Si ces systèmes de site n’en ont pas, déployez un certificat de serveur web 
 
 Le certificat de serveur Web doit contenir le nom de domaine Internet complet qui est spécifié dans les propriétés de système de site. Le serveur ne doit pas nécessairement être accessible sur Internet pour prendre en charge les ordinateurs Mac. Si vous n'exigez pas de gestion des clients basée sur Internet, vous pouvez spécifier la valeur du nom de domaine complet intranet pour le nom de domaine complet Internet.  
 
-Spécifiez la valeur du nom de domaine complet Internet du système de site dans le certificat de serveur web pour le point de gestion, le point de distribution et le point proxy d’inscription. 
+Spécifiez la valeur du nom de domaine complet Internet du système de site dans le certificat de serveur web pour le point de gestion, le point de distribution et le point proxy d’inscription.
 
 Pour voir un exemple de déploiement qui crée et installe ce certificat de serveur web, consultez [Déploiement du certificat de serveur web pour les systèmes de site qui exécutent IIS](../../plan-design/network/example-deployment-of-pki-certificates.md#BKMK_webserver2008_cm2012).  
 
@@ -119,10 +121,10 @@ Pour voir un exemple de déploiement qui crée et installe ce certificat de serv
 
  Même si les points de distribution ne sont pas indispensables à l’installation du client, vous devez en configurer pour permettre au client de se connecter à partir d’Internet si vous voulez déployer des logiciels sur ces ordinateurs après avoir installé le client.  
 
- 
+
 ### <a name="to-configure-management-points-and-distribution-points-to-support-macs"></a>Pour configurer les points de gestion et les points de distribution pour prendre en charge les ordinateurs Mac  
 
-Avant d'entamer cette procédure, assurez-vous que le serveur de système de site exécutant le point de gestion et le point de distribution est configuré avec un nom de domaine Internet complet. Si ces serveurs de système de site ne prennent pas en charge la gestion des clients sur Internet, vous pouvez spécifier le nom de domaine complet intranet comme valeur du nom de domaine complet Internet. 
+Avant d'entamer cette procédure, assurez-vous que le serveur de système de site exécutant le point de gestion et le point de distribution est configuré avec un nom de domaine Internet complet. Si ces serveurs de système de site ne prennent pas en charge la gestion des clients sur Internet, vous pouvez spécifier le nom de domaine complet intranet comme valeur du nom de domaine complet Internet.
 
 Les rôles de système de site doivent se trouver dans un site principal.  
 

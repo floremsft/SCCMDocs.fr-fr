@@ -16,11 +16,11 @@ caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 02d3ca5ed494c20266125686f26b66cebcc7c2a2
-ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
+ms.openlocfilehash: 40a2d91baf8c02cdda96e9520ce155032272ebdd
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="task-sequence-steps-in-system-center-configuration-manager"></a>Étapes de séquence de tâches dans System Center Configuration Manager
 
@@ -538,22 +538,6 @@ Cette étape de séquence de tâches s'exécute uniquement dans Windows PE. Elle
 
  **S’assurer que le SE à actualiser est**  
  Sélectionnez ce paramètre pour vérifier que le système d'exploitation installé sur l'ordinateur cible remplit la condition que vous spécifiez. Par défaut, ce paramètre est sélectionné avec la valeur **CLIENT**.  
-
-##  <a name="child-task-sequence"></a>Séquence de tâches enfant
-
-À partir de Configuration Manager version 1710, vous pouvez ajouter une nouvelle étape de séquence de tâches qui exécute une autre séquence de tâches. Ainsi, une relation parent-enfant est créée entre les séquences de tâches. Avec un séquence de tâches enfant, vous pouvez créer des séquences de tâches modulaires et réutilisables.
-
-Lorsque vous ajoutez une séquence de tâches enfant à une séquence de tâches, considérez les éléments suivants :
-
- - Les séquences de tâches parent et enfant sont en fait combinées en une stratégie unique exécutée par le client.
- - L’environnement est global. Par exemple, si une variable est définie par la séquence de tâches parent avant d’être modifiée par la séquence de tâches enfant, la variable restera modifiée. De même, si la séquence de tâches enfant crée une nouvelle variable, la variable est disponible pour les étapes restantes de la séquence de tâches parent.
- - Les messages d’état sont envoyés normalement pour une opération de séquence de tâches unique.
- - Les séquences de tâches inscrivent des entrées dans le fichier smsts.log et le nouveau journal écritures indique clairement lorsqu’une séquence de tâches enfant démarre.
-
-### <a name="details"></a>Détails
-
-1. Dans l’Éditeur de séquence de tâches, cliquez sur **Ajouter**, sélectionnez **Général**, puis cliquez sur **Exécuter la séquence de tâches**.
-2. Cliquez sur **Parcourir** pour sélectionner la séquence de tâches enfant.  
 
 ##  <a name="BKMK_ConnectToNetworkFolder"></a> Se connecter à un dossier réseau  
  Utilisez l'action de la séquence de tâches **Connexion à un dossier réseau** pour établir une connexion avec un dossier réseau partagé.  
@@ -1423,6 +1407,22 @@ Avant Configuration Manager version 1610, cette étape effectuait les tâches su
 
 > [!IMPORTANT]  
 >  PowerShell 1.0 ne prend pas en charge les stratégies d'exécution Non défini et Ignorer.  
+
+##  <a name="child-task-sequence"></a> Exécuter une séquence de tâches
+
+À partir de Configuration Manager version 1710, vous pouvez ajouter une nouvelle étape de séquence de tâches qui exécute une autre séquence de tâches. Ainsi, une relation parent-enfant est créée entre les séquences de tâches. Avec une séquence de tâches enfant, vous pouvez créer des séquences de tâches modulaires et réutilisables.
+
+Lorsque vous ajoutez une séquence de tâches enfant à une séquence de tâches, considérez les éléments suivants :
+
+ - Les séquences de tâches parent et enfant sont en fait combinées en une stratégie unique exécutée par le client.
+ - L’environnement est global. Par exemple, si une variable est définie par la séquence de tâches parent avant d’être modifiée par la séquence de tâches enfant, la variable restera modifiée. De même, si la séquence de tâches enfant crée une nouvelle variable, la variable est disponible pour les étapes restantes de la séquence de tâches parent.
+ - Les messages d’état sont envoyés normalement pour une opération de séquence de tâches unique.
+ - Les séquences de tâches inscrivent des entrées dans le fichier smsts.log et le nouveau journal écritures indique clairement lorsqu’une séquence de tâches enfant démarre.
+
+### <a name="details"></a>Détails
+
+1. Dans l’Éditeur de séquence de tâches, cliquez sur **Ajouter**, sélectionnez **Général**, puis cliquez sur **Exécuter la séquence de tâches**.
+2. Cliquez sur **Parcourir** pour sélectionner la séquence de tâches enfant.  
 
 ##  <a name="BKMK_SetDynamicVariables"></a> Définir des variables dynamiques  
  Utilisez l'étape de séquence de tâches **Définir des variables dynamique** pour effectuer les opérations suivantes :  
