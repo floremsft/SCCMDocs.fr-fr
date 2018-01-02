@@ -3,7 +3,7 @@ title: "Gérer l'accès à SharePoint Online"
 titleSuffix: Configuration Manager
 description: "Apprenez à utiliser la stratégie d’accès conditionnel System Center Configuration Manager SharePoint Online pour gérer l’accès à OneDrive."
 ms.custom: na
-ms.date: 03/05/2017
+ms.date: 12/09/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -13,14 +13,14 @@ ms.topic: article
 ms.assetid: 49cec466-1676-4fe2-a2fe-5004f01d735e
 caps.latest.revision: "11"
 caps.handback.revision: "0"
-author: andredm7
-ms.author: andredm
+author: arob98
+ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: 2c1d7cd3462a54a064ec47d0b375ee4cdb25a4b4
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 99b2aca418b7ce28a4216b38e711b3d38973e2b7
+ms.sourcegitcommit: 372171a5cd8d143d6d47b651018cda0c91cad67c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="manage-sharepoint-online-access-in-system-center-configuration-manager"></a>Gérer l’accès à SharePoint Online dans System Center Configuration Manager
 
@@ -164,7 +164,7 @@ Les applications de bureau Office peuvent accéder à SharePoint Online sur les 
 
 4.  Sous **Accès du navigateur à SharePoint et à OneDrive Entreprise**, vous pouvez choisir d’autoriser l’accès à Exchange Online uniquement par le biais des navigateurs pris en charge : Safari (iOS) et Chrome (Android). L’accès à partir d’autres navigateurs sera bloqué.  Les mêmes restrictions de plateforme que celles que vous avez sélectionnées pour l’accès aux applications pour OneDrive s’appliquent également ici.
 
-    Sur les appareils **Android** , les utilisateurs doivent activer l’accès du navigateur.  Pour cela, l’utilisateur final doit activer l’option « Activer l’accès du navigateur » sur l’appareil inscrit :
+    Sur les appareils **Android** , les utilisateurs doivent activer l’accès du navigateur.  Pour cela, l’utilisateur final doit activer l’option **Activer l’accès du navigateur** sur l’appareil inscrit en procédant comme suit :
     1.  Lancez **l’application Portail d’entreprise**.
     2.  Accédez à la page **Paramètres** via les trois points (...) ou le bouton de menu matériel.
     3.  Appuyez sur le bouton **Activer l’accès du navigateur** .

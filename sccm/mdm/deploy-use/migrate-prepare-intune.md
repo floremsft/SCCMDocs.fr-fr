@@ -5,17 +5,17 @@ description: "Apprenez à préparer Intune sur Azure à la migration des utilisa
 keywords: 
 author: dougeby
 manager: dougeby
-ms.date: 09/14/2017
+ms.date: 12/05/2017
 ms.topic: article
 ms.prod: configmgr-hybrid
 ms.service: 
 ms.technology: 
 ms.assetid: db97ae9e-34f4-4e10-a282-cd211f612bb4
-ms.openlocfilehash: 7addb69ff0336b82d0e59e2288110ebb7c074af3
-ms.sourcegitcommit: 986fc2d54f7c5fa965fd4df42f4db4ecce6b79cb
+ms.openlocfilehash: 226586f0ee42cdad98b1d74f25421685d85e0dcf
+ms.sourcegitcommit: 8c6e9355846ff6a73c534c079e3cdae09cf13c45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="prepare-intune-for-user-migration"></a>Préparer Intune à la migration des utilisateurs 
 
@@ -39,7 +39,7 @@ Si vous avez terminé le processus d’[importation des données Configuration M
 Dans Configuration Manager, ajoutez un regroupement à l’abonnement Intune dont les membres ont la possibilité d’inscrire leurs appareils. Alors qu’une licence Intune est réservée aux appareils inscrits, cette licence n’est pas spécifiquement associée à l’utilisateur ou à l’appareil. Par exemple, vous ne trouverez pas une licence Intune dans AAD pour un utilisateur qui dispose d’un appareil inscrit. Toutefois, dans la version autonome d’Intune, vous devez configurer une licence Intune pour chaque utilisateur. Vous devez le faire AVANT de migrer un utilisateur vers la version autonome d’Intune pour veiller à ce que l’utilisateur et ses appareils soient gérés par Intune après le changement d’autorité MDM. Pour plus d’informations, consultez [Attribuer des licences Intune à vos comptes d’utilisateur](https://docs.microsoft.com/intune/licenses-assign). 
 
 ## <a name="verify-intune-user-groups"></a>Vérifier les groupes d’utilisateurs Intune
-Vos utilisateurs et groupes sont probablement déjà dans AAD, car vous avez configuré la synchronisation d’annuaires. Pour vous assurer que vos utilisateurs font partie du groupe approprié, nous vous recommandons de passer en revue vos groupes d’utilisateurs Intune. Vous allez cibler des stratégies, profils, applications, etc. sur ces groupes. Assurez-vous que les utilisateurs que vous migrez vers la version autonome d’Intune font partie des groupes appropriés. 
+Vos utilisateurs et groupes sont probablement déjà dans AAD, car vous avez configuré la synchronisation d’annuaires. Pour vous assurer que vos utilisateurs font partie du groupe approprié, nous vous recommandons de passer en revue vos groupes d’utilisateurs Intune. Vous ciblez des stratégies, profils, applications, etc. sur ces groupes. Assurez-vous que les utilisateurs que vous migrez vers la version autonome d’Intune font partie des groupes appropriés. 
 
 ## <a name="configure-role-based-administration-control-rbac"></a>Configurer le contrôle de l’administration basée sur des rôles
 Dans le cadre de la migration, configurez tous les rôles de contrôle de l’administration basée sur des rôles nécessaires dans Intune et affectez des utilisateurs à ces rôles. Notez qu’il existe des différences entre le contrôle de l’administration basée sur des rôles dans Configuration Manager et Intune, comme l’étendue des ressources. Pour plus d’informations, consultez [Contrôle de l’administration basée sur des rôles avec Intune](https://docs.microsoft.com/en-us/intune/role-based-access-control).
@@ -51,17 +51,20 @@ Si vous avez terminé la phase d’[importation des données Configuration Manag
 - [Affecter des applications](https://docs.microsoft.com/intune/get-started-apps) 
 
 ## <a name="terms-and-conditions-policy"></a>Stratégie de conditions générales
-Tout comme les autres stratégies au niveau du locataire, les stratégies de conditions générales migrent automatiquement vers Intune une fois que l’autorité mixte est activée pour votre locataire.  Toutefois, vous devez affecter les conditions générales à un groupe qui contient des utilisateurs qui ont migré pour qu’elles soient clairement signalées comme acceptées par ces utilisateurs et correctement ciblées en vue des futures mises à jour ou inscriptions d’appareils. Les utilisateurs n’auront pas à réaccepter les conditions générales sauf en cas de modifications apportées à la stratégie dans la console Configuration Manager. Pour plus d’informations, consultez [Affecter des conditions générales](https://docs.microsoft.com/intune/terms-and-conditions-create#assign-terms-and-conditions).
+Tout comme les autres stratégies au niveau du locataire, les stratégies de conditions générales migrent automatiquement vers Intune une fois que l’autorité mixte est activée pour votre locataire.  Toutefois, vous devez affecter les conditions générales à un groupe qui contient des utilisateurs qui ont migré pour qu’elles soient clairement signalées comme acceptées par ces utilisateurs et correctement ciblées en vue des futures mises à jour ou inscriptions d’appareils. Les utilisateurs n’ont pas à réaccepter les conditions générales sauf en cas de modifications apportées à la stratégie dans la console Configuration Manager. Pour plus d’informations, consultez [Affecter des conditions générales](https://docs.microsoft.com/intune/terms-and-conditions-create#assign-terms-and-conditions).
 
 ## <a name="configure-the-exchange-connector"></a>Configurer le connecteur Exchange
-Si vous utilisez Exchange et que vous disposez d’un connecteur Exchange dans Configuration Manager, vous devez configurer le connecteur Exchange sur site dans Intune. Pour plus d’informations, consultez [Configurer le connecteur Exchange sur site Intune dans Microsoft Intune Azure](https://docs.microsoft.com/intune/exchange-connector-install).
+Si vous utilisez Exchange et que vous disposez d’un connecteur Exchange local dans Configuration Manager, vous devez [configurer le connecteur Exchange local dans Intune](https://docs.microsoft.com/intune/exchange-connector-install). Prenez également en compte les informations dans les sections suivantes qui ont pour but de vous aider à migrer vers le connecteur Intune Exchange et à s’assurer du bon fonctionnement de l’accès conditionnel après la migration.
 
-> [!Important]
-> Pour que l’accès conditionnel fonctionne correctement après la migration des utilisateurs et pour vous assurer que vos utilisateurs continuent d’avoir accès à leur serveur e-mail, vérifiez que les conditions suivantes sont vraies :
-> - Si le paramètre de niveau d’accès par défaut Exchange ActiveSync (DefaultAccessLevel) a la valeur Bloquer ou Quarantaine, les appareils risquent de perdre l’accès à leurs e-mails. 
-> - Si le connecteur Exchange est installé dans Configuration Manager et que le paramètre **Niveau d’accès lorsqu’un périphérique mobile n’est pas géré par une règle** a la valeur **Autoriser l’accès**, vous devez installer le [connecteur Exchange sur site](https://docs.microsoft.com/en-us/intune/conditional-access-exchange-create#configure-exchange-on-premises-access) dans Intune avant de migrer les utilisateurs. Configurer le paramètre de niveau d’accès par défaut dans Intune dans le panneau **Exchange sur site** des **paramètres d’accès Exchange ActiveSync avancés**. Pour plus d’informations, consultez [Configurer l’accès à Exchange sur site](https://docs.microsoft.com/intune/conditional-access-exchange-create#configure-exchange-on-premises-access).
-> - Utilisez la même configuration pour les deux connecteurs. Le dernier connecteur que vous configurez remplace les paramètres de l’organisation ActiveSync précédemment écrits par l’autre connecteur. Si vous configurez les connecteurs différemment, vous risquez d’obtenir des modifications inattendues de l’accès conditionnel.
-> - Supprimez les utilisateurs du ciblage de l’accès conditionnel dans Configuration Manager une fois qu’ils ont migré vers la version autonome d’Intune.
+### <a name="powershell-scripts-to-help-you-migrate-to-the-intune-exchange-connector"></a>Scripts PowerShell pour vous aider à migrer vers le connecteur Intune Exchange 
+Des scripts PowerShell sont disponibles pour vous aider à préparer la transition de vos appareils Exchange depuis le connecteur Configuration Manager Exchange vers le connecteur Intune Exchange. Bien que l’exécution de ces scripts soit facultative, nous vous recommandons de les exécuter pour supprimer les appareils inactifs d’Exchange, ce qui empêche Intune de découvrir des appareils inutiles. L’exécution des scripts permet de s’assurer que les appareils découverts via Exchange peuvent être fusionnés avec les appareils inscrits auprès d’Intune aussi simplement que possible. Exécutez ces scripts avant de configurer le connecteur Intune Exchange. Les scripts PowerShell font partie de l’installation d’Intune Data Importer que vous utilisez pour [importer les données Configuration Manager dans Microsoft Intune](migrate-import-data.md) dans l’article suivant. Pour plus d’informations et pour télécharger les scripts, accédez à la page GitHub [Microsoft Intune Data Importer](https://github.com/ConfigMgrTools/Intune-Data-Importer).
+
+### <a name="steps-to-ensure-conditional-access-works-properly-after-user-migration"></a>Procédure permettant de s’assurer que l’accès conditionnel fonctionne correctement après la migration des utilisateurs
+Pour que l’accès conditionnel fonctionne correctement après la migration des utilisateurs et pour vous assurer que vos utilisateurs continuent d’avoir accès à leur serveur e-mail, vérifiez que les conditions suivantes sont vraies :
+- Si le paramètre de niveau d’accès par défaut Exchange ActiveSync (DefaultAccessLevel) a la valeur Bloquer ou Quarantaine, les appareils risquent de perdre l’accès à leurs e-mails. 
+- Si le connecteur Exchange est installé dans Configuration Manager et que le paramètre **Niveau d’accès lorsqu’un périphérique mobile n’est pas géré par une règle** a la valeur **Autoriser l’accès**, vous devez installer le [connecteur Exchange sur site](https://docs.microsoft.com/en-us/intune/conditional-access-exchange-create#configure-exchange-on-premises-access) dans Intune avant de migrer les utilisateurs. Configurer le paramètre de niveau d’accès par défaut dans Intune dans le panneau **Exchange sur site** des **paramètres d’accès Exchange ActiveSync avancés**. Pour plus d’informations, consultez [Configurer l’accès à Exchange sur site](https://docs.microsoft.com/intune/conditional-access-exchange-create#configure-exchange-on-premises-access).
+- Utilisez la même configuration pour les deux connecteurs. Le dernier connecteur que vous configurez remplace les paramètres de l’organisation ActiveSync précédemment écrits par l’autre connecteur. Si vous configurez les connecteurs différemment, vous risquez d’obtenir des modifications inattendues de l’accès conditionnel.
+- Supprimez les utilisateurs du ciblage de l’accès conditionnel dans Configuration Manager une fois qu’ils ont migré vers la version autonome d’Intune.
 
 ## <a name="configure-the-microsoft-intune-certificate-connector"></a>Configurer Microsoft Intune Certificate Connector
 Si vous utilisez NDES pour émettre des certificats à l’aide de SCEP, vous devez configurer Microsoft Intune Certificate Connector. L’ordinateur qui héberge le connecteur NDES dans Intune ne peut pas être le même que celui qui héberge le connecteur NDES dans Configuration Manager. Pour plus d’informations, consultez [Configurer et gérer des certificats SCEP avec Intune](https://docs.microsoft.com/en-us/intune/certificates-scep-configure). 

@@ -15,11 +15,11 @@ caps.latest.revision: "5"
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 34886a38ed4b797b254e3fb83eb66588c7e1d116
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: 2c87cf0e63e4b95f5b94b6cda9e2aa40c4389184
+ms.sourcegitcommit: 8c6e9355846ff6a73c534c079e3cdae09cf13c45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="site-and-site-system-prerequisites-for-system-center-configuration-manager"></a>Prérequis des sites et systèmes de site pour System Center Configuration Manager
 
@@ -258,8 +258,9 @@ ms.lasthandoff: 12/04/2017
     > [!NOTE]  
     >  WDS s’installe et se configure automatiquement quand vous configurez un point de distribution pour prendre en charge PXE ou la multidiffusion sur un serveur exécutant Windows Server 2012 ou une version ultérieure.  
 
+<!--sms.503672 -Clarified BITS use-->
 > [!NOTE]  
-> Le rôle de système de site du point de distribution ne nécessite pas le service de transfert intelligent en arrière-plan (BITS). Quand BITS est configuré sur l’ordinateur du point de distribution, il n’est pas utilisé pour faciliter le téléchargement de contenu par les clients qui utilisent BITS.  
+> Lorsque le point de distribution transfère du contenu, il le fait à l’aide du **Service de transfert intelligent en arrière-plan** (BITS) intégré au système d’exploitation Windows. Le rôle du point de distribution ne requiert pas que la fonctionnalité BITS IIS Server Extension facultative soit installée car le client n’y charge pas d’informations.  
 
 ###  <a name="bkmk_2012EPPpreq"></a> Point Endpoint Protection  
 **Rôles et fonctionnalités Windows Server :**  
@@ -626,8 +627,9 @@ Quand vous utilisez une configuration IIS personnalisée, vous pouvez supprimer
     > [!NOTE]  
     >  WDS s’installe et se configure automatiquement quand vous configurez un point de distribution pour prendre en charge PXE ou la multidiffusion sur un serveur exécutant Windows Server 2012 ou une version ultérieure.  
 
+<!--sms.503672 -Clarified BITS use-->
 > [!NOTE]  
-> Le rôle de système de site du point de distribution ne nécessite pas le service de transfert intelligent en arrière-plan (BITS). Quand BITS est configuré sur l’ordinateur du point de distribution, il n’est pas utilisé pour faciliter le téléchargement de contenu par les clients qui utilisent BITS.  
+> Lorsque le point de distribution transfère du contenu, il le fait à l’aide du **Service de transfert intelligent en arrière-plan** (BITS) intégré au système d’exploitation Windows. Le rôle du point de distribution ne requiert pas que la fonctionnalité BITS IIS Server Extension facultative soit installée car le client n’y charge pas d’informations.   
 
 
 ###  <a name="bkmk_2008EPPpreq"></a> Point Endpoint Protection  

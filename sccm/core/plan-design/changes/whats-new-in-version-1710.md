@@ -13,11 +13,11 @@ ms.assetid: bc6c3e5f-b9e2-400e-9d9d-446ff93c520c
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 83bd5fc972bc0bef07b206e160463db71837e827
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: 8431ebffc6d1aa463c5622bd67db8a140c0cfe69
+ms.sourcegitcommit: 2dc9c83e57e9734ffc4a93f79cd71285036eeb8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="what39s-new-in-version-1710-of-system-center-configuration-manager"></a>Nouveautés de la version 1710 de System Center Configuration Manager
 
@@ -58,7 +58,7 @@ Vous pouvez maintenant utiliser des [points de distribution cloud](/sccm/core/pl
 
 ### <a name="co-management-for-windows-10-devices"></a>Cogestion pour les appareils Windows 10    
 <!-- 1350871 -->
-À partir de Windows 10 version 1607 (également appelée Mise à jour anniversaire), vous pouvez joindre à la fois un appareil Windows 10 à Active Directory (AD) localement et à Azure AD basé sur le cloud (Azure AD hybride). La cogestion tire parti de cette amélioration et vous permet de gérer simultanément plusieurs appareils Windows 10 à l’aide de Configuration Manager et d’Intune. C’est une solution qui établit une passerelle entre la gestion classique et la gestion moderne tout en vous donnant la possibilité d’opérer cette transition selon une approche en plusieurs phases. Pour plus d’informations, consultez [Cogestion pour les appareils Windows 10](/sccm/core/clients/manage/co-management-overview).
+Dans les mises à jour précédentes de Windows 10, vous pouvez déjà joindre un appareil Windows 10 à Active Directory (AD) en local et à Azure AD sur le cloud (Azure AD hybride). À compter de Configuration Manager version 1710, la cogestion tire parti de cette amélioration et vous permet de gérer simultanément plusieurs appareils Windows 10, version 1709 (également appelée Fall Creators Update) à l’aide de Configuration Manager et d’Intune. C’est une solution qui établit une passerelle entre la gestion classique et la gestion moderne tout en vous donnant la possibilité d’opérer cette transition selon une approche en plusieurs phases. Pour plus d’informations, consultez [Cogestion pour les appareils Windows 10](/sccm/core/clients/manage/co-management-overview).
 
 ### <a name="restart-computers-from-the-configuration-manager-console-----1356283---"></a>Redémarrer les ordinateurs à partir de la console Configuration Manager <!-- 1356283 -->
 À compter de cette version, vous pouvez utiliser la console Configuration Manager pour identifier les périphériques clients qui nécessitent un redémarrage, puis utiliser une action de notification de client pour les redémarrer.
@@ -165,7 +165,6 @@ Avec cette version, nous avons mis à jour l’Assistant Création d’un profil
 - Lorsque la plateforme est définie sur **Android**, **Android for Work** ou **Windows Phone 8.1**, la page **Plateformes prises en charge** est inutile et ne s’affiche pas.
 - Le flux de travail du client Configuration Manager a été combiné aux flux de travail Windows 10 du client de l’appareil mobile hybride (MDM) ; ils prennent en charge les mêmes paramètres.
 - Chaque flux de travail de plateforme inclut uniquement les paramètres appropriés à ce flux de travail.  Par exemple, le flux de travail Android contient les paramètres propres à Android ; les paramètres appropriés pour iOS ou Windows 10 Mobile n’apparaissent donc plus dans le flux de travail Android.
-- Pour les appareils Windows 8.1, les types de connexion gérés par le client Configuration Manager uniquement (non pris en charge par Intune) sont clairement marqués.
 - La page VPN automatique est obsolète et a été supprimée.
 
 Ces modifications s’appliquent aux nouveaux profils VPN.  

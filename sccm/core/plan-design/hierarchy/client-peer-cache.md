@@ -3,7 +3,7 @@ title: "Cache d’homologue client"
 titleSuffix: Configuration Manager
 description: "Utilisez le cache d’homologue pour les emplacements sources de contenu du client lors du déploiement de contenu avec System Center Configuration Manager."
 ms.custom: na
-ms.date: 11/20/2017
+ms.date: 12/07/2017
 ms.reviewer: na
 ms.suite: na
 ms.prod: configuration-manager
@@ -15,11 +15,11 @@ caps.latest.revision: "3"
 author: aaroncz
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 60f70d3e24f6290fb022b9bd8ca1512b0ed3d719
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: cadc62ab21ac8cd43120a5baa79dd635a12b4069
+ms.sourcegitcommit: 2dc9c83e57e9734ffc4a93f79cd71285036eeb8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="peer-cache-for-configuration-manager-clients"></a>Cache d’homologue pour les clients Configuration Manager
 
@@ -36,7 +36,7 @@ Un client de cache d’homologue est un client Configuration Manager qui est act
  -  Pour partager du contenu en tant que source de cache d’homologue, un client de cache d’homologue :
     -  Les appareils doivent être joints à un domaine. Toutefois, un client qui n’est pas joint à un domaine peut obtenir du contenu à partir d’une source de cache d’homologue jointe à un domaine.
     -  Il doit être un membre du groupe de limites actuel du client qui recherche le contenu. Un client du cache d’homologue dans les groupes de limites voisins n’est pas inclus dans le pool des emplacements sources de contenu disponibles quand un client utilise une action de secours pour rechercher du contenu à partir d’un groupe de limites voisin. Pour plus d’informations sur les groupes de limites actuels et voisins, consultez [Groupes de limites](/sccm/core/servers/deploy/configure/define-site-boundaries-and-boundary-groups##a-namebkmkboundarygroupsa-boundary-groups).
- - Chaque type de contenu conservé dans le cache d’un client Configuration Manager peut être fourni à d’autres clients à l’aide du cache d’homologue.
+ - Chaque type de contenu conservé dans le cache d’un client Configuration Manager peut être fourni à d’autres clients à l’aide du cache d’homologue, y compris des fichiers Office 365 et des fichiers d’installation rapide.<!--SMS.500850-->
  -  Le cache d’homologue ne remplace pas l’utilisation d’autres solutions telles que BranchCache, mais fonctionne en association avec lui afin de vous offrir davantage d’options pour l’extension de solutions de déploiement de contenu traditionnelles telles que des points de distribution. Il s’agit d’une solution personnalisée sans recours à BranchCache. Par conséquent, si vous n’activez pas ou n’utilisez pas Windows BranchCache, elle fonctionne quand même.
 
 ### <a name="operations"></a>Opérations

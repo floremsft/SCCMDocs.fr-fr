@@ -3,7 +3,7 @@ title: Surveiller le contenu
 titleSuffix: Configuration Manager
 description: "Apprenez à surveiller le contenu distribué à l’aide de la console Configuration Manager."
 ms.custom: na
-ms.date: 4/17/2017
+ms.date: 12/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,11 +15,11 @@ caps.latest.revision: "5"
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 5b1c0401c0b1ce2aa8765ccfb8898b90cf7a5c93
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: 62d783735e64b6f3f11dae9af6ac5a7584d689ef
+ms.sourcegitcommit: 52b956cfe32c3f06ae68d6ba6fc3244ce5a66325
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="monitor-content-you-have-distributed-with-system-center-configuration-manager"></a>Surveiller le contenu que vous avez distribué avec System Center Configuration Manager
 
@@ -155,7 +155,8 @@ Pour afficher l'état de configuration du point de distribution, procédez comme
 À compter de la version 1610, vous pouvez utiliser le tableau de bord **Sources de données du client** pour comprendre l’utilisation du [Cache d’homologue](/sccm/core/plan-design/hierarchy/client-peer-cache) dans votre environnement. Le tableau de bord commencera à afficher des données une fois que les clients auront téléchargé du contenu, et signalera ces informations au site. Cette opération peut prendre jusqu’à 24 heures.
 
 > [!TIP]  
-> Le **Cache d’homologue client** et le tableau de bord **Sources de données de clients** sont des fonctionnalités en préversion présentées dans la version 1610. Vous devez activer le cache d’homologue client pour que le tableau de bord Sources de données de clients devienne visible dans la console. Pour activer le cache d’homologue client, consultez [Utiliser des fonctionnalités en préversion à partir de mises à jour](/sccm/core/servers/manage/install-in-console-updates#bkmk_prerelease). L’affichage des données peut commencer jusqu’à 24 heures après l’activation du tableau de bord.
+> Le **Cache d’homologue client** et le tableau de bord **Sources de données de clients** sont des [fonctionnalités en préversion](/sccm/core/servers/manage/pre-release-features) présentées dans la version 1610. À compter de la version 1710, ces fonctionnalités ne sont plus des fonctionnalités en préversion. Vous devez activer le cache d’homologue client pour que le tableau de bord Sources de données de clients devienne visible dans la console.
+
 
 Dans la console, accédez à **Surveillance** > **État de distribution** > **Sources de données du client**. Vous pouvez sélectionner ici une période à appliquer au tableau de bord. Ensuite, dans l’affichage, vous pouvez sélectionner le groupe de limites ou le package sur lesquels vous souhaitez afficher des informations. Lors de la consultation de celles-ci, vous pouvez pointer le curseur de la souris sur la surface pour afficher plus de détails sur les différentes sources de contenu ou de stratégie.
 

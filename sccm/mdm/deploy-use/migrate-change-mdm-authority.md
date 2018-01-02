@@ -5,16 +5,16 @@ description: "Découvrez comment passer de l’autorité MDM Configuration Manag
 keywords: 
 author: dougeby
 manager: angrobe
-ms.date: 09/14/2017
+ms.date: 12/05/2017
 ms.topic: article
 ms.prod: configuration-manager
 ms.technology: configmgr-hybrid
 ms.assetid: be503ec9-5324-4f7c-bcf5-77204328e99c
-ms.openlocfilehash: 746bf7d7ef7dd411c47840731edfe664510e5a77
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 8884883c6e4e82cf38d83b9b7843002be3742bf1
+ms.sourcegitcommit: 8c6e9355846ff6a73c534c079e3cdae09cf13c45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="change-your-mdm-authority-to-intune-standalone"></a>Utiliser la version autonome d’Intune comme autorité MDM
 
@@ -25,7 +25,7 @@ Vous pouvez faire passer un client Microsoft Intune déjà configuré de la cons
 > [!Important]    
 > Pour changer d’autorité MDM sans avoir au préalable migré les utilisateurs MDM hybrides sur Intune, consultez la page [Changer d’autorité MDM](change-mdm-authority.md).
 
-Les étapes décrites dans cette rubrique attribuent au client l’autorité MDM Intune et migrent tous les appareils non encore migrés vers la version autonome d’Intune. Cette rubrique fournit des informations sur la procédure à suivre pour modifier un client Microsoft Intune configuré et le faire passer de la console Configuration Manager (hybride) à la version autonome d’Intune ; elle suppose que vous avez déjà effectué les étapes suivantes :
+Cet article fournit des informations sur la procédure à suivre pour modifier un client Microsoft Intune configuré et le faire passer de la console Configuration Manager (hybride) à la version autonome d’Intune ; il suppose que vous avez déjà effectué les étapes suivantes :
 - utiliser [l’outil d’importation de données d’Intune](migrate-import-data.md) pour importer des objets du Gestionnaire de configuration dans Intune ; 
 - [préparer Intune à la migration des utilisateurs](migrate-prepare-intune.md) pour que les utilisateurs et leurs appareils restent gérés après la migration ;
 - [changer l’autorité MDM de certains utilisateurs (autorité MDM mixte)](migrate-mixed-authority.md) afin de commencer à gérer les appareils des utilisateurs à partir du Portail Azure.
@@ -44,7 +44,7 @@ Passez en revue les informations suivantes pour préparer le passage à l’auto
 - Assurez-vous que tous les utilisateurs actuellement gérés par la MDM hybride disposent d’une licence Intune/EMS, attribuée avant le changement d’autorité MDM. Cette licence garantit que l’utilisateur et ses appareils sont gérés par la version autonome d’Intune après le changement d’autorité MDM. Pour plus d’informations, consultez [Attribuer des licences Intune à vos comptes d’utilisateur](https://docs.microsoft.com/intune/get-started/start-with-a-paid-subscription-to-microsoft-intune-step-4).
 - Assurez-vous que le compte d’utilisateur administrateur dispose d’une licence Intune/EMS.
 
-### <a name="change-the-mdm-authority-to-intune"></a>Utiliser Intune comme autorité MDM
+## <a name="change-the-mdm-authority-to-intune"></a>Utiliser Intune comme autorité MDM
 Utilisez la procédure suivante pour choisir Intune comme autorité MDM côté client.
 
 1.  Dans la console Configuration Manager, accédez à **Administration** &gt; **Vue d’ensemble** &gt; **Services Cloud** &gt; **Abonnement Microsoft Intune**, puis supprimez votre abonnement Intune existant.
@@ -72,10 +72,10 @@ Une fois le changement d’autorité MDM effectué, lisez les informations suiva
 - Si vous rencontrez des problèmes avec des appareils spécifiques, vous pouvez annuler l’inscription puis réinscrire ces appareils pour les connecter à la nouvelle autorité et les gérer dès que possible.
 - Pour les utilisateurs et les appareils non encore migrés :
     - Vérifiez que les appareils s’affichent maintenant comme appareils gérés sur le panneau **Appareils**. Après le changement d’autorité MDM, ils doivent s’enregistrer et se synchroniser avec le service avant d’apparaître. 
-    - Lorsque le service Intune détecte que l’autorité MDM d’un client a changé, il envoie un message de notification à tous les appareils inscrits pour s’enregistrer et se synchroniser avec le service (en dehors de l’enregistrement régulier planifié). Par conséquent, une fois que l’autorité MDM du client est passée de la version hybride à la version autonome d’Intune, tous les appareils sous tension et en ligne se connectent au service, reçoivent la nouvelle autorité MDM et sont dès lors gérés par la version autonome d’Intune. Il n’y aura aucune interruption au niveau de la gestion et de la protection de ces appareils.
+    - Lorsque le service Intune détecte que l’autorité MDM d’un client a changé, il envoie un message de notification à tous les appareils inscrits pour s’enregistrer et se synchroniser avec le service (en dehors de l’enregistrement régulier planifié). Par conséquent, une fois que l’autorité MDM du client est passée de la version hybride à la version autonome d’Intune, tous les appareils sous tension et en ligne se connectent au service, reçoivent la nouvelle autorité MDM et sont dès lors gérés par la version autonome d’Intune. Il n’y a aucune interruption au niveau de la gestion et de la protection de ces appareils.
     - Les appareils hors tension ou hors ligne pendant (ou juste après) le changement d’autorité MDM se connectent et se synchronisent avec le service sous la nouvelle autorité MDM quand ils sont sous tension et en ligne.  
     - Les utilisateurs peuvent rapidement basculer vers la nouvelle autorité MDM en lançant manuellement un enregistrement de l’appareil vers le service. Les utilisateurs peuvent facilement effectuer l’enregistrement avec l’application du Portail d’entreprise, en lançant une vérification de conformité de l’appareil.
-    - Il existe une période temporaire pendant laquelle un appareil est hors ligne lors du changement d’autorité MDM et lorsque cet appareil s’enregistre auprès du service. Pour que l’appareil reste protégé et opérationnel pendant cet intervalle, les profils suivants resteront dessus pendant sept jours maximum (ou jusqu’à ce que l’appareil se connecte à la nouvelle autorité MDM et reçoive les nouveaux paramètres qui remplaceront les paramètres existants) :
+    - Il existe une période temporaire pendant laquelle un appareil est hors ligne lors du changement d’autorité MDM et lorsque cet appareil s’enregistre auprès du service. Pour que l’appareil reste protégé et opérationnel pendant cet intervalle, les profils suivants restent dessus pendant sept jours maximum (ou jusqu’à ce que l’appareil se connecte à la nouvelle autorité MDM et reçoive les nouveaux paramètres qui remplacent les paramètres existants) :
         - Profil de messagerie
         - Profil VPN
         - Profil de certificat

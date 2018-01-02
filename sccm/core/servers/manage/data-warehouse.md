@@ -3,7 +3,7 @@ title: "Entrepôt de données"
 titleSuffix: Configuration Manager
 description: "Base de données et point de service de l’entrepôt de données pour System Center Configuration Manager"
 ms.custom: na
-ms.date: 8/25/2017
+ms.date: 12/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,11 +15,11 @@ caps.latest.revision:
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 2e6ac983e5ca63dacb77f2e26515d7123748d64d
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: 4d420ce623c834401383231d00e3f361342f2d2e
+ms.sourcegitcommit: 52b956cfe32c3f06ae68d6ba6fc3244ce5a66325
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/06/2017
 ---
 #  <a name="the-data-warehouse-service-point-for-system-center-configuration-manager"></a>Point de service de l’entrepôt de données pour System Center Configuration Manager
 *S’applique à : System Center Configuration Manager (Current Branch)*
@@ -27,9 +27,7 @@ ms.lasthandoff: 12/04/2017
 Depuis la version 1702, vous pouvez utiliser le point de service de l’entrepôt de données pour stocker des données d’historique à long terme et créer des rapports sur celles-ci pour votre déploiement de Configuration Manager.
 
 > [!TIP]
-> Le point de service de l’entrepôt de données est une fonctionnalité en préversion introduite dans la version 1702. Pour savoir comment l’activer, voir [Fonctionnalités en préversion dans System Center Configuration Manager](/sccm/core/servers/manage/pre-release-features).
-
-> À compter de la version 1706, cette fonctionnalité n’est plus une fonctionnalité en préversion.
+> Cette fonctionnalité a été introduite dans la version 1702 en tant que [fonctionnalité en préversion](/sccm/core/servers/manage/pre-release-features). À compter de la version 1706, cette fonctionnalité n’est plus une fonctionnalité en préversion.
 
 L’entrepôt de données prend en charge jusqu’à 2 To de données, avec des horodatages pour le suivi des modifications. Pour stocker des données, vous utilisez des synchronisations automatisées entre la base de données du site Configuration Manager et la base de données de l’entrepôt de données. Ces informations sont ensuite accessibles à partir de votre point de Reporting Services. Les données qui sont synchronisées avec la base de données de l’entrepôt de données sont conservées pendant trois ans. Périodiquement, une tâche intégrée supprime les données datant de plus de trois ans.
 
