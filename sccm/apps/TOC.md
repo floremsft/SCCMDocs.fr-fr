@@ -1,7 +1,7 @@
 # Comprendre et explorer
 ## [Introduction](understand/introduction-to-application-management.md)
 
-# Prise en main
+# Bien démarrer
 ## [Créer et déployer une application](get-started/create-and-deploy-an-application.md)
 
 # Planifier et concevoir
@@ -31,7 +31,7 @@
 ## Gérer des applications
 ### [Tâches de gestion](deploy-use/management-tasks-applications.md)
 ### [Affinité entre appareil et utilisateur](deploy-use/link-users-and-devices-with-user-device-affinity.md)
-### [Applications achetées en volume à partir du Windows Store pour Entreprises](deploy-use/manage-apps-from-the-windows-store-for-business.md)
+### [Applications achetées en volume à partir du Microsoft Store pour Entreprises](deploy-use/manage-apps-from-the-windows-store-for-business.md)
 ### [Environnements virtuels App-V](deploy-use/create-app-v-virtual-environments.md)
 
 ## Mettre à jour et mettre hors service des applications
