@@ -13,14 +13,14 @@ ms.topic: article
 ms.assetid: 8eed50f5-80a4-422e-8aa6-a7ccb2171475
 caps.latest.revision: "8"
 caps.handback.revision: "0"
-author: Dougeby
-ms.author: dougeby
+author: aczechowski
+ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 91e3fa4aba93dc3012fe1e702f50c4f9438a69e8
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 9d902f75911b484d22d38b07cea40e1c00ea0d93
+ms.sourcegitcommit: 08f9854fb6c6d21e1e923b13e38a64d0bc2bc9a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="deploy-windows-to-go-with-system-center-configuration-manager"></a>Déployer Windows To Go avec System Center Configuration Manager
 
@@ -66,7 +66,7 @@ Cette rubrique fournit les étapes permettant de mettre en service Windows To Go
      avant de créer des médias préparés, vous devez distribuer l'image du système d'exploitation Windows 8 à un point de distribution.  
 
     > [!NOTE]  
-    >  Les images de système d'exploitation sont des fichiers au format .WIM et représentent un regroupement compressé de fichiers et dossiers de référence nécessaires à l'installation et à la configuration d'un système d'exploitation sur un ordinateur. Pour plus d’informations, consultez [Gérer les images de système d’exploitation](../get-started/manage-operating-system-images.md).  
+    >  Les images de système d'exploitation sont des fichiers au format .WIM et représentent un regroupement compressé de fichiers et dossiers de référence nécessaires à l'installation et à la configuration d'un système d'exploitation sur un ordinateur. Pour plus d’informations, voir [Gérer les images de système d’exploitation](../get-started/manage-operating-system-images.md).  
 
 -   **Créer une séquence de tâches pour déployer Windows 8**  
 
@@ -114,7 +114,7 @@ Cette rubrique fournit les étapes permettant de mettre en service Windows To Go
 
 7.  Sur la page **Sécurité** , spécifiez les informations suivantes, puis cliquez sur **Suivant**.  
 
-    -   Sélectionnez **Activer la prise en charge d’ordinateur inconnu** pour autoriser le média à déployer un système d’exploitation sur un ordinateur qui n’est pas géré par Configuration Manager. Il n’existe aucun enregistrement de ces ordinateurs dans la base de données Configuration Manager. Les ordinateurs inconnus sont les suivants :  
+    -   Sélectionnez **Activer la prise en charge d’ordinateur inconnu** pour autoriser le média à déployer un système d’exploitation sur un ordinateur qui n’est pas géré par Configuration Manager. Il n'existe aucun enregistrement de ces ordinateurs dans la base de données Configuration Manager. Les ordinateurs inconnus sont les suivants :  
 
         -   Un ordinateur sur lequel le client Configuration Manager n’est pas installé  
 
@@ -235,7 +235,7 @@ Cette rubrique fournit les étapes permettant de mettre en service Windows To Go
 
 7.  Sous l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer le package**.  
 
-8.  Sur la page **Package** , spécifiez le nom et la description du package. Par exemple, entrez **Windows To Go** pour le nom du package et spécifiez **Package pour configurer un lecteur Windows To Go à l'aide de System Center Configuration Manager** pour sa description.  
+8.  Sur la page **Package** , spécifiez le nom et la description du package. Par exemple, entrez **Windows To Go** comme nom de package et spécifiez **Package to configure a Windows To Go drive using System Center Configuration Manager** comme description de package.  
 
 9. Sélectionnez **Ce package contient des fichiers sources**, spécifiez le chemin d'accès au dossier source du package que vous avez créé à l'étape 1, puis cliquez sur **Suivant**.  
 

@@ -14,17 +14,17 @@ ms.assetid: 2e68dc12-6776-437a-9138-45cd7d4bf9cf
 author: erikje
 ms.author: erikje
 manager: angrobe
-ms.openlocfilehash: e970dff4ea295694fcc5cf80e238baf2c9d081b5
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: b740c422a71e625ccc110a043028cf986cdffb20
+ms.sourcegitcommit: ed8b2438ef85c9160741ef61f9171be41dd1ae0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/17/2017
 ---
 # <a name="capabilities-in-technical-preview-1711-for-system-center-configuration-manager"></a>Fonctionnalités de la version Technical Preview 1711 de System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (version d’évaluation technique)*
+*S’applique à : System Center Configuration Manager (Technical Preview)*
 
-Cet article présente les fonctionnalités qui sont disponibles dans la version 1711 de Technical Preview pour System Center Configuration Manager. Vous pouvez installer cette version pour mettre à jour et ajouter de nouvelles fonctionnalités à votre site de version d’évaluation technique Configuration Manager. Avant d’installer cette version Technical Preview, passez en revue [Technical Preview pour System Center Configuration Manager](../../core/get-started/technical-preview.md) pour vous familiariser avec les conditions générales et les limitations d’utilisation d’une version Technical Preview, la mise à jour entre les versions et l’envoi de commentaires sur les fonctionnalités d’une version Technical Preview.     
+Cet article présente les fonctionnalités qui sont disponibles dans la version 1711 de Technical Preview pour System Center Configuration Manager. Vous pouvez installer cette version pour mettre à jour et ajouter de nouvelles fonctionnalités à votre site Configuration Manager Technical Preview. Avant d’installer cette version Technical Preview, passez en revue [Technical Preview pour System Center Configuration Manager](../../core/get-started/technical-preview.md) pour vous familiariser avec les conditions générales et les limitations d’utilisation d’une version Technical Preview, la mise à jour entre les versions et l’envoi de commentaires sur les fonctionnalités d’une version Technical Preview.     
 
 
 <!--  Known Issues Template   
@@ -109,20 +109,6 @@ Vous pouvez également utiliser cette fonctionnalité lors du déploiement d’u
 1. Créez ou modifiez une application.
 2. Déployez l’application sur un client.
 3. Installez l’application à partir du Centre logiciel. L’interface d’installation de l’application doit apparaître. L’utilisateur final doit suivre l’Assistant Installation de l’application pour installer correctement l’application.
-
-## <a name="new-compliance-policy-options-for-windows-10"></a>Nouvelles options des stratégies de conformité pour Windows 10
-Voici les nouvelles stratégies de conformité que vous pouvez configurer pour les appareils Windows 10.
-- **Exiger un pare-feu**.  Spécifiez si un pare-feu doit être activé sur l’appareil et tous les réseaux surveillés.
-- **Exiger le contrôle de compte d’utilisateur**. Spécifiez que le contrôle de compte d’utilisateur doit être activé sur un appareil.
-- **Defender** :
-  - **Exiger l’antivirus Windows Defender**.  Exiger que l’antivirus Windows Defender soit activé sur un appareil.
-  - **Version de l’antivirus Windows Defender**.  Spécifiez la version minimale des définitions de logiciels espions qui doit être installée sur un appareil.
-  - **Exiger la signature actuelle de l’antivirus Windows Defender**. Vérifiez que la signature de l’antivirus Windows Defender est à jour sur un appareil.
-  - **Exiger la protection en temps réel**.  Spécifiez si la protection en temps réel de l’antivirus Windows Defender doit être activée sur un appareil.
-- **Builds de système d’exploitation valides**.  Spécifiez les builds de système d’exploitation minimale et maximale exigées.  
-
-Utilisez l’Assistant Création de stratégies de conformité pour configurer ces stratégies et sélectionnez ces nouvelles options quand vous ajoutez une règle à la stratégie que vous configurez.  
-Découvrez comment [créer](/sccm/mdm/deploy-use/create-compliance-policy#create-a-compliance-policy) et [déployer](/sccm/mdm/deploy-use/create-compliance-policy#deploy-a-compliance-policy) des stratégies de conformité.
 
 
 

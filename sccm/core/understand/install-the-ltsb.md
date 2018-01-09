@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f4f9a5fd-f573-4b99-ad93-b2c76812e922
 caps.latest.revision: "0"
-author: aaroncz
+author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: a805f2250f1dddf9a7f93f425b2e1b17d9b4e606
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: 9fbb7dc1c64d82e03ba7ad3289e0939279ecf006
+ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="install-and-upgrade-with-the-version-1606-baseline-media-for-system-center-configuration-manager"></a>Installer et mettre à niveau avec le support de la base de référence de la version 1606 pour System Center Configuration Manager
 
@@ -45,7 +45,7 @@ Le support de la base de référence 1606 inclut les modifications suivantes da
 ### <a name="branch-and-edition"></a>Branche et édition
 Quand vous exécutez le programme d’installation, une page dédiée à la gestion des licences vous est proposée, où vous pouvez sélectionner la branche de Configuration Manager à installer. Vous pouvez choisir une installation sous licence Current Branch ou LTSB, ou une version d’évaluation de Current Branch dans le cadre d’une installation sans licence.
 
-Pour plus d’informations, voir [Licences et branches pour System Center Configuration Manager](learn-more-editions.md).
+Pour plus d’informations, consultez [Licences et branches pour System Center Configuration Manager](learn-more-editions.md).
 
 ### <a name="software-assurance-expiration"></a>Expiration de Software Assurance
 Pendant l’installation, vous avez la possibilité d’entrer la valeur de la **date d’expiration de Software Assurance**. Il s’agit d’une valeur facultative que vous pouvez spécifier pour des raisons pratiques.

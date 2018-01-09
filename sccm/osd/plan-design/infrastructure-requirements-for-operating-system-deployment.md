@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 1dc74219-7ff5-4e3b-b4f6-5aad663bb75b
 caps.latest.revision: "24"
-author: mattbriggs
-ms.author: mabrigg
+author: aczechowski
+ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 0b90cb20707340bec6fc7d5ddbab6f39d78e10bf
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 30b6a4e009d1e44fff124dc5814bdd2e6445a63a
+ms.sourcegitcommit: 08f9854fb6c6d21e1e923b13e38a64d0bc2bc9a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="infrastructure-requirements-for-operating-system-deployment-in-system-center-configuration-manager"></a>Configuration requise de l’infrastructure pour le déploiement de système d’exploitation dans System Center Configuration Manager
 
@@ -48,7 +48,7 @@ Pour obtenir la liste des versions du Windows 10 ADK que vous pouvez utiliser a
 > [!NOTE]  
 >  Avant d’installer le site Configuration Manager, vous devez installer manuellement Windows ADK sur tous les ordinateurs qui hébergeront un serveur de site d’administration centrale ou un serveur de site principal.  
 
- Pour plus d'informations, voir :  
+ Pour plus d'informations, voir :  
 
 -   [Windows ADK pour les scénarios Windows 10 pour les informaticiens](https://technet.microsoft.com/library/mt280162\(v=vs.85\).aspx)  
 
@@ -60,7 +60,7 @@ Pour obtenir la liste des versions du Windows 10 ADK que vous pouvez utiliser a
 ### <a name="user-state-migration-tool-usmt"></a>Outil de migration de l'état utilisateur (USMT)  
  Configuration Manager utilise un package USMT qui contient les fichiers sources USMT 10 pour capturer et restaurer l’état utilisateur dans le cadre du déploiement de votre système d’exploitation. Quand le programme d’installation de Configuration Manager est exécuté sur le site de niveau supérieur, il crée automatiquement le package USMT. USMT 10 peut capturer l’état utilisateur auprès de Windows 7, Windows 8, Windows 8.1 et Windows 10. USMT 10 est distribué dans le Kit de déploiement et d’évaluation Windows (Windows ADK) pour Windows 10.  
 
- Pour plus d'informations, voir :  
+ Pour plus d'informations, voir :  
 
 -   [Scénarios de migration courants pour USMT 10](https://technet.microsoft.com/library/mt299169\(v=vs.85\).aspx)  
 
@@ -91,7 +91,7 @@ Pour obtenir la liste des versions du Windows 10 ADK que vous pouvez utiliser a
 ### <a name="windows-server-update-services-wsus"></a>Windows Server Update Services (WSUS)  
 Vous devez installer les correctifs logiciels WSUS 4.0 suivants :
   - [Hotfix 3095113](https://support.microsoft.com/kb/3095113) est nécessaire pour la maintenance de Windows 10, qui utilise l’infrastructure des mises à jour logicielles pour obtenir les mises à niveau des fonctionnalités de Windows 10. Si vous avez WSUS 3.2, vous devez utiliser des séquences de tâches pour mettre à niveau Windows 10. Pour plus d’informations, consultez [Gérer WaaS (Windows as a Service)](../deploy-use/manage-windows-as-a-service.md).  
-  - Le [correctif logiciel 3159706](https://support.microsoft.com/kb/3159706) est nécessaire si vous souhaitez utiliser la fonctionnalité de maintenance de Windows 10 pour mettre à niveau des ordinateurs avec la mise à jour anniversaire Windows 10 ou une version ultérieure. Pour installer ce correctif logiciel, vous devez effectuer manuellement certaines étapes, comme décrit dans l’article du support technique. Pour plus d’informations, consultez [Gérer WaaS (Windows as a Service)](../deploy-use/manage-windows-as-a-service.md).
+  - Le [correctif logiciel 3159706](https://support.microsoft.com/kb/3159706) est nécessaire si vous souhaitez utiliser la fonctionnalité de maintenance de Windows 10 pour mettre à niveau des ordinateurs avec la mise à jour anniversaire Windows 10 ou une version ultérieure. Pour installer ce correctif logiciel, vous devez effectuer manuellement certaines étapes, comme décrit dans l’article du support technique. Pour plus d’informations, consultez [Gérer Windows as a service](../deploy-use/manage-windows-as-a-service.md).
 
 
 ### <a name="internet-information-services-iis-on-the-site-system-servers"></a>Internet Information Services (IIS) sur les serveurs de système de site  
@@ -134,7 +134,7 @@ Vous devez installer les correctifs logiciels WSUS 4.0 suivants :
 ### <a name="multicast-enabled-distribution-point"></a>Point de distribution multidiffusion  
  Pour optimiser vos déploiements de système d'exploitation en utilisant la multidiffusion, vous devez configurer un point de distribution pour prendre en charge la multidiffusion. Pour plus d’informations sur la configuration du point de distribution, consultez [Configurer un point de distribution](/sccm/core/servers/deploy/configure/install-and-configure-distribution-points#multicast).   
 
-### <a name="state-migration-point"></a>Point de migration d'état  
+### <a name="state-migration-point"></a>Point de migration d’état  
  Lorsque vous capturez et restaurez des données d'état utilisateur pour les déploiements côte à côte et d'actualisation, vous devez configurer un point de migration d'état pour stocker les données d'état utilisateur sur un autre ordinateur.  
 
  Pour plus d’informations sur la configuration du point de migration d’état, consultez [Point de migration d’état](../get-started/prepare-site-system-roles-for-operating-system-deployments.md#BKMK_StateMigrationPoints).  
@@ -142,7 +142,7 @@ Vous devez installer les correctifs logiciels WSUS 4.0 suivants :
  Pour plus d’informations sur la capture et la restauration de l’état utilisateur, consultez [Gérer l’état utilisateur](../get-started/manage-user-state.md).  
 
 ### <a name="service-connection-point"></a>point de connexion de service  
- Quand vous utilisez Waas (Windows as a Service) pour déployer la CB (Current Branch) de Windows 10, vous devez disposer du point de connexion de service installé. Pour plus d’informations, consultez [Gérer WaaS (Windows as a Service)](../deploy-use/manage-windows-as-a-service.md).  
+ Quand vous utilisez Waas (Windows as a Service) pour déployer la CB (Current Branch) de Windows 10, vous devez disposer du point de connexion de service installé. Pour plus d’informations, consultez [Gérer Windows as a service](../deploy-use/manage-windows-as-a-service.md).  
 
 ### <a name="reporting-services-point"></a>Point de Reporting Services  
  Pour utiliser des rapports Configuration Manager pour les déploiements de système d’exploitation, vous devez installer et configurer un point de Reporting Services. Pour plus d’informations, consultez [Création de rapports](../../core/servers/manage/reporting.md).  

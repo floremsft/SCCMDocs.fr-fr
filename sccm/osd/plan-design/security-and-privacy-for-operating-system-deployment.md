@@ -13,14 +13,14 @@ ms.topic: article
 ms.assetid: 5ee5928f-3d72-4b00-8156-1e0d1030a96c
 caps.latest.revision: "6"
 caps.handback.revision: "0"
-author: Dougeby
-ms.author: dougeby
+author: aczechowski
+ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: f3286fb0afc5a5023ecd725e74606a585c5fa478
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 0cf0213b83f6bbaf0aabff24b16162dbe215bcf1
+ms.sourcegitcommit: 08f9854fb6c6d21e1e923b13e38a64d0bc2bc9a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="security-and-privacy-for-operating-system-deployment-in-system-center-configuration-manager"></a>Sécurité et confidentialité du déploiement de systèmes d’exploitation dans System Center Configuration Manager
 
@@ -59,7 +59,7 @@ Cette rubrique contient des informations de sécurité et de confidentialité po
 
 -   **Activez les points de distribution pour la communication du client PXE uniquement sur des segments de réseau sécurisés**  
 
-     Lorsqu'un client envoie une demande de démarrage PXE, vous n'avez aucun moyen de vous assurer que la demande est traitée par un point de distribution PXE valide. Ce scénario présente les risques de sécurité suivants :  
+     Lorsqu'un client envoie une demande de démarrage PXE, vous n'avez aucun moyen de vous assurer que la demande est traitée par un point de distribution PXE valide. Ce scénario présente les risques de sécurité suivants :  
 
     -   Un point de distribution non autorisé qui répond aux demandes PXE peut fournir une image falsifiée aux clients.  
 

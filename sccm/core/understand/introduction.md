@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 3343eccf-bf09-41cd-9e68-03e893c7f904
 caps.latest.revision: "16"
-author: aaroncz
+author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: b016237107f28c006dc3f3e6eddf3cff5b9b753b
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: 76dfa18cb7f794be9102bf045cd4212adc7ad56f
+ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="introduction-to-system-center-configuration-manager"></a>Présentation de System Center Configuration Manager
 
@@ -117,7 +117,7 @@ Dans tous les scénarios, Adam est l'administrateur principal de Configuration M
 ###  <a name="BKMK_ScenarioEmpower"></a> Exemple de scénario : donner aux utilisateurs plus d’autonomie en permettant l’accès aux applications à partir de tous les appareils  
  Trey Research veut s’assurer que les employés peuvent accéder aux applications dont ils ont besoin, et aussi efficacement que possible. Adam applique ces spécifications de l'entreprise aux scénarios suivants :  
 
-|Situation|État actuel de la gestion du client|État futur de la gestion du client|  
+|Exigence|État actuel de la gestion du client|État futur de la gestion du client|  
 |-----------------|-------------------------------------|------------------------------------|  
 |Les nouveaux employés peuvent travailler efficacement dès le premier jour.|Quand les employés intègrent l’entreprise et qu’ils ouvrent une session pour la première fois sur leur ordinateur, ils doivent attendre que les applications soient installées.|Quand les employés intègrent l’entreprise, ils ouvrent une session et voient leurs applications installées et prêtes à l’emploi sur leur ordinateur.|  
 |Les employés peuvent demander rapidement et facilement les logiciels supplémentaires dont ils ont besoin.|Quand les employés ont besoin d’autres applications, ils envoient une demande au support technique. Ils attendent en général deux jours avant que la demande soit traitée et que les applications soient installées.|Quand les employés ont besoin d’autres applications, ils peuvent les demander à partir d’un site web. Ils peuvent ensuite les installer immédiatement en l’absence de restrictions de licences. S'il existe des restrictions de licences, les utilisateurs doivent tout d'abord demander l'approbation avant d'installer l'application.<br /><br /> Le site web présente aux utilisateurs uniquement les applications qu’ils sont autorisés à installer.|  
@@ -125,7 +125,7 @@ Dans tous les scénarios, Adam est l'administrateur principal de Configuration M
 |Les employés peuvent être productifs même s’ils ne sont pas à leur bureau.|Quand les employés ne sont pas à leur bureau et n’ont pas d’ordinateurs portables, ils ne peuvent pas accéder à leurs applications via les ordinateurs publics disponibles dans l’entreprise.|Les employés peuvent utiliser des ordinateurs publics pour accéder à leurs applications et données.|  
 |En général, la pérennité des activités est prioritaire sur l'installation des applications et des mises à jour logicielles requises.|Les applications et les mises à jour logicielles requises sont installées pendant la journée, ce qui perturbe fréquemment le travail des utilisateurs dans la mesure où leurs ordinateurs ralentissent ou redémarrent au cours de l'installation.|Les utilisateurs peuvent définir leurs heures de travail pour empêcher l’installation des logiciels obligatoires pendant qu’ils utilisent leur ordinateur.|  
 
- Pour satisfaire la configuration requise, Adam utilise les fonctionnalités de gestion et les options de configuration de Configuration Manager suivantes :  
+ Pour répondre aux conditions requises, Adam utilise les fonctionnalités de gestion et les options de configuration de Configuration Manager suivantes :  
 
 -   Gestion des applications  
 -   Gestion des appareils mobiles  
@@ -152,9 +152,9 @@ Il implémente ces fonctionnalités en effectuant les étapes de configuration d
 
 L'entreprise souhaite également étendre cette protection à Internet pour les ordinateurs portables qui se déplacent de l'intranet à Internet.  
 
-Adam applique ces spécifications de l'entreprise aux scénarios suivants :  
+Adam applique ces spécifications de l'entreprise aux scénarios suivants :  
 
-|Situation|État actuel de la gestion du client|État futur de la gestion du client|  
+|Exigence|État actuel de la gestion du client|État futur de la gestion du client|  
 |-----------------|-------------------------------------|------------------------------------|  
 |Tous les ordinateurs exécutent un logiciel anti-programme malveillant avec des fichiers de définition qui sont à jour et qui activent le pare-feu Windows.|Les ordinateurs exécutent différentes solutions de logiciels anti-programme malveillant qui ne sont pas toujours à jour. Le Pare-feu Windows est activé par défaut, mais les utilisateurs le désactivent parfois.<br /><br /> Les utilisateurs sont invités à contacter le support technique s'ils détectent un logiciel anti-programme malveillant sur leur ordinateur.|Tous les ordinateurs exécutent la même solution de logiciel anti-programme malveillant qui télécharge automatiquement les derniers fichiers de mise à jour des définitions et qui réactivent automatiquement le pare-feu Windows s'il a été désactivé par l'utilisateur.<br /><br /> Le support technique est automatiquement averti par courrier électronique si un logiciel malveillant est détecté.|  
 |Tous les ordinateurs installent les mises à jour logicielles critiques pendant le premier mois après leur sortie.|Bien que les mises à jour logicielles soient installées sur les ordinateurs, beaucoup d’ordinateurs n’installent pas automatiquement les mises à jour logicielles critiques avant les deux ou trois mois suivant la publication de ces mises à jour. De ce fait, ces ordinateurs sont vulnérables aux attaques pendant cette période.<br /><br /> Pour les ordinateurs qui n’installent pas les mises à jour logicielles critiques, le support technique envoie d’abord un e-mail demandant aux utilisateurs d’installer les mises à jour. Les ingénieurs se connectent à distance aux ordinateurs qui restent non conformes et installent manuellement les mises à jour manquantes.|Le taux de conformité actuel pour le mois spécifié est passé à plus de 95 %. Le support technique n’a pas eu à envoyer d’e-mail de rappel, ni à installer manuellement les mises à jour.|  
@@ -166,7 +166,7 @@ Adam applique ces spécifications de l'entreprise aux scénarios suivants :
 
 -   Endpoint Protection  
 -   Mises à jour logicielles  
--   Paramètres de compatibilité  
+-   Paramètres de conformité  
 -   Gestion des appareils mobiles  
 -   Gestion des clients basés sur Internet  
 
@@ -187,17 +187,17 @@ Il implémente ces fonctionnalités en effectuant les étapes de configuration d
 
  Adam applique ces spécifications de l'entreprise aux scénarios suivants :  
 
-|Situation|État actuel de la gestion du client|État futur de la gestion du client|  
+|Exigence|État actuel de la gestion du client|État futur de la gestion du client|  
 |-----------------|-------------------------------------|------------------------------------|  
 |Windows 7 est installé sur les nouveaux ordinateurs.|L’équipe du support technique installe et configure Windows 7 pour les utilisateurs, puis envoie l’ordinateur à l’emplacement prévu.|Les nouveaux ordinateurs sont envoyés directement à leur destination finale. Ils sont connectés au réseau, puis installent et configurent automatiquement Windows 7.|  
 |Les ordinateurs doivent être gérés et surveillés. Cela inclut la collecte des données d’inventaire matériel et logiciel qui vous aident à déterminer les conditions de licence.|Le client Configuration Manager est déployé en utilisant l’installation Push automatique du client. Le support technique examine les échecs d’installation et vérifie les clients qui n’envoient pas de données d’inventaire comme prévu.<br /><br /> Les échecs sont fréquents à cause des dépendances d’installation qui ne sont pas respectées et de la corruption de WMI sur le client.|Les données d'installation et d'inventaire client collectées depuis des ordinateurs sont plus fiables et requièrent moins d'intervention du support technique. Les rapports indiquent l'utilisation du logiciel pour les informations de licence.|  
 |Certains ordinateurs doivent avoir des stratégies de gestion plus rigoureuses.|En raison des stratégies de gestion plus rigoureuses, Configuration Manager ne gère pas encore ces ordinateurs.|Ces ordinateurs sont gérés à l’aide de Configuration Manager pour prendre en compte les exceptions, sans aucune surcharge administrative.|  
 
- Pour satisfaire la configuration requise, Adam utilise les fonctionnalités de gestion et les options de configuration de Configuration Manager suivantes :  
+ Pour répondre aux conditions requises, Adam utilise les fonctionnalités de gestion et les options de configuration de Configuration Manager suivantes :  
 
 -   Déploiement du système d'exploitation  
 -   Déploiement du client et état du client  
--   Paramètres de compatibilité  
+-   Paramètres de conformité  
 -   Paramètres du client  
 -   Méthodes d’inventaire et Asset Intelligence  
 -   Administration basée sur des rôles  

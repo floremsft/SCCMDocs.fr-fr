@@ -13,14 +13,14 @@ ms.topic: article
 ms.assetid: 07c3c6d9-f056-4c4d-bc70-ede5ca933807
 caps.latest.revision: "9"
 caps.handback.revision: "0"
-author: Dougeby
-ms.author: dougeby
+author: aczechowski
+ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 4c0231057c2ac154b050cc7020eb1fbb4ed93228
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: a6aa06da33cbc537db30c7c885d9ca449ff7221c
+ms.sourcegitcommit: 08f9854fb6c6d21e1e923b13e38a64d0bc2bc9a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="associate-users-with-a-destination-computer-in-system-center-configuration-manager"></a>Associer des utilisateurs à un ordinateur de destination dans System Center Configuration Manager
 
@@ -39,7 +39,7 @@ Quand vous utilisez System Center Configuration Manager pour déployer le systè
 ## <a name="how-to-specify-a-user-when-you-deploy-operating-systems"></a>Comment spécifier un utilisateur quand vous déployez des systèmes d’exploitation  
  Le tableau suivant répertorie les actions que vous pouvez effectuer pour intégrer l'affinité entre périphérique et utilisateur dans vos déploiements de système d'exploitation. Vous pouvez intégrer l’affinité entre périphérique et utilisateur dans des déploiements PXE, des déploiements de médias de démarrage et des déploiements de médias préparés.  
 
-|Action|Plus d'informations|  
+|Action|Informations complémentaires|  
 |------------|----------------------|  
 |Créer une séquence de tâches qui inclut la variable **SMSTSAssignUsersMode**|Ajoutez la variable **SMSTSAssignUsersMode** au début de votre séquence de tâches en suivant l’étape de la séquence de tâches [Définir la variable de séquence de tâches](../../osd/understand/task-sequence-steps.md#BKMK_SetTaskSequenceVariable). Cette variable spécifie comment la séquence de tâches gère les informations utilisateur.<br /><br /> Définissez la variable sur l'une des valeurs suivantes :<br /><br /> <br /><br /> **Auto**: la séquence de tâches crée automatiquement une relation entre l'utilisateur et l'ordinateur de destination et déploie le système d'exploitation.<br /><br /> **En attente**: la séquence de tâches crée une relation entre l'utilisateur et l'ordinateur de destination, mais attend l'approbation de l'utilisateur administratif avant le déploiement du système d'exploitation.<br /><br /> **Désactivé**: la séquence de tâches n'associe pas un utilisateur à l'ordinateur de destination et continue à déployer le système d'exploitation.<br /><br /> <br /><br /> Cette variable peut également être définie sur un ordinateur ou un regroupement. Pour plus d’informations sur les variables intégrées, consultez [Variables intégrées de séquence de tâches](../../osd/understand/task-sequence-built-in-variables.md).|  
 |Créer une commande de prédémarrage qui collecte les informations utilisateur|La commande de prédémarrage peut être un script Visual Basic (VB) avec une zone de texte ou bien une application HTML (HTA) qui valide les données utilisateur qui sont saisies.<br /><br /> La commande de prédémarrage doit définir la variable **SMSTSUdaUsers** qui est utilisée lors de l'exécution de la séquence de tâches. Cette variable peut être définie sur un ordinateur, un regroupement ou une variable de séquence de tâches. Utilisez le format suivant pour ajouter plusieurs utilisateurs : *domaine\utilisateur1, domaine\utilisateur2, domaine\utilisateur3*.|  

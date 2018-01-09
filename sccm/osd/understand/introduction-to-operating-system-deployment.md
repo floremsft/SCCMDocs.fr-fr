@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: d9a1c545-8301-492c-832f-2c108ff93c77
 caps.latest.revision: "12"
-author: Dougeby
-ms.author: dougeby
+author: aczechowski
+ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 5835bde38cb940d2e38df4a38146753a6842f1d7
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 31f18ce9df3fcdb133589ce5214cef96372ee1b0
+ms.sourcegitcommit: 08f9854fb6c6d21e1e923b13e38a64d0bc2bc9a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="introduction-to-operating-system-deployment-in-system-center-configuration-manager"></a>Introduction au déploiement de système d’exploitation dans System Center Configuration Manager
 
@@ -72,7 +72,7 @@ Vous pouvez utiliser Configuration Manager pour déployer des systèmes d’expl
 
     -   dans les environnements sans connectivité réseau ou avec une connectivité réseau avec une faible bande passante.  
 
-     Pour plus d’informations, consultez [Créer un média autonome](../deploy-use/create-stand-alone-media.md).  
+     Pour plus d’informations, voir [Créer un média autonome](../deploy-use/create-stand-alone-media.md).  
 
 -   **Déploiements de médias préparés** : les déploiements de médias préparés vous permettent de déployer un système d’exploitation sur un ordinateur qui n’est pas entièrement préparé. Le média préparé est un fichier WIM (Windows Imaging Format) qui peut être installé sur un système nu par le fabricant ou dans un centre de reclassement d’entreprise qui n’est pas connecté à l’environnement Configuration Manager.  
 
@@ -82,7 +82,7 @@ Vous pouvez utiliser Configuration Manager pour déployer des systèmes d’expl
  Une image de démarrage dans Configuration Manager est une image Windows PE (WinPE) utilisée pendant un déploiement de système d’exploitation. Les images de démarrage servent à démarrer un ordinateur dans WinPE, qui est un système d’exploitation minimal avec des composants et des services limités qui préparent l’ordinateur de destination pour l’installation de Windows. Configuration Manager fournit deux images de démarrage : une pour la prise en charge des plateformes x86 et une autre pour la prise en charge des plateformes x64. Celles-ci sont considérées comme des images de démarrage par défaut. Les images de démarrage que vous créez et ajoutez à Configuration Manager sont considérées comme des images personnalisées. Les images de démarrage par défaut peuvent être remplacées automatiquement quand vous mettez à jour Configuration Manager. Pour plus d’informations sur les images de démarrage, consultez [Gérer les images de démarrage](../get-started/manage-boot-images.md).  
 
 ##  <a name="BKMK_OSImages"></a> Images du système d’exploitation  
- Les images de système d’exploitation dans Configuration Manager sont stockées au format de fichier WIM (Windows Imaging Format) et représentent un regroupement compressé de fichiers et de dossiers de référence nécessaires pour installer et configurer avec succès un système d’exploitation sur un ordinateur. Pour tous les scénarios de déploiement de système d’exploitation, vous devez sélectionner une image de système d’exploitation. Vous pouvez utiliser l’image de système d’exploitation par défaut ou créer l’image de système d’exploitation à partir d’un ordinateur de référence que vous configurez. Pour plus d’informations, consultez [Gérer les images de système d’exploitation](../get-started/manage-operating-system-images.md).  
+ Les images de système d’exploitation dans Configuration Manager sont stockées au format de fichier WIM (Windows Imaging Format) et représentent un regroupement compressé de fichiers et de dossiers de référence nécessaires pour installer et configurer avec succès un système d’exploitation sur un ordinateur. Pour tous les scénarios de déploiement de système d’exploitation, vous devez sélectionner une image de système d’exploitation. Vous pouvez utiliser l’image de système d’exploitation par défaut ou créer l’image de système d’exploitation à partir d’un ordinateur de référence que vous configurez. Pour plus d’informations, voir [Gérer les images de système d’exploitation](../get-started/manage-operating-system-images.md).  
 
 ##  <a name="BKMK_OSUpgradePackages"></a> Packages de mise à niveau du système d’exploitation  
  Les packages de mise à niveau de système d’exploitation servent à mettre à niveau un système d’exploitation. Il s’agit de déploiements de système d’exploitation initiés par le programme d’installation. Vous importez des packages de mise à niveau de système d’exploitation dans Configuration Manager à partir d’un DVD ou d’un fichier ISO monté. Pour plus d’informations, consultez [Gérer les packages de mise à niveau de système d’exploitation](../get-started/manage-operating-system-upgrade-packages.md).  
@@ -96,7 +96,7 @@ Vous pouvez utiliser Configuration Manager pour déployer des systèmes d’expl
 ##  <a name="BKMK_OSDUserState"></a> Enregistrer et restaurer l’état utilisateur  
  Lorsque vous déployez des systèmes d'exploitation, vous pouvez enregistrer l'état utilisateur à partir de l'ordinateur de destination, déployer le système d'exploitation, puis restaurer l'état utilisateur une fois que le système d'exploitation est déployé. Ce processus est généralement utilisé quand vous installez le système d’exploitation sur un ordinateur client Configuration Manager.  
 
- Les informations relatives à l'état utilisateur sont capturées et restaurées à l'aide de séquences de tâches. Lorsque les informations d'état utilisateur sont capturées, elles peuvent être stockées selon l'une des manières suivantes :  
+ Les informations relatives à l'état utilisateur sont capturées et restaurées à l'aide de séquences de tâches. Lorsque les informations d'état utilisateur sont capturées, elles peuvent être stockées selon l'une des manières suivantes :  
 
 -   Vous pouvez stocker les données d'état utilisateur à distance en configurant un point de migration d'état. La séquence de tâches Capturer envoie les données au point de migration d'état. Ensuite, une fois le système d'exploitation déployé, la séquence de tâches Restaurer récupère les données et restaure l'état utilisateur sur l'ordinateur de destination.  
 
@@ -107,7 +107,7 @@ Vous pouvez utiliser Configuration Manager pour déployer des systèmes d’expl
  Pour plus d’informations, consultez [Gérer l’état utilisateur](../get-started/manage-user-state.md).  
 
 ##  <a name="BKMK_UnknownComputer"></a> Déployer sur des ordinateurs inconnus  
- Vous pouvez déployer un système d’exploitation sur des ordinateurs qui ne sont pas gérés par Configuration Manager. Il n’existe aucun enregistrement de ces ordinateurs dans la base de données Configuration Manager. Ces ordinateurs sont appelés ordinateurs inconnus. Les ordinateurs inconnus sont les suivants :  
+ Vous pouvez déployer un système d’exploitation sur des ordinateurs qui ne sont pas gérés par Configuration Manager. Il n'existe aucun enregistrement de ces ordinateurs dans la base de données Configuration Manager. Ces ordinateurs sont appelés ordinateurs inconnus. Les ordinateurs inconnus sont les suivants :  
 
 -   Un ordinateur sur lequel le client Configuration Manager n’est pas installé  
 
@@ -115,7 +115,7 @@ Vous pouvez utiliser Configuration Manager pour déployer des systèmes d’expl
 
 -   Un ordinateur qui n’est pas détecté par Configuration Manager  
 
- Pour plus d’informations, consultez [Préparer les déploiements d’ordinateurs inconnus](../get-started/prepare-for-unknown-computer-deployments.md).  
+ Pour plus d’informations, voir [Préparer les déploiements d’ordinateurs inconnus](../get-started/prepare-for-unknown-computer-deployments.md).  
 
 ##  <a name="BKMK_UDA"></a> Associer des utilisateurs à un ordinateur  
  Lorsque vous déployez un système d'exploitation, vous pouvez associer des utilisateurs à l'ordinateur de destination pour prendre en charge des actions d'affinité entre appareil et utilisateur. Lorsque vous associez un utilisateur à l'ordinateur de destination, l'utilisateur administratif peut effectuer des actions ultérieurement sur l'un des ordinateurs associés à cet utilisateur, notamment déployer une application sur l'ordinateur d'un utilisateur spécifique. Toutefois, lorsque vous déployez un système d'exploitation, vous ne pouvez pas déployer le système d'exploitation sur l'ordinateur d'un utilisateur spécifique. Pour plus d’informations, consultez [Associer des utilisateurs à un ordinateur de destination](../get-started/associate-users-with-a-destination-computer.md).  

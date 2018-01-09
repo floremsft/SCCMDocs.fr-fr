@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 0212b023-804a-4f84-b880-7a59cdb49c67
 caps.latest.revision: "5"
-author: Dougeby
-ms.author: dougeby
+author: aczechowski
+ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 586eec745bdf86a42a9d33fb9e1163f03efa1c59
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 89e30f81648aff16de2f7db55cbdda06cf69551d
+ms.sourcegitcommit: 08f9854fb6c6d21e1e923b13e38a64d0bc2bc9a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="use-a-task-sequence-to-manage-virtual-hard-disks-in-system-center-configuration-manager"></a>Utiliser une séquence de tâches pour gérer des disques durs virtuels dans System Center Configuration Manager
 
@@ -29,7 +29,7 @@ Dans System Center Configuration Manager, vous pouvez gérer des disques durs vi
 
  Pour gérer les disques durs virtuels dans Configuration Manager, utilisez les sections suivantes :
 
-## <a name="prerequisites"></a>Conditions préalables  
+## <a name="prerequisites"></a>Prérequis  
  Vérifiez la configuration requise suivante avant de commencer :  
 
 -   L'ordinateur à partir duquel vous gérez des disques durs virtuels doit exécuter l'un des systèmes d'exploitation suivants :  
@@ -38,9 +38,9 @@ Dans System Center Configuration Manager, vous pouvez gérer des disques durs vi
 
     -   Windows 8 x64  
 
-    -   Windows Server 2008 R2  
+    -   Windows Server 2008 R2  
 
-    -   Windows Server 2012  
+    -   Windows Server 2012  
 
     -   Windows Server 2012 R2  
 
@@ -87,7 +87,7 @@ Dans System Center Configuration Manager, vous pouvez gérer des disques durs vi
 
     -   **Description**: spécifiez une description de la séquence de tâches.  
 
-    -   **Images de démarrage**: spécifiez l'image de démarrage qui installe le système d'exploitation sur l'ordinateur de destination. Pour plus d'informations, voir [Gérer les images de démarrage](../get-started/manage-boot-images.md).  
+    -   **Images de démarrage**: spécifiez l'image de démarrage qui installe le système d'exploitation sur l'ordinateur de destination. Pour plus d’informations, consultez [Gérer les images de démarrage](../get-started/manage-boot-images.md).  
 
 6.  Sur la page **Installer Windows** , spécifiez les paramètres suivants et cliquez sur **Suivant**.  
 

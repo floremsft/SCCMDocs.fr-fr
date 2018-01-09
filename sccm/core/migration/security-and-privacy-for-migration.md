@@ -13,14 +13,14 @@ ms.topic: article
 ms.assetid: 6893fce1-7ad5-4151-9ba9-3096871e8e4a
 caps.latest.revision: "5"
 caps.handback.revision: "0"
-author: aaroncz
+author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: f7cbcca0456b3ae1da93b67fade845a0847d58ac
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: 6c2fb0fe7ff3c126d1dcd70dd69103f9690f2938
+ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="security-and-privacy-for-migration-to-system-center-configuration-manager"></a>Sécurité et confidentialité pour la migration vers System Center Configuration Manager
 
@@ -31,7 +31,7 @@ Cette rubrique contient les bonnes pratiques en matière de sécurité et les in
 ## <a name="security-best-practices-for-migration"></a>Meilleures pratiques de sécurité pour la migration  
  Utilisez les meilleures pratiques de sécurité suivantes pour la migration.  
 
-|Meilleure pratique de sécurité|Plus d'informations|  
+|Bonnes pratiques de sécurité|Plus d'informations|  
 |----------------------------|----------------------|  
 |Utilisez le compte d'ordinateur pour le compte du fournisseur SMS du site source et le compte SQL Server du site source plutôt qu'un compte d'utilisateur.|Si vous devez utiliser un compte d'utilisateur pour la migration, supprimez les détails du compte une fois la migration terminée.|  
 |Lorsque vous migrez le contenu d'un point de distribution d'un site source vers un point de distribution d'un site de destination, utilisez IPsec.|Bien que le contenu migré soit haché pour détecter la falsification, si les données sont modifiées pendant leur transfert, la migration échoue.|  

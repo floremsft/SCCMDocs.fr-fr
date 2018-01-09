@@ -13,14 +13,14 @@ ms.topic: article
 ms.assetid: c6777fb0-0754-4abf-8a1b-7639d23e9391
 caps.latest.revision: "8"
 caps.handback.revision: "0"
-author: aaroncz
+author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: bc3237b701a49aa176c924323710beea3dcc6fa9
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: 0b6fa22a7bc3de7bb5bc0d26f8e35b51d55c5e72
+ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="ports-used-in-system-center-configuration-manager"></a>Ports utilisés dans System Center Configuration Manager
 
@@ -578,7 +578,7 @@ Pour plus d’informations, consultez [Conditions requises pour l’accès Inter
  Les sections suivantes fournissent des informations supplémentaires sur les ports utilisés par Configuration Manager.  
 
 ###  <a name="BKMK_ClientShares"></a> Client vers partages serveur  
- Les clients utilisent le protocole SMB (Server Message Block) à chaque fois qu'ils se connectent à des partages UNC. Exemple :  
+ Les clients utilisent le protocole SMB (Server Message Block) à chaque fois qu'ils se connectent à des partages UNC. Par exemple :  
 
 -   Installation manuelle du client spécifiant la propriété de ligne de commande CCMSetup.exe **/source:**  
 
@@ -612,7 +612,7 @@ Quand vous utilisez Azure et que la base de données de site se trouve derrière
 
  Les rôles de système de site suivants communiquent directement avec la base de données SQL Server :  
 
--   Point de service Web du catalogue des applications  
+-   Point de service web du catalogue des applications  
 
 -   Rôle de point d'enregistrement de certificat  
 

@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ff6e7267-302a-4563-815e-cdc0d1a4b60f
 caps.latest.revision: "12"
-author: Dougeby
-ms.author: dougeby
+author: aczechowski
+ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 4b10aab0674e4066b399c636ecf2226ae109260e
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: a26fc3daf17aefe24a46ece561fc2ceaf5284ffb
+ms.sourcegitcommit: 08f9854fb6c6d21e1e923b13e38a64d0bc2bc9a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="create-prestaged-media-with-system-center-configuration-manager"></a>Créer un média préparé avec System Center Configuration Manager
 
@@ -28,9 +28,9 @@ ms.lasthandoff: 10/12/2017
 Le média préparé dans System Center Configuration Manager est un fichier WIM (Windows Imaging Format) qui peut être installé sur un ordinateur nu par le fabricant ou dans un centre de reclassement d’entreprise qui n’est pas connecté à l’environnement Configuration Manager.  
 Un média préparé contient l'image de démarrage utilisée pour démarrer l'ordinateur de destination et l'image du système d'exploitation qui est appliquée à l'ordinateur de destination. Vous pouvez aussi spécifier les applications, les packages et les packages de pilotes à inclure dans le média préparé. La séquence de tâches qui déploie le système d'exploitation n'est pas incluse dans le média. Un média préparé est appliqué au disque dur d'un nouvel ordinateur avant que l'ordinateur soit envoyé à l'utilisateur final. Utilisez un média préparé pour les scénarios de déploiement de système d’exploitation suivants :  
 
--   [Créer une image pour un fabricant OEM en usine ou un dépôt local](../../osd/deploy-use/create-an-image-for-an-oem-in-factory-or-a-local-depot.md)  
+-   [Créer une image pour un fabricant OEM en usine ou dépôt local](../../osd/deploy-use/create-an-image-for-an-oem-in-factory-or-a-local-depot.md)  
 
--   [Installer une nouvelle version de Windows sur un nouvel ordinateur (système nu)](install-new-windows-version-new-computer-bare-metal.md)  
+-   [Installation d’une nouvelle version de Windows sur un nouvel ordinateur (système nu)](install-new-windows-version-new-computer-bare-metal.md)  
 
 -   [Déployer Windows To Go](deploy-windows-to-go.md)  
 
@@ -42,7 +42,7 @@ Un média préparé contient l'image de démarrage utilisée pour démarrer l'or
 |Tâche|Description|  
 |----------|-----------------|  
 |Image de démarrage|Prenez en considération les éléments suivants relatifs à l’image de démarrage que vous utiliserez dans la séquence de tâches pour déployer le système d’exploitation :<br /><br /> -   L’architecture de l’image de démarrage doit être adaptée à l’architecture de l’ordinateur de destination. Par exemple, un ordinateur de destination x64 peut démarrer et exécuter une image de démarrage x86 ou x64. Toutefois, un ordinateur de destination x86 peut démarrer et exécuter uniquement une image de démarrage x86.<br />-   Assurez-vous que l’image de démarrage contient les pilotes de stockage de masse et de réseau qui sont requis pour provisionner l’ordinateur de destination.|  
-|Créer une séquence de tâches pour déployer le système d’exploitation|Dans le cadre du média préparé, vous devez spécifier la séquence de tâches destinée à déployer le système d’exploitation.<br /><br /> -   Pour connaître les étapes permettant de créer une séquence de tâches, voir [Créer une séquence de tâches pour installer un système d’exploitation](../../osd/deploy-use/create-a-task-sequence-to-install-an-operating-system.md).<br />-   Pour plus d’informations sur les séquences de tâches, voir [Gérer les séquences de tâches pour automatiser des tâches](../../osd/deploy-use/manage-task-sequences-to-automate-tasks.md).|  
+|Créer une séquence de tâches pour déployer un système d’exploitation|Dans le cadre du média préparé, vous devez spécifier la séquence de tâches destinée à déployer le système d’exploitation.<br /><br /> -   Pour connaître les étapes permettant de créer une séquence de tâches, voir [Créer une séquence de tâches pour installer un système d’exploitation](../../osd/deploy-use/create-a-task-sequence-to-install-an-operating-system.md).<br />-   Pour plus d’informations sur les séquences de tâches, voir [Gérer les séquences de tâches pour automatiser des tâches](../../osd/deploy-use/manage-task-sequences-to-automate-tasks.md).|  
 |Distribuer tout le contenu associé à la séquence de tâches|Vous devez distribuer tout le contenu exigé par la séquence de tâches à au moins un point de distribution. Cela inclut l’image de démarrage, l’image du système d’exploitation et les autres fichiers associés. L'Assistant collecte les informations à partir du point de distribution lorsqu'il crée le média autonome. Vous devez disposer de droits d’accès en **Lecture** à la bibliothèque de contenu sur ce point de distribution.  Pour plus d’informations, voir [À propos de la bibliothèque de contenu](../../core/plan-design/hierarchy/the-content-library.md).|  
 |Disque dur de l’ordinateur de destination|Le disque dur de l’ordinateur de destination doit être formaté avant que le support préparé soit préparé sur le disque dur de l’ordinateur. Si le disque dur n'est pas formaté lorsque le média est appliqué, la séquence de tâches qui déploie le système d'exploitation échouera lorsqu'elle tentera de démarrer l'ordinateur de destination.|  
 
@@ -111,7 +111,7 @@ Un média préparé contient l'image de démarrage utilisée pour démarrer l'or
     > [!IMPORTANT]  
     >  L'architecture de l'image de démarrage qui est distribuée doit être adaptée à l'architecture de l'ordinateur de destination. Par exemple, un ordinateur de destination x64 peut démarrer et exécuter une image de démarrage x86 ou x64. Toutefois, un ordinateur de destination x86 peut démarrer et exécuter uniquement une image de démarrage x86.  
 
-    -   Dans la zone **Image de démarrage** , spécifiez l'image de démarrage pour démarrer l'ordinateur de destination. Pour plus d'informations, voir [Gérer les images de démarrage](../get-started/manage-boot-images.md).  
+    -   Dans la zone **Image de démarrage** , spécifiez l'image de démarrage pour démarrer l'ordinateur de destination. Pour plus d’informations, consultez [Gérer les images de démarrage](../get-started/manage-boot-images.md).  
 
     -   Dans la zone **Point de distribution** , spécifiez le point de distribution où réside l'image de démarrage. L'Assistant extrait l'image de démarrage à partir du point de distribution et l'écrit sur le média.  
 

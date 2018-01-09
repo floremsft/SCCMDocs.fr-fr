@@ -13,14 +13,14 @@ ms.topic: article
 ms.assetid: 9cbfc406-d009-446d-8fee-4938de48c919
 caps.latest.revision: "15"
 caps.handback.revision: "0"
-author: Dougeby
-ms.author: dougeby
+author: aczechowski
+ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 4c1d721c9fb0b01f15f1f0468bc797ffffb9e345
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 184768e87406051508c8dcacfa63db5ff85c3732
+ms.sourcegitcommit: 08f9854fb6c6d21e1e923b13e38a64d0bc2bc9a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="customize-boot-images-with-system-center-configuration-manager"></a>Personnaliser les images de démarrage avec System Center Configuration Manager
 
@@ -208,7 +208,7 @@ Chaque version de Configuration Manager prend en charge une version spécifique 
 5.  Une fois que vous avez monté l'image de démarrage, utilisez DISM pour ajouter des composants facultatifs à l'image de démarrage. Dans Windows PE 3.1, par exemple, les composants facultatifs sont situés dans <*chemin_installation*>\Windows AIK\Tools\PETools\amd64\WinPE_FPs\\.  
 
     > [!NOTE]
-    >  Cette procédure utilise l'emplacement suivant pour les composants facultatifs : C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs. Le chemin d'accès que vous utilisez peut être différent selon les options de version et d'installation que vous choisissez pour le kit Windows AIK.  
+    >  Cette procédure utilise l’emplacement suivant pour les composants facultatifs : C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs. Le chemin d'accès que vous utilisez peut être différent selon les options de version et d'installation que vous choisissez pour le kit Windows AIK.  
 
      Tapez la commande suivante pour installer les composants facultatifs :  
 

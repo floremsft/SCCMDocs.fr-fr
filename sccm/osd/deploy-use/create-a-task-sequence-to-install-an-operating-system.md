@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 217c8a0e-5112-420e-a325-2a6d75326290
 caps.latest.revision: "13"
-author: Dougeby
-ms.author: dougeby
+author: aczechowski
+ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 47210939c66bb31d173c7e406a66c764d5008879
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 433a1778213b357c6c41eb20e4b975b2e682050d
+ms.sourcegitcommit: 08f9854fb6c6d21e1e923b13e38a64d0bc2bc9a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="create-a-task-sequence-to-install-an-operating-system-in-system-center-configuration-manager"></a>Créer une séquence de tâches pour installer un système d’exploitation dans System Center Configuration Manager
 
@@ -65,9 +65,9 @@ Dans System Center Configuration Manager, utilisez des séquences de tâches pou
 
 6.  Sur la page **Installer Windows** , spécifiez les paramètres suivants et cliquez sur **Suivant**.  
 
-    -   **Package d'images**: spécifiez le package qui contient l'image du système d'exploitation à installer. Pour plus d’informations, consultez [Gérer les images de système d’exploitation](../get-started/manage-operating-system-images.md).  
+    -   **Package d'images**: spécifiez le package qui contient l'image du système d'exploitation à installer. Pour plus d’informations, voir [Gérer les images de système d’exploitation](../get-started/manage-operating-system-images.md).  
 
-    -   **Image**: si le package d'images du système d'exploitation comporte plusieurs images, spécifiez l'index de l'image du système d'exploitation à installer.  
+    -   **Image**: si le package d’images du système d’exploitation comporte plusieurs images, spécifiez l’index de l’image du système d’exploitation à installer.  
 
     -   **Effectuez la partition et le formatage de l'ordinateur cible avant d'installer le système d'exploitation**: spécifiez si vous souhaitez que la séquence de tâches partitionne et formate l'ordinateur de destination avant que le système d'exploitation soit installé.  
 
@@ -121,7 +121,7 @@ Dans System Center Configuration Manager, utilisez des séquences de tâches pou
 > [!IMPORTANT]  
 >  Vous devez toujours utiliser l'Assistant Création d'une séquence de tâches pour créer cette séquence de tâches.  
 
- Lorsque vous utilisez l'Assistant Création d'une séquence de tâches pour créer cette nouvelle séquence de tâches, certains noms d'étapes de séquence de tâches sont différents des noms indiqués dans le cadre d'un ajout manuel de ces étapes de séquence de tâches à une séquence de tâches existante. Le tableau suivant présente les différences de dénomination :  
+ Lorsque vous utilisez l'Assistant Création d'une séquence de tâches pour créer cette nouvelle séquence de tâches, certains noms d'étapes de séquence de tâches sont différents des noms indiqués dans le cadre d'un ajout manuel de ces étapes de séquence de tâches à une séquence de tâches existante. Le tableau suivant présente les différences de dénomination :  
 
 |Nom de l'étape de séquence de tâches de l'Assistant Création d'une séquence de tâches|Nom équivalent de l'étape dans l'Éditeur de séquence de tâches|  
 |---------------------------------------------------------|-----------------------------------------------|  

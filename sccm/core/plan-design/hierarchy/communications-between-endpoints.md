@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 68fe0e7e-351e-4222-853a-877475adb589
 caps.latest.revision: "10"
-author: aaroncz
+author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 997d1a38f01159f2c214dc4d5991e47e40ad0379
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: 1ad0c5855ce9855801eda66d78f7f60829f26fbf
+ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="communications-between-endpoints-in-system-center-configuration-manager"></a>Communications entre points de terminaison dans System Center Configuration Manager
 
@@ -213,7 +213,7 @@ Par ailleurs, les rôles de système de site suivants requièrent un accès dire
 
 -   Point du service de rapport  
 
--   Point de migration d'état  
+-   Point de migration d’état  
 
 Pour plus d’informations, consultez [Ports utilisés dans System Center Configuration Manager](../../../core/plan-design/hierarchy/ports.md).  
 

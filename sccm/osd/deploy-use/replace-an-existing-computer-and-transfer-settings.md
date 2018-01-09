@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: d28f4363-9e8a-4c54-9cb7-0594fabfff26
 caps.latest.revision: "6"
-author: Dougeby
-ms.author: dougeby
+author: aczechowski
+ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: efa6ad5bd5358139b3da23b226041f8599dc9454
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 862b3b8da0c1f9be0a5883c3f07b2759606d0fc1
+ms.sourcegitcommit: 08f9854fb6c6d21e1e923b13e38a64d0bc2bc9a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="replace-an-existing-computer-and-transfer-settings-with-system-center-configuration-manager"></a>Remplacer un ordinateur existant et transférer des paramètres avec System Center Configuration Manager
 
@@ -39,7 +39,7 @@ Cette rubrique indique les étapes générales à suivre dans System Center Conf
 
      Quand vous allez capturer les paramètres de l’ordinateur existant et restaurer les paramètres sur le nouveau système d’exploitation, vous devez installer un point de migration d’état. Pour plus d’informations, consultez [Point de migration d’état](../get-started/prepare-site-system-roles-for-operating-system-deployments.md#BKMK_StateMigrationPoints).  
 
-##  <a name="BKMK_Configure"></a> Configurerr  
+##  <a name="BKMK_Configure"></a> Configurer  
 
 1.  **Préparer une image de démarrage**  
 
@@ -78,7 +78,7 @@ Cette rubrique indique les étapes générales à suivre dans System Center Conf
 
     -   [Créer une image pour un fabricant OEM en usine ou dépôt local](create-an-image-for-an-oem-in-factory-or-a-local-depot.md)  
 
-## <a name="monitor"></a>Analyse  
+## <a name="monitor"></a>Moniteur  
 
 -   **Surveiller le déploiement de la séquence de tâches**  
 

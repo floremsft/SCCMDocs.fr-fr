@@ -13,14 +13,14 @@ ms.topic: article
 ms.assetid: 72d7b174-f015-498f-a0a7-2161b9929198
 caps.latest.revision: "7"
 caps.handback.revision: "0"
-author: aaroncz
+author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 16416313b1ea171f695d2b4908331f78f584d28f
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: 518be0c1cb4c361d8802ed70779d192725eb8feb
+ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="accounts-used-in-system-center-configuration-manager"></a>Comptes utilisés dans System Center Configuration Manager
 
@@ -54,7 +54,7 @@ Le tableau suivant répertorie des détails supplémentaires pour ce groupe :
 
  Le tableau suivant répertorie des détails supplémentaires pour ce groupe :  
 
-|Détail|Plus d'informations|  
+|Détail|Informations complémentaires|  
 |------------|----------------------|  
 |Type et emplacement|Ce groupe est un groupe de sécurité local créé sur le client Configuration Manager, lorsque le client reçoit une stratégie qui active les outils de contrôle à distance.<br /><br /> Lorsque vous désactivez les outils de contrôle à distance pour un client, ce groupe n’est pas supprimé automatiquement. Il doit être supprimé manuellement sur chaque ordinateur client.|  
 |Adhésion|Par défaut, ce groupe ne contient aucun membre. Lorsque vous ajoutez des utilisateurs à la liste Observateurs autorisés, ils sont automatiquement ajoutés à ce groupe.<br /><br /> Vous pouvez utiliser la liste Observateurs autorisés pour gérer l’appartenance à ce groupe au lieu d’y ajouter directement des utilisateurs ou des groupes.<br /><br /> En plus d’être un observateur autorisé, un utilisateur administratif doit disposer de l’autorisation **Contrôle à distance** sur l’objet **Regroupement**. Vous pouvez attribuer cette autorisation à l'aide du rôle de sécurité Opérateur d'outils à distance.|  
@@ -68,7 +68,7 @@ Le tableau suivant répertorie des détails supplémentaires pour ce groupe :
 
  Le tableau suivant répertorie des détails supplémentaires pour ce groupe :  
 
-|Détail|Plus d'informations|  
+|Détail|Informations complémentaires|  
 |------------|----------------------|  
 |Type et emplacement|Ce groupe est un groupe de sécurité local créé sur chaque ordinateur qui dispose d’un fournisseur SMS.<br /><br /> Lorsque vous désinstallez un site, ce groupe n’est pas supprimé automatiquement. Il doit être supprimé manuellement.|  
 |Adhésion|Configuration Manager gère automatiquement l'appartenance au groupe. Par défaut, chaque utilisateur administratif d'une hiérarchie et le compte d'ordinateur du serveur de site sont membres du groupe Administrateurs SMS sur chaque ordinateur du fournisseur SMS d'un site.|  
@@ -79,7 +79,7 @@ Le tableau suivant répertorie des détails supplémentaires pour ce groupe :
 
  Le tableau suivant répertorie des détails supplémentaires pour ce groupe :  
 
-|Détail|Plus d'informations|  
+|Détail|Informations complémentaires|  
 |------------|----------------------|  
 |Type et emplacement|Ce groupe est un groupe de sécurité local créé sur chaque ordinateur qui dispose d’un fournisseur SMS.<br /><br /> Lorsque vous désinstallez un site, ce groupe n’est pas supprimé automatiquement. Il doit être supprimé manuellement.|  
 |Adhésion|Configuration Manager gère automatiquement l'appartenance au groupe. Par défaut, l'appartenance inclut les comptes d'ordinateur des ordinateurs distants qui disposent d'un point de gestion pour le site.|  
@@ -90,7 +90,7 @@ Le tableau suivant répertorie des détails supplémentaires pour ce groupe :
 
  Le tableau suivant répertorie des détails supplémentaires pour ce groupe :  
 
-|Détail|Plus d'informations|  
+|Détail|Informations complémentaires|  
 |------------|----------------------|  
 |Type et emplacement|Ce groupe est un groupe de sécurité local créé sur le serveur de site.<br /><br /> Lorsque vous désinstallez un site, ce groupe n’est pas supprimé automatiquement. Il doit être supprimé manuellement.|  
 |Adhésion|Configuration Manager gère automatiquement l'appartenance au groupe. Par défaut, l’appartenance comprend le compte d’ordinateur ou le compte d’utilisateur de domaine utilisé pour se connecter au serveur de site depuis chaque ordinateur distant ayant installé un fournisseur SMS pour le site.|  
@@ -112,7 +112,7 @@ Le tableau suivant répertorie des détails supplémentaires pour ce groupe :
 
  Le tableau suivant répertorie des détails supplémentaires pour ce groupe :  
 
-|Détail|Plus d'informations|  
+|Détail|Informations complémentaires|  
 |------------|----------------------|  
 |Type et emplacement|Ce groupe est un groupe de sécurité local créé sur le serveur de site.|  
 |Adhésion|Lorsque vous installez un nouveau site en tant qu’enfant d’un autre site, Configuration Manager ajoute automatiquement le compte de l’ordinateur du nouveau site au groupe situé sur le serveur de site parent. Configuration Manager ajoute également le compte d’ordinateur du site parent au groupe sur le serveur de site. Si vous spécifiez un autre compte pour les transferts de fichiers, ajoutez ce compte à ce groupe sur le serveur de site de destination.<br /><br /> Lorsque vous désinstallez un site, ce groupe n’est pas supprimé automatiquement. Il doit être supprimé manuellement.|  

@@ -13,14 +13,14 @@ ms.topic: article
 ms.assetid: 2bdec799-905f-48bc-aed5-2d92134739e8
 caps.latest.revision: "6"
 caps.handback.revision: "0"
-author: aaroncz
+author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: c35a33ffb20e548d4c9e51de01da803bdcf47f50
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: 654d70d97adefca6801bb64b1e23797e71c75f40
+ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="unicode-and-ascii-support-in-system-center-configuration-manager"></a>Prise en charge Unicode et ASCII dans System Center Configuration Manager
 
@@ -81,7 +81,7 @@ System Center Configuration Manager crée la plupart des objets à l’aide de c
 
 -   Le chemin d'accès pour les rôles de système de site suivants :  
 
-    -   Point de service Web du catalogue des applications  
+    -   Point de service web du catalogue des applications  
 
     -   Point du site web du catalogue des applications  
 
@@ -91,7 +91,7 @@ System Center Configuration Manager crée la plupart des objets à l’aide de c
 
     -   Point de Reporting Services  
 
-    -   Point de migration d'état  
+    -   Point de migration d’état  
 
 -   Chemin d'accès pour les dossiers suivants :  
 

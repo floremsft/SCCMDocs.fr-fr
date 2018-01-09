@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f0f818d4-7f45-402f-8758-dc88bc024953
 caps.latest.revision: "0"
-author: aaroncz
+author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 60e4123212d8a9def7357c277d6e4e566d5478c6
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: e634ade367375dd092cea0381fe976109c4936df
+ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="supported-configurations-for-the-long-term-servicing-branch-of-system-center-configuration-manager"></a>Configurations prises en charge pour la branche Long-Term Servicing Branch de System Center Configuration Manager
 
@@ -47,7 +47,7 @@ En outre, les produits et versions de produits non répertoriés dans les rubriq
 ## <a name="site-systems-and-servers"></a>Systèmes et serveurs de site
 LTSB prend en charge l’utilisation des systèmes d’exploitation Windows suivants comme systèmes de site.  Chaque système d’exploitation a les mêmes exigences et limitations que l’entrée correspondante dans [Systèmes d’exploitation pris en charge pour les serveurs de système de site](/sccm/core/plan-design/configs/supported-operating-systems-for-site-system-servers).  Par exemple, l’installation minimale de Windows 2012 R2 doit être une version x64, elle est prise en charge uniquement pour l’hébergement d’un point de distribution et elle ne prend pas en charge PXE ou la multidiffusion.
 
-**Systèmes d’exploitation pris en charge** :
+**Systèmes d’exploitation pris en charge :**
 - Windows Server 2016
 - Windows Server 2012 R2 (x64) : Standard, Datacenter
 - Windows Server 2012 (x64) : Standard, Datacenter
@@ -68,7 +68,7 @@ Les sections suivantes identifient les systèmes d’exploitation clients que vo
 ### <a name="windows-computers"></a>Ordinateurs Windows
 Vous pouvez utiliser LTSB pour gérer les systèmes d’exploitation Windows suivants avec le logiciel client Configuration Manager inclus dans Configuration Manager. Pour plus d’informations, consultez [Guide pratique pour déployer des clients sur des ordinateurs Windows dans System Center Configuration Manager](/sccm/core/clients/deploy/deploy-clients-to-windows-computers).
 
-**Systèmes d’exploitation pris en charge** :
+**Systèmes d’exploitation pris en charge :**
 - Windows Server 2016
 - Windows Server 2012 R2 (x64) : Standard, Datacenter (Remarque 1)
 - Windows Server 2012 (x64) : Standard, Datacenter (Remarque 1)
@@ -108,7 +108,7 @@ Vous pouvez utiliser LTSB pour gérer les appareils Windows Embedded suivants en
 
 -   Avant de pouvoir surveiller les programmes malveillants détectés sur les appareils Windows Embedded basés sur Windows XP, vous devez installer le package de script Microsoft Windows WMI sur les appareils intégrés. Utilisez Windows Embedded Target Designer pour installer ce package. Les fichiers *WBEMDISP.DLL* et *WBEMDISP.TLB* doivent exister et être inscrits dans le dossier %windir%\System32\WBEM sur l’appareil Windows Embedded pour garantir que les programmes malveillants sont signalés.  
 
-**Systèmes d’exploitation pris en charge** :  
+**Systèmes d’exploitation pris en charge :**  
 -   Windows 10 Entreprise 2016 LTSB (x86, x64)  
 -   Windows 10 Entreprise 2015 LTSB (x86, x64)  
 -   Windows Embedded 8.1 Industry (x86, x64)    
@@ -127,7 +127,7 @@ Vous pouvez utiliser LTSB pour gérer les appareils Windows Embedded suivants en
 
 -   Les fonctionnalités de ces appareils mobiles varient selon la plateforme et le type de client. Pour plus d’informations sur le type des fonctions de gestion que Configuration Manager prend en charge pour un client hérité d’appareil mobile, consultez [Choisir une solution de gestion d’appareils pour System Center Configuration Manager](/sccm/core/plan-design/choose-a-device-management-solution).  
 
-**Systèmes d’exploitation pris en charge** :  
+**Systèmes d’exploitation pris en charge :**  
 
 -   Windows CE 7.0 (processeurs ARM et x86)  
 
@@ -289,7 +289,7 @@ Les versions suivantes sont prises en charge à l’aide du fichier .tar indiqu�
 ## <a name="configuration-manager-console"></a>Console Configuration Manager
 LTSB prend en charge les systèmes d’exploitation suivants pour l’exécution de la console Configuration Manager. Chaque ordinateur qui héberge la console doit avoir au minimum .NET Framework version 4.5.2, sauf pour Windows 10, qui nécessite au minimum .NET Framework 4.6.
 
-**Systèmes d’exploitation pris en charge** :
+**Systèmes d’exploitation pris en charge :**
 - Windows Server 2016
 - Windows Server 2012 R2 (x64) : Standard, Datacenter
 - Windows Server 2012 (x64) : Standard, Datacenter
@@ -320,10 +320,10 @@ LTSB prend en charge les versions suivantes de SQL Server pour héberger la base
 Tous les systèmes de site LTSB doivent être membres d’un domaine Windows Active Directory pris en charge. La prise en charge des domaines Active Directory présente les mêmes exigences et limitations que celles décrites dans [Prise en charge des domaines Active Directory](/sccm/core/plan-design/configs/support-for-active-directory-domains). Toutefois, elle se limite aux niveaux fonctionnels de domaine suivants :
 
 **Niveaux pris en charge :**
-- Windows Server 2008
-- Windows Server 2008 R2
-- Windows Server 2012
-- Windows Server 2012 R2
+- Windows Server 2008
+- Windows Server 2008 R2
+- Windows Server 2012
+- Windows Server 2012 R2
 
 ## <a name="additional-support-topics-that-apply-to-the-long-term-servicing-branch"></a>Rubriques de prise en charge supplémentaires qui s’appliquent à Long-Term Servicing Branch
 Les informations contenues dans les rubriques Current Branch suivantes s’appliquent à LTSB :

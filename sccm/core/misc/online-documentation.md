@@ -12,14 +12,14 @@ ms.service:
 ms.technology: configmgr-other
 ms.assetid: 6d665cef-fc67-4686-bcb3-0572c0a3760c
 caps.latest.revision: "5"
-author: aaroncz
+author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: dc2f98fa2f400d78e244c9e10fa01b664f852ade
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: b6e98c5c8564059363ca9b5b141bda73807ff646
+ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="online-documentation-for-system-center-configuration-manager"></a>Documentation en ligne de System Center Configuration Manager
 
@@ -66,7 +66,7 @@ Recherchez la bibliothèque de documentation pour la version du produit que vous
 
 **Accessibilité :** les informations d’accessibilité pour cette version Technical Preview sont inchangées depuis System Center 2012 Configuration Manager. Consultez [Accessibility Features of Configuration Manager](http://go.microsoft.com/fwlink/p/?LinkId=258586)pour obtenir des informations sur les fonctionnalités, produits et services qui rendent Configuration Manager plus accessible aux personnes en situation de handicap.  
 
-## <a name="system-center-2012-configuration-manager"></a>System Center 2012 Configuration Manager  
+## <a name="system-center-2012-configuration-manager"></a>System Center 2012 Configuration Manager  
 **Documentation en ligne :** pour les éléments suivants :  
 
 -   System Center 2012 Configuration Manager sans Service Pack, SP1 et SP2  

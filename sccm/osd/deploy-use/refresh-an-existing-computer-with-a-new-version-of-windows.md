@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b189a346-8c0d-4870-a876-0719fbb0ab04
 caps.latest.revision: "7"
-author: Dougeby
-ms.author: dougeby
+author: aczechowski
+ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: a7a3f61793e92453b8ccc048192d3ae858a78a4a
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 2a5489c35acc82c6fc11a0e83b7a5101b2e472fb
+ms.sourcegitcommit: 08f9854fb6c6d21e1e923b13e38a64d0bc2bc9a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="refresh-an-existing-computer-with-a-new-version-of-windows-using-system-center-configuration-manager"></a>Actualiser un ordinateur existant avec une nouvelle version de Windows à l’aide de System Center Configuration Manager
 
@@ -39,7 +39,7 @@ Cette rubrique indique les étapes générales à effectuer dans System Center C
 
      Quand vous allez capturer les paramètres de l’ordinateur existant et restaurer les paramètres sur le nouveau système d’exploitation, vous devez installer un point de migration d’état. Pour plus d’informations, consultez [Point de migration d’état](../get-started/prepare-site-system-roles-for-operating-system-deployments.md#BKMK_StateMigrationPoints).  
 
-##  <a name="BKMK_Configure"></a> Configurerr  
+##  <a name="BKMK_Configure"></a> Configurer  
 
 1.  **Préparer une image de démarrage**  
 
@@ -74,7 +74,7 @@ Cette rubrique indique les étapes générales à effectuer dans System Center C
 
     -   [Utiliser la multidiffusion pour déployer Windows sur le réseau](use-multicast-to-deploy-windows-over-the-network.md)  
 
-    -   [Créer une image pour un fabricant OEM en usine ou un dépôt local](create-an-image-for-an-oem-in-factory-or-a-local-depot.md)  
+    -   [Créer une image pour un fabricant OEM en usine ou dépôt local](create-an-image-for-an-oem-in-factory-or-a-local-depot.md)  
 
     -   [Utiliser un média autonome pour déployer Windows sans utiliser le réseau](use-stand-alone-media-to-deploy-windows-without-using-the-network.md)  
 
@@ -82,7 +82,7 @@ Cette rubrique indique les étapes générales à effectuer dans System Center C
 
     -   [Utiliser le Centre logiciel pour déployer Windows sur le réseau](use-software-center-to-deploy-windows-over-the-network.md)  
 
-## <a name="monitor"></a>Analyse  
+## <a name="monitor"></a>Moniteur  
 
 -   **Surveiller le déploiement de la séquence de tâches**  
 
