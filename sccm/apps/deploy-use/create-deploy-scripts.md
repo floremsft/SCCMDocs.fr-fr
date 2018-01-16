@@ -3,7 +3,7 @@ title: "Créer et exécuter des scripts"
 titleSuffix: Configuration Manager
 description: "Créez et exécutez des scripts Powershell sur les appareils clients."
 ms.custom: na
-ms.date: 11/29/2017
+ms.date: 01/05/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -13,14 +13,14 @@ ms.topic: article
 ms.assetid: cc230ff4-7056-4339-a0a6-6a44cdbb2857
 caps.latest.revision: "14"
 caps.handback.revision: "0"
-author: BrucePerlerMS
-ms.author: bruceper
+author: mestew
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 1472f697ae8b82e6268433aa6398fcc10a429994
-ms.sourcegitcommit: 5f4a584d4a833b0cc22bd8c47da7dd55aced97fa
+ms.openlocfilehash: b00dfb875ca032032a9782e9950247eb3fceb124
+ms.sourcegitcommit: 9de3d74030b7c3313c34b5cbe2dbe6e18a48c043
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="create-and-run-powershell-scripts-from-the-configuration-manager-console"></a>Créer et exécuter des scripts PowerShell à partir de la console Configuration Manager
 
@@ -42,7 +42,7 @@ Avec cette intégration dans System Center Configuration Manager, vous pouvez ut
 >[!WARNING]
 >Étant donné la puissance des scripts, nous vous rappelons de les utiliser avec précaution. Nous avons intégré des protections supplémentaires pour vous aider, à savoir des rôles et des étendues séparés. Vérifiez que les scripts sont exacts avant de les exécuter, puis confirmez qu’ils proviennent d’une source approuvée pour empêcher l’exécution involontaire de scripts. Soyez attentif aux caractères étendus ou toute autre obfuscation et informez-vous sur la sécurisation des scripts.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 - Pour exécuter des scripts PowerShell, le client doit exécuter PowerShell version 3.0 ou ultérieure. Toutefois, si un script que vous exécutez contient des fonctionnalités d’une version ultérieure de PowerShell, le client sur lequel vous exécutez le script doit exécuter cette version de PowerShell.
 - Les clients Configuration Manager doivent exécuter le client à partir de la version Release 1706 ou ultérieure pour exécuter des scripts.
@@ -75,9 +75,9 @@ Les scripts doivent être approuvés, par le rôle d’*approbateur de script*, 
 1. Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.
 2. Dans l'espace de travail **Bibliothèque de logiciels** , cliquez sur **Scripts**.
 3. Dans la liste **Script**, sélectionnez le script que vous souhaitez approuver ou refuser puis, dans l’onglet **Accueil**, sous le groupe **Script**, cliquez sur **Approuver/Refuser**.
-4. Dans la boîte de dialogue **Approuver ou refuser le script**, **approuvez** ou **refusez** le script et entrez éventuellement un commentaire sur votre décision.  Si vous refusez un script, il ne peut pas être exécuté sur les appareils clients. <br>
+4. Dans la boîte de dialogue **Approuver ou refuser le script**, **approuvez** ou **refusez** le script. Entrez éventuellement un commentaire sur votre décision.  Si vous refusez un script, il ne peut pas être exécuté sur les appareils clients. <br>
 ![Script - Approbation](./media/run-scripts/RS-approval.png)
-5. Effectuez toutes les étapes de l'Assistant. Dans la liste **Script**, la colonne **État d’approbation** change en fonction de votre action.
+1. Effectuez toutes les étapes de l'Assistant. Dans la liste **Script**, la colonne **État d’approbation** change en fonction de votre action.
 
 ### <a name="allow-users-to-approve-their-own-scripts"></a>Autoriser les utilisateurs à approuver leurs propres scripts
 
@@ -106,7 +106,11 @@ La fonctionnalité Exécuter les scripts utilise des étendues de sécurité, fo
     - **Importer** : importez un script PowerShell dans la console. Le script s’affiche dans le champ **Script**.
     - **Effacer**  : supprime le script en cours du champ Script.
     - **Script** : affiche le script actuellement importé. Vous pouvez modifier le script dans ce champ si nécessaire.
-1. Effectuez toutes les étapes de l'Assistant. Le nouveau script s’affiche dans la liste **Script** avec l’état **En attente d’approbation**. Avant de pouvoir exécuter ce script sur les appareils clients, vous devez l’approuver.
+5. Effectuez toutes les étapes de l'Assistant. Le nouveau script s’affiche dans la liste **Script** avec l’état **En attente d’approbation**. Avant de pouvoir exécuter ce script sur les appareils clients, vous devez l’approuver. 
+
+> [!IMPORTANT]
+    >  Évitez de créer un script pour une réinitialisation de l’appareil ou un redémarrage de l’agent Configuration Manager lors de l’utilisation de la fonctionnalité Exécuter les scripts. Cela peut entraîner un état de redémarrage continu. Si nécessaire, il existe des améliorations apportées à la fonctionnalité de notification au client qui permettent de redémarrer les appareils, à compter de Configuration Manager version 1710. La [colonne en attente de redémarrage](/sccm/core/clients/manage/manage-clients#Restart-clients) peut aider à identifier les appareils qui nécessitent un redémarrage. 
+<!--SMS503978--Script reboot warning-->
 
 ## <a name="script-parameters"></a>Paramètres de script
 *(Fonctionnalité introduite avec la version 1710)*  

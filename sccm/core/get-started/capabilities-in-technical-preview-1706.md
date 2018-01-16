@@ -14,17 +14,17 @@ ms.assetid: ca3b4714-2a16-495e-8a17-1d87991d5556
 author: erikje
 ms.author: erikje
 manager: angrobe
-ms.openlocfilehash: d7819dd71a37bc581b629ac180f657134495f50c
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: cfb14ebb7b4f7eb9a008ad4464978778e57514a6
+ms.sourcegitcommit: d029b373113051634ed030545348a458eb7b25f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="capabilities-in-technical-preview-1706-for-system-center-configuration-manager"></a>Fonctionnalités de la version d’évaluation technique 1706 pour System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (version d’évaluation technique)*
+*S’applique à : System Center Configuration Manager (Technical Preview)*
 
-Cet article présente les fonctionnalités qui sont disponibles dans la version d’évaluation technique 1706 pour System Center Configuration Manager. Vous pouvez installer cette version pour mettre à jour et ajouter de nouvelles fonctionnalités à votre site de version d’évaluation technique Configuration Manager. Avant d’installer cette version Technical Preview, passez en revue [Technical Preview pour System Center Configuration Manager](../../core/get-started/technical-preview.md) pour vous familiariser avec les conditions générales et les limitations d’utilisation d’une version Technical Preview, la mise à jour entre les versions et l’envoi de commentaires sur les fonctionnalités d’une version Technical Preview.     
+Cet article présente les fonctionnalités qui sont disponibles dans la version d’évaluation technique 1706 pour System Center Configuration Manager. Vous pouvez installer cette version pour mettre à jour et ajouter de nouvelles fonctionnalités à votre site Configuration Manager Technical Preview. Avant d’installer cette version Technical Preview, passez en revue [Technical Preview pour System Center Configuration Manager](../../core/get-started/technical-preview.md) pour vous familiariser avec les conditions générales et les limitations d’utilisation d’une version Technical Preview, la mise à jour entre les versions et l’envoi de commentaires sur les fonctionnalités d’une version Technical Preview.     
 
 
 <!--  Known Issues Template   
@@ -233,7 +233,7 @@ Pour résoudre ce problème, vous pouvez maintenant spécifier à la fois un emp
 
 ## <a name="accessibility-improvements"></a>Améliorations d’accessibilité  
 <!--1253000 -->
-Cette version préliminaire apporte plusieurs améliorations aux [fonctionnalités d’accessibilité](/sccm/core/understand/accessibility-features) dans la console Configuration Manager. à savoir :     
+Cette version préliminaire apporte plusieurs améliorations aux [fonctionnalités d’accessibilité](/sccm/core/understand/accessibility-features) dans la console Configuration Manager. À savoir :     
 
 **Nouveaux raccourcis clavier pour vous déplacer dans la console :**
 -   CTRL + M - Définit le focus sur le volet principal (central).
@@ -325,7 +325,7 @@ Dans Configuration Manager, vous pouvez déployer des scripts sur des appareils 
 - Examinez les résultats retournés par le script dans la console Configuration Manager.
 
 
-### <a name="prerequisites"></a>Conditions préalables
+### <a name="prerequisites"></a>Prérequis
 
 Pour utiliser des scripts, vous devez être membre du rôle de sécurité Configuration Manager approprié.
 
@@ -418,7 +418,7 @@ Essayez d’effectuer les tâches suivantes, puis envoyez-nous vos **Commentaire
 <!-- 1290890 -->
 Vous pouvez maintenant configurer des stratégies de report pour les appareils Windows 10 avec mises à jour de fonctionnalités ou de qualité gérés directement par Windows Update for Business. Vous pouvez gérer les stratégies de report du nouveau nœud **Stratégies Windows Update for Business** sous **Bibliothèque de logiciels** > **Maintenance de Windows 10**.
 
-### <a name="prerequisites"></a>Conditions préalables
+### <a name="prerequisites"></a>Prérequis
 Les appareils Windows 10 gérés par Windows Update for Business doivent avoir une connectivité Internet.
 
 #### <a name="to-create-a-windows-update-for-business-deferral-policy"></a>Pour créer une stratégie de report Windows Update for Business
@@ -462,10 +462,10 @@ Vous pouvez configurer Entrust en tant qu’autorité de certification lors de l
 **Problème connu** : dans la Technical Preview 1706, les certificats PFX ne sont pas émis pour les autorités de certification Microsoft. Cela n’affecte pas les certificats PFX importés ou les profils SCEP.
 
 
-## <a name="cisco-ipsec-support-for-macos-vpn-profiles"></a>Prise en charge de Cisco (IPsec) pour les profils VPN macOS
+## <a name="cisco-ipsec-support-for-ios-vpn-profiles"></a>Prise en charge de Cisco (IPsec) pour les profils VPN iOS
 <!-- 1321367 -->
 
-Vous pouvez créer un profil VPN macOS avec Cisco (IPsec) comme type de connexion. Pour plus d’informations, consultez [Créer des profils VPN](https://docs.microsoft.com/en-us/sccm/mdm/deploy-use/create-vpn-profiles#create-vpn-profiles).
+Vous pouvez créer un profil VPN iOS avec Cisco (IPsec) comme type de connexion. Pour plus d’informations, consultez [Créer des profils VPN](https://docs.microsoft.com/en-us/sccm/mdm/deploy-use/create-vpn-profiles#create-vpn-profiles).
 
 
 ## <a name="new-windows-configuration-item-settings"></a>Nouveaux paramètres d’élément de configuration Windows
@@ -548,7 +548,7 @@ Consultez [Protéger les applications à l’aide des stratégies de protection 
 <!-- 1290826 -->
 À partir de cette version, les administrateurs peuvent spécifier que les utilisateurs ne peuvent pas inscrire des appareils Android ou iOS personnels dans leur environnement hybride. Cela vous permet de limiter les appareils inscrits aux appareils prédéclarés, appareils d’entreprise ou appareils iOS inscrits avec le programme d’inscription des appareils.
 
-### <a name="try-it-out"></a>Essayez
+### <a name="try-it-out"></a>Faîtes un essai
 1. Dans la console Configuration Manager, dans l’espace de travail **Administration** , accédez à **Services cloud** > **Abonnement Microsoft Intune**.
 2. Sous l’onglet **Accueil**, dans le groupe **Abonnement**, choisissez **Configurer des plateformes**, puis **Android** ou **iOS**.
 3. Sélectionnez **Bloquer les appareils personnels**.
@@ -569,7 +569,7 @@ Aucune de ces options n’empêche directement le comportement de copier-coller.
 
 Le paramètre DisallowCrossProfileCopyPaste réglé sur true empêche le comportement de copier-coller entre le profil personnel et le profil de travail Android for Work.
 
-### <a name="try-it-out"></a>Essayez
+### <a name="try-it-out"></a>Faîtes un essai
 1. Dans la console Configuration Manager, sélectionnez **Ressources et Conformité** > **Vue d’ensemble** > **Paramètres de conformité** > **Éléments de configuration**.
 2. Choisissez **Créer** pour créer un nouvel élément de configuration, et spécifiez **Nom** et **Android for Work**.
 3. Dans les groupes de paramètres d’appareil à configurer, sélectionnez **Profil de travail**, puis **suivant**.
@@ -579,5 +579,5 @@ Le paramètre DisallowCrossProfileCopyPaste réglé sur true empêche le comport
 <!-- 1097546 -->
 Depuis cette version, vous pouvez utiliser l’état d’attestation d’intégrité de l’appareil en tant que règle de stratégie de conformité pour l’accès conditionnel aux ressources d’entreprise.
 
-### <a name="try-it-out"></a>Essayez
+### <a name="try-it-out"></a>Faîtes un essai
 Sélectionnez une règle d’attestation d’intégrité de l’appareil dans le cadre d’une évaluation de stratégie de conformité.

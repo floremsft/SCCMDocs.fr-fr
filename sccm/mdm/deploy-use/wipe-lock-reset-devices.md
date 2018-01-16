@@ -16,11 +16,11 @@ caps.handback.revision: "0"
 author: dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 55d49c388b4ea60627f72ffe61796c70de6f9416
-ms.sourcegitcommit: a5f8b5cfdabf0298e4302e24210e725a06a9de82
+ms.openlocfilehash: e8121480f3a9d61ba0a04667407a305119d80e12
+ms.sourcegitcommit: ba23ff90709a5fde1a63c650ab0d848f441afc43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="protect-data-with-remote-wipe-lock-or-passcode-reset-by-using-system-center-configuration-manager"></a>Protéger les données à l’aide de la réinitialisation à distance, du verrouillage ou de la réinitialisation du code d’accès en utilisant System Center Configuration Manager
 
@@ -171,17 +171,17 @@ Les données et les applications qui sont actuellement prises en charge par la r
 ##  <a name="passcode-reset"></a>Réinitialiser le code secret  
 Si un utilisateur oublie son code d'accès, vous pouvez l'aider à résoudre ce problème en supprimant le code d'accès d'un appareil ou en forçant l'application d'un nouveau code accès temporaire sur un appareil. Le tableau ci-dessous indique la méthode de réinitialisation du code d’accès sur différentes plateformes mobiles.  
 
-|Plate-forme|Réinitialiser le code secret|  
-|--------------|--------------------|  
-|iOS|Prise en charge de l'effacement du code d'accès d'un appareil. Ne crée pas un nouveau code d'accès temporaire.|
-|macOS| Non pris en charge.|
-|Android|Prise en charge et création d’un nouveau code d’accès temporaire.|
-|Android for Work | Non pris en charge.|
-|PC Windows 10|Non pris en charge.|  
-|Windows 10 Mobile|Prise en charge, sauf les appareils joints à Azure AD.|
-|Windows Phone 8.1|Pris en charge.|  
-|Windows RT 8.1 |Non pris en charge.|  
-|PC Windows 8.1 |Non pris en charge.|  
+| Plate-forme                              | Réinitialiser le code secret                                                                               |
+|---------------------------------------|----------------------------------------------------------------------------------------------|
+| iOS                                   | Prise en charge de l'effacement du code d'accès d'un appareil. Ne crée pas un nouveau code d'accès temporaire. |
+| macOS                                 | Non pris en charge.                                                                               |
+| Android                               | Pris en charge sur les versions antérieures à Android 7.0. Crée un code d’accès temporaire.                |
+| Android for Work                      | Non pris en charge.                                                                               |
+| PC Windows 10                        | Non pris en charge.                                                                               |
+| Windows 10 Mobile                     | Prise en charge, sauf les appareils joints à Azure AD.  |
+| Windows Phone 8 et Windows Phone 8.1 | Pris en charge.                                                                                   |
+| Windows RT 8.1                        | Non pris en charge.                                                                               |
+| PC Windows 8.1                       | Non pris en charge.                                                                               |
 
 > [!Note]    
 > Vous devez procéder à la réinitialisation du code secret à partir du site de niveau supérieur dans votre environnement. Par exemple, si vous utilisez un site d’administration centrale, vous ne pouvez effectuer cette action que sur ce site. Si vous utilisez un site principal autonome, vous ne pouvez effectuer cette action que sur ce site.
@@ -211,8 +211,8 @@ Si un utilisateur perd son appareil, vous pouvez verrouiller ce dernier à dista
 |Android|Pris en charge.|  
 |Windows 10|Non pris en charge pour l’instant.|  
 |Windows Phone 8 et Windows Phone 8.1|Pris en charge.|  
-|Windows RT 8.1 |Prise en charge si l'utilisateur actuel de l'appareil est le même utilisateur qui a inscrit l'appareil.|  
-|Windows 8.1|Prise en charge si l'utilisateur actuel de l'appareil est le même utilisateur qui a inscrit l'appareil.|  
+|Windows RT 8.1 |Prise en charge si l'utilisateur actuel de l'appareil est le même utilisateur qui a inscrit l'appareil.|  
+|Windows 8.1|Prise en charge si l'utilisateur actuel de l'appareil est le même utilisateur qui a inscrit l'appareil.|  
 
 > [!Note]    
 > Vous devez effectuer l’action de verrouillage à distance à partir du site de niveau supérieur dans votre environnement. Par exemple, si vous utilisez un site d’administration centrale, vous ne pouvez effectuer cette action que sur ce site. Si vous utilisez un site principal autonome, vous ne pouvez effectuer cette action que sur ce site.

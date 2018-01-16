@@ -12,11 +12,11 @@ ms.prod: configuration-manager
 ms.service: 
 ms.technology: configmgr-sum
 ms.assetid: 57184274-5fea-4d79-a2b4-22e08ed26daf
-ms.openlocfilehash: 6aaa15ff4908fe7e71e0b9c14fc021a57ccbb727
-ms.sourcegitcommit: 986fc2d54f7c5fa965fd4df42f4db4ecce6b79cb
+ms.openlocfilehash: becab57c5f04bb67512d665175038f6c477b65b1
+ms.sourcegitcommit: e13bb2c86c40a88e5f4602beb1d31e4adc90e099
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/12/2018
 ---
 #  <a name="BKMK_ManualDeploy"></a> Déployer manuellement des mises à jour logicielles  
 
@@ -232,10 +232,10 @@ ms.lasthandoff: 11/17/2017
 
     -   **Notifications à l’utilisateur**: indiquez si vous souhaitez afficher les notifications des mises à jour logicielles dans le Centre logiciel sur l’ordinateur client selon la valeur **Temps disponible du logiciel** configuré et si les notifications à l’utilisateur doivent s’afficher sur les ordinateurs clients. Lorsque **Type de déploiement** est défini sur **Disponible** sur la page Paramètres de déploiement, vous ne pouvez pas sélectionner **Masquer dans le Centre logiciel et toutes les notifications**.  
 
-    -   **Comportement à l’échéance** : *Disponible uniquement quand **Type de déploiement** *est défini sur **Obligatoire** *dans la page Paramètres de déploiement.*   
+    -   **Comportement à l’échéance** : Disponible uniquement quand **Type de déploiement** est défini sur **Obligatoire** dans la page Paramètres de déploiement.   
     spécifier le comportement qui doit se produire lorsque l'échéance est atteinte pour le déploiement des mises à jour logicielles. Indiquez si vous souhaitez installer les mises à jour logicielles incluses dans le déploiement. Spécifiez également si un redémarrage du système doit être effectué après l'installation des mises à jour logicielles, quelle que soit la fenêtre de maintenance configurée. Pour plus d’informations sur les fenêtres de maintenance, consultez [Guide pratique pour utiliser les fenêtres de maintenance](../../core/clients/manage/collections/use-maintenance-windows.md).  
 
-    -   **Comportement de redémarrage de l’appareil** : *Disponible uniquement quand **Type de déploiement** *est défini sur **Obligatoire** *dans la page Paramètres de déploiement.*    
+    -   **Comportement de redémarrage de l’appareil** : Disponible uniquement quand **Type de déploiement** est défini sur **Obligatoire** dans la page Paramètres de déploiement.    
     indiquer si le redémarrage du système sur les serveurs et stations de travail doit être supprimé une fois les mises à jour logicielles installées et si un redémarrage du système est nécessaire pour terminer l'installation.  
 
         > [!IMPORTANT]  
