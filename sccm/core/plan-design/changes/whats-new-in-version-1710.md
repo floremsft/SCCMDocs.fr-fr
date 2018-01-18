@@ -3,7 +3,7 @@ title: "Nouvelle version 1710 | Microsoft Docs"
 titleSuffix: Configuration Manager
 description: "Obtenez des détails sur les modifications et les nouvelles fonctionnalités introduites dans la version 1710 de System Center Configuration Manager."
 ms.custom: na
-ms.date: 11/20/2017
+ms.date: 1/08/2018
 ms.reviewer: na
 ms.suite: na
 ms.technology: configmgr-other
@@ -13,11 +13,11 @@ ms.assetid: bc6c3e5f-b9e2-400e-9d9d-446ff93c520c
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 8431ebffc6d1aa463c5622bd67db8a140c0cfe69
-ms.sourcegitcommit: 2dc9c83e57e9734ffc4a93f79cd71285036eeb8b
+ms.openlocfilehash: f944d4625e2e67a82098bf3b4373ea5f0ed70619
+ms.sourcegitcommit: 9de3d74030b7c3313c34b5cbe2dbe6e18a48c043
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="what39s-new-in-version-1710-of-system-center-configuration-manager"></a>Nouveautés de la version 1710 de System Center Configuration Manager
 
@@ -49,6 +49,9 @@ Version 1710 drops support for the following products:
 
 ### <a name="cloud-distribution-point-support-for-azure-government-cloud------sms491428---"></a>Prise en charge du point de distribution cloud pour le cloud Azure Government <!-- sms491428 -->
 Vous pouvez maintenant utiliser des [points de distribution cloud](/sccm/core/plan-design/hierarchy/use-a-cloud-based-distribution-point) dans le cloud Azure Government.   
+
+### <a name="inventory-default-unit-revision----sms503697---"></a>Révision de l’unité par défaut pour l’inventaire <!-- sms503697 -->
+Les appareils étant désormais équipés de disques durs avec des tailles de plusieurs gigaoctets (Go), téraoctets (To) et plus, cette version utilise le Go (et non plus le mégaoctets (Mo)) comme unité par défaut (SMS_Units) dans de nombreux affichages. Par exemple, la valeur v_gs_LogicalDisk.FreeSpace est désormais exprimée en Go.
 
 
 <!-- ## Migration  -->
@@ -145,7 +148,7 @@ Ces scénarios sont les suivants :
 - [Inscrire des appareils](../../../mdm/deploy-use/enroll-hybrid-windows.md)
 - [Effectuer des actions de réinitialisation complète à distance et sélective](../../../mdm/deploy-use/wipe-lock-reset-devices.md)
 - [Gérer des paramètres via des éléments de configuration et des lignes de base](../../../mdm/deploy-use/create-configuration-items-for-windows-8.1-and-windows-10-devices-managed-without-the-client.md)
-- [Gérer une stratégie de conformité](../../../mdm/deploy-use/device-compliance-policies.md)
+- [Gérer la stratégie de conformité](../../../mdm/deploy-use/device-compliance-policies.md) et l’[accès conditionnel](../../../protect/deploy-use/manage-access-to-services.md)
 - Activer l’accès aux ressources de l’entreprise par le biais de :
    - [Profils de certificat](../../../mdm/deploy-use/create-pfx-certificate-profiles.md)
    - [Profils VPN](../../../mdm/deploy-use/create-vpn-profiles.md)
@@ -153,6 +156,9 @@ Ces scénarios sont les suivants :
    - [Profils de messagerie](../../../mdm/deploy-use/create-exchange-activesync-profiles.md)
 - [Configurer une stratégie Windows Hello Entreprise](../../../mdm/deploy-use/windows-hello-for-business-settings.md)
 - [Gérer les applications](../../../mdm/deploy-use/management-tasks-applications.md)
+
+> [!NOTE]
+> Le déploiement d’applications .appxbundle générées pour plusieurs architectures peuvent ne pas fonctionner sur ces appareils, et ce scénario n’est pas pris en charge pour l’instant.
 
 ### <a name="improved-vpn-profile-experience-in-configuration-manager-console"></a>Expérience de profil VPN améliorée dans la console Configuration Manager 
 <!-- 1318232 -->
