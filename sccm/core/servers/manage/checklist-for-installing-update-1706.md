@@ -3,7 +3,7 @@ title: "Liste de contrôle pour 1706"
 titleSuffix: Configuration Manager
 description: "Découvrez les actions à entreprendre avant d’effectuer la mise à jour vers System Center Configuration Manager version 1706."
 ms.custom: na
-ms.date: 07/31/2017
+ms.date: 12/19/2017
 ms.reviewer: na
 ms.suite: na
 ms.prod: configuration-manager
@@ -15,11 +15,11 @@ caps.latest.revision:
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 7a3d3f127fe9555852d51981b16295dbd0b38903
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: b9acbf4a80bed52f0c720f70ee62042d1e90dd62
+ms.sourcegitcommit: 2867fd119256ec670fc5ae65cdc8a80d39f9b4d4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="checklist-for-installing-update-1706-for-system-center-configuration-manager"></a>Liste de contrôle de l’installation de la mise à jour 1706 pour System Center Configuration Manager
 
@@ -126,6 +126,8 @@ Avant d’installer la mise à jour, désactivez toutes les tâches de maintenan
 Si une tâche de maintenance de base de données du site s’exécute pendant l’installation de la mise à jour, celle-ci peut échouer. Avant de désactiver une tâche, enregistrez sa planification pour pouvoir restaurer sa configuration une fois la mise à jour installée.
 
 Pour plus d’informations, consultez [Tâches de maintenance pour System Center Configuration Manager](/sccm/core/servers/manage/maintenance-tasks) et [Référence des tâches de maintenance pour System Center Configuration Manager](/sccm/core/servers/manage/reference-for-maintenance-tasks).
+
+**Arrêtez temporairement tout logiciel antivirus sur les serveurs System Center Configuration Manager :** avant de mettre à jour un site, vérifiez que vous avez arrêté tout logiciel antivirus sur les serveurs Configuration Manager. <!--SMS.503481--> 
 
 **Créez une sauvegarde de la base de données du site d’administration centrale et des sites principaux :** avant de mettre à jour un site, sauvegardez sa base de données pour être certain de disposer d’une sauvegarde correcte utilisable en cas de récupération d’urgence.
 

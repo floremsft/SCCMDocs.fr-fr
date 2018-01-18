@@ -15,11 +15,11 @@ caps.latest.revision: "5"
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 2875a90b1f2ae853563d7716fcfe634efd551fe5
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: 07e57a15834d2f29444f47b9503cc04947f36150
+ms.sourcegitcommit: 92c3f916e6bbd35b6208463ff406e0247664543a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="prerequisites-for-installing-system-center-configuration-manager-sites"></a>Prérequis à l’installation de sites System Center Configuration Manager
 
@@ -90,7 +90,7 @@ Un site principal autonome doit remplir les conditions préalables suivantes pou
 
     -   Point de synchronisation Asset Intelligence  
     -   Point Endpoint Protection  
-    -   Point de connexion de service  
+    -   point de connexion de service  
 
    Ces rôles de système de site sont pris en charge uniquement sur le site de niveau supérieur de la hiérarchie. Par conséquent, vous devez désinstaller ces rôles système de site avant d’étendre le site principal autonome. Une fois le site étendu, vous pouvez réinstaller ces rôles de système de site sur le site d'administration centrale.  
 
@@ -106,7 +106,7 @@ Lorsque vous utilisez l’un des services Azure suivants avec Configuration Mana
 Services :  
 -       [Operations Manager Suite](/sccm/core/clients/manage/sync-data-microsoft-operations-management-suite)   (OMS)
 -       [Upgrade Readiness](/sccm/core/clients/manage/upgrade/upgrade-analytics)
--       [Windows Store pour Entreprises](/sccm/apps/deploy-use/manage-apps-from-the-windows-store-for-business)
+-       [Microsoft Store pour Entreprises](/sccm/apps/deploy-use/manage-apps-from-the-windows-store-for-business)
 
 Pour résoudre ce problème, procédez comme suit :
  1.    Dans la console Configuration Manager, supprimez le service Azure du nœud des services Azure.

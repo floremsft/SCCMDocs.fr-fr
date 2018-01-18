@@ -3,21 +3,21 @@ title: "Informations techniques de référence sur les contrôles de chiffrement
 titleSuffix: Configuration Manager
 description: "Découvrez de quelle manière la signature et le chiffrement permettent d’empêcher les tentatives malveillantes de lecture des données dans System Center Configuration Manager."
 ms.custom: na
-ms.date: 12/5/2017
+ms.date: 12/8/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
 ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
-author: arob98
-ms.author: angrobe
+author: aczechowski
+ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: ebaff93d346b53afea8770fbe0634112bcecf82d
-ms.sourcegitcommit: 372171a5cd8d143d6d47b651018cda0c91cad67c
+ms.openlocfilehash: 2c1ed6f4c93f74719ab3fe5d723f7dc01eb1ede7
+ms.sourcegitcommit: 08f9854fb6c6d21e1e923b13e38a64d0bc2bc9a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="cryptographic-controls-technical-reference"></a>Informations techniques de référence sur les contrôles de chiffrement
 
@@ -194,7 +194,7 @@ System Center Configuration Manager utilise la signature et le chiffrement pour 
 
  En plus de ce certificat pour chaque serveur de système de site, Configuration Manager génère un certificat auto-signé pour la plupart des rôles de système de site. Lorsqu'il existe plusieurs instances de rôle de système de site dans le même site, ils partagent le même certificat. Par exemple, vous pouvez disposer de plusieurs points de gestion ou de plusieurs points d'inscription dans le même site. Ce certificat auto-signé utilise également l'algorithme SHA-256 et sa longueur de clé est de 2 048 bits. Il est également copié dans le magasin Personnes autorisées sur des serveurs de système de site qui pourront avoir besoin de l'approuver. Les rôles de système de site suivants génèrent ce certificat :  
 
--   Point de service Web du catalogue des applications  
+-   Point de service web du catalogue des applications  
 
 -   Point du site web du catalogue des applications  
 
@@ -206,7 +206,7 @@ System Center Configuration Manager utilise la signature et le chiffrement pour 
 
 -   Point d'inscription  
 
--   Point d'état de secours  
+-   Point d’état de secours  
 
 -   Point de gestion  
 
@@ -218,7 +218,7 @@ System Center Configuration Manager utilise la signature et le chiffrement pour 
 
 -   Point de mise à jour logicielle  
 
--   Point de migration d'état  
+-   Point de migration d’état  
 
 -   Point du programme de validation d'intégrité système  
 
@@ -277,8 +277,8 @@ System Center Configuration Manager utilise la signature et le chiffrement pour 
 
  Lorsqu'un point de gestion authentifie un client pour la première fois en utilisant le certificat auto-signé du client, ce mécanisme offre une sécurité minimale car n'importe quel ordinateur peut générer un certificat auto-signé. Dans ce scénario, le processus d'identité client doit être complété par une approbation. Seuls les ordinateurs approuvés doivent obtenir cette approbation, soit automatiquement par Configuration Manager, soit manuellement par un administrateur. Pour plus d’informations, consultez la section sur l’approbation dans la rubrique [Communications entre points de terminaison dans System Center Configuration Manager](../../core/plan-design/hierarchy/communications-between-endpoints.md).  
 
-## <a name="to-make-configuration-manager-servers-more-secure"></a>Pour rendre les serveurs Configuration Manager plus sécurisés  
-Pour rendre les serveurs Configuration Manager plus sécurisés, procédez comme suit :
+## <a name="about-ssl-vulnerabilities"></a>Vulnérabilités du protocole SSL
+Pour améliorer la sécurité de vos clients et serveurs Configuration Manager, effectuez les étapes suivantes :
 
 -   Activer TLS 1.2
 
@@ -286,5 +286,5 @@ Pour rendre les serveurs Configuration Manager plus sécurisés, procédez comme
 -   Désactiver SSL 3.0, TLS 1.0 et TLS 1.1 
 -   Réorganiser les suites de chiffrement en rapport avec TLS 
 
-Pour plus d’informations, consultez l’article de la Base de connaissances suivant : [Guide pratique pour restreindre l’utilisation de certains algorithmes et protocoles de chiffrement dans Schannel.dll](https://support.microsoft.com/en-us/kb/245030/). Ces procédures n’affectent pas les fonctionnalités de Configuration Manager.
+Pour plus d’informations, consultez [Guide pratique pour restreindre l’utilisation de certains algorithmes et protocoles de chiffrement dans Schannel.dll](https://support.microsoft.com/en-us/kb/245030/) et [Hiérarchisation des suites de chiffrement Schannel](https://msdn.microsoft.com/en-us/library/windows/desktop/bb870930.aspx). Ces procédures n’affectent pas les fonctionnalités de Configuration Manager.
 

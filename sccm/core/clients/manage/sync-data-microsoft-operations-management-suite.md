@@ -15,11 +15,11 @@ caps.latest.revision: "9"
 author: mattbriggs
 ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: 166f7c73f2050657a85bd5160f74c40cfd87fd7f
-ms.sourcegitcommit: 922d6d9c91ba2158b938df381277be1b5f1d434a
+ms.openlocfilehash: bfe500c160bf2ddffd060baabb44cda81337e1cc
+ms.sourcegitcommit: 92c3f916e6bbd35b6208463ff406e0247664543a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/02/2018
 ---
 #  <a name="sync-data-from-configuration-manager-to-the-microsoft-operations-management-suite"></a>Synchroniser les données de System Center Configuration Manager vers Microsoft Operations Management Suite
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/13/2017
 
 Vous pouvez utiliser l’**Assistant Services Azure** pour configurer la connexion de Configuration Manager au service cloud Operations Management Suite (OMS). À compter de la version 1706, l’Assistant remplace les flux de travail précédents pour configurer cette connexion. Pour les versions antérieures, consultez [Synchroniser les données de System Center Configuration Manager vers Microsoft Operations Management Suite (1702 et antérieur)](#Sync-data-from-Configuration-Manager-to-the-Microsoft-Operations-Management-Suite-(1702-and-earlier)).
 
--   L’assistant est utilisé pour configurer les services cloud pour Configuration Manager, comme OMS, Windows Store pour Entreprises (WSfB) et Azure Active Directory (Azure AD).  
+-   L’Assistant est utilisé pour configurer les services cloud pour Configuration Manager, comme OMS, Microsoft Store pour Entreprises et Azure Active Directory (Azure AD).  
 
 -   Configuration Manager se connecte à OMS pour des fonctionnalités comme [Log Analytics](/sccm/core/clients/manage/sync-data-microsoft-operations-management-suite) ou [Upgrade Readiness](/sccm/core/clients/manage/upgrade/upgrade-analytics).
 
@@ -91,7 +91,7 @@ Depuis la version 1702, vous pouvez utiliser le connecteur OMS pour vous connect
 ### <a name="install-the-oms-connector"></a>Installer le connecteur OMS  
 1. Dans la console Configuration Manager, configurez votre [hiérarchie pour utiliser les fonctionnalités de la version préliminaire](/sccm/core/servers/manage/pre-release-features), puis activez l’utilisation du connecteur OMS.  
 0
-2. Ensuite, accédez à **Administration** > **Services cloud** > **Connecteur OMS**. Dans le ruban, cliquez sur « Créer une connexion à Operations Management Suite ». L’**Assistant Connexion à Operation Management Suite** s’ouvre. Sélectionnez **Suivant**.  
+2. Ensuite, accédez à **Administration** > **Services de cloud** > **Connecteur OMS**. Dans le ruban, cliquez sur « Créer une connexion à Operations Management Suite ». L’**Assistant Connexion à Operation Management Suite** s’ouvre. Sélectionnez **Suivant**.  
 
 
 3.  Dans la page **Général**, vérifiez que vous disposez des informations suivantes, puis sélectionnez **Suivant**.  
@@ -112,7 +112,7 @@ Après avoir lié Configuration Manager à OMS, vous pouvez ajouter ou supprimer
 1.  Dans la console Configuration Manager, accédez à **Administration** > **Services cloud**, puis sélectionnez **Connecteur OMS** afin d’ouvrir la page **Connexion OMS****.
 2.  Cette page contient deux onglets :
   - **Azure Active Directory :**   
-    Cet onglet affiche votre **Locataire**, l’**ID client**, l’**expiration de la clé secrète cliente** et vous permet de vérifier si votre clé secrète cliente a expiré.
+    Cet onglet affiche votre **Llcataire**, l’**ID client**, l’**expiration de la clé secrète client** et vous permet de vérifier si votre clé secrète client a expiré.
 
   - **Propriétés de connexion OMS :**  
     Cet onglet affiche votre **Abonnement Azure**, votre **Groupe de ressources Azure**, l’**Espace de travail Operations Management Suite**, ainsi que la liste des **Regroupements d’appareils pour lesquels Operations Management Suite peut obtenir des données**. Utilisez les boutons **Ajouter** et **Supprimer** pour modifier les collections autorisées.

@@ -13,14 +13,14 @@ ms.topic: article
 ms.assetid: 7c888a6f-8e37-4be5-8edb-832b218f266d
 caps.latest.revision: "26"
 caps.handback.revision: "0"
-author: Dougeby
-ms.author: dougeby
+author: aczechowski
+ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 40a2d91baf8c02cdda96e9520ce155032272ebdd
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: 77ce50cf363c9429f9ef38aa2acf5b898bc8052d
+ms.sourcegitcommit: b97aa456b392d817bc9723cbd5c0ce6602e7ae34
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/28/2017
 ---
 # <a name="task-sequence-steps-in-system-center-configuration-manager"></a>Étapes de séquence de tâches dans System Center Configuration Manager
 
@@ -164,7 +164,7 @@ Vous trouverez ci-dessous les différentes étapes de séquence de tâches qui p
 
     1.  Crée un nouveau fichier de réponses par défaut du programme d'installation Windows (sysprep.inf ou unattend.xml) pour le système d'exploitation en cours de déploiement.  
 
-    2.  Fusionne les valeurs figurant éventuellement dans le fichier réponse fourni par l'utilisateur.  
+    2.  Fusionne les valeurs figurant éventuellement dans le fichier réponses fourni par l'utilisateur.  
 
 4.  Copie les chargeurs de démarrage Windows dans la partition active.  
 
@@ -192,7 +192,7 @@ Vous trouverez ci-dessous les différentes étapes de séquence de tâches qui p
 
 -   Désactiver l'étape.  
 
--   **Accéder au contenu directement depuis le point de distribution**:  
+-   **Accéder au contenu directement depuis le point de distribution** :  
 
      Utilisez cette option pour spécifier si vous souhaitez que la séquence de tâches accède à l'image du système d'exploitation directement depuis le point de distribution. Par exemple, vous pouvez utiliser cette option lorsque vous déployez des systèmes d'exploitation sur des appareils intégrés ayant une capacité de stockage limitée. Lorsque cette option est sélectionnée, vous devez également configurer les paramètres de partage du package sous l'onglet **Accès aux données** des propriétés du package.  
 
@@ -1194,7 +1194,7 @@ Avant Configuration Manager version 1610, cette étape effectuait les tâches su
 ##  <a name="BKMK_RestartComputer"></a> Redémarrer l’ordinateur  
  L'étape de séquence de tâches **Redémarrer l'ordinateur** permet de redémarrer l'ordinateur exécutant la séquence de tâches. Ceci fait, l'ordinateur passe automatiquement à l'étape suivante dans la séquence.  
 
- Cette étape peut être exécutée dans un système d'exploitation standard ou Windows PE. Pour plus d’informations sur les variables de séquence de tâches de cette action, consultez [Variables d’action de séquence de tâches Redémarrer l’ordinateur](task-sequence-action-variables.md#BKMK_RestartComputer).  
+ Cette étape peut être exécutée dans un système d'exploitation standard ou Windows PE. Pour plus d’informations sur les variables de séquence de tâches de cette action, consultez [Variables d’action de séquence de tâches Redémarrer l’ordinateur](task-sequence-action-variables.md#BKMK_RestartComputer).  
 
 ### <a name="details"></a>Détails  
  Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
@@ -1280,7 +1280,7 @@ Avant Configuration Manager version 1610, cette étape effectuait les tâches su
 ##  <a name="BKMK_RunCommandLine"></a> Exécuter la ligne de commande  
  L'étape de séquence de tâches **Exécuter la ligne de commande** permet d'exécuter une ligne de commande spécifiée.  
 
- Cette étape peut être exécutée dans un système d'exploitation standard ou Windows PE. Pour plus d'informations sur les variables de séquences de tâches de cette action de séquence de tâches, consultez [Variables d’action de séquence de tâches Exécuter la ligne de commande](task-sequence-action-variables.md#BKMK_RunCommand).  
+ Cette étape peut être exécutée dans un système d'exploitation standard ou Windows PE. Pour plus d'informations sur les variables de séquences de tâches de cette action de séquence de tâches, consultez [Variables d’action de séquence de tâches Exécuter la ligne de commande](task-sequence-action-variables.md#BKMK_RunCommand).  
 
 ### <a name="details"></a>Détails  
  Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
@@ -1354,7 +1354,7 @@ Avant Configuration Manager version 1610, cette étape effectuait les tâches su
 ##  <a name="BKMK_RunPowerShellScript"></a> Exécuter le script PowerShell  
  Utilisez l'étape de séquence de tâches **Exécuter le script PowerShell** pour exécuter un script PowerShell spécifié.  
 
- Cette étape peut être exécutée dans un système d'exploitation standard ou Windows PE. Pour exécuter cette étape dans Windows PE, PowerShell doit être activé dans l'image de démarrage. Vous pouvez activer Windows PowerShell (WinPE-PowerShell) à partir de l'onglet **Composants facultatifs** dans les propriétés de l'image de démarrage. Pour plus d’informations sur la modification d’une image de démarrage, consultez [Gérer les images de démarrage](../get-started/manage-boot-images.md).  
+ Cette étape peut être exécutée dans un système d'exploitation standard ou Windows PE. Pour exécuter cette étape dans Windows PE, PowerShell doit être activé dans l'image de démarrage. Vous pouvez activer Windows PowerShell (WinPE-PowerShell) à partir de l'onglet **Composants facultatifs** dans les propriétés de l'image de démarrage. Pour plus d’informations sur la modification d’une image de démarrage, consultez [Gérer les images de démarrage](../get-started/manage-boot-images.md).  
 
 > [!NOTE]  
 >  PowerShell n'est pas activé par défaut sur les systèmes d'exploitation Windows Embedded.  
@@ -1477,7 +1477,7 @@ Lorsque vous ajoutez une séquence de tâches enfant à une séquence de tâches
 
 -   **Marque et modèle**: utilisez cette catégorie de règle pour évaluer les valeurs de marque et de modèle d’un ordinateur. La marque et le modèle doivent tous deux être évalués comme vrais pour que la règle soit évaluée comme vraie.   
 
-    À partir de Configuration Manager version 1610, vous pouvez spécifier un astérisque (*****) et un point d’interrogation (**?**) comme caractères génériques, où ***** correspond à plusieurs caractères et **?** correspond à un caractère unique. Par exemple, la chaîne « DELL*900? » correspond à DELL-ABC-9001 et DELL9009.
+    À compter de Configuration Manager version 1610, vous pouvez spécifier un astérisque (**&#42;**) et un point d’interrogation (**?**) comme caractères génériques, où **&#42;** correspond à plusieurs caractères et où **?** correspond à un caractère unique. Par exemple, la chaîne « DELL*900? » correspond à DELL-ABC-9001 et DELL9009. 
 
 -   **Variable de séquence de tâches**: utilisez cette catégorie de règle pour ajouter une variable de séquence de tâches, une condition et une valeur à évaluer. La règle est évaluée comme vraie quand la valeur définie pour la variable remplit la condition spécifiée.  
 
@@ -1537,7 +1537,7 @@ Dans l’éditeur de séquences de tâches, suivez l’étape [Définir une vari
 
  L’action de séquence de tâches **Configurer Windows et Configuration Manager** remplace les variables de répertoire de sysprep.inf ou unattend.xml, comme %WINDIR% et %ProgramFiles%, par le répertoire d’installation Windows°PE X:\Windows. Les variables de séquence de tâches spécifiées au moyen de ces variables d'environnement seront ignorées.  
 
- Utilisez cette étape de séquence de tâches pour effectuer les actions suivantes :  
+ Utilisez cette étape de séquence de tâches pour effectuer les actions suivantes :  
 
 1.  Préliminaires : Windows PE  
 
@@ -1660,10 +1660,10 @@ Dans l’éditeur de séquences de tâches, suivez l’étape [Définir une vari
 |Code de sortie|Détails|  
 |-|-|  
 |MOSETUP_E_COMPAT_SCANONLY (0xC1900210)|Aucun problème de compatibilité (« réussite »).|  
-|MOSETUP_E_COMPAT_INSTALLREQ_BLOCK (0XC1900208)|Problèmes de compatibilité pouvant donner lieu à une action.|  
+|MOSETUP_E_COMPAT_INSTALLREQ_BLOCK (0xC1900208)|Problèmes de compatibilité pouvant donner lieu à une action.|  
 |MOSETUP_E_COMPAT_MIGCHOICE_BLOCK (0xC1900204)|Le choix de migration sélectionné n’est pas disponible. Par exemple, une mise à niveau depuis Entreprise vers Professionnel.|  
 |MOSETUP_E_COMPAT_SYSREQ_BLOCK (0xC1900200)|Non éligible pour Windows 10.|  
-|MOSETUP_E_COMPAT_INSTALLDISKSPACE_BLOCK (0XC190020E)|Espace disque disponible insuffisant.|  
+|MOSETUP_E_COMPAT_INSTALLDISKSPACE_BLOCK (0xC190020E)|Espace disque disponible insuffisant.|  
 
  Pour plus d’informations sur ce paramètre, consultez [Options de ligne de commande du programme d’installation de Windows](https://msdn.microsoft.com/library/windows/hardware/dn938368\(v=vs.85\).aspx).  
 

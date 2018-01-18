@@ -15,11 +15,11 @@ caps.latest.revision: "6"
 author: mattbriggs
 ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: 2ec4f4fdd1e351379922302e81af88e311a37c8e
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: c512cba550e405c866204af981aba75639665de2
+ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="create-android-applications-with-system-center-configuration-manager"></a>Créer des applications Android avec System Center Configuration Manager
 
@@ -48,7 +48,7 @@ Les actions de déploiement suivantes sont prises en charge :
 |Type d'appareil|Actions prises en charge|
 |-|-|
 |Android|**Disponible**, **Obligatoire** L’utilisateur doit donner son consentement pour l’installation et la désinstallation.|
-|Android for Work | **Obligatoire** |
+|Android for Work |**Disponible**, **Obligatoire** |
 
 ## <a name="approve-and-deploy-android-for-work-apps"></a>Approuver et déployer des applications Android for Work
 En tant qu’administrateur de Configuration Manager, vous pouvez également approuver des applications sur le [site web Play for Work](https://play.google.com/work), et déployer ces applications sur des appareils Android for Work gérés.
@@ -65,3 +65,5 @@ Effectuez les étapes suivantes pour approuver des applications dans le magasin 
 8. Accédez à **Bibliothèque de logiciels** > **Vue d’ensemble** > **Gestion des applications** > **Applications**, choisissez une application Android for Work et déployez-la normalement.
 
 Pour synchroniser des applications Play for Work avec Configuration Manager, vous devez d’abord approuver au moins une application sur le site web Play for Work.
+
+Les applications déployées comme **disponibles** s’affichent dans l’application Google Play dotée d’une identification professionnelle plutôt que dans le portail d’entreprise. Cela vous permet de déployer des applications provenant d’une source approuvée (l’application Google Play dotée d’une identification professionnelle en est une) et vous évite d’avoir à autoriser les applications provenant de sources non approuvées.

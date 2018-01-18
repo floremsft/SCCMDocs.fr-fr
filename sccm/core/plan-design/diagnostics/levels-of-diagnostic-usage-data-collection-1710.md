@@ -33,11 +33,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-ms.openlocfilehash: ce5239340032db7deb5bcb20d00aba77c9b140e2
-ms.sourcegitcommit: da27d37cc4e4e06cf23758846cdd7acb617f744b
+ms.openlocfilehash: 1129da43f9c50d21f2ce8392721c77a4e614e410
+ms.sourcegitcommit: 92c3f916e6bbd35b6208463ff406e0247664543a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="levels-of-diagnostic-usage-data-collection-for-version-1710-of-system-center-configuration-manager"></a>Niveaux de collecte des données de diagnostic et d’utilisation pour la version 1710 de System Center Configuration Manager
 
@@ -54,7 +54,7 @@ Les modifications par rapport aux versions précédentes sont indiquées par ***
 
 
 ##  <a name="bkmk_change"></a> Modification du niveau
- Les administrateurs qui disposent d’une étendue administrative basée sur des rôles incluant les autorisations **Modification** sur la classe d’objets **Site** peuvent modifier le niveau des données collectées dans les paramètres des données de diagnostic et d’utilisation de la console Configuration Manager.
+ Les administrateurs qui ont une étendue d’administration basée sur des rôles incluant les autorisations **Modifier** sur la classe d’objets **Site** peuvent changer le niveau des données collectées dans les paramètres des données de diagnostic et d’utilisation de la console Configuration Manager.
 
 Vous pouvez changer le niveau de collecte des données à partir de la console en accédant à **Administration** > **Vue d’ensemble** > **Configuration du site** > **Sites**. Ouvrez **Paramètres de hiérarchie**, puis sélectionnez le niveau de données que vous voulez utiliser.  
 
@@ -168,7 +168,7 @@ Pour System Center Configuration Manager version 1710, ce niveau inclut les él
 
    - Nombre de types de déploiement Windows Installer par paramètres du contenu de désinstallation
 
-   - Nombre d’applications Windows Store pour Entreprises et statistiques de synchronisation (notamment un résumé des types d’applications, l’état des applications sous licence ainsi que le nombre d’applications sous licence en ligne et hors connexion)  
+   - Nombre d’applications du Microsoft Store pour Entreprises et statistiques de synchronisation (notamment un résumé des types d’applications, l’état des applications sous licence ainsi que le nombre d’applications sous licence en ligne et hors connexion)  
 
    - Type et durée de fenêtre de maintenance  
 
@@ -299,7 +299,7 @@ Pour System Center Configuration Manager version 1710, ce niveau inclut les él
 
     - Informations sur la configuration des points de distribution (utilisation de BranchCache et surveillance des points de distribution)
 
-    - Informations sur les groupes de points de distribution (nombre de packages et de points de distribution qui sont attribués à chaque groupe de points de distribution)  
+    - Informations sur les groupes de points de distribution (nombre de packages et de points de distribution qui sont affectés à chaque groupe de points de distribution)  
 
 
 
@@ -315,7 +315,7 @@ Pour System Center Configuration Manager version 1710, ce niveau inclut les él
 
    - Erreurs de déploiement Endpoint Protection (nombre de codes d’erreur de déploiement de stratégie Endpoint Protection)  
 
-   - Utilisation des stratégies du Pare-feu Windows et de logiciel anti-programme malveillant Endpoint Protection (nombre de stratégies uniques attribuées au groupe)<br /><br /> Ceci ne comprend pas d’informations sur les paramètres inclus dans la stratégie.  
+   - Utilisation des stratégies du Pare-feu Windows et de logiciel anti-programme malveillant Endpoint Protection (nombre de stratégies uniques affectées au groupe)<br /><br /> Ceci ne comprend pas d’informations sur les paramètres inclus dans la stratégie.  
 
 
 
@@ -335,7 +335,7 @@ Pour System Center Configuration Manager version 1710, ce niveau inclut les él
 
     - Nombre d’utilisateurs qui ont plusieurs appareils mobiles inscrits  
 
-    - Statistiques et calendrier d’interrogation des appareils mobiles pour la vérification dans la durée des appareils mobiles  
+    - Statistiques et calendrier d’interrogation des appareils mobiles pour la durée d’inscription des appareils mobiles  
 
 
 
@@ -473,7 +473,7 @@ Pour System Center Configuration Manager version 1710, ce niveau inclut les él
 
 
 ##  <a name="bkmk_level3"></a> Niveau 3 – Complet
-Le niveau Complet inclut toutes les données des niveaux De base et Étendu. Il inclut également des informations supplémentaires sur Endpoint Protection, les pourcentages de compatibilité des mises à jour et les informations de mise à jour logicielle.  Ce niveau peut également inclure des informations de diagnostic avancées, comme des fichiers système et des instantanés de la mémoire, qui peuvent inclure des informations personnelles qui existaient dans la mémoire ou les fichiers journaux au moment de la capture.
+Le niveau Complet inclut toutes les données des niveaux De base et Étendu. Il inclut également des informations supplémentaires sur Endpoint Protection, les pourcentages de compatibilité des mises à jour et les informations de mise à jour logicielle.  Ce niveau peut également inclure des informations de diagnostic avancées telles que des fichiers système et des instantanés de la mémoire, qui peuvent inclure des informations personnelles qui existaient dans la mémoire ou les fichiers journaux au moment de la capture.
 
 Pour System Center Configuration Manager version 1710, ce niveau inclut les éléments suivants :
 
@@ -519,4 +519,4 @@ Pour System Center Configuration Manager version 1710, ce niveau inclut les él
 
 - Type de stratégies d’accès conditionnel EAS (bloquer ou mettre en quarantaine) pour les appareils gérés par Intune
 
-- Détails des applications du Windows Store pour Entreprises (liste de non-agrégation des applications synchronisées, notamment l’ID de l’application, l’état (en ligne ou hors connexion) et le nombre total de licences achetées)
+- Détails des applications du Microsoft Store pour Entreprises (liste de non-agrégation des applications synchronisées, notamment l’ID de l’application, l’état (en ligne ou hors connexion) et le nombre total de licences achetées)

@@ -3,7 +3,7 @@ title: "Configurer l’inventaire logiciel"
 titleSuffix: Configuration Manager
 description: "Configurez l’inventaire logiciel, et excluez des dossiers de l’inventaire logiciel dans Configuration Manager."
 ms.custom: na
-ms.date: 02/22/2017
+ms.date: 01/03/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,17 +16,17 @@ caps.handback.revision: "0"
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.openlocfilehash: 3aac8bdf45a90f0c9c734d2f796e590e5dc9b90e
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: afddcef2caab6e1af0aacdac91366fa430f21d85
+ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="how-to-configure-software-inventory-in-system-center-configuration-manager"></a>Guide pratique pour configurer l’inventaire logiciel dans System Center Configuration Manager
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
- Cette procédure configure les paramètres par défaut du client pour l'inventaire logiciel et s'applique à tous les ordinateurs de votre hiérarchie. Si vous voulez appliquer ces paramètres à certains ordinateurs seulement, créez un paramètre de client d’appareil personnalisé et affectez-le à un regroupement qui contient les ordinateurs qui doivent utiliser l’inventaire logiciel. Pour plus d’informations sur la création de paramètres d’appareil personnalisés, consultez [Guide pratique pour configurer les paramètres client dans System Center Configuration Manager](../../../../core/clients/deploy/configure-client-settings.md).  
+Cette procédure configure les paramètres par défaut du client pour l’inventaire logiciel et s’applique à tous les ordinateurs de votre hiérarchie. Si vous souhaitez appliquer ces paramètres uniquement à certains ordinateurs, créez un paramètre d’appareil client personnalisé et affectez-le à un regroupement. Pour plus d’informations sur la création de paramètres d’appareil personnalisés, consultez [Guide pratique pour configurer les paramètres client dans System Center Configuration Manager](../../../../core/clients/deploy/configure-client-settings.md).   
 
 ## <a name="to-configure-software-inventory"></a>Pour configurer l'inventaire logiciel  
 
@@ -42,9 +42,16 @@ ms.lasthandoff: 10/12/2017
 
     -   **Planifier l’inventaire logiciel et le regroupement de fichiers** : définit la fréquence de collecte de l’inventaire logiciel et des fichiers par les clients.   
 
-7.  Configurez les paramètres client dont vous avez besoin. Pour obtenir la liste des paramètres client de l’inventaire logiciel que vous pouvez configurer, consultez la section [Inventaire logiciel](../../../../core/clients/deploy/about-client-settings.md#software-inventory) de la rubrique [À propos des paramètres client dans System Center Configuration Manager](../../../../core/clients/deploy/about-client-settings.md).  
+7.  Configurez les paramètres client dont vous avez besoin. La section [Inventaire logiciel](../../../../core/clients/deploy/about-client-settings.md#software-inventory) de l’article [À propos des paramètres client dans System Center Configuration Manager](../../../../core/clients/deploy/about-client-settings.md) contient une liste des paramètres client.  
 
- Les ordinateurs clients sont configurés avec ces paramètres lorsqu'ils téléchargent la stratégie client. Pour lancer la récupération de stratégie pour un client unique, consultez [How to manage clients in System Center Configuration Manager](../../../../core/clients/manage/manage-clients.md).  
+ Les ordinateurs clients sont configurés avec ces paramètres lorsqu'ils téléchargent la stratégie client. Pour lancer la récupération de stratégie pour un client unique, consultez [Comment gérer des clients dans Configuration Manager](../../../../core/clients/manage/manage-clients.md).  
+
+ > [!TIP]  
+        >   Le code d’erreur 80041006 dans inventoryprovider.log signifie que la mémoire du fournisseur WMI est insuffisante. Autrement dit, la limite de quota de mémoire pour un fournisseur a été atteinte et le fournisseur d’inventaire ne peut pas continuer.
+Dans ce cas, l’agent d’inventaire crée un rapport avec 0 entrée, et aucun élément d’inventaire n’est signalé. <br/>
+Une solution possible consiste à réduire l’étendue de la collecte d’inventaire logiciel. Dans les cas où l’erreur se produit après la limitation de l’étendue de l’inventaire, l’augmentation de la propriété [MemoryPerHost](https://blogs.technet.microsoft.com/askperf/2008/09/16/memory-and-handle-quotas-in-the-wmi-provider-service/) définie dans la classe [_ProviderHostQuotaConfiguration](https://msdn.microsoft.com/library/aa394671) peut constituer une solution.
+
+<!--SMS.480648 include WMI Out of memory tip -->
 
 
 ## <a name="to-exclude-folders-from-software-inventory"></a>Pour exclure des dossiers d'un inventaire logiciel  

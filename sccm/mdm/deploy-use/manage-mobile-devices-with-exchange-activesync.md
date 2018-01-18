@@ -15,11 +15,11 @@ caps.latest.revision: "8"
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.openlocfilehash: d8f3a963d0fccb3469e751e1ca3319368ae92506
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: ff7fef664780730510f17d723a1d13ca691405af
+ms.sourcegitcommit: 0a6b2c53ff4445b5d4f3638fdb0b489d54e333d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="manage-mobile-devices-with-system-center-configuration-manager-and-exchange"></a>Gérer des appareils mobiles à l’aide de System Center Configuration Manager et d’Exchange
 
@@ -34,7 +34,7 @@ Utilisez le connecteur Exchange Server dans System Center Configuration Manager 
 > [!IMPORTANT]  
 >  Avant d’installer le connecteur Exchange Server, vérifiez que Configuration Manager prend bien en charge la version de Microsoft Exchange que vous utilisez. Pour plus d’informations, consultez la section « Connecteur Exchange Server » dans [Systèmes d’exploitation pris en charge pour les sites et les clients pour System Center Configuration Manager](/sccm/core/plan-design/configs/supported-operating-systems-for-site-system-servers).  
 
- Quand vous utilisez le connecteur Exchange Server, vous pouvez gérer les appareils mobiles avec les paramètres que vous configurez dans Configuration Manager au lieu des stratégies de boîte aux lettres Exchange ActiveSync par défaut. Définissez les paramètres à utiliser dans les paramètres des groupes suivants : **Général**, **Mot de passe**, **Gestion de la messagerie**, **Sécurité**et **Application**. Par exemple, dans le paramètre du groupe **Mot de passe** , vous pouvez indiquer que les appareils mobiles requièrent un mot de passe, la longueur minimale du mot de passe, la complexité du mot de passe, et si la récupération de mot de passe est autorisée.  
+ Quand vous utilisez le connecteur Exchange Server, vous pouvez gérer les appareils mobiles avec les paramètres que vous configurez dans Configuration Manager au lieu des stratégies de boîte aux lettres Exchange ActiveSync par défaut. Définissez les paramètres à utiliser dans les paramètres des groupes suivants : **Général**, **Mot de passe**, **Gestion de la messagerie**, **Sécurité** et **Application**. Par exemple, dans le paramètre du groupe **Mot de passe** , vous pouvez indiquer que les appareils mobiles requièrent un mot de passe, la longueur minimale du mot de passe, la complexité du mot de passe, et si la récupération de mot de passe est autorisée.  
 
  Si vous configurez au moins un paramètre dans le groupe, Configuration Manager gère tous les paramètres dans le groupe pour les appareils mobiles. Si vous ne configurez pas de paramètre dans un groupe, Exchange Server continue à gérer les appareils mobiles pour ces paramètres. Les stratégies de boîte aux lettres Exchange ActiveSync configurées sur Exchange Server et attribuées aux utilisateurs continueront à être appliquées.  
 
@@ -89,7 +89,9 @@ Utilisez le connecteur Exchange Server dans System Center Configuration Manager 
     -   **Get-ActiveSyncOrganizationSettings**  
 
     -   **Get-ExchangeServer**  
-
+    
+    -   **Get-Mailbox**
+    
     -   **Get-Recipient**  
 
     -   **Set-ADServerSettings**  

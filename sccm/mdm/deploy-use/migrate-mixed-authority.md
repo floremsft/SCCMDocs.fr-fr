@@ -11,19 +11,19 @@ ms.prod: configmgr-hybrid
 ms.service: 
 ms.technology: 
 ms.assetid: 6f0201d7-5714-4ba0-b2bf-d1acd0203e9a
-ms.openlocfilehash: 643b33810c2862e2d1c602bfe941c36605ad2631
-ms.sourcegitcommit: 8c6e9355846ff6a73c534c079e3cdae09cf13c45
+ms.openlocfilehash: 59fb06d14002f781e0448a64bb0064b4add2f087
+ms.sourcegitcommit: ac9268e31440ffe91b133c2ba8405d885248d404
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="change-the-mdm-authority-for-specific-users-mixed-mdm-authority"></a>Changer l’autorité MDM pour des utilisateurs spécifiques (autorité MDM mixte) 
 
 *S’applique à : System Center Configuration Manager (Current Branch)*    
 
 Vous pouvez configurer une autorité MDM mixte dans le même locataire en choisissant de gérer certains utilisateurs dans Intune et d’autres avec MDM hybride (Intune intégré à Configuration Manager). Cet article fournit des informations sur la façon de commencer à déplacer les utilisateurs vers la version autonome d’Intune autonome et part du principe que vous avez terminé les étapes suivantes :
-- Utilisation de l’outil d’importation de données pour [importer des objets Configuration Manager dans Intune](migrate-import-data.md) (facultatif).
-- [préparer Intune à la migration des utilisateurs](migrate-prepare-intune.md) pour que les utilisateurs et leurs appareils restent gérés après la migration ;
+- Utiliser l’outil d’importation de données pour [importer des objets Configuration Manager dans Intune](migrate-import-data.md) (facultatif).
+- [Préparer Intune à la migration des utilisateurs](migrate-prepare-intune.md) pour que les utilisateurs et leurs appareils restent gérés après la migration.
 
 > [!Note]    
 > Si vous décidez d’effectuer une réinitialisation complète de votre locataire, ce qui supprime toutes les stratégies, applications et inscriptions d’appareils, appelez le support pour obtenir de l’aide.
@@ -43,12 +43,13 @@ Les utilisateurs qui ont migré et leurs appareils sont gérés dans Intune tand
     - [Certificats de signature de code](/sccm/mdm/deploy-use/enroll-hybrid-windows)
     - [Catégories d’appareils](/sccm/core/clients/manage/collections/automatically-categorize-devices-into-collections)
     - [Gestionnaires d’inscription](/sccm/mdm/plan-design/device-enrollment-methods)
-    - Terms and conditions
+    - Conditions générales
     - SLK Windows
     - Personnalisation du portail d’entreprise    
       
   > [!Important]    
   > Continuez à modifier les stratégies au niveau du locataire à l’aide de la console Configuration Manager. Après avoir [remplacé votre autorité MDM au niveau du locataire](change-mdm-authority.md) par Intune, vous gérez ces stratégies dans Intune sur Azure. 
+-   Si vous utilisez des certificats de signature de code, il est recommandé de migrer les utilisateurs selon une approche progressive. Une fois un appareil mobile migré, il effectue une demande de nouveau certificat auprès d’une autorité de certification. Le fait d’utiliser une approche progressive pour migrer des utilisateurs (et leurs appareils) limite le nombre de demandes simultanées d’autorité de certification.
 - Nous vous recommandons de ne pas faire migrer des comptes d’utilisateur qui ont été ajoutés en tant que gestionnaires d’inscription d’appareil dans Configuration Manager. Plus tard, quand vous remplacerez votre autorité MDM au niveau du locataire par Intune, ces comptes d’utilisateur migreront correctement. Si vous faites migrer le compte d’utilisateur gestionnaire d’inscription d’appareil avant de modifier l’autorité MDM au niveau du locataire, vous devez ajouter manuellement l’utilisateur en tant que gestionnaire d’inscription d’appareil dans Intune sur Azure. Toutefois, les appareils inscrits à l’aide d’un gestionnaire d’inscription d’appareil ne migrent pas correctement. Vous devez appeler le support technique pour faire migrer ces appareils. Pour plus d’informations, consultez [Ajouter un gestionnaire d’inscription d’appareil](https://docs.microsoft.com/en-us/intune/device-enrollment-manager-enroll#add-a-device-enrollment-manager).
 - Les appareils inscrits à l’aide d’un gestionnaire d’inscription d’appareil et les appareils sans [affinité utilisateur](/sccm/mdm/deploy-use/user-affinity-for-hybrid-managed-devices) ne migrent automatiquement pas vers la nouvelle autorité MDM. Pour modifier l’autorité de gestion de ces appareils MDM, consultez [Migrer des appareils sans affinité utilisateur](#migrate-devices-without-user-affinity).
 
@@ -89,15 +90,15 @@ Les appareils inscrits à l’aide d’un gestionnaire d’inscription d’appar
 
 -   Scénario 1 : utilisez la cmdlet *Switch-MdmDeviceAuthority* pour migrer les appareils sélectionnés et valider qu’ils peuvent être gérés à l’aide d’Intune dans Azure. Puis, lorsque vous êtes prêt, vous pouvez [utiliser Intune comme autorité MDM pour le locataire](migrate-change-mdm-authority.md) afin de terminer la migration des appareils. 
 -   Scénario 2 : lorsque vous êtes prêt à utiliser Intune comme autorité MDM pour le locataire, vous pouvez exécuter les actions suivantes pour migrer vos appareils sans affinité utilisateur :
-    - Utilisez la cmdlet pour changer l’autorité MDM pour vos appareils sans affinité utilisateur avant [d’utiliser Intune comme autorité MDM pour le locataire](migrate-change-mdm-authority.md).    
+    - Utilisez l’applet de commande pour changer l’autorité MDM pour vos appareils sans affinité utilisateur avant [d’utiliser Intune comme autorité MDM pour le locataire](migrate-change-mdm-authority.md).    
     - Contactez le support technique pour commuter les appareils sans affinité utilisateur après avoir choisi d’utiliser Intune comme autorité MDM pour le locataire.
 
-Pour changer l’autorité de gestion pour ces appareils MDM, vous pouvez utiliser la cmdlet *Switch-MdmDeviceAuthority* pour basculer entre les autorités de gestion Intune et Configuration Manager. 
+Pour changer l’autorité de gestion pour ces appareils MDM, vous pouvez utiliser l’applet de commande *Switch-MdmDeviceAuthority* pour basculer entre les autorités de gestion Intune et Configuration Manager. 
 
 ### <a name="cmdlet-switch-mdmdeviceauthority"></a>Cmdlet *Switch-MdmDeviceAuthority*
 
 #### <a name="synopsis"></a>SYNOPSIS
-La cmdlet change l’autorité de gestion des appareils MDM sans affinité utilisateur (par exemple, appareils inscrits en bloc). La cmdlet bascule entre les autorités de gestion Intune et Configuration Manager pour les appareils spécifiés en fonction des autorités de gestion spécifiées sur ces appareils lorsque vous exécutez la cmdlet.
+L’applet de commande change l’autorité de gestion des appareils MDM sans affinité utilisateur (par exemple, appareils inscrits en bloc). L’applet de commande bascule entre les autorités de gestion Intune et Configuration Manager pour les appareils spécifiés en fonction des autorités de gestion spécifiées sur ces appareils lorsque vous exécutez l’applet de commande.
 
 ### <a name="syntax"></a>SYNTAXE
 `Switch-MdmDeviceAuthority -DeviceIds <Guid[]> [-Credential <PSCredential>] [-Force] [-LogFilePath <string>] [-LoggingLevel {Off | Critical | Error | Warning | Information | Verbose | ActivityTracing | All}] [-Confirm] [-WhatIf] [<CommonParameters>]`

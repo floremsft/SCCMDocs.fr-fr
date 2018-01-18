@@ -3,7 +3,7 @@ title: "Fonctionnalités de préversion"
 titleSuffix: Configuration Manager
 description: "Fonctionnalités en préversion dans System Center Configuration Manager"
 ms.custom: na
-ms.date: 12/05/2017
+ms.date: 12/19/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,11 +15,11 @@ caps.latest.revision: "36"
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: c132f1512d8a1d6a4657079c8ecd2d7a050797b9
-ms.sourcegitcommit: 52b956cfe32c3f06ae68d6ba6fc3244ce5a66325
+ms.openlocfilehash: 2ef961732431bd4314229e3da6a65df58592342f
+ms.sourcegitcommit: 6c2aa79924c0e7fc64ef5e9003498fc00c349db9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="pre-release-features-in-system-center-configuration-manager"></a>Fonctionnalités en préversion dans System Center Configuration Manager
 *S’applique à : System Center Configuration Manager (Current Branch)*
@@ -48,7 +48,9 @@ Si vous avez donné votre consentement sur un site principal autonome, et si vou
 |------------------|---------------------|---------------------|
 | Exécuter l’étape de la séquence de tâches <!-- 1261338 --> |  [Version 1710](/sccm/osd/understand/task-sequence-steps#child-task-sequence) |![Pas encore](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
 | Windows Defender Exploit Guard <!-- 1355468 --> |  [Version 1710](/sccm/protect/deploy-use/create-deploy-exploit-guard-policy) |![Pas encore](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
+| Évaluation de l’attestation de l’intégrité des appareils pour les stratégies de conformité pour l’accès conditionnel <!-- 1235616 --> |  [Version 1710](/sccm/mdm/deploy-use/manage-access-to-o365-services-for-pcs-managed-by-sccm) |![Pas encore](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
 | Créer et exécuter des scripts PowerShell à partir de la console Configuration Manager <!-- 1236459 --> |  [Version 1706](/sccm/apps/deploy-use/create-deploy-scripts)|![Pas encore](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
+| Gérer les mises à jour du pilote Microsoft Surface <!-- 1098490 --> |  [Version 1706](/sccm/sum/get-started/configure-classifications-and-products) | [Version 1710](/sccm/sum/get-started/configure-classifications-and-products)|
 | Gestion Device Guard avec Configuration Manager <!-- 1319346 --> |  [Version 1702](/sccm/protect/deploy-use/use-device-guard-with-configuration-manager)|![Pas encore](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
 | Mise en cache préalable du contenu de la séquence de tâches <!-- 1021244 --> |  [Version 1702](/sccm/osd/deploy-use/create-a-task-sequence-to-upgrade-an-operating-system#configure-pre-cache-content) | [Version 1706](/sccm/osd/deploy-use/create-a-task-sequence-to-upgrade-an-operating-system#configure-pre-cache-content)|
 | Vérifier si des fichiers exécutables sont en cours d’exécution avant d’installer une application <!-- 1284624 --> |   [Version 1702](/sccm/apps/deploy-use/deploy-applications#how-to-check-for-running-executable-files-before-installing-an-application) |[Version 1706](/sccm/apps/deploy-use/deploy-applications#how-to-check-for-running-executable-files-before-installing-an-application)|
@@ -57,4 +59,4 @@ Si vous avez donné votre consentement sur un site principal autonome, et si vou
 | Passerelle de gestion cloud <!-- 1101764 --> |  [Version 1610](/sccm/core/clients/manage/plan-cloud-management-gateway) |![Pas encore](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
 | Connecteur Microsoft Operations Management Suite <!-- 1236739 --> | [Version 1606](../../../core/clients/manage/sync-data-microsoft-operations-management-suite.md) |![Pas encore](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
 | Maintenance d’un regroupement prenant en charge les clusters (maintenance d’un groupe de serveurs) <!-- 1081776 --> | [Version 1602](../../../core/get-started/capabilities-in-technical-preview-1605.md#BKMK_ServerGroups)|![Pas encore](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
-| Accès conditionnel pour les PC gérés par System Center Configuration Manager <!--  --> | [Version 1602](../../../protect/deploy-use/manage-access-to-o365-services-for-pcs-managed-by-sccm.md)     | [Version 1702](/sccm/mdm/deploy-use/manage-access-to-services)                     |
+| Accès conditionnel pour les PC gérés par System Center Configuration Manager <!--  --> | [Version 1602](/sccm/mdm/deploy-use/manage-access-to-o365-services-for-pcs-managed-by-sccm)     | [Version 1702](/sccm/mdm/deploy-use/manage-access-to-o365-services-for-pcs-managed-by-sccm)                     |
