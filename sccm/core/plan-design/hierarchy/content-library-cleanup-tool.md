@@ -29,7 +29,7 @@ ms.lasthandoff: 01/04/2018
 
 L’outil affecte uniquement le contenu du point de distribution spécifié à l’exécution de l’outil. L’outil ne peut pas supprimer le contenu de la bibliothèque de contenu sur le serveur de site.
 
-Vous trouverez **ContentLibraryCleanup.exe** dans le dossier *%CM_Installation_Path%\cd.latest\SMSSETUP\TOOLS\ContentLibraryCleanup\* sur le serveur du site d’administration centrale ou du site principal.
+Vous trouverez **ContentLibraryCleanup.exe** dans le dossier \*%CM_Installation_Path%\cd.latest\SMSSETUP\TOOLS\ContentLibraryCleanup\* sur le serveur du site d’administration centrale ou du site principal.
 
 ## <a name="requirements"></a>spécifications  
  L’outil ne peut s’exécuter que sur un seul point de distribution à la fois.  
