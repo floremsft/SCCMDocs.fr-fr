@@ -15,6 +15,7 @@
 ### [Gérer Long-Term Servicing Branch](understand/manage-the-ltsb.md)
 ### [Mettre à niveau Long-Term Servicing Branch vers Current Branch](understand/convert-to-current-branch.md)
 ##  [Déterminer la branche de Configuration Manager à utiliser](understand/which-branch-should-i-use.md)
+##  [Configuration Manager et Windows as a Service](understand/configuration-manager-and-windows-as-service.md)
 ##  [Client d’interopérabilité étendue](understand/interoperability-client.md)
 ##  [Licences pour System Center Configuration Manager](understand/learn-more-editions.md)
 ##  [Utiliser des services cloud](understand/use-cloud-services.md)
@@ -106,12 +107,13 @@
 
 <!-- Only show the current plus three, i.e., four total) -->
 ##   [Préversion technique](get-started/technical-preview.md)
+###  [Fonctionnalités dans 1801](get-started/capabilities-in-technical-preview-1801.md)
 ###  [Fonctionnalités dans 1712](get-started/capabilities-in-technical-preview-1712.md)
 ###  [Fonctionnalités dans 1711](get-started/capabilities-in-technical-preview-1711.md)
 ###  [Fonctionnalités dans 1710](get-started/capabilities-in-technical-preview-1710.md)
-###  [Fonctionnalités dans 1709](get-started/capabilities-in-technical-preview-1709.md)
 
 <!-- No longer in support
+###  [Capabilities in 1709](get-started/capabilities-in-technical-preview-1709.md)
 ###  [Capabilities in 1708](get-started/capabilities-in-technical-preview-1708.md)
 ###  [Capabilities in 1707](get-started/capabilities-in-technical-preview-1707.md)
 ###  [Capabilities in 1706](get-started/capabilities-in-technical-preview-1706.md)
@@ -163,7 +165,7 @@
 #### [Vérification des conditions préalables](servers/deploy/install/list-of-prerequisite-checks.md)
 ###  [Installation de sites](servers/deploy/install/installing-sites.md)
 #### [Préparer l’installation des sites](servers/deploy/install/prepare-to-install-sites.md)
-#### [Prérequis à l’installation des sites](servers/deploy/install/prerequisites-for-installing-sites.md)
+#### [Conditions préalables à l’installation d’un site](servers/deploy/install/prerequisites-for-installing-sites.md)
 #### [Utiliser l’Assistant Installation](servers/deploy/install/use-the-setup-wizard-to-install-sites.md)
 #### [Utiliser une ligne de commande](servers/deploy/install/use-a-command-line-to-install-sites.md)
 ##### [Options de ligne de commande](servers/deploy/install/command-line-options-for-setup.md)
