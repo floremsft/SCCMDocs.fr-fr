@@ -1,5 +1,5 @@
 ---
-title: Point de connexion de service
+title: point de connexion de service
 titleSuffix: Configuration Manager
 description: "Découvrez ce rôle système de site Configuration Manager, puis comprenez et planifiez sa plage d’utilisations."
 ms.custom: na
@@ -7,20 +7,21 @@ ms.date: 6/28/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: bc2282d5-0571-465b-9528-a555855eaacd
-caps.latest.revision: "18"
-caps.handback.revision: "0"
+caps.latest.revision: 
+caps.handback.revision: 
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 145fe172665310caa48d8f152ad46d72df4168dd
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: 9651694530d1258100c9c564bfc59447ac454a96
+ms.sourcegitcommit: ac20475ae9c1ea5ca3632cb6a44440c316f171f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="about-the-service-connection-point-in-system-center-configuration-manager"></a>À propos du point de connexion de service dans System Center Configuration Manager
 
@@ -84,7 +85,7 @@ Pour utiliser le Gestionnaire de service de Configuration Manager, dans la conso
 -   Le gestionnaire de distribution sur le serveur de site le compte d’installation du système de site pour transférer les mises à jour à partir du point de connexion de service.
 
 ##  <a name="bkmk_urls"></a> Conditions requises pour l’accès Internet  
-L’ordinateur qui héberge le point de connexion de service et les éventuels pare-feu entre cet ordinateur et Internet doivent transmettre les communications par le biais du **port TCP 443** et du **port TCP 443** aux emplacements Internet suivants. Le point de connexion de service prend également en charge l’utilisation d’un proxy web (avec ou sans authentification) pour utiliser ces emplacements.  Si vous devez configurer un compte de proxy web, consultez [rise en charge du serveur proxy dans System Center Configuration Manager](/sccm/core/plan-design/network/proxy-server-support).
+Pour activer le fonctionnement, l’ordinateur qui héberge le point de connexion de service et les éventuels pare-feu entre cet ordinateur et Internet doivent transmettre les communications par le biais du port sortant **TCP 443** pour HTTPS et du port sortant **TCP 80** pour HTPP aux emplacements Internet suivants. Le point de connexion de service prend également en charge l’utilisation d’un proxy web (avec ou sans authentification) pour utiliser ces emplacements.  Si vous devez configurer un compte de proxy web, consultez [Prise en charge du serveur proxy dans System Center Configuration Manager](/sccm/core/plan-design/network/proxy-server-support).
 
 **Mises à jour et maintenance**  
 

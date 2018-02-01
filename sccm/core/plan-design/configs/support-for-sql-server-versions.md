@@ -7,19 +7,20 @@ ms.date: 12/18/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 35e237b6-9f7b-4189-90e7-8eca92ae7d3d
-caps.latest.revision: "21"
+caps.latest.revision: 
 author: mestew
 ms.author: mstewart
-manager: angrobe
-ms.openlocfilehash: ccc07aa709c0a168a8df7a1bd7944e9399bec13f
-ms.sourcegitcommit: 3dea4342f79909c5064289bd18ed36269812e30c
+manager: dougeby
+ms.openlocfilehash: 2dcf7ab67c0f57d442f6ab0a0ea9f0f476fe8415
+ms.sourcegitcommit: bc86be110c8d2a7a076e17f433d8c5ffd51a7d04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="supported-sql-server-versions-for-system-center-configuration-manager"></a>Versions SQL Server prises en charge pour System Center Configuration Manager
 
@@ -81,14 +82,14 @@ Vous pouvez utiliser cette version de SQL Server, avec au minimum la [version de
 -   Un site secondaire  
 <!--SMS.498506-->
 
-### <a name="sql-server-2016-sp1-standard-enterprise"></a>SQL Server 2016 SP1 : Standard, Entreprise  
+### <a name="sql-server-2016-sp1-standard-enterprise"></a>SQL Server 2016 SP1 : Standard, Enterprise  
 Vous pouvez utiliser cette version de SQL Server sans version de mise à jour cumulative minimale pour les sites suivants :  
 
 -   Un site d’administration centrale  
 -   Un serveur de site principal  
 -   Un site secondaire  
 
-### <a name="sql-server-2016-standard-enterprise"></a>SQL Server 2016 : Standard, Entreprise  
+### <a name="sql-server-2016-standard-enterprise"></a>SQL Server 2016 : Standard, Enterprise  
 Vous pouvez utiliser cette version de SQL Server sans version de mise à jour cumulative minimale pour les sites suivants :  
 
 -   Un site d’administration centrale  
@@ -191,6 +192,9 @@ Vous pouvez utiliser cette version de SQL Server sans version de mise à jour cu
  Sur chaque site, à la fois l'instance de SQL Server qui est utilisée pour le site et la base de données de site doivent utiliser le classement suivant : **SQL_Latin1_General_CP1_CI_AS**.  
 
  Configuration Manager prend en charge deux exceptions à ce classement pour satisfaire aux normes définies dans GB18030 pour une utilisation en Chine. Pour plus d’informations, consultez [Prise en charge internationale dans System Center Configuration Manager](../../../core/plan-design/hierarchy/international-support.md).  
+
+ **Niveau de compatibilité de la base de données :** </br>
+ Configuration Manager exige que le niveau de compatibilité de la base de données du site ne soit pas inférieur à la version de SQL Server la plus basse pris en charge pour votre version de Configuration Manager. Par exemple, depuis la version 1702, vous devez avoir un [niveau de compatibilité de base de données](https://docs.microsoft.com/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database) supérieur ou égal à 110. <!-- SMS.506266--> 
 
  **Fonctionnalités SQL Server :**  
  Seule la fonctionnalité **Services Moteur de base de données** est requise pour chaque serveur de site.  
