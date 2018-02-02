@@ -7,19 +7,20 @@ ms.date: 8/30/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 87f4e041-67df-4c61-aa98-7444faffe565
-caps.latest.revision: "5"
+caps.latest.revision: 
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 412bddaa604c053662a605115acdabe76a2cb03c
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: c740e9b23cb2968463e8843b5f3cdcbaba7c4d91
+ms.sourcegitcommit: 645cd5a324bdd299906efa27eaca5885eafc9e9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="supported-operating-systems-for-clients-and-devices-for-system-center-configuration-manager"></a>Systèmes d’exploitation pris en charge pour les clients et les appareils pour System Center Configuration Manager
 
@@ -37,7 +38,7 @@ ms.lasthandoff: 12/04/2017
 ##  <a name="windows-computers"></a>Ordinateurs Windows  
  Vous pouvez utiliser le client Configuration Manager inclus dans Configuration Manager pour gérer les systèmes d’exploitation Windows suivants. Pour plus d’informations, consultez [Guide pratique pour déployer des clients sur des ordinateurs Windows dans System Center Configuration Manager](../../../core/clients/deploy/deploy-clients-to-windows-computers.md).  
 
-**Systèmes d’exploitation pris en charge** :  
+**Systèmes d’exploitation pris en charge :**  
 
 
 -  **Windows Server 2016** : Standard, Datacenter <sup>1</sup>
@@ -61,7 +62,7 @@ ms.lasthandoff: 12/04/2017
 
 -   **Windows 8.1** (x86, x64) : Professionnel, Entreprise    
 
--   **Windows 8** (x86, x64) : Professionnel, Entreprise    
+<!---   **Windows 8** (x86, x64): Professional, Enterprise  -removed Jan 12,2018 sms505863-->
 
 -   **Windows 7 avec SP1** (x86, x64) : Professionnel, Entreprise et Édition Intégrale    
 
@@ -103,7 +104,7 @@ ms.lasthandoff: 12/04/2017
 -   Pour pouvoir surveiller les programmes malveillants détectés sur les appareils Windows Embedded basés sur Windows XP, vous devez installer le package de script Microsoft Windows WMI sur l’appareil. Utilisez Windows Embedded Target Designer pour installer ce package.
 Les fichiers **WBEMDISP.DLL** et **WBEMDISP.TLB** doivent exister et être inscrits dans le dossier **%windir%\System32\WBEM** sur l’appareil intégré pour garantir que les programmes malveillants sont signalés.  
 
-**Systèmes d’exploitation pris en charge** :  
+**Systèmes d’exploitation pris en charge :**  
 
 -   **Windows 10 Entreprise** (x86, x64)  
 
@@ -111,11 +112,11 @@ Les fichiers **WBEMDISP.DLL** et **WBEMDISP.TLB** doivent exister et être inscr
 
 -   **Windows Embedded 8.1 Industry** (x86, x64)    
 
--   **Windows Embedded 8 Industry** (x86, x64)    
+   <!----   **Windows Embedded 8 Industry** (x86, x64)  -removed Jan 12,2018 sms505863-->
 
 -   **Windows Embedded 8 Standard** (x86, x64)    
 
--   **Windows Embedded 8 Pro** (x86, x64)    
+<!---   **Windows Embedded 8 Pro** (x86, x64)    -removed Jan 12,2018 sms505863-->
 
 -   **Windows Thin PC** (x86, x64)    
 
@@ -144,7 +145,7 @@ Les systèmes d’exploitation suivants sont basés sur Windows XP Embedded et n
 
 -   Les fonctionnalités de ces appareils mobiles varient selon la plateforme et le type de client. Pour plus d’informations sur les fonctions de gestion prises en charge, consultez [Choisir une solution de gestion d’appareils pour System Center Configuration Manager](../../../core/plan-design/choose-a-device-management-solution.md).  
 
-**Systèmes d’exploitation pris en charge** :  
+**Systèmes d’exploitation pris en charge :**  
 
 -   Windows CE 7.0 (processeurs ARM et x86)  
 
@@ -191,12 +192,12 @@ Les systèmes d’exploitation suivants sont basés sur Windows XP Embedded et n
 
 -   **Mac OS X 10.11** (El Capitan)  
 
--   **Mac OS X 10.12** (macOS Sierra)
+-   **Mac OS X 10.12** (macOS Sierra)
 
 ##  <a name="linux-and-unix-servers"></a>Serveurs Linux et UNIX  
  Vous pouvez gérer les serveurs Linux et UNIX avec le client Configuration Manager pour Linux et UNIX.  
 
- Les packages d’installation du client Linux et UNIX ne sont pas fournis avec le support d’installation de Configuration Manager. Téléchargez les **clients pour d’autres systèmes d’exploitation** à partir du [Centre de téléchargement Microsoft](http://go.microsoft.com/fwlink/?LinkID=525184). En plus des packages d’installation de client, le téléchargement du client comprend le script qui gère l’installation du client sur chaque ordinateur.  
+ Les packages d’installation du client Linux et UNIX ne sont pas fournis avec le média Configuration Manager. Téléchargez les **clients pour d’autres systèmes d’exploitation** à partir du [Centre de téléchargement Microsoft](http://go.microsoft.com/fwlink/?LinkID=525184). En plus des packages d’installation de client, le téléchargement du client comprend le script qui gère l’installation du client sur chaque ordinateur.  
 
 **Configuration requise et limitations :**  
 
@@ -206,7 +207,7 @@ Les systèmes d’exploitation suivants sont basés sur Windows XP Embedded et n
 
 -   Pour versions prises en charge de Linux et UNIX, la version répertoriée inclut toutes les versions mineures suivantes. Par exemple, CentOS version 6 inclut CentOS 6.3. De même, la prise en charge d’un système d’exploitation qui utilise des Service Packs (comme SUSE Linux Enterprise Server 11 SP1), inclut les Service Packs suivants pour cette version du système d’exploitation.  
 
--   Pour plus d’informations sur les packages d’installation du client et sur l’Agent universel, consultez [Guide pratique pour déployer des clients sur des serveurs UNIX et Linux dans System Center Configuration Manager](../../../core/clients/deploy/deploy-clients-to-unix-and-linux-servers.md).  
+-   Pour plus d’informations sur les packages d’installation client et l’agent universel, consultez [Guide pratique pour déployer des clients sur des serveurs UNIX et Linux dans System Center Configuration Manager](../../../core/clients/deploy/deploy-clients-to-unix-and-linux-servers.md).  
 
 **Versions prises en charge** : les versions suivantes sont prises en charge en utilisant le fichier .tar indiqué.  
 
@@ -300,7 +301,7 @@ Les systèmes d’exploitation suivants sont basés sur Windows XP Embedded et n
 
 
 ##  <a name="mobile-devices-enrolled-by-microsoft-intune"></a>Appareils mobiles inscrits par Microsoft Intune  
- Pour plus d’informations sur les ordinateurs et les appareils que vous pouvez gérer quand vous intégrez Microsoft Intune à Configuration Manager, consultez les deux rubriques suivantes dans la bibliothèque de la documentation Microsoft Intune :  
+ Pour plus d’informations sur les ordinateurs et les appareils que vous pouvez gérer quand vous intégrez Microsoft Intune à Configuration Manager, consultez les deux rubriques suivantes dans la bibliothèque de la documentation Microsoft Intune :  
 
 -   [Fonctionnalités de gestion des appareils mobiles dans Microsoft Intune](https://docs.microsoft.com/intune/get-started/choose-how-to-manage-devices)  
 -   [Fonctionnalités de gestion des PC Windows dans Microsoft Intune](https://docs.microsoft.com/intune/get-started/windows-pc-management-capabilities-in-microsoft-intune)  
@@ -312,7 +313,7 @@ Les systèmes d’exploitation suivants sont basés sur Windows XP Embedded et n
 
 -   Vous devez configurer le **point de connexion de service** sur le site de plus haut niveau de votre hiérarchie.  
 
-**Systèmes d’exploitation pris en charge** :  
+**Systèmes d’exploitation pris en charge :**  
 
 - **Windows 10 Professionnel** (x86, x64)  
 

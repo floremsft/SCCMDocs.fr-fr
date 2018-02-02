@@ -7,26 +7,27 @@ ms.date: 03/26/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-osd
+ms.technology:
+- configmgr-osd
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: da1e687b-28f6-43c4-b14a-ff2b76e60d24
-caps.latest.revision: "26"
+caps.latest.revision: 
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 3848d0d6a9f3b5d778879c598bf859fb1e8a7ac7
-ms.sourcegitcommit: 08f9854fb6c6d21e1e923b13e38a64d0bc2bc9a4
+ms.openlocfilehash: a67d75f27cbc2d53cc5d8c418e25232d88b4f067
+ms.sourcegitcommit: db9978135d7a6455d83dbe4a5175af2bdeaeafd8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="manage-windows-as-a-service-using-system-center-configuration-manager"></a>Gérer Windows as a Service (WaaS) à l’aide de System Center Configuration Manager
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
 
- Dans System Center Configuration Manager, vous pouvez afficher l’état de Windows as a Service dans votre environnement, créer des plans de maintenance pour établir des anneaux de déploiement et vous assurer que vos systèmes Current Branch Windows 10 sont mis à jour avec les nouvelles builds publiées, mais aussi afficher des alertes à l’approche de l’expiration du support des builds de la branche CB (Current Branch) ou CBB (Current Branch for Business) pour les clients Windows 10.  
+ Dans System Center Configuration Manager, vous pouvez afficher l’état de Windows as a Service dans votre environnement, créer des plans de maintenance pour établir des anneaux de déploiement et vous assurer que vos systèmes Current Branch Windows 10 sont mis à jour avec les nouvelles builds publiées, mais aussi afficher des alertes à l’approche de l’expiration du support des builds de la branche CB (Current Branch) ou CBB (Current Branch for Business) pour les clients Windows 10.  
 
  Pour plus d’informations sur les options de maintenance de Windows 10, consultez  [Options de maintenance de Windows 10 pour les mises à jour et les mises à niveau](https://technet.microsoft.com/library/mt598226\(v=vs.85\).aspx).  
 
@@ -35,7 +36,7 @@ ms.lasthandoff: 12/12/2017
 ##  <a name="BKMK_Prerequisites"></a> Conditions préalables  
  Pour afficher les données dans le tableau de bord de maintenance de Windows 10, vous devez procéder comme suit :  
 
--   Les ordinateurs Windows 10 doivent utiliser les mises à jour logicielles de Configuration Manager avec les services WSUS (Windows Server Update Services) pour la gestion des mises à jour logicielles. Quand un ordinateur utilise Windows Update for Business (ou Windows Insiders) pour la gestion des mises à jour logicielles, il n’est pas évalué dans les plans de maintenance de Windows 10. Pour plus d'informations, voir [Intégration avec Windows Update for Business dans Windows 10](../../sum/deploy-use/integrate-windows-update-for-business-windows-10.md).  
+-   Les ordinateurs Windows 10 doivent utiliser les mises à jour logicielles de Configuration Manager avec les services WSUS (Windows Server Update Services) pour la gestion des mises à jour logicielles. Quand un ordinateur utilise Windows Update pour Entreprise (ou Windows Insiders) pour la gestion des mises à jour logicielles, il n’est pas évalué dans les plans de maintenance de Windows 10. Pour plus d'informations, voir [Intégration avec Windows Update  pour Entreprise dans Windows 10](../../sum/deploy-use/integrate-windows-update-for-business-windows-10.md).  
 
 -   WSUS 4.0 avec le [correctif logiciel 3095113](https://support.microsoft.com/kb/3095113) doit être installé sur les points de mise à jour logicielle et les serveurs de site. Ceci ajoute la classification des mises à jour logicielles **Mises à niveau** . Pour plus d’informations, consultez [Prérequis pour les mises à jour logicielles](../../sum/plan-design/prerequisites-for-software-updates.md).  
 
@@ -50,7 +51,7 @@ ms.lasthandoff: 12/12/2017
     -   **Build du système d’exploitation** : spécifie le numéro de build du système d’exploitation. Par exemple, **10.0.10240** (RTM) ou **10.0.10586** (version 1511)  
 
 -   Le point de connexion de service doit être installé et configuré pour le mode **En ligne, connexion permanente** pour afficher des données dans le tableau de bord de maintenance de Windows 10. En mode hors connexion, vous ne voyez pas les mises à jour des données dans le tableau de bord tant que vous n’avez pas obtenu les mises à jour de maintenance pour Configuration Manager.   
-     Pour plus d’informations, consultez [À propos du point de connexion de service](../../core/servers/deploy/configure/about-the-service-connection-point.md).  
+      Pour plus d’informations, consultez [À propos du point de connexion de service](../../core/servers/deploy/configure/about-the-service-connection-point.md).  
 
 
 -   Internet Explorer 9 ou version ultérieure doit être installé sur l’ordinateur qui exécute la console Configuration Manager.  
@@ -280,3 +281,6 @@ Pour modifier les propriétés d’un plan de maintenance, appliquez la procédu
 
     > [!NOTE]  
     >  Vous pouvez consulter les récentes alertes de mises à jour logicielles à partir du nœud **Mises à jour logicielles** dans l'espace de travail **Bibliothèque de logiciels** .  
+
+**Pour plus d’informations :** <br/>
+[Notions de base de Configuration Manager as a service et Windows as a service](/sccm/core/understand/configuration-manager-and-windows-as-service.md)

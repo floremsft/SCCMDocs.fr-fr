@@ -7,20 +7,21 @@ ms.date: 11/07/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-app
+ms.technology:
+- configmgr-app
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: cc230ff4-7056-4339-a0a6-6a44cdbb2857
-caps.latest.revision: "14"
-caps.handback.revision: "0"
+caps.latest.revision: 
+caps.handback.revision: 
 author: mattbriggs
 ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: f680b692f3ae92fb8a5e8b6640ed053ceedba436
-ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
+ms.openlocfilehash: d7073b397cdf7b233f8264bd07019303a77a610f
+ms.sourcegitcommit: 2f6a13d208dcd8aa59c88f107791f9c4388e78e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="create-applications-with-system-center-configuration-manager"></a>Créer des applications avec System Center Configuration Manager
 
@@ -337,7 +338,16 @@ Le tableau suivant contient des exemples de script Microsoft Visual Basic (VB) q
         > [!IMPORTANT]  
         >  Un conflit peut se produire si la **durée maximale d'exécution allouée** est plus longue que celle de la fenêtre de maintenance planifiée. Si la durée maximale d'exécution définie par l'utilisateur dépasse la longueur des fenêtres de maintenance disponibles, ce type de déploiement n'est pas exécuté.  
 
-2.  **Temps d’installation estimé (minutes)** : spécifiez la durée estimée nécessaire à l’installation du type de déploiement. Il est indiqué aux utilisateurs du Centre logiciel.  
+    -   **Temps d’installation estimé (minutes)** : spécifiez la durée estimée nécessaire à l’installation du type de déploiement. Il est indiqué aux utilisateurs du Centre logiciel.  
+
+    -   **Spécifier un comportement de redémarrage spécifique** : spécifie l’action post-installation. Les options ci-dessous sont disponibles :  
+
+        -   **Déterminer le comportement en fonction des codes de retour** : gère les redémarrages en fonction des codes configurés sous l’onglet Codes de retour.  Le Centre logiciel affichera **Peut nécessiter un redémarrage**.  Si un utilisateur s’est connecté pendant l’installation, il reçoit une invite en fonction de la configuration de l’expérience utilisateur du déploiement.  
+
+        -   **Aucune action spécifique** : aucun redémarrage n’est nécessaire après l’installation.  Le Centre logiciel signale qu’aucun redémarrage n’est nécessaire.  
+        -   **Le programme d’installation logicielle va forcer un redémarrage du périphérique** : Configuration Manager ne contrôle pas ou ne lance pas un redémarrage, mais l’installation elle-même peut le faire sans avertissement.  Utilisez ce paramètre pour empêcher que Configuration Manager signale l’échec de l’installation quand le programme d’installation lance un redémarrage.  Le Centre logiciel affichera **Peut nécessiter un redémarrage**.  
+
+        -   **Le client Configuration Manager va forcer un redémarrage obligatoire du périphérique** : Configuration Manager force un redémarrage de l’appareil après une installation réussie.  Le Centre logiciel signale qu’un redémarrage est nécessaire.  Si un utilisateur s’est connecté pendant l’installation, il reçoit une invite en fonction de la configuration de l’expérience utilisateur du déploiement.
 
 ## <a name="specify-requirements-for-the-deployment-type"></a>Spécifier des spécifications pour le type de déploiement  
 

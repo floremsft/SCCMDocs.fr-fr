@@ -3,24 +3,25 @@ title: "Variables intégrées de séquence de tâches"
 titleSuffix: Configuration Manager
 description: "Les variables intégrées de séquence de tâches fournissent des informations sur l’environnement dans lequel la séquence de tâches s’exécute. Elles sont disponibles tout au long de la séquence de tâches."
 ms.custom: na
-ms.date: 03/26/2017
+ms.date: 01/12/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-osd
+ms.technology:
+- configmgr-osd
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 02bc6bd4-ca53-4e22-8b80-d8ee5fe72567
-caps.latest.revision: "15"
-caps.handback.revision: "0"
+caps.latest.revision: 
+caps.handback.revision: 
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: e29efd4de847a861afa75a7a10868cad30e4cf97
-ms.sourcegitcommit: 08f9854fb6c6d21e1e923b13e38a64d0bc2bc9a4
+ms.openlocfilehash: 29b2ae2a9a8ee41d11fbf7e032ef8262411f3dd0
+ms.sourcegitcommit: e121d8d3dd82b9f2dde2cb5206cbee602ab8e107
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="task-sequence-built-in-variables-in-system-center-configuration-manager"></a>Variables intégrées de séquence de tâches dans System Center Configuration Manager
 
@@ -81,8 +82,8 @@ ms.lasthandoff: 12/12/2017
 |SMSTSDriverRequestResolveTimeOut|Utilisez cette variable pour spécifier le délai d’attente, en secondes, avant une résolution de nom HTTP lorsque vous demandez un catalogue de pilotes pendant l’étape de la séquence de tâches Appliquer automatiquement les pilotes. Si la connexion prend plus de temps que le paramètre de délai d’attente, la demande est annulée. Par défaut, le délai d’expiration est de 60 secondes.|
 |SMSTSDriverRequestSendTimeOut|Utilisez cette variable pour spécifier le délai d’attente, en secondes, lorsque vous envoyez une demande de catalogue de pilotes pendant l’étape de la séquence de tâches Appliquer automatiquement les pilotes. Si la demande prend plus de temps que le paramètre de délai d’attente, elle est annulée. Par défaut, le délai d’expiration est de 60 secondes.|
 |SMSTSErrorDialogTimeout|Lorsqu'une erreur se produit dans une séquence de tâches, une boîte de dialogue s'affiche et est fermée automatiquement après un nombre de secondes spécifié par cette variable. Par défaut, la boîte de dialogue disparaît automatiquement après **900** secondes (15 minutes).|  
-| TSDisableProgressUI | Utilisez cette variable pour masquer ou afficher la progression des séquences de tâches dans les différentes sections de la séquence de tâches. | 
-|TSErrorOnWarning|Utilisez cette variable pour spécifier si le moteur de séquence de tâches considère qu'un avertissement détecté constitue une erreur durant l'étape de séquence de tâches Installation de l'application. La séquence de tâches affecte la valeur **Warning** à la variable _TSAppInstallStatus quand une ou plusieurs applications, ou une dépendance nécessaire, n'ont pas été installées car une exigence n'a pas été remplie. Lorsque vous affectez la valeur **True** à la variable TSErrorOnWarning et que la variable _TSAppInstallStatus a la valeur Warning, elle est traitée comme une erreur. La valeur **False** est le comportement par défaut.| 
+| TSDisableProgressUI | <!-- 1354291 --> À compter de Configuration Manager version 1706, utilisez cette variable pour contrôler quand la séquence de tâches affiche la progression aux utilisateurs finaux. Définissez cette variable plusieurs fois dans une séquence de tâches pour masquer ou afficher la progression à des moments différents. Pour masquer la progression de la séquence de tâches, définissez la valeur de cette variable sur **True**. Pour afficher la progression de la séquence de tâches, définissez la valeur de cette variable sur **False**. | 
+| TSErrorOnWarning |Utilisez cette variable pour spécifier si le moteur de séquence de tâches considère qu'un avertissement détecté constitue une erreur durant l'étape de séquence de tâches Installation de l'application. La séquence de tâches affecte la valeur **Warning** à la variable _TSAppInstallStatus quand une ou plusieurs applications, ou une dépendance nécessaire, n'ont pas été installées car une exigence n'a pas été remplie. Lorsque vous affectez la valeur **True** à la variable TSErrorOnWarning et que la variable _TSAppInstallStatus a la valeur Warning, elle est traitée comme une erreur. La valeur **False** est le comportement par défaut.| 
 |SMSTSLanguageFolder|utilisez cette variable pour modifier la langue d'affichage d'une image de démarrage indépendante de la langue.|  
 |SMSTSLocalDataDrive|Spécifie l'emplacement de stockage des fichiers temporaires sur l'ordinateur de destination lors de l'exécution de la séquence de tâches.<br /><br /> Cette variable doit être définie avant le démarrage de la séquence de tâches, notamment en définissant une variable de regroupement. Une fois que la séquence de tâches démarre, Configuration Manager définit la variable _SMSTSMDataPath.|  
 |SMSTSMP|Utilisez cette variable pour spécifier l’URL ou l’adresse IP du point de gestion Configuration Manager.|  

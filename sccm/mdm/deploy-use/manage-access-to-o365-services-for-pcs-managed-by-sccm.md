@@ -3,32 +3,35 @@ title: "Gérer l’accès aux services O365 pour les PC gérés"
 titleSuffix: Configuration Manager
 description: "Découvrez comment configurer l’accès conditionnel pour les PC gérés par System Center Configuration Manager."
 ms.custom: na
-ms.date: 12/19/2017
+ms.date: 01/10/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-hybrid
+ms.technology:
+- configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 34024741-edfa-4088-8599-d6bafc331e62
-caps.latest.revision: "15"
+caps.latest.revision: 
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.openlocfilehash: bf38358d12c2617d924fe59bf7bf7457dfa95143
-ms.sourcegitcommit: 6c2aa79924c0e7fc64ef5e9003498fc00c349db9
+ms.openlocfilehash: e1f50ea65236473f059ded6ef85c37646e929e53
+ms.sourcegitcommit: e121d8d3dd82b9f2dde2cb5206cbee602ab8e107
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="manage-access-to-o365-services-for-pcs-managed-by-system-center-configuration-manager"></a>Gérer l’accès aux services O365 pour les PC gérés par System Center Configuration Manager
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
-À compter de la version 1602 de Configuration Manager, vous pouvez configurer l’accès conditionnel pour les PC gérés par System Center Configuration Manager.  
+Cet article explique comment configurer l’accès conditionnel pour les PC gérés par Configuration Manager.  
 
-> [!Tip]  
-> Cette fonctionnalité a été introduite dans la version 1602 comme [fonctionnalité en préversion](/sccm/core/servers/manage/pre-release-features). À compter de la version 1702, cette fonctionnalité n’est plus une fonctionnalité en préversion.
+<!--
+ >> [!Tip]  
+> This feature was first introduced in version 1602 as a [pre-release feature](/sccm/core/servers/manage/pre-release-features). Beginning with version 1702, this feature is no longer a pre-release feature.
+-->
 
 Pour plus d’informations sur la configuration de l’accès conditionnel pour les appareils inscrits et gérés par Microsoft Intune, consultez [Gérer l’accès aux services dans System Center Configuration Manager](../../protect/deploy-use/manage-access-to-services.md). Cet article aborde également les appareils qui sont joints à un domaine et dont la conformité n’est pas évaluée.
 
@@ -45,16 +48,16 @@ Pour plus d’informations sur la configuration de l’accès conditionnel pour 
 
 ## <a name="supported-windows-servers"></a>Serveurs Windows pris en charge
 
--   2008 R2
--   2012
--   2012 R2
--   2016
+-   Windows Server 2008 R2
+-   Windows Server 2012
+-   Windows Server 2012 R2
+-   Windows Server 2016
 
     > [!IMPORTANT]
-    > Pour les serveurs Windows auxquels plusieurs utilisateurs peuvent être connectés simultanément, les mêmes stratégies d’accès conditionnel doivent être déployées pour tous les utilisateurs connectés.
+    > Pour les serveurs Windows auxquels plusieurs utilisateurs peuvent être connectés simultanément, déployez les mêmes stratégies d’accès conditionnel pour tous ces utilisateurs.
 
 ## <a name="configure-conditional-access"></a>Configurer un accès conditionnel  
- Pour configurer un accès conditionnel, vous devez d’abord créer une stratégie de conformité, puis configurer une stratégie d’accès conditionnel. Quand vous configurez des stratégies d’accès conditionnel pour des PC, vous pouvez exiger que ceux-ci soient conformes à la stratégie de conformité afin de pouvoir accéder aux services Exchange Online et SharePoint Online.  
+ Pour configurer un accès conditionnel, vous devez d’abord créer une stratégie de conformité, puis configurer une stratégie d’accès conditionnel. Quand vous configurez des stratégies d’accès conditionnel pour des PC, vous pouvez exiger que ceux-ci soient conformes pour pouvoir accéder aux services Exchange Online et SharePoint Online.  
 
 ### <a name="prerequisites"></a>Prérequis  
 
@@ -81,7 +84,7 @@ Pour plus d’informations sur la configuration de l’accès conditionnel pour 
 
 -   **Exiger l’inscription dans Azure Active Directory :** cette règle vérifie si l’appareil de l’utilisateur a fait l’objet d’une jonction d’espace de travail à Azure AD. Si ce n’est pas le cas, l’appareil est automatiquement inscrit dans Azure AD. L’inscription automatique est prise en charge seulement sur Windows 8.1. Pour les PC Windows 7, déployez un fichier MSI pour effectuer l’inscription automatique. Pour plus d’informations, consultez [Inscription automatique d’appareils auprès d’Azure Active Directory](https://docs.microsoft.com/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup).  
 
--   **Toutes les mises à jour requises installées avec une échéance supérieure à X jours :** cette règle vérifie si l’appareil de l’utilisateur a toutes les mises à jour obligatoires (spécifiées dans la règle Mises à jour automatiques requises) dans le délai et la période de grâce que vous avez spécifiés. Elle installe automatiquement toutes les mises à jour obligatoires en attente.  
+-   **Toutes les mises à jour requises installées avec une échéance supérieure à un certain nombre de jours :** spécifiez la valeur pour la période de grâce à partir de la date d’échéance du déploiement des mises à jour obligatoires sur l’appareil de l’utilisateur. L’ajout de cette règle installe aussi automatiquement les mises à jour obligatoires en attente. Spécifiez les mises à jour obligatoires dans la règle **Mises à jour automatiques requises**.   
 
 -   **Exiger le chiffrement de lecteur BitLocker :** cette règle vérifie si le lecteur principal (par exemple C:\\) de l’appareil est chiffré avec BitLocker. Si le chiffrement BitLocker n’est pas activé sur le lecteur principal, l’accès aux services de messagerie et SharePoint est bloqué.  
 
@@ -134,7 +137,7 @@ Pour plus d’informations sur la configuration de l’accès conditionnel pour 
 
 5.  Définissez la configuration requise du PC Windows sur l’option**Les appareils doivent être conformes**.  
 
-6.  Sous **Groupes ciblés**, cliquez sur **Modifier** pour sélectionner les groupes de sécurité Active Directory auxquels la stratégie sera appliquée.  
+6.  Sous **Groupes ciblés**, cliquez sur **Modifier** pour sélectionner les groupes de sécurité Azure Active Directory auxquels la stratégie s’applique.  
 
     > [!NOTE]  
     >  Le même groupe d’utilisateurs de sécurité doit être utilisé pour déployer la stratégie de conformité et le groupe ciblé pour la stratégie d’accès conditionnel.  

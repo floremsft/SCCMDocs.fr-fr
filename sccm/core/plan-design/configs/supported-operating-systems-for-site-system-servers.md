@@ -7,19 +7,20 @@ ms.date: 06/27/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 17905b4c-3895-4ad4-a69c-5e0d0fc5a8c3
-caps.latest.revision: "44"
+caps.latest.revision: 
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: e7606e087e2540b49e8aa23c09d09831651ee48b
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: 03618b541f8f00ccab69fa4ebcef81ffc146010c
+ms.sourcegitcommit: 645cd5a324bdd299906efa27eaca5885eafc9e9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="supported-operating-systems-for-system-center-configuration-manager-site-system-servers"></a>Systèmes d’exploitation pris en charge pour les serveurs de système de site System Center Configuration Manager
 
@@ -29,7 +30,7 @@ ms.lasthandoff: 12/04/2017
 Cet article explique en détail les versions de Windows que vous pouvez utiliser pour héberger un site ou un rôle de système de site System Center Configuration Manager.
 
 
-Utilisez les informations de cette rubrique ainsi que celles contenues dans les articles suivants :
+Utilisez les informations de cet article ainsi que celles des articles suivants :
 -   [Matériel recommandé pour Configuration Manager](../../../core/plan-design/configs/recommended-hardware.md)
 -   [Prérequis des sites et systèmes de site pour Configuration Manager](../../../core/plan-design/configs/site-and-site-system-prerequisites.md)
 -   [Taille et échelle de Configuration Manager en chiffres](../../../core/plan-design/configs/size-and-scale-numbers.md)
@@ -49,7 +50,7 @@ Utilisez les informations de cette rubrique ainsi que celles contenues dans les 
 
 **Serveurs de système de site :**  
 
--   Point de service Web du catalogue des applications  
+-   Point de service web du catalogue des applications  
 
 -   Point du site web du catalogue des applications  
 
@@ -73,7 +74,7 @@ Utilisez les informations de cette rubrique ainsi que celles contenues dans les 
 
 -   Point de Reporting Services  
 
--   Point de connexion de service  
+-   point de connexion de service  
 
 -   Serveur de bases de données du site  
 
@@ -83,7 +84,7 @@ Utilisez les informations de cette rubrique ainsi que celles contenues dans les 
 
 -   Point de mise à jour logicielle  
 
--   Point de migration d'état
+-   Point de migration d’état
 
 ## <a name="windows-server-2012-r2-x64-standard-and-datacenter"></a>Windows Server 2012 R2 (x64) : Standard et Datacenter  
 **Serveurs de site :**  
@@ -96,7 +97,7 @@ Utilisez les informations de cette rubrique ainsi que celles contenues dans les 
 
 **Serveurs de système de site :**  
 
--   Point de service Web du catalogue des applications  
+-   Point de service web du catalogue des applications  
 
 -   Point du site web du catalogue des applications  
 
@@ -120,7 +121,7 @@ Utilisez les informations de cette rubrique ainsi que celles contenues dans les 
 
 -   Point de Reporting Services  
 
--   Point de connexion de service  
+-   point de connexion de service  
 
 -   Serveur de bases de données du site  
 
@@ -130,7 +131,7 @@ Utilisez les informations de cette rubrique ainsi que celles contenues dans les 
 
 -   Point de mise à jour logicielle  
 
--   Point de migration d'état  
+-   Point de migration d’état  
 
 ## <a name="windows-server-2012-x64-standard-and-datacenter"></a>Windows Server 2012 R2 (x64) : Standard et Datacenter  
 **Serveurs de site :**  
@@ -143,7 +144,7 @@ Utilisez les informations de cette rubrique ainsi que celles contenues dans les 
 
 **Serveurs de système de site :**  
 
--   Point de service Web du catalogue des applications  
+-   Point de service web du catalogue des applications  
 
 -   Point du site web du catalogue des applications  
 
@@ -167,7 +168,7 @@ Utilisez les informations de cette rubrique ainsi que celles contenues dans les 
 
 -   Point de Reporting Services  
 
--   Point de connexion de service  
+-   point de connexion de service  
 
 -   Serveur de bases de données du site  
 
@@ -177,10 +178,10 @@ Utilisez les informations de cette rubrique ainsi que celles contenues dans les 
 
 -   Point de mise à jour logicielle  
 
--   Point de migration d'état  
+-   Point de migration d’état  
 
 ## <a name="windows-server-2008-r2-with-sp1-x64-standard-enterprise-and-datacenter"></a>Windows Server 2008 R2 avec SP1 (x64) : Standard, Enterprise et Datacenter  
- Windows Server 2008 R2 bénéficie désormais du support étendu au lieu du support standard, comme indiqué dans la [Politique de support Microsoft](https://support.microsoft.com/lifecycle). Pour plus d’informations sur le support à venir de ces systèmes d’exploitation utilisés comme serveurs de système de site avec Configuration Manager, consultez [Fonctionnalités supprimées et déconseillées dans System Center Configuration Manager](../../../core/plan-design/changes/removed-and-deprecated-features.md).  
+ Windows Server 2008 R2 bénéficie désormais du support étendu au lieu du support standard, comme indiqué dans la [Politique de support Microsoft](https://support.microsoft.com/lifecycle). Pour plus d’informations sur la prise en charge à venir de ces systèmes d’exploitation utilisés comme serveurs de système de site avec Configuration Manager, consultez [Fonctionnalités supprimées et déconseillées dans System Center Configuration Manager](../../../core/plan-design/changes/removed-and-deprecated-features.md).  
 
  Depuis Configuration Manager version 1702, ce système d’exploitation n’est pas pris en charge pour les serveurs de site ou la plupart des rôles de système de site, mais il continue d’être pris en charge pour le rôle de système de site de point de distribution (dont les points de distribution d’extraction, ainsi que pour PXE et la multidiffusion).
 
@@ -197,7 +198,7 @@ Utilisez les informations de cette rubrique ainsi que celles contenues dans les 
 
 **Serveurs de système de site :**  
 
--   Point de service Web du catalogue des applications  
+-   Point de service web du catalogue des applications  
 
 -   Point du site web du catalogue des applications  
 
@@ -221,7 +222,7 @@ Utilisez les informations de cette rubrique ainsi que celles contenues dans les 
 
 -   Point de Reporting Services  
 
--   Point de connexion de service  
+-   point de connexion de service  
 
 -   Serveur de bases de données du site  
 
@@ -231,7 +232,7 @@ Utilisez les informations de cette rubrique ainsi que celles contenues dans les 
 
 -   Point de mise à jour logicielle  
 
--   Point de migration d'état  
+-   Point de migration d’état  
 
 ## <a name="windows-server-2008-with-sp2-x86-x64-standard-enterprise-and-datacenter"></a>Windows Server 2008 avec SP2 (x86, x64) : Standard, Enterprise et Datacenter  
  Windows Server 2008 bénéficie désormais du support étendu au lieu du support standard, comme indiqué dans la [Politique de support Microsoft](https://support.microsoft.com/lifecycle). Pour plus d’informations sur le support à venir de ces systèmes d’exploitation utilisés comme serveurs de système de site avec Configuration Manager, consultez [Fonctionnalités supprimées et déconseillées dans System Center Configuration Manager](../../../core/plan-design/changes/removed-and-deprecated-features.md).  
@@ -271,16 +272,18 @@ Ce système d’exploitation n’est pas pris en charge pour les serveurs de sit
 
     -   Les points de distribution prennent en charge plusieurs configurations différentes ayant chacune des exigences différentes. Dans certains cas, ces configurations prennent en charge l’installation sur des serveurs, mais aussi sur des systèmes d’exploitation clients. Pour plus d’informations sur les options disponibles pour les points de distribution, consultez [Gérer le contenu et l’infrastructure de contenu pour System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
-## <a name="windows-8-x86-x64-professional-and-enterprise"></a>Windows 8 (x86, x64) : Professionnel et Entreprise
-**Serveurs de système de site :**  
+<!--## Windows 8 (x86, x64): Professional and Enterprise
+**Site system servers:**  
 
--   Point de distribution  
+-   Distribution point  
 
-    -   Les points de distribution sur ce système d’exploitation ne sont pas pris en charge pour PXE.  
+    -   Distribution points on this operating system are not supported for PXE.  
 
-    -   Les points de distribution sur cette version du système d’exploitation ne prennent pas en charge la multidiffusion.  
+    -   Distribution points on this operating system version do not support Multicast.  
 
-    -   Les points de distribution prennent en charge plusieurs configurations différentes ayant chacune des exigences différentes. Dans certains cas, ces configurations prennent en charge l’installation sur des serveurs, mais aussi sur des systèmes d’exploitation clients. Pour plus d’informations sur les options disponibles pour les points de distribution, consultez [Gérer le contenu et l’infrastructure de contenu pour System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+    -   Distribution points support several different configurations that each have different requirements. In some cases, these configurations support installation not only on servers, but on client operating systems. For more information about the options that are available for distribution points, see [Manage content and content infrastructure for System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+   
+    -  - -removed Jan 12,2018 sms505863-->
 
 ## <a name="windows-7-with-sp1-x86-x64-professional-enterprise-and-ultimate"></a>Windows 7 avec SP1 (x86, x64) : Professionnel, Entreprise et Édition Intégrale  
 **Serveurs de système de site :**  
