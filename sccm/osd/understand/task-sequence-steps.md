@@ -17,11 +17,11 @@ caps.handback.revision:
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 695d21eb065f4d89143644dad28bfdb711392ab9
-ms.sourcegitcommit: e121d8d3dd82b9f2dde2cb5206cbee602ab8e107
+ms.openlocfilehash: 158817547d40f09fb8bd30ebedd5aea6420a8571
+ms.sourcegitcommit: aee9ac45c15f27d8cf827890edcae94c03f5fd5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="task-sequence-steps-in-system-center-configuration-manager"></a>Étapes de séquence de tâches dans System Center Configuration Manager
 
@@ -536,7 +536,7 @@ Cette étape s'exécute dans un système d'exploitation standard ou Windows PE. 
 
  -   **Cache du client Configuration Manager** : utilisez cette option pour stocker le contenu dans le cache du client. Le client agit en tant que source de cache d’homologue pour d’autres clients du cache d’homologue. Pour plus d’informations, consultez [Préparer la mise en cache d’homologue Windows PE pour réduire le trafic WAN](../get-started/prepare-windows-pe-peer-cache-to-reduce-wan-traffic.md).  
 
- -   **Chemin personnalisé**  
+ -    **Chemin personnalisé** : avec cette option, le moteur de séquence de tâches télécharge d’abord le package dans le répertoire de travail de séquence de tâches, puis le déplace vers le chemin que vous spécifiez. Le moteur de séquence de tâches ajoute le chemin avec l’ID de package. 
    
 **Enregistrez le chemin d’accès en tant que variable**  
  Vous pouvez enregistrer le chemin en tant que variable que vous pouvez utiliser dans une autre étape de séquence de tâches. Configuration Manager ajoute un suffixe numérique au nom de la variable. Par exemple, si vous spécifiez une variable %*mon_contenu*% comme variable personnalisée, elle est la racine de l’emplacement où la séquence de tâches stocke tout le contenu référencé. Ce contenu peut contenir plusieurs packages. Ensuite, quand vous faites référence à la variable, ajoutez un suffixe numérique. Par exemple, pour le premier package, faites référence à %*mon_contenu01*%. Quand vous faites référence à la variable dans des étapes ultérieures, par exemple **Mettre à niveau le système d’exploitation**, utilisez %*mon_contenu02*% ou %*mon_contenu03*%, où le numéro correspond à l’ordre dans lequel l’étape **Télécharger le contenu du package** répertorie les packages.  
