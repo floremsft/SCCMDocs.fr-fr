@@ -14,11 +14,11 @@ ms.assetid: bc6c3e5f-b9e2-400e-9d9d-446ff93c520c
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 75fc608ded83ff304702c04b85ee5184299695f1
-ms.sourcegitcommit: aee9ac45c15f27d8cf827890edcae94c03f5fd5e
+ms.openlocfilehash: c75ed431c6a786759e2ddcd6dc6b55d5b55412c7
+ms.sourcegitcommit: b13da5ad8ffd58e3b89fa6d7170e1dec3ff130a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="what39s-new-in-version-1710-of-system-center-configuration-manager"></a>Nouveautés de la version 1710 de System Center Configuration Manager
 
@@ -37,7 +37,7 @@ Les sections suivantes fournissent des détails sur les modifications et les nou
 
 <!--
 ## Deprecated features and operating systems
-Learn about support changes before they are implemented in [removed and deprecated features](/sccm/core/plan-design/changes/removed-and-deprecated-features).
+Learn about support changes before they are implemented in [removed and deprecated items](/sccm/core/plan-design/changes/deprecated/removed-and-deprecated).
 
 Version 1710 drops support for the following products:
 -->
@@ -159,7 +159,7 @@ Ces scénarios sont les suivants :
 - [Gérer les applications](../../../mdm/deploy-use/management-tasks-applications.md)
 
 > [!NOTE]
-> Le déploiement d’applications .appxbundle générées pour plusieurs architectures peut ne pas fonctionner sur ces appareils, et ce scénario n’est pas pris en charge pour l’instant.
+> Le déploiement d’applications .appxbundle générées pour plusieurs architectures peuvent ne pas fonctionner sur ces appareils, et ce scénario n’est pas pris en charge pour l’instant.
 
 ### <a name="improved-vpn-profile-experience-in-configuration-manager-console"></a>Expérience de profil VPN améliorée dans la console Configuration Manager 
 <!-- 1318232 -->
