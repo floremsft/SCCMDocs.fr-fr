@@ -6,18 +6,19 @@ ms.custom: na
 ms.date: 05/02/2017
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 409e26e1-7716-4f1d-a0ee-34feabf20792
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: aa8d80cf9c036e63dc74ffe78bc8d5b060d6053e
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: cf46bb32994ddb8a1fa3b9de0dbffc94228ad7fd
+ms.sourcegitcommit: b13da5ad8ffd58e3b89fa6d7170e1dec3ff130a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="what39s-new-in-version-1702-of-system-center-configuration-manager"></a>Nouveautés de la version 1702 de System Center Configuration Manager
 
@@ -35,13 +36,13 @@ La mise à jour 1702 de la version Current Branch de System Center Configura
 Les sections suivantes fournissent des détails sur les modifications et les nouvelles fonctionnalités introduites dans la version 1702 de Configuration Manager.  
 
 ## <a name="deprecated-features-and-operating-systems"></a>Fonctionnalités et systèmes d'exploitation déconseillés
-En savoir plus sur les modifications de prise en charge avant leur implémentation dans des [fonctionnalités supprimées et déconseillées](/sccm/core/plan-design/changes/removed-and-deprecated-features).
+Découvrez plus d’informations sur les changements de prise en charge avant leur implémentation dans [Éléments supprimés et dépréciés](/sccm/core/plan-design/changes/deprecated/removed-and-deprecated).
 
 La version 1702 n’offre plus de prise en charge pour les produits suivants :
-- **SQL Server 2008 R2**, pour les serveurs de base de données de site. La fin de la prise en charge a été [annoncée](/sccm/core/plan-design/changes/removed-and-deprecated-features#deprecated-support-for-sql-server-versions-as-a-site-database) le 10 juillet 2015. Cette version de SQL Server reste prise en charge si vous utilisez une version de Configuration Manager antérieure à la version 1702.
-- **Windows Server 2008 R2**, pour les serveurs de système de site et la plupart des rôles de système de site. La fin de la prise en charge a été [annoncée](/sccm/core/plan-design/changes/removed-and-deprecated-features#deprecated-operating-systems) le 10 juillet 2015. Cette version de Windows reste prise en charge si vous utilisez une version de Configuration Manager antérieure à la version 1702.  
-- **Windows Server 2008**, pour les serveurs de système de site et la plupart des rôles de système de site. La fin de la prise en charge a été [annoncée](/sccm/core/plan-design/changes/removed-and-deprecated-features#deprecated-operating-systems) le 10 juillet 2015.
-- **Windows XP Embedded**, en tant que système d’exploitation client. La fin de la prise en charge a été [annoncée](/sccm/core/plan-design/changes/removed-and-deprecated-features#deprecated-operating-systems) le 10 juillet 2015. Cette version de Windows reste prise en charge si vous utilisez une version de Configuration Manager antérieure à la version 1702.
+- **SQL Server 2008 R2**, pour les serveurs de base de données de site. La fin de la prise en charge a été [annoncée](/sccm/core/plan-design/changes/deprecated/removed-and-deprecated-server#deprecated-support-for-sql-server-versions-as-a-site-database) le 10 juillet 2015. Cette version de SQL Server reste prise en charge si vous utilisez une version de Configuration Manager antérieure à la version 1702.
+- **Windows Server 2008 R2**, pour les serveurs de système de site et la plupart des rôles de système de site. La fin de la prise en charge a été [annoncée](/sccm/core/plan-design/changes/deprecated/removed-and-deprecated-server#deprecated-server-operating-systems) le 10 juillet 2015. Cette version de Windows reste prise en charge si vous utilisez une version de Configuration Manager antérieure à la version 1702.  
+- **Windows Server 2008**, pour les serveurs de système de site et la plupart des rôles de système de site. La fin de la prise en charge a été [annoncée](/sccm/core/plan-design/changes/deprecated/removed-and-deprecated-server#deprecated-server-operating-systems) le 10 juillet 2015.
+- **Windows XP Embedded**, en tant que système d’exploitation client. La fin de la prise en charge a été [annoncée](/sccm/core/plan-design/changes/deprecated/removed-and-deprecated-client#deprecated-client-operating-systems) le 10 juillet 2015. Cette version de Windows reste prise en charge si vous utilisez une version de Configuration Manager antérieure à la version 1702.
 
 
 
@@ -128,7 +129,7 @@ Depuis la version 1702, les clients utilisent des groupes de limites pour recher
 
 <!-- ## Client management  -->
 
-## <a name="compliance-settings"></a>Paramètres de compatibilité
+## <a name="compliance-settings"></a>Paramètres de conformité
 
 ### <a name="new-compliance-settings-for-ios"></a>Nouveaux paramètres de conformité pour iOS
 

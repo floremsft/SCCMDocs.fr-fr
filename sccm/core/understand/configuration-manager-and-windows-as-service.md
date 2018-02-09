@@ -16,11 +16,11 @@ caps.latest.revision:
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 90542085af2a1e5cf0701c5eac6d2625c23eb8c6
-ms.sourcegitcommit: db9978135d7a6455d83dbe4a5175af2bdeaeafd8
+ms.openlocfilehash: 40894c4ebb562e5c979f1226349ff91c38516618
+ms.sourcegitcommit: b13da5ad8ffd58e3b89fa6d7170e1dec3ff130a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="keep-windows-10-up-to-date-in-the-enterprise-using-configuration-manager"></a>Garder Windows 10 à jour dans l’entreprise avec Configuration Manager
 
@@ -34,7 +34,7 @@ System Center Configuration Manager offre un contrôle total sur les mises à jo
 | ------------- |-------------|
 |[Vue d’ensemble de Configuration Manager as a service](/sccm/core/plan-design/changes/whats-new-incremental-versions)|Fournit un bref résumé des points clés du nouveau modèle de maintenance pour Configuration Manager (Current Branch)|
 |[Cycle de vie du support](/sccm/core/servers/manage/current-branch-versions-supported)|Explique le nouveau modèle de support et de maintenance.|
-|[Fonctionnalités supprimées et dépréciées](/sccm/core/plan-design/changes/removed-and-deprecated-features)|Annonce les changements à venir qui pourraient affecter votre utilisation de Configuration Manager.|
+|[Éléments supprimés et dépréciés](/sccm//core/plan-design/changes/deprecated/removed-and-deprecated)|Annonce les changements à venir qui pourraient affecter votre utilisation de Configuration Manager.|
 |[Configuration Manager as a service](/sccm/core/servers/manage/updates)|Explique la méthode simple pour appliquer des mises à jour de fonctionnalités à Configuration Manager dans la console.|
 |[Obtenir les mises à jour disponibles](/core/servers/manage/install-in-console-updates#get-available-updates)|Explique les deux modes disponibles pour obtenir les mises à jour de fonctionnalités de Configuration Manager.|
 |[Liste de contrôle des mises à jour](/sccm/core/servers/manage/install-in-console-updates#bkmk_beforeinstall)|Fournit des listes de contrôle spécifiques aux versions des mises à jour (le cas échéant).| 

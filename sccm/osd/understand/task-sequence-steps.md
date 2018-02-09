@@ -17,11 +17,11 @@ caps.handback.revision:
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 158817547d40f09fb8bd30ebedd5aea6420a8571
-ms.sourcegitcommit: aee9ac45c15f27d8cf827890edcae94c03f5fd5e
+ms.openlocfilehash: 5320d7747f7e2c6164da8c1801e631b749935d6d
+ms.sourcegitcommit: b13da5ad8ffd58e3b89fa6d7170e1dec3ff130a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="task-sequence-steps-in-system-center-configuration-manager"></a>Étapes de séquence de tâches dans System Center Configuration Manager
 
@@ -1313,7 +1313,7 @@ Dans l’Éditeur de séquence de tâches, cliquez sur **Ajouter**, sélectionne
  Cliquez sur **Parcourir** et sélectionnez le package d’installation du client Configuration Manager que vous voulez utiliser avec cette étape.  
 
  **Utiliser le package client de préproduction quand il est disponible**  
- Si un package client de préproduction est disponible, la séquence de tâches l’utilise à la place du package client de production. Le client de préproduction est une version plus récente à tester dans l’environnement de production. Cliquez sur **Parcourir** et sélectionnez le package d’installation du client de préproduction que vous voulez utiliser avec cette étape.  
+ Si un package client de préproduction est disponible et que l’ordinateur est membre du regroupement pilote, la séquence de tâches utilise ce package à la place du package client de production. Le client de préproduction est une version plus récente à tester dans l’environnement de production. Cliquez sur **Parcourir** et sélectionnez le package d’installation du client de préproduction que vous voulez utiliser avec cette étape.  
 
  **Propriétés d’installation**  
  L'attribution de site et la configuration par défaut sont automatiquement spécifiées par l'action de la séquence de tâches. Ce champ permet de spécifier les propriétés d'installation supplémentaires à utiliser lorsque vous installez le client. Pour entrer plusieurs propriétés d'installation, séparez-les par un espace.  

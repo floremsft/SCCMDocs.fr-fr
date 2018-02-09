@@ -7,20 +7,21 @@ ms.date: 2/9/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 72d7b174-f015-498f-a0a7-2161b9929198
-caps.latest.revision: "7"
-caps.handback.revision: "0"
+caps.latest.revision: 
+caps.handback.revision: 
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 518be0c1cb4c361d8802ed70779d192725eb8feb
-ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
+ms.openlocfilehash: 1b8248cbbade7d46d1a1ad41edd704b5ad8d49aa
+ms.sourcegitcommit: b13da5ad8ffd58e3b89fa6d7170e1dec3ff130a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="accounts-used-in-system-center-configuration-manager"></a>Comptes utilisés dans System Center Configuration Manager
 
@@ -29,7 +30,7 @@ ms.lasthandoff: 01/04/2018
 Utilisez les informations suivantes pour identifier les groupes Windows et les comptes utilisés dans System Center Configuration Manager, savoir comment ils sont utilisés et connaître les exigences associées.  
 
 ## <a name="windows-groups-that-configuration-manager-creates-and-uses"></a>Groupes Windows créés et utilisés par Configuration Manager  
- Configuration Manager crée automatiquement et, très souvent, gère automatiquement les groupes Windows suivants.  
+ Configuration Manager crée automatiquement et, très souvent, gère automatiquement les groupes Windows suivants :  
 
 > [!NOTE]  
 >  Lorsque que Configuration Manager crée un groupe sur un ordinateur qui est membre d'un domaine, ce groupe est un groupe de sécurité local. Si l'ordinateur est un contrôleur de domaine, ce groupe est un groupe de domaine local qui est partagé entre tous les contrôleurs de domaine du domaine.  
@@ -54,7 +55,7 @@ Le tableau suivant répertorie des détails supplémentaires pour ce groupe :
 
  Le tableau suivant répertorie des détails supplémentaires pour ce groupe :  
 
-|Détail|Informations complémentaires|  
+|Détail|Plus d'informations|  
 |------------|----------------------|  
 |Type et emplacement|Ce groupe est un groupe de sécurité local créé sur le client Configuration Manager, lorsque le client reçoit une stratégie qui active les outils de contrôle à distance.<br /><br /> Lorsque vous désactivez les outils de contrôle à distance pour un client, ce groupe n’est pas supprimé automatiquement. Il doit être supprimé manuellement sur chaque ordinateur client.|  
 |Adhésion|Par défaut, ce groupe ne contient aucun membre. Lorsque vous ajoutez des utilisateurs à la liste Observateurs autorisés, ils sont automatiquement ajoutés à ce groupe.<br /><br /> Vous pouvez utiliser la liste Observateurs autorisés pour gérer l’appartenance à ce groupe au lieu d’y ajouter directement des utilisateurs ou des groupes.<br /><br /> En plus d’être un observateur autorisé, un utilisateur administratif doit disposer de l’autorisation **Contrôle à distance** sur l’objet **Regroupement**. Vous pouvez attribuer cette autorisation à l'aide du rôle de sécurité Opérateur d'outils à distance.|  
@@ -72,14 +73,14 @@ Le tableau suivant répertorie des détails supplémentaires pour ce groupe :
 |------------|----------------------|  
 |Type et emplacement|Ce groupe est un groupe de sécurité local créé sur chaque ordinateur qui dispose d’un fournisseur SMS.<br /><br /> Lorsque vous désinstallez un site, ce groupe n’est pas supprimé automatiquement. Il doit être supprimé manuellement.|  
 |Adhésion|Configuration Manager gère automatiquement l'appartenance au groupe. Par défaut, chaque utilisateur administratif d'une hiérarchie et le compte d'ordinateur du serveur de site sont membres du groupe Administrateurs SMS sur chaque ordinateur du fournisseur SMS d'un site.|  
-|Autorisations|La définition des autorisations et des droits des administrateurs SMS s'effectue dans le composant logiciel enfichable MMC Contrôle WMI. Par défaut, les autorisations **Enable Account** et **Remote Enable** sont accordées au groupe Administrateurs SMS sur l'espace de noms Root\SMS. Les utilisateurs authentifiés disposent des autorisations **Méthodes d’exécution**, **Écriture fournisseur** et **Activer le compte**.<br /><br /> Les administrateurs qui utiliseront une console Configuration Manager distante doivent posséder des autorisations DCOM d'activation à distance à la fois sur le serveur de site et sur l'ordinateur du fournisseur SMS. Il est recommandé d'accorder ces droits aux Administrateurs SMS pour simplifier l'administration plutôt que d'accorder ces droits directement aux utilisateurs ou groupes. Pour plus d'informations, consultez la section [Configurer les autorisations DCOM pour les consoles Configuration Manager distantes](../../../core/servers/manage/modify-your-infrastructure.md#BKMK_ConfigDCOMforRemoteConsole) dans la rubrique [Modifier votre infrastructure System Center Configuration Manager](../../../core/servers/manage/modify-your-infrastructure.md).|  
+|Autorisations|La définition des autorisations et des droits des administrateurs SMS s'effectue dans le composant logiciel enfichable MMC Contrôle WMI. Par défaut, les autorisations **Enable Account** et **Remote Enable** sont accordées au groupe Administrateurs SMS sur l'espace de noms Root\SMS. Les utilisateurs authentifiés disposent des autorisations **Méthodes d’exécution**, **Écriture fournisseur** et **Activer le compte**.<br /><br /> Les administrateurs qui utiliseront une console Configuration Manager distante doivent posséder des autorisations DCOM d'activation à distance à la fois sur le serveur de site et sur l'ordinateur du fournisseur SMS. Il est recommandé d'accorder ces droits aux Administrateurs SMS pour simplifier l'administration plutôt que d'accorder ces droits directement aux utilisateurs ou groupes. Pour plus d'informations, consultez la section [Configurer les autorisations DCOM pour les consoles Configuration Manager distantes](../../../core/servers/manage/modify-your-infrastructure.md#BKMK_ConfigDCOMforRemoteConsole) dans l’article [Modifier votre infrastructure System Center Configuration Manager](../../../core/servers/manage/modify-your-infrastructure.md).|  
 
 ### <a name="smssitesystemtositeserverconnectionmpltsitecode"></a>SMS_SiteSystemToSiteServerConnection_MP_&lt;code_site\>  
  Les points de gestion Configuration Manager qui sont distants du serveur de site utilisent ce groupe pour se connecter à la base de données du site. Ce groupe fournit un accès au point de gestion pour les dossiers Boîte de réception sur le serveur de site et la base de données du site.  
 
  Le tableau suivant répertorie des détails supplémentaires pour ce groupe :  
 
-|Détail|Informations complémentaires|  
+|Détail|Plus d'informations|  
 |------------|----------------------|  
 |Type et emplacement|Ce groupe est un groupe de sécurité local créé sur chaque ordinateur qui dispose d’un fournisseur SMS.<br /><br /> Lorsque vous désinstallez un site, ce groupe n’est pas supprimé automatiquement. Il doit être supprimé manuellement.|  
 |Adhésion|Configuration Manager gère automatiquement l'appartenance au groupe. Par défaut, l'appartenance inclut les comptes d'ordinateur des ordinateurs distants qui disposent d'un point de gestion pour le site.|  
@@ -90,7 +91,7 @@ Le tableau suivant répertorie des détails supplémentaires pour ce groupe :
 
  Le tableau suivant répertorie des détails supplémentaires pour ce groupe :  
 
-|Détail|Informations complémentaires|  
+|Détail|Plus d'informations|  
 |------------|----------------------|  
 |Type et emplacement|Ce groupe est un groupe de sécurité local créé sur le serveur de site.<br /><br /> Lorsque vous désinstallez un site, ce groupe n’est pas supprimé automatiquement. Il doit être supprimé manuellement.|  
 |Adhésion|Configuration Manager gère automatiquement l'appartenance au groupe. Par défaut, l’appartenance comprend le compte d’ordinateur ou le compte d’utilisateur de domaine utilisé pour se connecter au serveur de site depuis chaque ordinateur distant ayant installé un fournisseur SMS pour le site.|  
@@ -163,7 +164,7 @@ Le tableau suivant répertorie des détails supplémentaires pour ce groupe :
 
  Le compte doit disposer d'autorisations en **Lecture** et en **Écriture** sur le partage réseau sur lequel l'image capturée est stockée.  
 
- Si le mot de passe du compte est modifié dans Windows, vous devez mettre à jour la séquence de tâches avec le nouveau mot de passe. Le client Configuration Manager reçoit le nouveau mot de passe lorsqu’il télécharge la stratégie du client.  
+ Si le mot de passe du compte est modifié dans Windows, vous devez mettre à jour la séquence de tâches avec le nouveau mot de passe. Le client Configuration Manager reçoit le nouveau mot de passe quand il télécharge la stratégie du client.  
 
  Si vous utilisez ce compte, vous pouvez créer un compte d'utilisateur de domaine avec des autorisations minimales pour accéder aux ressources réseau nécessaires et l'utiliser pour tous les comptes de séquence de tâches.  
 
@@ -245,6 +246,8 @@ Le tableau suivant répertorie des détails supplémentaires pour ce groupe :
 
 ### <a name="reporting-services-point-account"></a>Compte du point de Reporting Services  
  SQL Server Reporting Services utilise le **compte du point de Reporting Services** pour récupérer les données des rapports Configuration Manager à partir de la base de données de site. Le compte d'utilisateur Windows et le mot de passe que vous spécifiez sont chiffrés et stockés dans la base de données SQL Server Reporting Services.  
+>[!NOTE]
+>Le compte que vous spécifiez doit avoir des autorisations Connexion locale sur l’ordinateur hébergeant la base de données Reporting Services.
 
 ### <a name="remote-tools-permitted-viewer-accounts"></a>Comptes d'observateurs autorisés des outils de contrôle à distance  
  Les comptes que vous spécifiez en tant qu' **Observateurs autorisés** pour le contrôle à distance sont une liste d'utilisateurs autorisés à utiliser la fonctionnalité Outils de contrôle à distance sur les clients.  
@@ -255,7 +258,7 @@ Le tableau suivant répertorie des détails supplémentaires pour ce groupe :
  Ce compte nécessite des autorisations d’administrateur locales sur les systèmes de site que les administrateurs installeront et configureront. De plus, ce compte doit disposer du droit **Accéder à cet ordinateur à partir du réseau** dans la stratégie de sécurité sur les systèmes de site que les administrateurs installeront et configureront.  
 
 > [!TIP]  
->  Si vous disposez de plusieurs contrôleurs de domaine et si ces comptes seront utilisés dans plusieurs domaines, vérifiez qu’ils ont été répliqués avant de configurer le système de site.  
+>  Si vous avez plusieurs contrôleurs de domaine et si ces comptes sont utilisés dans plusieurs domaines, vérifiez qu’ils ont été répliqués avant de configurer le système de site.  
 >   
 >  Lorsque vous spécifiez un compte local sur chaque système de site à gérer, cette configuration est plus sécurisée que l'utilisation de comptes de domaine, car elle limite les dommages que les personnes malveillantes peuvent provoquer en cas de compromission du compte. Toutefois, les comptes de domaine sont plus faciles à gérer. Examinez le compromis entre sécurité et efficacité d’administration.  
 
@@ -306,7 +309,7 @@ Ce compte doit être un administrateur local sur l’ordinateur où WSUS est ins
 ### <a name="task-sequence-editor-domain-joining-account"></a>Compte de jonction de domaine de l'Éditeur de séquence de tâches  
  Le **compte de jonction de domaine de l’Éditeur de séquence de tâches** est utilisé dans une séquence de tâches pour joindre un ordinateur nouvellement mis en image à un domaine. Il est nécessaire si vous ajoutez l'étape **Joindre le domaine ou le groupe de travail** à une séquence de tâches, puis sélectionnez l'option **Joindre un domaine**. Vous pouvez également configurer ce compte si vous ajoutez l’étape **Appliquer les paramètres réseau** à une séquence de tâches, mais cette opération n’est pas obligatoire.  
 
- Ce compte exige le droit de **Jonction de domaine** dans le domaine que l'ordinateur devra joindre.  
+ Ce compte exige le droit **Jonction de domaine** dans le domaine que l'ordinateur doit joindre.  
 
 > [!TIP]  
 >  Si vous avez besoin de ce compte pour vos séquences de tâches, vous pouvez créer un compte d'utilisateur de domaine doté des autorisations d'accès minimales aux ressources réseau nécessaires, puis l'utiliser pour tous les comptes de séquence de tâches.  
@@ -339,8 +342,8 @@ Ce compte doit être un administrateur local sur l’ordinateur où WSUS est ins
 >   
 >  Ne configurez jamais le compte comme un administrateur de domaine.  
 >   
->  Ne configurez jamais de profils itinérants pour ce compte. Lorsque la séquence de tâches s’exécute, elle télécharge le profil itinérant du compte. Cela laisse le profil vulnérable à l’accès sur l’ordinateur local.  
+>  Ne configurez jamais de profils itinérants pour ce compte. Quand la séquence de tâches s’exécute, elle télécharge le profil itinérant du compte. Le profil devient alors accessible sur l’ordinateur local.  
 >   
 >  Limitez la portée du compte. Par exemple, créez différents comptes d'identification de la séquence de tâches pour chaque séquence de tâches, de sorte que, si un compte est compromis, seuls les ordinateurs clients auxquels ce compte a accès sont compromis.  
 >   
->  Si la ligne de commande requiert un accès administratif sur l’ordinateur, envisagez de créer un compte d’administrateur local réservé au compte d’identification de la séquence de tâches sur tous les ordinateurs qui exécuteront la séquence. Supprimez le compte dès que vous n’en avez plus besoin.  
+>  Si la ligne de commande nécessite un accès administratif sur l’ordinateur, créez un compte d’administrateur local réservé au compte d’identification de la séquence de tâches sur tous les ordinateurs qui exécutent cette dernière. Supprimez le compte dès que vous n’en avez plus besoin.  
