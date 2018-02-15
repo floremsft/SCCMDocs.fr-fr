@@ -10,22 +10,25 @@ ms.prod: configuration-manager
 ms.service: 
 ms.technology: 
 ms.assetid: d6bbc787-83a5-44b4-ad64-016e5da7413f
-ms.openlocfilehash: 4b582d5fbd9e2e916c439b149e117f1a65da98bf
-ms.sourcegitcommit: 5f4a584d4a833b0cc22bd8c47da7dd55aced97fa
+ms.openlocfilehash: 0cc11a05013fd9c25ee98ec35adcbe822d8a21fb
+ms.sourcegitcommit: 389c4e5b4e9953b74c13b1689195f99c526fa737
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="co-management-for-windows-10-devices"></a>Cogestion pour les appareils Windows 10    
 <!-- 1350871 -->
 Nombreux sont les clients qui souhaitent gérer les appareils Windows 10 comme les appareils mobiles, en recourant à une solution cloud plus simple et moins chère. Toutefois, le passage de la gestion classique à la gestion moderne peut s’avérer difficile. Dans les mises à jour précédentes de Windows 10, vous pouvez déjà joindre un appareil Windows 10 à Active Directory (AD) en local et à Azure AD sur le cloud (Azure AD hybride). À compter de Configuration Manager version 1710, la cogestion tire parti de cette amélioration et vous permet de gérer simultanément plusieurs appareils Windows 10, version 1709 (également appelée Fall Creators Update) à l’aide de Configuration Manager et d’Intune. C’est une solution qui établit une passerelle entre la gestion classique et la gestion moderne tout en vous donnant la possibilité d’opérer cette transition selon une approche en plusieurs phases. 
 
-Il existe deux principaux parcours pour accéder à la cogestion.  Le premier a trait à la cogestion provisionnée par Configuration Manager où les appareils Windows 10 gérés conjointement par Configuration Manager et Azure AD hybride sont inscrits dans Intune. Le second fait intervenir les appareils provisionnés par Intune qui sont inscrits dans Intune, puis installés avec le client Configuration Manager pour atteindre l’état de cogestion.  
+Il existe deux principaux parcours pour accéder à la cogestion.  Le premier a trait à la cogestion provisionnée par Configuration Manager où les appareils Windows 10 gérés conjointement par Configuration Manager et Azure AD hybride sont inscrits dans Intune. Le second fait intervenir les appareils provisionnés par Intune qui sont inscrits dans Intune, puis installés avec le client Configuration Manager pour atteindre l’état de cogestion.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Les prérequis suivants doivent être mis en place avant de pouvoir activer la cogestion. Il existe des prérequis généraux et des prérequis distincts pour les appareils dotés du client Configuration Manager et les appareils sur lesquels le client n’est pas installé.
 
-### <a name="general-prerequisites"></a>Conditions préalables
+> [!IMPORTANT]
+> Les appareils mobiles Windows 10 ne prennent pas en charge la cogestion.
+
+### <a name="general-prerequisites"></a>Prérequis généraux
 Les prérequis généraux pour activer la cogestion sont les suivants :  
 
 - Configuration Manager version 1710 ou ultérieure

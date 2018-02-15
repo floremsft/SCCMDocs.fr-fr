@@ -3,7 +3,7 @@ title: "Nouveautés de la gestion MDM hybride"
 titleSuffix: Configuration Manager
 description: "Découvrez les nouvelles fonctionnalités de gestion des appareils mobiles disponibles pour les déploiements hybrides avec Configuration Manager et Intune."
 ms.custom: na
-ms.date: 01/04/2018
+ms.date: 02/06/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,11 +15,11 @@ ms.assetid: 7b127cee-61f1-4681-9760-caebed36ddf5
 author: dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: aca30a199e38b2d4ed38a458694d98010b5e2496
-ms.sourcegitcommit: b13da5ad8ffd58e3b89fa6d7170e1dec3ff130a4
+ms.openlocfilehash: c724d9eafde6aa9abc0d3f9bfa867418046b2ecb
+ms.sourcegitcommit: 389c4e5b4e9953b74c13b1689195f99c526fa737
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="whats-new-in-hybrid-mobile-device-management-with-system-center-configuration-manager-and-microsoft-intune"></a>Nouveautés de la gestion hybride des appareils mobiles avec System Center Configuration Manager et Microsoft Intune
 
@@ -46,6 +46,16 @@ Chaque section de cet article répertorie les fonctionnalités hybrides sous tro
 ## <a name="january-2018"></a>Janvier 2018
 
 ### <a name="new-in-microsoft-intune"></a>Nouveautés de Microsoft Intune
+
+- **Approuver l’application Portail d’entreprise pour Android for Work** <!--1797090 -->    
+  Si votre organisation utilise Android for Work, vous devez approuver manuellement l’application Portail d’entreprise pour Android afin qu’elle continue à recevoir des mises à jour automatiques du Google Play Store managé.
+
+- **Les stratégies d’accès conditionnel pour Intune sont disponibles uniquement à partir du portail Azure**  <!-- 1737088 1634311 -->    
+  À compter de cette version, vous devez configurer et gérer vos stratégies d’accès conditionnel dans le [portail Azure](https://portal.azure.com) à partir d’**Azure Active Directory** > **Accès conditionnel**. Par souci pratique, vous pouvez également accéder à ce panneau à partir d’Intune dans le portail Azure (**Intune** > **Accès conditionnel**).
+
+- **E-mails de mises à jour de conformité** <!--1637547 -->    
+  Quand un e-mail est envoyé pour signaler un appareil non conforme, des détails sur l’appareil non conformes sont inclus. 
+
 
 - **Nouvelles fonctionnalités de l’action « Résoudre » pour les appareils Android** <!--1583480-->    
   L’application Portail d’entreprise pour Android étend l’action « Résoudre » sur **Mettre à jour les paramètres d’appareil** afin de résoudre les [problèmes de chiffrement d’appareil](https://docs.microsoft.com/intune-user-help/encrypt-your-device-android).
