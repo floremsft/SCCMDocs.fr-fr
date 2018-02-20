@@ -7,20 +7,21 @@ ms.date: 8/24/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 0cf4bacb-6b6d-4d4f-8640-b13fe15873de
-caps.latest.revision: "8"
-caps.handback.revision: "0"
+caps.latest.revision: 
+caps.handback.revision: 
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 0cc1915a73ed55403eca27021b77aab1fd1ddb03
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: 91e86bd578403d17ec7e4cc9dc6284c51a57053e
+ms.sourcegitcommit: 37e990d191028160486dbca286d2ea945bd5c8c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/15/2018
 ---
 # <a name="support-for-windows-features-and-networks-in-system-center-configuration-manager"></a>Prise en charge des fonctionnalités de Windows et des réseaux dans System Center Configuration Manager
 
@@ -59,13 +60,14 @@ Ces clients mettent également en cache le contenu. De cette façon, les clients
 |Système d'exploitation|Détails de la prise en charge|  
 |----------------------|---------------------|  
 |Windows 7 avec SP1|Pris en charge par défaut|  
-|Windows 8|Pris en charge par défaut|  
-|Windows 8.1|Pris en charge par défaut|  
+|Windows 8|Pris en charge par défaut|  
+|Windows 8.1|Pris en charge par défaut|  
 |Windows 10|Pris en charge par défaut|  
 |Windows Server 2008 avec SP2|**Nécessite BITS 4.0** : vous pouvez installer BITS 4.0 sur des clients Configuration Manager à l’aide de mises à jour logicielles ou d’une distribution de logiciels. Pour plus d’informations sur BITS 4.0, consultez [Windows Management Framework](http://go.microsoft.com/fwlink/p/?LinkId=181979).<br /><br /> Sur ce système d’exploitation, la fonctionnalité cliente BranchCache n’est pas prise en charge pour la distribution de logiciels exécutée à partir du réseau ou pour les transferts de fichiers SMB. De plus, ce système d’exploitation ne peut pas utiliser la fonctionnalité BranchCache avec des points de distribution cloud.|  
-|Windows Server 2008 R2|Pris en charge par défaut|  
-|Windows Server 2012|Pris en charge par défaut|  
-|Windows Server 2012 R2|Pris en charge par défaut|  
+|Windows Server 2008 R2|Pris en charge par défaut|  
+|Windows Server 2012|Pris en charge par défaut|  
+|Windows Server 2012 R2|Pris en charge par défaut|  
+|Windows Server 2016|Pris en charge par défaut|  
 
  Pour plus d'informations sur BranchCache, consultez [BranchCache pour Windows](http://go.microsoft.com/fwlink/p/?LinkId=177945) dans la documentation de Windows Server.  
 
@@ -82,7 +84,7 @@ Configuration Manager prend en charge les clients dans des groupes de travail.
 Configuration Manager prend en charge l’utilisation de la déduplication des données avec des points de distribution sur les systèmes d’exploitation suivants :  
 
 -   Windows Server 2016
--   Windows Server 2012 R2  
+-   Windows Server 2012 R2  
 -   Windows Server 2012  
 
 
