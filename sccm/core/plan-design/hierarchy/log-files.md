@@ -3,24 +3,25 @@ title: "Fichiers journaux pour la résolution des problèmes"
 titleSuffix: Configuration Manager
 description: "Utilisez des fichiers journaux pour résoudre des problèmes dans une hiérarchie System Center Configuration Manager."
 ms.custom: na
-ms.date: 7/03/2017
+ms.date: 02/14/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c1ff371e-b0ad-4048-aeda-02a9ff08889e
-caps.latest.revision: "9"
-caps.handback.revision: "0"
+caps.latest.revision: 
+caps.handback.revision: 
 author: aczechowski
 ms.author: aaroncz
-manager: angrobe
-ms.openlocfilehash: c310e23b543e8767a393ca5bf87a224a9269e359
-ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
+manager: dougeby
+ms.openlocfilehash: b0f15b0c7cf983234f41e3f202be7d46ce4954e2
+ms.sourcegitcommit: fbd4a9d2fa8ed4ddd3a0fecc4a2ec4fc0ccc3d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/19/2018
 ---
 # <a name="log-files-in-system-center-configuration-manager"></a>Fichiers journaux dans System Center Configuration Manager
 
@@ -50,7 +51,9 @@ Dans System Center Configuration Manager, les composants des clients et des serv
 
     -   [Journaux de serveur de site et de serveur de système de site](#BKMK_SiteSiteServerLog)  
 
-    -   [Fichiers journaux de l’installation du serveur de site](#BKMK_SiteInstallLog)  
+    -   [Fichiers journaux de l’installation du serveur de site](#BKMK_SiteInstallLog) 
+
+    -   [Fichiers journaux du point de service de l’entrepôt de données](#BKMK_DataWarehouse)
 
     -   [Fichiers journaux du point d’état de secours](#BKMK_FSPLog)  
 
@@ -73,6 +76,8 @@ Dans System Center Configuration Manager, les composants des clients et des serv
     -   [Passerelle de gestion cloud](#cloud-management-gateway)
 
     -   [Paramètres de conformité et accès aux ressources d’entreprise](#BKMK_CompSettingsLog)  
+
+    -   [Accès conditionnel](#BKMK_CA)
 
     -   [Console Configuration Manager](#BKMK_ConsoleLog)  
 
@@ -115,14 +120,14 @@ Dans System Center Configuration Manager, les composants des clients et des serv
     -   [Serveur WSUS](#BKMK_WSUSLog)  
 
 ##  <a name="BKMK_AboutLogs"></a> À propos des fichiers journaux de Configuration Manager  
- La plupart des processus dans Configuration Manager consignent des informations sur les opérations dans un fichier journal dédié à ce processus. Ces fichiers journaux sont identifiés par des extensions de fichier **.log** ou **.lo_**. Configuration Manager écrit dans un fichier .log jusqu’à ce que ce journal atteigne sa taille maximale. Une fois le journal plein, le fichier .log est copié vers un fichier portant le même nom mais avec l’extension .lo_, et le processus ou le composant continue à écrire dans le fichier .log. Quand le fichier .log atteint à nouveau sa taille maximale, le fichier .lo_ est remplacé et le processus se répète. Certains composants établissent un historique du fichier journal en ajoutant une date et une heure au nom du fichier journal, et en conservant l’extension .log. Le client pour Linux et UNIX constitue une exception à la taille maximale et à l’utilisation du fichier .lo_. Pour plus d’informations sur la façon dont le client pour Linux et UNIX utilise les fichiers journaux, consultez [Gérer des fichiers journaux dans le client pour Linux et UNIX](#BKMK_ManageLinuxLogs) dans cette rubrique.  
+ La plupart des processus dans Configuration Manager consignent des informations sur les opérations dans un fichier journal dédié à ce processus. Ces fichiers journaux sont identifiés par des extensions de fichier **.log** ou **.lo_**. Configuration Manager écrit dans un fichier .log jusqu’à ce que ce journal atteigne sa taille maximale. Une fois le journal plein, le fichier .log est copié vers un fichier portant le même nom mais avec l’extension .lo_, et le processus ou le composant continue à écrire dans le fichier .log. Quand le fichier .log atteint à nouveau sa taille maximale, le fichier .lo_ est remplacé et le processus se répète. Certains composants établissent un historique du fichier journal en ajoutant une date et une heure au nom du fichier journal, et en conservant l’extension .log. Le client pour Linux et UNIX constitue une exception à la taille maximale et à l’utilisation du fichier .lo_. Pour plus d’informations sur la façon dont le client pour Linux et UNIX utilise les fichiers journaux, consultez [Gérer des fichiers journaux dans le client pour Linux et UNIX](#BKMK_ManageLinuxLogs) dans cet article.  
 
  Pour afficher les journaux, utilisez la visionneuse du journal Configuration Manager, CMTrace, qui se trouve dans le dossier \\\SMSSetup\\Tools du média source de Configuration Manager. Il est ajouté à toutes les images de démarrage ajoutées à la Bibliothèque de logiciels.  
 
 ###  <a name="BKMK_LogOptions"></a> Configurer des options de journalisation à l’aide du Gestionnaire de service de Configuration Manager  
  Dans Configuration Manager, vous pouvez changer l’emplacement de stockage des fichiers journaux, ainsi que la taille du fichier journal.  
 
- Pour modifier la taille des fichiers journaux, changer le nom et l’emplacement du fichier journal, ou forcer plusieurs composants à écrire dans un même fichier journal, procédez comme suit.  
+ Pour modifier la taille des fichiers journaux, changer le nom et l’emplacement du fichier journal, ou forcer plusieurs composants à écrire dans un même fichier journal, procédez comme suit :  
 
 #### <a name="to-modify-logging-for-a-component"></a>Pour modifier la journalisation pour un composant  
 
@@ -147,7 +152,7 @@ Le tableau suivant répertorie les fichiers journaux qui se trouvent sur le clie
 |Nom du fichier journal|Description|  
 |--------------|-----------------|  
 |CAS.log|Service d’accès au contenu. Conserve le cache du package local sur le client.|  
-|Ccm32BitLauncher.log|Enregistre les actions liées au démarrage des applications sur le client marqué « run as 32bit » (exécuter en 32 bits).|  
+|Ccm32BitLauncher.log|Enregistre les actions liées au démarrage des applications sur le client marqué « run as 32 bit » (exécuter en 32 bits).|  
 |CcmEval.log|Enregistre des activités d’évaluation liées à l’état du client Configuration Manager et des détails sur les composants exigés par le client Configuration Manager.|  
 |CcmEvalTask.log|Enregistre des activités d’évaluation liées à l’état du client Configuration Manager lancées par la tâche planifiée d’évaluation.|  
 |CcmExec.log|Enregistre les activités du client et du service Hôte d'agent SMS. Ce fichier journal inclut également des informations sur l'activation et la désactivation du proxy de mise en éveil.|  
@@ -361,6 +366,15 @@ Le fichier journal SMS_DM.log sur le serveur de système de site enregistre auss
 |SMS_BOOTSTRAP.log|Enregistre des informations sur l'avancement du lancement du processus d'installation de site secondaire. Les détails du processus d'installation proprement dit sont donnés dans ConfigMgrSetup.log.|Serveur de site|  
 |smstsvc.log|Enregistre des informations sur l’installation, l’utilisation et la suppression d’un service Windows utilisé pour tester la connectivité du réseau et les autorisations entre les serveurs, en utilisant le compte d’ordinateur du serveur à l’origine de la connexion.|Serveur de site et serveur de système de site|  
 
+###  <a name="BKMK_DataWarehouse"></a> Fichiers journaux du point de service de l’entrepôt de données  
+ Le tableau suivant répertorie les fichiers journaux qui contiennent des informations relatives au point de service de l’entrepôt de données.  
+
+|Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
+|--------------|-----------------|----------------------------|  
+|DWSSMSI.log|Enregistre les messages générés par l’installation d’un point de service de l’entrepôt de données.|Serveur de système de site|  
+|DWSSSetup.log|Enregistre les messages générés par l’installation d’un point de service de l’entrepôt de données.|Serveur de système de site|  
+|Microsoft.ConfigMgrDataWarehouse.log|Enregistre des informations sur la synchronisation des données entre la base de données de site et la base de données de l’entrepôt de données.|Serveur de système de site|  
+
 ###  <a name="BKMK_FSPLog"></a> Fichiers journaux du point d’état de secours  
  Le tableau suivant répertorie les fichiers journaux qui contiennent des informations sur le point d'état de secours.  
 
@@ -389,7 +403,7 @@ Le fichier journal SMS_DM.log sur le serveur de système de site enregistre auss
 |MP_Retry.log|Enregistre les processus des nouvelles tentatives d’inventaire matériel.|Serveur de système de site|  
 |MP_Sinv.log|Enregistre des détails concernant la conversion des enregistrements d'inventaire logiciel XML à partir de clients ainsi que la copie de ces fichiers sur le serveur de site.|Serveur de système de site|  
 |MP_SinvCollFile.log|Enregistre des détails concernant le regroupement de fichiers.|Serveur de système de site|  
-|MP_Status.log|Enregistre des détails concernant la conversion des fichiers de messages d'état XML.svf de clients et la copie de ces fichiers sur le serveur de site.|Serveur de système de site|  
+|MP_Status.log|Enregistre des détails concernant la conversion des fichiers de messages d'état XML.svf de clients et la copie de ces fichiers sur le serveur de site.|Serveur de système de site|
 |mpcontrol.log|Enregistre l'inscription du point de gestion dans WINS. Enregistre la disponibilité du point de gestion toutes les dix minutes.|Serveur de site|  
 |mpfdm.log|Enregistre les actions du composant du point de gestion qui déplace les fichiers du client vers le dossier Boîtes de réception correspondant sur le serveur de site.|Serveur de système de site|  
 |mpMSI.log|Enregistre des détails sur l’installation du point de gestion.|Serveur de site|  
@@ -506,12 +520,12 @@ Le tableau suivant répertorie les fichiers journaux qui contiennent des informa
 |-|-|-|
 |Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|
 |CloudMgr.log|Enregistre les détails concernant le déploiement du service de passerelle de gestion cloud, l’état du service en cours et les données d’utilisation associées au service.<br>Vous pouvez configurer le niveau de journalisation en modifiant le Registre **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SMS\COMPONENTS\SMS_CLOUD_SERVICES_MANAGER\Logging level**|Le dossier *installdir* sur le serveur de site principal ou les autorités de certification.|
-|CMGSetup.log ou CMG-*RoleInstanceID*-CMGSetup.log<sup>1</sup>|Enregistre des détails concernant la 2ème phase du déploiement de la passerelle de gestion cloud (déploiement local dans Azure)<br>Vous pouvez configurer le niveau de journalisation à l’aide du paramètre **Niveau de suivi** (**Information** (par défaut), **Verbose**, **Error**) dans l’onglet de **configuration du portail Azure/services cloud**.|Le dossier **%approot%\logs** sur votre serveur Azure, ou le dossier SMS/Logs sur le serveur de système de site|
+|CMGSetup.log ou CMG-*RoleInstanceID*-CMGSetup.log<sup>1</sup>|Enregistre des détails concernant la deuxième phase du déploiement de la passerelle de gestion cloud (déploiement local dans Azure)<br>Vous pouvez configurer le niveau de journalisation à l’aide du paramètre **Niveau de suivi** (**Information** (par défaut), **Verbose**, **Error**) dans l’onglet de **configuration du portail Azure/services cloud**.|Le dossier **%approot%\logs** sur votre serveur Azure, ou le dossier SMS/Logs sur le serveur de système de site|
 |CMGHttpHandler.log ou CMG-*RoleInstanceID*- CMGHttpHandler.log<sup>1</sup>|Enregistre des détails concernant la liaison du gestionnaire http de la passerelle de gestion cloud avec Internet Information Services dans Azure<br>Vous pouvez configurer le niveau de journalisation à l’aide du paramètre **Niveau de suivi** (**Information** (par défaut), **Verbose**, **Error**) dans l’onglet de **configuration du portail Azure/services cloud**.|Le dossier **%approot%\logs** sur votre serveur Azure, ou le dossier SMS/Logs sur le serveur de système de site|
 |CMGService.log ou CMG-*RoleInstanceID*- CMGService.log<sup>1</sup>|Enregistre des détails concernant le composant principal du service de passerelle de gestion cloud dans Azure<br>Vous pouvez configurer le niveau de journalisation à l’aide du paramètre **Niveau de suivi** (**Information** (par défaut), **Verbose**, **Error**) dans l’onglet de **configuration du portail Azure/services cloud**.|Le dossier **%approot%\logs** sur votre serveur Azure, ou le dossier SMS/Logs sur le serveur de système de site|
 |SMS_Cloud_ProxyConnector.log|Enregistre des détails sur la configuration des connexions entre le service de passerelle de gestion cloud et le point de connexion de passerelle de gestion cloud.|Serveur de système de site|
 
-<sup>1</sup> Il s’agit des fichiers journaux Configuration Manager locaux que le gestionnaire de service cloud synchronise toutes les 5 minutes à partir du stockage Azure. La passerelle de gestion cloud pousse les journaux vers le stockage Azure toutes les 5 minutes. Le délai maximal est donc de 10 minutes. Les commutateurs Verbose affecteront les journaux locaux et distants.
+<sup>1</sup> Il s’agit des fichiers journaux Configuration Manager locaux que le gestionnaire de service cloud synchronise toutes les 5 minutes à partir du stockage Azure. La passerelle de gestion cloud envoie (push) les journaux vers le stockage Azure toutes les 5 minutes. Le délai maximal est donc de 10 minutes. Les commutateurs Verbose affectent les journaux locaux et distants.
 
 - Pour résoudre les problèmes de déploiement, utilisez **CloudMgr.log** et **CMGSetup.log**
 - Pour la résolution des problèmes d’intégrité du service, utilisez **CMGService.log** et **SMS_Cloud_ProxyConnector.log**.
@@ -527,6 +541,19 @@ Le tableau suivant répertorie les fichiers journaux qui contiennent des informa
 |DCMAgent.log|Enregistre les informations principales concernant l'évaluation, les rapports de conflit et la correction des éléments de configuration et des applications.|Client|  
 |DCMReporting.log|Enregistre des informations sur les rapports des résultats de la plateforme de stratégie sous forme de messages d'état pour les éléments de configuration.|Client|  
 |DcmWmiProvider.log|Enregistre des informations sur la lecture des synclets d’élément de configuration provenant de WMI.|Client|  
+
+###  <a name="BKMK_CA"></a> Accès conditionnel
+ Le tableau suivant répertorie les fichiers journaux qui contiennent des informations relatives à l’accès conditionnel.  
+
+|Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
+|--------------|-----------------|----------------------------|  
+|ADALOperationProvider.log|Enregistre des détails concernant l’acquisition du jeton AAD.|Client|  
+|cloudusersync.log|Enregistre l'activation des licences des utilisateurs.|Ordinateur avec le point de connexion de service|  
+|ComplRelayAgent.log|Reçoit l’état de conformité global à partir de DCM, acquiert le jeton MP, acquiert le jeton AAD et transmet la conformité à Intune (le service de relais d’autorité de certification).|Client|  
+|DcmWmiProvider.log|Enregistre des informations sur la lecture des synclets d’élément de configuration provenant de WMI.|Client|  
+|dmpdownloader.log|Enregistre les détails concernant les téléchargements à partir de Microsoft Intune.|Ordinateur avec le point de connexion de service|
+|dmpuploader.log|Enregistre les détails concernant le chargement des modifications de la base de données sur Microsoft Intune.|Ordinateur avec le point de connexion de service|   
+|MP_Token.log|Enregistre les demandes de jeton des clients.|Serveur de système de site|  
 
 ###  <a name="BKMK_ConsoleLog"></a> Console Configuration Manager  
  Le tableau suivant répertorie les fichiers journaux qui contiennent des informations relatives à la console Configuration Manager.  
@@ -549,7 +576,6 @@ Le tableau suivant répertorie les fichiers journaux qui contiennent des informa
 |PrestageContent.log|Enregistre les détails concernant l’utilisation de l’outil ExtractContent.exe sur un point de distribution préparé distant. Cet outil extrait le contenu qui a été exporté vers un fichier.|Rôle de système de site|  
 |SMSdpmon.log|Enregistre les détails concernant les tâches planifiées de surveillance de l’intégrité du point de distribution configurées sur un point de distribution.|Rôle de système de site|  
 |smsdpprov.log|Enregistre des détails concernant l'extraction des fichiers compressés reçus à partir d'un site principal. Ce journal est généré par le fournisseur WMI du point de distribution distant.|Ordinateur de point de distribution n’est pas au même emplacement que le serveur de site|  
-
 
 ###  <a name="BKMK_DiscoveryLog"></a> Découverte  
 Le tableau suivant répertorie les fichiers journaux qui contiennent des informations liées à la détection.  
@@ -772,7 +798,7 @@ Le tableau suivant répertorie les fichiers journaux qui contiennent des informa
  Le tableau suivant répertorie les fichiers journaux qui contiennent des informations relatives à l’utilisation de Wake On LAN.  
 
 > [!NOTE]  
->  Quand vous complétez l’éveil par appel réseau (Wake On LAN) en utilisant le proxy de mise en éveil, cette activité est journalisée sur le client. Par exemple, consultez CcmExec.log et SleepAgent_<*domaine*\>@SYSTEM_0.log dans la section [Opérations du client](#BKMK_ClientOpLogs) de cette rubrique.  
+>  Quand vous complétez l’éveil par appel réseau (Wake On LAN) en utilisant le proxy de mise en éveil, cette activité est journalisée sur le client. Par exemple, consultez CcmExec.log et SleepAgent_<*domaine*\>@SYSTEM_0.log dans la section [Opérations du client](#BKMK_ClientOpLogs) de cet article.  
 
 |Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
 |--------------|-----------------|----------------------------|  
