@@ -3,30 +3,31 @@ title: "Mettre à niveau l’infrastructure locale"
 titleSuffix: Configuration Manager
 description: "Découvrez comment mettre à niveau l’infrastructure, telles que SQL Server et le système d’exploitation de site des systèmes de site."
 ms.custom: na
-ms.date: 06/05/2017
+ms.date: 02/15/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8ca970dd-e71c-404f-9435-d36e773a0db2
-caps.latest.revision: "7"
-caps.handback.revision: "0"
+caps.latest.revision: 
+caps.handback.revision: 
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 3296fe01ebe7d3343a174ffd18483156683b69f7
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: 8e17ffad2b972119c92e449bef8f086b950b106c
+ms.sourcegitcommit: fbd4a9d2fa8ed4ddd3a0fecc4a2ec4fc0ccc3d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/19/2018
 ---
 # <a name="upgrade-on-premises-infrastructure-that-supports-system-center-configuration-manager"></a>Mettre à niveau l’infrastructure locale qui prend en charge System Center Configuration Manager
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
-Utilisez les informations de cette rubrique pour mettre à niveau l’infrastructure de serveur qui exécute System Center Configuration Manager.  
+Utilisez les informations de cet article pour mettre à niveau l’infrastructure de serveur qui exécute System Center Configuration Manager.  
 
  - Si vous voulez effectuer la mise à niveau à partir d’une version antérieure de Configuration Manager vers System Center Configuration Manager, consultez [Mettre à niveau vers System Center Configuration Manager](/sccm/core/servers/deploy/install/upgrade-to-configuration-manager).
 
@@ -43,9 +44,7 @@ Utilisez les informations de cette rubrique pour mettre à niveau l’infrastruc
     - Quand vous utilisez Configuration Manager version 1602 ou ultérieur, la mise à niveau de Windows Server 2008 R2 vers Windows Server 2012 R2 est également prise en charge ([afficher des informations supplémentaires](#bkmk_from2008r2).
 
     > [!WARNING]  
-    >  Avant de mettre à niveau vers Windows Server 2012 R2, *vous devez désinstaller WSUS 3.2* du serveur.  
-    >   
-    >  Pour plus d’informations sur cette étape critique, consultez la section « Fonctionnalités nouvelles et modifiées » de la rubrique [Vue d’ensemble des services WSUS (Windows Server Update Services)](https://technet.microsoft.com/library/hh852345.aspx) dans la documentation de Windows Server.  
+    >  Avant d’effectuer une mise à niveau vers un autre système d’exploitation, *vous devez désinstaller WSUS* du serveur. Vous pouvez conserver la base de données SUSDB et l’attacher de nouveau après la réinstallation de WSUS. Pour plus d’informations sur cette étape critique, consultez la section « Fonctionnalités nouvelles et modifiées » de la rubrique [Vue d’ensemble des services WSUS (Windows Server Update Services)](https://technet.microsoft.com/library/hh852345.aspx) dans la documentation de Windows Server.  
 
 Pour mettre à niveau un serveur, utilisez les procédures de mise à niveau fournies par le système d’exploitation vers lequel vous effectuez la mise à niveau.  Consultez les rubriques suivantes :
   -  [Options de mise à niveau pour Windows Server 2012 R2](https://technet.microsoft.com/library/dn303416.aspx) dans la documentation de Windows Server.  
@@ -57,6 +56,7 @@ Lorsque vous mettez à niveau Windows Server 2012 ou Windows Server 2012 R2 vers
 
 **Avant la mise à niveau :**  
 -   Supprimez le client SCEP (System Center Endpoint Protection). Windows Defender, qui remplace le client SCEP, est intégré à Windows Server 2016. La présence du client SCEP peut empêcher une mise à niveau vers Windows Server 2016.
+-   Supprimez le rôle WSUS du serveur, s’il est installé. Vous pouvez conserver la base de données SUSDB et l’attacher de nouveau après la réinstallation de WSUS.
 
 **Après la mise à niveau :**
 -   Vérifiez que Windows Defender est activé, configuré pour démarrer automatiquement et en cours d’exécution.
@@ -93,7 +93,7 @@ Une fois la mise à niveau du serveur de site ou d’un serveur qui héberge une
 ### <a name="bkmk_2012r2"></a> Windows Server 2012 vers Windows Server 2012 R2
 
 **Avant la mise à niveau :**
--  Contrairement aux autres scénarios pris en charge, ce scénario ne nécessite pas de considérations supplémentaires avant la mise à niveau.
+-   Supprimez le rôle WSUS du serveur, s’il est installé. Vous pouvez conserver la base de données SUSDB et l’attacher de nouveau après la réinstallation de WSUS.
 
 **Après la mise à niveau :**
   - Vérifiez que le service de déploiement Windows est démarré et en cours d’exécution pour les rôles de système de site suivants (ce service est arrêté pendant la mise à niveau) :
