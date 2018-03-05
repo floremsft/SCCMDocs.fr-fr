@@ -7,12 +7,13 @@ ms.date: 07/31/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-hybrid
+ms.technology:
+- configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 23e1e4dc-623a-4521-ad04-ae9482927097
-caps.latest.revision: "20"
-caps.handback.revision: "0"
+caps.latest.revision: 
+caps.handback.revision: 
 author: andredm7
 ms.author: andredm
 manager: angrobe
@@ -370,8 +371,8 @@ Ces paramètres concernent les appareils exécutant Windows 10 et versions ult�
 |**Activer SmartScreen**|Utilisez SmartScreen pour vérifier que les fichiers que vos utilisateurs téléchargent ne contiennent pas de code malveillant.|  
 |**Autoriser les fenêtres contextuelles**|Autoriser ou désactiver les Fenêtres contextuelles du navigateur.|  
 |**Autoriser les cookies**|Autoriser ou désactiver les cookies.|  
-|**Autoriser le remplissage automatique**|Autoriser l’utilisation de la fonctionnalité de remplissage automatique du navigateur Edge.|  
-|**Autoriser le gestionnaire de mots de passe**|Autoriser l’utilisation de la fonctionnalité de gestionnaire des mots de passe du navigateur Edge.|  
+|**Autoriser le remplissage automatique**|Autoriser l’utilisation de la fonctionnalité de remplissage automatique du navigateur Microsoft Edge.|  
+|**Autoriser le gestionnaire de mots de passe**|Autoriser l’utilisation de la fonctionnalité de gestionnaire des mots de passe du navigateur Microsoft Edge.|  
 |**Emplacement de la liste des sites en mode entreprise**|Indique où trouver la liste des sites web qui s’ouvrent en Mode entreprise. Les utilisateurs ne peuvent pas modifier cette liste.|
 |**Bloquer l’accès à about:flags**|Empêcher l’utilisateur final d’accéder à la page about:flags dans Edge qui contient les paramètres de développeur et expérimentaux.|
 |**Remplacement de l’invite de commandes SmartScreen**|Autoriser l’utilisateur final à ignorer les avertissements du filtre SmartScreen concernant les sites web potentiellement malveillants.|
