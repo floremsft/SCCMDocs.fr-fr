@@ -15,11 +15,11 @@ ms.assetid: 4884a2d3-13ce-44e5-88c4-a66dc7ec6014
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 1b5e8f744573680ab55fcfff26622e312206ca1a
-ms.sourcegitcommit: fbd4a9d2fa8ed4ddd3a0fecc4a2ec4fc0ccc3d0c
+ms.openlocfilehash: 162c47d867e78498650da685327c0fe296aa2eda
+ms.sourcegitcommit: b1fa7be6a6fa5bb7c49e90c0e28a21ba8b41c842
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="capabilities-in-technical-preview-1802-for-system-center-configuration-manager"></a>Fonctionnalités de Technical Preview 1802 pour System Center Configuration Manager
 
@@ -318,9 +318,9 @@ Windows AutoPilot est une solution permettant d’intégrer et de configurer de 
 
 
 
-## <a name="improvements-to-configuration-manager-policies-for-windows-device-exploit-guard"></a>Améliorations apportées aux stratégies de Configuration Manager pour Windows Device Exploit Guard
+## <a name="improvements-to-configuration-manager-policies-for-windows-defender-exploit-guard"></a>Améliorations apportées aux stratégies de Configuration Manager pour Windows Defender Exploit Guard
 <!-- 1356220 -->
-Des paramètres de stratégie supplémentaires pour les composants Réduction de la surface d’attaque et Accès contrôlé aux dossiers ont été ajoutés à Windows Device Exploit Guard dans Configuration Manager.
+Des paramètres de stratégie supplémentaires pour les composants Réduction de la surface d’attaque et Accès contrôlé aux dossiers ont été ajoutés à Configuration Manager pour [Windows Defender Exploit Guard](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-exploit-guard/windows-defender-exploit-guard).
 
 **Nouveaux paramètres pour l’accès contrôlé aux dossiers**<br/>
 Il existe deux options supplémentaires pour configurer l’accès contrôlé aux dossiers : **Bloquer uniquement les secteurs de disque** et **Auditer uniquement les secteurs de disque**. Ces deux paramètres permettent de n’autoriser l’accès contrôlé aux dossiers que pour les secteurs de démarrage et n’activent pas la protection de dossiers spécifiques ou des dossiers protégés par défaut. 

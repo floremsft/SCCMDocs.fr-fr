@@ -3,30 +3,31 @@ title: "Ports utilisés pour les connexions"
 titleSuffix: Configuration Manager
 description: "Découvrez les ports requis et personnalisables qu’utilise System Center Configuration Manager pour les connexions."
 ms.custom: na
-ms.date: 09/19/2017
+ms.date: 02/16/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c6777fb0-0754-4abf-8a1b-7639d23e9391
-caps.latest.revision: "8"
-caps.handback.revision: "0"
+caps.latest.revision: 
+caps.handback.revision: 
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 0b6fa22a7bc3de7bb5bc0d26f8e35b51d55c5e72
-ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
+ms.openlocfilehash: 8db098f69180aac3785087af6ee305b3651094e5
+ms.sourcegitcommit: 1378532fac2620ddcfd31061982f344a290c2e67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="ports-used-in-system-center-configuration-manager"></a>Ports utilisés dans System Center Configuration Manager
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
-System Center Configuration Manager est un système client/serveur distribué. Du fait de la nature distribuée de Configuration Manager, il est possible d’établir des connexions entre les serveurs de site, les systèmes de site et les clients. Certaines connexions utilisent des ports qui ne sont pas configurables et certaines prennent en charge des ports personnalisés que vous spécifiez. Si vous utilisez une technologie de filtrage de port, telle que des pare-feu, des routeurs, des serveurs proxy ou IPSec, vous devez vérifier que les ports requis sont disponibles.  
+System Center Configuration Manager est un système client/serveur distribué. Du fait de la nature distribuée de Configuration Manager, il est possible d’établir des connexions entre les serveurs de site, les systèmes de site et les clients. Certaines connexions utilisent des ports qui ne sont pas configurables et certaines prennent en charge des ports personnalisés que vous spécifiez. Si vous utilisez des technologies de filtrage de port, par exemple, des pare-feu, des routeurs, des serveurs proxy ou IPsec, vérifiez que les ports requis sont disponibles.  
     
 > [!NOTE]  
 >  Si vous prenez en charge les clients Internet par pontage SSL, parallèlement aux exigences de port, vous devrez peut-être également autoriser certains verbes et en-têtes HTTP pour traverser le pare-feu.   
@@ -114,7 +115,7 @@ Les sections suivantes détaillent les ports qui sont utilisés pour la communic
 ###  <a name="BKMK_PortsClient-ClientWakeUp"></a> Client -- &gt; Client  
  En plus des ports répertoriés dans le tableau ci-dessous, le proxy de mise en éveil utilise également des messages de demande d’écho ICMP (Internet Control Message Protocol) d’un client à un autre, lorsque ceux-ci sont configurés pour utiliser le proxy de mise en éveil.
 
-Cette communication permet de savoir si l'autre ordinateur client est en éveil sur le réseau. ICMP est parfois appelé commandes ping TCP/IP. ICMP ne dispose pas d'un numéro de protocole UDP ou TCP, et par conséquent, il ne figure pas dans le tableau suivant. Toutefois, les pare-feu d'hôte de ces ordinateurs clients ou les appareils réseau intervenant sur le sous-réseau doivent autoriser le trafic ICMP pour que la communication avec le proxy de mise en éveil aboutisse.  
+Cette communication permet de savoir si l'autre ordinateur client est en éveil sur le réseau. ICMP est parfois appelé commandes ping TCP/IP. ICMP ne disposant pas d'un numéro de protocole UDP ou TCP, il ne figure pas dans le tableau ci-dessous. Toutefois, les pare-feu d'hôte de ces ordinateurs clients ou les appareils réseau intervenant sur le sous-réseau doivent autoriser le trafic ICMP pour que la communication avec le proxy de mise en éveil aboutisse.  
 
 |Description|UDP|TCP|  
 |-----------------|---------|---------|  
@@ -205,6 +206,13 @@ Cette communication permet de savoir si l'autre ordinateur client est en éveil 
 |Description|UDP|TCP|  
 |-----------------|---------|---------|  
 |HTTP (Hypertext Transfer Protocol)|--|80|  
+|HTTPS (Secure Hypertext Transfer Protocol)|--|443|
+
+La console de Configuration Manager utilise l’accès à Internet pour les éléments suivants : 
+- le téléchargement des mises à jour de logiciels à partir de Microsoft Update pour les packages de déploiement ;
+- l’élément Commentaires dans le ruban ;
+- les liens vers la documentation dans la console.
+<!--506823-->
 
 ###  <a name="BKMK_PortsConsole-RSP"></a> Console Configuration Manager -- > Point de Reporting Services  
 
@@ -338,7 +346,7 @@ Cette communication permet de savoir si l'autre ordinateur client est en éveil 
 |Description|UDP|TCP|  
 |-----------------|---------|---------|  
 |HTTPS (Secure Hypertext Transfer Protocol)|--|443|
-Pour plus d’informations, consultez [Conditions requises pour l’accès Internet](/sccm/core/servers/deploy/configure/about-the-service-connection-point#bkmk_urls) pour le point de connexion de service.
+Pour plus d’informations, consultez la section [Conditions requises pour l’accès à Internet](/sccm/core/servers/deploy/configure/about-the-service-connection-point#bkmk_urls) du point de connexion de service.
 
 ###  <a name="BKMK_PortsAppCatalogWebServicePoint_SiteServer"></a> Serveur de site &lt; -- > Point de service Web du catalogue des applications  
 
@@ -689,12 +697,12 @@ Utilisez IPsec pour sécuriser le trafic entre le serveur de site et les systèm
 >  Avant d'installer ces systèmes de site, vérifiez que le service d'accès à distance au Registre est en cours d'exécution sur le serveur de système de site et que vous avez spécifié un compte d'installation du système de site si le système de site est situé dans une autre forêt Active Directory sans relation d'approbation.  
 
 ###  <a name="BKMK_PortsClientInstall"></a> Ports utilisés par l’installation du client Configuration Manager  
-Les ports utilisés lors de l'installation du client dépendent de la méthode de déploiement du client. Pour obtenir la liste des ports utilisés pour chaque méthode de déploiement de client, consultez **Ports utilisés lors du déploiement du client de Configuration Manager** dans la rubrique [Paramètres de port et de pare-feu Windows pour les clients dans System Center Configuration Manager](../../../core/clients/deploy/windows-firewall-and-port-settings-for-clients.md). Pour plus d’informations sur la configuration du Pare-feu Windows sur le client pour l’installation du client et la communication après l’installation, consultez [Paramètres de port et de pare-feu Windows pour les clients dans System Center Configuration Manager](../../../core/clients/deploy/windows-firewall-and-port-settings-for-clients.md).  
+Les ports utilisés lors de l'installation du client dépendent de la méthode de déploiement du client. Pour obtenir la liste des ports utilisés par chaque méthode de déploiement de clients, consultez la section **Ports utilisés lors du déploiement de clients de Configuration Manager** de l’article [Paramètres de port et de Pare-feu Windows pour les clients dans System Center Configuration Manager](../../../core/clients/deploy/windows-firewall-and-port-settings-for-clients.md). Pour plus d’informations sur la configuration du Pare-feu Windows sur le client pour l’installation du client et la communication après l’installation, consultez [Paramètres de port et de pare-feu Windows pour les clients dans System Center Configuration Manager](../../../core/clients/deploy/windows-firewall-and-port-settings-for-clients.md).  
 
 ###  <a name="BKMK_MigrationPorts"></a> Ports utilisés par la migration  
 Le serveur de site qui exécute la migration utilise plusieurs ports pour se connecter aux sites applicables dans la hiérarchie source, pour recueillir des données à partir des bases de données SQL Server des sites sources et pour partager des points de distribution.  
 
- Pour plus d’informations sur ces ports, consultez la section [Configurations requises pour la migration](../../../core/migration/prerequisites-for-migration.md#BKMK_Required_Configurations) dans la rubrique [Prérequis de la migration dans System Center Configuration Manager](../../../core/migration/prerequisites-for-migration.md).  
+ Pour plus d’informations sur ces ports, consultez la section [Configurations requises pour la migration](../../../core/migration/prerequisites-for-migration.md#BKMK_Required_Configurations) de l’article [Prérequis de la migration dans System Center Configuration Manager](../../../core/migration/prerequisites-for-migration.md).  
 
 ###  <a name="BKMK_ServerPorts"></a> Ports utilisés par Windows Server  
  Le tableau suivant répertorie certains ports principaux utilisés par Windows Server, ainsi que leurs fonctions respectives. Pour une liste plus complète des services Windows Server et les exigences des ports réseau, voir [Vue d'ensemble des services et exigences du port réseau pour le système Windows Server](http://go.microsoft.com/fwlink/p/?LinkID=123652).  

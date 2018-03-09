@@ -5,18 +5,19 @@ description: "Configuration Manager synchronise les mises à jour du client Offi
 keywords: 
 author: mestew
 ms.author: mstewart
-manager: angrobe
-ms.date: 12/28/2017
+manager: dougeby
+ms.date: 02/16/2018
 ms.topic: article
 ms.prod: configuration-manager
 ms.service: 
-ms.technology: configmgr-sum
+ms.technology:
+- configmgr-sum
 ms.assetid: eac542eb-9aa1-4c63-b493-f80128e4e99b
-ms.openlocfilehash: b951e72635806c12bd0ec0dd66e382a767b99b43
-ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
+ms.openlocfilehash: 2f765df84b94524cf56f6d1d9e051157f1a325ef
+ms.sourcegitcommit: 45ff3ffa040eada5656b17f47dcabd3c637bdb60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="manage-office-365-proplus-with-configuration-manager"></a>Gérer Office 365 ProPlus avec Configuration Manager
 
@@ -30,7 +31,7 @@ Configuration Manager vous permet de gérer les applications Office 365 ProPlus 
 
 - [Déployer les mises à jour Office 365](#deploy-office-365-updates) : à compter de Configuration Manager version 1602, vous pouvez gérer les mises à jour du client Office 365 en utilisant le flux de travail de gestion des mises à jour logicielles. Lorsque Microsoft publie une nouvelle mise à jour du client Office 365 sur le réseau de distribution contenu (CDN) d’Office, Microsoft publie également un package de mise à jour sur Windows Server Update Services (WSUS). Après que Configuration Manager a synchronisé la mise à jour du client Office 365 du catalogue WSUS vers le serveur de site, la mise à jour est disponible pour un déploiement sur les clients.    
 
-- [Ajouter des langues pour les téléchargements des mises à jour Office 365](#add-languages-for-office-365-update-downloads) : à compter de Configuration Manager version 1610, vous pouvez ajouter la prise en charge de Configuration Manager pour le téléchargement des mises à jour dans toutes les langues prises en charge par Office 365. Ainsi, Configuration Manager n’a pas à prendre en charge la langue dès lors qu’Office 365 le fait.  
+- [Ajouter des langues pour les téléchargements des mises à jour Office 365](#add-languages-for-office-365-update-downloads) : à compter de Configuration Manager version 1610, vous pouvez ajouter la prise en charge de Configuration Manager pour le téléchargement des mises à jour dans toutes les langues prises en charge par Office 365. Ainsi, Configuration Manager n’a pas à prendre en charge la langue dès lors qu’Office 365 le fait. Avant la version 1610 de Configuration Manager, il est nécessaire de télécharger et de déployer les mises à jour dans les langues configurées sur les clients Office 365. 
 
 - [Modifier le canal de mise à jour](#change-the-update-channel-after-you-enable-office-365-clients-to-receive-updates-from-configuration-manager) : vous pouvez utiliser une stratégie de groupe pour distribuer un changement de valeur de clé de registre aux clients Office 365 afin de modifier le canal de mise à jour.
 
@@ -98,6 +99,8 @@ Après avoir créé et déployé des applications Office 365 à l’aide du prog
 
 
 ## <a name="deploy-office-365-updates"></a>Déploiement des mises à jour Office 365
+Depuis la version 1706 de Configuration Manager, les mises à jour clients Office 365 ont été déplacées vers le nœud **Gestion des clients Office 365** >**Mises à jour Office 365**. Cela n’affectera pas la configuration des règles de déploiement automatique. 
+
 Procédez comme suit pour déployer les mises à jour d’Office 365 avec le Gestionnaire de Configuration :
 
 1.  [Vérifiez la configuration requise](https://technet.microsoft.com/library/mt628083.aspx) pour utiliser Configuration Manager en vue de gérer les mises à jour du client Office 365 dans la section **Configuration requise pour utiliser Configuration Manager afin de gérer les mises à jour du client Office 365** de l’article.  
@@ -118,7 +121,7 @@ Procédez comme suit pour déployer les mises à jour d’Office 365 avec le Ge
 4. [Déployez les mises à jour d’Office 365](deploy-software-updates.md) sur les clients.   
 
 > [!Important]
-> Vous devez télécharger et déployer les mises à jour dans les mêmes langues que celles configurées sur les clients Office 365. Par exemple, supposons que vous disposiez d’un client Office 365 configuré avec les langues en-us et fr-fr. Sur le serveur de site, vous téléchargez et déployez uniquement le contenu en-us pour une mise à jour Office 365 applicable. Lorsque l’utilisateur commence l’installation pour cette mise à jour depuis le Centre logiciel, la mise à jour se bloque pendant le téléchargement du contenu.   
+> Avant la version 1610 de Configuration Manager, il est nécessaire de télécharger et de déployer les mises à jour dans les langues configurées sur les clients Office 365. Par exemple, supposons que vous disposiez d’un client Office 365 configuré avec les langues en-us et fr-fr. Sur le serveur de site, vous téléchargez et déployez uniquement le contenu en-us pour une mise à jour Office 365 applicable. Lorsque l’utilisateur commence l’installation de cette mise à jour à partir du Centre logiciel, celle-ci se bloque pendant le téléchargement du contenu de-de.   
 
 ## <a name="restart-behavior-and-client-notifications-for-office-365-updates"></a>Comportement de redémarrage et notifications des clients pour les mises à jour d’Office 365
 Quand vous déployez une mise à jour sur un client Office 365, le comportement de redémarrage et les notifications des clients diffèrent en fonction de la version de Configuration Manager dont vous disposez. Le tableau suivant fournit des informations sur l’expérience utilisateur quand le client reçoit une mise à jour d’Office 365 :
@@ -131,7 +134,7 @@ Quand vous déployez une mise à jour sur un client Office 365, le comportement
 |1706|Le client reçoit des notifications contextuelles et dans l’application, ainsi qu’une boîte de dialogue de compte à rebours avant l’installation de la mise à jour.|
 
 > [!Important]
-> Dans Configuration Manager version 1706, notez les points suivants :
+> À partir de la version 1706 de Configuration Manager, notez les points suivants :
 >
 >- Une icône de notification s’affiche dans la zone de notification de la barre des tâches pour les applications requises dont l’échéance se situe dans un délai de 48 heures et dont le contenu de la mise à jour a été téléchargé. 
 >- Un compte à rebours s’affiche pour les applications requises dont l’échéance se situe dans un délai de 7,5 heures et dont la mise à jour a été téléchargée. L’utilisateur peut reporter le compte à rebours jusqu’à trois fois avant l’échéance. Quand il est reporté, le compte à rebours s’affiche à nouveau au bout de deux heures. S’il n’est pas reporté, un compte à rebours de 30 minutes se déclenche et la mise à jour s’installe quand il est terminé.
