@@ -3,23 +3,24 @@ title: Quelle branche utiliser ?
 titleSuffix: Configuration Manager
 description: "Découvrez les différences entre les branches disponibles de System Center Configuration Manager."
 ms.custom: na
-ms.date: 05/02/2017
+ms.date: 03/08/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a3be4f8f-3d44-4e3c-9fa1-e85f30a36e72
-caps.latest.revision: "0"
+caps.latest.revision: 
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 9985ff5db4357b6b18de1ef58de40bc631d6cc6b
-ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
+ms.openlocfilehash: d762cf5e6932e17d8dfb0dd6c442c452028b5228
+ms.sourcegitcommit: b653342fb5d69a16e71b3548a7e9a2e47e54bf88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="which-branch-of-configuration-manager-should-i-use"></a>Quelle branche de Configuration Manager dois-je utiliser ?
 
@@ -77,7 +78,7 @@ La branche LTSB est basée sur la version 1606. Cette branche ne reçoit pas de 
 Pour installer la branche LTSB sous la forme d’un nouveau site ou d’une mise à niveau à partir d’un site Configuration Manager 2012 pris en charge, utilisez le [média de référence](/sccm/core/servers/manage/updates#baseline-and-update-versions) de la version 1606, que vous obtenez sous forme de DVD avec la version System Center 2016 ou System Center Configuration Manager (Current Branch et Long-Term Servicing Branch 1606). Vous pouvez utiliser le média de référence pour installer un nouveau site qui exécute la version 1606 de Current Branch ou un nouveau site qui exécute Long-Term Servicing Branch.
 
 > [!TIP]  
-> Pour en savoir plus sur System Center 2016, consultez la [documentation de System Center 2016](https://technet.microsoft.com/system-center-docs/system-center). Cette documentation indique également comment obtenir System Center 2016, qui requiert un contrat de licence Microsoft ou des droits similaires.
+> Pour en savoir plus sur System Center 2016, consultez la [documentation de System Center 2016](https://docs.microsoft.com/system-center/index). Cette documentation indique également comment obtenir System Center 2016, qui requiert un contrat de licence Microsoft ou des droits similaires.
 
 > Pour rechercher la version 1606 de System Center Configuration Manager dans le Centre de gestion des licences en volume (VLSC), accédez à l’onglet **Téléchargements et clés** du centre [VLSC](https://www.microsoft.com/Licensing/servicecenter/Downloads/DownloadsAndKeys.aspx), recherchez « system center config », puis sélectionnez **System Center Config Mgr (Current Branch et LTSB)**.
 
@@ -90,7 +91,7 @@ Pour installer la branche LTSB sous la forme d’un nouveau site ou d’une mise
 
 **Limitations**  
 La branche LTSB est basée sur la version 1606 de Current Branch et présente les limitations suivantes :
-- Vous bénéficiez pendant 10 ans de mises à jour de sécurité critiques pour la branche LTSB après sa mise à disposition générale (octobre 2016), après quoi la prise en charge de cette branche expire. Pour plus d’informations sur le cycle de vie de prise en charge, consultez [Politique de support Microsoft](https://support.microsoft.com/en-us/lifecycle).
+- Vous bénéficiez pendant 10 ans de mises à jour de sécurité critiques pour la branche LTSB après sa mise à disposition générale (octobre 2016), après quoi la prise en charge de cette branche expire. Pour plus d’informations sur le cycle de vie de prise en charge, consultez [Politique de support Microsoft](https://support.microsoft.com/lifecycle).
 - Elle prend en charge une liste limitée de systèmes d’exploitation serveur et client et les technologies associées, telles que les versions de SQL Server. Pour en savoir plus sur ce qui est pris en charge avec cette branche, consultez [Configurations prises en charge pour la branche LTSB](supported-configurations-for-ltsb.md).
 - Elle ne reçoit pas de mises à jour pour les nouvelles fonctionnalités.
 - Elle ne prend pas en charge l’ajout d’un abonnement Microsoft Intune, ce qui vous empêche d’utiliser :
