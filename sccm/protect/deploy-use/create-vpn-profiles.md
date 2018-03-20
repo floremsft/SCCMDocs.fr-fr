@@ -7,20 +7,21 @@ ms.date: 11/20/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f338e4db-73b5-45ff-92f4-1b89a8ded989
-caps.latest.revision: "15"
+caps.latest.revision: 
 author: lleonard-msft
-caps.handback.revision: "0"
+caps.handback.revision: 
 ms.author: alleonar
 ms.manager: angrobe
 ms.openlocfilehash: 21fc286cdcc05244e1895ded5623d346e6cb8ebe
-ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
+ms.sourcegitcommit: 52080ef1b0f9a27c123711ef274ac3ffe070e8e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 03/20/2018
 ---
 # <a name="how-to-create-vpn-profiles-in-system-center-configuration-manager"></a>Comment créer des profils VPN dans System Center Configuration Manager
 
@@ -37,7 +38,7 @@ Pour les connexions VPN tierces, distribuez l’application VPN avant de déploy
 2.  Sous l’onglet **Accueil**, dans le groupe **Créer**, choisissez **Créer un profil VPN**.  
 
 
-3.  Renseignez la page **Général**. . Notez ce qui suit :  
+3.  Renseignez la page **Général**. Notez ce qui suit :  
 
     - Sélectionnez la **plateforme** appropriée.
 
@@ -57,7 +58,7 @@ Pour les connexions VPN tierces, distribuez l’application VPN avant de déploy
 
      Ce tableau fournit des options pour les types de connexion. Pour plus d'informations, consultez la documentation de votre serveur VPN.
 
-| &nbsp;&nbsp;Option&nbsp;&nbsp; | Plus d'informations | &nbsp;&nbsp;Type de&nbsp;connexion&nbsp;&nbsp; |  
+| &nbsp;&nbsp;Option&nbsp;&nbsp; | Informations complémentaires | &nbsp;&nbsp;Type de&nbsp;connexion&nbsp;&nbsp; |  
 |----------------|----------------------|---------------------|  
 |**Domaine**     |Domaine d’authentification que vous souhaitez utiliser. Un domaine d'authentification est un regroupement de ressources d'authentification utilisé par le type de connexion Pulse Secure.|Pulse Secure|    
 |**Rôle**        |Rôle d’utilisateur qui a accès à cette connexion. |Pulse Secure|  

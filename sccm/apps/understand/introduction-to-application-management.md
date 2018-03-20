@@ -7,19 +7,20 @@ ms.date: 12/23/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-app
+ms.technology:
+- configmgr-app
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 08f711ba-83bf-4b5f-9520-a0778c6ae7eb
-caps.latest.revision: "18"
+caps.latest.revision: 
 author: mattbriggs
 ms.author: mabrigg
 manager: angrobe
 ms.openlocfilehash: a8a66169f3c187f8fa0319548ddde23b399811f3
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.sourcegitcommit: 52080ef1b0f9a27c123711ef274ac3ffe070e8e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 03/20/2018
 ---
 # <a name="introduction-to-application-management-in-system-center-configuration-manager"></a>Présentation de la gestion d’applications dans System Center Configuration Manager
 
@@ -77,7 +78,7 @@ De plus, quand vous gérez des appareils par le biais de la gestion des appareil
 ## <a name="state-based-applications"></a>Applications basées sur l’état  
  Les applications Configuration Manager utilisent la surveillance basée sur l’état, ce qui vous permet de suivre le dernier état du déploiement d’application pour les utilisateurs et les appareils. Les messages d'état affichent des informations concernant des appareils individuels. Par exemple, si une application est déployée sur un regroupement d’utilisateurs, vous pouvez voir l’état de compatibilité du déploiement ainsi que son objet dans la console Configuration Manager. Vous pouvez surveiller le déploiement de tous vos logiciels à l’aide de l’espace de travail **Surveillance** dans la console Configuration Manager. Les déploiements de logiciels incluent des mises à jour logicielles, des paramètres de compatibilité, des applications, des séquences de tâches, des packages et des programmes. Pour plus d’informations, consultez [Surveiller des applications](/sccm/apps/deploy-use/monitor-applications-from-the-console).  
 
- Les déploiements d’applications sont régulièrement réévalués par Configuration Manager. Exemple :  
+ Les déploiements d’applications sont régulièrement réévalués par Configuration Manager. Par exemple :  
 
 -   Une application déployée est désinstallée par l'utilisateur final. Au cycle d’évaluation suivant, Configuration Manager détecte que l’application n’est pas présente et la réinstalle.  
 

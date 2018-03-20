@@ -7,20 +7,21 @@ ms.date: 04/23/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-client
+ms.technology:
+- configmgr-client
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 038e61f9-f49d-41d1-9a9f-87bec9e00d5d
-caps.latest.revision: "7"
-caps.handback.revision: "0"
+caps.latest.revision: 
+caps.handback.revision: 
 author: arob98
 ms.author: angrobe
 manager: angrobe
 ms.openlocfilehash: c4f3d8a9b043707340e56d3ae483ad66ca17dc10
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.sourcegitcommit: 52080ef1b0f9a27c123711ef274ac3ffe070e8e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 03/20/2018
 ---
 # <a name="planning-for-client-deployment-to-windows-embedded-devices-in-system-center-configuration-manager"></a>Planification du déploiement de clients sur des appareils Windows Embedded dans System Center Configuration Manager
 
@@ -30,7 +31,7 @@ ms.lasthandoff: 10/12/2017
 
  Notez que quand vous désactivez les filtres, vous ne devez pas désactiver les pilotes de filtre. En général, ces pilotes démarrent automatiquement au démarrage de l'ordinateur. La désactivation de ces pilotes empêche l'installation du client ou interfère avec l'orchestration des filtres d'écriture, ce qui entraîne l'échec des opérations du client. Voici les services associés à chaque type de filtre d'écriture devant rester en cours d'exécution :  
 
-|Type de filtre d'écriture|Pilote|Type|Description|  
+|Type de filtre d'écriture|Pilote|Tapez|Description|  
 |-----------------------|------------|----------|-----------------|  
 |EWF|EWF|Noyau|Met en œuvre la redirection des E/S au niveau du secteur sur les volumes protégés.|  
 |FBWF|FBWF|Système de fichiers|Met en œuvre la redirection des E/S au niveau du fichier sur les volumes protégés.|  
@@ -95,7 +96,7 @@ ms.lasthandoff: 10/12/2017
 >   
 >  -   L'option**Systèmes d'exploitation intégrés basés sur Windows XP (32 bits)** inclut les éléments suivants :  
 >   
->      -   Windows XP Embedded  
+>      -   Windows XP Embedded  
 >     -   Windows Embedded for Point of Service  
 >     -   Windows Embedded Standard 2009  
 >     -   Windows Embedded POSReady 2009  

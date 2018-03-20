@@ -7,19 +7,20 @@ ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-hybrid
+ms.technology:
+- configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ff633013-5313-4cd3-949c-56d45e777280
-caps.latest.revision: "10"
+caps.latest.revision: 
 author: mattbriggs
 ms.author: mabrigg
 manager: angrobe
 ms.openlocfilehash: 2b21a50b18384740eda8744c3442fe060325fd15
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.sourcegitcommit: 52080ef1b0f9a27c123711ef274ac3ffe070e8e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 03/20/2018
 ---
 # <a name="create-ios-applications-with-system-center-configuration-manager"></a>Créer des applications iOS avec System Center Configuration Manager
 
@@ -37,7 +38,7 @@ Une application System Center Configuration Manager inclut un ou plusieurs ty
 
 Pour connaître les étapes requises pour créer des types de déploiement et applications Configuration Manager, voir [Démarrer l’Assistant Création d’une application](../../apps/deploy-use/create-applications.md#start-the-create-application-wizard). De plus, gardez à l’esprit les considérations suivantes lorsque vous créez et déployez des applications pour les appareils iOS.  
 
-## <a name="general-considerations"></a>Éléments généraux à prendre en compte  
+## <a name="general-considerations"></a>Considérations générales  
  Configuration Manager prend en charge le déploiement des types d’applications suivants :  
 
 |Type d'appareil|Fichiers pris en charge|  
