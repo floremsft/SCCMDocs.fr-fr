@@ -55,7 +55,7 @@ Dans cette rubrique, vous allez découvrir les principes de base à connaître a
  Configuration Manager vous permet de déployer les types d’application suivants :  
 
 - Windows Installer (fichier *.msi)
-- Package d’application Windows (*.appx, *.appxbundle)
+- Package d’application Windows (\*.appx, \*.appxbundle)
 - Package d'application Windows (dans le Windows Store)
 - Microsoft Application Virtualization 4
 - Microsoft Application Virtualization 5
