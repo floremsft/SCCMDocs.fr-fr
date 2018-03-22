@@ -1,26 +1,27 @@
 ---
-title: "Gérer l'accès à Internet à l'aide de stratégies Managed Browser"
+title: Gérer l'accès à Internet à l'aide de stratégies Managed Browser
 titleSuffix: Configuration Manager
-description: "Déployez Intune Managed Browser pour gérer et limiter l’accès à Internet."
+description: Déployez Intune Managed Browser pour gérer et limiter l’accès à Internet.
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-hybrid
+ms.technology:
+- configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8e25e00c-c9a8-473f-bcb7-ea989f6ca3c5
-caps.latest.revision: "6"
-caps.handback.revision: "0"
+caps.latest.revision: ''
+caps.handback.revision: ''
 author: dougeby
 ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 3aea2a65733a52ab532d451b21ae98fbc0f122c6
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.sourcegitcommit: 52080ef1b0f9a27c123711ef274ac3ffe070e8e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 03/20/2018
 ---
 # <a name="manage-internet-access-using-managed-browser-policies-with-system-center-configuration-manager"></a>Gérer l’accès à Internet à l’aide de stratégies Managed Browser avec System Center Configuration Manager
 
@@ -101,7 +102,7 @@ Utilisez les informations suivantes pour en savoir plus sur les formats et les c
 
     -   Port 443 pour https  
 
-     Vous ne pouvez pas utiliser de caractères génériques pour le numéro de port. Par exemple, **http://www.contoso.com:\*** et **http://www.contoso.com: /\***  
+     L’utilisation de caractères génériques pour le numéro de port n’est pas prise en charge, par exemple, **http://www.contoso.com:\*** et **http://www.contoso.com: /\***  
 
 -   Utilisez le tableau suivant pour en savoir plus sur les modèles autorisés que vous pouvez utiliser pour spécifier des URL :  
 

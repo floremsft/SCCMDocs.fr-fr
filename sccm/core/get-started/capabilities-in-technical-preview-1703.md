@@ -1,31 +1,32 @@
 ---
-title: "Capacités de la version Technical Preview 1703"
+title: Capacités de la version Technical Preview 1703
 titleSuffix: Configuration Manager
-description: "Découvrez les fonctionnalités disponibles dans la version Technical Preview 1703 de System Center Configuration Manager."
+description: Découvrez les fonctionnalités disponibles dans la version Technical Preview 1703 de System Center Configuration Manager.
 ms.custom: na
 ms.date: 03/24/2017
 ms.prod: configuration-manager
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2e801f8c-d331-41ee-8f27-908448fc0951
-caps.latest.revision: "5"
+caps.latest.revision: ''
 author: erikje
 ms.author: erikje
 manager: angrobe
 ms.openlocfilehash: a44d6a0c9b02a529fe8776033e58e971af37e332
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.sourcegitcommit: 52080ef1b0f9a27c123711ef274ac3ffe070e8e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/20/2018
 ---
 # <a name="capabilities-in-technical-preview-1703-for-system-center-configuration-manager"></a>Fonctionnalités de la version Technical Preview 1703 de System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (version d’évaluation technique)*
+*S’applique à : System Center Configuration Manager (Technical Preview)*
 
-Cet article présente les fonctionnalités disponibles dans la version Technical Preview 1703 de System Center Configuration Manager. Vous pouvez installer cette version pour mettre à jour et ajouter de nouvelles fonctionnalités à votre site de version d’évaluation technique Configuration Manager. Avant d’installer cette version d’évaluation technique, passez en revue la rubrique de présentation, [Technical Preview pour System Center Configuration Manager](../../core/get-started/technical-preview.md), pour vous familiariser avec les conditions générales et les limitations d’utilisation d’une version d’évaluation technique, la mise à jour entre les versions et l’envoi de commentaires sur les fonctionnalités dans une version d’évaluation technique.    
+Cet article présente les fonctionnalités disponibles dans la version Technical Preview 1703 de System Center Configuration Manager. Vous pouvez installer cette version pour mettre à jour et ajouter de nouvelles fonctionnalités à votre site Configuration Manager Technical Preview. Avant d’installer cette version de la version d’évaluation technique, passez en revue la rubrique de présentation, [Version d’évaluation technique pour System Center Configuration Manager](../../core/get-started/technical-preview.md), pour vous familiariser avec les conditions générales et limitations d’utilisation d’une version d’évaluation technique, la mise à jour entre les versions et l’envoi de commentaires sur les fonctionnalités dans une version d’évaluation technique.    
 
 
 **Vous trouverez ci-dessous les nouvelles fonctionnalités propres à cette version.**  
@@ -52,11 +53,11 @@ Pour plus d’informations sur les applications iOS achetées en volume, consult
 
 Vous pouvez désormais fournir aux utilisateurs finaux un lien direct à une application du Centre logiciel. De cette façon, ils ne sont pas obligés d’ouvrir le Centre logiciel et de rechercher une application pour l’installer. Cette fonctionnalité est uniquement disponible pour les applications Configuration Manager ; elle ne s’applique pas aux packages, programmes ou séquences de tâches.
 
-### <a name="try-it-out"></a>Essayer                 
+### <a name="try-it-out"></a>Faîtes un essai                 
 
 Utilisez le format d’URL suivant pour ouvrir le Centre logiciel à une application particulière :
 
-**Softwarecenter:SoftwareId=*Identificateur d’application***
+**Softwarecenter:SoftwareId=*Application Identifier***
 
 ### <a name="how-to-get-the-application-identifier-of-an-application"></a>Comment obtenir l’identificateur d’une application
 
@@ -145,7 +146,7 @@ Cette version permet de développer et réduire des groupes de séquences de tâ
 
 Pour plus d’informations sur les paramètres de télémétrie Windows, consultez [Configurer la télémétrie Windows dans votre organisation](https://technet.microsoft.com/itpro/windows/manage/configure-windows-telemetry-in-your-organization).
 
-### <a name="prerequisites"></a>Conditions préalables
+### <a name="prerequisites"></a>Prérequis
 - Vous devez configurer votre site de façon à ce qu’il utilise le service cloud Upgrade Readiness. Pour plus d’informations, consultez [Upgrade Readiness](/sccm/core/clients/manage/upgrade/upgrade-analytics)
 
 ### <a name="configure-windows-analytics-client-settings"></a>Configurer les paramètres client Windows Analytics
