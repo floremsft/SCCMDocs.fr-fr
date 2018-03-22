@@ -8,7 +8,7 @@
 ## [Bonnes pratiques concernant les mises à jour logicielles](plan-design/software-updates-best-practices.md)
 ## [Sécurité et confidentialité pour les mises à jour logicielles](plan-design/security-and-privacy-for-software-updates.md)
 
-# Prise en main
+# Bien démarrer
 ## [Préparer la gestion des mises à jour logicielles](get-started/prepare-for-software-updates-management.md)
 ## [Installer un point de mise à jour logicielle](get-started/install-a-software-update-point.md)
 ## [Synchroniser les mises à jour logicielles](get-started/synchronize-software-updates.md)
@@ -32,3 +32,14 @@
 ## [Gérer les fichiers d’installation rapide pour les mises à jour de Windows 10](deploy-use/manage-express-installation-files-for-windows-10-updates.md)
 ## [Intégration à Windows Update for Business dans Windows 10](deploy-use/integrate-windows-update-for-business-windows-10.md)
 ## [Exemple de scénario de déploiement de mises à jour de sécurité](deploy-use/example-scenario-deploy-monitor-monthly-security-updates.md)
+
+# [Éditeur de mise à jour System Center](tools/updates-publisher.md)
+## [Installer](tools/install-updates-publisher.md)
+## [Configurer les options](tools/updates-publisher-options.md)
+## [Gérer les catalogues](tools/updates-publisher-catalogs.md)
+## [Gérer les mises à jour](tools/manage-updates-with-updates-publisher.md)
+## [Gérer les publications](tools/updates-publisher-publications.md)
+## [Créer de nouvelles mises à jour](tools/create-updates-with-updates-publisher.md)
+## [Règles de mise en application](tools/updates-publisher-applicability-rules.md)
+## [Certificats et sécurité](tools/updates-publisher-security.md)
+
