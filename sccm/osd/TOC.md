@@ -11,7 +11,7 @@
 ## [Sécurité et confidentialité du déploiement de système d’exploitation](plan-design/security-and-privacy-for-operating-system-deployment.md)
 ## [Planification de l’interopérabilité des déploiements de systèmes d’exploitation](plan-design/planning-for-operating-system-deployment-interoperability.md)
 
-# Prise en main
+# Bien démarrer
 ## [Préparer les rôles système de site pour les déploiements de système d’exploitation](get-started/prepare-site-system-roles-for-operating-system-deployments.md)
 ## [Préparer un déploiement de système d’exploitation](get-started/prepare-for-operating-system-deployment.md)
 ### [Gérer les images de démarrage](get-started/manage-boot-images.md)
@@ -33,7 +33,7 @@
 ### [Effectuer une mise à niveau de Windows vers la dernière version](deploy-use/upgrade-windows-to-the-latest-version.md)
 ### [Actualiser un ordinateur existant avec une nouvelle version de Windows](deploy-use/refresh-an-existing-computer-with-a-new-version-of-windows.md)
 ### [Installer une nouvelle version de Windows sur un nouvel ordinateur (système nu)](deploy-use/install-new-windows-version-new-computer-bare-metal.md)
-### [Remplacer un ordinateur existant et transférer des paramètres](deploy-use/replace-an-existing-computer-and-transfer-settings.md)
+### [Remplacement d’un ordinateur existant et transfert des paramètres](deploy-use/replace-an-existing-computer-and-transfer-settings.md)
 
 ## [Méthodes pour déployer des systèmes d’exploitation d’entreprise](deploy-use/methods-to-deploy-enterprise-operating-systems.md)
 ### [Utiliser PXE pour déployer Windows sur le réseau](deploy-use/use-pxe-to-deploy-windows-over-the-network.md)
@@ -46,6 +46,7 @@
 
 ## [Gérer Windows en tant que service](deploy-use/manage-windows-as-a-service.md)
 ## [Surveiller les déploiements de système d’exploitation](deploy-use/monitor-operating-system-deployments.md)
+## [Créer un déploiement par phases pour une séquence de tâches](deploy-use/create-phased-deployment-for-task-sequence.md)
 
 ## [Gérer les séquences de tâches pour automatiser des tâches](deploy-use/manage-task-sequences-to-automate-tasks.md)
 ### [Créer une séquence de tâches pour installer un système d’exploitation](deploy-use/create-a-task-sequence-to-install-an-operating-system.md)
