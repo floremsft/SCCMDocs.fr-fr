@@ -1,23 +1,23 @@
 ---
-title: "Planifier les mises à jour logicielles"
+title: Planifier les mises à jour logicielles
 titleSuffix: Configuration Manager
-description: "Il est essentiel de planifier l’infrastructure du point de mise à jour logicielle avant d’utiliser les mises à jour logicielles dans un environnement de production System Center Configuration Manager."
-keywords: 
-author: dougeby
-ms.author: dougeby
-manager: angrobe
-ms.date: 06/27/2017
+description: Il est essentiel de planifier l’infrastructure du point de mise à jour logicielle avant d’utiliser les mises à jour logicielles dans un environnement de production System Center Configuration Manager.
+keywords: ''
+author: mestew
+ms.author: mstewart
+manager: dougeby
+ms.date: 03/22/2018
 ms.topic: article
 ms.prod: configuration-manager
-ms.service: 
+ms.service: ''
 ms.technology:
 - configmgr-sum
 ms.assetid: d071b0ec-e070-40a9-b7d4-564b92a5465f
-ms.openlocfilehash: e36048141400097950a7c24733f382acacb73131
-ms.sourcegitcommit: db9978135d7a6455d83dbe4a5175af2bdeaeafd8
+ms.openlocfilehash: b57a1b584ec40d67b263959ae52f694c486481d7
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="plan-for-software-updates-in-system-center-configuration-manager"></a>Planifier les mises à jour logicielles dans System Center Configuration Manager
 
@@ -134,10 +134,10 @@ Activez cette option sur un regroupement d’appareils ou sur un ensemble d’ap
  En règle générale, le site de niveau supérieur dans votre hiérarchie est configuré pour synchroniser les métadonnées des mises à jour logicielles avec Microsoft Update. Quand votre stratégie de sécurité d’entreprise n’autorise pas l’accès à Internet depuis le site de niveau supérieur, vous pouvez configurer la source de synchronisation pour que le site de niveau supérieur utilise un serveur WSUS existant ne faisant pas partie de votre hiérarchie Configuration Manager. Par exemple, vous pouvez disposer d'un serveur WSUS installé dans votre réseau de périmètre (DMZ) et doté d'un accès Internet, alors que votre site de niveau supérieur en est dépourvu. Vous pouvez configurer le serveur WSUS dans le réseau de périmètre (DMZ) en tant que source de synchronisation pour les métadonnées des mises à jour logicielles. Vous devez veiller à ce que le serveur WSUS situé dans le réseau de périmètre (DMZ) synchronise les mises à jour logicielles répondant aux critères nécessaires dans votre hiérarchie Configuration Manager. Sinon, le site de niveau supérieur risque de ne pas synchroniser les mises à jour logicielles attendues. Lorsque vous installez le point de mise à jour logicielle, configurez un compte de connexion WSUS qui a accès au serveur WSUS dans le réseau de périmètre (DMZ) et vérifiez que le pare-feu autorise le trafic pour les ports appropriés. Pour plus d’informations, consultez les [ports utilisés par le point de mise à jour logicielle vers la source de synchronisation](../../core/plan-design/hierarchy/ports.md#BKMK_PortsSUP-WSUS).  
 
 ###  <a name="BKMK_NLBSUPSP1"></a> Point de mise à jour logicielle configuré pour utiliser un équilibrage de la charge réseau (NLB)  
- Le basculement de point de mise à jour logicielle répond probablement à vos besoins en matière de tolérance de panne. Par défaut, Configuration Manager ne prend pas en charge la configuration de points de mise à jour logicielle comme clusters d’équilibrage de la charge réseau (NLB). Avant Configuration Manager version 1702, vous pouviez utiliser le kit de développement logiciel (SDK) Configuration Manager pour configurer jusqu’à quatre points de mise à jour logicielle sur un cluster d’équilibrage de la charge réseau (NLB). Cependant, depuis la version 1702, les points de mise à jour logicielle ne sont pas pris en charge en tant que clusters NLB ; les mises à niveau vers cette version sont bloquées si cette configuration est détectée. Pour plus d’informations sur l’applet de commande PowerShell Set-CMSoftwareUpdatePoint, consultez [Set-CMSoftwareUpdatePoint](http://go.microsoft.com/fwlink/?LinkId=276834).
+ Le basculement de point de mise à jour logicielle répond probablement à vos besoins en matière de tolérance de panne. Par défaut, Configuration Manager ne prend pas en charge la configuration de points de mise à jour logicielle comme clusters d’équilibrage de la charge réseau (NLB). Avant Configuration Manager version 1702, vous pouviez utiliser le SDK Configuration Manager pour configurer jusqu’à quatre points de mise à jour logicielle sur un cluster d’équilibrage de charge réseau. Cependant, depuis la version 1702, les points de mise à jour logicielle ne sont pas pris en charge en tant que clusters NLB ; les mises à niveau vers cette version sont bloquées si cette configuration est détectée. Pour plus d’informations sur l’applet de commande PowerShell Set-CMSoftwareUpdatePoint, consultez [Set-CMSoftwareUpdatePoint](http://go.microsoft.com/fwlink/?LinkId=276834).
 
 ###  <a name="BKMK_SUPSecSite"></a> Point de mise à jour logicielle sur un site secondaire  
- Le point de mise à jour logicielle est facultatif sur un site secondaire. Lorsque vous installez un point de mise à jour logicielle sur un site secondaire, la base de données WSUS est configurée en tant que réplica du point de mise à jour logicielle par défaut sur le site principal parent. Vous pouvez installer un seul point de mise à jour logicielle sur un site secondaire. Les appareils affectés à un site secondaire sont configurés pour utiliser un point de mise à jour logicielle sur le site parent lorsqu'un point de mise à jour logicielle n'est pas installé sur le site secondaire. En général, vous installez un point de mise à jour logicielle sur un site secondaire quand la bande passante réseau est limitée entre les appareils affectés au site secondaire et les points de mise à jour logicielle sur le site principal parent, ou quand le point de mise à jour logicielle est proche de la limite de capacité. Une fois le point de mise à jour logicielle correctement installé et configuré sur le site secondaire, une stratégie à l'échelle du site est mise à jour pour les ordinateurs clients affectés au site et ces derniers commencent à utiliser le nouveau point de mise à jour logicielle.  
+ Le point de mise à jour logicielle est facultatif sur un site secondaire. Vous pouvez installer un seul point de mise à jour logicielle sur un site secondaire. Les appareils affectés à un site secondaire sont configurés pour utiliser un point de mise à jour logicielle sur le site parent lorsqu'un point de mise à jour logicielle n'est pas installé sur le site secondaire. En général, vous installez un point de mise à jour logicielle sur un site secondaire quand la bande passante réseau est limitée entre les appareils affectés au site secondaire et les points de mise à jour logicielle sur le site principal parent, ou quand le point de mise à jour logicielle est proche de la limite de capacité. Une fois le point de mise à jour logicielle correctement installé et configuré sur le site secondaire, une stratégie à l'échelle du site est mise à jour pour les ordinateurs clients affectés au site et ces derniers commencent à utiliser le nouveau point de mise à jour logicielle.  
 
 ##  <a name="BKMK_SUPInstallation"></a> Planifier l’installation du point de mise à jour logicielle  
  Avant de créer un rôle de système de site du point de mise à jour logicielle dans Configuration Manager, vous devez prendre en compte plusieurs exigences, en fonction de votre infrastructure Configuration Manager. Lorsque vous configurez le point de mise à jour logicielle pour communiquer à l'aide du protocole SSL, il est particulièrement important de consulter cette section car vous devez prendre des mesures supplémentaires pour que les points de mise à jour logicielle de votre hiérarchie fonctionnent correctement. Cette section contient des informations sur les actions que vous devez exécuter pour planifier et préparer correctement l'installation du point de mise à jour logicielle.  
@@ -172,7 +172,7 @@ Les mises à jour logicielles exigent qu'une version prise en charge de WSUS soi
  Lorsqu’un serveur WSUS est configuré comme point de mise à jour logicielle, vous ne pouvez plus l’utiliser comme un serveur WSUS autonome. Si vous avez besoin d’un serveur WSUS autonome distinct qui n’est pas géré par Configuration Manager, vous devez le configurer sur un serveur différent.
 
 ####  <a name="BKMK_WSUSAsReplica"></a> Configurer WSUS comme serveur réplica  
- Quand vous créez un rôle de système de site du point de mise à jour logicielle sur un serveur de site principal, vous ne pouvez pas utiliser un serveur WSUS qui est configuré comme un réplica. Quand le serveur WSUS est configuré en tant que réplica, la configuration du serveur WSUS par Configuration Manager et la synchronisation de WSUS se soldent par un échec. Quand un point de mise à jour logicielle est créé sur un site secondaire, Configuration Manager configure WSUS pour qu’il devienne un serveur réplica du serveur WSUS s’exécutant sur le point de mise à jour logicielle du site principal parent. Le premier point de mise à jour logicielle que vous installez sur un site principal est le point de mise à jour logicielle par défaut. Les points de mise à jour logicielle supplémentaires sur le site sont configurés en tant que réplicas du point de mise à jour logicielle par défaut.  
+ Quand vous créez un rôle de système de site du point de mise à jour logicielle sur un serveur de site principal, vous ne pouvez pas utiliser un serveur WSUS qui est configuré comme un réplica. Quand le serveur WSUS est configuré en tant que réplica, la configuration du serveur WSUS par Configuration Manager et la synchronisation de WSUS se soldent par un échec. Le premier point de mise à jour logicielle que vous installez sur un site principal est le point de mise à jour logicielle par défaut. Les points de mise à jour logicielle supplémentaires sur le site sont configurés en tant que réplicas du point de mise à jour logicielle par défaut.  
 
 ####  <a name="BKMK_WSUSandSSL"></a> Déterminer si WSUS doit être configuré pour utiliser le protocole SSL  
  Vous pouvez utiliser le protocole SSL pour contribuer à sécuriser le service WSUS qui s'exécute sur le point de mise à jour logicielle. WSUS utilise SSL pour authentifier les ordinateurs clients et les serveurs WSUS en aval vers le serveur WSUS. WSUS utilise également SSL pour chiffrer les métadonnées de mise à jour logicielle. Lorsque vous choisissez de sécuriser WSUS avec SSL, vous devez préparer le serveur WSUS avant d'installer le point de mise à jour logicielle.  
