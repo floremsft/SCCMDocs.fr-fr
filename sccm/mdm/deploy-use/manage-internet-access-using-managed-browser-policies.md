@@ -92,7 +92,7 @@ La nouvelle stratégie s'affiche dans le nœud **Stratégies de gestion d'applic
 
 Utilisez les informations suivantes pour en savoir plus sur les formats et les caractères génériques que vous pouvez utiliser pour spécifier des URL dans les listes autorisées et les listes bloquées.  
 
--   Vous pouvez utiliser le caractère générique «**\***» selon les règles de la liste de modèles autorisés ci-dessous.  
+-   Vous pouvez utiliser le caractère générique «**\\***» selon les règles de la liste de modèles autorisés ci-dessous.  
 
 -   Veillez à faire précéder toutes les URL du préfixe **http** ou **https** quand vous les entrez dans la liste.  
 
@@ -111,7 +111,7 @@ Utilisez les informations suivantes pour en savoir plus sur les formats et les c
     |http://www.contoso.com<br /><br /> Correspond à une page unique|www.contoso.com|host.contoso.com<br /><br /> www.contoso.com/images<br /><br /> contoso.com/|  
     |http://contoso.com<br /><br /> Correspond à une page unique|contoso.com/|host.contoso.com<br /><br /> www.contoso.com/images<br /><br /> www.contoso.com|  
     |http://www.contoso.com/*<br /><br /> Correspond à toutes les URL commençant par www.contoso.com|www.contoso.com<br /><br /> www.contoso.com/images<br /><br /> www.contoso.com/videos/tvshows|host.contoso.com<br /><br /> host.contoso.com/images|  
-    |http://*.contoso.com/\*<br /><br /> Correspond à tous les sous-domaines sous contoso.com|developer.contoso.com/resources<br /><br /> news.contoso.com/images<br /><br /> news.contoso.com/videos|contoso.host.com|  
+    |http://\*.contoso.com/\*<br /><br /> Correspond à tous les sous-domaines sous contoso.com|developer.contoso.com/resources<br /><br /> news.contoso.com/images<br /><br /> news.contoso.com/videos|contoso.host.com|  
     |http://www.contoso.com/images<br /><br /> Correspond à un dossier unique|www.contoso.com/images|www.contoso.com/images/dogs|  
     |http://www.contoso.com:80<br /><br /> Correspond à une page unique avec un numéro de port|http://www.contoso.com:80||  
     |https://www.contoso.com<br /><br /> Correspond à une page unique sécurisée|https://www.contoso.com|http://www.contoso.com|  
@@ -121,11 +121,11 @@ Utilisez les informations suivantes pour en savoir plus sur les formats et les c
 
     -   *.com  
 
-    -   *.contoso/\*  
+    -   \*.contoso/\*  
 
     -   www.contoso.com/*images  
 
-    -   www.contoso.com/*images\*pigs  
+    -   www.contoso.com/\*images\*pigs  
 
     -   www.contoso.com/page*  
 
