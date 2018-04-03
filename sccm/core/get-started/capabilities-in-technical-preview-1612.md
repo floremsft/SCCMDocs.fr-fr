@@ -1,33 +1,34 @@
 ---
-title: "Capacités de la version Technical Preview 1612"
+title: Capacités de la version Technical Preview 1612
 titleSuffix: Configuration Manager
-description: "Découvrez les fonctionnalités disponibles dans la version d’évaluation technique 1612 pour System Center Configuration Manager."
+description: Découvrez les fonctionnalités disponibles dans la version d’évaluation technique 1612 pour System Center Configuration Manager.
 ms.custom: na
 ms.date: 01/23/2017
 ms.prod: configuration-manager
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: bceab2e8-2f05-4a17-9ac8-a7a558670fb7
-caps.latest.revision: "5"
+caps.latest.revision: 5
 author: erikje
 ms.author: erikje
 manager: angrobe
 ms.openlocfilehash: 80cace2bec8cb9c39d5f3f00ea244b697e1d75c9
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/27/2018
 ---
 # <a name="capabilities-in-technical-preview-1612-for-system-center-configuration-manager"></a>Fonctionnalités de la version d’évaluation technique 1612 pour System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (version d’évaluation technique)*
+*S’applique à : System Center Configuration Manager (Technical Preview)*
 
 
 
-Cet article présente les fonctionnalités qui sont disponibles dans la version d’évaluation technique 1612 pour System Center Configuration Manager. Vous pouvez installer cette version pour mettre à jour et ajouter de nouvelles fonctionnalités à votre site de version d’évaluation technique Configuration Manager. Avant d’installer cette version d’évaluation technique, passez en revue la rubrique de présentation, [Technical Preview pour System Center Configuration Manager](../../core/get-started/technical-preview.md), pour vous familiariser avec les conditions générales et les limitations d’utilisation d’une version d’évaluation technique, la mise à jour entre les versions et l’envoi de commentaires sur les fonctionnalités dans une version d’évaluation technique.    
+Cet article présente les fonctionnalités qui sont disponibles dans la version d’évaluation technique 1612 pour System Center Configuration Manager. Vous pouvez installer cette version pour mettre à jour et ajouter de nouvelles fonctionnalités à votre site Configuration Manager Technical Preview. Avant d’installer cette version de la version d’évaluation technique, passez en revue la rubrique de présentation, [Version d’évaluation technique pour System Center Configuration Manager](../../core/get-started/technical-preview.md), pour vous familiariser avec les conditions générales et limitations d’utilisation d’une version d’évaluation technique, la mise à jour entre les versions et l’envoi de commentaires sur les fonctionnalités dans une version d’évaluation technique.    
 
 
 **Vous trouverez ci-dessous les nouvelles fonctionnalités propres à cette version.**  
@@ -221,7 +222,7 @@ En nous basant sur les commentaires du site UserVoice, nous avons ajouté les am
 ## <a name="prevent-installation-of-an-application-if-a-specified-program-is-running"></a>Empêcher l’installation d’une application si un programme est en cours d’exécution
 Vous pouvez maintenant configurer une liste de fichiers exécutables (portant l’extension .exe) dans les propriétés de type de déploiement qui, s’ils sont exécutés, bloquent l’installation d’une application. Une fois que l’installation est tentée, une boîte de dialogue demande aux utilisateurs de fermer les processus qui bloquent l’installation.
 
-### <a name="try-it-out"></a>Essayez
+### <a name="try-it-out"></a>Faîtes un essai
 Pour configurer une liste de fichiers exécutables
 1.  Dans la page de propriétés de tout type de déploiement, cliquez sur l’onglet **Installer Handling** (Gestion du programme d’installation).
 2.  Cliquez sur **Ajouter** pour ajouter un ou plusieurs fichiers exécutables à la liste (par exemple, **Edge.exe**)
@@ -273,7 +274,7 @@ Pour activer la prise en charge des fichiers d’installation rapide sur les cli
 
 Les données qui sont actuellement disponibles dans le [fournisseur WMI Configuration Manager](/sccm/develop/reference/configuration-manager-reference) sont désormais également accessibles à l’aide du nouveau point de terminaison OData RESTful. Les jeux d’entités exposés par le point de terminaison OData vous permettent d’énumérer les données que vous pouvez interroger avec le fournisseur WMI.
 
-### <a name="try-it-out"></a>Essayez
+### <a name="try-it-out"></a>Faîtes un essai
 
 Avant de pouvoir utiliser le point de terminaison OData, vous devez l’activer pour le site.
 

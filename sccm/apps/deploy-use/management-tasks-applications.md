@@ -1,25 +1,26 @@
 ---
-title: "Tâches de gestion pour les applications"
+title: Tâches de gestion pour les applications
 titleSuffix: Configuration Manager
-description: "Gérer les applications et les types de déploiement System Center Configuration Manager"
+description: Gérer les applications et les types de déploiement System Center Configuration Manager
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-app
+ms.technology:
+- configmgr-app
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c4041e21-21ff-4d95-ab05-14007e0047cf
-caps.latest.revision: "8"
+caps.latest.revision: 8
 author: mattbriggs
 ms.author: mabrigg
 manager: angrobe
 ms.openlocfilehash: 8d4cc2cd8de9626b6911dc50dbdec2ccdaada94c
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 03/27/2018
 ---
 # <a name="management-tasks-for-system-center-configuration-manager-applications"></a>Tâches de gestion pour les applications System Center Configuration Manager
 
@@ -44,7 +45,7 @@ Pour obtenir de l’aide sur la création d’applications et de types de déplo
 |**Statistiques de mise à jour**|Met à jour les informations concernant les déploiements de cette application, affichées dans le nœud **Déploiements** de l'espace de travail **Surveillance** .<br /><br /> Consultez [Surveiller des applications à partir de la console System Center Configuration Manager](../../apps/deploy-use/monitor-applications-from-the-console.md).|  
 |**Rétablir**|Rétablit une application qui a été mise hors service par le biais de la tâche de gestion **Mettre hors service**.|  
 |**Mettre hors service**|Quand une application est mise hors service, elle n’est plus disponible pour le déploiement, mais l’application et les déploiements de l’application ne sont pas supprimés. Les copies existantes de l'application qui ont été installées sur les ordinateurs clients ne seront pas supprimées. Toutes les révisions de l'application seront supprimées de Configuration Manager après 60 jours. Toutefois, les copies installées de l’application ne sont pas supprimées.<br /><br /> Pour supprimer une application, vous devez tout d’abord la mettre hors service, supprimer les déploiements, supprimer les références à cette application présentes dans d’autres déploiements, puis supprimer toutes ses révisions.<br /><br /> Consultez [Modifier et remplacer des applications](../../apps/deploy-use/revise-and-supersede-applications.md).|  
-|**Exporter**|Ouvre l’**Assistant Exportation de l’application**, qui vous permet d’exporter les applications sélectionnées dans un fichier .zip que vous pouvez ensuite archiver ou installer sur un autre site. Si vous choisissez d’exporter le contenu de l’application, un dossier avec le contenu sera créé.<br /><br /> Vous pouvez également exporter les dépendances d’applications, les relations de remplacement, les conditions et le contenu de l’application et de ses dépendances.<br /><br /> L’applet de commande Windows PowerShell **Export-CMApplication** permet de réaliser la même opération. Pour plus d’informations, consultez [Export-CMApplication](http://go.microsoft.com/fwlink/p/?LinkID=258880) dans la documentation de référence sur les applets de commande Microsoft System Center 2012 Configuration Manager SP1.|  
+|**Exporterer**|Ouvre l’**Assistant Exportation de l’application**, qui vous permet d’exporter les applications sélectionnées dans un fichier .zip que vous pouvez ensuite archiver ou installer sur un autre site. Si vous choisissez d’exporter le contenu de l’application, un dossier avec le contenu sera créé.<br /><br /> Vous pouvez également exporter les dépendances d’applications, les relations de remplacement, les conditions et le contenu de l’application et de ses dépendances.<br /><br /> L’applet de commande Windows PowerShell **Export-CMApplication** permet de réaliser la même opération. Pour plus d’informations, consultez [Export-CMApplication](http://go.microsoft.com/fwlink/p/?LinkID=258880) dans la documentation de référence sur les applets de commande Microsoft System Center 2012 Configuration Manager SP1.|  
 |**Supprimer**|Supprime l'application sélectionnée.<br /><br /> Vous ne pouvez pas supprimer une application si d'autres applications en dépendent, si elle a un déploiement actif ou si elle possède des séquences de tâches dépendantes.|  
 |**Simuler un déploiement**|Ouvre l' **Assistant Simuler un déploiement d'application** , qui vous permet de tester les résultats du déploiement d'une application sans installer ou désinstaller l'application.<br /><br /> Consultez [Simuler des déploiements d’applications](../../apps/deploy-use/simulate-application-deployments.md).|  
 |**Déployer**|Ouvre l' **Assistant Déploiement logiciel** où vous pouvez déployer l'application sélectionnée sur un ensemble d'ordinateurs dans votre hiérarchie.<br /><br /> Consultez [Déployer des applications](../../apps/deploy-use/deploy-applications.md).|  

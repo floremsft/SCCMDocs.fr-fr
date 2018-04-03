@@ -1,26 +1,27 @@
 ---
-title: "Créer des regroupements"
+title: Créer des regroupements
 titleSuffix: Configuration Manager
-description: "Créez des regroupements dans System Center Configuration Manager pour faciliter la gestion des groupes d’utilisateurs et d’appareils."
+description: Créez des regroupements dans System Center Configuration Manager pour faciliter la gestion des groupes d’utilisateurs et d’appareils.
 ms.custom: na
 ms.date: 2/22/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1401a35e-4312-4d3b-8ceb-0abbb10d4f05
-caps.latest.revision: "6"
-caps.handback.revision: "0"
+caps.latest.revision: 6
+caps.handback.revision: 0
 author: andredm7
 ms.author: andredm
 manager: angrobe
 ms.openlocfilehash: d7f320c53b2b696d3981019dfacccab5796455c8
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 03/27/2018
 ---
 # <a name="how-to-create-collections-in-system-center-configuration-manager"></a>Guide pratique pour créer des regroupements dans System Center Configuration Manager
 
@@ -46,7 +47,7 @@ Les regroupements sont des groupes d’utilisateurs ou d’appareils. Utilisez l
 
 ##  <a name="BKMK_1"></a> Pour créer un regroupement d’appareils  
 
-1.  Dans la console Configuration Manager, choisissez **Ressources et Conformité** > **Regroupements d’appareils**.  
+1.  Dans la console Configuration Manager, choisissez **Ressources et Conformité** > **Regroupements de périphériques**.  
 
 3.  Sous l’onglet **Accueil**, dans le groupe **Créer**, choisissez **Créer un regroupement de périphériques**.  
 

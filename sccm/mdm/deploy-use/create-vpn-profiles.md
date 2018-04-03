@@ -1,26 +1,27 @@
 ---
 title: Profils VPN
 titleSuffix: Configuration Manager
-description: "Utilisez des profils VPN sur des appareils mobiles dans System Center Configuration Manager."
+description: Utilisez des profils VPN sur des appareils mobiles dans System Center Configuration Manager.
 ms.custom: na
 ms.date: 11/20/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-hybrid
+ms.technology:
+- configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 45388103-2410-4c7e-b4cf-73a1bda485fc
-caps.latest.revision: "18"
-caps.handback.revision: "0"
+caps.latest.revision: 18
+caps.handback.revision: 0
 author: lleonard-msft
 ms.author: alleonar
 manager: angrobe
 ms.openlocfilehash: 1d98cd234b2444873f1ffa5819af74d507dfa9c1
-ms.sourcegitcommit: ba23ff90709a5fde1a63c650ab0d848f441afc43
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/27/2018
 ---
 # <a name="vpn-profiles-on-mobile-devices-in-system-center-configuration-manager"></a>Utilisation de profils VPN sur des appareils mobiles dans System Center Configuration Manager
 
@@ -60,7 +61,7 @@ La section [Guide pratique pour créer des profils VPN dans System Center Config
 > Le nom d’un profil VPN qui utilise des fonctionnalités VPN Windows 10 ne peut pas être au format Unicode ni contenir des caractères spéciaux.
 
 
-|Option|Informations complémentaires|Type de connexion|  
+|Option|Plus d'informations|Type de connexion|  
     |------------|----------------------|---------------------|  
     |**Ignorer VPN en cas de connexion à un réseau Wi-Fi d'entreprise**|La connexion VPN n’est pas utilisée quand l’appareil est connecté au réseau Wi-Fi d’entreprise. Entrez le nom du réseau approuvé, utilisé pour déterminer si l’appareil est connecté au réseau d’entreprise.|Tout|  
     |**Règles de trafic réseau**|Définissez les protocoles, les ports locaux et distants et les plages d’adresses à activer pour la connexion VPN.<br /><br /> **Remarque :** si vous ne créez pas de règle de trafic réseau, l’ensemble des protocoles, ports et plages d’adresses sont activés. Dès lors que vous créez une règle, seuls les protocoles, les ports et les plages d’adresses que vous spécifiez dans cette règle ou dans des règles supplémentaires sont utilisés par la connexion VPN.|Tout|  
