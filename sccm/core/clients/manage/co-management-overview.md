@@ -1,20 +1,22 @@
 ---
-title: "Cogestion pour les appareils Windows 10"
-description: "Découvrez comment gérer simultanément des appareils Windows 10 à l’aide de Configuration Manager et Microsoft Intune."
-keywords: 
-author: dougeby
-manager: angrobe
-ms.date: 11/20/2017
+title: Cogestion pour les appareils Windows 10
+titleSuffix: Configuration Manager
+description: Découvrez comment gérer simultanément des appareils Windows 10 à l’aide de Configuration Manager et Microsoft Intune.
+keywords: ''
+author: mestew
+ms.author: mstewart
+manager: dougeby
+ms.date: 03/22/2018
 ms.topic: article
 ms.prod: configuration-manager
-ms.service: 
-ms.technology: 
+ms.service: ''
+ms.technology: ''
 ms.assetid: d6bbc787-83a5-44b4-ad64-016e5da7413f
-ms.openlocfilehash: 0cc11a05013fd9c25ee98ec35adcbe822d8a21fb
-ms.sourcegitcommit: 389c4e5b4e9953b74c13b1689195f99c526fa737
+ms.openlocfilehash: e4b8bd58d30cd87ffc461289edbfc5da9a684cda
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="co-management-for-windows-10-devices"></a>Cogestion pour les appareils Windows 10    
 <!-- 1350871 -->
@@ -28,7 +30,7 @@ Les prérequis suivants doivent être mis en place avant de pouvoir activer la c
 > [!IMPORTANT]
 > Les appareils mobiles Windows 10 ne prennent pas en charge la cogestion.
 
-### <a name="general-prerequisites"></a>Prérequis généraux
+### <a name="general-prerequisites"></a>Conditions préalables
 Les prérequis généraux pour activer la cogestion sont les suivants :  
 
 - Configuration Manager version 1710 ou ultérieure
@@ -50,7 +52,7 @@ Les prérequis généraux pour activer la cogestion sont les suivants :
 - [Passerelle de gestion cloud](/sccm/core/clients/manage/manage-clients-internet#cloud-management-gateway) dans Configuration Manager (lorsque vous utilisez Intune pour installer le client Configuration Manager)
 
 ## <a name="workloads-you-can-switch-to-intune"></a>Charges de travail que vous pouvez basculer sur Intune
-Après l’activation de la cogestion, Configuration Manager continue de gérer toutes les charges de travail. Lorsque vous pensez être prêt, vous pouvez laisser Intune gérer les charges de travail disponibles. Intune peut assurer la gestion des charges de travail suivantes.   
+Après l’activation de la cogestion, Configuration Manager continue de gérer toutes les charges de travail. Lorsque vous pensez être prêt, vous pouvez laisser Intune gérer les charges de travail disponibles. Intune peut assurer la gestion des charges de travail suivantes :   
 
 ### <a name="compliance-policies"></a>Stratégies de conformité
 Les stratégies de conformité définissent les règles et les paramètres auxquels doit se conformer un appareil pour être considéré conforme par les stratégies d’accès conditionnel. Vous pouvez également utiliser des stratégies de conformité pour surveiller et corriger les problèmes de conformité avec les appareils indépendamment de l'accès conditionnel. Pour plus d’informations, consultez [Stratégies de conformité des appareils](/sccm/mdm/deploy-use/device-compliance-policies).  
@@ -60,6 +62,10 @@ Les stratégies Windows Update pour Entreprise vous permettent de configurer des
 
 ### <a name="resource-access-policies"></a>Stratégies d’accès aux ressources
 Les stratégies d’accès aux ressources configurent les paramètres VPN, Wi-Fi, d’e-mail et de certificat sur les appareils. Pour plus d’informations, consultez [Déployer des profils d’accès aux ressources](/sccm/protect/deploy-use/deploy-wifi-vpn-email-cert-profiles).
+
+### <a name="endpoint-protection"></a>Endpoint Protection 
+<!-- 1357365 -->
+À compter de Configuration Manager 1802, la charge de travail Endpoint Protection peut être transférée à Intune. Pour plus d’informations, consultez [Charges de travail pouvant être transférées à Intune](/sccm/core/clients/manage/co-management-switch-workloads.md#Workloads-able-to-be-transitioned-to-Intune) et [Endpoint Protection dans Configuration Manager](/sccm/protect/deploy-use/endpoint-protection).
 
 ## <a name="architectural-overview-for-co-management"></a>Présentation de l’architecture de cogestion
 Le schéma suivant montre une vue d’ensemble de l’architecture de la cogestion et son intégration aux infrastructures de Configuration Manager et d’Intune existantes.

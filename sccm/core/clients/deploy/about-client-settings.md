@@ -1,9 +1,9 @@
 ---
-title: "Paramètres du client"
+title: Paramètres du client
 titleSuffix: Configuration Manager
-description: "Choisissez les paramètres client à l’aide de la console d’administration de System Center Configuration Manager."
+description: Découvrir les paramètres par défaut et personnalisés pour contrôler les comportements du client
 ms.custom: na
-ms.date: 01/05/2018
+ms.date: 03/22/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -12,16 +12,16 @@ ms.technology:
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f7560876-8084-4570-aeab-7fd44f4ba737
-caps.latest.revision: 
-caps.handback.revision: 
+caps.latest.revision: 15
+caps.handback.revision: 0
 author: aczechowski
 ms.author: aaroncz
-manager: angrobe
-ms.openlocfilehash: dddfde242a67a0b4a9311c0fb6f0b2f0e6742cc2
-ms.sourcegitcommit: fbd4a9d2fa8ed4ddd3a0fecc4a2ec4fc0ccc3d0c
+manager: dougeby
+ms.openlocfilehash: 42b9364fc88acc3f403db8d2ca9243a117fd78bf
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="about-client-settings-in-system-center-configuration-manager"></a>À propos des paramètres client dans System Center Configuration Manager
 
@@ -114,18 +114,19 @@ Ce paramètre s’applique aux utilisateurs si leur ordinateur se trouve sur l�
 
 Définissez ce paramètre sur **Oui** pour que les utilisateurs reçoivent la stratégie utilisateur sur les ordinateurs basés sur Internet. Les conditions suivantes s’appliquent également :  
 
--   Le client et le site sont configurés pour la gestion des clients basés sur Internet.
+-   Le client et le site sont configurés pour la [gestion des clients Internet](/sccm/core/clients/manage/plan-internet-based-client-management) ou pour une [passerelle de gestion cloud](/sccm/core/clients/manage/cmg/plan-cloud-management-gateway).  
 
 -   Le paramètre **Activer la stratégie utilisateur sur les clients** est défini sur **Oui**.  
 
--   Le point de gestion basé sur Internet authentifie correctement l’utilisateur à l’aide de l’authentification Windows (Kerberos ou NTLM).  
+-   Le point de gestion basé sur Internet authentifie correctement l’utilisateur à l’aide de l’authentification Windows (Kerberos ou NTLM). Pour plus d’informations, consultez [Éléments à prendre en considération pour les communications clients à partir d’Internet](../../../core/plan-design/hierarchy/communications-between-endpoints.md#BKMK_clientspan).  
+
+-   À compter de la version 1710, la passerelle de gestion cloud peut authentifier l’utilisateur avec Azure Active Directory. Pour plus d’informations, consultez [Déployer des applications disponibles pour l’utilisateur sur des appareils joints à Azure AD](\sccm\apps\deploy-use\deploy-applications#deploy-user-available-applications-on-azure-ad-joined-devices).  
 
 Si vous affectez la valeur **Non** à cette option, ou si l’une des conditions ci-dessus n’est pas remplie, un ordinateur sur Internet reçoit uniquement les stratégies ordinateur. Dans ce cas, les utilisateurs peuvent toujours voir, demander et installer des applications à partir d'un catalogue d'applications basé sur Internet. Si ce paramètre est **Non**, mais que **Activer la stratégie utilisateur sur les clients** est **Oui**, les utilisateurs ne reçoivent les stratégies utilisateur qu’une fois l’ordinateur connecté à intranet.  
 
-Pour plus d’informations sur la gestion des clients sur Internet, consultez [Éléments à prendre en considération pour les communications de clients à partir d’Internet ou d’une forêt non approuvée](../../../core/plan-design/hierarchy/communications-between-endpoints.md#BKMK_clientspan).  
-
 > [!NOTE]  
->  Les demandes d'approbation d'application des utilisateurs ne requièrent pas de stratégies utilisateur ou l'authentification utilisateur.  
+>  Pour la gestion des clients Internet, les demandes d’approbation d’applications des utilisateurs ne nécessitent pas de stratégies utilisateur ou d’authentification utilisateur. La passerelle de gestion cloud ne prend pas en charge les demandes d’approbation d’applications.   
+
 
 
 ## <a name="cloud-services"></a>Services cloud
@@ -228,7 +229,7 @@ Tapez le nom que les utilisateurs voient dans le Centre logiciel. Ces informatio
 
 ### <a name="use-new-software-center"></a>Utiliser le nouveau Centre logiciel
 
-Si vous sélectionnez **Oui**, tous les ordinateurs clients utilisent le Centre logiciel. Le Centre logiciel répertorie les applications accessibles à l’utilisateur qui étaient auparavant uniquement disponibles dans le catalogue d’applications. Le catalogue d’applications nécessite Silverlight, qui n’est pas un prérequis pour le Centre logiciel.   
+Si vous sélectionnez **Oui**, tous les ordinateurs clients utilisent le Centre logiciel. Le Centre logiciel répertorie les applications accessibles à l’utilisateur qui étaient auparavant uniquement disponibles dans le catalogue d’applications. Le catalogue d’applications nécessite Silverlight, qui n’est pas un prérequis pour le Centre logiciel. À compter de Configuration Manager 1802, la valeur par défaut est **Oui**.  
 
 Les rôles de système de site Point du site web du catalogue des applications et Point de service web du catalogue des applications sont toujours exigés pour que les applications accessibles à l’utilisateur apparaissent dans le Centre logiciel.  
 
@@ -322,6 +323,21 @@ Les paramètres suivants doivent être inférieurs à la durée de la fenêtre d
 
 Pour plus d’informations sur les fenêtres de maintenance, consultez [Comment utiliser les fenêtres de maintenance dans System Center Configuration Manager](../../../core/clients/manage/collections/use-maintenance-windows.md).
 
+
+
+## <a name="delivery-optimization"></a>Optimisation de la distribution
+
+<!-- 1324696 -->
+Les groupes de limites Configuration Manager permettent de définir et de réguler la distribution de contenu sur le réseau de l’entreprise et dans les agences. [L’Optimisation de la distribution de Windows](/windows/deployment/update/waas-delivery-optimization) est une technologie cloud pair à pair de partage de contenu entre appareils Windows 10. À compter de la version 1802, configurez-la de façon à ce qu’elle utilise vos groupes de limites pour partager du contenu entre pairs.
+
+ > [!Note]
+ > L’Optimisation de la distribution n’est disponible que sur les clients Windows 10
+
+### <a name="use-configuration-manager-boundary-groups-for-delivery-optimization-group-id"></a>Utiliser les groupes de limites Configuration Manager pour l’ID de groupe d’Optimisation de la distribution
+ Choisissez **Oui** pour appliquer l’identificateur de groupe de limites en tant qu’identificateur de groupe d’Optimisation de la distribution sur le client. Lorsque le client communique avec le service de cloud d’Optimisation de la distribution, il utilise cet identificateur pour localiser les pairs possédant le contenu souhaité. 
+
+
+
 ##  <a name="endpoint-protection"></a>Endpoint Protection  
 >  [!Tip]   
 > En plus des informations suivantes, vous pouvez trouver des détails sur l’utilisation des paramètres du client Endpoint Protection dans [Exemple de scénario : utilisation de System Center Endpoint Protection pour protéger des ordinateurs contre les programmes malveillants dans System Center Configuration Manager](/sccm/protect/deploy-use/scenarios-endpoint-protection).
@@ -330,11 +346,11 @@ Pour plus d’informations sur les fenêtres de maintenance, consultez [Comment 
 
 Choisissez **Oui** si vous souhaitez gérer les clients Endpoint Protection et Windows Defender existants sur des ordinateurs de la hiérarchie.  
 
-Choisissez cette option si vous avez déjà installé le client Endpoint Protection et que vous souhaitez le gérer avec Configuration Manager. Cette installation distincte inclut un processus sous forme de script utilisant un programme et un package ou une application Configuration Manager.
+Choisissez cette option si vous avez déjà installé le client Endpoint Protection et que vous souhaitez le gérer avec Configuration Manager. Cette installation distincte inclut un processus sous forme de script utilisant un programme et un package ou une application Configuration Manager. À compter de Configuration Manager 1802, l’agent Endpoint Protection n’a pas besoin d’être installé sur les appareils Windows 10. L’option **Gérer le client Endpoint Protection sur les ordinateurs clients** doit néanmoins être activée sur ces ordinateurs. <!--503654-->
 
 ### <a name="install-endpoint-protection-client-on-client-computers"></a>Installer le client Endpoint Protection sur les ordinateurs clients
 
-Choisissez **Oui** pour installer et activer le client Endpoint Protection sur les ordinateurs clients qui ne l’exécutent pas encore.  
+Choisissez **Oui** pour installer et activer le client Endpoint Protection sur les ordinateurs clients qui ne l’exécutent pas encore. À compter de Configuration Manager 1802, l’agent Endpoint Protection n’a pas besoin d’être installé sur les clients Windows 10.  
 
 > [!NOTE]  
 >  Si le client Endpoint Protection est déjà installé, le fait de choisir la valeur **Non** ne désinstalle pas le client Endpoint Protection. Pour désinstaller le client Endpoint Protection, affectez au paramètre client **Gérer le client Endpoint Protection sur les ordinateurs clients** la valeur **Non**. Ensuite, déployez un package et un programme pour désinstaller le client Endpoint Protection.  
@@ -609,8 +625,14 @@ Entrez le nom d’organisation visible par les utilisateurs dans le Centre logic
 - **Modèle de couleurs pour le Centre logiciel** </br>
 Choisissez **Sélectionner une couleur** pour définir la couleur principale utilisée par le Centre logiciel.
 - **Sélectionner un logo pour le Centre logiciel** </br>
-Choisissez **Parcourir** pour sélectionner une image à afficher dans le Centre logiciel. Le logo doit être de type JPEG, PNG ou BMP et au format 400 x 100 pixels, avec une taille maximale de 750 Ko. Le nom de fichier du logo ne doit pas contenir d’espace. <!--SMS.503731 space in filename, noticed BMP missing as filetype-->
+Choisissez **Parcourir** pour sélectionner une image à afficher dans le Centre logiciel. Le logo doit être de type JPEG, PNG ou BMP et au format 400 x 100 pixels, avec une taille maximale de 750 Ko. Le nom de fichier du logo ne doit pas contenir d’espace.  
+         
+### <a name="bkmk_HideUnapproved"></a> Masquer les applications non approuvées dans le Centre logiciel
+À compter de Configuration Manager version 1802, quand cette option est activée, les applications disponibles pour l’utilisateur qui nécessitent une approbation sont masquées dans le Centre logiciel.   <!--1355146-->
 
+### <a name="bkmk_HideInstalled"></a> Masquer les applications installées dans le Centre logiciel
+À compter de Configuration Manager version 1802, les applications qui sont déjà installées ne s’affichent plus sous l’onglet Applications quand cette option est activée. Cette option est définie par défaut quand vous installez ou mettez à niveau vers Configuration Manager 1802.  Les applications installées sont toujours disponibles pour examen sous l’onglet de l’état d’installation. <!--1357592-->   
+  
 ### <a name="software-center-tab-visibility"></a>Visibilité de l’onglet Centre logiciel
 Affectez la valeur **Oui** aux paramètres supplémentaires de ce groupe pour afficher les onglets suivants dans le Centre logiciel :
 - **Applications**

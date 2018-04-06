@@ -1,26 +1,27 @@
 ---
-title: "Résolution des problèmes du client Windows Defender ou Endpoint Protection"
+title: Résolution des problèmes du client Windows Defender ou Endpoint Protection
 titleSuffix: Configuration Manager
-description: "Découvrez comment résoudre les problèmes liés à Windows Defender et Endpoint Protection."
+description: Découvrez comment résoudre les problèmes liés à Windows Defender et Endpoint Protection.
 ms.custom: na
-ms.date: 01/03/2017
+ms.date: 03/22/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: d837253e-fcc2-422a-9e2c-c78b938dfd8c
-caps.latest.revision: "7"
-caps.handback.revision: "0"
-author: NathBarn
-ms.author: nathbarn
-manager: angrobe
-ms.openlocfilehash: b667db471a16faef057f49a0a26759849e03f237
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+caps.latest.revision: 7
+caps.handback.revision: 0
+author: mestew
+ms.author: mstewart
+manager: dougeby
+ms.openlocfilehash: a8460cafce15e5fb97ace76983932841ec77412f
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 03/27/2018
 ---
 # <a name="troubleshooting-windows-defender-or-endpoint-protection-client"></a>Résolution des problèmes du client Windows Defender ou Endpoint Protection
 
@@ -100,7 +101,7 @@ Si vous rencontrez des problèmes avec Windows Defender ou Endpoint Protection, 
 
 2.  Si le message d’erreur que vous avez reçu contient le code 0x80072f8f, le problème est probablement dû à une valeur de date ou d’heure incorrecte sur votre ordinateur.  
 
-3.  Pour réinitialiser la date ou l’heure de votre ordinateur, suivez les étapes décrites dans [Réparez les problèmes courants de maintenance de votre PC](http://go.microsoft.com/fwlink/?LinkId=155579) (http://go.microsoft.com/fwlink/?LinkId=155579).  
+3.  Pour réinitialiser la date ou l’heure de votre ordinateur, suivez les étapes décrites dans [Résoudre les problèmes liés aux raccourcis Bureau rompus et aux tâches courantes de maintenance du système](http://go.microsoft.com/fwlink/?LinkId=155579) (http://go.microsoft.com/fwlink/?LinkId=155579).  
 
 ### <a name="step-4-rename-the-software-distribution-folder-on-your-computer"></a>Étape 4 : Renommer le dossier Distribution de logiciels sur votre ordinateur  
 
@@ -162,7 +163,7 @@ Si vous rencontrez des problèmes avec Windows Defender ou Endpoint Protection, 
 
 ### <a name="step-7-contact-support"></a>Étape 7 : Contacter le support technique  
 
--   Si les étapes ne résolvent pas le problème, contactez le support technique. Pour plus d’informations, consultez [Service client](http://go.microsoft.com/fwlink/?LinkID=196174) (http://go.microsoft.com/fwlink/?LinkID=196174).  
+-   Si les étapes ne résolvent pas le problème, contactez le support technique. Pour plus d’informations, consultez le [Support technique](http://go.microsoft.com/fwlink/?LinkID=196174) (http://go.microsoft.com/fwlink/?LinkID=196174).  
 
 ##  <a name="starting-windows-defender-or-endpoint-protection-service"></a>Démarrage du service Windows Defender ou Endpoint Protection  
  **Symptôme**  
@@ -238,8 +239,7 @@ Si vous rencontrez des problèmes avec Windows Defender ou Endpoint Protection, 
 3.  Si vous utilisez un modem câble ou un routeur DSL, vérifiez que les connexions au routeur et à l’ordinateur sont correctement branchées. Déconnectez et arrêtez le routeur et le modem. Attendez quelques minutes, branchez d’abord le modem, patientez une minute, puis branchez le routeur et redémarrez votre ordinateur.  
 
 ##  <a name="detected-threat-cant-be-remediated"></a>Impossible de remédier à une menace détectée  
- Quand Windows Defender ou  
-      Endpoint Protection détecte une menace potentielle dissimulée dans un fichier compressé portant une extension .zip ou dans un partage réseau, il tente d’y remédier en supprimant le fichier ou en le plaçant en quarantaine.  
+ Quand Windows Defender ou Endpoint Protection détecte une menace potentielle dissimulée dans un fichier compressé avec une extension .zip ou dans un partage réseau, il tente d’y remédier en supprimant la menace ou en la plaçant en quarantaine.  
 
 ### <a name="remove-or-scan-the-file"></a>Supprimer ou analyser le fichier  
 

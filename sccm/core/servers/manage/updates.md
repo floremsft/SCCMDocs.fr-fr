@@ -1,26 +1,27 @@
 ---
-title: "Mises à jour"
+title: Mises à jour
 titleSuffix: Configuration Manager
-description: "Découvrez une méthode de service dans la console, appelée **Mises à jour et maintenance**, qui facilite la localisation et l’installation des mises à jour recommandées."
+description: Découvrez une méthode de service dans la console, appelée **Mises à jour et maintenance**, qui facilite la localisation et l’installation des mises à jour recommandées.
 ms.custom: na
-ms.date: 11/20/2017
+ms.date: 03/22/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 3a832943-580a-4a40-b454-961d0854ac2b
-caps.latest.revision: "51"
-caps.handback.revision: "0"
+caps.latest.revision: 51
+caps.handback.revision: 0
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: a90222d16391d1e75d041c95c048a1d8d19bf278
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: 8be32aa07819239820711079e4ff3637e96367db
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="updates-for-system-center-configuration-manager"></a>Mises à jour pour System Center Configuration Manager
 
@@ -47,7 +48,7 @@ Si vous utilisez l’édition Technical Preview, consultez [Technical Preview po
 
 
 ##  <a name="bkmk_Baselines"></a> Versions de base et de mise à jour  
- La première version Current Branch de System Center Configuration Manager était la version 1511, une version de base de référence. Les versions de base de référence les plus récentes sont les versions 1606 et 1702 :
+ La première version Current Branch de System Center Configuration Manager était la version 1511, une version de base de référence. Les versions de base de référence les plus récentes sont les versions 1702 et 1802 :
 
 -   La dernière version de base est à utiliser quand il s’agit d’installer un nouveau site dans une nouvelle hiérarchie.  
 
@@ -75,6 +76,7 @@ Les versions suivantes de Configuration Manager sont disponibles sous forme de v
 
 |Version |Date de disponibilité|[Date de fin de support](/sccm/core/servers/manage/current-branch-versions-supported) |De base|Mise à jour dans la console|  
 |-------------|-----------|------------|--------------|------------------------|  
+|[1802](/sccm/core/plan-design/changes/whats-new-in-version-1802)<br /><br /> 5.00.8634.1000|22 mars 2018|22 septembre 2019|Oui|Oui|
 |[1710](/sccm/core/plan-design/changes/whats-new-in-version-1710)<br /><br /> 5.00.8577.1000|20 novembre 2017|Mai 20, 2019|Non|Oui|
 |[1706](/sccm/core/plan-design/changes/whats-new-in-version-1706)<br /><br /> 5.00.8540.1000|31 juillet 2017|31 juillet 2018|Non|Oui|
 |[1702](/sccm/core/plan-design/changes/whats-new-in-version-1702)<br /><br /> 5.00.8498.1000|27 mars 2017| 27 mars 2018|Oui|Oui|
@@ -85,15 +87,15 @@ Les versions suivantes de Configuration Manager sont disponibles sous forme de v
 | 1511 <br /><br /> 5.00.8325.1000|8 décembre 2015| 8 décembre 2016|Oui|Non|  
 
 
-*(Note 1)* Les supports de base de référence 1606 et 1702 sont disponibles dans le cadre de Microsoft System Center 2016 ou de System Center Configuration Manager (Current Branch et Long-Term Servicing Branch) sur le [Centre de service de licence en volume](https://www.microsoft.com/Licensing/servicecenter/Downloads/DownloadsAndKeys.aspx) (VLSC). Par exemple, sur VLSC, vous pouvez rechercher *System Center Config Mgr (Current Branch et LTSB)*, et les supports des bases de référence 1606 et 1702 sont renvoyés et disponibles au téléchargement.
+*(Note 1)* Les supports de base de référence 1802 et 1702 sont fournis avec Microsoft System Center 2016 ou System Center Configuration Manager (Current Branch et Long-Term Servicing Branch) sur le [Centre de service de licence en volume](https://www.microsoft.com/Licensing/servicecenter/Downloads/DownloadsAndKeys.aspx) (VLSC). Par exemple, sur VLSC, si vous recherchez *System Center Config Mgr (Current Branch et LTSB)*, les supports de base de référence versions 1802 et 1702 sont retournés et disponibles au téléchargement.
 
 Pour vérifier la version de votre site Configuration Manager, dans la console, accédez à **À propos de System Center Configuration Manager** dans le coin supérieur gauche de la console où sont affichées la nouvelle version du site et de la console.  
 
 ##  <a name="bkmk_inconsole"></a> Mises à jour et maintenance dans la console  
  Quand vous utilisez une installation de System Center Configuration Manager prête pour la production, aussi appelée « Current Branch », la plupart des mises à jour que vous installez sont disponibles via le canal Mises à jour et maintenance. Cette méthode identifie, télécharge et met à disposition les mises à jour qui s’appliquent à la version et à la configuration actuelles de votre infrastructure et propose uniquement les mises à jour que Microsoft recommande à tous les clients,   
- à savoir :  
+ À savoir :  
 
--   Les nouvelles versions comme la version 1610, 1702 ou 1706.  
+-   Les nouvelles versions comme la version 1702, 1706, 1710 ou 1802.  
 
 -   Les mises à jour qui comprennent de nouveaux composants pour votre version actuelle.
 

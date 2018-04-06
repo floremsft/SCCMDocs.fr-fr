@@ -1,25 +1,26 @@
 ---
 title: Dossier CD.Latest
 titleSuffix: Configuration Manager
-description: "Découvrez le nouveau processus de mise à jour qui permet de remettre les mises à jour du produit à partir de la console Configuration Manager."
+description: Découvrez le nouveau processus de mise à jour qui permet de remettre les mises à jour du produit à partir de la console Configuration Manager.
 ms.custom: na
-ms.date: 05/02/2017
+ms.date: 03/22/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8db92d67-5d9c-4e9c-80d0-ae6fa0dd4817
-caps.latest.revision: "6"
+caps.latest.revision: 6
 author: mestew
 ms.author: mstewart
-manager: angrobe
-ms.openlocfilehash: 1dd176f80afa4a9edc5a14d538eef7989614e814
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+manager: dougeby
+ms.openlocfilehash: 9371762a3f6acb9df7e7138c693b0a529c81a2ff
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="the-cdlatest-folder-for-system-center-configuration-manager"></a>Dossier CD.Latest pour System Center Configuration Manager
 
@@ -27,12 +28,12 @@ ms.lasthandoff: 12/04/2017
 
 System Center Configuration Manager inaugure un nouveau processus de mise à jour qui permet de remettre les mises à jour du produit à partir de la console Configuration Manager. Pour prendre en charge cette nouvelle méthode de mise à jour de Configuration Manager, un nouveau dossier est créé sous le nom **CD.Latest** : il contient une copie des fichiers d’installation de Configuration Manager pour la version mise à jour de votre site.  
 
-À compter de la mise à jour 1606, le dossier CD.Latest contient un dossier nommé **Redist** qui contient les fichiers redistribuables téléchargés et utilisés par le programme d’installation. Ces fichiers sont mis en correspondance avec la version des fichiers de Configuration Manager dans ce dossier CD.Latest. Quand vous exécutez le programme d’installation à partir d’un dossier CD.Latest, vous devez utiliser les fichiers qui correspondent à cette version du programme d’installation. Pour ce faire, vous pouvez faire en sorte que le programme d’installation télécharge les fichiers nouveaux et existants à partir de Microsoft, ou faire en sorte qu’il utilise les fichiers présents dans le dossier Redist du dossier CD.Latest.
+Le dossier CD.Latest contient un dossier nommé **Redist** dans lequel se trouvent les fichiers redistribuables téléchargés et utilisés par le programme d’installation. Ces fichiers sont mis en correspondance avec la version des fichiers de Configuration Manager dans ce dossier CD.Latest. Quand vous exécutez le programme d’installation à partir d’un dossier CD.Latest, vous devez utiliser les fichiers qui correspondent à cette version du programme d’installation. Pour ce faire, vous pouvez faire en sorte que le programme d’installation télécharge les fichiers nouveaux et existants à partir de Microsoft, ou faire en sorte qu’il utilise les fichiers présents dans le dossier Redist du dossier CD.Latest.
 
-Toutefois, le média de base de référence, comme la version de base de référence 1606 publiée en octobre 2016, ne comprend pas de dossier Redist. Le dossier Redist n’est créé qu’au terme de l’installation d’une mise à jour dans la console. En attendant, utilisez le dossier Redist auquel vous avez eu recours lors de l’installation de sites à partir du média de base de référence.  
+Toutefois, le support de base de référence, comme la version de base de référence 1802 publiée en mars 2018, ne comprend pas de dossier Redist. Le dossier Redist n’est créé qu’au terme de l’installation d’une mise à jour dans la console. En attendant, utilisez le dossier Redist auquel vous avez eu recours lors de l’installation de sites à partir du média de base de référence.  
 
 > [!TIP]
-> Si vous n’avez pas encore installé la version 1606, vous devez vérifier que les fichiers de redistribution que vous utilisez sont à jour. Si vous n’avez pas téléchargé les fichiers de redistribution récemment, prévoyez d’autoriser le programme d’installation à le faire à partir du site web de Microsoft.   
+> Veillez à utiliser la dernière version des fichiers redistribuables. Si vous n’avez pas téléchargé les fichiers redistribuables les plus récents, autorisez le programme d’installation à le faire à partir du site web de Microsoft.   
 
  Vous trouverez ci-dessous des scénarios permettant de créer ou de mettre à jour le dossier CD.Latest sur un serveur de site d’administration centrale ou de site principal :  
 
@@ -40,7 +41,7 @@ Toutefois, le média de base de référence, comme la version de base de référ
 
 -   Vous exécutez la tâche de sauvegarde intégrée de Configuration Manager : le dossier est créé ou mis à jour à l’emplacement du dossier de sauvegarde désigné.  
 
--  Depuis la version 1606, le dossier CD.Latest est créé lorsque vous installez un nouveau site en utilisant un support de la base de référence (version 1606 ou 1702 par exemple).
+-  Le dossier CD.Latest est créé quand vous installez un nouveau site en utilisant un support de base de référence (version 1802, par exemple).
 
 Les fichiers sources du dossier CD.Latest sont pris en charge pour les opérations suivantes :  
 
