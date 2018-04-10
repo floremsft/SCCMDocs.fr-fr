@@ -12,7 +12,7 @@ ms.technology:
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 9181c84e-d74f-44ea-9bb9-f7805eb465fc
-caps.latest.revision: ''
+caps.latest.revision: 8
 author: mattbriggs
 ms.author: mabrigg
 manager: angrobe
@@ -34,7 +34,7 @@ En plus des autres exigences et procédures System Center Configuration Manager 
 |Type d'appareil|Types de fichiers pris en charge|  
 |-----------------|---------------------|  
 |Windows RT et Windows RT 8.1|\*.appx, \*.appxbundle|  
-|Windows 8.1 et versions ultérieures inscrit en tant qu’appareil mobile|*.appx, \*.appxbundle|  
+|Windows 8.1 et versions ultérieures inscrit en tant qu’appareil mobile|\*.appx, \*.appxbundle|  
 
  Les actions de déploiement suivantes sont prises en charge :  
 
