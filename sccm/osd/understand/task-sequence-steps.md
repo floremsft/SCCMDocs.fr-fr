@@ -3,7 +3,7 @@ title: Étapes de séquence de tâches
 titleSuffix: Configuration Manager
 description: Découvrez les différentes étapes que vous pouvez ajouter à une séquence de tâches Configuration Manager.
 ms.custom: na
-ms.date: 03/22/2018
+ms.date: 03/30/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,11 +17,11 @@ caps.handback.revision: 0
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: ad68209784b78da5c6e75745094ba8e6bc002c44
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: 53929400b983a2191e60a7d42ae84062afd44e3a
+ms.sourcegitcommit: d8a4a53630351b3d677bbdc5d203e7d330472cba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="task-sequence-steps-in-system-center-configuration-manager"></a>Étapes de séquence de tâches dans System Center Configuration Manager
 
@@ -711,6 +711,10 @@ Les conditions suivantes affectent les applications installées par la séquence
 -   Si la valeur d'une variable contient d'autres informations que le nom de l'application. La séquence de tâches n’installe pas l’application et elle continue.  
 
 -   Si la séquence de tâches ne trouve pas de variable avec le nom de base spécifié et le suffixe « 01 », la séquence de tâches n’installe aucune application. 
+    
+> [!Important]  
+> Ces valeurs de texte respectent la casse. Par exemple, « installer » ne correspond pas à « Installer ». Si vous devez modifier la valeur, l’éditeur de séquence de tâches ne détecte pas un changement de casse. Vous devez effectuer une autre modifier en même temps, par exemple, modifier la description de l’étape.<!--509714-->   
+
    
 **Si l’installation d’une application échoue, continuer d’installer les autres applications de la liste**  
  Ce paramètre spécifie que l’étape continue quand l’installation d’une application individuelle échoue. Si vous spécifiez ce paramètre, la séquence de tâches continue indépendamment des erreurs d’installation. Si vous ne spécifiez pas ce paramètre et que l’installation échoue, l’étape se termine immédiatement.  
@@ -789,6 +793,10 @@ Dans l’Éditeur de séquence de tâches, cliquez sur **Ajouter**, sélectionne
 -   Si l’ID de package contient des caractères en minuscules, l’installation du logiciel échoue.  
 
 -   Si la séquence de tâches ne trouve pas de variable avec le nom de base spécifié et le suffixe « 001 », la séquence de tâches n’installe aucun package. La séquence de tâches continue.  
+    
+> [!Important]  
+> Ces valeurs de texte respectent la casse. Par exemple, « installer » ne correspond pas à « Installer ». Si vous devez modifier la valeur, l’éditeur de séquence de tâches ne détecte pas un changement de casse. Vous devez effectuer une autre modifier en même temps, par exemple, modifier la description de l’étape.<!--509714-->   
+
    
 **Si l’installation d’un package logiciel échoue, continuer d’installer les autres packages de la liste**  
  Ce paramètre spécifie que l'étape se poursuit si l'installation d'un package logiciel individuel échoue. Si vous spécifiez ce paramètre, la séquence de tâches continue indépendamment des erreurs d’installation. Si vous ne spécifiez pas ce paramètre et que l’installation échoue, l’étape se termine immédiatement.  

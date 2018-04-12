@@ -1,7 +1,7 @@
 ---
-title: "Nouvelle version 1710 | Microsoft Docs"
+title: Nouvelle version 1710 | Microsoft Docs
 titleSuffix: Configuration Manager
-description: "Obtenez des détails sur les modifications et les nouvelles fonctionnalités introduites dans la version 1710 de System Center Configuration Manager."
+description: Obtenez des détails sur les modifications et les nouvelles fonctionnalités introduites dans la version 1710 de System Center Configuration Manager.
 ms.custom: na
 ms.date: 1/08/2018
 ms.reviewer: na
@@ -14,17 +14,23 @@ ms.assetid: bc6c3e5f-b9e2-400e-9d9d-446ff93c520c
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: c75ed431c6a786759e2ddcd6dc6b55d5b55412c7
-ms.sourcegitcommit: b13da5ad8ffd58e3b89fa6d7170e1dec3ff130a4
+ms.openlocfilehash: e9d1ac44bf0455ff0b1caec94d07cfa734dfbeb0
+ms.sourcegitcommit: d8a4a53630351b3d677bbdc5d203e7d330472cba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="what39s-new-in-version-1710-of-system-center-configuration-manager"></a>Nouveautés de la version 1710 de System Center Configuration Manager
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
 La mise à jour 1710 de la version Current Branch de System Center Configuration Manager est une mise à jour dans la console des sites déjà installés qui exécutent la version 1610, 1702 ou 1706.
+
+En plus des nouvelles fonctionnalités, cette version inclut également des modifications supplémentaires comme des corrections de bogues. Pour plus d’informations, consultez [Récapitulatif des modifications dans Current Branch de System Center Configuration Manager version 1710](https://support.microsoft.com/help/4056470/summary-of-changes-in-system-center-configuration-manager-current-bran).
+
+Les mises à jour supplémentaires suivantes pour cette version sont également disponibles :
+- [Correctif cumulatif pour Current Branch de System Center Configuration Manager, version 1710](https://support.microsoft.com/help/4057517/update-rollup-for-system-center-configuration-manager-current-branch-v)
+- [Correctif cumulatif 2 pour Current Branch de System Center Configuration Manager, version 1710](https://support.microsoft.com/en-us/help/4086143/update-rollup-2-for-system-center-configuration-manager-current-branch)
 
 > [!TIP]  
 > Pour installer un nouveau site, vous devez utiliser une version de base de Configuration Manager.  
