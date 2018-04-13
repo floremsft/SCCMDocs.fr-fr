@@ -1,50 +1,52 @@
 ---
-title: "Configuration d’une découverte"
+title: Configuration d’une découverte
 titleSuffix: Configuration Manager
-description: "Configurez les méthodes de découverte à exécuter sur un site Configuration Manager pour rechercher les ressources que vous pouvez gérer à partir de votre infrastructure réseau et d’Active Directory."
+description: Configurez des méthodes de découverte pour trouver des ressources à gérer à partir de votre réseau, d’Active Directory et d’Azure Active Directory.
 ms.custom: na
-ms.date: 7/31/2017
+ms.date: 03/22/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 49505eb1-d44d-4121-8712-e0f3d8b15bf5
-caps.latest.revision: "5"
+caps.latest.revision: 5
 author: mestew
 ms.author: mstewart
-manager: angrobe
-ms.openlocfilehash: f2d928e066702190eba32b2a2c06fe89636d59f6
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+manager: dougeby
+ms.openlocfilehash: 825b9b250000e8353b1428cbee45f8fda9a30c35
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-discovery-methods-for-system-center-configuration-manager"></a>Configurer les méthodes de découverte pour System Center Configuration Manager
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
 
-Vous configurez les méthodes de découverte à exécuter sur un site System Center Configuration Manager pour rechercher les ressources que vous pouvez gérer à partir de votre infrastructure réseau et d’Active Directory. Pour cela, vous devez activer et configurer chaque méthode à utiliser pour explorer votre environnement. (Vous pouvez aussi désactiver une méthode en suivant la même procédure que pour l’activer.)  La découverte par pulsations d’inventaire et la découverte de serveur constituent les seules exceptions :  
+Configurez des méthodes de découverte pour trouver des ressources à gérer à partir de votre réseau, d’Active Directory et d’Azure Active Directory (Azure AD). Commencez par activer et configurer chaque méthode à utiliser pour explorer votre environnement. Vous pouvez aussi désactiver une méthode en suivant la même procédure que pour l’activer. La découverte par pulsations d’inventaire et la découverte de serveurs constituent les seules exceptions à ce processus :  
 
--   Par défaut, la découverte par pulsations d’inventaire est déjà activée quand vous installez un site principal Configuration Manager et est configurée pour s’exécuter selon une planification de base. Il est recommandé de maintenir activée la découverte par pulsations d’inventaire, car cette méthode garantit que les enregistrements de données de découverte (DDR) des appareils sont à jour. Pour plus d’informations sur la découverte par pulsations d’inventaire, consultez [Découverte par pulsations d’inventaire](../../../../core/servers/deploy/configure/about-discovery-methods.md#bkmk_aboutHeartbeat).  
+-   Par défaut, la **découverte par pulsations d’inventaire** est déjà activée au moment où vous installez un site principal Configuration Manager. Elle est configurée pour s’exécuter selon une planification de base. Maintenez la découverte par pulsations d’inventaire activée, car cette méthode garantit que les enregistrements de données de découverte (DDR) pour les appareils sont à jour. Pour plus d’informations sur la découverte par pulsations d’inventaire, consultez [Découverte par pulsations d’inventaire](../../../../core/servers/deploy/configure/about-discovery-methods.md#bkmk_aboutHeartbeat).  
 
--   La découverte de serveur est une méthode automatique qui recherche les ordinateurs que vous utilisez comme systèmes de site. Elle n’est ni configurable ni désactivable.  
+-   La **découverte de serveurs** est une méthode de découverte automatique. Elle recherche les ordinateurs que vous utilisez comme systèmes de site. Elle n’est ni configurable ni désactivable.  
 
-**Pour activer une méthode de découverte configurable :**  
+### <a name="enable-a-configurable-discovery-method"></a>Activer une méthode de découverte configurable  
  > [!NOTE]  
- > Les informations suivantes ne s’appliquent pas à la découverte des utilisateurs Azure Active Directory. Consultez plutôt [Configurer la découverte des utilisateurs Azure AD](#azureaadisc) plus loin dans cette rubrique.
+ > Les informations suivantes ne s’appliquent pas à la découverte d’utilisateurs Azure AD. Consultez plutôt [Configurer la découverte d’utilisateurs Azure AD](#azureaadisc) plus loin dans cet article.
 
-1.  Dans la console Configuration Manager, choisissez **Administration** > **Configuration de la hiérarchie**, puis **Méthodes de découverte**.  
+1.  Dans la console Configuration Manager, accédez à l’espace de travail **Administration**, développez **Configuration de la hiérarchie**, puis sélectionnez **Méthodes de découverte**.  
 
 2.  Sélectionnez la méthode de découverte pour le site sur lequel vous voulez activer la découverte.  
 
-3.  Dans l’onglet **Accueil** puis dans le groupe **Propriétés**, choisissez **Propriétés**. Ensuite, dans l’onglet **Général**, activez la case à cocher **Enable&lt;discovery method (Activer méthode de découverte)\>**.  
+3.  Sous l’onglet **Accueil**, dans le groupe **Propriétés**, choisissez **Propriétés**. Ensuite, sous l’onglet **Général**, cochez la case **Enable &lt;discovery method\>** (Activer la méthode de découverte).  
 
      Si cette case à cocher est déjà activée, vous pouvez la désélectionner pour désactiver la méthode de découverte.  
 
 4.  Choisissez **OK** pour enregistrer la configuration.  
+
 
 
 ##  <a name="BKMK_ConfigADForestDisc"></a> Configurer la découverte de forêts Active Directory  
@@ -101,8 +103,10 @@ Utilisez les procédures suivantes pour activer la découverte de forêts Active
 
 4.  Lorsque vous terminez la configuration de cette forêt à utiliser avec la Découverte de forêts Active Directory, choisissez **OK** pour enregistrer la configuration.  
 
+
+
 ##  <a name="BKMK_ConfigADDiscGeneral"></a> Configurer la découverte Active Directory pour les ordinateurs, les utilisateurs ou les groupes  
- Utilisez les informations des sections suivantes pour configurer la découverte des ordinateurs, des utilisateurs ou des groupes. Vous allez utiliser les méthodes de découverte suivantes :  
+ Pour configurer la découverte des ordinateurs, utilisateurs ou groupes, utilisez les informations de ces sections pour les méthodes de découverte ci-après :  
 
 -   Découverte de groupes Active Directory  
 
@@ -111,12 +115,12 @@ Utilisez les procédures suivantes pour activer la découverte de forêts Active
 -   Découverte d’utilisateurs Active Directory  
 
 > [!NOTE]  
->  Les informations dans cette section ne s'appliquent pas à la découverte de forêts Active Directory.  
+>  Les informations dans cette section ne s’appliquent pas à la découverte de forêts Active Directory.  
 
  Bien qu’indépendantes, ces méthodes de découverte partagent des options similaires. Pour plus d’informations sur ces options de configuration, consultez [Options partagées pour la découverte des groupes, systèmes et utilisateurs](../../../../core/servers/deploy/configure/about-discovery-methods.md#bkmk_shared).  
 
 > [!WARNING]  
->  Le processus d'interrogation Active Directory par chacune de ces méthodes de découverte peut entraîner un trafic réseau important. Pensez à planifier l'exécution de chaque méthode de découverte à des moments où ce trafic ne risque pas de nuire à l'usage commercial de votre réseau.  
+>  Le processus d'interrogation Active Directory par chacune de ces méthodes de découverte peut entraîner un trafic réseau important. Pensez à planifier l’exécution de chaque méthode de découverte à des moments où ce trafic ne risque pas de nuire à l’usage commercial de votre réseau.  
 
 #### <a name="to-configure-active-directory-group-discovery"></a>Pour configurer la découverte de groupes Active Directory  
 
@@ -146,7 +150,7 @@ Utilisez les procédures suivantes pour activer la découverte de forêts Active
 
 7.  Dans l'onglet **Calendrier d'interrogation** , configurez le calendrier d'interrogation de découverte complet et la découverte delta.  
 
-8.  Le cas échéant, dans l’onglet **Option**, vous pouvez configurer des options pour filtrer ou exclure les enregistrements d’ordinateur obsolètes de la découverte et découvrir les membres des groupes de distribution.  
+8.  Le cas échéant, sous l’onglet **Option**, configurez des options pour filtrer ou exclure les enregistrements d’ordinateur obsolètes de la découverte. Configurez également la découverte de l’appartenance des groupes de distribution.  
 
     > [!NOTE]  
     >  Par défaut, le processus de découverte de groupes Active Directory ne découvre que l'appartenance aux groupes de sécurité.  
@@ -172,7 +176,7 @@ Utilisez les procédures suivantes pour activer la découverte de forêts Active
     3.  Pour chaque emplacement, spécifiez le compte à utiliser en tant que **Compte de découverte Active Directory**.  
 
         > [!TIP]  
-        >  Pour chaque emplacement spécifié, vous pouvez configurer un ensemble d'options de découverte et un compte de découverte Active Directory unique.  
+        >  Pour chaque emplacement spécifié, vous pouvez configurer un ensemble d’options de découverte et un compte de découverte Active Directory unique.  
 
     4.  Choisissez **OK** pour enregistrer la configuration du conteneur Active Directory.  
 
@@ -203,7 +207,7 @@ Utilisez les procédures suivantes pour activer la découverte de forêts Active
     3.  Pour chaque emplacement, spécifiez le compte à utiliser en tant que **Compte de découverte Active Directory**.  
 
         > [!NOTE]  
-        >  Pour chaque emplacement spécifié, vous pouvez configurer un ensemble d'options de découverte et un compte de découverte Active Directory uniques.  
+        >  Pour chaque emplacement spécifié, vous pouvez configurer un ensemble d’options de découverte et un compte de découverte Active Directory uniques.  
 
     4.  Choisissez **OK** pour enregistrer la configuration du conteneur Active Directory.  
 
@@ -213,16 +217,34 @@ Utilisez les procédures suivantes pour activer la découverte de forêts Active
 
 8.  Après avoir terminé la configuration de la découverte d’utilisateurs Active Directory, choisissez **OK** pour enregistrer la configuration.  
 
+
+
 ## <a name="azureaadisc"></a> Configurer la découverte des utilisateurs Azure AD
-Depuis la version 1706, vous pouvez configurer la découverte des utilisateurs Azure Active Directory quand vous connectez Configuration Manager à votre [abonnement Azure et à Azure Active Directory](/sccm/core/servers/deploy/configure/azure-services-wizard).
+La découverte d’utilisateurs Azure AD n’est pas activée ni configurée de la même façon que d’autres méthodes de découverte. Configurez-la quand vous intégrez le site Configuration Manager à Azure AD. Quand vous [configurez les services Azure](/sccm/core/servers/deploy/configure/azure-services-wizard) pour la **gestion cloud**, vous pouvez également activer et configurer cette méthode de découverte. 
 
-La découverte des utilisateurs Azure AD est configurée dans le cadre de la *gestion cloud*. La procédure à suivre est détaillée dans [Créer l’application web Azure à utiliser avec Configuration Manager](/sccm/core/servers/deploy/configure/Azure-services-wizard#webapp) dans la rubrique *Configurer les services Azure à utiliser avec Configuration Manager*.
+Lors de la configuration du service Azure de **gestion cloud** : 
+- Dans la page **Découverte** de l’Assistant, cliquez sur **Activer la découverte d’utilisateurs Azure Active Directory**. 
+- Cliquez sur **Paramètres**. 
+- Dans la boîte de dialogue Paramètres de découverte d’utilisateurs Azure AD, configurez une planification pour déterminer quand la découverte survient. Vous pouvez également activer la découverte delta, qui vérifie uniquement les comptes nouveaux ou modifiés dans Azure AD. 
 
+Pour plus d’informations, consultez [Découverte d’utilisateurs Azure AD](/sccm/core/servers/deploy/configure/about-discovery-methods#azureaddisc).
+
+ > [!Important]  
+ > Avant *d’importer* l’application Azure AD dans Configuration Manager, vous devez accorder l’autorisation d’application serveur pour lire les données d’annuaire Azure AD. 
+ >  - Dans le [portail Azure](https://portal.azure.com), accédez au panneau **Azure Active Directory**. 
+ >  - Cliquez sur **Inscriptions des applications**, puis basculez vers **Toutes les applications** si nécessaire. 
+ >  - Sélectionnez l’application serveur de type *Application/API web*, puis cliquez sur **Paramètres**. 
+ >  - Cliquez sur **Autorisations nécessaires**, puis sur **Accorder des autorisations**.
+ >  
+ > Si vous *créez* l’application serveur à partir de Configuration Manager, Azure AD crée automatiquement les autorisations avec l’application. Vous devez néanmoins donner votre consentement à l’application dans le portail Azure.
+
+ > [!Note]  
+ > Si l’utilisateur est une identité fédérée ou synchronisée, vous devez utiliser la [découverte d’utilisateurs Active Directory](/sccm/core/servers/deploy/configure/about-discovery-methods#bkmk_aboutUser) de Configuration Manager ainsi que la découverte d’utilisateurs Azure AD. Pour plus d’informations sur les identités hybrides, consultez [Définir une stratégie d’adoption des identités hybrides](/azure/active-directory/active-directory-hybrid-identity-design-considerations-identity-adoption-strategy).<!--497750-->
 
 
 
 ##  <a name="BKMK_ConfigHBDisc"></a> Configurer la découverte par pulsations d’inventaire  
- Par défaut, la découverte par pulsations d’inventaire est activée au moment où vous installez un site principal Configuration Manager. Par conséquent, il vous suffit de configurer la fréquence selon laquelle les clients envoient l’enregistrement des données de la découverte par pulsations d’inventaire au point de gestion, si vous ne voulez pas utiliser la valeur par défaut (tous les sept jours).  
+ Par défaut, la découverte par pulsations d’inventaire est activée au moment où vous installez un site principal Configuration Manager. Par conséquent, il vous suffit de configurer la fréquence selon laquelle les clients envoient l’enregistrement des données de la découverte par pulsations d’inventaire à un point de gestion, si vous ne voulez pas utiliser la valeur par défaut (tous les sept jours).  
 
 > [!NOTE]  
 >  Si la tâche d'installation poussée du client et la tâche de maintenance de site pour **Remettre à zéro l'indicateur d'installation** sont activées sur le même site, définissez la planification de la découverte par pulsations d'inventaire à une valeur inférieure à la **Période de redécouverte client** de la tâche de maintenance de site **Remettre à zéro l'indicateur d'installation** . Pour plus d’informations sur les tâches de maintenance de site, consultez [Tâches de maintenance pour System Center Configuration Manager](../../../../core/servers/manage/maintenance-tasks.md).  
@@ -237,11 +259,13 @@ La découverte des utilisateurs Azure AD est configurée dans le cadre de la *ge
 
 4.  Configurez la fréquence de l’envoi d’un enregistrement de données de découverte par pulsations d’inventaire par les clients, puis choisissez **OK** pour enregistrer la configuration.  
 
+
+
 ##  <a name="BKMK_ConfigNetworkDisc"></a> Configurer la découverte du réseau  
- Utilisez les informations dans les sections suivantes pour configurer la découverte du réseau.  
+ Pour configurer la découverte du réseau, utilisez les informations dans les sections suivantes.  
 
 ###  <a name="BKMK_AboutConfigNetworkDisc"></a> À propos de la configuration de la découverte du réseau  
- Avant de configurer la découverte du réseau, vous devez comprendre les points suivants :  
+ Avant de configurer la découverte du réseau, vous devez comprendre les sujets suivants :  
 
 -   Niveaux disponibles de découverte du réseau  
 
@@ -253,21 +277,21 @@ Pour plus d’informations, consultez la section [Découverte du réseau](../../
 
  Les sections suivantes fournissent des informations sur les configurations courantes pour la découverte du réseau. Vous pouvez configurer une ou plusieurs de ces configurations pour l'utilisation pendant la même exécution de la découverte. Si vous utilisez plusieurs configurations, vous devez tenir compte des interactions pouvant affecter les résultats de la découverte.  
 
- Vous pouvez, par exemple, vouloir découvrir tous les appareils SNMP (Simple Network Management Protocol) qui utilisent un nom de communauté SNMP spécifique. De plus, vous pouvez désactiver la découverte sur un sous-réseau spécifique pour la même exécution de la découverte. Lors de l'exécution de la découverte, la découverte du réseau ne découvre pas les périphériques SNMP avec le nom de communauté spécifié sur le sous-réseau que vous avez désactivé.  
+ Vous pouvez, par exemple, vouloir découvrir tous les appareils SNMP (Simple Network Management Protocol) qui utilisent un nom de communauté SNMP spécifique. De plus, vous pouvez désactiver la découverte sur un sous-réseau spécifique pour la même exécution de la découverte. Lors de l’exécution de la découverte, la découverte du réseau ne découvre pas les unités SNMP avec le nom de communauté spécifié sur le sous-réseau que vous avez désactivé.  
 
 ####  <a name="BKMK_DetermineNetTopology"></a> Déterminer la topologie de votre réseau  
  La découverte pour la topologie uniquement vous permet de mapper votre réseau. Ce type de découverte ne découvre pas les clients potentiels. La découverte du réseau pour la topologie uniquement s'appuie sur SNMP.  
 
  Lors du mappage de la topologie de votre réseau, vous devez configurer le **Nombre maximal de sauts** dans l’onglet **SNMP** de la boîte de dialogue **Propriétés de la découverte du réseau**. Quelques sauts permettent de contrôler la bande passante du réseau utilisée lors de l'exécution de la découverte. À mesure que vous découvrez votre réseau, vous pouvez augmenter le nombre de sauts pour mieux comprendre la topologie de votre réseau.  
 
- Une fois que vous avez compris la topologie de votre réseau, vous pouvez configurer des propriétés supplémentaires permettant à la découverte du réseau de découvrir des clients potentiels et leurs systèmes d'exploitation, pendant que vous utilisez les configurations disponibles pour limiter le nombre de segments réseau que la découverte du réseau peut rechercher.  
+ Une fois que vous avez compris la topologie de votre réseau, vous pouvez configurer des propriétés supplémentaires permettant à la découverte du réseau de découvrir des clients potentiels et leurs systèmes d’exploitation, pendant que vous utilisez les configurations disponibles pour limiter le nombre de segments réseau dans lesquels la découverte du réseau peut effectuer des recherches.  
 
 ####  <a name="BKMK_LimitBySubnet"></a> Limiter les recherches en utilisant des sous-réseaux  
- Vous pouvez configurer la découverte du réseau pour rechercher des sous-réseaux spécifiques au cours d'une opération de découverte. Par défaut, la découverte du réseau recherche le sous-réseau du serveur qui exécute la découverte. Tous les sous-réseaux supplémentaires que vous configurez et activez ne s’appliquent qu’aux options de recherche SNMP et DHCP (Dynamic Host Configuration Protocol). Lorsque la découverte du réseau recherche les domaines, elle n'est pas limitée par les configurations des sous-réseaux.  
+ Vous pouvez configurer la découverte du réseau pour rechercher des sous-réseaux spécifiques au cours d'une opération de découverte. Par défaut, la découverte du réseau recherche le sous-réseau du serveur qui exécute la découverte. Tous les sous-réseaux supplémentaires que vous configurez et activez ne s’appliquent qu’aux options de recherche SNMP et DHCP (Dynamic Host Configuration Protocol). Quand la découverte du réseau effectue des recherches dans des domaines, elle n’est pas limitée par les configurations des sous-réseaux.  
 
  Si vous spécifiez un ou plusieurs sous-réseaux dans l'onglet **Sous-réseaux** de la boîte de dialogue **Propriétés de la découverte du réseau** , la recherche s'applique uniquement aux sous-réseaux marqués **Activé** .  
 
- Lorsque vous désactivez un sous-réseau, il est exclu de la découverte, et les conditions suivantes s'appliquent :  
+ Quand vous désactivez un sous-réseau, il est exclu de la découverte, et les conditions suivantes s’appliquent :  
 
 -   Les requêtes SNMP ne s’exécutent pas sur le sous-réseau.  
 
@@ -280,7 +304,7 @@ Pour plus d’informations, consultez la section [Découverte du réseau](../../
 
  Si vous spécifiez un ou plusieurs domaines sous l'onglet **Domaines** de la boîte de dialogue **Propriétés de la découverte du réseau**, la recherche s'applique uniquement aux domaines marqués **Activé**.  
 
- Lorsque vous désactivez un domaine, il est exclu de la découverte, et les conditions suivantes s'appliquent :  
+ Quand vous désactivez un domaine, il est exclu de la découverte, et les conditions suivantes s’appliquent :  
 
 -   La découverte du réseau n’interroge pas les contrôleurs de domaine situés dans ce domaine.  
 
@@ -294,12 +318,12 @@ Pour plus d’informations, consultez la section [Découverte du réseau](../../
  La fonction de découverte du réseau utilise des noms de communautés pour accéder à des routeurs qui constituent des périphériques SNMP. Un routeur permet d'informer le service de découverte du réseau sur les autres routeurs et les sous-réseaux liés au premier routeur.  
 
 > [!NOTE]  
->  Les noms de communautés SNMP sont semblables aux mots de passe. Le service de découverte du réseau peut uniquement obtenir des informations d'un périphérique SNMP pour lequel vous avez spécifié un nom de communauté. Chaque périphérique SNMP peut disposer de son propre nom de communauté mais souvent, plusieurs périphériques partagent le même nom de communauté. En outre, la plupart des périphériques SNMP disposent d'un nom de communauté par défaut dit **Public**. Toutefois, certaines organisations suppriment le nom de communauté **Public** de leurs appareils pour des raisons de sécurité.  
+>  Les noms de communautés SNMP sont semblables aux mots de passe. Le service de découverte du réseau peut uniquement obtenir des informations d’une unité SNMP pour laquelle vous avez spécifié un nom de communauté. Chaque périphérique SNMP peut disposer de son propre nom de communauté mais souvent, plusieurs périphériques partagent le même nom de communauté. En outre, la plupart des périphériques SNMP disposent d'un nom de communauté par défaut dit **Public**. Toutefois, certaines organisations suppriment le nom de communauté **Public** de leurs appareils pour des raisons de sécurité.  
 
- Si plusieurs communautés SNMP s’affichent dans l’onglet **SNMP** de la boîte de dialogue **Propriétés de la découverte du réseau**, les recherches effectuées par la découverte du réseau s’effectuent dans l’ordre d’affichage des communautés. Afin de réduire l'impact sur le trafic réseau généré par les tentatives de contact avec un périphérique en utilisant différents noms, assurez-vous que les noms les plus fréquemment utilisés sont en haut de la liste.  
+ Si plusieurs communautés SNMP s’affichent sous l’onglet **SNMP** de la boîte de dialogue **Propriétés de la découverte du réseau**, les recherches effectuées par la découverte du réseau s’effectuent dans l’ordre d’affichage des communautés. Afin de réduire l'impact sur le trafic réseau généré par les tentatives de contact avec un périphérique en utilisant différents noms, assurez-vous que les noms les plus fréquemment utilisés sont en haut de la liste.  
 
 > [!NOTE]  
->  Outre le nom de communauté SNMP, vous pouvez spécifier l’adresse IP ou le nom pouvant être résolu d’un périphérique SNMP. Pour ce faire, utilisez l’onglet **Périphériques SNMP** de la boîte de dialogue **Propriétés de la découverte du réseau**.  
+>  Outre le nom de communauté SNMP, vous pouvez spécifier l’adresse IP ou le nom pouvant être résolu d’une unité SNMP. Pour ce faire, utilisez l’onglet **Unités SNMP** de la boîte de dialogue **Propriétés de la découverte du réseau**.  
 
 ####  <a name="BKMK_SearchByDHCP"></a> Rechercher sur un serveur DHCP spécifique  
  La découverte du réseau peut être configurée pour utiliser un serveur DHCP spécifique ou plusieurs serveurs en vue de découvrir des clients DHCP au cours d'une opération de découverte.  
@@ -307,7 +331,7 @@ Pour plus d’informations, consultez la section [Découverte du réseau](../../
  La découverte du réseau recherche sur chaque serveur DHCP que vous spécifiez sous l'onglet **DHCP** de la boîte de dialogue **Propriétés de la découverte du réseau**. Si le serveur qui exécute la découverte loue son adresse IP à un serveur DHCP, vous pouvez configurer la découverte pour qu’elle effectue la recherche sur ce serveur DHCP en activant la case à cocher **Inclure le serveur DHCP pour lequel le serveur de site est configuré**.  
 
 > [!NOTE]  
->  Pour configurer avec succès un serveur DHCP dans la découverte du réseau, votre environnement doit prendre en charge IPv4. Vous ne pouvez pas configurer la découverte du réseau de sorte qu'elle utilise un serveur DHCP dans un environnement IPv6 natif.  
+>  Pour configurer avec succès un serveur DHCP dans la découverte du réseau, votre environnement doit prendre en charge IPv4. Vous ne pouvez pas configurer la découverte du réseau de sorte qu’elle utilise un serveur DHCP dans un environnement IPv6 natif.  
 
 ###  <a name="BKMK_HowToConfigNetDisc"></a> Guide pratique pour configurer la découverte du réseau  
  Procédez comme suit pour d'abord découvrir uniquement la topologie de votre réseau, puis configurer la découverte du réseau afin de découvrir des clients potentiels à l'aide de l'une ou de plusieurs options disponibles de découverte du réseau.  
@@ -325,7 +349,7 @@ Pour plus d’informations, consultez la section [Découverte du réseau](../../
     -   Dans l’onglet **Sous-réseaux**, activez la case à cocher **Rechercher les sous-réseaux locaux**.  
 
         > [!TIP]  
-        >  Si vous connaissez les sous-réseaux qui constituent votre réseau, vous pouvez désactiver la case **Rechercher les sous-réseaux locaux** et utiliser l’icône **Nouveau** ![Icône Nouveau](media/Disc_new_Icon.gif) pour ajouter les sous-réseaux qui doivent faire l’objet de la recherche. Pour les réseaux de grande taille, il est souvent préférable d'effectuer la recherche uniquement dans un ou deux sous-réseaux à la fois, afin de minimiser l'utilisation de la bande passante du réseau.  
+        >  Si vous connaissez les sous-réseaux qui constituent votre réseau, décochez la case **Rechercher les sous-réseaux locaux**. Utilisez ensuite l’icône **Nouveau** ![Icône Nouveau](media/Disc_new_Icon.gif) pour ajouter les sous-réseaux dans lesquels effectuer des recherches. Pour les réseaux de grande taille, il est souvent préférable d’effectuer la recherche uniquement dans un ou deux sous-réseaux à la fois, afin de minimiser l’utilisation de la bande passante du réseau.  
 
     -   Dans l’onglet **Domaines**, activez la case à cocher **Rechercher dans le domaine local**.  
 
@@ -399,7 +423,7 @@ Pour plus d’informations, consultez la section [Découverte du réseau](../../
 
 10. Pour configurer la découverte afin d’interroger certains serveurs DHCP de clients DHCP, choisissez l’onglet **DHCP**, puis configurez une ou plusieurs des options suivantes :  
 
-    -   Pour interroger le serveur DHCP sur l’ordinateur exécutant la découverte, activez la case à cocher **Always use the site server’s DHCP server (Toujours utiliser le serveur DHCP du serveur de site)**.  
+    -   Pour interroger le serveur DHCP sur l’ordinateur exécutant la découverte, choisissez de **toujours utiliser le serveur DHCP du serveur de site**.  
 
         > [!NOTE]  
         >  Pour utiliser cette option, le serveur doit louer son adresse IP à un serveur DHCP, et il ne peut pas utiliser une adresse IP statique.  
@@ -414,12 +438,12 @@ Pour plus d’informations, consultez la section [Découverte du réseau](../../
      Vous pouvez configurer plusieurs calendriers récurrents et plusieurs calendriers non récurrents.  
 
     > [!NOTE]  
-    >  Si plusieurs calendriers s’affichent dans l’onglet **Calendrier**, tous exécutent la découverte du réseau à l’heure indiquée. Cela s'applique également aux planifications périodiques.  
+    >  Si plusieurs calendriers s’affichent dans l’onglet **Calendrier**, tous exécutent la découverte du réseau à l’heure indiquée. Ce comportement s’applique également aux planifications périodiques.  
 
 12. Choisissez **OK** pour enregistrer vos configurations.  
 
 ###  <a name="BKMK_HowToVerifyNetDisc"></a> Guide pratique pour vérifier que la découverte du réseau est terminée  
- La durée d’exécution de la découverte du réseau peut varier selon plusieurs facteurs, dont un ou plusieurs des points suivants :  
+ La durée d’exécution de la découverte du réseau peut varier selon un ou plusieurs des facteurs suivants :  
 
 -   Taille de votre réseau  
 
@@ -429,7 +453,7 @@ Pour plus d’informations, consultez la section [Découverte du réseau](../../
 
 -   Type de découverte en cours d'exécution  
 
-La découverte du réseau ne génère pas de message d'alerte signalant qu'elle est terminée, vous devez donc le vérifier à l'aide de la procédure suivante.  
+Comme la découverte du réseau ne génère pas de message d’alerte signalant qu’elle est terminée, vous devez donc le vérifier à l’aide de la procédure suivante.  
 
 ##### <a name="to-verify-that-network-discovery-has-finished"></a>Pour vérifier qu'une découverte du réseau est terminée  
 
@@ -454,7 +478,7 @@ La découverte du réseau ne génère pas de message d'alerte signalant qu'elle 
 
     -   Description : **Ce composant s'est arrêté.**  
 
-    Si ce message d'état ne s'affiche pas, la découverte de réseau n'est pas terminée.  
+    Si ce message d’état ne s’affiche pas, la découverte de réseau n’est pas terminée.  
 
 7.  Pour valider le moment de démarrage de la découverte du réseau, recherchez un message d'état contenant les détails suivants :  
 
@@ -464,4 +488,4 @@ La découverte du réseau ne génère pas de message d'alerte signalant qu'elle 
 
     -   Description : **Ce composant a démarré.**  
 
-    Ces informations vérifient que la découverte du réseau a démarré. Si ces informations ne s'affichent pas, replanifiez une découverte du réseau.  
+    Ces informations vérifient que la découverte du réseau a démarré. Si ces informations ne s’affichent pas, replanifiez une découverte du réseau.  

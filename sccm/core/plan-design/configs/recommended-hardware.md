@@ -1,9 +1,9 @@
 ---
-title: "Matériel recommandé"
+title: Matériel recommandé
 titleSuffix: Configuration Manager
-description: "Consultez les recommandations de matériel pour mieux assurer la scalabilité de votre environnement System Center Configuration Manager après son déploiement de base."
+description: Consultez les recommandations de matériel pour mieux assurer la scalabilité de votre environnement System Center Configuration Manager après son déploiement de base.
 ms.custom: na
-ms.date: 05/04/2017
+ms.date: 03/22/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -12,16 +12,16 @@ ms.technology:
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 5267f0af-34d3-47a0-9ab8-986c41276e6c
-caps.latest.revision: 
-caps.handback.revision: 
+caps.latest.revision: 26
+caps.handback.revision: 0
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 5def3fdef8e9182cb624640fa54ff2eae224e6a1
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: 8d0883c7c2a735a2e651d61083d4d45570408ebb
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="recommended-hardware-for-system-center-configuration-manager"></a>Matériel recommandé pour System Center Configuration Manager
 
@@ -85,9 +85,9 @@ Pour des performances optimales, utilisez des configurations RAID 10 pour tous 
 |Utilisation des données|Espace disque minimum|25 000 clients|50 000 clients|100 000 clients|150 000 clients|700 000 clients (site d’administration centrale)|  
 |----------------|------------------------|--------------------|--------------------|---------------------|---------------------|-----------------------------------------------------|  
 |Système d'exploitation|Consultez les conseils pour le système d'exploitation.|Consultez les conseils pour le système d'exploitation.|Consultez les conseils pour le système d'exploitation.|Consultez les conseils pour le système d'exploitation.|Consultez les conseils pour le système d'exploitation.|Consultez les conseils pour le système d'exploitation.|  
-|Fichiers journaux et d’application de Configuration Manager|25 Go|50 Go|100 Go|200 Go|300 Go|200 Go|  
-|Fichier .mdf de base de données du site|75 Go par tranche de 25 000 clients|75 Go|150 Go|300 Go|500 Go|2 To|  
-|Fichier .ldf de base de données du site|25 Go par tranche de 25 000 clients|25 Go|50 Go|100 Go|150 Go|100 Go|  
+|Fichiers journaux et d’application de Configuration Manager|25 Go|50 Go|100 Go|200 Go|300 Go|200 Go|  
+|Fichier .mdf de base de données du site|75 Go par tranche de 25 000 clients|75 Go|150 Go|300 Go|500 Go|2 To|  
+|Fichier .ldf de base de données du site|25 Go par tranche de 25 000 clients|25 Go|50 Go|100 Go|150 Go|100 Go|  
 |Fichiers de base de données temporaires (.mdf et .ldf)|En fonction des besoins|En fonction des besoins|En fonction des besoins|En fonction des besoins|En fonction des besoins|En fonction des besoins|  
 |Contenu (partages de point de distribution)|En fonction des besoins<sup>1</sup>|En fonction des besoins<sup>1</sup>|En fonction des besoins<sup>1</sup>|En fonction des besoins<sup>1</sup>|En fonction des besoins<sup>1</sup>|En fonction des besoins<sup>1</sup>|  
 
@@ -102,9 +102,9 @@ Pour des performances optimales, utilisez des configurations RAID 10 pour tous 
     > [!NOTE]  
     >  Quand vous avez 50 000 clients ou plus sur un site, prévoyez d’utiliser au moins quatre fichiers .mdf de base de données temporaire.  
 
--   La taille de la base de données temporaire pour un site d’administration centrale est généralement beaucoup plus petite que celle d'un site principal.  
+-   La taille de la base de données temporaire pour un site d’administration centrale est généralement beaucoup plus petite que celle d’un site principal.  
 
--   La base de données d'un site secondaire est limitée en taille pour les éléments suivants :  
+-   La base de données d’un site secondaire a les limitations de taille suivantes :  
 
     -   SQL Server 2012 Express : 10 Go  
 
@@ -120,7 +120,7 @@ Pour des performances optimales, utilisez des configurations RAID 10 pour tous 
 
 -   **Espace disque :** 500 Mo d’espace disque disponible, avec 5 Go recommandés pour le cache du client Configuration Manager. L’espace disque requis est moindre si vous utilisez des paramètres personnalisés pour installer le client Configuration Manager :  
 
-    -   Utilisez la propriété /skipprereq de la ligne de commande de CCMSetup pour éviter d’installer des fichiers dont le client n’a pas besoin. Par exemple, exécutez **CCMSetup.exe /skipprereq:silverlight.exe** si le client n’utilise pas le catalogue d’applications.  
+    -   Utilisez la propriété /skipprereq de la ligne de commande de CCMSetup pour éviter d’installer des fichiers dont le client n’a pas besoin. Par exemple, exécutez **CCMSetup.exe /skipprereq:silverlight.exe** si le client n’utilise pas le catalogue d’applications. À compter de Configuration Manager 1802, Silverlight n’est plus installé automatiquement.  
 
     -   Utilisez la propriété SMSCACHESIZE de Client.msi pour définir un fichier de cache d'une taille inférieure à la taille par défaut de 5 120 Mo. La taille minimale est de 1 Mo. Par exemple, **CCMSetup.exe SMSCachesize=2** crée un cache d’une taille de 2 Mo.  
 

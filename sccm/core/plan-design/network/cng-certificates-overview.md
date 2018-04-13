@@ -1,24 +1,25 @@
 ---
-title: "Vue d’ensemble des certificats CNG"
+title: Vue d’ensemble des certificats CNG
 titleSuffix: Configuration Manager
-description: "Vue d’ensemble des certificats CNG dans Configuration Manager"
+description: Découvrez la prise en charge des certificats Cryptography Next Generation (CNG) pour les clients et serveurs Configuration Manager.
 ms.custom: na
-ms.date: 11/20/2017
+ms.date: 03/22/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
-ms.assetid: 
-author: vhorne
-ms.author: victorh
-manager: angrobe
-ms.openlocfilehash: f5f5138270d4f14b76b2c41e41ec034a0c12a932
-ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
+ms.assetid: ''
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: 271cc0e2753f1a65740187a4faf6875c1a018014
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="cng-certificates-overview"></a>Vue d’ensemble des certificats CNG
 <!-- 1356191 --> 
@@ -28,28 +29,38 @@ Configuration Manager prend en charge les certificats Cryptography : Next Gener
 ## <a name="supported-scenarios"></a>Scénarios pris en charge
 Vous pouvez utiliser les modèles de certificat [Cryptography API : Next Generation (CNG)](https://msdn.microsoft.com/library/windows/desktop/bb204775.aspx) pour les scénarios suivants :
 
-- L’inscription du client et la communication avec un point de gestion HTTPS.   
-- La distribution de logiciels et le déploiement d’applications avec un point de distribution HTTPS.   
-- Le déploiement de système d'exploitation.  
-- Le Kit SDK de messagerie du client (avec la dernière mise à jour) et proxy ISV.   
-- La configuration de passerelle de gestion cloud.  
+- Inscription du client et communication avec un point de gestion HTTPS   
+- Distribution de logiciels et déploiement d’applications avec un point de distribution HTTPS   
+- Déploiement du système d'exploitation  
+- Kit SDK de messagerie du client (avec la dernière mise à jour) et proxy ISV   
+- Configuration de la passerelle de gestion cloud  
+
+À compter de la version 1802, utilisez des certificats CNG pour les rôles serveur HTTPS suivants : <!-- 1357314 -->   
+- Point de gestion
+- Point de distribution
+- Point de mise à jour logicielle
+- Point de migration d’état     
 
 > [!NOTE]
 > CNG offre une compatibilité descendante avec Crypto API (CAPI). Les certificats CAPI continuent à être pris en charge même lorsque la prise en charge CNG est activée sur le client.
 
 ## <a name="unsupported-scenarios"></a>Scénarios non pris en charge
 
-Les scénarios suivants ne sont pas actuellement pris en charge :
+Les scénarios suivants ne sont actuellement pas pris en charge :
 
-- Les rôles de service web du catalogue d’applications, de site web du catalogue d’applications, de point d’inscription et de point proxy d’inscription ne fonctionnent pas quand ils sont installés en mode HTTPS avec un certificat CNG lié au site web dans Internet Information Services (IIS). Le Centre logiciel n’affiche pas les applications et packages disponibles qui sont déployés sur des regroupements d’utilisateurs ou de groupes d’utilisateurs.
+- Les rôles serveur suivants ne sont pas opérationnels quand ils sont installés en mode HTTPS avec un certificat CNG lié au site web dans Internet Information Services (IIS) : 
+    - Service web du catalogue des applications
+    - Site web du catalogue des applications
+    - Point d'inscription  
+    - Point proxy d'inscription  
 
-- Le point de migration d’état ne fonctionne pas quand il est installé en mode HTTPS avec un certificat CNG lié au site web dans IIS.
+- Le Centre logiciel n’affiche pas les applications et packages disponibles qui sont déployés sur des regroupements d’utilisateurs ou de groupes d’utilisateurs.
 
 - Utilisation de certificats CNG pour créer un point de distribution cloud.
 
-- La communication entre NDES Policy Module et le point d’enregistrement de certificat échoue si NDES Policy Module utilise un certificat CNG pour le certificat d’authentification client.
+- Si le module de stratégie NDES utilise un certificat CNG pour l’authentification du client, la communication avec le point d’enregistrement de certificat échoue.
 
-- La création d’un média de séquence de tâches ne parvient pas à créer un média de démarrage si un certificat CNG est spécifié.
+- Si vous spécifiez un certificat CNG lors de la création d’un média de séquence de tâches, l’Assistant ne parvient pas à créer un média de démarrage.
 
 ## <a name="to-use-cng-certificates"></a>Pour utiliser des certificats CNG
 

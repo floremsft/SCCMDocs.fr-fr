@@ -1,9 +1,9 @@
 ---
-title: "Entrepôt de données"
+title: Entrepôt de données
 titleSuffix: Configuration Manager
-description: "Base de données et point de service de l’entrepôt de données pour System Center Configuration Manager"
+description: Base de données et point de service de l’entrepôt de données pour System Center Configuration Manager
 ms.custom: na
-ms.date: 02/26/2018
+ms.date: 03/22/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -12,15 +12,15 @@ ms.technology:
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: aaf43e69-68b4-469a-ad58-9b66deb29057
-caps.latest.revision: 
+caps.latest.revision: ''
 author: mestew
 ms.author: mstewart
 manager: dougeby
-ms.openlocfilehash: 954ec65bae15e087d6cf5afbcc8e0da1ebf83533
-ms.sourcegitcommit: be939893f0ceca4add8655ae2c24e42aa16aec38
+ms.openlocfilehash: 83bfc0e3d7bdf1ff8718c7c211c897e37b21a06b
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
 #  <a name="the-data-warehouse-service-point-for-system-center-configuration-manager"></a>Le point de service de l’entrepôt de données pour System Center Configuration Manager
 *S’applique à : System Center Configuration Manager (Current Branch)*
@@ -88,6 +88,7 @@ Page **Général** :
      - **Nom de la base de données** : spécifiez le nom de la base de données de l’entrepôt de données. Le nom de la base de données ne doit pas dépasser 10 caractères. (La longueur du nom prise en charge sera augmentée dans une version ultérieure.)
      Configuration Manager crée la base de données de l’entrepôt de données en lui donnant ce nom. Si vous spécifiez un nom de base de données qui existe déjà sur l’instance de SQL Server, Configuration Manager utilise cette base de données.
      - **Port SQL Server utilisé pour la connexion** : spécifiez le numéro de port TCP/IP utilisé par l’instance de SQL Server qui héberge la base de données de l’entrepôt de données. Ce port est utilisé par le service de synchronisation de l’entrepôt de données pour se connecter à la base de données de ce dernier.  
+     - **Compte de point de service de l’entrepôt de données** : Depuis la version 1802, indiquez le compte que SQL Server Reporting Services utilise lors de la connexion à la base de données de l’entrepôt de données. 
 
 Page **Calendrier des synchronisations** :   
 - **Calendrier des synchronisations** :
@@ -96,8 +97,12 @@ Page **Calendrier des synchronisations** :
          - **Tous les jours** : permet d’indiquer que la synchronisation doit s’exécuter chaque jour.
          - **Hebdomadaire** : permet de spécifier une seule journée chaque semaine ainsi qu’une périodicité hebdomadaire pour la synchronisation.
 
+
 ## <a name="reporting"></a>Rapports
 Une fois que vous aurez installé un point de service de l’entrepôt de données, plusieurs rapports seront accessibles sur le point de Reporting Services installé sur le même site. Si vous installez le point de service de l’entrepôt de données avant d’installer un point de Reporting Services, les rapports seront automatiquement ajoutés lors de l’installation du point de Reporting Services.
+
+>[!WARNING]
+>Dans Configuration Manager version 1802, une prise en charge d’autres informations d’identification a été ajoutée pour le point de l’entrepôt de données. <!--507334-->Si vous avez effectué une mise à niveau à partir d’une version précédente de Configuration Manager, vous devez spécifier les informations d’identification que SQL Server Reporting Services utilise pour se connecter à la base de données de l’entrepôt de données. Les rapports des entrepôts de données ne s’ouvrent pas tant que les informations d’identification ne sont pas spécifiées. Pour indiquer un compte, accédez à **Administration** >**Configuration du site** >**Serveurs et rôles de système de site**. Cliquez sur le serveur avec le point de service de l’entrepôt de données, puis avec le bouton droit sur le rôle de point de service de l’entrepôt de données. Sélectionnez les **propriétés** puis spécifiez le **compte de point de service de l’entrepôt de données**.
 
 Le rôle de système de site de l’entrepôt de données comprend les rapports suivants, qui appartiennent à la catégorie **Entrepôt de données** :
  - **Déploiement de l’application – Historique** : détails du déploiement d’une application donnée pour une machine en particulier.

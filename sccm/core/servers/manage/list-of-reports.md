@@ -1,56 +1,62 @@
 ---
 title: Liste des rapports
 titleSuffix: Configuration Manager
-description: "Passez en revue la liste des rapports fournis avec Configuration Manager. Les rapports sont répartis dans différentes catégories."
+description: Passez en revue la liste des rapports fournis avec Configuration Manager. Les rapports sont répartis dans différentes catégories.
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 03/22/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b7332ed3-8003-454b-bb12-1fdf8721425c
-caps.latest.revision: "10"
-caps.handback.revision: "0"
-author: Dougeby
-ms.author: dougeby
-manager: angrobe
-ms.openlocfilehash: 9657634621b200b0fcda3fea2785a6ceaa68f8ca
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+caps.latest.revision: 10
+caps.handback.revision: 0
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: b15726b2551464c178774dc2c87a6a2f41a37c07
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="list-of-reports-in-system-center-configuration-manager"></a>Liste des rapports dans System Center Configuration Manager
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
-De nombreux rapports intégrés sont fournis avec System Center Configuration Manager, couvrant une grande partie des tâches de création de rapports que vous pourriez souhaiter effectuer. Vous pouvez également utiliser les instructions SQL dans ces rapports pour vous aider à rédiger vos propres rapports. Utilisez les informations de cette rubrique pour en savoir plus sur les rapports fournis avec Configuration Manager.  
+Configuration Manager fournit de nombreux rapports intégrés couvrant une grande partie des tâches de création de rapports que vous pourriez souhaiter effectuer. Vous pouvez également utiliser les instructions SQL dans ces rapports pour vous aider à rédiger vos propres rapports.   
 
-## <a name="list-of-built-in-configuration-manager-reports"></a>Liste des rapports Configuration Manager intégrés  
- Les rapports suivants sont fournis avec Configuration Manager. Les rapports sont répartis dans différentes catégories.  
+Les rapports suivants sont fournis avec Configuration Manager. Les rapports sont répartis dans différentes catégories.  
 
-### <a name="administrative-security"></a>Sécurité administrative  
+
+
+## <a name="administrative-security"></a>Sécurité administrative  
  Les rapports suivants sont répertoriés sous la catégorie **Sécurité administrative** .  
 
 |Nom du rapport|Description|  
 |-----------------|-----------------|  
 |**Journal des activités d'administration**|Affiche un enregistrement des modifications administratives apportées aux utilisateurs administratifs, aux rôles de sécurité, aux étendues de sécurité et aux regroupements.|  
 |**Utilisateurs administratifs et affectations de sécurité**|Affiche les utilisateurs administratifs, leurs rôles de sécurité associés et les étendues de sécurité associées à chaque rôle de sécurité pour chaque utilisateur.|  
-|**Objets sécurisés par une seule étendue de sécurité**|Affiche les objets qui sont sécurisés par une étendue de sécurité spécifiée et qui sont uniquement assignés à cette étendue de sécurité. Ce rapport n'affiche pas les objets qui sont associés à plusieurs étendues de sécurité.|  
+|**Objets sécurisés par une seule étendue de sécurité**|Affiche les objets assignés par un administrateur à l’étendue de sécurité spécifiée uniquement. Ce rapport n’affiche pas les objets qui sont associés par un administrateur à plusieurs étendues de sécurité.|  
 |**Sécurité pour un ou plusieurs objets Configuration Manager**|Affiche les objets sécurisables, les étendues de sécurité associées aux objets et les utilisateurs administratifs qui ont des droits sur les objets.|  
 |**Récapitulatif des rôles de sécurité**|Affiche les rôles de sécurité et les administrateurs Configuration Manager associés à chaque rôle.|  
 |**Récapitulatif des étendues de sécurité**|Affiche les étendues de sécurité, les utilisateurs administratifs Configuration Manager et les groupes de sécurité associés à chaque étendue.|  
 
-### <a name="alerts"></a>Alertes  
+
+
+## <a name="alerts"></a>Alertes  
 
 |Nom du rapport|Description|  
 |-----------------|-----------------|  
 |**Tableau de bord des alertes**|Affiche la synthèse de toutes les alertes différées qui ont été générées entre les dates de début et de fin spécifiées.|  
 |**Alertes générées le plus souvent**|Affiche la synthèse des alertes qui ont été générées le plus souvent depuis la date spécifiée jusqu'à ce jour pour le composant spécifié.|  
 
-### <a name="asset-intelligence"></a>Asset Intelligence  
+
+
+## <a name="asset-intelligence"></a>Asset Intelligence  
 
 |Nom du rapport|Description|  
 |-----------------|-----------------|  
@@ -65,14 +71,14 @@ De nombreux rapports intégrés sont fournis avec System Center Configuration Ma
 |**Matériel 07C - Ordinateurs munis d'un périphérique USB spécifique**|Affiche tous les ordinateurs munis d'un périphérique USB spécifié.|  
 |**Matériel 07D - Périphériques USB sur un ordinateur spécifique**|Affiche tous les périphériques USB sur un ordinateur spécifié.|  
 |**Matériel 08A - Matériel qui n'est pas prêt pour une mise à niveau logicielle**|Affiche le matériel qui ne satisfait pas à la configuration matérielle minimale requise.|  
-|**Matériel 09A - Recherche d'ordinateurs**|Affiche la synthèse du gestionnaire de biens des ordinateurs correspondant aux filtres de mots clés sur le nom d’ordinateur, le site Configuration Manager, le domaine, l’utilisateur principal de la console, le système d’exploitation, le fabricant ou le modèle.|  
+|**Matériel 09A - Recherche d'ordinateurs**|Affiche une synthèse des ordinateurs correspondant aux filtres de mots clés. Ces filtres sont le nom d’ordinateur, le site Configuration Manager, le domaine, l’utilisateur principal de la console, le système d’exploitation, le fabricant ou le modèle.|  
 |**Matériel 10A - Ordinateurs d'un regroupement spécifié qui ont été modifiés pendant un laps de temps spécifié**|Affiche la liste des ordinateurs inclus dans un regroupement spécifié où une classe de matériel a changé pendant une période spécifiée.|  
 |**Matériel 10B - Modifications apportées à un ordinateur spécifié pendant un laps de temps spécifié**|Affiche les classes qui ont changé sur l'ordinateur spécifié pendant un laps de temps spécifié.|  
 |**Licence 01A - Grand livre des licences en volume Microsoft pour les relevés de licences Microsoft**|Affiche un inventaire de tous les logiciels Microsoft qui sont disponibles à partir du programme de licence en volume Microsoft.|  
 |**Licence 01B - Élément du Grand livre des licences en volume Microsoft par canal de vente**|Identifie et affiche le canal de vente des logiciels de licence en volume Microsoft inventoriés.|  
 |**Licence 01C - Ordinateurs possédant un élément du Grand livre des licences en volume Microsoft et canaux de vente**|Identifie et affiche les ordinateurs qui ont un élément spécifié du Grand livre des licences en volume Microsoft.|  
 |**Licence 01D - Produits du Grand livre des licences en volume Microsoft sur un ordinateur spécifique**|Identifie et affiche tous les éléments du Grand livre des licences en volume Microsoft sur un ordinateur spécifié.|  
-|**Licence 02A - Nombre de licences arrivant à expiration par périodes**|Affiche le nombre de licences arrivant à expiration pour une période spécifiée. Les produits affichés sont ceux dont la licence est gérée par le service de gestion de licences des logiciels.|  
+|**Licence 02A - Nombre de licences arrivant à expiration par périodes**|Affiche le nombre de licences arrivant à expiration pour une période spécifiée. Les produits affichés ont leur licence gérée par le service de gestion de licences des logiciels.|  
 |**Licence 02B - Ordinateurs dont les licences arrivent à expiration**|Affiche les ordinateurs dont les licences arrivent à expiration.|  
 |**Licence 02C - Informations de licence sur un ordinateur spécifique**|Affiche les produits sur un ordinateur spécifié dont les licences sont gérées par le service de gestion de licences des logiciels.|  
 |**Licence 03A - Nombre de licences par état de licence**|Affiche les produits, par état de licence, dont les licences sont gérées par le service de gestion de licences des logiciels.|  
@@ -96,19 +102,19 @@ De nombreux rapports intégrés sont fournis avec System Center Configuration Ma
 |**Logiciel 04A - Logiciels configurés pour s'exécuter automatiquement sur les ordinateurs**|Affiche la liste des logiciels configurés pour s'exécuter automatiquement sur les ordinateurs.|  
 |**Logiciel 04B - Ordinateurs dotés de logiciels spécifiques configurés pour s'exécuter automatiquement**|Affiche tous les ordinateurs dotés de logiciels spécifiques configurés pour s'exécuter automatiquement|  
 |**Logiciel 04C - Logiciels configurés pour s'exécuter automatiquement sur un ordinateur spécifique**|Affiche les logiciels installés et configurés pour s'exécuter automatiquement sur un ordinateur spécifié.|  
-|**Logiciel 05A - Objets d'assistance du navigateur**|Affiche les objets d'assistance du navigateur installés sur les ordinateurs dans un regroupement spécifié.|  
-|**Logiciel 05B - Ordinateurs équipés d'un objet d'assistance du navigateur spécifique**|Affiche tous les ordinateurs équipés d'un objet d'assistance du navigateur spécifié.|  
-|**Logiciel 05C - Objets d'assistance du navigateur sur un ordinateur spécifique**|Affiche tous les objets d'assistance du navigateur sur l'ordinateur spécifié.|  
-|**Logiciel 06A - Recherche des logiciels installés**|Ce rapport fournit la synthèse des logiciels installés, classés par nombre d'instances selon des critères de recherche du nom du produit, de l'éditeur ou de la version.|  
-|**Logiciel 06B - Logiciels par nom de produit**|Affiche la synthèse des logiciels installés, classés par nombre d'instances selon un nom de produit spécifié.|  
-|**Logiciel 07A - Programmes exécutables récemment utilisés par nombre d'ordinateurs**|Affiche les programmes exécutables qui ont été récemment utilisés, ainsi que le nombre d'ordinateurs sur lesquels ils ont été utilisés. Le contrôle de logiciel doit être activé pour que ce site affiche ce rapport.|  
-|**Logiciel 07B - Ordinateurs ayant récemment utilisé un programme exécutable spécifié**|Affiche les ordinateurs sur lesquels un programme exécutable spécifié a récemment été utilisé quand vous activez le paramètre client de contrôle de logiciel.|  
-|**Logiciel 07C - Programmes exécutables récemment utilisés sur un ordinateur spécifié**|Affiche les fichiers exécutables qui ont été récemment utilisés sur un ordinateur spécifié quand vous activez le paramètre client de contrôle de logiciel.|  
-|**Logiciel 08A - Programmes exécutables récemment utilisés par nombre d'utilisateurs**|Affiche les programmes exécutables qui ont été récemment utilisés avec le nombre d'utilisateurs qui les ont utilisés quand vous activez le paramètre client de contrôle de logiciel.|  
-|**Logiciel 08B - Utilisateurs ayant récemment utilisé un programme exécutable spécifié**|Affiche les utilisateurs qui ont le plus récemment utilisé un programme exécutable spécifié quand vous activez le paramètre client de contrôle de logiciel.|  
-|**Logiciel 08C - Programmes exécutables récemment utilisés par un utilisateur spécifié**|Affiche les programmes exécutables qui ont été récemment utilisés par un utilisateur spécifié quand vous activez le paramètre client de contrôle de logiciel.|  
-|**Logiciel 09A - Logiciels rarement utilisés**|Affiche les logiciels qui n'ont pas été utilisés pendant une certaine période.|  
-|**Logiciel 09B - Ordinateurs sur lesquels sont installés des logiciels rarement utilisés**|Affiche les ordinateurs sur lesquels sont installés des logiciels qui n'ont pas été utilisés pendant une certaine période. La période spécifiée se base sur la valeur spécifiée dans le rapport « Logiciel 09A - Logiciels rarement utilisés ».|  
+|**Logiciel 05A - Objets d'assistance du navigateur**|Affiche les objets d’assistance du navigateur installés sur les ordinateurs dans un regroupement spécifié.|  
+|**Logiciel 05B - Ordinateurs équipés d'un objet d'assistance du navigateur spécifique**|Affiche tous les ordinateurs équipés d’un objet d’assistance du navigateur spécifié.|  
+|**Logiciel 05C - Objets d'assistance du navigateur sur un ordinateur spécifique**|Affiche tous les objets d’assistance du navigateur sur l’ordinateur spécifié.|  
+|**Logiciel 06A - Recherche des logiciels installés**|Ce rapport fournit un récapitulatif des logiciels installés. La recherche est effectuée selon les critères suivants : nom du produit, éditeur ou version.|  
+|**Logiciel 06B - Logiciels par nom de produit**|Affiche une synthèse des logiciels installés selon un nom de produit spécifié.|  
+|**Logiciel 07A - Programmes exécutables récemment utilisés par nombre d'ordinateurs**|Affiche les programmes exécutables que les utilisateurs ont récemment employés. Il inclut également le nombre d’ordinateurs sur lesquels le programme a été utilisé. Le contrôle de logiciel doit être activé pour que ce site affiche ce rapport.|  
+|**Logiciel 07B - Ordinateurs ayant récemment utilisé un programme exécutable spécifié**|Affiche les ordinateurs sur lesquels un programme exécutable spécifié a récemment été utilisé. Ce rapport exige que vous activiez le paramètre client de contrôle de logiciel.|  
+|**Logiciel 07C - Programmes exécutables récemment utilisés sur un ordinateur spécifié**|Affiche les fichiers exécutables qui ont été récemment utilisés sur un ordinateur spécifié. Ce rapport exige que vous activiez le paramètre client de contrôle de logiciel.|  
+|**Logiciel 08A - Programmes exécutables récemment utilisés par nombre d'utilisateurs**|Affiche les programmes exécutables que les utilisateurs ont récemment employés. Il inclut également un nombre d’utilisateurs qui les ont utilisés le plus récemment. Ce rapport exige que vous activiez le paramètre client de contrôle de logiciel.|  
+|**Logiciel 08B - Utilisateurs ayant récemment utilisé un programme exécutable spécifié**|Affiche les utilisateurs qui ont le plus récemment utilisé un programme exécutable spécifié. Ce rapport exige que vous activiez le paramètre client de contrôle de logiciel.|  
+|**Logiciel 08C - Programmes exécutables récemment utilisés par un utilisateur spécifié**|Affiche les programmes exécutables récemment utilisés par l’utilisateur spécifié. Ce rapport exige que vous activiez le paramètre client de contrôle de logiciel.|  
+|**Logiciel 09A - Logiciels rarement utilisés**|Affiche les noms des logiciels qui n’ont pas été utilisés pendant une certaine période.|  
+|**Logiciel 09B - Ordinateurs sur lesquels sont installés des logiciels rarement utilisés**|Affiche les ordinateurs sur lesquels sont installés des logiciels qui n’ont pas été utilisés pendant une certaine période. La période spécifiée se base sur la valeur spécifiée dans le rapport « Logiciel 09A - Logiciels rarement utilisés ».|  
 |**Logiciel 10A - Titres des logiciels avec plusieurs légendes personnalisées spécifiques définies**|Affiche les titres des logiciels selon leur correspondance à tous les critères de légende personnalisée spécifiés. Il est possible de sélectionner jusqu'à trois légendes personnalisées pour affiner une recherche de titre de logiciel.|  
 |**Logiciel 10B - Ordinateurs équipés d'un logiciel avec une légende personnalisée spécifique**|Affiche tous les ordinateurs d'un regroupement sur lesquels est installé un logiciel spécifique avec une légende personnalisée.|  
 |**Logiciel 11A - Titres des logiciels avec une légende personnalisée spécifique définie**|Affiche les titres des logiciels selon leur correspondance à au moins un des critères de légende personnalisée spécifiés.|  
@@ -117,7 +123,9 @@ De nombreux rapports intégrés sont fournis avec System Center Configuration Ma
 |**Logiciel 14B - Ordinateurs sur lesquels sont installés des logiciels dont la balise d'identification logicielle est activée**|Affiche tous les ordinateurs sur lesquels sont installés des logiciels qui ont une balise d'identification logicielle spécifique activée.|  
 |**Logiciel 14C - Logiciels installés sur un ordinateur spécifique et dont la balise d'identification logicielle est activée**|Affiche tous les logiciels installés qui ont une balise d'identification logicielle spécifiée activée sur un ordinateur spécifié.|  
 
-### <a name="client-push"></a>Installation Push du client  
+
+
+## <a name="client-push"></a>Installation Push du client  
 
 |Nom du rapport|Description|  
 |-----------------|-----------------|  
@@ -126,7 +134,9 @@ De nombreux rapports intégrés sont fournis avec System Center Configuration Ma
 |**Synthèse de l'état de l'installation Push du client**|Affiche la synthèse de l'état de l'installation Push du client pour tous les sites.|  
 |**Synthèse de l'état de l'installation Push du client pour un site spécifié**|Affiche la synthèse de l'état de l'installation Push du client pour un site spécifié.|  
 
-### <a name="client-status"></a>État du client  
+
+
+## <a name="client-status"></a>État du client  
 
 |Nom du rapport|Description|  
 |-----------------|-----------------|  
@@ -138,50 +148,59 @@ De nombreux rapports intégrés sont fournis avec System Center Configuration Ma
 |**Clients avec détails des clients sains ayant échoué**|Affiche des détails sur les clients pour lesquels la vérification de l'intégrité a échoué pour un regroupement spécifié.|  
 |**Détails des clients inactifs**|Affiche la liste détaillée des clients inactifs pour un regroupement donné.|  
 
-### <a name="company-resource-access"></a>Accès aux ressources d'entreprise  
+
+
+## <a name="company-resource-access"></a>Accès aux ressources d'entreprise  
 
 |Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Historique d'émission des certificats**|Affiche l'historique des certificats émis par le point d'enregistrement de certificat pour les utilisateurs et périphériques pendant la plage de dates spécifiée.|  
+|**Historique d'émission des certificats**|Affiche l’historique des certificats émis par le point d’enregistrement de certificat pour les utilisateurs et appareils pendant la plage de dates spécifiée.|  
 |**Liste de biens par état d'émission de certificat**|Affiche les appareils ou utilisateurs qui sont dans un état d'émission de certificat spécifié à la suite de l'évaluation d'un profil de certificat spécifié.|  
 |**Liste de biens dont la date d'expiration des certificats approche**|Affiche les appareils ou utilisateurs qui ont des certificats qui expirent à la date spécifiée ou avant.|  
 
-### <a name="compliance-and-settings-management"></a>Gestion de la conformité et des paramètres  
+
+
+## <a name="compliance-and-settings-management"></a>Gestion de la conformité et des paramètres  
 
 |Nom du rapport|Description|  
 |-----------------|-----------------|  
 |**Historique des compatibilités d'une ligne de base de configuration**|Affiche l'historique des modifications apportées aux compatibilités d'une ligne de base de configuration pendant la plage de dates spécifiée.|  
 |**Historique des compatibilités d'un élément de configuration**|Affiche l'historique des modifications apportées aux compatibilités d'un élément de configuration pendant la plage de dates spécifiée.|  
-|**Détails des règles de compatibilité des éléments de configuration dans la ligne de base de configuration d'un composant**|Affiche des informations sur les règles évaluées comme compatibles pour un élément de configuration spécifié pour un périphérique ou un utilisateur spécifié.|  
-|**Détails des règles en conflit pour les éléments de configuration de la ligne de base de configuration d'un composant**|Affiche des informations sur les règles d'un élément de configuration qui a été déployé vers un utilisateur ou un périphérique spécifié en conflit avec d'autres règles contenues dans le même ou dans un autre élément de configuration déployé.|  
+|**Conformité de l’accès conditionnel pour l’utilisateur**|Affiche la conformité de l’accès conditionnel détaillée pour un utilisateur spécifique.|
+|**Rapport de conformité de l’accès conditionnel**|Rapport de conformité de l’accès conditionnel pour chaque stratégie de conformité ciblée.|
+|**Détails des règles de compatibilité des éléments de configuration dans la ligne de base de configuration d'un composant**|Affiche des informations sur les règles évaluées comme compatibles pour un élément de configuration spécifié pour un appareil ou un utilisateur spécifié.|  
+|**Détails des règles en conflit pour les éléments de configuration de la ligne de base de configuration d'un composant**|Affiche des informations sur les règles d’un élément de configuration déployé en conflit avec d’autres règles. Les autres règles peuvent être contenues dans le même élément de configuration déployé ou dans un autre.|  
 |**Détails des erreurs des éléments de configuration dans la ligne de base de configuration d'un composant**|Affiche des informations sur les erreurs générées par un élément de configuration spécifié pour un utilisateur ou un périphérique spécifié.|  
 |**Détails des règles de non-compatibilité des éléments de configuration dans la ligne de base de configuration d'un composant**|Affiche des informations sur les règles évaluées comme non compatibles pour un élément de configuration spécifié, pour un périphérique ou un utilisateur spécifié.|  
 |**Détails des règles corrigées des éléments de configuration dans la ligne de base de configuration d'un composant**|Affiche des informations sur les règles corrigées par un élément de configuration spécifié pour un utilisateur ou un périphérique spécifié.|  
-|**Liste des composants par état de compatibilité pour un élément de configuration d'une ligne de base de configuration**|Affiche les périphériques ou utilisateurs d'un état de compatibilité spécifié selon l'évaluation d'un élément de configuration spécifié.|  
 |**Liste des composants par état de compatibilité d'une ligne de base de configuration**|Affiche les périphériques ou utilisateurs d'un état de compatibilité spécifié selon l'évaluation d'une ligne de base de configuration spécifié.|  
-|**Liste des règles en conflit avec la règle spécifique d'un composant**|Affiche la liste des règles qui sont en conflit avec une règle spécifiée pour un élément de configuration déployé sur un périphérique spécifié.|  
+|**Liste des composants par état de compatibilité pour un élément de configuration d'une ligne de base de configuration**|Affiche les périphériques ou utilisateurs d'un état de compatibilité spécifié selon l'évaluation d'un élément de configuration spécifié.|  
+|**Liste d'applications et de périphériques non conformes pour un utilisateur spécifié**|Affiche des informations sur les utilisateurs et les périphériques qui ont installé des applications non conformes avec une stratégie que vous avez spécifiée.|  
+|**Liste des règles en conflit avec la règle spécifique d'un composant**|Affiche une liste de règles qui sont en conflit avec une règle spécifiée pour un élément de configuration déployé.|  
 |**Liste des composants inconnus d'une ligne de base de configuration**|Affiche la liste des périphériques ou utilisateurs qui n'ont pas encore renvoyé de données de compatibilité pour une ligne de base de configuration spécifiée.|  
 |**Liste des composants inconnus d'un élément de configuration**|Affiche la liste des périphériques ou utilisateurs qui n'ont pas encore renvoyé de données de compatibilité pour un élément de configuration spécifié.|  
-|**Résumé des règles et des erreurs des éléments de configuration dans une ligne de base de configuration d'un composant**|Affiche la synthèse de l'état de compatibilité des règles et toutes les erreurs de réglage pour un élément de configuration spécifié déployé sur un périphérique ou un utilisateur spécifié.|  
+|**Résumé des règles et des erreurs des éléments de configuration dans une ligne de base de configuration d'un composant**|Affiche une synthèse de l’état de compatibilité des règles et toutes les erreurs de réglage pour un élément de configuration spécifié. L’élément de configuration doit être déployé sur un appareil ou utilisateur.|  
 |**Résumé de conformité par ligne de base de configuration**|Affiche le résumé de la compatibilité générale des lignes de base de configuration déployées dans la hiérarchie.|  
 |**Résumé de compatibilité par élément de configuration pour une ligne de base de configuration**|Affiche le résumé de la compatibilité des éléments de configuration dans une ligne de base de configuration spécifiée.|  
 |**Résumé de la conformité par stratégies de configuration**|Affiche le résumé de la conformité des stratégies de configuration.|  
-|**Résumé de la compatibilité de la ligne de base de configuration d'un regroupement**|Affiche le résumé de la compatibilité générale d'une ligne de base de configuration spécifiée déployée vers un regroupement spécifié.|  
-|**Liste d'applications et de périphériques non conformes pour un utilisateur spécifié**|Affiche des informations sur les utilisateurs et les périphériques qui ont installé des applications non conformes avec une stratégie que vous avez spécifiée.|  
+|**Résumé de la compatibilité de la ligne de base de configuration d'un regroupement**|Affiche une synthèse de la compatibilité générale d’une base de référence de configuration spécifiée. L’élément de configuration doit être déployé sur le regroupement spécifié.|  
 |**Résumé des utilisateurs ayant des applications non conformes**|Affiche des informations sur les utilisateurs qui ont installé des applications non conformes avec une stratégie que vous avez spécifiée.|  
 |**Acceptation des conditions générales**|Affiche les éléments des conditions générales et la version que chaque utilisateur a acceptés.|  
 
-### <a name="device-management"></a>Gestion des appareils  
+
+
+## <a name="device-management"></a>Gestion des appareils  
 
 |Nom du rapport|Description|  
 |-----------------|-----------------|  
+|**Tous les appareils mobiles de l’entreprise**|Affiche tous les appareils mobiles de l’entreprise.|
 |**Tous les clients de périphériques mobiles**|Affiche des informations sur tous les clients d’appareils mobiles. Les appareils qui sont gérés par le connecteur Exchange Server ne sont pas inclus.|  
 |**Problèmes de certificat sur les périphériques mobiles gérés par le client Configuration Manager pour Windows CE et qui ne sont pas sains**|Affiche des informations détaillées sur les problèmes de certificat sur les appareils mobiles gérés par le client Configuration Manager pour Windows CE.|  
 |**Échecs de déploiement du client pour les périphériques mobiles gérés par le client Configuration Manager pour Windows CE**|Affiche des informations détaillées sur les échecs de déploiement pour les appareils mobiles gérés par le client Configuration Manager pour Windows CE.|  
 |**Détails sur l'état de déploiement du client pour les périphériques mobiles gérés par le client Configuration Manager pour Windows CE**|Affiche des informations sur l’état de déploiement pour les appareils mobiles gérés par le client Configuration Manager pour Windows CE.|  
 |**Déploiements réussis du client pour les périphériques mobiles gérés par le client Configuration Manager pour Windows CE**|Affiche des informations détaillées sur la réussite du déploiement pour les appareils mobiles gérés par le client Configuration Manager pour Windows CE.|  
 |**Problèmes de communication sur les périphériques mobiles gérés par le client Configuration Manager pour Windows CE et qui ne sont pas sains**|Ce rapport contient des informations détaillées sur les problèmes de communication sur les appareils mobiles gérés par le client Configuration Manager pour Windows CE.|  
-|**État de compatibilité pour les périphériques mobiles gérés par le connecteur du serveur Exchange Server**|Affiche une synthèse de l'état de compatibilité avec la stratégie de boîte aux lettres Exchange ActiveSync par défaut pour les appareils mobiles gérés par le connecteur du serveur Exchange Server.|  
+|**État de conformité de la stratégie de boîte aux lettres ActiveSync par défaut pour les appareils mobiles gérés par le connecteur du serveur Exchange Server**|Affiche une synthèse de l’état de compatibilité avec la stratégie de boîte aux lettres Exchange ActiveSync par défaut pour les appareils mobiles gérés par le connecteur du serveur Exchange Server.|  
 |**Nombre de périphériques mobiles par configurations d'affichage**|Ce rapport affiche le nombre d’appareils mobiles par paramètres d'affichage.|  
 |**Nombre de périphériques mobiles par système d'exploitation**|Affiche le nombre d’appareils mobiles par système d'exploitation.|  
 |**Nombre de périphériques mobiles par mémoire programme**|Affiche le nombre d’appareils mobiles par mémoire programme.|  
@@ -189,9 +208,10 @@ De nombreux rapports intégrés sont fournis avec System Center Configuration Ma
 |**Informations d'intégrité détaillées pour les périphériques mobiles gérés par le client Configuration Manager pour Windows CE**|Affiche des informations d'intégrité détaillées pour les appareils mobiles gérés par le client Configuration Manager pour Windows CE.|  
 |**Récapitulatif de l'intégrité pour les périphériques mobiles gérés par le client Configuration Manager pour Windows CE**|Affiche des informations de synthèse de l'intégrité pour les appareils mobiles gérés par le client Configuration Manager pour Windows CE.|  
 |**Périphériques mobiles inactifs qui sont gérés par le connecteur du serveur Exchange Server**|Affiche les appareils mobiles qui sont gérés par le connecteur du serveur Exchange Server et qui ne se sont pas connectés à Exchange Server depuis un nombre de jours spécifié.|  
-|**Liste des périphériques inscrits par utilisateur dans Windows Intune**|Affiche tous les appareils qu’un utilisateur a inscrits dans Microsoft Intune.|  
 |**Liste des appareils par état d'accès conditionnel**|Affiche des informations sur la conformité actuelle et sur l'état d'accès conditionnel des appareils. Vous pouvez utiliser ce rapport avec les stratégies d'accès conditionnel. Ce rapport est disponible depuis la version 1602 de Configuration Manager.|  
-|**Conformité de l’accès conditionnel pour l’utilisateur**|Fournit des informations détaillées sur la compatibilité de l’accès conditionnel pour un utilisateur spécifique, dont le nom et la plateforme du périphérique, sa conformité et la date de sa dernière évaluation. Ce rapport est disponible depuis la version 1602 de Configuration Manager.|  
+|**Liste des appareils par état d’attestation d’intégrité**|Affiche une liste d’appareils avec des attributs signalés par le service d’attestation d’intégrité|
+|**Liste des périphériques inscrits par utilisateur dans Windows Intune**|Affiche tous les appareils qu’un utilisateur a inscrits dans Microsoft Intune.|  
+|**Liste des appareils d’une catégorie spécifique**|Affiche des informations sur tous les appareils d’une catégorie spécifique.|
 |**Problèmes de client local sur les périphériques mobiles gérés par le client Configuration Manager pour Windows CE et qui ne sont pas sains**|Ce rapport contient des informations détaillées sur les problèmes de client local sur les appareils mobiles gérés par le client Configuration Manager pour Windows CE.|  
 |**Informations sur le client de périphérique mobile**|Affiche des informations sur les appareils mobiles sur lesquels le client Gestionnaire de configuration est installé. Vous pouvez utiliser ce rapport pour vérifier quels appareils mobiles peuvent communiquer correctement avec un point de gestion.|  
 |**Détails de la compatibilité des périphériques mobiles pour le connecteur du serveur Exchange Server**|Affiche les détails de compatibilité de l’appareil mobile pour une stratégie de boîte aux lettres Exchange ActiveSync par défaut qui est configurée à l'aide du connecteur du serveur Exchange Server.|  
@@ -200,18 +220,20 @@ De nombreux rapports intégrés sont fournis avec System Center Configuration Ma
 |**Périphériques mobiles non gérés car inscrits mais non affectés à un site**|Affiche les appareils mobiles qui ont été inscrits dans Configuration Manager et qui possèdent un certificat, mais qui n’ont pas terminé l’attribution de site.|  
 |**Périphériques mobiles et quantité spécifique de mémoire programme libre**|Affiche tous les appareils mobiles ainsi que la quantité spécifiée de mémoire programme libre.|  
 |**Périphériques mobiles avec une quantité spécifique de mémoire de stockage amovible libre**|Affiche tous les appareils mobiles ainsi que la quantité spécifiée de mémoire amovible libre.|  
-|**Périphériques mobiles rencontrant des problèmes de renouvellement de certificat**|Affiche les appareils mobiles inscrits qui n'ont pas réussi à renouveler leur certificat. Si le certificat n'est pas renouvelé avant la période d'expiration, les appareils mobiles ne sont pas gérés.|  
+|**Périphériques mobiles rencontrant des problèmes de renouvellement de certificat**|Affiche les appareils mobiles inscrits qui n'ont pas réussi à renouveler leur certificat. Si vous ne renouvelez pas le certificat avant la période d’expiration, les appareils mobiles ne sont plus gérés.|  
 |**Périphériques mobiles avec une mémoire programme faible (inférieure à l'espace libre spécifié en Ko)**|Affiche les appareils mobiles pour lesquels la mémoire programme est inférieure à une taille spécifiée en Ko.|  
 |**Périphériques mobiles avec une mémoire de stockage amovible faible (inférieure à l'espace libre spécifié en Ko)**|Affiche les appareils mobiles pour lesquels la mémoire de stockage amovible est inférieure à une taille spécifiée en Ko.|  
-|**Nombre de périphériques inscrits par utilisateur dans Windows Intune**|Ce rapport affiche les utilisateurs activés pour l'abonnement Microsoft Intune et le nombre total d'appareils inscrits pour chaque utilisateur.|  
-|**Demande de nettoyage en attente pour des périphériques mobiles**|Affiche les demandes de nettoyage en attente pour des appareils mobiles.|  
+|**Nombre d’appareils inscrits par utilisateur dans Microsoft Intune**|Affiche les utilisateurs activés pour l’abonnement Microsoft Intune. Il indique également le nombre total d’appareils inscrits pour chaque utilisateur.|  
+|**Demandes de mise hors service et de réinitialisation en attente pour les appareils mobiles**|Affiche les demandes de nettoyage en attente pour des appareils mobiles.|  
 |**Périphériques mobiles récemment inscrits et affectés**|Ce rapport affiche les appareils mobiles récemment inscrits dans Configuration Manager et affectés avec succès à un site.|  
 |**Périphériques mobiles récemment nettoyés**|Affiche la liste des appareils mobiles récemment nettoyés avec succès.|  
 |**Synthèse des paramètres pour les périphériques mobiles gérés par le connecteur du serveur Exchange Server**|Affiche le nombre d’appareils mobiles appliquant les paramètres pour chaque stratégie de boîte aux lettres Exchange ActiveSync par défaut gérée par le connecteur du serveur Exchange Server.|  
 |**État détaillé de clés de chargement de version test Windows RT**|Affiche des informations d'état détaillées pour une clé de chargement de version test Windows RT spécifiée.|  
 |**Résumé des clés de chargement de version test Windows RT**|Affiche l'état des clés de chargement de version test Windows RT.|  
 
-### <a name="driver-management"></a>Gestion des pilotes  
+
+
+## <a name="driver-management"></a>Gestion des pilotes  
 
 |Nom du rapport|Description|  
 |-----------------|-----------------|  
@@ -229,7 +251,9 @@ De nombreux rapports intégrés sont fournis avec System Center Configuration Ma
 |**Pilotes dont l'installation a échoué sur un ordinateur spécifique**|Affiche les pilotes dont l'installation a échoué sur un ordinateur spécifique.|  
 |**Plateformes prises en charge pour un pilote spécifique**|Affiche les plateformes prises en charge pour un pilote spécifié.|  
 
-### <a name="endpoint-protection"></a>Endpoint Protection  
+
+
+## <a name="endpoint-protection"></a>Endpoint Protection  
 
 |Nom du rapport|Description|  
 |-----------------|-----------------|  
@@ -240,7 +264,9 @@ De nombreux rapports intégrés sont fournis avec System Center Configuration Ma
 |**Utilisateurs récurrents par menace**|Affiche la liste des utilisateurs qui ont le plus grand nombre de menaces détectées.|  
 |**Liste des menaces utilisateur**|Affiche la liste des menaces trouvées pour un compte d'utilisateur spécifique.|  
 
-### <a name="hardware---cd-rom"></a>Matériel - CD-ROM  
+
+
+## <a name="hardware---cd-rom"></a>Matériel - CD-ROM  
 
 |Nom du rapport|Description|  
 |-----------------|-----------------|  
@@ -249,7 +275,9 @@ De nombreux rapports intégrés sont fournis avec System Center Configuration Ma
 |**Compter les lecteurs de CD-ROM par fabricant**|Affiche le nombre de lecteurs de CD-ROM inventoriés par fabricant.|  
 |**Historique - Historique CD-ROM pour un ordinateur spécifique**|Affiche l'historique de l'inventaire des lecteurs de CD-ROM sur un ordinateur spécifié.|  
 
-### <a name="hardware---disk"></a>Matériel - Disque  
+
+
+## <a name="hardware---disk"></a>Matériel - Disque  
 
 |Nom du rapport|Description|  
 |-----------------|-----------------|  
@@ -262,7 +290,9 @@ De nombreux rapports intégrés sont fournis avec System Center Configuration Ma
 |**Informations de disques concernant un ordinateur spécifique - Disques physiques**|Affiche des informations de synthèse sur les disques physiques d'un ordinateur spécifié.|  
 |**Historique - Historique de l'espace disque logique pour un ordinateur spécifique**|Affiche l'historique de l'inventaire des lecteurs de disques logiques sur un ordinateur spécifié.|  
 
-### <a name="hardware---general"></a>Matériel – Général  
+
+
+## <a name="hardware---general"></a>Matériel – Général  
 
 |Nom du rapport|Description|  
 |-----------------|-----------------|  
@@ -270,8 +300,11 @@ De nombreux rapports intégrés sont fournis avec System Center Configuration Ma
 |**Ordinateurs dans un groupe de travail ou un domaine spécifique**|Affiche la liste des ordinateurs inclus dans un groupe de travail ou un domaine spécifié.|  
 |**Classes d'inventaire affectées à un regroupement spécifique**|Affiche les classes d'inventaire affectées à un regroupement spécifié.|  
 |**Classes d'inventaire activées sur un ordinateur spécifique**|Affiche les classes d'inventaire activées sur un ordinateur spécifié.|  
+|**Informations d’appareil Windows AutoPilot**|Affiche les informations de l’appareil client nécessaires pour l’inscription Windows AutoPilot.|
 
-### <a name="hardware---memory"></a>Matériel - Mémoire  
+
+
+## <a name="hardware---memory"></a>Matériel - Mémoire  
 
 |Nom du rapport|Description|  
 |-----------------|-----------------|  
@@ -281,7 +314,9 @@ De nombreux rapports intégrés sont fournis avec System Center Configuration Ma
 |**Compter les configurations de mémoire**|Affiche le nombre d'ordinateurs inventoriés par quantité de mémoire vive.|  
 |**Informations de mémoire pour un ordinateur spécifique**|Affiche des informations de synthèse sur la mémoire d'un ordinateur spécifié.|  
 
-### <a name="hardware---modem"></a>Matériel - Modem  
+
+
+## <a name="hardware---modem"></a>Matériel - Modem  
 
 |Nom du rapport|Description|  
 |-----------------|-----------------|  
@@ -289,7 +324,9 @@ De nombreux rapports intégrés sont fournis avec System Center Configuration Ma
 |**Compter les modems par fabricant**|Affiche le nombre de modems inventoriés pour chaque fabricant.|  
 |**Informations de modem pour un ordinateur spécifique**|Affiche des informations de synthèse sur le modem d'un ordinateur spécifié.|  
 
-### <a name="hardware---network-adapter"></a>Matériel - Carte réseau  
+
+
+## <a name="hardware---network-adapter"></a>Matériel - Carte réseau  
 
 |Nom du rapport|Description|  
 |-----------------|-----------------|  
@@ -297,7 +334,9 @@ De nombreux rapports intégrés sont fournis avec System Center Configuration Ma
 |**Compter les cartes réseau par type**|Affiche le nombre de cartes réseau inventoriées par type.|  
 |**Informations de carte réseau pour un ordinateur spécifique**|Affiche des informations sur les cartes réseau installées sur un ordinateur spécifié.|  
 
-### <a name="hardware---processor"></a>Matériel - Processeur  
+
+
+## <a name="hardware---processor"></a>Matériel - Processeur  
 
 |Nom du rapport|Description|  
 |-----------------|-----------------|  
@@ -307,7 +346,9 @@ De nombreux rapports intégrés sont fournis avec System Center Configuration Ma
 |**Compter les vitesses de processeur**|Affiche le nombre d'ordinateurs inventoriés par fréquence de processeur.|  
 |**Informations de processeur pour un ordinateur spécifique**|Affiche des informations sur les processeurs installés sur un ordinateur spécifié.|  
 
-### <a name="hardware---scsi"></a>Matériel - SCSI  
+
+
+## <a name="hardware---scsi"></a>Matériel - SCSI  
 
 |Nom du rapport|Description|  
 |-----------------|-----------------|  
@@ -315,7 +356,17 @@ De nombreux rapports intégrés sont fournis avec System Center Configuration Ma
 |**Compter les types de contrôleurs SCSI**|Affiche le nombre de contrôleurs SCSI inventoriés par type de carte.|  
 |**Informations de cartes SCSI pour un ordinateur spécifique**|Affiche des informations sur les cartes SCSI installées sur un ordinateur spécifié.|  
 
-### <a name="hardware---sound-card"></a>Matériel - Carte audio  
+
+
+## <a name="hardware---security"></a>Matériel - Sécurité
+
+|Nom du rapport|Description|  
+|-----------------|-----------------|  
+|**Détails des états du microprogramme sur les appareils**|Affiche les détails des états de l’UEFI, de SecureBoot et du TPM|  
+
+
+
+## <a name="hardware---sound-card"></a>Matériel - Carte audio  
 
 |Nom du rapport|Description|  
 |-----------------|-----------------|  
@@ -323,15 +374,19 @@ De nombreux rapports intégrés sont fournis avec System Center Configuration Ma
 |**Compter les cartes audio**|Affiche le nombre d'ordinateurs inventoriés par type de carte audio.|  
 |**Informations de cartes son pour un ordinateur spécifique**|Affiche des informations de synthèse sur les cartes son d'un ordinateur spécifié.|  
 
-### <a name="hardware---video-card"></a>Matériel – Carte vidéo  
+
+
+## <a name="hardware---video-card"></a>Matériel – Carte vidéo  
 
 |Nom du rapport|Description|  
 |-----------------|-----------------|  
 |**Ordinateurs équipés d'une carte vidéo spécifique**|Affiche la liste des ordinateurs dotés d'une carte vidéo spécifiée.|  
-|**Compter les cartes vidéo par type**|Affiche la liste de toutes les cartes vidéo installées sur les ordinateurs, ainsi que le nombre de chaque type de carte vidéo.|  
+|**Compter les cartes vidéo par type**|Affiche une liste de toutes les cartes vidéo installées sur les ordinateurs. Il montre également le nombre de chaque type de carte vidéo.|  
 |**Informations de cartes graphiques pour un ordinateur spécifique**|Affiche des informations de synthèse sur les cartes vidéo installées sur un ordinateur spécifié.|  
 
-### <a name="migration"></a>Migration  
+
+
+## <a name="migration"></a>Migration  
 
 |Nom du rapport|Description|  
 |-----------------|-----------------|  
@@ -341,7 +396,9 @@ De nombreux rapports intégrés sont fournis avec System Center Configuration Ma
 |**Tâches de migration**|Ce rapport affiche la liste des tâches de migration.|  
 |**Objets en échec de migration**|Affiche la liste des objets qui n'a pas pu migrer pendant la dernière tentative.|  
 
-### <a name="network"></a>Réseau  
+
+
+## <a name="network"></a>Réseau  
 
 |Nom du rapport|Description|  
 |-----------------|-----------------|  
@@ -352,25 +409,9 @@ De nombreux rapports intégrés sont fournis avec System Center Configuration Ma
 |**IP - Informations pour une adresse IP spécifique**|Affiche des informations de synthèse sur une adresse IP spécifiée.|  
 |**MAC - Ordinateurs pour une adresse MAC spécifique**|Affiche le nom et l'adresse IP des ordinateurs dont l'adresse MAC est celle spécifiée.|  
 
-### <a name="network-access-protection"></a>protection d'accès réseau (NAP),  
 
-|Nom du rapport|Description|  
-|-----------------|-----------------|  
-|**Comparaison des mises à jour de logiciels installées par les déploiements de mises à jour et la mise à jour de la protection d'accès réseau (NAP)**|Affiche une synthèse comparative des mises à jour de logiciels installées par les déploiements de mises à jour et la mise à jour de la protection d'accès réseau (NAP).|  
-|**Fréquence à laquelle un ordinateur a fait l'objet d'une mise à jour au cours d'une période donnée**|Ce rapport affiche la fréquence à laquelle un ordinateur a été mis à jour pendant une période spécifiée.|  
-|**Liste des ordinateurs ayant installé une mise à jour spécifique par processus de mise à jour au cours d'une période donnée**|Affiche la liste des ordinateurs sur lesquels une mise à jour de logiciel spécifiée a été installée par le biais d'un processus de mise à jour au cours d'une période donnée (exprimée en jours).|  
-|**Liste des ordinateurs susceptibles de ne pas être conformes d'après les mises à jour logicielles sélectionnées**|Affiche chaque ordinateur susceptible de ne pas être conforme d'après les mises à jour de logiciels sélectionnées.|  
-|**Liste des ordinateurs sur lesquels le service NAP n'a pas pu être détecté**|Affiche la liste des ordinateurs sur lesquels le service NAP n'a pas pu être détecté.|  
-|**Listes des ordinateurs compatibles NAP**|Affiche la liste des ordinateurs sur lesquels le service NAP n'est pas en cours d'exécution ou sur lesquels son état est inconnu.|  
-|**Liste des stratégies de protection d'accès réseau (NAP)**|Affiche les stratégies de protection d'accès réseau (NAP) avec leurs dates d'effet.|  
-|**Liste des ordinateurs non conformes mis à jour depuis le dernier intervalle d'interrogation**|Affiche la liste des ordinateurs non conformes mis à jour au cours de leur dernière période d'évaluation connue.|  
-|**Liste des ordinateurs non conformes mis à jour au cours d'une période donnée**|Affiche la liste des ordinateurs non conformes mis à jour au cours d'une période donnée.|  
-|**Liste des échecs de mise à jour pour une période donnée**|Affiche la liste des échecs de mise à jour pendant un nombre de jours spécifié.|  
-|**Liste des mises à jour de logiciels installées par mise à jour**|Affiche les mises à jour de logiciels installées par mise à jour pendant une période spécifiée.|  
-|**Récapitulatif des ordinateurs non conformes mis à jour depuis le dernier intervalle d'interrogation**|Affiche le récapitulatif des ordinateurs non conformes mis à jour depuis le dernier intervalle d'interrogation.|  
-|**Récapitulatif des ordinateurs non conformes mis à jour au cours d'une période donnée**|Affiche le récapitulatif des ordinateurs non conformes mis à jour au cours d'une période donnée.|  
 
-### <a name="operating-system"></a>Système d'exploitation  
+## <a name="operating-system"></a>Système d'exploitation  
 
 |Nom du rapport|Description|  
 |-----------------|-----------------|  
@@ -382,24 +423,19 @@ De nombreux rapports intégrés sont fournis avec System Center Configuration Ma
 |**Services - Ordinateurs exécutant un service spécifique**|Affiche la liste des ordinateurs qui exécutent un service spécifié.|  
 |**Services - Ordinateurs exécutant le service d'accès à distance**|Affiche la liste des ordinateurs qui exécutent le serveur d'accès à distance.|  
 |**Services - Informations de services concernant un ordinateur spécifique**|Affiche des informations de synthèse sur les services d'un ordinateur spécifié.|  
+|**Détails de la maintenance de Windows 10 pour un regroupement spécifique**|Affiche des informations générales sur la maintenance de Windows 10 pour un regroupement spécifique.|
 |**Ordinateurs Windows Server**|Affiche la liste des ordinateurs qui exécutent des systèmes d'exploitation Windows Server.|  
 
-### <a name="out-of-band-management"></a>Gestion hors bande  
+
+
+## <a name="power-management"></a>Gestion de l'alimentation  
 
 |Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Ordinateurs équipés de contrôleurs de gestion hors bande**|Affiche la liste des ordinateurs équipés de contrôleurs de gestion hors bande.|  
-|**Activité de la console de gestion hors bande**|Affiche la liste des messages d'état qui identifient l'activité de la console de gestion hors bande.|  
-|**État de la mise en service de la gestion hors bande des clients**|Affiche la liste des ordinateurs qui ont été configurés pour la gestion hors bande.|  
-
-### <a name="power-management"></a>Gestion de l'alimentation  
-
-|Nom du rapport|Description|  
-|-----------------|-----------------|  
-|**Gestion de l'alimentation - Activité de l'ordinateur**|Affiche un graphique illustrant l'activité du moniteur, de l'ordinateur et de l'utilisateur pour un regroupement spécifique au cours d'une période donnée.|  
-|**Gestion de l'alimentation - Activité par ordinateur**|Affiche un graphique illustrant l'activité du moniteur, de l'ordinateur et de l'utilisateur pour un ordinateur spécifié à une date spécifiée.|  
+|**Gestion de l'alimentation - Activité de l'ordinateur**|Affiche un graphique illustrant l’activité du moniteur, de l’ordinateur et de l’utilisateur pour un regroupement spécifique au cours d’une période donnée.|  
+|**Gestion de l'alimentation - Activité par ordinateur**|Affiche un graphique illustrant l’activité du moniteur, de l’ordinateur et de l’utilisateur pour un ordinateur spécifié à une date spécifiée.|  
 |**Gestion de l'alimentation - Détails de l'activité de l'ordinateur**|Affiche la liste des fonctions de veille et de sortie de veille pour les ordinateurs d'un regroupement spécifié à une heure et une date données.|  
-|**Gestion de l'alimentation - Détails de l'ordinateur**|Affiche des informations détaillées sur les fonctions de gestion de l'alimentation, les paramètres d'alimentation et les modes de gestion de l'alimentation appliqués à un ordinateur spécifié.|  
+|**Gestion de l'alimentation - Détails de l'ordinateur**|Affiche des informations détaillées sur les fonctions de gestion de l’alimentation, les paramètres d’alimentation et les modes de gestion de l’alimentation appliqués à un ordinateur spécifié.|  
 |**Gestion de l'alimentation - Pas de rapport détaillé pour l'ordinateur**|Affiche la liste des ordinateurs ne rendant compte d'aucune activité d'alimentation pour une heure et une date données.|  
 |**Gestion de l'alimentation – Ordinateurs exclus**|Affiche la liste des ordinateurs exclus du mode de gestion de l'alimentation.|  
 |**Gestion de l'alimentation - Ordinateurs avec plusieurs modes de gestion de l'alimentation**|Affiche la liste des ordinateurs auxquels plusieurs paramètres d'alimentation en conflit sont appliqués.|  
@@ -410,19 +446,21 @@ De nombreux rapports intégrés sont fournis avec System Center Configuration Ma
 |**Gestion de l'alimentation - Incidence sur l'environnement**|Affiche un graphique montrant les émissions de dioxyde de carbone (CO2) générées par un regroupement spécifié sur une période de temps précise.|  
 |**Gestion de l'alimentation - Incidence journalière sur l'environnement**|Affiche un graphique montrant les émissions de CO2 générées par un regroupement spécifié au cours des 31 derniers jours.|  
 |**Gestion de l'alimentation - Détails de l'ordinateur non mis en veille**|Affiche des informations détaillées sur les ordinateurs qui ne se sont pas mis en veille ou veille prolongée sur une période donnée.|  
-|**Gestion de l'alimentation - Rapport sur la non-mise en veille**|Affiche la liste des causes courantes empêchant les ordinateurs de se mettre en veille ou veille prolongée ainsi que le nombre d'ordinateurs affectés par chaque cause sur une période donnée.|  
+|**Gestion de l'alimentation - Rapport sur la non-mise en veille**|Affiche une liste de causes courantes empêchant les ordinateurs de se mettre en veille ou veille prolongée. Il indique également le nombre d’ordinateurs affectés par chaque cause sur une période donnée.|  
 |**Gestion de l'alimentation - Fonctions de gestion de l'alimentation**|Affiche les fonctions de gestion de l'alimentation des ordinateurs inclus dans le regroupement spécifié.|  
 |**Gestion de l'alimentation - Paramètres du mode de gestion de l'alimentation**|Affiche la liste globale des paramètres d'alimentation utilisés par les ordinateurs d'un regroupement spécifié.|  
 |**Gestion de l'alimentation - Détails des paramètres du mode de gestion de l'alimentation**|Permet d’afficher d’autres informations sur les ordinateurs qui ont été spécifiés dans le rapport **Gestion de l’alimentation – Paramètres du mode de gestion de l’alimentation**.|  
 
-### <a name="replication-traffic"></a>Trafic de réplication  
+
+
+## <a name="replication-traffic"></a>Trafic de réplication  
 
 |Nom du rapport|Description|  
 |-----------------|-----------------|  
 |**Trafic global de réplication des données par lien (courbes)**|Affiche le trafic total global de réplication des données sur un lien spécifié pendant un nombre de jours spécifiés.|  
 |**Trafic global de réplication des données par lien (secteurs)**|Affiche le trafic total global de réplication des données sur un lien spécifié pendant un nombre de jours spécifiés.|  
 |**Trafic de réplication par hiérarchie en fonction du lien**|Affiche le trafic de réplication total pour chaque lien de la hiérarchie pendant un nombre de jours spécifié.|  
-|**Trafic par lien des dix principaux groupes de réplication par hiérarchie (secteurs)**|Affiche le trafic de réplication pour les dix principaux groupes de réplication sur la totalité de la hiérarchie identifiée par un lien.|  
+|**Trafic par lien des dix principaux groupes de réplication par hiérarchie (secteurs)**|Affiche le trafic de réplication pour les 10 principaux groupes de réplication sur la totalité de la hiérarchie identifiée par un lien.|  
 |**Trafic de réplication des liens**|Affiche la totalité du trafic de réplication pour toutes les données pendant un nombre de jours spécifié.|  
 |**Trafic du groupe de réplication par lien**|Affiche le trafic réseau du groupe de réplication via un lien spécifié de réplication de bases de données pendant un nombre de jours spécifié.|  
 |**Trafic de réplication de données de site par lien (courbes)**|Affiche le trafic total de réplication de données de site sur un lien spécifié pendant un nombre de jours spécifié.|  
@@ -430,7 +468,9 @@ De nombreux rapports intégrés sont fournis avec System Center Configuration Ma
 |**Total du trafic de réplication par hiérarchie (courbes)**|Affiche la réplication de données globales et de site consolidées par hiérarchie pour chaque direction de chaque lien pendant un nombre de jours spécifié.|  
 |**Total du trafic de réplication par hiérarchie (secteurs)**|Affiche la réplication de données globales et de site consolidées par hiérarchie pour chaque direction de chaque lien pendant un nombre de jours spécifié.|  
 
-### <a name="site---client-information"></a>Site - Informations client  
+
+
+## <a name="site---client-information"></a>Site - Informations client  
 
 |Nom du rapport|Description|  
 |-----------------|-----------------|  
@@ -441,35 +481,39 @@ De nombreux rapports intégrés sont fournis avec System Center Configuration Ma
 |**Rapport d'échec du déploiement des clients**|Affiche des informations détaillées sur les clients dont le déploiement a échoué.|  
 |**Détails de l'état du déploiement des clients**|Affiche des informations de synthèse sur l'état des installations des clients.|  
 |**Rapport de réussite du déploiement des clients**|Affiche des informations détaillées sur les clients dont le déploiement a réussi.|  
-|**Clients non compatibles avec une communication HTTPS**|Affiche des informations détaillées sur chaque client sur site exécutant l'outil HTTPS Communication Readiness et signalé comme étant dans l'impossibilité de communiquer via HTTPS.|  
-|**Ordinateurs attribués mais non installés pour un site précis**|Affiche la liste des ordinateurs attribués à un site précis mais qui ne rendent pas compte à ce site.|  
+|**Clients non compatibles avec une communication HTTPS**|Affiche des informations détaillées sur chaque client exécutant l’outil HTTPS Communication Readiness et signalé comme étant dans l’impossibilité de communiquer via HTTPS.|  
+|**Ordinateurs attribués mais non installés pour un site précis**|Affiche une liste d’ordinateurs attribués à un site précis, mais qui ne rendent pas compte à ce site.|  
 |**Ordinateurs avec une version spécifique du client Configuration Manager**|Affiche une liste d'ordinateurs exécutant une version spécifique du logiciel client Configuration Manager.|  
 |**Nombre de clients et protocole utilisé pour la communication**|Affiche le résumé des méthodes de communication utilisées par les clients (HTTP ou HTTPS).|  
 |**Nombre de clients affectés et installés pour chaque site**|Affiche le nombre d'ordinateurs attribués et installés pour chaque site. Les clients possédant un emplacement réseau associé à plusieurs sites ne sont considérés comme installés que s'ils sont sous la supervision de ce site.|  
-|**Nombre de clients compatibles avec une communication HTTPS**|Affiche des informations détaillées sur chaque client sur site exécutant l'outil HTTPS Communication Readiness et signalé comme étant dans la possibilité ou l'impossibilité de communiquer via HTTPS.|  
+|**Nombre de clients compatibles avec une communication HTTPS**|Affiche des informations détaillées sur chaque client exécutant l’outil HTTPS Communication Readiness et signalé comme étant en mesure ou non de communiquer via HTTPS.|  
 |**Nombre de clients pour chaque site**|Affiche le nombre de clients de Configuration Manager installés par code de site.|  
 |**Nombre de clients de Configuration Manager par versions de client**|Affiche le nombre d’ordinateurs découverts par la version de client Configuration Manager.|  
-|**Détail des problèmes signalés jusqu'au point d'état de secours pour un regroupement spécifié**|Affiche des informations détaillées pour les problèmes signalés par les clients dans un regroupement spécifié si un point d'état de secours leur a été attribué.|  
-|**Détails des problèmes signalés jusqu'au point d'état de secours pour un site spécifié**|Affiche des informations détaillées sur les problèmes signalés par les clients dans un site spécifié si un point d'état de secours leur a été attribué.|  
-|**Récapitulatif des problèmes signalés jusqu'au point d'état de secours**|Affiche des informations sur tous les problèmes signalés par les clients si un point d'état de secours leur a été attribué.|  
-|**Récapitulatif des problèmes signalés jusqu'au point d'état de secours pour un regroupement spécifique**|Affiche des informations de synthèse pour les problèmes signalés par les clients dans un regroupement spécifié si un point d'état de secours leur a été attribué.|  
+|**Détail des problèmes signalés jusqu'au point d'état de secours pour un regroupement spécifié**|Affiche des informations détaillées pour les problèmes signalés par les clients dans un regroupement spécifié. Un point d’état de secours doit avoir été attribué à ces clients.|  
+|**Détails des problèmes signalés jusqu'au point d'état de secours pour un site spécifié**|Affiche des informations détaillées sur les problèmes signalés par les clients dans un site spécifié. Un point d’état de secours doit avoir été attribué à ces clients.|  
+|**Récapitulatif des problèmes signalés jusqu'au point d'état de secours**|Affiche des informations sur tous les problèmes signalés par les clients. Un point d’état de secours doit avoir été attribué à ces clients.|  
+|**Récapitulatif des problèmes signalés jusqu'au point d'état de secours pour un regroupement spécifique**|Affiche des informations de synthèse pour les problèmes signalés par les clients dans un regroupement spécifié. Un point d’état de secours doit avoir été attribué à ces clients.|  
 
-### <a name="site---discovery-and-inventory-information"></a>Site - Informations de découverte et d'inventaire  
+
+
+## <a name="site---discovery-and-inventory-information"></a>Site - Informations de découverte et d'inventaire  
 
 |Nom du rapport|Description|  
 |-----------------|-----------------|  
 |**Clients qui n'ont pas émis de rapports récemment (pendant le nombre de jours spécifié)**|Affiche la liste des clients qui n'ont pas signalé de données de découverte, d'inventaire matériel ou d'inventaire logiciel pendant un nombre de jours spécifié.|  
-|**Ordinateurs découverts par un site spécifique**|Affiche la liste de tous les ordinateurs découverts par un site spécifié et la date de la dernière découverte.|  
-|**Ordinateurs récemment découverts par une méthode de découverte**|Affiche la liste des ordinateurs qui ont été découverts pendant le nombre de jours spécifié et indique les agents qui les ont découverts. Un même ordinateur peut apparaître plusieurs fois dans la liste s'il a été découvert par plusieurs agents.|  
-|**Ordinateurs non découverts récemment (dans un nombre de jours spécifié)**|Affiche la liste des ordinateurs qui n'ont pas été découverts récemment et indique le nombre de jours depuis leur découverte.|  
-|**Ordinateurs non inventoriés récemment (dans un nombre de jours spécifié)**|Affiche la liste des ordinateurs qui n'ont pas été inventoriés récemment et indique les dates de leur dernier inventaire.|  
+|**Ordinateurs découverts par un site spécifique**|Affiche une liste de tous les ordinateurs découverts par le site spécifié. Il montre également la date de la dernière découverte.|  
+|**Ordinateurs récemment découverts par une méthode de découverte**|Affiche une liste des ordinateurs découverts par le site pendant le nombre de jours spécifié. Il répertorie également les agents qui les ont découverts. Un même ordinateur peut apparaître plusieurs fois dans la liste s’il a été découvert par plusieurs agents.|  
+|**Ordinateurs non découverts récemment (dans un nombre de jours spécifié)**|Affiche une liste des ordinateurs qui n’ont pas été découverts récemment par le site. Il indique également le nombre de jours depuis leur découverte.|  
+|**Ordinateurs non inventoriés récemment (dans un nombre de jours spécifié)**|Affiche une liste des ordinateurs qui n’ont pas été inventoriés récemment par le site. Il indique également les dates des derniers inventaires des ordinateurs par le client.|  
 |**Ordinateurs susceptibles de partager le même identifiant Configuration Manager unique**|Affiche la liste des ordinateurs qui ont modifié leur nom. Un changement de nom est un symptôme possible d’un ordinateur qui partage un identificateur unique Configuration Manager avec un autre ordinateur.|  
 |**Ordinateurs ayant des adresses MAC en double**|Affiche les ordinateurs qui partagent une adresse MAC.|  
 |**Compter les ordinateurs dans les domaines de ressources ou groupes de travail**|Affiche le nombre d'ordinateurs dans chaque domaine de ressources ou groupe de travail.|  
 |**Informations de découverte pour un ordinateur spécifique**|Affiche la liste des agents et des sites qui ont découvert un ordinateur spécifié.|  
 |**Dates d'inventaire pour un ordinateur spécifique**|Affiche la date et l'heure de la dernière exécution de l'inventaire sur un ordinateur spécifié.|  
 
-### <a name="site---general"></a>Site - Général  
+
+
+## <a name="site---general"></a>Site - Général  
 
 |Nom du rapport|Description|  
 |-----------------|-----------------|  
@@ -477,19 +521,23 @@ De nombreux rapports intégrés sont fournis avec System Center Configuration Ma
 |**État du site pour la hiérarchie**|Affiche la liste des sites de la hiérarchie avec leur version et leurs informations d'état.|  
 |**État de la mise à jour Configuration Manager au sein de la hiérarchie**|Affiche des informations sur les mises à jour de sites Configuration Manager pour la hiérarchie.|  
 
-### <a name="site---server-information"></a>Site - Informations sur le serveur  
+
+
+## <a name="site---server-information"></a>Site - Informations sur le serveur  
 
 |Nom du rapport|Description|  
 |-----------------|-----------------|  
 |**Rôles de système de site et serveurs de système de site pour un site spécifique**|Affiche la liste des serveurs et rôles de système de site pour un site spécifié.|  
 
-### <a name="software---companies-and-products"></a>Logiciel - Sociétés et produits  
+
+
+## <a name="software---companies-and-products"></a>Logiciel - Sociétés et produits  
 
 |Nom du rapport|Description|  
 |-----------------|-----------------|  
 |**Tous les produits inventoriés pour un éditeur de logiciels spécifique**|Affiche la liste des produits logiciels inventoriés et de leurs versions pour un éditeur de logiciels spécifié.|  
 |**Tous les éditeurs de logiciels**|Affiche la liste de toutes les entreprises qui éditent les logiciels inventoriés.|  
-|**Toutes les applications Windows**|Affiche le résumé des applications Windows installées, classées par ordre de numéro d’instance selon les critères de recherche entrés pour le nom d’application, l’architecture ou l’éditeur.|  
+|**Toutes les applications Windows**|Affiche une synthèse des applications Windows installées. La recherche est effectuée selon les critères suivants : nom de l’application, architecture ou éditeur.|  
 |**Ordinateurs sur lesquels existe un produit spécifique**|Affiche la liste des ordinateurs sur lesquels un produit spécifié est inventorié, ainsi que les versions de ce produit.|  
 |**Ordinateurs sur lesquels existe un produit et une version spécifiques**|Affiche la liste des ordinateurs sur lesquels une version spécifiée d'un produit est inventoriée.|  
 |**Ordinateurs équipés d'un logiciel spécifique inscrit dans Ajout/Suppression de programmes**|Affiche le résumé de tous les ordinateurs équipés d'un logiciel spécifié inscrit dans Ajout/Suppression de programmes ou Programmes et fonctionnalités.|  
@@ -497,22 +545,27 @@ De nombreux rapports intégrés sont fournis avec System Center Configuration Ma
 |**Compter les produits et versions inventoriés pour un produit spécifique**|Affiche la liste des versions inventoriées d'un produit spécifié, ainsi que le nombre d'ordinateurs sur lesquels chacune est installée.|  
 |**Décompte de toutes les instances de logiciels inscrits avec Ajout/Suppression de programmes**|Affiche le résumé de toutes les instances de logiciels installées et inscrites avec Ajout/Suppression de programmes ou Programmes et fonctionnalités sur des ordinateurs au sein du regroupement spécifié.|  
 |**Décompte des instances d'un logiciel spécifique inscrit avec Ajout/Suppression de programmes**|Affiche le nombre d'instances des packages logiciels spécifiés installés et inscrits dans Ajout/Suppression de programmes ou Programmes et fonctionnalités.|  
+|**Nombre de navigateurs par défaut**|Affiche le nombre de clients ayant spécifié un certain navigateur web par défaut sous Windows. </br>Utilisez la référence suivante pour les valeurs BrowserProgID courantes :</br> - AppXq0fevzme2pys62n3e0fbqa7peapykr8v : Microsoft Edge</br> - IE.HTTP : Microsoft Internet Explorer</br> - ChromeHTML : Google Chrome</br> - OperaStable : Opera Software</br> - FirefoxURL-308046B0AF4A39CB : Mozilla Firefox</br> - Inconnu : le système d’exploitation client ne prend pas en charge la requête, la requête n’a pas été exécutée ou un utilisateur ne s’est pas connecté|
 |**Installations des applications Windows spécifiées**|Ce rapport répertorie tous les ordinateurs dotés d’une application Windows spécifiée.|  
 |**Produits sur un ordinateur spécifique**|Affiche le résumé des produits logiciels inventoriés et de leurs fabricants sur un ordinateur spécifié.|  
 |**Logiciels inscrits dans Ajout/Suppression de programmes sur un ordinateur spécifique**|Affiche le résumé des logiciels installés sur un ordinateur spécifié et inscrits dans Ajout/Suppression de programmes ou Programmes et fonctionnalités.|  
 |**Applications Windows installées pour l’utilisateur spécifié**|Affiche toutes les applications Windows installées pour l’utilisateur spécifié|  
 
-### <a name="software---files"></a>Fichiers logiciels  
+
+
+## <a name="software---files"></a>Fichiers logiciels  
 
 |Nom du rapport|Description|  
 |-----------------|-----------------|  
 |**Tous les fichiers inventoriés pour un produit spécifique**|Affiche le résumé des fichiers inventoriés qui sont associés à un produit logiciel spécifié.|  
 |**Tous les fichiers inventoriés sur un ordinateur spécifique**|Affiche le résumé de tous les fichiers inventoriés sur un ordinateur spécifié.|  
 |**Comparer l'inventaire logiciel de deux ordinateurs**|Affiche les différences entre les inventaires logiciels signalés pour deux ordinateurs spécifiés.|  
-|**Ordinateurs sur lesquels existe un fichier spécifique**|Affiche la liste des ordinateurs qui ont collecté un inventaire logiciel pour un nom de fichier spécifié. Un ordinateur peut apparaître plusieurs fois dans la liste s'il contient plusieurs copies du fichier.|  
+|**Ordinateurs sur lesquels existe un fichier spécifique**|Affiche la liste des ordinateurs qui ont collecté un inventaire logiciel pour un nom de fichier spécifié. Si un ordinateur comporte plusieurs copies du fichier, il peut apparaître plusieurs fois dans la liste.|  
 |**Compter les ordinateurs avec un nom de fichier spécifique**|Affiche le nombre d'ordinateurs qui ont collecté un inventaire logiciel pour un fichier spécifié.|  
 
-### <a name="software-distribution---application-monitoring"></a>Distribution de logiciels - Surveillance des applications  
+
+
+## <a name="software-distribution---application-monitoring"></a>Distribution de logiciels - Surveillance des applications  
 
 |Nom du rapport|Description|  
 |-----------------|-----------------|  
@@ -520,14 +573,16 @@ De nombreux rapports intégrés sont fournis avec System Center Configuration Ma
 |**Tous les déploiements d'applications (standard)**|Affiche des informations de synthèse pour tous les déploiements d'applications.|  
 |**Compatibilité de l'application**|Affiche des informations de compatibilité pour l'application spécifiée au sein du regroupement spécifié.|  
 |**Déploiements de l'application par bien**|Affiche les applications déployées sur un appareil ou utilisateur spécifié.|  
-|**Erreurs d'infrastructure de l'application**|Affiche les erreurs d'infrastructure de l'application.  Celles-ci peuvent inclure des erreurs d'infrastructure internes ainsi que des erreurs résultant de règles de configuration requise non valides.|  
+|**Erreurs d'infrastructure de l'application**|Affiche les erreurs d'infrastructure de l'application. Celles-ci peuvent inclure des erreurs d’infrastructure internes ou des erreurs résultant de règles de configuration requise non valides.|  
 |**État détaillé de l'utilisation de l'application**|Affiche des détails sur l'utilisation des applications installées.|  
 |**État récapitulatif de l'utilisation de l'application**|Affiche le résumé de l'utilisation des applications installées.|  
+|**Applications iOS dont le déploiement a échoué (application déjà installée)**|Affiche les informations de conformité pour l’application iOS sélectionnée. Vous avez déployé cette application en tant que « Package d’application pour iOS depuis App Store » que vous avez aussi associée à une stratégie de gestion des applications mobiles. Ce rapport est utilisé pour afficher les utilisateurs et les appareils pour lesquels l’application n’a pas pu être installée, car elle avait déjà été installée manuellement par l’utilisateur.|  
 |**Déploiements de séquences de tâches contenant l'application**|Affiche les déploiements de séquences de tâches qui installent une application spécifiée.|  
 |**Demandes d'utilisateur pour une application Android**|Affiche les utilisateurs qui ont demandé à installer une application Android.|  
-|**Applications iOS dont le déploiement a échoué (application déjà installée)**|Affiche les informations de conformité pour l’application iOS sélectionnée que vous avez déployée en tant que « Package d’application pour iOS depuis App Store » et qui est associée à la stratégie de gestion des applications mobiles. Ce rapport est utilisé pour afficher les utilisateurs et les appareils pour lesquels l’application n’a pas pu être installée, car elle avait déjà été installée manuellement par l’utilisateur.|  
 
-### <a name="software-distribution---collections"></a>Distribution de logiciels - Regroupements  
+
+
+## <a name="software-distribution---collections"></a>Distribution de logiciels - Regroupements  
 
 |Nom du rapport|Description|  
 |-----------------|-----------------|  
@@ -535,7 +590,9 @@ De nombreux rapports intégrés sont fournis avec System Center Configuration Ma
 |**Toutes les ressources dans un regroupement spécifique**|Affiche toutes les ressources dans un regroupement spécifié.|  
 |**Fenêtres de maintenance disponibles pour un client spécifié**|Affiche toutes les fenêtres de maintenance applicables au client spécifié.|  
 
-### <a name="software-distribution---content"></a>Distribution de logiciels - Contenu  
+
+
+## <a name="software-distribution---content"></a>Distribution de logiciels - Contenu  
 
 |Nom du rapport|Description|  
 |-----------------|-----------------|  
@@ -552,8 +609,13 @@ De nombreux rapports intégrés sont fournis avec System Center Configuration Ma
 |**État de distribution d'un package donné**|Affiche l'état de distribution du contenu du package spécifié sur chaque point de distribution.|  
 |**Packages ciblés pour le groupe de points de distribution**|Affiche des informations sur les packages qui ciblent un groupe de points de distribution spécifié.|  
 |**Packages non synchronisés sur un groupe de points de distribution spécifié**|Affiche les packages pour lesquels des fichiers de contenu associés n'ont pas été mis à jour avec la version la plus récente sur un groupe de points de distribution spécifié.|  
+|**Rejet du contenu par une source de cache d’homologue**|Affiche le nombre de rejets par une source de cache d’homologue par groupe de limites.|
+|**Rejet du contenu par une source de cache d’homologue par condition**|Affiche les sources de cache d’homologue ayant rejeté la diffusion de contenu en fonction d’une condition.|
+|**Détails du rejet du contenu par une source de cache d’homologue**|Affiche le nom du contenu rejeté par une source d’homologue.|
 
-### <a name="software-distribution---package-and-program-deployment"></a>Distribution de logiciels - Déploiement du package et du programme  
+
+
+## <a name="software-distribution---package-and-program-deployment"></a>Distribution de logiciels - Déploiement du package et du programme  
 
 |Nom du rapport|Description|  
 |-----------------|-----------------|  
@@ -563,35 +625,41 @@ De nombreux rapports intégrés sont fournis avec System Center Configuration Ma
 |**Tous les déploiements de packages et de programmes sur un ordinateur donné**|Affiche tous les déploiements de packages et de programmes qui s'appliquent à un ordinateur spécifié.|  
 |**Tous les déploiements de programmes et de packages vers un utilisateur spécifique**|Affiche tous les déploiements de packages et de programmes vers un utilisateur spécifié.|  
 
-### <a name="software-distribution---package-and-program-deployment-status"></a>Distribution de logiciels - État du déploiement du package et du programme  
+
+
+## <a name="software-distribution---package-and-program-deployment-status"></a>Distribution de logiciels - État du déploiement du package et du programme  
 
 |Nom du rapport|Description|  
 |-----------------|-----------------|  
 |**Tous les déploiements de packages et de programmes de ressources système avec leur état**|Affiche tous les déploiements de packages et de programmes pour le site avec l'état récapitulatif de chaque déploiement.|  
 |**Toutes les ressources système pour un déploiement de packages et de programmes spécifié dans un état spécifié**|Affiche la liste des ressources qui sont dans un état spécifié pour un déploiement de packages et de programmes spécifié.|  
-|**Graphique - État d'avancement du déploiement de packages et de programmes chaque heure**|Affiche le pourcentage d'ordinateurs ayant installé avec succès le package toutes les heures depuis la création du déploiement de packages et de programmes. Ce pourcentage sert à suivre le temps moyen nécessaire au déploiement de packages et de programmes.|  
+|**Graphique - État d'avancement du déploiement de packages et de programmes chaque heure**|Affiche le pourcentage d’ordinateurs ayant installé avec succès le package. La liste classe toutes les heures depuis la création du déploiement de packages et de programmes par un administrateur. Ce pourcentage sert à suivre le temps moyen nécessaire au déploiement de packages et de programmes.|  
 |**État du déploiement de packages et de programmes pour un client et un déploiement donnés**|Affiche les messages d'état signalés pour un ordinateur et un déploiement de packages et de programmes spécifiés.|  
 |**État du déploiement d'un package et d'un programme spécifiques**|Affiche la synthèse d'état d'un déploiement de packages et de programmes spécifié.|  
 
-### <a name="software-metering"></a>Contrôle de logiciel  
+
+
+## <a name="software-metering"></a>Contrôle de logiciel  
 
 |Nom du rapport|Description|  
 |-----------------|-----------------|  
 |**Toutes les règles de contrôle de logiciel appliquées à ce site**|Affiche la liste de toutes les règles de contrôle de logiciel au niveau du site.|  
-|**Ordinateurs disposant d'un programme contrôlé mais qui ne l'ont pas encore exécuté depuis une date donnée**|Affiche tous les ordinateurs qui ont une application contrôlée spécifiée installée, comme indiqué par l'inventaire logiciel, mais qui n'ont pas exécuté ce programme depuis une date spécifiée.|  
+|**Ordinateurs disposant d'un programme contrôlé mais qui ne l'ont pas encore exécuté depuis une date donnée**|Affiche tous les ordinateurs avec l’application contrôlée spécifiée, mais aucun utilisateur n’a exécuté ce programme depuis la date spécifiée.|  
 |**Ordinateurs ayant exécuté un programme contrôlé spécifique**|Affiche la liste des ordinateurs qui ont exécuté des programmes correspondant à la règle de contrôle de logiciel spécifiée pendant le mois et l'année spécifiés.|  
 |**Utilisation simultanée de tous les programmes contrôlés**|Affiche le nombre maximal d'utilisateurs qui ont exécuté simultanément chaque logiciel contrôlé pendant le mois et l'année spécifiés.|  
 |**Analyse de la tendance d'utilisation simultanée d'un programme contrôlé spécifique**|Affiche le nombre maximal d'utilisateurs qui ont exécuté simultanément le logiciel contrôlé spécifié au cours de chaque mois de l'année précédente.|  
-|**Base d'installation pour tous les logiciels contrôlés**|Affiche le nombre d'ordinateurs qui ont des logiciels contrôlés installés, comme indiqué par l'inventaire logiciel. Ce rapport requiert la collecte de l'inventaire logiciel sur les ordinateurs contrôlés.|  
-|**Progression du résumé du contrôle de logiciel**|Affiche l'heure à laquelle les données de contrôle synthétisées les plus récentes ont été traitées sur le serveur de site.  Seules les données de contrôle traitées avant ces dates sont utilisées dans les rapports de contrôle de logiciel.|  
+|**Base d'installation pour tous les logiciels contrôlés**|Affiche le nombre d'ordinateurs qui ont des logiciels contrôlés installés, comme indiqué par l'inventaire logiciel. Ce rapport nécessite que l’ordinateur collecte l’inventaire logiciel.|  
+|**Progression du résumé du contrôle de logiciel**|Affiche l'heure à laquelle les données de contrôle synthétisées les plus récentes ont été traitées sur le serveur de site. Les rapports de contrôle de logiciel reflètent uniquement les données de contrôle traitées avant ces dates.|  
 |**Résumé de l'utilisation dans la journée pour un programme de logiciel contrôlé spécifique**|Affiche le nombre moyen d'utilisations d'un programme particulier au cours des 90 derniers jours, par heure et par jour.|  
-|**Utilisation simultanée de tous les programmes de logiciels contrôlés**|Affiche le nombre d'utilisateurs qui ont exécuté des programmes correspondant à chaque règle de contrôle de logiciel localement ou à l'aide des services Terminal Server pendant le mois et l'année spécifiés.|  
+|**Utilisation simultanée de tous les programmes de logiciels contrôlés**|Affiche le nombre d’utilisateurs qui ont exécuté des programmes correspondant à chaque règle de contrôle de logiciel pendant le mois et l’année spécifiés. Ces règles concernent les logiciels installés localement ou l’utilisation des services Terminal Server.|  
 |**Utilisation totale de tous les logiciels contrôlés sur les serveurs Windows Terminal Server**|Affiche le nombre d'utilisateurs qui ont exécuté des programmes correspondant à chaque règle de contrôle de logiciel à l'aide des services Terminal Server pendant le mois et l'année spécifiés.|  
-|**Analyse de la tendance d'utilisation totale pour un programme contrôlé spécifique**|Affiche le nombre d'utilisateurs qui ont exécuté des programmes correspondant à la règle de contrôle de logiciel spécifiée localement ou à l'aide des services Terminal Server pendant chaque mois de l'année précédente.|  
-|**Analyse de la tendance d'utilisation totale pour un logiciel contrôlé spécifique sur les serveurs Windows Terminal Server**|Affiche le nombre d'utilisateurs qui ont exécuté des programmes correspondant à la règle de contrôle de logiciel spécifiée à l'aide des services Terminal Server pendant chaque mois de l'année précédente.|  
-|**Utilisateurs ayant exécuté un programme contrôlé spécifique**|Affiche la liste des utilisateurs qui ont exécuté des programmes correspondant à la règle de contrôle de logiciel spécifiée pendant le mois et l'année spécifiés.|  
+|**Analyse de la tendance d'utilisation totale pour un programme contrôlé spécifique**|Affiche le nombre d’utilisateurs qui ont exécuté des programmes correspondant à la règle de contrôle de logiciel spécifiée pendant chaque mois de l’année précédente. Ces règles concernent les logiciels installés localement ou l’utilisation des services Terminal Server.|  
+|**Analyse de la tendance d'utilisation totale pour un logiciel contrôlé spécifique sur les serveurs Windows Terminal Server**|Affiche le nombre d’utilisateurs qui ont exécuté des programmes correspondant à la règle de contrôle de logiciel spécifiée pendant chaque mois de l’année précédente. Ces règles concernent l’utilisation des services Terminal Server.|  
+|**Utilisateurs ayant exécuté un programme contrôlé spécifique**|Affiche une liste d’utilisateurs qui ont exécuté des programmes correspondant à la règle de contrôle de logiciel spécifiée pendant le mois et l’année spécifiés.|  
 
-### <a name="software-updates---a-compliance"></a>Mises à jour logicielles - Compatibilité A  
+
+
+## <a name="software-updates---a-compliance"></a>Mises à jour logicielles - Compatibilité A  
 
 |Nom du rapport|Description|  
 |-----------------|-----------------|  
@@ -599,25 +667,29 @@ De nombreux rapports intégrés sont fournis avec System Center Configuration Ma
 |**Conformité 2 - Mise à jour logicielle spécifique**|Affiche les données de compatibilité d'une mise à jour logicielle spécifiée.|  
 |**Compatibilité 3 - Groupe de mises à jour (par mise à jour)**|Affiche les données de compatibilité des mises à jour logicielles définies dans un groupe de mises à jour logicielles.|  
 |**Compatibilité 4 - Mises à jour par fabricant-mois-année**|Affiche les données de compatibilité des mises à jour logicielles publiées par un fournisseur pendant un mois et une année spécifiés.|  
-|**Compatibilité 5 - Ordinateur spécifique**|Ce rapport renvoie les données de compatibilité des mises à jour logicielles pour un ordinateur spécifié.  Pour limiter la quantité d'informations renvoyées, vous pouvez spécifier le fournisseur et la classification des mises à jour logicielles.|  
+|**Compatibilité 5 - Ordinateur spécifique**|Ce rapport renvoie les données de compatibilité des mises à jour logicielles pour un ordinateur spécifié. Pour limiter la quantité d'informations renvoyées, vous pouvez spécifier le fournisseur et la classification des mises à jour logicielles.|  
 |**Compatibilité 6 - États de mises à jour logicielles spécifiques (secondaire)**|Affiche le nombre et le pourcentage d'ordinateurs dans chaque état de compatibilité pour la mise à jour logicielle spécifiée.|  
 |**Compatibilité 7 - Ordinateurs dans un état de compatibilité spécifique pour un groupe de mises à jour (secondaire)**|Affiche tous les ordinateurs d'un regroupement qui sont dans un état de compatibilité globale spécifié par rapport à un groupe de mises à jour logicielles.|  
 |**Compatibilité 8 - Ordinateurs dans un état de compatibilité spécifique pour une mise à jour (secondaire)**|Affiche tous les ordinateurs d'un regroupement qui sont dans un état de compatibilité spécifié pour une mise à jour logicielle.|  
 
-### <a name="software-updates---b-deployment-management"></a>Mises à jour logicielles - Gestion du déploiement B  
+
+
+## <a name="software-updates---b-deployment-management"></a>Mises à jour logicielles - Gestion du déploiement B  
 
 |Nom du rapport|Description|  
 |-----------------|-----------------|  
 |**Gestion 1 - Déploiements d'un groupe de mises à jour**|Affiche tous les déploiements qui contiennent toutes les mises à jour logicielles définies dans un groupe de mises à jour logicielles spécifié.|  
-|**Gestion 2 - Mises à jour requises mais non déployées**|Affiche toutes les mises à jour logicielles propres à un fournisseur qui ont été détectées comme obligatoires sur les clients, mais qui n'ont pas été déployées sur un regroupement spécifié.|  
+|**Gestion 2 - Mises à jour requises mais non déployées**|Affiche toutes les mises à jour logicielles propres à un fournisseur qui ont été détectées comme obligatoires par les clients, mais qui n’ont pas été déployées sur un regroupement spécifié par un administrateur.|  
 |**Gestion 3 - Mises à jour dans un déploiement**|Affiche les mises à jour logicielles contenues dans un déploiement spécifié.|  
 |**Gestion 4 - Déploiements ciblant un regroupement**|Affiche tous les déploiements de mises à jour logicielles qui ciblent un regroupement spécifié.|  
 |**Gestion 5 - Déploiements ciblant un ordinateur**|Affiche tous les déploiements de mises à jour logicielles sur un ordinateur spécifié.|  
 |**Gestion 6 - Déploiements contenant une mise à jour spécifique**|Affiche tous les déploiements qui contiennent une mise à jour logicielle spécifiée et le regroupement cible associé au déploiement.|  
-|**Gestion 7 - Mises à jour dans un déploiement dont le contenu manque**|Affiche les mises à jour logicielles incluses dans un déploiement spécifié qui n'ont pas récupéré tout le contenu associé, ce qui empêche les clients d'installer ces mises à jour et d'atteindre 100 % de compatibilité pour le déploiement.|  
-|**Gestion 8 - Contenu d'ordinateurs manquant (secondaire)**|Affiche tous les ordinateurs qui requièrent une mise à jour logicielle spécifiée contenue dans un déploiement spécifié, non fourni par un point de distribution.|  
+|**Gestion 7 - Mises à jour dans un déploiement dont le contenu manque**|Affiche les mises à jour logicielles incluses dans un déploiement spécifié qui n’ont pas récupéré tout le contenu associé. Cet état empêche les clients d’installer ces mises à jour et d’atteindre 100 % de compatibilité pour le déploiement.|  
+|**Gestion 8 - Contenu d'ordinateurs manquant (secondaire)**|Affiche tous les ordinateurs qui nécessitent la mise à jour logicielle spécifiée, mais le contenu associé n’est pas encore distribué à un point de distribution.|  
 
-### <a name="software-updates---c-deployment-states"></a>Mises à jour logicielles - États du déploiement C  
+
+
+## <a name="software-updates---c-deployment-states"></a>Mises à jour logicielles - États du déploiement C  
 
 |Nom du rapport|Description|  
 |-----------------|-----------------|  
@@ -628,16 +700,20 @@ De nombreux rapports intégrés sont fournis avec System Center Configuration Ma
 |**États 5 - États pour une mise à jour dans un déploiement (secondaire)**|Affiche le résumé des états pour une mise à jour logicielle spécifiée ciblée par un déploiement spécifié.|  
 |**États 6 - Ordinateurs présentant un état d'application spécifique pour une mise à jour (secondaire)**|Affiche tous les ordinateurs dans un état d'application spécifié pour une mise à jour logicielle spécifiée.|  
 
-### <a name="software-updates---d-scan"></a>Mises à jour logicielles - Analyse D  
+
+
+## <a name="software-updates---d-scan"></a>Mises à jour logicielles - Analyse D  
 
 |Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Analyse 1 - Derniers états d'analyse par regroupement**|Affiche le nombre d'ordinateurs d'un regroupement spécifié dans chaque état d'analyse de compatibilité retourné par les clients pendant la dernière analyse de compatibilité.|  
-|**Analyse 2 - Derniers états d'analyse par site**|Affiche le nombre d'ordinateurs attribués à un site spécifié dans chaque état d'analyse de compatibilité retourné par les clients pendant la dernière analyse de compatibilité.|  
+|**Analyse 1 - Derniers états d'analyse par regroupement**|Spécifiez un regroupement pour afficher le nombre d’ordinateurs dans chaque état d’analyse de conformité. Les clients retournent l’état pendant la dernière analyse de conformité.|  
+|**Analyse 2 - Derniers états d'analyse par site**|Spécifiez un site pour afficher le nombre d’ordinateurs dans chaque état d’analyse de conformité. Les clients retournent l’état pendant la dernière analyse de conformité.|  
 |**Analyse 3 - Clients d'un regroupement signalant un état spécifique (secondaire)**|Affiche tous les ordinateurs d'un regroupement spécifié et dans un état d'analyse de compatibilité spécifié pendant leur dernière analyse de compatibilité.|  
-|**Analyse 4 - Clients d'un site signalant un état spécifique (secondaire)**|Affiche tous les ordinateurs attribués à un site spécifié et dans un état d'analyse de compatibilité spécifié pendant leur dernière analyse de compatibilité.|  
+|**Analyse 4 - Clients d'un site signalant un état spécifique (secondaire)**|Spécifiez un site pour afficher tous les ordinateurs avec un état d’analyse de conformité spécifié. Les clients retournent l’état pendant leur dernière analyse de conformité.|  
 
-### <a name="software-updates---e-troubleshooting"></a>Mises à jour logicielles - Dépannage E  
+
+
+## <a name="software-updates---e-troubleshooting"></a>Mises à jour logicielles - Dépannage E  
 
 |Nom du rapport|Description|  
 |-----------------|-----------------|  
@@ -646,7 +722,9 @@ De nombreux rapports intégrés sont fournis avec System Center Configuration Ma
 |**Dépannage 3 - Échecs d'ordinateurs avec une erreur d'analyse spécifique (secondaire)**|Affiche la liste des ordinateurs qui n'ont pas réussi une analyse en raison d'une erreur spécifiée.|  
 |**Dépannage 4 - Échecs d'ordinateurs avec une erreur de déploiement spécifique (secondaire)**|Affiche la liste des ordinateurs sur lesquels le déploiement de la mise à jour échoue en raison d'une erreur spécifiée.|  
 
-### <a name="state-migration"></a>Migration de l'état  
+
+
+## <a name="state-migration"></a>Migration de l'état  
 
 |Nom du rapport|Description|  
 |-----------------|-----------------|  
@@ -654,14 +732,16 @@ De nombreux rapports intégrés sont fournis avec System Center Configuration Ma
 |**Informations de migration d'état d'un point de migration d'état spécifique**|Affiche des informations sur la migration de l'état d'un point de migration d'état spécifié.|  
 |**Points de migration d'état d'un site spécifique**|Affiche les points de migration d'état d'un site spécifié.|  
 
-### <a name="status-messages"></a>Messages d'état  
+
+
+## <a name="status-messages"></a>Messages d'état  
 
 |Nom du rapport|Description|  
 |-----------------|-----------------|  
 |**Tous les messages pour un ID de message spécifique**|Affiche la liste des messages d'état qui ont un ID de message spécifié.|  
 |**Clients signalant des erreurs pendant les 12 dernières heures pour un site spécifique**|Affiche la liste des ordinateurs et des composants qui signalent des erreurs pendant les 12 dernières heures et le nombre d'erreurs signalées.|  
 |**Messages de composants pour les 12 dernières heures**|Affiche la liste des messages de composants pendant les 12 dernières heures pour un code de site, un ordinateur et un composant spécifiés.|  
-|**Messages de composants pendant la dernière heure**|Affiche la liste des messages d’état créés pendant la dernière heure par un composant spécifié sur un ordinateur spécifié dans un site Configuration Manager spécifié.|  
+|**Messages de composants pendant la dernière heure**|Affiche une liste des messages d’état créés pendant la dernière heure par un composant donné sur un ordinateur indiqué d’un site spécifié.|  
 |**Compter les messages de composants pendant la dernière heure pour un site spécifique**|Affiche le nombre de messages d'état par composant et gravité signalés dans la dernière heure dans un site spécifié.|  
 |**Compter les erreurs survenues dans les 12 dernières heures**|Affiche le nombre de messages d'erreur de composants serveur dans les 12 dernières heures.|  
 |**Erreurs irrécupérables (par composant)**|Affiche la liste des ordinateurs qui signalent des erreurs irrécupérables par composant.|  
@@ -671,7 +751,9 @@ De nombreux rapports intégrés sont fournis avec System Center Configuration Ma
 |**Les 1 000 derniers messages pour un ordinateur spécifique (erreurs)**|Affiche le résumé des 1000 derniers messages d'état d'erreur du composant serveur pour un ordinateur spécifié.|  
 |**Les 1 000 derniers messages pour un composant serveur spécifique**|Affiche le résumé des 1000 messages d'état les plus récents pour un composant serveur spécifié.|  
 
-### <a name="status-messages---audit"></a>Messages d'état - Audit  
+
+
+## <a name="status-messages---audit"></a>Messages d'état - Audit  
 
 |Nom du rapport|Description|  
 |-----------------|-----------------|  
@@ -679,7 +761,9 @@ De nombreux rapports intégrés sont fournis avec System Center Configuration Ma
 |**Contrôle à distance - Tous les ordinateurs contrôlés à distance par un utilisateur spécifique**|Affiche le résumé des messages d'état indiquant un contrôle à distance des ordinateurs clients par un utilisateur spécifié.|  
 |**Contrôle à distance - Toutes les informations de contrôle à distance**|Affiche le résumé des messages d'état associés au contrôle à distance des ordinateurs clients.|  
 
-### <a name="task-sequence---deployment-status"></a>État du déploiement de séquence de tâches  
+
+
+## <a name="task-sequence---deployment-status"></a>État du déploiement de séquence de tâches  
 
 |Nom du rapport|Description|  
 |-----------------|-----------------|  
@@ -693,9 +777,11 @@ De nombreux rapports intégrés sont fournis avec System Center Configuration Ma
 |**État d'un déploiement de séquences de tâches spécifique pour un ordinateur spécifique**|Affiche la synthèse d'état d'un déploiement de séquences de tâches spécifié sur un ordinateur spécifié.|  
 |**État d'un déploiement de séquences de tâches sur un ordinateur de destination inconnu**|Affiche l'état du déploiement de séquences de tâches spécifié sur l'ordinateur de destination inconnu spécifié.|  
 |**Résumé des états d'un déploiement de séquences de tâches spécifique**|Affiche la synthèse d'état de toutes les ressources qui ont été ciblées par un déploiement.|  
-|**Récapitulatif des états d'un déploiement de séquences de tâches disponible pour des ordinateurs inconnus**|Affiche la synthèse d'état de toutes les ressources qui ont été ciblées par un déploiement spécifié et disponible pour un regroupement qui contient des ordinateurs inconnus.|  
+|**Récapitulatif des états d'un déploiement de séquences de tâches disponible pour des ordinateurs inconnus**|Affiche la synthèse d’état de toutes les ressources ciblées par le déploiement spécifié et disponible pour un regroupement qui contient des ordinateurs inconnus.|  
 
-### <a name="task-sequence---deployments"></a>Séquence de tâches - Déploiements  
+
+
+## <a name="task-sequence---deployments"></a>Séquence de tâches - Déploiements  
 
 |Nom du rapport|Description|  
 |-----------------|-----------------|  
@@ -711,7 +797,9 @@ De nombreux rapports intégrés sont fournis avec System Center Configuration Ma
 |**Progression de tous les déploiements d'une séquence de tâches spécifique**|Affiche la progression de tous les déploiements de la séquence de tâches spécifiée.|  
 |**Rapport récapitulatif d'un déploiement de séquences de tâches**|Affiche les informations de synthèse du déploiement de séquences de tâches spécifié.|  
 
-### <a name="task-sequence---progress"></a>Séquence de tâches - Progression  
+
+
+## <a name="task-sequence---progress"></a>Séquence de tâches - Progression  
 
 |Nom du rapport|Description|  
 |-----------------|-----------------|  
@@ -719,47 +807,59 @@ De nombreux rapports intégrés sont fournis avec System Center Configuration Ma
 |**Progression d'une séquence de tâches**|Affiche la progression de la séquence de tâches spécifiée.|  
 |**Progression de toutes les séquences de tâches**|Affiche le résumé de la progression de toutes les séquences de tâches.|  
 |**Progression des séquences de tâches pour les déploiements de systèmes d'exploitation**|Affiche la progression de toutes les séquences de tâches qui déploient des systèmes d'exploitation.|  
-|**État de tous les ordinateurs inconnus**|Affiche la liste des ordinateurs qui étaient inconnus au moment où ils ont exécuté un déploiement de séquences de tâches, qu'ils soient désormais connus ou non.|  
+|**État de tous les ordinateurs inconnus**|Affiche une liste des ordinateurs qui étaient inconnus au moment où ils ont exécuté un déploiement de séquences de tâches, et indique si ce sont désormais des ordinateurs connus.|  
 
-### <a name="task-sequences---references"></a>Séquences de tâches - Références  
+
+
+## <a name="task-sequences---references"></a>Séquences de tâches - Références  
 
 |Nom du rapport|Description|  
 |-----------------|-----------------|  
 |**Contenu référencé par une séquence de tâches spécifique**|Affiche le contenu qui est référencé par une séquence de tâches spécifiée.|  
 
-### <a name="upgrade-assessment"></a>Évaluation de la mise à niveau  
 
-|Nom du rapport|Description|  
+
+<!--
+## Upgrade Assessment  
+
+|Report name|Description|  
 |-----------------|-----------------|  
-|**État des applications pour un ordinateur particulier**|Affiche la compatibilité des applications qui sont installées sur un ordinateur pour un système d'exploitation spécifié.|  
-|**État des applications pour des ordinateurs d'un regroupement spécifique**|Affiche l'état global des ordinateurs d'un regroupement pour vous permettre de les évaluer à des fins de mise à niveau vers un système d'exploitation spécifié selon les applications présentes sur chaque ordinateur. Utilisez ce rapport pour déterminer quels ordinateurs ont des applications compatibles avant de déployer un système d'exploitation.|  
-|**Résumé de l'état des applications**|Affiche le résumé de l'état des applications pour un système d'exploitation spécifié. Utilisez ce rapport pour déterminer la compatibilité des applications avant de déployer un système d'exploitation.|  
-|**Ordinateurs ayant une application spécifique installée**|Affiche les ordinateurs sur lesquels une application spécifiée est installée.|  
-|**Ordinateurs ayant un périphérique matériel spécifique**|Affiche les ordinateurs qui ont un périphérique matériel spécifique.|  
-|**État des périphériques matériels pour un ordinateur spécifique**|Affiche l'état de compatibilité des périphériques matériels pour un système d'exploitation spécifié qui se trouvent sur un ordinateur spécifié.|  
-|**État des périphériques matériels pour les ordinateurs d'un regroupement spécifique**|Affiche l'état global des périphériques matériels pour un système d'exploitation spécifié présents sur les ordinateurs d'un regroupement spécifié. Utilisez ce rapport pour déterminer la compatibilité du matériel avant de déployer un système d'exploitation.|  
-|**Résumé de l'état des périphériques matériels**|Affiche le résumé de l'état des périphériques matériels pour un système d'exploitation spécifié. Vous pouvez utiliser ce rapport pour déterminer la compatibilité des périphériques matériels avant de déployer un système d'exploitation.|  
-|**Configuration matérielle requise pour le système d'exploitation**|Affiche les critères matériels minimaux et recommandés pour les systèmes d'exploitation.|  
-|**État de la configuration requise du système d'exploitation pour des ordinateurs d'un regroupement spécifique**|Affiche l'état de la configuration requise du système d'exploitation spécifié pour les ordinateurs d'un regroupement spécifié. Utilisez ce rapport pour déterminer si un ordinateur satisfait à la configuration système requise en termes de fréquence du processeur, de taille de la mémoire et d'espace sur le disque dur.|  
-|**Résumé de l'évaluation de la mise à niveau**|Affiche le résumé de l'évaluation de la mise à niveau. Vous pouvez utiliser ce rapport pour évaluer l'état global de la compatibilité de la mise à niveau.|  
+|**Application status for a specific computer**|Displays the compatibility of applications that are installed on a computer for a specified operating system.|  
+|**Application status for computers in a specific collection**|Displays the overall status for computers in a collection to let you assess them for upgrade to a specified operating system based on the applications on each computer. Use this report to determine which computers have compatible applications before you deploy an operating system.|  
+|**Application status summary**|Displays a summary of the application status for a specified operating system. Use this report to determine application compatibility before you deploy an operating system.|  
+|**Computers with a specific application installed**|Displays computers with a specified application installed.|  
+|**Computers with a specific hardware device**|Displays computers that have a specific hardware device.|  
+|**Hardware device status for a specific computer**|Displays the compatibility status of hardware devices for a specified operating system that are found on a specified computer.|  
+|**Hardware device status for computers in a specific collection**|Displays the overall status for hardware devices for a specified operating system for computers in a specified collection. Use this report to determine hardware compatibility before you deploy an operating system.|  
+|**Hardware device status summary**|Displays a summary of hardware device status for a specified operating system. You can use this report to determine hardware device compatibility before you deploy an operating system.|  
+|**Operating system hardware requirements**|Displays the minimum and recommended hardware criteria for operating systems.|  
+|**Operating system requirement status for computers in a specific collection**|Displays the status of operating system requirements for the specified operating system for computers in a specified collection. Use this report to determine if a computer meets the specified operating system requirements for CPU processor speed, memory size, and hard disk space.|  
+|**Upgrade assessment summary**|Displays the upgrade assessment summary. You can use this report to assess the overall status for upgrade compatibility.|  
+-->
 
-### <a name="user---device-affinity"></a>Affinité entre appareil et utilisateur  
+
+
+## <a name="user---device-affinity"></a>Affinité entre appareil et utilisateur  
 
 |Nom du rapport|Description|  
 |-----------------|-----------------|  
 |**Associations d'affinités entre périphérique et utilisateur par regroupement en attente**|Ce rapport affiche toutes les attributions d'affinités entre utilisateur et périphérique en attente, selon les données d'utilisation, pour les membres d'un regroupement.|  
-|**Associations d'affinités entre périphérique et utilisateur par regroupement**|Affiche toutes les associations entre périphérique et utilisateur pour le regroupement spécifié et regroupe les résultats par type de regroupement (par exemple, utilisateur ou périphérique).|  
+|**Associations d'affinités entre périphérique et utilisateur par regroupement**|Affiche toutes les associations entre appareil et utilisateur pour le regroupement spécifié et regroupe les résultats par type de regroupement (par exemple, utilisateur ou appareil).|  
 
-### <a name="user-data-and-profiles-health"></a>Intégrité du profil et des données utilisateur  
+
+
+## <a name="user-data-and-profiles-health"></a>Intégrité du profil et des données utilisateur  
 
 |Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Rapport d'intégrité de la redirection de dossiers - Détails**|Affiche les détails de l'état d'intégrité de la redirection de dossiers pour chacun des dossiers redirigés d'un utilisateur donné.|  
-|**Rapport d'intégrité des profils utilisateur itinérants - Détails**|Affiche les détails de l'état d'intégrité du profil utilisateur itinérant d'un utilisateur spécifié.|  
-|**Rapport d'intégrité des données et profils utilisateur - Détails**|Affiche les détails sur les erreurs ou les avertissements pour la redirection de dossiers ou le profil utilisateur itinérant lors de l'exploration du compte à partir du rapport de synthèse.|  
+|**Rapport d'intégrité de la redirection de dossiers - Détails**|Affiche les détails de l’état d’intégrité de la redirection de dossiers pour chacun des dossiers redirigés d’un utilisateur donné.|  
+|**Rapport d'intégrité des profils utilisateur itinérants - Détails**|Affiche les détails de l’état d’intégrité du profil utilisateur itinérant d’un utilisateur spécifié.|  
+|**Rapport d'intégrité des données et profils utilisateur - Détails**|Affiche les détails sur les erreurs ou les avertissements pour la redirection de dossiers ou les profils utilisateur itinérants. Ce rapport est la cible des détails à partir du rapport de synthèse.|  
 |**Rapport d'intégrité des données et profils utilisateur - Résumé**|Affiche le résumé des états d'intégrité pour la redirection de dossiers et les profils utilisateur itinérants.|  
 
-### <a name="users"></a>Utilisateurs  
+
+
+## <a name="users"></a>Utilisateurs  
 
 |Nom du rapport|Description|  
 |-----------------|-----------------|  
@@ -767,23 +867,43 @@ De nombreux rapports intégrés sont fournis avec System Center Configuration Ma
 |**Compter les utilisateurs par domaine**|Affiche le nombre d'utilisateurs dans chaque domaine.|  
 |**Utilisateurs dans un domaine spécifique**|Affiche la liste des utilisateurs et de leurs ordinateurs dans un domaine spécifié.|  
 
-### <a name="virtual-applications"></a>Applications virtuelles  
+
+
+## <a name="virtual-applications"></a>Applications virtuelles  
 
 |Nom du rapport|Description|  
 |-----------------|-----------------|  
 |**Résultats de l'environnement virtuel App-V**|Affiche des informations sur un environnement virtuel spécifié qui se trouve dans un état spécifié pour un regroupement spécifié.|  
-|**Résultats de l'environnement virtuel App-V pour un composant**|Affiche des informations sur un environnement virtuel spécifié pour un composant spécifié et tous les types de déploiements pour l'environnement virtuel spécifié.|  
+|**Résultats de l'environnement virtuel App-V pour un composant**|Affiche des informations sur un environnement virtuel spécifié pour un composant donné. Il montre également tous les types de déploiements pour l’environnement virtuel spécifié.|  
 |**État de l'environnement virtuel App-V**|Affiche des informations de compatibilité d'un environnement virtuel spécifié pour un regroupement spécifié.|  
 |**Ordinateurs avec une application virtuelle spécifique**|Affiche le résumé des ordinateurs pour lesquels le raccourci de l'application App-V créé est spécifié comme utilisant Application Virtualization Management Sequencer.|  
-|**Ordinateurs avec un package d'application virtuelle spécifique**|Affiche le résumé des ordinateurs qui possèdent le package d'application App-V spécifié.|  
+|**Ordinateurs avec un package d'application virtuelle spécifique**|Affiche une synthèse des ordinateurs avec le package d’application App-V spécifié.|  
 |**Total des instances de packages d'application virtuelle**|Afficher le nombre de packages d'application App-V détectés.|  
 |**Total des instances d'applications virtuelles**|Affiche le nombre d'applications App-V détectées.|  
 
-### <a name="wake-on-lan"></a>Éveil par appel réseau  
+
+
+## <a name="volume-purchase-programs---apple"></a>Programmes d’achat en volume (VPP) - Apple
 
 |Nom du rapport|Description|  
 |-----------------|-----------------|  
-|**Tous les ordinateurs ciblés pour une activité d'éveil par appel réseau**|Affiche la liste des ordinateurs qui ont été ciblés pour une activité d'éveil par appel réseau pendant un déploiement du type que vous spécifiez.|  
+|**Applications du programme d’achat en volume (VPP) Apple pour iOS avec les nombres de licences**|Affiche toutes les applications iPhone, iPad et iPod Touch concédées sous licence par le biais du programme d’achat en volume (VPP) d’Apple. Ce rapport inclut également le nombre total de licences achetées ainsi que les licences consommées par application.|  
+
+
+
+## <a name="vulnerability-assessment"></a>Évaluation de la vulnérabilité
+
+|Nom du rapport|Description|  
+|-----------------|-----------------|  
+|**Rapport global d’évaluation de la vulnérabilité**|Identifie les vulnérabilités de conformité, de sécurité et d’administration d’un ordinateur spécifique|  
+
+
+
+## <a name="wake-on-lan"></a>Éveil par appel réseau  
+
+|Nom du rapport|Description|  
+|-----------------|-----------------|  
+|**Tous les ordinateurs ciblés pour une activité d'éveil par appel réseau**|Indiquez le type de déploiement pour afficher une liste d’ordinateurs ciblés pour une activité Wake On LAN.|  
 |**Tous les objets en attente de mise en éveil**|Affiche les objets qui sont programmés pour la mise en éveil.|  
 |**Tous les sites activés pour l'éveil par appel réseau**|Affiche la liste de tous les sites de la hiérarchie qui sont activés pour l'éveil par appel réseau.|  
 |**Erreurs reçues lors de l'envoi des paquets de mise en éveil pour une période donnée**|Affiche les erreurs reçues lors de l'envoi des paquets de mise en éveil aux ordinateurs pendant une période donnée.|  

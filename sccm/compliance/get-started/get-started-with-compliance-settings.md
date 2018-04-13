@@ -1,34 +1,37 @@
 ---
-title: "Prendre en main les paramètres de compatibilité"
+title: Prise en main des paramètres de conformité
 titleSuffix: Configuration Manager
-description: "Découvrez le fonctionnement des paramètres de compatibilité dans System Center Configuration Manager. Découvrez également les concepts fondamentaux que vous devez connaître."
+description: En savoir plus sur les concepts de base et sur le fonctionnement des paramètres de conformité
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 03/22/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: a2742d52-851e-4abc-b623-d12d91684c0b
-caps.latest.revision: "11"
-author: andredm7
-ms.author: andredm
-manager: angrobe
-ms.openlocfilehash: b1171f806d1bda9671fd5817362285a461ee2d44
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+caps.latest.revision: 11
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: a8f672d4d92db8f1bd6e19c4a483b5b3107ad703
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="get-started-with-compliance-settings-in-system-center-configuration-manager"></a>Prise en main des paramètres de compatibilité dans System Center Configuration Manager
+# <a name="get-started-with-compliance-settings-in-system-center-configuration-manager"></a>Prise en main des paramètres de conformité dans System Center Configuration Manager
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
-Avant de commencer à créer des éléments de configuration System Center Configuration Manager, vous devez parcourir cette rubrique pour comprendre comment fonctionnent les paramètres de compatibilité et pour découvrir certains concepts fondamentaux.  
+Avant de créer des paramètres de conformité Configuration Manager, commencez par vous familiariser avec les concepts de base et avec leur fonctionnement.  
 
-## <a name="how-compliance-settings-works"></a>Fonctionnement des paramètres de compatibilité  
- Les paramètres de compatibilité vous permettent de gérer la configuration et la conformité des serveurs, ordinateurs portables, ordinateurs de bureau et appareils mobiles de votre organisation.  
+
+
+## <a name="how-compliance-settings-work"></a>Fonctionnement des paramètres de conformité  
+ Les paramètres de conformité vous permettent de gérer la configuration et la conformité des clients de votre organisation.  
 
  Les éléments de configuration se répartissent en deux catégories principales :  
 
@@ -36,50 +39,83 @@ Avant de commencer à créer des éléments de configuration System Center Confi
 
 -   **Paramètres pour les appareils gérés sans le client Configuration Manager** : il s’agit généralement d’appareils qui sont gérés avec Microsoft Intune ou par le biais de la gestion des appareils locale de Configuration Manager.  
 
+
+
 ## <a name="what-devices-are-supported"></a>Quels sont les appareils pris en charge ?  
 
-
-|Type d'appareil|Plus d'informations|  
+| Type d'appareil | Plus d'informations |  
 |------------|----------------------|  
-|Ordinateurs Windows (avec le client Configuration Manager)|Permet de créer des éléments de configuration personnalisés afin d’évaluer des éléments tels que les clés de Registre, les fichiers et les attributs Active Directory.<br /><br /> Quand vous utilisez le type d’élément de configuration Windows 10, vous sélectionnez les paramètres de votre choix dans une liste prédéfinie.|  
-|Ordinateurs Windows (inscrits auprès de Microsoft Intune)|Sélectionnez les paramètres de votre choix dans une liste prédéfinie.|  
-|Appareils iOS (inscrits auprès de Microsoft Intune)|Sélectionnez les paramètres de votre choix dans une liste prédéfinie.|  
-|Appareils Android (inscrits auprès de Microsoft Intune)|Sélectionnez les paramètres de votre choix dans une liste prédéfinie.|  
-|Appareils Windows Phone (inscrits auprès de Microsoft Intune)|Sélectionnez les paramètres de votre choix dans une liste prédéfinie.|  
-|Ordinateurs Mac (avec le client Configuration Manager)|Permet de créer des éléments de configuration personnalisés afin d’évaluer des éléments tels que les préférences Mac OS X, les valeurs (liste de propriétés) et les résultats retournés par un script.|  
-|Ordinateurs Mac (inscrits auprès de Microsoft Intune)|Sélectionnez les paramètres de votre choix dans une liste prédéfinie.|  
+| Ordinateurs Windows (avec le client Configuration Manager) | Créez des éléments de configuration personnalisés pour évaluer certains objets, notamment les clés et les fichiers de Registre ou encore les attributs Active Directory.<br /><br /> Quand vous utilisez le type d’élément de configuration Windows 10, sélectionnez les paramètres dans une liste prédéfinie. |  
+| Ordinateurs Windows (inscrits auprès de Microsoft Intune) | Sélectionnez les paramètres dans une liste prédéfinie. |  
+| Appareils iOS (inscrits auprès de Microsoft Intune) | Sélectionnez les paramètres dans une liste prédéfinie. |  
+| Appareils Android (inscrits auprès de Microsoft Intune) | Sélectionnez les paramètres dans une liste prédéfinie. |  
+| Appareils Windows Phone (inscrits auprès de Microsoft Intune) | Sélectionnez les paramètres dans une liste prédéfinie. |  
+| Ordinateurs Mac (avec le client Configuration Manager) | Créez des éléments de configuration personnalisés pour évaluer certains objets, tels que des préférences macOS et des résultats retournés par un script. |  
+| Ordinateurs Mac (inscrits auprès de Microsoft Intune) | Sélectionnez les paramètres dans une liste prédéfinie. |  
+
+
 
 ## <a name="what-is-a-configuration-item"></a>Qu’est-ce qu’un élément de configuration ?  
- Un élément de configuration peut être considéré comme un conteneur qui stocke les informations suivantes (les informations que vous configurez varient selon le type d’élément de configuration) :  
+ Un élément de configuration est un conteneur qui stocke des informations spécifiques. Les informations que vous configurez dépendent du type d’élément de configuration. Les éléments de configuration peuvent inclure les informations suivantes :
 
--   **Informations sur la méthode de détection** (pour les éléments de configuration Windows qui contiennent des paramètres d’application uniquement) : permettent de déterminer si une application est installée en détectant le fichier Windows Installer de l’application ou en utilisant un script personnalisé.  
+-   **Informations sur la méthode de détection** : concernent uniquement les éléments de configuration Windows qui contiennent des paramètres d’application. Elles permettent de déterminer si une application est installée. Cette détection utilise le fichier Windows Installer de l’application ou un script personnalisé.  
 
--   **Paramètres** : les paramètres représentent les critères de l’entreprise ou critères techniques à utiliser pour évaluer la compatibilité sur les appareils clients. Vous pouvez configurer un nouveau paramètre ou accéder à un paramètre existant sur un ordinateur de référence.  
+-   **Paramètres** : représentent les conditions opérationnelles ou techniques d’évaluation de la conformité des appareils clients. Configurez un nouveau paramètre ou accéder à un paramètre existant sur un ordinateur de référence.  
 
--   **Règles de compatibilité** : les règles de compatibilité spécifient les critères qui définissent la compatibilité d’un paramètre d’élément de configuration. Avant que la compatibilité d'un paramètre puisse être évaluée, celui-ci doit comporter au moins une règle de compatibilité. Certains paramètres permettent de corriger les valeurs qui sont jugées non compatibles. Vous pouvez créer de nouvelles règles ou rechercher un paramètre existant dans tout élément de configuration afin de sélectionner les règles qu’il contient.  
+-   **Règles de conformité** : spécifient les conditions qui définissent la conformité d’un paramètre d’élément de configuration. Avant d’évaluer la conformité d’un paramètre, le client doit avoir au moins une règle de conformité. Certains paramètres corrigent les paramètres non conformes. Créez des règles ou accédez à un paramètre existant dans n’importe quel élément de configuration et sélectionnez-y des règles.  
 
--   **Plateformes prises en charge** : plateformes d’appareils définis par vos soins, sur lesquelles la compatibilité de l’élément de configuration doit être évaluée. Si vous déployez un élément de configuration sur un appareil qui ne figure pas dans la liste des plateformes prises en charge, sa compatibilité n’est pas évaluée.  
+-   **Plateformes prises en charge** : plateformes d’appareils définies par vos soins, dans lesquelles le client évalue la conformité des éléments de configuration. Si vous déployez un élément de configuration sur un appareil qui ne figure pas dans la liste des plateformes prises en charge, sa conformité n’est pas évaluée.  
+
+
 
 ## <a name="what-is-a-configuration-baseline"></a>Qu’est-ce qu’une base de référence de configuration ?  
- La conformité est évaluée en définissant une base de référence de configuration contenant les éléments de configuration que vous souhaitez évaluer ainsi que les paramètres et les règles qui régissent le niveau de conformité nécessaire. Les bonnes pratiques définies par Microsoft et d’autres fournisseurs vous invitent à importer ces données de configuration à partir du web dans des packs de configuration de Microsoft System Center Configuration Manager, puis à les importer dans Configuration Manager. Vous pouvez également créer des éléments de configuration et des bases de référence de configuration.  
+ Définissez une base de référence de configuration qui inclut les éléments de configuration à évaluer. De même, incluez les paramètres et les règles qui décrivent le niveau de conformité exigé. Importez ces données de configuration à partir des packs de configuration Configuration Manager. Ces packs de configuration sont définis par Microsoft et d’autres fournisseurs. Vous pouvez aussi créer des éléments de configuration et des bases de référence de configuration.  
 
- Après avoir défini une base de référence de configuration, vous pouvez la déployer vers les utilisateurs et les appareils par le biais de regroupements et évaluer la compatibilité de ses paramètres selon une planification. Vous pouvez déployer plusieurs bases de référence de configuration sur les appareils et bénéficier ainsi d’un niveau de contrôle élevé.  
+ Après avoir défini une base de référence de configuration, déployez-la dans des regroupements d’utilisateurs et d’appareils. Le client évalue ensuite la conformité des paramètres de référence selon une planification. Vous pouvez déployer plusieurs bases de référence de configuration sur les appareils. Cette granularité offre un meilleur contrôle de la conformité. 
 
- Les périphériques client évaluent leur conformité par rapport à chaque ligne de base de configuration déployée et signalent immédiatement les résultats au site à l'aide de messages d'état. Si un appareil client n’est pas actuellement connecté au réseau mais a téléchargé les éléments de configuration référencés dans une base de référence de configuration déployée, la conformité de la base de référence de configuration est évaluée. Les informations de conformité sont envoyées au moment de la reconnexion.  
+ Les appareils clients évaluent leur conformité par rapport à chaque ligne de base de configuration déployée et signalent immédiatement les résultats au site à l'aide de messages d'état. Si la base de référence de configuration a été téléchargée sur un appareil qui est actuellement déconnecté du réseau, il continue d’évaluer la conformité des éléments de configuration. Il envoie les informations de conformité une fois reconnecté.  
 
- Vous pouvez surveiller les résultats de l’évaluation de la compatibilité de la base de référence de configuration à partir du nœud **Déploiements** dans l’espace de travail **Surveillance** de la console Configuration Manager pour afficher les causes les plus courantes de non-conformité, d’erreurs et le nombre d’utilisateurs et d’appareils affectés. Vous pouvez également exécuter des rapports de paramètres de compatibilité afin de trouver d’autres détails, notamment les appareils qui sont conformes ou non, ainsi que l’élément de la base de référence de configuration qui est à l’origine de la non-conformité de l’ordinateur. Vous pouvez également afficher les résultats de l’évaluation de la compatibilité à partir d’ordinateurs Windows exécutant le logiciel client Configuration Manager, à l’aide de l’onglet **Configurations** de **Configuration Manager** dans le panneau de configuration.  
+### <a name="monitoring-configuration-baselines"></a>Analyse des bases de référence de configuration
+- Analysez les résultats de l’évaluation de conformité dans la console Configuration Manager, dans l’espace de travail **Analyse**, dans le nœud **Déploiements**. Par exemple :
+    - Causes courantes de non-conformité
+    - Erreurs
+    - Nombre d’utilisateurs et d’appareils concernés
+- Exécutez des rapports sur les paramètres de conformité avec des détails supplémentaires. Par exemple :
+    - Identification des appareils conformes ou non conformes
+    - Identification de l’élément de la base de référence de configuration à l’origine de la non-conformité d’un ordinateur
+- Consultez les résultats de l’évaluation de la conformité sur un ordinateur Windows exécutant le client Configuration Manager. Ouvrez **Configuration Manager** dans le Panneau de configuration, puis accédez à l’onglet **Configurations**.  
+
+
 
 ## <a name="user-data-and-profiles-configuration-items"></a>Éléments de configuration des données et profils utilisateur  
- Les éléments de configuration de données et profils utilisateur contiennent des paramètres qui contrôlent la manière dont les utilisateurs inclus dans votre hiérarchie gèrent la redirection des dossiers, les fichiers hors connexion et les profils itinérants sur les ordinateurs qui exécutent Windows 8 et version ultérieure. Vous pouvez les déployer sur des regroupements d’utilisateurs, puis surveiller leur conformité à partir du nœud **Surveillance** de la console Configuration Manager. Contrairement aux autres éléments de configuration, vous n’ajoutez pas ces éléments à des bases de référence de configuration avant de les déployer. Vous pouvez les déployer directement avec la boîte de dialogue **Déployer un élément de configuration des données et profils utilisateur** .  
+ Les éléments de configuration pour les données et les profils utilisateur sont constitués de paramètres qui contrôlent la façon dont les utilisateurs des ordinateurs exécutant Windows 8 et ultérieur gèrent les éléments suivants :  
+   - Redirection de dossiers
+   - Fichiers hors connexion
+   - Profils d’itinérance  
+
+Déployez ces éléments de configuration dans les regroupements d’utilisateurs. Analysez leur conformité à partir du nœud **Surveillance** de la console Configuration Manager. Contrairement aux autres éléments de configuration, ne les ajoutez pas aux bases de référence de configuration avant de les déployer. Déployez-les directement en cliquant sur **Déployer** dans le ruban.  
 
  Pour plus d’informations, consultez [Créer des éléments de configuration des données et profils utilisateur](/sccm/compliance/deploy-use/create-user-data-and-profiles-configuration-items).  
 
-## <a name="remote-connection-profiles"></a>Profils de connexion à distance  
- Les profils de connexion à distance dans fournissent un ensemble d’outils et de ressources pour vous aider à créer, déployer et surveiller des paramètres de connexion à distance sur des appareils de votre organisation. En déployant ces paramètres, vous réduisez l'effort fourni par les utilisateurs pour se connecter à leurs ordinateurs sur le réseau d'entreprise.  
 
-Pour plus d’informations, consultez [Créer des profils de connexion à distance](/sccm/compliance/deploy-use/create-remote-connection-profiles).  
+
+## <a name="remote-connection-profiles"></a>Profils de connexion à distance  
+ Les profils de connexion à distance proposent un ensemble d’outils et de ressources qui vous aident à créer, déployer et analyser les paramètres de connexion à distance. En déployant ces paramètres sur les appareils, vous permettez aux utilisateurs finaux de se connecter plus facilement à leurs ordinateurs sur le réseau d’entreprise.  
+
+Pour en savoir plus, voir [Créer des profils de connexion à distance](/sccm/compliance/deploy-use/create-remote-connection-profiles).  
+
+
 
 ## <a name="windows-edition-upgrade"></a>Mise à niveau des éditions de Windows
-La stratégie de mise à niveau d’édition vous permet de mettre automatiquement à niveau les appareils qui exécutent certaines versions de Windows 10 vers une version plus récente en fournissant un nouveau fichier de licence ou une nouvelle clé de produit.
+La stratégie de mise à niveau d’édition met automatiquement à niveau les appareils qui exécutent certaines versions de Windows 10 vers une édition plus récente. L’appareil reçoit une nouvelle clé de produit ou un nouveau fichier de licence dont il se sert pour procéder à la mise à niveau.
 
 Pour plus d’informations, consultez [Mettre à niveau des appareils Windows avec la stratégie de mise à niveau d’édition](/sccm/compliance/deploy-use/upgrade-windows-version).
+
+
+
+## <a name="microsoft-edge-browser-profiles"></a>Profils du navigateur Microsoft Edge
+<!-- 1357310 -->
+Depuis la version 1802, pour les clients qui utilisent le navigateur web [Microsoft Edge](https://technet.microsoft.com/microsoft-edge/bb265256) sur des clients Windows 10, créez une stratégie de paramètres de conformité pour configurer plusieurs paramètres Microsoft Edge. 
+
+Pour plus d’informations, consultez [Profils du navigateur Microsoft Edge](/sccm/compliance/deploy-use/browser-profiles).
+

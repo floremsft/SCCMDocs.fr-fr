@@ -1,9 +1,9 @@
 ---
-title: "AMÉLIORATION DU PRODUIT"
+title: AMÉLIORATION DU PRODUIT
 titleSuffix: Configuration Manager
-description: "Découvrez les paramètres du Programme d’amélioration des services pour System Center Configuration Manager."
+description: Découvrir les paramètres du Programme d’amélioration des services
 ms.custom: na
-ms.date: 02/22/2018
+ms.date: 03/22/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -12,19 +12,22 @@ ms.technology:
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: bd5b34c9-7304-4743-81c3-96f1e0c80702
-caps.latest.revision: 
+caps.latest.revision: 4
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 5d49c3bc6080bd9a507c19a9504ccc802c75dacd
-ms.sourcegitcommit: be939893f0ceca4add8655ae2c24e42aa16aec38
+ms.openlocfilehash: d1cb071e780f2e1552495f3a0fa89c71bbef3cc0
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="customer-experience-improvement-program-ceip-for-system-center-configuration-manager"></a>Programme d’amélioration des services (CEIP) pour System Center Configuration Manager
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
+
+> [!Note]  
+> Depuis Configuration Manager version 1802, la fonctionnalité CEIP ne figure plus dans le produit.
 
 Lors de l’installation de la console de Configuration Manager, vous pouvez choisir de participer au **Programme d’amélioration de l’expérience utilisateur** (CEIP). Ce programme est désactivé par défaut. Il reste activé s’il l’était auparavant.  
 

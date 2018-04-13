@@ -1,9 +1,9 @@
 ---
-title: "Prise en charge des fonctionnalités de Windows"
+title: Prise en charge des fonctionnalités de Windows
 titleSuffix: Configuration Manager
-description: "Découvrez les fonctionnalités de Windows et des réseaux que System Center Configuration Manager prend en charge."
+description: Découvrez les fonctionnalités de Windows et des réseaux que System Center Configuration Manager prend en charge.
 ms.custom: na
-ms.date: 8/24/2017
+ms.date: 03/22/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -12,50 +12,48 @@ ms.technology:
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 0cf4bacb-6b6d-4d4f-8640-b13fe15873de
-caps.latest.revision: 
-caps.handback.revision: 
+caps.latest.revision: 8
+caps.handback.revision: 0
 author: mestew
 ms.author: mstewart
-manager: angrobe
-ms.openlocfilehash: 91e86bd578403d17ec7e4cc9dc6284c51a57053e
-ms.sourcegitcommit: 37e990d191028160486dbca286d2ea945bd5c8c3
+manager: dougeby
+ms.openlocfilehash: 4a41efa9b4c33a77d6aa2fa9e806e24ae33cc330
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="support-for-windows-features-and-networks-in-system-center-configuration-manager"></a>Prise en charge des fonctionnalités de Windows et des réseaux dans System Center Configuration Manager
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
-Cette rubrique porte sur la prise en charge par System Center Configuration Manager des fonctionnalités courantes de Windows et des réseaux.  
+Cet article identifie la prise en charge par Configuration Manager des fonctionnalités courantes de Windows et des réseaux.  
 
 
 ##  <a name="bkmk_branchcache"></a> BranchCache  
-Vous pouvez utiliser Windows BranchCache avec Configuration Manager quand vous activez BranchCache sur des points de distribution, puis configurer les clients pour qu’ils utilisent BranchCache en mode de cache distribué.
+Vous pouvez utiliser Windows BranchCache avec Configuration Manager quand vous l’activez sur des points de distribution, puis configurer les clients pour qu’ils l’utilisent en mode de cache distribué.
 
 Vous pouvez configurer les paramètres de BranchCache sur un type de déploiement d’applications, sur le déploiement d'un package et pour des séquences de tâches.  
 
 Quand les conditions requises de BranchCache sont remplies, cette fonctionnalité permet aux clients situés à des emplacements distants d’obtenir le contenu des clients locaux qui ont un cache actif du contenu.  
 
-Par exemple, quand le premier ordinateur client compatible BranchCache demande du contenu à partir d’un point de distribution configuré en tant que serveur BranchCache, l’ordinateur client télécharge et met en cache le contenu. Ce contenu est ensuite rendu disponible pour les clients sur le même sous-réseau qui celui qui a demandé ce contenu.
+Par exemple, quand le premier client BranchCache demande du contenu à partir d’un point de distribution configuré comme serveur BranchCache, le client télécharge et met en cache ce contenu. Ce contenu est ensuite rendu disponible pour les clients sur le même sous-réseau qui celui qui a demandé ce contenu.
 
-Ces clients mettent également en cache le contenu. De cette façon, les clients successifs sur le même sous-réseau n'ont pas besoin de télécharger du contenu depuis le point de distribution, et le contenu est distribué sur plusieurs clients pour des transferts futurs.  
+Ces clients mettent également en cache le contenu. Les autres clients du même sous-réseau n’ont pas à télécharger le contenu à partir du point de distribution. Le contenu est distribué sur plusieurs clients, en vue de transferts futurs.  
 
-**Conditions requises pour prendre en charge BranchCache avec Configuration Manager :**  
--   **Configurer des points de distribution**  
-    Ajoutez la fonctionnalité **Windows BranchCache** au serveur de système de site qui est configuré en tant que point de distribution.    
-
+### <a name="requirements-to-support-branchcache-with-configuration-manager"></a>Exigences pour prendre en charge BranchCache avec Configuration Manager
+-   **Configurer des points de distribution** : ajoutez la fonctionnalité **Windows BranchCache** au serveur de système de site qui est configuré comme point de distribution.    
     -   Les points de distribution sur les serveurs configurés pour prendre en charge BranchCache ne nécessitent aucune configuration supplémentaire.   
-    -   Vous ne pouvez pas ajouter Windows BranchCache à un point de distribution cloud, mais les points de distribution cloud prennent en charge le téléchargement de contenu par des clients configurés pour Windows BranchCache.  
+    -   Vous ne pouvez pas ajouter Windows BranchCache à un point de distribution cloud. Les points de distribution cloud prennent en charge le téléchargement de contenu par les clients configurés pour Windows BranchCache.  
 
--   **Configurer des clients :**    
+-   **Configurer des clients** :    
     -   Les clients pouvant prendre en charge BranchCache doivent être configurés pour le mode de cache distribué de BranchCache.  
     -   Le paramètre de système d’exploitation pour les paramètres du client BITS doit être activé pour prendre en charge BranchCache.   <br /> <br />
 
-    Pour plus d’informations sur la configuration des clients pour qu’ils prennent en charge BranchCache, consultez la section [Configurer des clients](https://technet.microsoft.com/itpro/windows/manage/waas-branchcache#configure-clients-for-branchcache) dans [Configurer BranchCache pour les mises à jour Windows 10](https://technet.microsoft.com/itpro/windows/manage/waas-branchcache).
+    Pour plus d’informations, consultez [Configurer les clients pour BranchCache](https://docs.microsoft.com/windows/deployment/update/waas-branchcache#configure-clients-for-branchcache) dans la documentation Windows.
 
 
-**Configuration Manager prend en charge les systèmes d’exploitation clients suivants avec Windows BranchCache :**  
+### <a name="configuration-manager-supported-os-versions-with-windows-branchcache"></a>Versions de système d’exploitation prises en charge par Configuration Manager avec Windows BranchCache
 
 |Système d'exploitation|Détails de la prise en charge|  
 |----------------------|---------------------|  
@@ -63,21 +61,24 @@ Ces clients mettent également en cache le contenu. De cette façon, les clients
 |Windows 8|Pris en charge par défaut|  
 |Windows 8.1|Pris en charge par défaut|  
 |Windows 10|Pris en charge par défaut|  
-|Windows Server 2008 avec SP2|**Nécessite BITS 4.0** : vous pouvez installer BITS 4.0 sur des clients Configuration Manager à l’aide de mises à jour logicielles ou d’une distribution de logiciels. Pour plus d’informations sur BITS 4.0, consultez [Windows Management Framework](http://go.microsoft.com/fwlink/p/?LinkId=181979).<br /><br /> Sur ce système d’exploitation, la fonctionnalité cliente BranchCache n’est pas prise en charge pour la distribution de logiciels exécutée à partir du réseau ou pour les transferts de fichiers SMB. De plus, ce système d’exploitation ne peut pas utiliser la fonctionnalité BranchCache avec des points de distribution cloud.|  
+|Windows Server 2008 avec SP2|**Nécessite BITS 4.0** : vous pouvez installer BITS 4.0 sur des clients Configuration Manager à l’aide de mises à jour logicielles ou d’une distribution de logiciels. Pour plus d’informations, consultez [Windows Management Framework](https://support.microsoft.com/help/968929/windows-management-framework-windows-powershell-2-0-winrm-2-0-and-bits).<br /><br /> Sur ce système d’exploitation, la fonctionnalité de client BranchCache n’est pas prise en charge pour la distribution de logiciels exécutée à partir du réseau ou pour les transferts de fichiers SMB. De plus, ce système d’exploitation ne peut pas utiliser la fonctionnalité BranchCache avec des points de distribution cloud.|  
 |Windows Server 2008 R2|Pris en charge par défaut|  
 |Windows Server 2012|Pris en charge par défaut|  
 |Windows Server 2012 R2|Pris en charge par défaut|  
 |Windows Server 2016|Pris en charge par défaut|  
 
- Pour plus d'informations sur BranchCache, consultez [BranchCache pour Windows](http://go.microsoft.com/fwlink/p/?LinkId=177945) dans la documentation de Windows Server.  
+ Pour plus d’informations, consultez [BranchCache pour Windows](https://docs.microsoft.com/windows-server/networking/branchcache/branchcache) dans la documentation de Windows Server.  
+
+
 
 ##  <a name="bkmk_Workgroups"></a> Ordinateurs dans des groupes de travail  
 Configuration Manager prend en charge les clients dans des groupes de travail.  
 
--   Configuration Manager prend en charge le déplacement d’un client depuis un groupe de travail vers un domaine, et inversement. Pour plus d’informations, consultez [Guide pratique pour installer des clients Configuration Manager sur des ordinateurs d’un groupe de travail](../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_ClientWorkgroup) dans la rubrique [Guide pratique pour déployer des clients sur des ordinateurs Windows dans System Center Configuration Manager](../../../core/clients/deploy/deploy-clients-to-windows-computers.md).  
+-   Configuration Manager prend en charge le déplacement d’un client depuis un groupe de travail vers un domaine, et inversement. Pour plus d’informations, consultez [Guide pratique pour installer des clients Configuration Manager sur des ordinateurs de groupe de travail](../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_ClientWorkgroup) dans la rubrique [Guide pratique pour déployer des clients sur des ordinateurs Windows](../../../core/clients/deploy/deploy-clients-to-windows-computers.md).  
 
 > [!NOTE]  
 >  Les clients des groupes de travail sont pris en charge, mais tous les systèmes de site doivent être membres d’un domaine Active Directory pris en charge.  
+
 
 
 ##  <a name="bkmmk_datadedup"></a> Déduplication des données  
@@ -88,20 +89,21 @@ Configuration Manager prend en charge l’utilisation de la déduplication des d
 -   Windows Server 2012  
 
 
-
 > [!IMPORTANT]  
->  Le volume qui héberge les fichiers sources de package ne peut pas être marqué pour la déduplication des données. En effet, la déduplication des données utilise des points d’analyse et Configuration Manager ne prend pas en charge l’utilisation d’un emplacement source de contenu avec des fichiers stockés sur des points d’analyse.  
+>  Le volume qui héberge les fichiers sources de package ne peut pas être marqué pour la déduplication des données. Cette limitation est due au fait que la déduplication des données utilise des points d’analyse. Configuration Manager ne prend pas en charge l’utilisation d’un emplacement source de contenu avec des fichiers stockés sur des points d’analyse.  
 
-Pour plus d’informations, consultez [Points de distribution Configuration Manager et déduplication des données de Windows Server 2012](http://blogs.technet.com/b/configmgrteam/archive/2014/02/18/configuration-manager-distribution-points-and-windows-server-2012-data-deduplication.aspx) sur le blog de l’équipe Configuration Manager et [Vue d’ensemble de la déduplication des données](http://technet.microsoft.com/library/hh831602.aspx) dans la bibliothèque TechNet de Windows Server.  
+Pour plus d’informations, consultez [Points de distribution Configuration Manager et déduplication des données de Windows Server 2012](https://cloudblogs.microsoft.com/enterprisemobility/2014/02/18/configuration-manager-distribution-points-and-windows-server-2012-data-deduplication/) sur le blog de l’équipe Configuration Manager et [Vue d’ensemble de la déduplication des données](https://docs.microsoft.com/windows-server/storage/data-deduplication/overview) dans la documentation de Windows Server.  
+
+
 
 ##  <a name="bkmk_DA"></a> DirectAccess  
-Configuration Manager prend en charge la fonctionnalité DirectAccess dans Windows Server 2008 R2 et versions ultérieures pour la communication entre les clients et les systèmes de serveur de site.  
+Configuration Manager prend en charge la fonctionnalité DirectAccess pour la communication entre les clients et les systèmes de serveur de site.  
 
--   Quand toutes les exigences pour DirectAccess sont satisfaites, DirectAccess permet aux clients Configuration Manager sur Internet de communiquer avec le site qui leur est affecté comme s’ils étaient sur l’intranet.  
+-   Quand toutes les exigences pour DirectAccess sont satisfaites, ce dernier permet aux clients Configuration Manager sur Internet de communiquer avec le site qui leur est affecté comme s’ils étaient sur l’intranet.  
 
--   Pour les actions effectuées par le serveur, telles que le contrôle à distance ou l'installation poussée de client, l'ordinateur concerné (tel que le serveur de site) doit exécuter IPv6 et ce protocole doit être supporté sur tous les périphériques réseau impliqués.  
+-   Pour les actions lancées par le serveur, comme le contrôle à distance et l’installation Push du client, l’ordinateur qui initialise l’action doit exécuter IPv6. Ce protocole doit être pris en charge sur tous les périphériques réseau qui interviennent.  
 
-Configuration Manager ne prend pas en charge les éléments suivants sur DirectAccess :  
+Configuration Manager ne prend pas en charge les fonctionnalités suivantes sur DirectAccess :  
 
 -   Le déploiement de systèmes d’exploitation  
 
@@ -109,8 +111,12 @@ Configuration Manager ne prend pas en charge les éléments suivants sur DirectA
 
 -   Communication entre les serveurs de système de site Configuration Manager au sein d’un site  
 
+
+
 ##  <a name="bkmk_dualboot"></a> Ordinateurs à double démarrage  
- Configuration Manager ne peut pas gérer plusieurs systèmes d’exploitation sur un seul ordinateur. Si plusieurs systèmes d’exploitation sont présents sur un ordinateur à gérer, ajustez les méthodes de découverte et d’installation utilisées, pour garantir que le client Configuration Manager est installé uniquement sur le système d’exploitation qui doit être géré.  
+ Configuration Manager ne peut pas gérer plusieurs systèmes d’exploitation sur un seul ordinateur. Si plusieurs systèmes d’exploitation sont présents sur un ordinateur à gérer, ajustez les méthodes de détection et d’installation du client du site afin de garantir que le client Configuration Manager est installé uniquement sur le système d’exploitation qui doit être géré.  
+
+
 
 ##  <a name="bkmk_IPv6"></a> Protocole Internet version 6  
  En plus du protocole Internet version 4 (IPv4), Configuration Manager prend en charge le protocole Internet version 6 (IPv6) avec les exceptions suivantes :  
@@ -118,21 +124,26 @@ Configuration Manager ne prend pas en charge les éléments suivants sur DirectA
 |Fonction| Exception à la prise en charge IPv6|  
 |--------------|-------------------------------|  
 |Points de distribution cloud|IPv4 est requis pour prendre en charge Microsoft Azure et les points de distribution cloud.|  
+|Passerelle de gestion cloud|IPv4 est exigé pour prendre en charge Microsoft Azure et la passerelle de gestion cloud.|  
 |Appareils mobiles inscrits par Microsoft Intune et le connecteur de service Microsoft|IPv4 est requis pour prendre en charge les appareils mobiles inscrits par Microsoft Intune et le connecteur de service Microsoft.|  
 |Découverte du réseau|IPv4 est requis lorsque vous configurez un serveur DHCP pour effectuer une recherche dans la découverte du réseau.|  
-|Déploiement du système d'exploitation|IPv4 est requis pour prendre en charge le déploiement de systèmes d'exploitation.|  
+|Déploiement de système d’exploitation|IPv4 est exigé pour prendre en charge le déploiement de système d’exploitation. |  
 |Communication avec le proxy de mise en éveil à distance|IPv4 est requis pour prendre en charge les paquets de proxy de mise en éveil du client.|  
 |Windows CE|IPv4 est requis pour prendre en charge le client Configuration Manager sur les appareils Windows CE.|  
 
+
+
 ##  <a name="bkmk_NAT"></a> Traduction d’adresses réseau  
- La traduction d’adresses réseau n’est pas prise en charge dans Configuration Manager, sauf si le site prend en charge les clients qui se trouvent sur Internet et que le client détecte qu’ils sont connectés à Internet. Pour plus d’informations sur la gestion des clients Internet, consultez [Planifier la gestion des clients Internet dans System Center Configuration Manager](../../../core/clients/deploy/plan/plan-for-managing-internet-based-clients.md).  
+ La traduction d’adresses réseau (NAT) n’est pas prise en charge dans Configuration Manager, sauf si le site prend en charge les clients qui se trouvent sur Internet et que le client détecte qu’ils sont connectés à Internet. Pour plus d’informations sur la gestion du client basée sur Internet, consultez [Planifier la gestion des clients Internet](../../../core/clients/deploy/plan/plan-for-managing-internet-based-clients.md).  
+
+
 
 ##  <a name="bkmk_storage"></a> Technologie de stockage spécialisée  
  Configuration Manager est conçu pour fonctionner avec tout matériel approuvé dans la liste de conformité matérielle de Windows pour la version du système d’exploitation sur laquelle le composant Configuration Manager est installé.
 
-Les rôles de serveur de site requièrent des systèmes de fichiers NTFS afin que les autorisations sur les répertoires et les fichiers puissent être définies. Comme Configuration Manager suppose qu’il a la propriété complète d’un lecteur logique, les systèmes de site qui s’exécutent sur des ordinateurs distincts ne peuvent pas partager une partition logique sur une technologie de stockage, quelle qu’elle soit. Cependant, chaque ordinateur peut utiliser une partition logique distincte sur la même partition physique d'un dispositif de stockage partagé.  
+Les rôles de serveur de site exigent NTFS afin que Configuration Manager puisse définir des autorisations sur les répertoires et les fichiers. Configuration Manager suppose qu’il a la propriété complète d’un lecteur logique. Les systèmes de site qui s’exécutent sur des ordinateurs distincts ne peuvent pas partager une partition logique sur une technologie de stockage, quelle qu’elle soit. Cependant, chaque ordinateur peut utiliser une partition logique distincte sur la même partition physique d'un dispositif de stockage partagé.  
 
- **Considérations relatives à la prise en charge :**  
+ ### <a name="support-considerations"></a>Considérations relatives à la prise en charge
 
 -   **Réseau de zone de stockage**: l’utilisation d’un réseau de zone de stockage (SAN) est prise en charge quand un serveur Windows pris en charge est directement associé au volume hébergé par le SAN.  
 

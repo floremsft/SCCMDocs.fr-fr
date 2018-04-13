@@ -1,22 +1,23 @@
 ---
-title: "Intégration avec Windows Update for Business dans Windows 10"
+title: Intégration avec Windows Update for Business dans Windows 10
 titleSuffix: Configuration Manager
-description: "Utilisez Windows Update for Business pour tenir à jour les appareils Windows 10 de votre organisation connectés au service Windows Update."
-keywords: 
-author: dougeby
-ms.author: dougeby
-manager: angrobe
-ms.date: 10/06/2016
+description: Utilisez Windows Update for Business pour tenir à jour les appareils Windows 10 de votre organisation connectés au service Windows Update.
+keywords: ''
+author: mestew
+ms.author: mstewart
+manager: dougeby
+ms.date: 03/22/2018
 ms.topic: article
 ms.prod: configuration-manager
-ms.service: 
-ms.technology: configmgr-sum
+ms.service: ''
+ms.technology:
+- configmgr-sum
 ms.assetid: 183315fe-27bd-456f-b2c5-e8d25e05229b
-ms.openlocfilehash: 070275f65cf69dc6491720338d30e666a08b6129
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: e27e5f043af28b74369f21d19e5b20e19572213a
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="integration-with-windows-update-for-business-in-windows-10"></a>Intégration avec Windows Update for Business dans Windows 10
 
@@ -30,7 +31,7 @@ Windows Update for Business (WUfB) vous permet de garantir la mise à jour des a
 
     -   Configuration Manager ne sera pas au courant des mises à jour publiées sur Windows Update. Les clients Configuration Manager configurés pour les mises à jour reçues à partir de Windows Update indiquent **inconnu** pour ces mises à jour dans la console Configuration Manager.  
 
-    -   La résolution des problèmes liés à l’état de conformité global est difficile, car l’état **inconnu** concernait auparavant uniquement les clients qui n’avaient pas signalé leur état d’analyse à WSUS.  Maintenant, il inclut également les clients Configuration Manager qui reçoivent les mises à jour de Windows Update.  
+    -   La résolution des problèmes liés à l’état de conformité global est difficile, car l’état **inconnu** concernait uniquement les clients qui n’avaient pas signalé leur état d’analyse à WSUS. Maintenant, il inclut également les clients Configuration Manager qui reçoivent les mises à jour de Windows Update.  
 
     -   L’accès conditionnel (pour les ressources d’entreprise) basé sur l’état de conformité de mise à jour ne fonctionnera pas comme prévu pour les clients qui reçoivent des mises à jour de Windows Update, car ils ne respecteront jamais la conformité de Configuration Manager.  
 
@@ -38,14 +39,14 @@ Windows Update for Business (WUfB) vous permet de garantir la mise à jour des a
 
 -   Les rapports Endpoint Protection globaux pour Defender basés sur l’état de conformité de mise à jour retourneront des résultats incorrects en raison des données d’analyse manquantes.  
 
--   Configuration Manager ne pourra pas déployer les mises à jour Microsoft, telles qu’Office, Internet Explorer et Visual Studio, vers les clients qui sont connectés à WUfB pour recevoir des mises à jour.  
+-   Configuration Manager ne pourra pas déployer les mises à jour Microsoft, telles qu’Office, Internet Explorer et Visual Studio, sur les clients qui sont connectés à WUfB pour recevoir des mises à jour.  
 
 -   Configuration Manager ne pourra pas déployer les mises à jour tierces publiées dans WSUS et gérées par le biais de Configuration Manager vers les clients qui sont connectés à WUfB pour recevoir des mises à jour.  
 
 -   Le déploiement de client complet Configuration Manager qui utilise l’infrastructure de mises à jour logicielles ne fonctionnera pas pour les clients qui sont connectés à WUfB pour recevoir des mises à jour.  
 
 ## <a name="identify-clients-that-use-wufb-for-windows-10-updates"></a>Identifier les clients qui utilisent WUfB pour les mises à jour de Windows 10  
- Appliquez la procédure suivante pour identifier les clients qui utilisent WUfB pour obtenir les mises à niveau et les mises à jour Windows 10, configurez ces clients pour cesser d’utiliser WSUS pour obtenir les mises à jour, et déployez un paramètre d’agent client pour désactiver le flux de travail des mises à jour logicielles pour ces clients.  
+ Utilisez la procédure suivante qui permet d’identifier les clients qui utilisent WUfB pour obtenir les mises à niveau et les mises à jour de Windows 10. Ensuite, configurez ces clients pour arrêter d’utiliser WSUS pour obtenir les mises à jour, et déployez un paramètre d’agent client pour désactiver le flux de travail des mises à jour logicielles pour ces clients.  
 
  **Conditions préalables**  
 
@@ -55,14 +56,14 @@ Windows Update for Business (WUfB) vous permet de garantir la mise à jour des a
 
 #### <a name="to-identify-clients-that-use-wufb"></a>Pour identifier les clients qui utilisent WUfB  
 
-1.  Désactivez l’Agent Windows Update, s’il était précédemment activé, afin qu’il n’effectue pas l’analyse par rapport à WSUS.   
-    La clé de Registre **HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU\UseWUServer** peut être définie pour indiquer si l’ordinateur effectue l’analyse par rapport à Windows Update ou à WSUS.  Lorsque la valeur est 2, il n’effectue pas l’analyse par rapport à WSUS.  
+1.  Désactivez l’Agent Windows Update, s’il était activé, afin que celui-ci n’effectue pas l’analyse sur WSUS. La clé de Registre suivante peut être définie pour indiquer si l’ordinateur effectue l’analyse sur WSUS ou Windows Update.  Lorsque la valeur est 2, il n’effectue pas l’analyse sur WSUS.  
+    - **HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU\UseWUServer**
 
 2.  Il existe un nouvel attribut, **UseWUServer**, sous le nœud **Windows Update** dans l’Explorateur de ressources Configuration Manager.  
 
 3.  Créez un regroupement basé sur l’attribut **UseWUServer** pour tous les ordinateurs connectés via WUFB pour les mises à jour et les mises à niveau.  
 
-4.  Créez un paramètre d’agent du client pour désactiver le flux de travail des mises à jour logicielles et déployer le paramètre sur le regroupement d’ordinateurs connectés directement à WUFB.  
+4.  Créez un paramètre d’agent client pour désactiver le flux de travail de mise à jour de logiciel. Déployez le paramètre sur le regroupement d’ordinateurs qui sont connectés directement à WUfB.  
 
 5.  Les ordinateurs qui sont gérés via WUFB affichent **Inconnu** dans l’état de conformité et ne sont pas comptabilisés dans le pourcentage de conformité global.  
 
@@ -70,20 +71,21 @@ Windows Update for Business (WUfB) vous permet de garantir la mise à jour des a
 <!-- 1290890 -->
 À compter de Configuration Manager version 1706, vous pouvez configurer des stratégies de report pour les appareils Windows 10 avec Mises à jour de fonctionnalités ou Mises à jour qualité gérés directement par Windows Update for Business. Vous pouvez gérer les stratégies de report du nouveau nœud **Stratégies Windows Update for Business** sous **Bibliothèque de logiciels** > **Maintenance de Windows 10**.
 
-### <a name="prerequisites"></a>Conditions préalables
+>[!NOTE] 
+>À compter de Configuration Manager version 1802, vous pouvez définir des stratégies de report pour Windows Insider. <!--507201-->Pour plus d’informations sur le programme Windows Insider, consultez [Programme Windows Insider pour les entreprises](https://docs.microsoft.com/windows/deployment/update/waas-windows-insider-for-business).
+
+### <a name="prerequisites"></a>Prérequis
 Les appareils Windows 10 gérés par Windows Update for Business doivent avoir une connectivité Internet.
 
 #### <a name="to-create-a-windows-update-for-business-deferral-policy"></a>Pour créer une stratégie de report Windows Update for Business
 1. Dans **Bibliothèque de logiciels** > **Maintenance de Windows 10** > **Mises à jour de Windows pour les stratégies d’entreprise**
 2. Sous l’onglet **Accueil**, dans le groupe **Créer**, sélectionnez **Créer une stratégie Windows Update for Business** pour ouvrir l’assistant de création de stratégie Windows Update for Business.
 3. Dans la page **Général**, indiquez un nom et une description pour la stratégie.
-4. Sur la page **Stratégies de report**, choisissez de différer ou suspendre les mises à jour de fonctionnalités.    
-    Les mises à jour de fonctionnalités sont généralement de nouvelles fonctionnalités pour Windows. Après avoir configuré le paramètre **Niveau de préparation de la branche**, vous pouvez définir si et pour quelle durée vous souhaitez différer la réception des fonctionnalités mises à jour après leur disponibilité auprès de Microsoft.
+4. Sur la page **Stratégies de report**, choisissez de différer ou suspendre les mises à jour de fonctionnalités. Les mises à jour de fonctionnalités sont généralement de nouvelles fonctionnalités pour Windows. Après avoir configuré le paramètre **Niveau de préparation de la branche**, vous pouvez définir si et pour quelle durée vous souhaitez différer la réception des fonctionnalités mises à jour après leur disponibilité auprès de Microsoft.
     - **Niveau de préparation de la branche** : définissez la branche pour laquelle l’appareil recevra les mises à jour de Windows (Current Branch ou Current Branch for Business).
     - **Période de report (jours)** : spécifiez le nombre de jours pendant lesquels les mises à jour de fonctionnalités sont différées. Vous pouvez différer la réception de ces mises à jour de fonctionnalités pendant une période de 180 jours à partir de leur publication.
     - **Suspendre le démarrage des mises à jour de fonctionnalités** : choisissez de suspendre la réception des mises à jour de fonctionnalités sur vos appareils pendant une période de 60 jours à partir du moment auquel vous suspendez les mises à jour. Une fois que le nombre maximal de jours s’est écoulé, la fonctionnalité de pause expirera automatiquement et l’appareil analysera les mises à jour de Windows pour déterminer celles qui sont applicables. Suite à cette analyse, vous pouvez à nouveau suspendre les mises à jour. Vous pouvez reprendre les mises à jour de fonctionnalités en désactivant la case à cocher.   
-5. Choisissez de différer ou suspendre les mises à jour de qualité.     
-    Les mises à jour de qualité sont généralement des améliorations et correctifs apportés aux fonctionnalités existantes de Windows, et sont généralement publiées le premier mardi de chaque mois, même si la publication peut être effectuée à tout moment par Microsoft. Vous pouvez définir si et pour combien de temps vous souhaitez différer la réception des mises à jour de qualité après leur disponibilité.
+5. Choisissez de différer ou suspendre les mises à jour de qualité. Les mises à jour de qualité sont généralement des améliorations et correctifs apportés aux fonctionnalités existantes de Windows, et sont généralement publiées le premier mardi de chaque mois, même si la publication peut être effectuée à tout moment par Microsoft. Vous pouvez définir si et pour combien de temps vous souhaitez différer la réception des mises à jour de qualité après leur disponibilité.
     - **Période de report (jours)** : spécifiez le nombre de jours pendant lesquels les mises à jour de fonctionnalités sont différées. Vous pouvez différer la réception de ces mises à jour de fonctionnalités pendant une période de 180 jours à partir de leur publication.
     - **Suspendre le démarrage des mises à jour de qualité** : choisissez de suspendre la réception des mises à jour de qualité sur vos appareils pendant une période de 35 jours à partir du moment auquel vous suspendez les mises à jour. Une fois que le nombre maximal de jours s’est écoulé, la fonctionnalité de pause expirera automatiquement et l’appareil analysera les mises à jour de Windows pour déterminer celles qui sont applicables. Suite à cette analyse, vous pouvez à nouveau suspendre les mises à jour. Vous pouvez reprendre les mises à jour de qualité en désactivant la case à cocher.
 6. Sélectionnez **Installer les mises à jour à partir d’autres produits Microsoft** pour activer le paramètre de stratégie de groupe qui rend les paramètres de report applicables à Microsoft Update, ainsi qu’aux mises à jour de Windows.

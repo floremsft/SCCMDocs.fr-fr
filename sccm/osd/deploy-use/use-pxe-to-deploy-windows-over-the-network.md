@@ -1,56 +1,63 @@
 ---
-title: "Utiliser PXE pour déployer Windows sur le réseau"
+title: Utiliser PXE pour le déploiement de système d’exploitation sur le réseau
 titleSuffix: Configuration Manager
-description: "Utilisez des déploiements de système d’exploitation établis par PXE pour actualiser le système d’exploitation d’un ordinateur ou installer une nouvelle version de Windows sur un nouvel ordinateur."
+description: Utilisez des déploiements de système d’exploitation lancés par PXE pour actualiser le système d’exploitation d’un ordinateur ou installer une nouvelle version de Windows sur un nouvel ordinateur.
 ms.custom: na
-ms.date: 06/15/2017
+ms.date: 03/22/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-osd
+ms.technology:
+- configmgr-osd
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: da5f8b61-2386-4530-ad54-1a5c51911f07
-caps.latest.revision: "19"
-caps.handback.revision: "0"
+caps.latest.revision: 19
+caps.handback.revision: 0
 author: aczechowski
 ms.author: aaroncz
-manager: angrobe
-ms.openlocfilehash: 1ae9c9385abe90a38169f5d539be944f03817007
-ms.sourcegitcommit: 08f9854fb6c6d21e1e923b13e38a64d0bc2bc9a4
+manager: dougeby
+ms.openlocfilehash: 310807547df9fdb2ccd4f0098eec6b0b7ccca996
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-pxe-to-deploy-windows-over-the-network-with-system-center-configuration-manager"></a>Utiliser PXE pour déployer Windows sur le réseau avec System Center Configuration Manager
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
-L’environnement PXE (Preboot Execution Environment) a lancé les déploiements de système d’exploitation établis par PXE dans System Center Configuration Manager permettent aux ordinateurs clients de demander des systèmes d’exploitation et de les déployer sur le réseau. Dans ce scénario de déploiement, vous envoyez l’image du système d’exploitation et une image de démarrage Windows PE x86 et x64 à un point de distribution configuré pour accepter les demandes de démarrage PXE.
+Les déploiements de système d’exploitation lancés par l’environnement PXE (Preboot Execution Environment) dans Configuration Manager permettent aux clients de demander et de déployer des systèmes d’exploitation sur le réseau. Dans ce scénario de déploiement, vous envoyez l’image de système d’exploitation et les images de démarrage à un point de distribution PXE.
 
 > [!NOTE]  
 >  Quand vous créez un déploiement de système d’exploitation qui cible seulement des ordinateurs avec un BIOS x64, les deux images de démarrage x64 et x86 doivent être disponibles sur le point de distribution.
 
-Vous pouvez utiliser des déploiements de système d’exploitations établis par PXE dans les scénarios de déploiement de système d’exploitation suivants :
+Vous pouvez utiliser les déploiements de système d’exploitation lancés par PXE dans les scénarios suivants :
 
 -   [Actualiser un ordinateur existant avec une nouvelle version de Windows](refresh-an-existing-computer-with-a-new-version-of-windows.md)  
 
 -   [Installation d’une nouvelle version de Windows sur un nouvel ordinateur (système nu)](install-new-windows-version-new-computer-bare-metal.md)  
 
-Effectuez les étapes de l’un des scénarios de déploiement de système d’exploitation, puis utilisez les sections suivantes pour préparer les déploiements établis par PXE.
+Effectuez les étapes de l’un des scénarios de déploiement de système d’exploitation, puis utilisez les sections de cet article pour préparer les déploiements lancés par PXE.
+
+
 
 ##  <a name="BKMK_Configure"></a> Configurer au moins un point de distribution qui peut répondre aux demandes PXE
-Pour déployer des systèmes d'exploitation sur des clients qui effectuent des requêtes de démarrage PXE, utilisez un ou plusieurs points de distribution qui sont configurés pour répondre aux requêtes de démarrage PXE. Pour savoir comment activer PXE sur un point de distribution, voir [Configuration de points de distribution pour accepter des requêtes PXE](../get-started/prepare-site-system-roles-for-operating-system-deployments.md#BKMK_PXEDistributionPoint).
+Pour déployer des systèmes d’exploitation sur des clients Configuration Manager qui effectuent des demandes de démarrage PXE, vous devez configurer un ou plusieurs points de distribution pour accepter les demandes PXE. Une fois le point de distribution configuré, il répond aux demandes de démarrage PXE et détermine l’action de déploiement appropriée. Pour plus d’informations, consultez [Installer ou modifier un point de distribution](../../core/servers/deploy/configure/install-and-configure-distribution-points.md#pxe).  
+
+
 
 ## <a name="prepare-a-pxe-enabled-boot-image"></a>Préparer une image de démarrage compatible PXE
-Pour utiliser PXE pour déployer un système d’exploitation, vous avez besoin d’images de démarrage compatibles PXE x86 et x64 qui sont distribuées à un ou plusieurs points de distribution compatibles PXE. Utilisez les informations pour activer PXE sur une image de démarrage et distribuez l’image de démarrage sur des points de distribution :
+Pour utiliser PXE afin de déployer un système d’exploitation, vous avez besoin d’images de démarrage PXE x86 et x64 qui sont distribuées à un ou plusieurs points de distribution PXE. Utilisez les informations pour activer PXE sur une image de démarrage et distribuez l’image de démarrage sur des points de distribution :
 
 -   Pour activer PXE sur une image de démarrage, sélectionnez **Déployer cette image de démarrage depuis le point de distribution PXE** sous l’onglet **Source de données** dans les propriétés de l’image de démarrage.
 
 -   Si vous modifiez les propriétés de l’image de démarrage, redistribuez-la sur les points de distribution. Pour plus d’informations, consultez [Distribuer du contenu](../../core/servers/deploy/configure/deploy-and-manage-content.md#bkmk_distribute).
 
+
+
 ##  <a name="BKMK_PXEExclusionList"></a> Créer une liste d’exclusion pour les déploiements PXE
-Si vous utilisez PXE pour déployer des systèmes d’exploitation, vous pouvez créer des listes d’exclusion sur chaque point de distribution. Ajoutez les adresses MAC à la liste d’exclusion des ordinateurs qui doivent être ignorés par le point de distribution. Les ordinateurs répertoriés ne recevront pas les séquences de tâches de déploiement que Configuration Manager utilise pour le déploiement PXE.
+Si vous utilisez PXE pour déployer des systèmes d’exploitation, vous pouvez créer des listes d’exclusion sur chaque point de distribution. Ajoutez les adresses MAC à la liste d’exclusion des ordinateurs qui doivent être ignorés par le point de distribution. Les ordinateurs répertoriés ne reçoivent pas les séquences de tâches de déploiement que Configuration Manager utilise pour le déploiement PXE.
 
 #### <a name="to-create-the-exclusion-list"></a>Pour créer la liste d'exclusion
 
@@ -69,11 +76,20 @@ Si vous utilisez PXE pour déployer des systèmes d’exploitation, vous pouvez 
 
      Il est inutile de redémarrer le serveur après avoir effectué cette modification au niveau du Registre.
 
+
+
+## <a name="manage-duplicate-hardware-identifiers"></a>Gérer les identificateurs de matériel dupliqués
+Configuration Manager peut reconnaître plusieurs ordinateurs comme un même appareil s’ils ont des attributs SMBIOS en double ou si vous utilisez une carte réseau partagée. Vous pouvez éviter ces problèmes en gérant les identificateurs de matériel en double dans les paramètres de hiérarchie. Pour plus d’informations, consultez [Gérer les identificateurs de matériel dupliqués](/sccm/core/clients/manage/manage-clients#manage-duplicate-hardware-identifiers).
+
+
+
 ##  <a name="BKMK_RamDiskTFTP"></a>Taille de bloc et de fenêtre RamDisk TFTP
-Vous pouvez personnaliser la taille de bloc TFTP RamDisk et, à compter de Configuration Manager version 1606, la taille de fenêtre pour les points de distribution compatibles PXE. Si vous avez personnalisé votre réseau, cela peut occasionner un échec de téléchargement de l’image de démarrage avec une erreur de délai d’attente résultant d’une taille excessive de bloc ou de fenêtre. La personnalisation des tailles de bloc et de fenêtre TFTP RamDisk permet d’optimiser le trafic TFTP lors de l’utilisation de PXE en réponse à des besoins réseau spécifiques. Testez les paramètres personnalisés dans votre environnement pour déterminer la méthode la plus efficace. Pour plus d’informations, voir [Personnalisation des tailles de bloc et de fenêtre TFTP RamDisk pour les points de distribution compatibles PXE](../get-started/prepare-site-system-roles-for-operating-system-deployments.md#BKMK_RamDiskTFTP).
+Vous pouvez personnaliser les tailles de bloc et de fenêtre TFTP RamDisk pour des points de distribution compatibles PXE. Si vous avez personnalisé votre réseau, une taille importante de bloc ou de fenêtre peut entraîner l’échec du téléchargement de l’image de démarrage avec une erreur d’expiration de délai. La personnalisation des tailles de bloc et de fenêtre TFTP RamDisk permet d’optimiser le trafic TFTP quand vous utilisez PXE pour répondre aux besoins spécifiques de votre réseau. Pour déterminer la configuration la plus efficace, testez les paramètres personnalisés dans votre environnement. Pour plus d’informations, voir [Personnalisation des tailles de bloc et de fenêtre TFTP RamDisk pour les points de distribution compatibles PXE](../get-started/prepare-site-system-roles-for-operating-system-deployments.md#BKMK_RamDiskTFTP).
+
+
 
 ## <a name="configure-deployment-settings"></a>Configurer les paramètres de déploiement
-Pour utiliser un déploiement de système de d’exploitation initié par PXE, vous devez configurer le déploiement pour rendre le système d’exploitation accessible aux demandes de démarrage PXE. Vous pouvez configurer les systèmes d’exploitation disponibles dans la page **Paramètres de déploiement** de l’Assistant Déploiement logiciel ou sous l’onglet **Paramètres de déploiement** dans les propriétés du déploiement. Pour le paramètre **Rendre disponible aux éléments suivants** , sélectionnez l’une des options suivantes :
+Pour utiliser un déploiement de système de d’exploitation lancé par PXE, configurez le déploiement pour rendre le système d’exploitation accessible aux demandes de démarrage PXE. Configurer les systèmes d’exploitation disponibles sous l’onglet **Paramètres de déploiement** dans les propriétés de déploiement. Pour le paramètre **Rendre disponible aux éléments suivants**, sélectionnez l’une des options suivantes :
 
 -   Clients, média et environnement PXE Configuration Manager
 
@@ -81,24 +97,28 @@ Pour utiliser un déploiement de système de d’exploitation initié par PXE, v
 
 -   Média et environnement PXE uniquement (masqué)
 
+
+
 ##  <a name="BKMK_Deploy"></a> Déployer la séquence de tâches
-Déployez le système d’exploitation dans un regroupement cible. Pour plus d'informations, voir [Déployer une séquence de tâches](manage-task-sequences-to-automate-tasks.md#BKMK_DeployTS). Quand vous déployez des systèmes d’exploitation à l’aide de PXE, vous pouvez configurer si le déploiement est obligatoire ou disponible.
+Déployez le système d’exploitation sur un regroupement cible. Pour plus d'informations, voir [Déployer une séquence de tâches](manage-task-sequences-to-automate-tasks.md#BKMK_DeployTS). Quand vous déployez des systèmes d’exploitation à l’aide de PXE, vous pouvez configurer si le déploiement est obligatoire ou disponible.
 
--   **Déploiement obligatoire**: les déploiements obligatoires utilisent PXE et ne nécessitent aucune intervention de l’utilisateur. L'utilisateur ne pourra pas contourner le démarrage PXE. Toutefois, si l'utilisateur annule le démarrage PXE avant que le point de distribution réponde, le système d'exploitation ne sera pas déployé.
+-   **Déploiement obligatoire**: les déploiements obligatoires utilisent PXE et ne nécessitent aucune intervention de l’utilisateur. L’utilisateur ne peut pas contourner le démarrage PXE. Toutefois, si l’utilisateur annule le démarrage PXE avant que le point de distribution réponde, le système d’exploitation n’est pas déployé.
 
--   **Déploiement disponible**: les déploiements disponibles nécessitent l’intervention de l’utilisateur sur l’ordinateur de destination. L’utilisateur doit appuyer sur la touche F12 pour poursuivre le processus de démarrage PXE. Si cette touche F12 n'est pas actionnée, l'ordinateur démarrera soit avec le système d'exploitation actuel, soit à partir du périphérique de démarrage suivant disponible.
+-   **Déploiement disponible** : Les déploiements disponibles nécessitent l’intervention de l’utilisateur sur l’ordinateur de destination. L’utilisateur doit appuyer sur la touche F12 pour continuer le processus de démarrage PXE. Sinon, l’ordinateur démarre dans le système d’exploitation actuel ou à partir du périphérique de démarrage suivant disponible.
 
-Vous pouvez redéployer un déploiement PXE requis en désactivant l'état du dernier déploiement PXE affecté à un ordinateur ou à un regroupement Configuration Manager. Cette action réinitialise l'état de ce déploiement et installe de nouveau les déploiements requis les plus récents.
+Vous pouvez redéployer un déploiement PXE requis en désactivant l'état du dernier déploiement PXE affecté à un ordinateur ou à un regroupement Configuration Manager. Pour plus d’informations sur l’action **Effacer les déploiements PXE obligatoires**, consultez [Gérer les clients](/sccm/core/clients/manage/manage-clients#BKMK_ManagingClients_DevicesNode) ou [Gérer les regroupements](/sccm/core/clients/manage/collections/manage-collections#how-to-manage-device-collections). Cette action réinitialise l'état de ce déploiement et installe de nouveau les déploiements requis les plus récents.
 
 > [!IMPORTANT]
 > Le protocole PXE n'est pas sécurisé. Assurez-vous que le serveur PXE et le client PXE se trouvent sur un réseau sécurisé physiquement, tel qu'un centre de données, afin d'éviter l'accès non autorisé à votre site.
 
+
+
 ##  <a name="how-is-the-boot-image-selected-for-clients-booting-with-pxe"></a>Comment l’image de démarrage est-elle sélectionnée pour les clients qui démarrent avec PXE ?
-Lorsqu’un client démarre avec PXE, Configuration Manager lui fournit une image de démarrage à utiliser. Depuis Configuration Manager version 1606, Configuration Manager utilise une image de démarrage avec correspondance exacte d’architecture. Si une image de démarrage avec correspondance exacte d’architecture n’est pas disponible, Configuration Manager utilise une image de démarrage avec une architecture compatible. La liste ci-dessous indique de quelle manière une image de démarrage est sélectionnée pour les clients qui démarrent avec PXE.
+Lorsqu’un client démarre avec PXE, Configuration Manager lui fournit une image de démarrage à utiliser. Configuration Manager utilise une image de démarrage avec une correspondance exacte d’architecture. Si une image de démarrage avec correspondance exacte d’architecture n’est pas disponible, Configuration Manager utilise une image de démarrage avec une architecture compatible. La liste ci-dessous indique de quelle manière une image de démarrage est sélectionnée pour les clients qui démarrent avec PXE.
 1. Configuration Manager recherche dans la base de données du site l’enregistrement système qui correspond à l’adresse MAC ou au SMBIOS du client qui essaie de démarrer.  
 
     > [!NOTE]
-    > Si un ordinateur qui est affecté à un site démarre via PXE pour un site différent, les stratégies ne sont pas visibles pour l’ordinateur. Par exemple, si un client est déjà affecté au site A, le point de gestion et le point de distribution sur le site B ne peuvent pas accéder aux stratégies à partir du site A. Le client ne peut pas démarrer via PXE.
+    > Si un ordinateur qui est affecté à un site démarre via PXE pour un site différent, les stratégies ne sont pas visibles pour l’ordinateur. Par exemple, si un client est déjà attribué au site A, le point de gestion et le point de distribution sur le site B ne peuvent pas accéder aux stratégies du site A. Le client ne peut pas effectuer de démarrage PXE.
 
 2. Configuration Manager recherche les séquences de tâches qui sont déployées sur l’enregistrement système trouvé à l’étape 1.
 

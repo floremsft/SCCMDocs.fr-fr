@@ -1,24 +1,25 @@
 ---
-title: "Mettre à niveau vers System Center Configuration Manager"
-description: "Découvrez les étapes d’exécution d’une mise à niveau sur place réussie à partir d’un site et d’une hiérarchie qui exécute System Center 2012 Configuration Manager."
+title: Mettre à niveau vers System Center Configuration Manager
+description: Découvrez les étapes d’exécution d’une mise à niveau sur place réussie à partir d’un site et d’une hiérarchie qui exécute System Center 2012 Configuration Manager.
 ms.custom: na
-ms.date: 6/6/2017
+ms.date: 03/22/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: c64e7483-b4bb-4738-95f4-ecdaeb6a2ba6
-caps.latest.revision: "21"
+caps.latest.revision: 21
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 770976309fbd5e8884dfec4bdaa29630ef1c02d0
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: 72e11a04eb64d649749f2001ac4e3550c784132c
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="upgrade-to-system-center-configuration-manager"></a>Mettre à niveau vers System Center Configuration Manager
 
@@ -33,12 +34,20 @@ Vous pouvez exécuter une mise à niveau sur place pour mettre à niveau System 
 
 ##  <a name="bkmk_path"></a> Chemins de mise à niveau sur place  
 
+**Mise à niveau vers la version 1802**   
+Si vous avez un support de base de référence 1702, vous pouvez mettre à niveau les produits suivants vers une version sous licence complète de System Center Configuration Manager version 1802 :   
+-     Une installation d’évaluation de System Center Configuration Manager version 1802
+-     System Center 2012 Configuration Manager avec Service Pack 1
+-     System Center 2012 Configuration Manager avec Service Pack 2
+-     System Center 2012 R2 Configuration Manager
+-     System Center 2012 R2 Configuration Manager avec Service Pack 1
+
 **Mise à niveau vers la version 1702**   
 Si vous avez un support de base de référence 1702, vous pouvez mettre à niveau les produits suivants vers une version sous licence complète de System Center Configuration Manager version 1702 :   
 -     Une installation d’évaluation de System Center Configuration Manager version 1702
 -     System Center 2012 Configuration Manager avec Service Pack 1
 -     System Center 2012 Configuration Manager avec Service Pack 2
--     System Center 2012 R2 Configuration Manager
+-     System Center 2012 R2 Configuration Manager
 -     System Center 2012 R2 Configuration Manager avec Service Pack 1
 
 **Mettre à niveau vers la version 1606**  
@@ -224,7 +233,7 @@ Pour plus d’informations, consultez [Installer des consoles System Center Conf
 
 **Reconfigurez les réplicas de base de données des points de gestion au niveau des sites principaux :**  
 Si vous utilisez des réplicas de base de données pour les points de gestion au niveau des sites principaux, vous devez désinstaller ces réplicas avant la mise à niveau du site. Après avoir mis à niveau un site principal, reconfigurez le réplica de base de données des points de gestion.   
-Pour plus d’informations, consultez  [Database replicas for management points for System Center Configuration Manager](../../../../core/servers/deploy/configure/database-replicas-for-management-points.md).  
+Pour plus d’informations, consultez  [Réplicas de base de données pour les points de gestion de System Center Configuration Manager](../../../../core/servers/deploy/configure/database-replicas-for-management-points.md).  
 
 **Reconfigurez les tâches de maintenance de base de données désactivées avant la mise à niveau :**  
 Si vous avez désactivé des [tâches de maintenance de base de données pour System Center Configuration Manager](../../../../core/servers/manage/reference-for-maintenance-tasks.md) sur un site avant la mise à niveau, reconfigurez ces tâches sur le site en utilisant les paramètres existants avant la mise à niveau.  

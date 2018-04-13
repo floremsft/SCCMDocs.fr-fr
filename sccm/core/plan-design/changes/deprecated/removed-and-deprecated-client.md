@@ -1,9 +1,9 @@
 ---
-title: "Déprécié pour les clients Configuration Manager"
+title: Déprécié pour les clients Configuration Manager
 titleSuffix: Configuration Manager
-description: "Découvrez les fonctionnalités, produits et systèmes d’exploitation que System Center Configuration Manager ne prend plus en charge pour les clients."
+description: Découvrez les fonctionnalités, produits et systèmes d’exploitation que System Center Configuration Manager ne prend plus en charge pour les clients.
 ms.custom: na
-ms.date: 01/25/2018
+ms.date: 03/22/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -12,16 +12,16 @@ ms.technology:
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 604ab835-bce3-4fe3-a7f3-3f059cfc0ecf
-caps.latest.revision: 
-caps.handback.revision: 
+caps.latest.revision: 15
+caps.handback.revision: 0
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 36b548eb4061eb16aa41f7f65ab53c185df3491d
-ms.sourcegitcommit: b13da5ad8ffd58e3b89fa6d7170e1dec3ff130a4
+ms.openlocfilehash: a745a67e3f3f4c61b3fa3f863cdb25d74ca6cbf8
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="removed-and-deprecated-items-for-system-center-configuration-manager-clients"></a>Éléments supprimés et dépréciés pour les clients System Center Configuration Manager
 
@@ -37,6 +37,7 @@ Ces informations peuvent faire l’objet de modifications dans les futures versi
 
 |**Systèmes d’exploitation**|**Première annonce de dépréciation**|**Support supprimé**|  
 |-|-|-|
+|Linux et UNIX|22 mars 2018||
 |Windows 8 : Professionnel, Entreprise|12 janvier 2018||
 |Windows Embedded 8 Pro|12 janvier 2018||
 |Windows Embedded 8 Industry|12 janvier 2018||
@@ -51,7 +52,7 @@ Ces informations peuvent faire l’objet de modifications dans les futures versi
 |Windows CE 5.0 - 6.0|10 juillet 2015|Version 1511|  
 
 
-## <a name="more-information"></a>Informations complémentaires
+## <a name="more-information"></a>Plus d'informations
 Pour plus d'informations, voir :
  - [Supprimé et déprécié](/sccm/core/plan-design/changes/deprecated/removed-and-deprecated)
  - Le site web [Politique de support Microsoft](https://support.microsoft.com/lifecycle).

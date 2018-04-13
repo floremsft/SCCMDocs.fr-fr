@@ -1,22 +1,23 @@
 ---
 title: Upgrade Readiness
-titleSuffix: Configuration Manager
-description: "Intégrez Upgrade Readiness à Configuration Manager. Accédez aux données de compatibilité de mise à niveau dans votre console d’administration. Ciblez des appareils pour la mise à niveau ou la mise à jour."
-keywords: 
-author: mattbriggs
-ms.author: mabrigg
-manager: angerobe
-ms.date: 7/31/2017
+titleSuffix: System Center Configuration Manager
+description: Intégrez Upgrade Readiness à Configuration Manager. Accédez aux données de compatibilité de mise à niveau dans votre console d’administration. Ciblez des appareils pour la mise à niveau ou la mise à jour.
+keywords: ''
+author: mestew
+ms.author: mstewart
+manager: dougeby
+ms.date: 03/22/2018
 ms.topic: article
 ms.prod: configuration-manager
-ms.service: 
-ms.technology: configmgr-client
+ms.service: ''
+ms.technology:
+- configmgr-client
 ms.assetid: 68407ab8-c205-44ed-9deb-ff5714451624
-ms.openlocfilehash: df2950551e527788aeb01d57cdbf01ad19817ccd
-ms.sourcegitcommit: 986fc2d54f7c5fa965fd4df42f4db4ecce6b79cb
+ms.openlocfilehash: 96f20c3559ac08cb4c5a16d1d33b74c63a02e4b7
+ms.sourcegitcommit: f0bfd9fa0ec5b416f0ea2beee889b94e2ad9c97d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="integrate-upgrade-readiness-with-system-center-configuration-manager"></a>Intégrer Upgrade Readiness à System Center Configuration Manager
 
@@ -25,6 +26,12 @@ ms.lasthandoff: 11/17/2017
 Upgrade Readiness (anciennement Upgrade Analytics) fait partie de [Windows Analytics](https://www.microsoft.com/WindowsForBusiness/windows-analytics) qui vous permet d’évaluer et d’analyser l’état de préparation des appareils de votre environnement pour une mise à niveau vers Windows 10. Vous pouvez configurer la version spécifique. Vous pouvez intégrer Upgrade Readiness à Configuration Manager pour accéder aux données de compatibilité de mise à niveau du client dans la console d’administration de Configuration Manager. Vous êtes en mesure de cibler des appareils pour des mises à niveau ou mises à jour à l’aide de regroupements dynamiques créés en fonction de ces données.
 
 Upgrade Readiness est une solution qui s’exécute sur [Operations Management Suite (OMS)](/azure/operations-management-suite/operations-management-suite-overview). Pour en savoir plus sur Upgrade Readiness, consultez [Gérer les mises à niveau de Windows avec Upgrade Readiness](/windows/deployment/upgrade/manage-windows-upgrades-with-upgrade-readiness).
+
+<!--
+>[!WARNING]
+>For Upgrade Readiness to function within Configuration Manager, you must upgrade to Configuration Manager version 1802. The Upgrade Readiness Connector will no longer function in Configuration Manager versions earlier than 1802. 
+SMS.507205 Pulled 4/5/18 -->
+
 
 ## <a name="configure-clients"></a>Configurer des clients
 
@@ -37,14 +44,14 @@ Upgrade Readiness, comme toutes les solutions Windows Analytics, s’appuie sur 
 La clé d’ID commercial et la télémétrie Windows peuvent être configurées dans les **paramètres client**. Pour en savoir plus, consultez [Utiliser Windows Analytics avec Configuration Manager](../monitor-windows-analytics.md).
 
 >[!NOTE]
->Si Upgrade Readiness ne reçoit pas comme prévu les données de télémétrie envoyées par les appareils de votre environnement, vous pouvez traiter certains de ces problèmes à l’aide du [script de déploiement Upgrade Readiness](/windows/deployment/upgrade/upgrade-readiness-deployment-script). Toutefois, dans la plupart des environnements déployant les bases de connaissances correctes, la configuration de la clé d’ID commercial et de la télémétrie dans les **paramètres client** suffit.
+>Si Upgrade Readiness ne reçoit pas comme prévu les données de télémétrie envoyées par les appareils de votre environnement, vous pouvez traiter certains de ces problèmes à l’aide du [script de déploiement Upgrade Readiness](/windows/deployment/upgrade/upgrade-readiness-deployment-script). Toutefois, dans la plupart des environnements, le déploiement des bases de connaissances appropriées, ainsi que la configuration de la clé d’ID commercial et de la télémétrie dans les **Paramètres client** devraient suffire.
 
 ## <a name="connect-configuration-manager-to-upgrade-readiness"></a>Connecter Configuration Manager à Upgrade Readiness
 
 À compter de Current Branch version 1706, l’[Assistant Services Azure](../../../servers/deploy/configure/azure-services-wizard.md) est utilisé pour simplifier le processus de configuration des services Azure que vous utilisez avec Configuration Manager. Pour connecter Configuration Manager à Upgrade Readiness, une inscription d’application Azure AD de type *application web/API* doit être créée dans le [portail Azure](https://portal.azure.com). Pour en savoir plus sur la création d’une inscription d’application, consultez [Inscrire votre application avec un client Azure Active Directory](/azure/active-directory/active-directory-app-registration). Dans le **portail Azure**, vous devez également donner à votre application web tout juste inscrite des autorisations de *contributeur* sur le groupe de ressources qui contient l’espace de travail OMS qui héberge vos données Upgrade Readiness. L’**Assistant Services Azure** utilise cette inscription d’application pour permettre à Configuration Manager de communiquer en toute sécurité avec Azure AD et de connecter votre infrastructure à vos données Upgrade Readiness.
 
 >[!IMPORTANT]
->Les autorisations de *contributeur* doivent être accordées à l’application elle-même, contrairement à une identité d’utilisateur Azure AD. En effet, c’est l’application inscrite et non un utilisateur Azure AD qui accède aux données pour le compte de votre infrastructure Configuration Manager. Pour ce faire, vous devrez rechercher le nom de l’inscription d’application dans le panneau **Ajouter des utilisateurs** au moment d’attribuer l’autorisation. Il s’agit du même processus que celui à suivre pour [accorder à Configuration Manager les autorisations d’accès à OMS](https://docs.microsoft.com/azure/log-analytics/log-analytics-sccm#provide-configuration-manager-with-permissions-to-oms) pour les connexions à [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-sccm). Ces étapes doivent être effectuées avant d’importer l’inscription d’application dans Configuration Manager avec l’*Assistant Services Azure*.
+>Les autorisations de *contributeur* doivent être accordées à l’application elle-même, contrairement à une identité d’utilisateur Azure AD. En effet, c’est l’application inscrite et non un utilisateur Azure AD qui accède aux données pour le compte de votre infrastructure Configuration Manager. Pour accorder les autorisations, vous devez rechercher le nom de l’inscription d’application dans la zone **Ajouter des utilisateurs** au moment d’attribuer l’autorisation. Il s’agit du même processus que celui à suivre pour [accorder à Configuration Manager les autorisations d’accès à OMS](https://docs.microsoft.com/azure/log-analytics/log-analytics-sccm#provide-configuration-manager-with-permissions-to-oms) pour les connexions à [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-sccm). Ces étapes doivent être effectuées avant d’importer l’inscription d’application dans Configuration Manager avec l’*Assistant Services Azure*.
 
 ### <a name="use-the-azure-wizard-to-create-the-connection"></a>Utiliser l’Assistant Azure pour créer la connexion
 
@@ -55,7 +62,7 @@ Dans la page *Configuration*, les valeurs suivantes sont préremplies si l’imp
 -  Groupe de ressources Azure
 -  Espace de travail Windows Analytics
 
-Plusieurs groupes de ressources ou espaces de travail sont disponibles uniquement si l’application web Azure AD inscrite dispose d’autorisations de *contributeur* sur plusieurs groupes de ressources ou si le groupe de ressources sélectionné contient plusieurs espaces de travail OMS.
+Plusieurs groupes de ressources ou espaces de travail sont disponibles uniquement si l’application web Azure AD inscrite dispose d’autorisations de *contributeur* sur plusieurs groupes de ressources ou si le groupe de ressources sélectionné comprend plusieurs espaces de travail OMS.
  
 ## <a name="view-and-use-upgrade-readiness-information-in-configuration-manager"></a>Afficher et utiliser les informations Upgrade Readiness dans Configuration Manager
 

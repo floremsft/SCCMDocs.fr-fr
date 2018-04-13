@@ -1,9 +1,9 @@
 ---
-title: "Options de ligne de commande du programme d’installation"
+title: Options de ligne de commande du programme d’installation
 titleSuffix: Configuration Manager
-description: "Utilisez les informations de cet article pour configurer des scripts ou installer System Center Configuration Manager à partir d’une ligne de commande."
+description: Créez des scripts d’automatisation pour installer System Center Configuration Manager à partir d’une ligne de commande.
 ms.custom: na
-ms.date: 03/27/2017
+ms.date: 03/22/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -12,15 +12,15 @@ ms.technology:
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 0da167f1-52cf-4dfd-8f73-833ca3eb8478
-caps.latest.revision: 
+caps.latest.revision: 3
 author: mestew
 ms.author: mstewart
-manager: angrobe
-ms.openlocfilehash: 3b2076087e13958be15dd5151961fa825e22a433
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+manager: dougeby
+ms.openlocfilehash: fede359c884ef8b4027935b2e3fb48a5b7543d26
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="command-line-options-for-setup-in-system-center-configuration-manager"></a>Options de ligne de commande pour le programme d’installation de System Center Configuration Manager
 
@@ -31,22 +31,22 @@ ms.lasthandoff: 12/04/2017
 
 ##  <a name="bkmk_setup"></a> Options de ligne de commande pour le programme d’installation  
  **/DEINSTALL**  
- Désinstalle le site. Vous devez exécuter le programme d'installation à partir de l'ordinateur sur lequel est installé le serveur de site.  
+ Désinstalle le site. Exécutez le programme d’installation à partir de l’ordinateur sur lequel est installé le serveur de site.  
 
  **/DONTSTARTSITECOMP**  
  Installe un site, mais empêche le démarrage du service Gestionnaire de composant de site. Tant que le service Gestionnaire de composant de site n'a pas démarré, le site n'est pas actif. Le Gestionnaire de composant de site est chargé d’installer et de démarrer le service SMS_Executive, ainsi que d’autres processus au niveau du site. Une fois l’installation du site terminée, quand vous démarrez le service Gestionnaire de composant de site, ce dernier installe le service SMS_Executive et d’autres processus nécessaires au fonctionnement du site.  
 
  **/HIDDEN**  
- Masque l’interface utilisateur pendant l’installation. Utilisez cette option uniquement avec l’option **/SCRIPT**. Le fichier de script sans assistance doit fournir toutes les options nécessaires pour éviter l’échec du programme d’installation.  
+ Masque l'interface utilisateur pendant l'installation. Utilisez cette option uniquement avec l’option **/SCRIPT**. Le fichier de script sans assistance doit fournir toutes les options nécessaires pour éviter l’échec du programme d’installation.  
 
  **/NOUSERINPUT**  
  Désactive l’entrée utilisateur pendant l’installation, mais affiche l’Assistant Installation. Utilisez cette option uniquement avec l’option **/SCRIPT**. Le fichier de script sans assistance doit fournir toutes les options nécessaires pour éviter l’échec du programme d’installation.  
 
  **/RESETSITE**  
- Effectue une réinitialisation du site qui permet de réinitialiser la base de données et les comptes de service du site. Vous devez exécuter le programme d’installation à partir de **<*Chemin d’installation de Configuration Manager*>\BIN\X64** sur le serveur de site. Pour plus d’informations sur la réinitialisation du site, consultez la section [Exécuter une réinitialisation de site](../../../../core/servers/manage/modify-your-infrastructure.md#bkmk_reset) de la rubrique [Modifier votre infrastructure System Center Configuration Manager](../../../../core/servers/manage/modify-your-infrastructure.md).  
+ Effectue une réinitialisation du site qui permet de réinitialiser la base de données et les comptes de service du site. Exécutez le programme d’installation à partir de **<*Chemin d’installation de Configuration Manager*>\BIN\X64** sur le serveur de site. Pour plus d’informations sur la réinitialisation du site, consultez la section [Exécuter une réinitialisation de site](../../../../core/servers/manage/modify-your-infrastructure.md#bkmk_reset) de la rubrique [Modifier votre infrastructure System Center Configuration Manager](../../../../core/servers/manage/modify-your-infrastructure.md).  
 
  **/TESTDBUPGRADE <*Nom de l’instance*>\\<*Nom de la base de données*>**  
- Effectue un test sur une sauvegarde de la base de données du site pour vérifier qu’elle peut être mise à niveau. Vous devez fournir le nom d'instance et le nom de base de données pour la base de données de site. Si vous spécifiez uniquement le nom de la base de données, le programme d'installation utilise le nom de l'instance par défaut.  
+ Effectue un test sur une sauvegarde de la base de données du site pour vérifier qu’elle peut être mise à niveau. Indiquez le nom d’instance et le nom de base de données pour la base de données de site. Si vous spécifiez uniquement le nom de la base de données, le programme d’installation utilise le nom de l’instance par défaut.  
 
 > [!IMPORTANT]  
 >  N’exécutez pas cette option de ligne de commande sur la base de données de votre site de production. L’exécution de cette option de ligne de commande sur la base de données de votre site de production met à niveau la base de données du site et risque de rendre votre site inutilisable.  
@@ -58,24 +58,24 @@ ms.lasthandoff: 12/04/2017
 
  Pour plus d’informations sur les fichiers nécessaires au programme d’installation, consultez [Téléchargeur d’installation](setup-downloader.md).  
 
- **/SCRIPT <*Chemin d’accès du script d’installation*>**  
- Effectue des installations sans assistance. Un fichier d’initialisation de l’installation est requis lorsque vous utilisez l’option **/SCRIPT** . Pour plus d’informations sur l’exécution du programme d’installation sans assistance, consultez [Installer des sites à l’aide d’une ligne de commande](../../../../core/servers/deploy/install/use-a-command-line-to-install-sites.md).  
+ **/SCRIPT <*Chemin du script d’installation*>**  
+ Effectue des installations sans assistance. Un fichier d’initialisation de l’installation est requis quand vous utilisez l’option **/SCRIPT**. Pour plus d’informations sur l’exécution du programme d’installation sans assistance, consultez [Installer des sites à l’aide d’une ligne de commande](../../../../core/servers/deploy/install/use-a-command-line-to-install-sites.md).  
 
  **/SDKINST <*Nom de domaine complet du fournisseur SMS*>**  
- Installe le fournisseur SMS sur l'ordinateur spécifié. Vous devez fournir le nom de domaine complet de l’ordinateur du fournisseur SMS. Pour plus d’informations sur le fournisseur SMS, consultez [Planifier le fournisseur SMS pour System Center Configuration Manager](../../../../core/plan-design/hierarchy/plan-for-the-sms-provider.md).  
+ Installe le fournisseur SMS sur l'ordinateur spécifié. Indiquez le nom de domaine complet de l’ordinateur du fournisseur SMS. Pour plus d’informations sur le fournisseur SMS, consultez [Planifier le fournisseur SMS](../../../../core/plan-design/hierarchy/plan-for-the-sms-provider.md).  
 
  **/SDKDEINST <*Nom de domaine complet du fournisseur SMS*>**  
- Désinstalle le fournisseur SMS sur l'ordinateur spécifié. Vous devez fournir le nom de domaine complet pour l'ordinateur du fournisseur SMS.  
+ Désinstalle le fournisseur SMS sur l'ordinateur spécifié. Indiquez le nom de domaine complet de l’ordinateur du fournisseur SMS.  
 
- **/MANAGELANGS <*Chemin d’accès au script de langue*>**  
- Gère les langues installées sur un site installé précédemment. Pour utiliser cette option, vous devez exécuter le programme d’installation à partir de **<*Chemin d’installation de Configuration Manager*>\BIN\X64** sur le serveur de site et spécifier l’emplacement du fichier de script de langue contenant les paramètres de langue. Pour plus d’informations sur les options de langue disponibles dans le fichier du script d’installation de langue, consultez [Options de ligne de commande pour gérer les langues](#bkmk_Lang) dans cette rubrique.  
+ **/MANAGELANGS <*Chemin du script de langue*>**  
+ Gère les langues installées sur un site installé précédemment. Pour utiliser cette option, exécutez le programme d’installation à partir de **<*Chemin d’installation de Configuration Manager*>\BIN\X64** sur le serveur de site. Indiquez l’emplacement du fichier de script de langue qui contient les paramètres de langue. Pour plus d’informations sur les options de langue disponibles dans le fichier du script d’installation de langue, consultez la section [Options de ligne de commande pour gérer les langues](#bkmk_Lang).  
 
 ##  <a name="bkmk_Lang"></a> Options de ligne de commande pour gérer les langues  
  **Identification**  
 
 -   **Nom de clé :** Action  
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
     -   **Valeurs :** ManageLanguages  
 
@@ -117,7 +117,7 @@ ms.lasthandoff: 12/04/2017
 
 -   **Nom de clé :** MobileDeviceLanguage  
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
     -   **Valeurs :** 0 ou 1  
 
@@ -129,7 +129,7 @@ ms.lasthandoff: 12/04/2017
 
 -   **Nom de clé :** PrerequisiteComp  
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
     -   **Valeurs :** 0 ou 1  
 
@@ -137,15 +137,15 @@ ms.lasthandoff: 12/04/2017
 
          1 = Déjà téléchargé  
 
-    -   **Détails :** spécifie si les fichiers d’installation prérequis ont déjà été téléchargés. Par exemple, si vous utilisez la valeur **0**, le programme d’installation télécharge les fichiers.  
+    -   **Détails :** spécifie si les fichiers nécessaires au programme d’installation ont déjà été téléchargés. Par exemple, si vous utilisez la valeur **0**, le programme d’installation télécharge les fichiers.  
 
 -   **Nom de clé :** PrerequisitePath  
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
-    -   **Valeurs :** <*Chemin des fichiers nécessaires à l’installation*>  
+    -   **Valeurs :** <*Chemin des fichiers nécessaires au programme d’installation*>  
 
-    -   **Détails :** spécifie le chemin vers les fichiers d’installation prérequis. Selon la valeur **PrerequisiteComp** , le programme d'installation utilise ce chemin d'accès pour stocker les fichiers téléchargés ou pour localiser des fichiers précédemment téléchargés.  
+    -   **Détails :** spécifie le chemin des fichiers nécessaires au programme d’installation. Selon la valeur **PrerequisiteComp**, le programme d’installation utilise ce chemin pour stocker les fichiers téléchargés ou pour localiser des fichiers précédemment téléchargés.  
 
 ##  <a name="bkmk_Unattended"></a> Clés du fichier de script d’installation sans assistance  
  Utilisez les sections suivantes pour vous aider à créer votre script d’installation sans assistance. Les listes affichent les clés de script d’installation disponibles ainsi que leurs valeurs correspondantes, indiquent si elles sont obligatoires ou non, le type d’installation pour lequel elles sont utilisées, ainsi qu’une brève description de la clé.  
@@ -157,7 +157,7 @@ ms.lasthandoff: 12/04/2017
 
 -   **Nom de clé :** Action  
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
     -   **Valeurs :** InstallCAS  
 
@@ -175,7 +175,7 @@ ms.lasthandoff: 12/04/2017
 
 -   **Nom de clé :** ProductID  
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
     -   **Valeurs :** <*xxxxx-xxxxx-xxxxx-xxxxx-xxxxx*> *ou* Eval  
 
@@ -183,7 +183,7 @@ ms.lasthandoff: 12/04/2017
 
 -   **Nom de clé :** SiteCode  
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
     -   **Valeurs :** <*Code de site*>  
 
@@ -191,7 +191,7 @@ ms.lasthandoff: 12/04/2017
 
 -   **Nom de clé :** Nom de site  
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
     -   **Valeurs :** <*Nom de site*>  
 
@@ -199,7 +199,7 @@ ms.lasthandoff: 12/04/2017
 
 -   **Nom de clé :** SMSInstallDir  
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
     -   **Valeurs :** <*Chemin d’installation de Configuration Manager*>  
 
@@ -207,7 +207,7 @@ ms.lasthandoff: 12/04/2017
 
 -   **Nom de clé :** SDKServer  
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
     -   **Valeurs :** <*Nom de domaine complet du fournisseur SMS*>  
 
@@ -215,7 +215,7 @@ ms.lasthandoff: 12/04/2017
 
 -   **Nom de clé :** PrerequisiteComp  
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
     -   **Valeurs :** 0 ou 1  
 
@@ -223,19 +223,19 @@ ms.lasthandoff: 12/04/2017
 
          1 = Déjà téléchargé  
 
-    -   **Détails :** spécifie si les fichiers d’installation prérequis ont déjà été téléchargés. Par exemple, si vous utilisez la valeur **0**, le programme d’installation télécharge les fichiers.  
+    -   **Détails :** spécifie si les fichiers nécessaires au programme d’installation ont déjà été téléchargés. Par exemple, si vous utilisez la valeur **0**, le programme d’installation télécharge les fichiers.  
 
 -   **Nom de clé :** PrerequisitePath  
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
-    -   **Valeurs :** <*Chemin des fichiers nécessaires à l’installation*>  
+    -   **Valeurs :** <*Chemin des fichiers nécessaires au programme d’installation*>  
 
-    -   **Détails :** spécifie le chemin vers les fichiers d’installation prérequis. Selon la valeur **PrerequisiteComp** , le programme d'installation utilise ce chemin d'accès pour stocker les fichiers téléchargés ou pour localiser des fichiers précédemment téléchargés.  
+    -   **Détails :** spécifie le chemin des fichiers nécessaires au programme d’installation. Selon la valeur **PrerequisiteComp**, le programme d’installation utilise ce chemin pour stocker les fichiers téléchargés ou pour localiser des fichiers précédemment téléchargés.  
 
 -   **Nom de clé :** AdminConsole  
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
     -   **Valeurs :** 0 ou 1  
 
@@ -246,8 +246,10 @@ ms.lasthandoff: 12/04/2017
     -   **Détails :** spécifie si la console Configuration Manager doit ou non être installée.  
 
 -   **Nom de clé :** JoinCEIP  
+    > [!Note]  
+    > Depuis Configuration Manager version 1802, la fonctionnalité CEIP ne figure plus dans le produit.
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
     -   **Valeurs :** 0 ou 1  
 
@@ -291,7 +293,7 @@ ms.lasthandoff: 12/04/2017
 
 -   **Nom de clé :** MobileDeviceLanguage  
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
     -   **Valeurs :** 0 ou 1  
 
@@ -305,7 +307,7 @@ ms.lasthandoff: 12/04/2017
 
 -   **Nom de clé :** SQLServerName  
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
     -   **Valeurs :** <*Nom du serveur SQL*>  
 
@@ -313,14 +315,14 @@ ms.lasthandoff: 12/04/2017
 
 -   **Nom de clé :** DatabaseName  
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
     -   **Valeurs :** <*Nom de la base de données du site*> ou <*Nom de l’instance*>\\<*Nom de la base de données du site*>  
 
-    -   **Détails :** Spécifie le nom de la base de données SQL Server à créer ou de la base de données SQL Server à utiliser pour installer la base de données du site d’administration centrale.  
+    -   **Détails :** spécifie le nom de la base de données SQL Server à créer ou de la base de données SQL Server à utiliser quand le programme d’installation installe la base de données du site d’administration centrale.  
 
         > [!IMPORTANT]  
-        >  Si vous n'utilisez pas l'instance par défaut, vous devez spécifier le nom d'instance et le nom de base de données de site.  
+        >  Si vous n’utilisez pas l’instance par défaut, vous devez spécifier le nom d’instance et le nom de base de données de site.  
 
 -   **Nom de clé :** SQLSSBPort  
 
@@ -350,7 +352,7 @@ ms.lasthandoff: 12/04/2017
 
 -   **Nom de clé :** CloudConnector  
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
     -   **Valeurs :** 0 ou 1  
 
@@ -378,7 +380,7 @@ ms.lasthandoff: 12/04/2017
 
          1 = Installer  
 
-    -   **Détails :** Spécifie si le point de connexion de service doit utiliser un serveur proxy.  
+    -   **Détails :** spécifie si le point de connexion de service utilise un serveur proxy.  
 
 -   **Nom de clé :** ProxyName  
 
@@ -386,7 +388,7 @@ ms.lasthandoff: 12/04/2017
 
     -   **Valeurs :** <*Nom de domaine complet du serveur proxy*>  
 
-    -   **Détails :** spécifie le nom de domaine complet du serveur proxy qui sera utilisé par le rôle de système de site de point de connexion de service.  
+    -   **Détails :** spécifie le nom de domaine complet du serveur proxy utilisé par le point de connexion de service.  
 
 -   **Nom de clé :** ProxyPort  
 
@@ -403,7 +405,7 @@ Utilisez les détails suivants pour installer un site principal à l’aide d’
 
 -   **Nom de clé :** Action  
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
     -   **Valeurs :** InstallPrimarySite  
 
@@ -421,7 +423,7 @@ Utilisez les détails suivants pour installer un site principal à l’aide d’
 
 -   **Nom de clé :** ProductID  
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
     -   **Valeurs :** <*xxxxx-xxxxx-xxxxx-xxxxx-xxxxx*> *ou* Eval  
 
@@ -429,7 +431,7 @@ Utilisez les détails suivants pour installer un site principal à l’aide d’
 
 -   **Nom de clé :** SiteCode  
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
     -   **Valeurs :** <*Code de site*>  
 
@@ -437,7 +439,7 @@ Utilisez les détails suivants pour installer un site principal à l’aide d’
 
 -   **Nom de clé :** SiteName  
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
     -   **Valeurs :** <*Nom de site*>  
 
@@ -445,7 +447,7 @@ Utilisez les détails suivants pour installer un site principal à l’aide d’
 
 -   **Nom de clé :** SMSInstallDir  
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
     -   **Valeurs :** <*Chemin d’installation de Configuration Manager*>
 
@@ -453,7 +455,7 @@ Utilisez les détails suivants pour installer un site principal à l’aide d’
 
 -   **Nom de clé :** SDKServer  
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
     -   **Valeurs :** <*Nom de domaine complet du fournisseur SMS*>  
 
@@ -461,7 +463,7 @@ Utilisez les détails suivants pour installer un site principal à l’aide d’
 
 -   **Nom de clé :** PrerequisiteComp  
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
     -   **Valeurs :** 0 ou 1  
 
@@ -469,19 +471,19 @@ Utilisez les détails suivants pour installer un site principal à l’aide d’
 
          1 = Déjà téléchargé  
 
-    -   **Détails :** spécifie si les fichiers d’installation prérequis ont déjà été téléchargés. Par exemple, si vous utilisez la valeur **0**, le programme d’installation télécharge les fichiers.  
+    -   **Détails :** spécifie si les fichiers nécessaires au programme d’installation ont déjà été téléchargés. Par exemple, si vous utilisez la valeur **0**, le programme d’installation télécharge les fichiers.  
 
 -   **Nom de clé :** PrerequisitePath  
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
-    -   **Valeurs :** <*Chemin des fichiers nécessaires à l’installation*>  
+    -   **Valeurs :** <*Chemin des fichiers nécessaires au programme d’installation*>  
 
-    -   **Détails :** spécifie le chemin vers les fichiers d’installation prérequis. Selon la valeur **PrerequisiteComp** , le programme d'installation utilise ce chemin d'accès pour stocker les fichiers téléchargés ou pour localiser des fichiers précédemment téléchargés.  
+    -   **Détails :** spécifie le chemin des fichiers nécessaires au programme d’installation. Selon la valeur **PrerequisiteComp**, le programme d’installation utilise ce chemin pour stocker les fichiers téléchargés ou pour localiser des fichiers précédemment téléchargés.  
 
 -   **Nom de clé :** AdminConsole  
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
     -   **Valeurs :** 0 ou 1  
 
@@ -492,8 +494,10 @@ Utilisez les détails suivants pour installer un site principal à l’aide d’
     -   **Détails :** spécifie si la console Configuration Manager doit ou non être installée.  
 
 -   **Nom de clé :** JoinCEIP  
+    > [!Note]  
+    > Depuis Configuration Manager version 1802, la fonctionnalité CEIP ne figure plus dans le produit.
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
     -   **Valeurs :** 0 ou 1  
 
@@ -537,7 +541,7 @@ Utilisez les détails suivants pour installer un site principal à l’aide d’
 
 -   **Nom de clé :** RoleCommunicationProtocol  
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
     -   **Valeurs :** EnforceHTTPS *ou* HTTPorHTTPS  
 
@@ -545,7 +549,7 @@ Utilisez les détails suivants pour installer un site principal à l’aide d’
 
 -   **Nom de clé :** ClientsUsePKICertificate  
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
     -   **Valeurs :** 0 ou 1  
 
@@ -589,7 +593,7 @@ Utilisez les détails suivants pour installer un site principal à l’aide d’
 
 -   **Nom de clé :** MobileDeviceLanguage  
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
     -   **Valeurs :** 0 ou 1  
 
@@ -603,7 +607,7 @@ Utilisez les détails suivants pour installer un site principal à l’aide d’
 
 -   **Nom de clé :** SQLServerName  
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
     -   **Valeurs :** <*Nom du serveur SQL*>  
 
@@ -611,14 +615,14 @@ Utilisez les détails suivants pour installer un site principal à l’aide d’
 
 -   **Nom de clé :** DatabaseName  
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
     -   **Valeurs :** <*Nom de la base de données du site*> ou <*Nom de l’instance*>\\<*Nom de la base de données du site*>  
 
     -   **Détails :** Spécifie le nom de la base de données SQL Server à créer ou de la base de données SQL Server à utiliser pour installer la base de données du site principal.  
 
         > [!IMPORTANT]  
-        >  Si vous n'utilisez pas l'instance par défaut, vous devez spécifier le nom d'instance et le nom de base de données de site.  
+        >  Si vous n’utilisez pas l’instance par défaut, vous devez spécifier le nom d’instance et le nom de base de données de site.  
 
 -   **Nom de clé :** SQLSSBPort  
 
@@ -652,7 +656,7 @@ Utilisez les détails suivants pour installer un site principal à l’aide d’
 
     -   **Valeurs :** <*Nom de domaine complet du site d’administration centrale*>  
 
-    -   **Détails :** spécifie le site d’administration centrale auquel un site principal s’attache quand il rejoint la hiérarchie Configuration Manager. Vous devez spécifier le site d'administration centrale lors de l'installation.  
+    -   **Détails :** spécifie le site d’administration centrale auquel un site principal s’attache quand il rejoint la hiérarchie Configuration Manager. Spécifiez le site d’administration centrale lors de l’installation.  
 
 -   **Nom de clé :** CASRetryInterval  
 
@@ -676,7 +680,7 @@ Utilisez les détails suivants pour installer un site principal à l’aide d’
 
 -   **Nom de clé :** CloudConnector  
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
     -   **Valeurs :** 0 ou 1  
 
@@ -704,7 +708,7 @@ Utilisez les détails suivants pour installer un site principal à l’aide d’
 
          1 = Installer  
 
-    -   **Détails :** Spécifie si le point de connexion de service doit utiliser un serveur proxy.  
+    -   **Détails :** spécifie si le point de connexion de service utilise un serveur proxy.  
 
 -   **Nom de clé :** ProxyName  
 
@@ -712,7 +716,7 @@ Utilisez les détails suivants pour installer un site principal à l’aide d’
 
     -   **Valeurs :** <*Nom de domaine complet du serveur proxy*>  
 
-    -   **Détails :** spécifie le nom de domaine complet du serveur proxy qui sera utilisé par le rôle de système de site de point de connexion de service.  
+    -   **Détails :** spécifie le nom de domaine complet du serveur proxy utilisé par le point de connexion de service.  
 
 -   **Nom de clé :** ProxyPort  
 
@@ -729,7 +733,7 @@ Utilisez les détails suivants pour installer un site principal à l’aide d’
 
 -   **Nom de clé :** Action  
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
     -   **Valeurs :** RecoverCCAR  
 
@@ -747,7 +751,7 @@ Utilisez les détails suivants pour installer un site principal à l’aide d’
 
 -   **Nom de clé :** ServerRecoveryOptions  
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
     -   **Valeurs :** 1, 2 ou 4  
 
@@ -757,7 +761,7 @@ Utilisez les détails suivants pour installer un site principal à l’aide d’
 
          4 = Récupérer SQL Server uniquement.  
 
-    -   **Détails :** spécifie si le programme d’installation doit récupérer le serveur de site, SQL Server ou les deux. Les clés associées sont nécessaires quand vous définissez la valeur suivante pour le paramètre **ServerRecoveryOptions** :  
+    -   **Détails :** spécifie si le programme d’installation récupère le serveur de site, SQL Server, ou les deux. Les clés associées sont nécessaires quand vous définissez la valeur suivante pour le paramètre **ServerRecoveryOptions** :  
 
         -   Valeur = 1 : vous avez la possibilité de spécifier une valeur pour la clé **SiteServerBackupLocation** afin de récupérer le site à l’aide d’une sauvegarde de site. Si vous ne spécifiez pas de valeur, le site est réinstallé sans être restauré à partir d'un jeu de sauvegarde.  
 
@@ -779,7 +783,7 @@ Utilisez les détails suivants pour installer un site principal à l’aide d’
 
          80 = Ignorer la récupération de base de données.  
 
-    -   **Détails :** spécifie comment le programme d’installation récupère la base de données du site dans SQL Server.  
+    -   **Détails :** spécifie comment le programme d’installation récupère la base de données du site dans SQL Server.  
 
 -   **Nom de clé :** ReferenceSite  
 
@@ -813,7 +817,7 @@ Utilisez les détails suivants pour installer un site principal à l’aide d’
 
 -   **Nom de clé :** ProductID  
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
     -   **Valeurs :** <*xxxxx-xxxxx-xxxxx-xxxxx-xxxxx*> *ou* Eval  
 
@@ -821,11 +825,11 @@ Utilisez les détails suivants pour installer un site principal à l’aide d’
 
 -   **Nom de clé :** SiteCode  
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
     -   **Valeurs :** <*Code de site*>  
 
-    -   **Détails :** spécifie les trois caractères alphanumériques qui identifient le site de manière unique dans votre hiérarchie. Vous devez spécifier le code de site que le site utilisait avant la défaillance.
+    -   **Détails :** spécifie les trois caractères alphanumériques qui identifient le site de manière unique dans votre hiérarchie. Indiquez le code de site que le site utilisait avant la défaillance.
 
 -   **Nom de clé :** SiteName  
 
@@ -837,7 +841,7 @@ Utilisez les détails suivants pour installer un site principal à l’aide d’
 
 -   **Nom de clé :** SMSInstallDir  
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
     -   **Valeurs :** <*Chemin d’installation de Configuration Manager*>  
 
@@ -845,17 +849,17 @@ Utilisez les détails suivants pour installer un site principal à l’aide d’
 
 -   **Nom de clé :** SDKServer  
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
     -   **Valeurs :** <*Nom de domaine complet du fournisseur SMS*>  
 
-    -   **Détails :** spécifie le FQDN du serveur qui héberge le fournisseur SMS. Vous devez spécifier le serveur qui hébergeait le fournisseur SMS avant la défaillance.  
+    -   **Détails :** spécifie le nom de domaine complet du serveur qui héberge le fournisseur SMS. Indiquez le serveur qui hébergeait le fournisseur SMS avant la défaillance.  
 
          Vous pouvez configurer d'autres fournisseurs SMS pour le site après l'installation initiale. Pour plus d’informations sur le fournisseur SMS, consultez [Planifier le fournisseur SMS pour System Center Configuration Manager](../../../../core/plan-design/hierarchy/plan-for-the-sms-provider.md).  
 
 -   **Nom de clé :** PrerequisiteComp  
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
     -   **Valeurs :** 0 ou 1  
 
@@ -863,15 +867,15 @@ Utilisez les détails suivants pour installer un site principal à l’aide d’
 
          1 = Déjà téléchargé  
 
-    -   **Détails :** spécifie si les fichiers d’installation prérequis ont déjà été téléchargés. Par exemple, si vous utilisez la valeur **0**, le programme d’installation télécharge les fichiers.  
+    -   **Détails :** spécifie si les fichiers nécessaires au programme d’installation ont déjà été téléchargés. Par exemple, si vous utilisez la valeur **0**, le programme d’installation télécharge les fichiers.  
 
 -   **Nom de clé :** PrerequisitePath  
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
-    -   **Valeurs :** <*Chemin des fichiers nécessaires à l’installation*>  
+    -   **Valeurs :** <*Chemin des fichiers nécessaires au programme d’installation*>  
 
-    -   **Détails :** spécifie le chemin vers les fichiers d’installation prérequis. Selon la valeur **PrerequisiteComp** , le programme d'installation utilise ce chemin d'accès pour stocker les fichiers téléchargés ou pour localiser des fichiers précédemment téléchargés.  
+    -   **Détails :** spécifie le chemin des fichiers nécessaires au programme d’installation. Selon la valeur **PrerequisiteComp**, le programme d’installation utilise ce chemin pour stocker les fichiers téléchargés ou pour localiser des fichiers précédemment téléchargés.  
 
 -   **Nom de clé :** AdminConsole  
 
@@ -886,8 +890,10 @@ Utilisez les détails suivants pour installer un site principal à l’aide d’
     -   **Détails :** spécifie si la console Configuration Manager doit ou non être installée.  
 
 -   **Nom de clé :** JoinCEIP  
+    > [!Note]  
+    > Depuis Configuration Manager version 1802, la fonctionnalité CEIP ne figure plus dans le produit.
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
     -   **Valeurs :** 0 ou 1  
 
@@ -901,30 +907,30 @@ Utilisez les détails suivants pour installer un site principal à l’aide d’
 
 -   **Nom de clé :** SQLServerName  
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
     -   **Valeurs :** <*Nom du serveur SQL*>  
 
-    -   **Détails :** Spécifie le nom du serveur ou de l’instance en cluster exécutant SQL Server qui hébergera la base de données du site. Vous devez spécifier le serveur qui a hébergé la base de données de site avant la défaillance.  
+    -   **Détails :** spécifie le nom du serveur ou de l’instance en cluster exécutant SQL Server et qui héberge la base de données du site. Indiquez le serveur qui a hébergé la base de données de site avant la défaillance.  
 
 -   **Nom de clé :** DatabaseName  
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
     -   **Valeurs :** <*Nom de la base de données du site*> ou <*Nom de l’instance*>\\<*Nom de la base de données du site*>  
 
-    -   **Détails :** Spécifie le nom de la base de données SQL Server à créer ou de la base de données SQL Server à utiliser pour installer la base de données du site d’administration centrale. Vous devez spécifier le nom de base de données qui était utilisé avant la défaillance.  
+    -   **Détails :** Spécifie le nom de la base de données SQL Server à créer ou de la base de données SQL Server à utiliser pour installer la base de données du site d’administration centrale. Indiquez le nom de base de données qui était utilisé avant la défaillance.  
 
         > [!IMPORTANT]  
-        >  Si vous n'utilisez pas l'instance par défaut, vous devez spécifier le nom d'instance et le nom de base de données de site.  
+        >  Si vous n’utilisez pas l’instance par défaut, vous devez spécifier le nom d’instance et le nom de base de données de site.  
 
 -   **Nom de clé :** SQLSSBPort  
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
     -   **Valeurs :** <*Numéro du port SSB*>  
 
-    -   **Détails :** Spécifie le port SSB que SQL Server utilise. Généralement, SSB est configuré pour utiliser le port TCP 4022. Vous devez définir le même port SSB utilisé avant la défaillance.  
+    -   **Détails :** Spécifie le port SSB que SQL Server utilise. Généralement, SSB est configuré pour utiliser le port TCP 4022. Indiquez le port SSB utilisé avant la défaillance.  
 
 -   **Nom de clé :** SQLDataFilePath  
 
@@ -946,7 +952,7 @@ Utilisez les détails suivants pour installer un site principal à l’aide d’
 
 -   **Nom de clé :** CloudConnector  
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
     -   **Valeurs :** 0 ou 1  
 
@@ -974,7 +980,7 @@ Utilisez les détails suivants pour installer un site principal à l’aide d’
 
          1 = Installer  
 
-    -   **Détails :** Spécifie si le point de connexion de service doit utiliser un serveur proxy.  
+    -   **Détails :** spécifie si le point de connexion de service utilise un serveur proxy.  
 
 -   **Nom de clé :** ProxyName  
 
@@ -982,7 +988,7 @@ Utilisez les détails suivants pour installer un site principal à l’aide d’
 
     -   **Valeurs :** <*Nom de domaine complet du serveur proxy*>  
 
-    -   **Détails :** spécifie le nom de domaine complet du serveur proxy qui sera utilisé par le rôle de système de site de point de connexion de service.  
+    -   **Détails :** spécifie le nom de domaine complet du serveur proxy utilisé par le point de connexion de service.  
 
 -   **Nom de clé :** ProxyPort  
 
@@ -993,13 +999,13 @@ Utilisez les détails suivants pour installer un site principal à l’aide d’
     -   **Détails :** Spécifie le numéro de port à utiliser pour le port proxy.  
 
 ### <a name="unattended-recovery-for-a-primary-site"></a>Récupération sans assistance d’un site principal  
- Utilisez les détails suivant pour récupérer un site principal à l’aide d’un fichier de script d’installation sans assistance.  
+ Utilisez les détails suivants pour récupérer un site principal à l’aide d’un fichier de script d’installation sans assistance.  
 
 **Identification**  
 
 -   **Nom de clé :** Action  
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
     -   **Valeurs :** <*RecoverPrimarySite*>  
 
@@ -1017,7 +1023,7 @@ Utilisez les détails suivants pour installer un site principal à l’aide d’
 
 -   **Nom de clé :** ServerRecoveryOptions  
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
     -   **Valeurs :** 1, 2 ou 4  
 
@@ -1027,7 +1033,7 @@ Utilisez les détails suivants pour installer un site principal à l’aide d’
 
          4 = Récupérer SQL Server uniquement.  
 
-    -   **Détails :** spécifie si le programme d’installation doit récupérer le serveur de site, SQL Server ou les deux. Les clés associées sont nécessaires quand vous définissez la valeur suivante pour le paramètre **ServerRecoveryOptions** :  
+    -   **Détails :** spécifie si le programme d’installation récupère le serveur de site, SQL Server, ou les deux. Les clés associées sont nécessaires quand vous définissez la valeur suivante pour le paramètre **ServerRecoveryOptions** :  
 
         -   Valeur = 1 : vous avez la possibilité de spécifier une valeur pour la clé **SiteServerBackupLocation** afin de récupérer le site à l’aide d’une sauvegarde de site. Si vous ne spécifiez pas de valeur, le site est réinstallé sans être restauré à partir d'un jeu de sauvegarde.  
 
@@ -1049,7 +1055,7 @@ Utilisez les détails suivants pour installer un site principal à l’aide d’
 
          80 = Ignorer la récupération de base de données.  
 
-    -   **Détails :** spécifie comment le programme d’installation récupère la base de données du site dans SQL Server.  
+    -   **Détails :** spécifie comment le programme d’installation récupère la base de données du site dans SQL Server.  
 
 -   **Nom de clé :** SiteServerBackupLocation  
 
@@ -1073,7 +1079,7 @@ Utilisez les détails suivants pour installer un site principal à l’aide d’
 
 -   **Nom de clé :** ProductID  
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
     -   **Valeurs :** *xxxxx-xxxxx-xxxxx-xxxxx-xxxxx* ou *Eval*  
 
@@ -1081,11 +1087,11 @@ Utilisez les détails suivants pour installer un site principal à l’aide d’
 
 -   **Nom de clé :** SiteCode  
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
     -   **Valeurs :** <*Code de site*>  
 
-    -   **Détails :** spécifie les trois caractères alphanumériques qui identifient le site de manière unique dans votre hiérarchie. Vous devez spécifier le code de site que le site utilisait avant la défaillance.
+    -   **Détails :** spécifie les trois caractères alphanumériques qui identifient le site de manière unique dans votre hiérarchie. Indiquez le code de site que le site utilisait avant la défaillance.
 
 -   **Nom de clé :** SiteName  
 
@@ -1097,7 +1103,7 @@ Utilisez les détails suivants pour installer un site principal à l’aide d’
 
 -   **Nom de clé :** SMSInstallDir  
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
     -   **Valeurs :** <*Chemin d’installation de Configuration Manager*>  
 
@@ -1105,15 +1111,15 @@ Utilisez les détails suivants pour installer un site principal à l’aide d’
 
 -   **Nom de clé :** SDKServer  
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
     -   **Valeurs :** <*Nom de domaine complet du fournisseur SMS*>  
 
-    -   **Détails :** spécifie le FQDN du serveur qui héberge le fournisseur SMS. Vous devez spécifier le serveur qui hébergeait le fournisseur SMS avant la défaillance. Vous pouvez configurer d'autres fournisseurs SMS pour le site après l'installation initiale. Pour plus d’informations sur le fournisseur SMS, consultez [Planifier le fournisseur SMS pour System Center Configuration Manager](../../../../core/plan-design/hierarchy/plan-for-the-sms-provider.md).  
+    -   **Détails :** spécifie le nom de domaine complet du serveur qui héberge le fournisseur SMS. Indiquez le serveur qui hébergeait le fournisseur SMS avant la défaillance. Configurez d’autres fournisseurs SMS pour le site après l’installation initiale. Pour plus d’informations sur le fournisseur SMS, consultez [Planifier le fournisseur SMS](../../../../core/plan-design/hierarchy/plan-for-the-sms-provider.md).  
 
 -   **Nom de clé :** PrerequisiteComp  
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
     -   **Valeurs :** 0 ou 1  
 
@@ -1121,15 +1127,15 @@ Utilisez les détails suivants pour installer un site principal à l’aide d’
 
          1 = Déjà téléchargé  
 
-    -   **Détails :** spécifie si les fichiers d’installation prérequis ont déjà été téléchargés. Par exemple, si vous utilisez la valeur **0**, le programme d’installation télécharge les fichiers.  
+    -   **Détails :** spécifie si les fichiers nécessaires au programme d’installation ont déjà été téléchargés. Par exemple, si vous utilisez la valeur **0**, le programme d’installation télécharge les fichiers.  
 
 -   **Nom de clé :** PrerequisitePath  
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
-    -   **Valeurs :** <*Chemin des fichiers nécessaires à l’installation*>  
+    -   **Valeurs :** <*Chemin des fichiers nécessaires au programme d’installation*>  
 
-    -   **Détails :** spécifie le chemin vers les fichiers d’installation prérequis. Selon la valeur **PrerequisiteComp** , le programme d'installation utilise ce chemin d'accès pour stocker les fichiers téléchargés ou pour localiser des fichiers précédemment téléchargés.  
+    -   **Détails :** spécifie le chemin des fichiers nécessaires au programme d’installation. Selon la valeur **PrerequisiteComp**, le programme d’installation utilise ce chemin pour stocker les fichiers téléchargés ou pour localiser des fichiers précédemment téléchargés.  
 
 -   **Nom de clé :** AdminConsole  
 
@@ -1144,8 +1150,10 @@ Utilisez les détails suivants pour installer un site principal à l’aide d’
     -   **Détails :** spécifie si la console Configuration Manager doit ou non être installée.  
 
 -   **Nom de clé :** JoinCEIP  
+    > [!Note]  
+    > Depuis Configuration Manager version 1802, la fonctionnalité CEIP ne figure plus dans le produit.
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
     -   **Valeurs :** 0 ou 1  
 
@@ -1159,32 +1167,32 @@ Utilisez les détails suivants pour installer un site principal à l’aide d’
 
 -   **Nom de clé :** SQLServerName  
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
     -   **Valeurs :** <*Nom du serveur SQL*>  
 
-    -   **Détails :** Spécifie le nom du serveur ou de l’instance en cluster exécutant SQL Server qui hébergera la base de données du site. Vous devez spécifier le serveur qui a hébergé la base de données de site avant la défaillance.  
+    -   **Détails :** spécifie le nom du serveur ou de l’instance en cluster exécutant SQL Server et qui héberge la base de données du site. Indiquez le serveur qui a hébergé la base de données de site avant la défaillance.  
 
 -   **Nom de clé :** DatabaseName  
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
-    -   **Valeurs :**  <*Nom de la base de données du site*> ou <*Nom de l’instance*>\\<*Nom de la base de données du site*>
+    -   **Valeurs :** <*Nom de la base de données du site*> ou <*Nom de l’instance*>\\<*Nom de la base de données du site*>
 
     -   **Détails :**  
 
-         Spécifie le nom de la base de données SQL Server à créer ou de la base de données SQL Server à utiliser pour installer la base de données du site d’administration centrale. Vous devez spécifier le nom de base de données qui était utilisé avant la défaillance.  
+         Spécifie le nom de la base de données SQL Server à créer ou de la base de données SQL Server à utiliser pour installer la base de données du site d’administration centrale. Indiquez le nom de base de données qui était utilisé avant la défaillance.  
 
         > [!IMPORTANT]  
-        >  Si vous n'utilisez pas l'instance par défaut, vous devez spécifier le nom d'instance et le nom de base de données de site.  
+        >  Si vous n’utilisez pas l’instance par défaut, vous devez spécifier le nom d’instance et le nom de base de données de site.  
 
 -   **Nom de clé :** SQLSSBPort  
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
     -   **Valeurs :** <*Numéro du port SSB*>  
 
-    -   **Détails :** Spécifie le port SSB que SQL Server utilise. Généralement, SSB est configuré pour utiliser le port TCP 4022. Vous devez définir le même port SSB utilisé avant la défaillance.  
+    -   **Détails :** Spécifie le port SSB que SQL Server utilise. Généralement, SSB est configuré pour utiliser le port TCP 4022. Indiquez le port SSB utilisé avant la défaillance.  
 
 -   **Nom de clé :** SQLDataFilePath  
 
@@ -1210,7 +1218,7 @@ Utilisez les détails suivants pour installer un site principal à l’aide d’
 
     -   **Valeurs :** <*Code du site d’administration centrale*>  
 
-    -   **Détails :** spécifie le site d’administration centrale auquel un site principal s’attache quand il rejoint la hiérarchie Configuration Manager. Ce paramètre est requis si le site principal était attaché à un site d'administration centrale avant la défaillance. Vous devez spécifier le code de site qui était utilisé pour le site d'administration centrale avant la défaillance.  
+    -   **Détails :** spécifie le site d’administration centrale auquel un site principal s’attache quand il rejoint la hiérarchie Configuration Manager. Ce paramètre est requis si le site principal était attaché à un site d'administration centrale avant la défaillance. Indiquez le code de site qui était utilisé pour le site d’administration centrale avant la défaillance.  
 
 -   **Nom de clé :** CASRetryInterval  
 
@@ -1232,7 +1240,7 @@ Utilisez les détails suivants pour installer un site principal à l’aide d’
 
 -   **Nom de clé :** CloudConnector  
 
-    -   **Obligatoire :** Oui  
+    -   **Obligatoire :** oui  
 
     -   **Valeurs :** 0 ou 1  
 
@@ -1260,7 +1268,7 @@ Utilisez les détails suivants pour installer un site principal à l’aide d’
 
          1 = Installer  
 
-    -   **Détails :** Spécifie si le point de connexion de service doit utiliser un serveur proxy.  
+    -   **Détails :** spécifie si le point de connexion de service utilise un serveur proxy.  
 
 -   **Nom de clé :** ProxyName  
 
@@ -1268,7 +1276,7 @@ Utilisez les détails suivants pour installer un site principal à l’aide d’
 
     -   **Valeurs :** <*Nom de domaine complet du serveur proxy*>  
 
-    -   **Détails :** spécifie le nom de domaine complet du serveur proxy qui sera utilisé par le rôle de système de site de point de connexion de service.  
+    -   **Détails :** spécifie le nom de domaine complet du serveur proxy utilisé par le point de connexion de service.  
 
 -   **Nom de clé :** ProxyPort  
 

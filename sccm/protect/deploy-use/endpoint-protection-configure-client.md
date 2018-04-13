@@ -1,34 +1,35 @@
 ---
 title: Configurer le client Endpoint Protection
 titleSuffix: Configuration Manager
-description: "Découvrez comment configurer des paramètres client personnalisés pour Endpoint Protection, dans le but de les déployer ensuite dans certains regroupements d’ordinateurs de votre hiérarchie."
+description: Découvrez comment configurer des paramètres client personnalisés pour Endpoint Protection, dans le but de les déployer ensuite dans certains regroupements d’ordinateurs de votre hiérarchie.
 ms.custom: na
-ms.date: 02/14/2017
+ms.date: 03/22/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: e63f2394-6eb1-4a33-bec5-8377fc62a34e
-caps.latest.revision: "21"
-author: NathBarn
-ms.author: nathbarn
-manager: angrobe
-ms.openlocfilehash: de8f7411219446420a8c8bca00799d8d7d18fd2f
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+caps.latest.revision: 21
+author: mestew
+ms.author: mstewart
+manager: dougeby
+ms.openlocfilehash: 22c56bac25cc6e3129f2e8478bbae9fa8782de9f
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-custom-client-settings-for-endpoint-protection"></a>Configurer des paramètres client personnalisés pour Endpoint Protection
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
-Cette procédure permet de configurer des paramètres client personnalisés pour Endpoint Protection, dans le but de les déployer ensuite dans certains regroupements d’ordinateurs de votre hiérarchie.
+Cette procédure permet de configurer des paramètres clients personnalisés pour Endpoint Protection, dans le but de les déployer ensuite dans certains regroupements d’ordinateurs de votre hiérarchie.
 
 > [!IMPORTANT]
->  Configurez les paramètres client par défaut pour Endpoint Protection uniquement si vous voulez les appliquer à l’ensemble des ordinateurs de la hiérarchie.
+>  Configurez les paramètres clients par défaut pour Endpoint Protection uniquement si vous voulez les appliquer à l’ensemble des ordinateurs de la hiérarchie. 
 
 ## <a name="to-enable-endpoint-protection-and-configure-custom-client-settings"></a>Pour activer Endpoint Protection et configurer des paramètres client personnalisés
 
@@ -51,17 +52,17 @@ Cette procédure permet de configurer des paramètres client personnalisés pour
 
 8.  Dans la boîte de dialogue **Sélectionner des regroupements** , choisissez le regroupement dans lequel vous voulez déployer les paramètres client, puis cliquez sur **OK**. Le nouveau déploiement figure dans l'onglet **Déploiements** du panneau des détails.
 
-Les ordinateurs client sont configurés avec ces paramètres lorsqu'ils téléchargent la stratégie client. Pour savoir comment lancer une récupération de stratégie pour un seul client, consultez la section « Lancer une récupération de stratégie pour un client Configuration Manager » dans [Guide pratique pour gérer les clients dans System Center Configuration Manager](../../core/clients/manage/manage-clients.md).
+Les ordinateurs clients sont configurés avec ces paramètres lorsqu'ils téléchargent la stratégie client. Pour savoir comment lancer une récupération de stratégie pour un seul client, consultez la section « Lancer une récupération de stratégie pour un client Configuration Manager » dans [Guide pratique pour gérer les clients dans System Center Configuration Manager](../../core/clients/manage/manage-clients.md).
 
 ## <a name="how-to-provision-the-endpoint-protection-client-in-a-disk-image-in-configuration-manager"></a>Guide pratique pour configurer le client Endpoint Protection dans une image disque dans Configuration Manager
 Vous pouvez installer le client Endpoint Protection sur un ordinateur que vous prévoyez d’utiliser comme source de l’image disque pour le déploiement du système d’exploitation dans Configuration Manager. En général, on appelle cet ordinateur l'ordinateur de référence. Après avoir créé l’image du système d’exploitation, vous pouvez utiliser le déploiement du système d’exploitation dans Configuration Manager pour déployer l’image pouvant contenir des packages logiciels, y compris Endpoint Protection, sur vos ordinateurs clients.
 
-Suivez les procédures de cette rubrique pour vous aider à installer et configurer le client Endpoint Protection sur un ordinateur de référence
+Suivez les procédures de cet article pour vous aider à installer et configurer le client Endpoint Protection sur un ordinateur de référence
 
 ### <a name="prerequisites-for-installing-the-endpoint-protection-client-on-the-reference-computer"></a>Conditions requises pour installer le client Endpoint Protection sur l'ordinateur de référence
 La liste suivante répertorie les conditions préalables requises pour installer le logiciel client Endpoint Protection sur un ordinateur de référence.
 
--   Vous devez avoir accès au package d’installation du client Endpoint Protection, **scepinstall.exe**. Ce package est disponible dans le dossier **Client** du dossier d’installation de Microsoft System Center Configuration Manager sur le serveur de site.
+-   Vous devez avoir accès au package d’installation du client Endpoint Protection, **scepinstall.exe**. Ce package est disponible dans le dossier **Client** du dossier d’installation de Microsoft System Center Configuration Manager sur le serveur de site. Windows 10 et Windows Server 2016 ont Windows Defender installé. 
 
 -   Pour vous assurer que le client Endpoint Protection est déployé avec la configuration requise dans votre organisation, créez une stratégie de logiciel anti-programme malveillant et exportez-la. Vous pouvez ensuite spécifier la stratégie de logiciel anti-programme malveillant à utiliser quand vous installez manuellement le client Endpoint Protection. Pour plus d’informations, consultez [Comment créer et déployer des stratégies anti-programme malveillant pour Endpoint Protection dans System Center Configuration Manager](endpoint-antimalware-policies.md).
 
@@ -70,6 +71,8 @@ La liste suivante répertorie les conditions préalables requises pour installer
 
 -   Si vous voulez installer le client Endpoint Protection avec les dernières définitions, téléchargez ces définitions depuis le [Centre de protection Microsoft contre les programmes malveillants](http://go.microsoft.com/fwlink/?LinkID=200965).
 
+>[!NOTE]
+> À compter de Configuration Manager 1802, l’agent Endpoint Protection (SCEPInstall) n’a pas besoin d’être installé sur les appareils Windows 10. S’il est déjà installé sur les appareils Windows 10, Configuration Manager ne le supprime pas. Les administrateurs peuvent supprimer l’agent Endpoint Protection sur les appareils Windows 10 qui exécutent au moins la version client 1802. Il est possible que SCEPInstall.exe soit toujours dans C:\Windows\ccmsetup sur certaines machines, mais il ne doit pas être téléchargé sur de nouvelles installations de client. <!--503654-->
 ### <a name="how-to-install-the-endpoint-protection-client-software-on-the-reference-computer"></a>Comment installer le logiciel du client Endpoint Protection sur l'ordinateur de référence
 Vous pouvez installer le client Endpoint Protection localement sur l’ordinateur de référence à partir d’une invite de commande. Pour cela, vous devez d'abord obtenir le fichier d'installation **scepinstall.exe**. Vous pouvez également installer le client avec une stratégie de logiciel anti-programme malveillant préconfigurée ou avec une que vous avez précédemment exportée.
 
@@ -77,7 +80,7 @@ Vous pouvez installer le client Endpoint Protection localement sur l’ordinateu
 
 1.  Copiez **scepinstall.exe** dans le dossier **Client** du média d’installation System Center Configuration Manager sur l’ordinateur où vous voulez installer le logiciel client Endpoint Protection.
 
-2.  Ouvrez une invite de commande avec des privilèges d'administrateur, accédez au dossier qui contient **scepinstall.exe** et exécutez la commande suivante, en ajoutant les propriétés de ligne de commande supplémentaires dont vous avez besoin :
+2.  Ouvrez une invite de commande avec des privilèges d’administrateur, accédez au dossier qui contient **scepinstall.exe** et exécutez la commande suivante, en ajoutant les propriétés de ligne de commande supplémentaires dont vous avez besoin :
 
    ```
    scepinstall.exe
@@ -116,7 +119,7 @@ Vous pouvez installer le client Endpoint Protection localement sur l’ordinateu
 4.  Si vous avez téléchargé le dernier package de définition, copiez-le sur l'ordinateur client et double-cliquez dessus pour l'installer.
 
    > [!NOTE]
-   >  Une fois l’installation du client Endpoint Protection terminée, le client effectue automatiquement une vérification des mises à jour des définitions. Si cette vérification de la mise à jour réussit, vous n'avez pas à installer manuellement le dernier package de mise à jour de définition.
+   >  Une fois l’installation du client Endpoint Protection terminée, le client effectue automatiquement une vérification des mises à jour des définitions. Si cette vérification des mises à jour réussit, vous n'avez pas à installer manuellement le dernier package de mises à jour des définitions.
 
 ## <a name="verify-that-the-endpoint-protection-client-is-installed-correctly"></a>Vérifier que le client Endpoint Protection est installé correctement
 Une fois le client Endpoint Protection installé sur votre ordinateur de référence, vérifiez qu’il fonctionne correctement.
@@ -127,7 +130,7 @@ Une fois le client Endpoint Protection installé sur votre ordinateur de référ
 
 2.  Dans l’onglet **Accueil** de la boîte de dialogue **System Center Endpoint Protection**, vérifiez que **Protection en temps réel** est réglé sur **Activé**.
 
-3.  Vérifiez que **À jour** s'affiche pour **Définitions de virus et de logiciels espions**.
+3.  Vérifiez que **À jour** s’affiche pour **Définitions de virus et de logiciels espions**.
 
 4.  Pour vous assurer que votre ordinateur de référence est prêt pour l'acquisition d’images, sous **Options d'analyse**, sélectionnez **Complète**et cliquez sur **Analyser maintenant**.
 

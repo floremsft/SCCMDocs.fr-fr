@@ -1,33 +1,35 @@
 ---
-title: "Créer et déployer une stratégie Windows Defender Application Guard"
-titleSuffix: Configuration Manager
-description: "Créez et déployez une stratégie Windows Defender Application Guard."
+title: Créer et déployer une stratégie Windows Defender Application Guard
+titleSuffix: System Center Configuration Manager
+description: Créez et déployez une stratégie Windows Defender Application Guard.
 ms.custom: na
-ms.date: 11/21/2017
+ms.date: 03/22/2018
 ms.prod: configuration-manager
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.assetid: 
-caps.latest.revision: "5"
-author: ErikjeMS
-ms.author: erikje
+ms.assetid: ''
+caps.latest.revision: 5
+author: mestew
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: db2508e5bbd1435fce432b6ef98d7968e68ea5ab
-ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
+ms.openlocfilehash: faa1a50b29fe4ba966812441243b81ee2d31b024
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="create-and-deploy-windows-defender-application-guard-policy----1351960---"></a>Créer et déployer une stratégie Windows Defender Application Guard <!-- 1351960 -->
-
+# <a name="create-and-deploy-windows-defender-application-guard-policy"></a>Créer et déployer une stratégie Windows Defender Application Guard 
+*S’applique à : System Center Configuration Manager (Current Branch)*
+<!-- 1351960 -->
 Vous pouvez créer et déployer des stratégies [Windows Defender Application Guard](https://docs.microsoft.com/windows/threat-protection/windows-defender-application-guard/wd-app-guard-overview) à l’aide de la protection du point de terminaison Configuration Manager. Ces stratégies permettent de protéger vos utilisateurs en ouvrant les sites web non approuvés dans un conteneur isolé et sécurisé qui n’est pas accessible par les autres parties du système d’exploitation.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-Pour créer et déployer une stratégie Windows Defender Application Guard, vous devez utiliser la mise à jour Windows 10 Fall Creators Update. De plus, les appareils Windows 10 sur lesquels vous déployez la stratégie doivent être configurés avec une stratégie d’isolement réseau. Pour plus d’informations, consultez [Vue d’ensemble de Windows Defender Application Guard](https://docs.microsoft.com/en-us/windows/threat-protection/windows-defender-application-guard/wd-app-guard-overview). Cette fonctionnalité fonctionne uniquement avec les versions actuelles de Windows 10 Insider. Pour la tester, vos clients doivent exécuter une version récente de Windows 10 Insider.
+Pour créer et déployer une stratégie Windows Defender Application Guard, vous devez utiliser la mise à jour Windows 10 Fall Creators Update (1709). De plus, les appareils Windows 10 sur lesquels vous déployez la stratégie doivent être configurés avec une stratégie d’isolement réseau. Pour plus d’informations, consultez [Vue d’ensemble de Windows Defender Application Guard](https://docs.microsoft.com/en-us/windows/threat-protection/windows-defender-application-guard/wd-app-guard-overview). 
 
 
 ## <a name="create-a-policy-and-to-browse-the-available-settings"></a>Créez une stratégie et parcourez les paramètres disponibles :
@@ -35,7 +37,7 @@ Pour créer et déployer une stratégie Windows Defender Application Guard, vous
 1. Dans la console Configuration Manager, choisissez **Ressources et Conformité**.
 2. Dans l’espace de travail **Biens et conformité**, choisissez **Vue d’ensemble** > **Endpoint Protection** > **Windows Defender Application Guard**.
 3. Sous l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer une stratégie Windows Defender Application Guard**.
-4. À l’aide du [billet de blog](https://blogs.windows.com/msedgedev/2016/09/27/application-guard-microsoft-edge/#BmJGKPfSjHHzsMmI.97) comme référence, vous pouvez parcourir et configurer les paramètres disponibles.
+4. Utilisez l’[article](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-guard/configure-wd-app-guard) comme référence pour pouvoir parcourir et configurer les paramètres disponibles. Configuration Manager vous permet de définir certains paramètres de stratégie. Consultez [Paramètres d’interaction de l’hôte](#BKMK_HIS) et [Comportement de l’application](#BKMK_AppB).
 5. Dans la page **Définition du réseau**, spécifiez l’identité d’entreprise et définissez les limites du réseau de votre entreprise.
 
     > [!NOTE]
@@ -48,7 +50,36 @@ Pour créer et déployer une stratégie Windows Defender Application Guard, vous
     > 
     > 
 
-6. Lorsque vous avez terminé, terminez l’assistant et déployez la stratégie sur un ou plusieurs appareils Windows 10.
+6. Lorsque vous avez terminé, suivez l’Assistant et déployez la stratégie sur un ou plusieurs appareils 1709 Windows 10.
+
+### <a name="bkmk_HIS"></a> Paramètres d’interaction de l’hôte
+Configure les interactions entre les appareils hôtes et le conteneur Application Guard. Avant Configuration Manager version 1802, le comportement des applications et l’interaction des hôtes étaient sous le même onglet **Paramètres**.
+
+- **Presse-papiers** - Sous les paramètres avant Configuration Manager 1802
+    - Type de contenu autorisé
+        - Texte
+        - Images
+- **Impression :**
+    - Activer l’impression au format XPS
+    - Activer l’impression au format PDF
+    - Activer l’impression sur des imprimantes locales
+    - Activer l’impression sur des imprimantes réseau
+- **Graphisme :** (à compter de Configuration Manager version 1802)
+    - Accès au processeur de graphisme virtuel
+- **Fichiers :** (à compter de Configuration Manager version 1802)
+    - Enregistrer les fichiers téléchargés à héberger
+
+### <a name="bkmk_ABS"></a> Paramètres du comportement des applications
+Configure le comportement des applications au sein de la session Application Guard. Avant Configuration Manager version 1802, le comportement des applications et l’interaction des hôtes étaient sous le même onglet **Paramètres**.
+
+- **Contenu :**
+   - Les sites d'entreprise peuvent charger du contenu externe à l’entreprise, comme des plug-ins tiers.
+- **Autres :**
+    - Conserver les données de navigateur générées par l’utilisateur
+    - Auditer les événements de sécurité dans la session Application Guard isolée
+
+
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour en savoir plus sur Windows Defender Application Guard, consultez [ce billet de blog](https://blogs.windows.com/msedgedev/2016/09/27/application-guard-microsoft-edge/#BmJGKPfSjHHzsMmI.97). En outre, pour en savoir plus sur le mode autonome de Windows Defender Application Guard, consultez [ce billet de blog](https://techcommunity.microsoft.com/t5/Windows-Insider-Program/Windows-Defender-Application-Guard-Standalone-mode/td-p/66903).
+Pour en savoir plus sur Windows Defender Application Guard : [Vue d’ensemble de Windows Defender Application Guard](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-guard/wd-app-guard-overview).
+[Questions fréquentes (FAQ) sur Windows Defender Application Guard](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-guard/faq-wd-app-guard).
