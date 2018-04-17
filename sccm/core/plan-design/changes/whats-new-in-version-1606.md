@@ -1,25 +1,26 @@
 ---
-title: "Nouveautés dans la version 1606"
+title: Nouveautés dans la version 1606
 titleSuffix: Configuraton Manager
-description: "Obtenez des informations détaillées sur les modifications et les nouvelles fonctionnalités introduites dans la version 1606 de System Center Configuration Manager."
+description: Obtenez des informations détaillées sur les modifications et les nouvelles fonctionnalités introduites dans la version 1606 de System Center Configuration Manager.
 ms.custom: na
 ms.date: 12/30/2016
 ms.reviewer: na
 ms.suite: na
 ms.prod: configuration-manager
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: df2e57b9-6445-4067-98e7-ace85d4e6aa6
-caps.latest.revision: "40"
+caps.latest.revision: 40
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: e26519de8ce0b905fd52ca6ab0762a406d2f1e2c
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: 9c948e0ff84c4741d77b9096e52d3abd765aba7b
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="what39s-new-in-version-1606-of-system-center-configuration-manager"></a>Nouveautés dans la version 1606 de System Center Configuration Manager
 
@@ -89,7 +90,7 @@ Vous pouvez désormais accéder aux différents nœuds d’un espace de travail 
 Les modifications apportées au nœud Administration dans la console Configuration Manager sont les suivantes :
 ### <a name="oms-connector"></a>Connecteur OMS
 
-Vous pouvez désormais connecter Configuration Manager comme des regroupements de System Center Configuration Manager à [Microsoft Operations Management Suite (OMS)](https://azure.microsoft.com/en-us/documentation/articles/operations-management-suite-overview/). Les données de votre déploiement Configuration Manager, telles que les regroupements, deviennent alors visibles dans OMS. Pour plus d’informations, consultez [Synchroniser les données de Configuration Manager vers Microsoft Operations Management Suite](../../../core/clients/manage/sync-data-microsoft-operations-management-suite.md).
+Vous pouvez désormais connecter Configuration Manager comme des regroupements de System Center Configuration Manager à [Microsoft Operations Management Suite (OMS)](https://azure.microsoft.com/documentation/articles/operations-management-suite-overview/). Les données de votre déploiement Configuration Manager, telles que les regroupements, deviennent alors visibles dans OMS. Pour plus d’informations, consultez [Synchroniser les données de Configuration Manager vers Microsoft Operations Management Suite](../../../core/clients/manage/sync-data-microsoft-operations-management-suite.md).
 
 La fonctionnalité Connecteur OMS est une préversion. Pour savoir comment l’activer, consultez [Utiliser des fonctionnalités de préversion des mises à jour](../../../core/servers/manage/install-in-console-updates.md#bkmk_prerelease).
 
@@ -108,7 +109,7 @@ La gestion des appareils mobiles (MDM) locale prend désormais en charge une nou
 
 ### <a name="manage-apps-from-the-windows-store-for-business"></a>Gérer les applications à partir du Windows Store pour Entreprises
 
-Le [Windows Store pour Entreprises](https://www.microsoft.com/business-store) vous permet de trouver et d’acheter individuellement ou en volume des applications Windows pour votre organisation. En connectant le Windows Store à Configuration Manager, vous pouvez synchroniser toutes les applications que vous avez achetées avec Configuration Manager, les afficher dans la console Configuration Manager et les déployer comme n’importe quelle autre application.
+Le [Windows Store pour Entreprises](https://www.microsoft.com/business-store) vous permet de trouver et d’acheter individuellement ou en volume des applications Windows pour votre organisation. En connectant le Windows Store à Configuration Manager, vous pouvez synchroniser la liste des applications que vous avez achetées avec Configuration Manager, les afficher dans la console Configuration Manager et les déployer comme n’importe quelle autre application.
 
 Pour plus d’informations, consultez [Gérer les applications à partir du Windows Store pour Entreprises avec System Center Configuration Manager](../../../apps/deploy-use/manage-apps-from-the-windows-store-for-business.md).
 
@@ -116,7 +117,7 @@ Pour plus d’informations, consultez [Gérer les applications à partir du Wind
 
 Le workflow pour gérer et déployer des applications iOS achetées en volume avec Configuration Manager a été amélioré.
 
-Pour plus d’informations, consultez [Gérer des applications iOS achetées en volume avec System Center Configuration Manager](../../../apps/deploy-use/manage-volume-purchased-ios-apps.md).
+Pour plus d’informations, consultez [Gérer les applications iOS achetées en volume avec System Center Configuration Manager](../../../apps/deploy-use/manage-volume-purchased-ios-apps.md).
 
 ### <a name="software-center-user-interface"></a>Interface utilisateur du Centre logiciel
 
@@ -165,7 +166,7 @@ Vous pouvez maintenant personnaliser la taille de fenêtre TFTP RamDisk pour les
 
 Pour plus d’informations, consultez [Préparer les rôles de système de site pour les déploiements de système d’exploitation avec System Center Configuration Manager](../../../osd/get-started/prepare-site-system-roles-for-operating-system-deployments.md#BKMK_RamDiskTFTP).
 
-## <a name="compliance-settings"></a>Paramètres de compatibilité
+## <a name="compliance-settings"></a>Paramètres de conformité
 
 ### <a name="smart-lock-setting-for-android-devices"></a>Paramètre Smart Lock pour les appareils Android
 Un nouveau paramètre, **Autoriser Smart Lock et d’autres agents de confiance**, a été ajouté à l’élément de configuration Android et Samsung KNOX Standard.
@@ -201,14 +202,14 @@ Configuration Manager peuvent vous aider à gérer le verrou d’activation de d
 Pour plus d’informations, consultez [Gérer le verrou d’activation iOS avec System Center Configuration Manager](../../../mdm/deploy-use/manage-ios-activation-lock.md).
 
 
-### <a name="windows-defender-advanced-threat-protection"></a>Windows Defender Advanced Threat Protection
+### <a name="windows-defender-advanced-threat-protection"></a>Windows Defender - Protection avancée contre les menaces
 
-Endpoint Protection facilite la gestion et la surveillance du service Windows Defender ATP (Advanced Threat Protection). Ce nouveau service aide les entreprises à détecter, analyser et contrer les attaques avancées ciblant leurs réseaux. Les stratégies Configuration Manager facilitent l’intégration et la surveillance des ordinateurs gérés qui exécutent Windows 10 version 1607 (build 14328) ou ultérieure.
+Endpoint Protection facilite la gestion et la surveillance du service Windows Defender - Protection avancée contre les menaces. Ce nouveau service aide les entreprises à détecter, analyser et contrer les attaques avancées ciblant leurs réseaux. Les stratégies Configuration Manager facilitent l’intégration et la surveillance des ordinateurs gérés qui exécutent Windows 10 version 1607 (build 14328) ou ultérieure.
 
-Pour plus d’informations, consultez [Windows Defender Advanced Threat Protection](../../../protect/deploy-use/windows-defender-advanced-threat-protection.md).
+Pour plus d’informations, consultez [Windows Defender - Protection avancée contre les menaces](../../../protect/deploy-use/windows-defender-advanced-threat-protection.md).
 
 ### <a name="device-categories"></a>Catégories d’appareils
-Vous pouvez créer des catégories d’appareils pour classer automatiquement les appareils dans des regroupements d’appareils quand vous utilisez Configuration Manager avec Microsoft Intune. Les utilisateurs sont alors invités à choisir une catégorie d’appareils quand ils inscrivent un appareil dans Intune. Vous pouvez aussi modifier la catégorie d’un appareil à partir de la console Configuration Manager.
+Vous pouvez créer des catégories d’appareils pour classer automatiquement les appareils dans des regroupements d’appareils quand vous utilisez Configuration Manager avec Microsoft Intune. Les utilisateurs doivent ensuite choisir une catégorie d’appareils quand ils inscrivent un appareil dans Intune. Vous pouvez aussi modifier la catégorie d’un appareil à partir de la console Configuration Manager.
 
 Pour plus d’informations, consultez [Guide pratique pour classer automatiquement des appareils dans des regroupements avec System Center Configuration Manager](../../../core/clients/manage/collections/automatically-categorize-devices-into-collections.md).
 

@@ -1,26 +1,27 @@
 ---
 title: Configurer votre laboratoire
 titleSuffix: Configuration Manager
-description: "Configurez un laboratoire pour évaluer Configuration Manager avec des activités réelles simulées."
+description: Configurez un laboratoire pour évaluer Configuration Manager avec des activités réelles simulées.
 ms.custom: na
 ms.date: 09/21/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b1970688-0cd2-404f-a17f-9e2aa4a78758
-caps.latest.revision: "11"
-caps.handback.revision: "0"
+caps.latest.revision: 11
+caps.handback.revision: 0
 author: erikje
 ms.author: erikje
 manager: angrobe
-ms.openlocfilehash: a95dda6f536ff9c608abb03d94692b2d9fc6093c
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: 3441cb417a0b8fc7979b71018f6cfa345c47a02d
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-your-system-center-configuration-manager-lab"></a>Configurer votre laboratoire de System Center Configuration Manager
 
@@ -47,7 +48,7 @@ En suivant les recommandations de cette rubrique, vous pourrez mettre en place u
 
     -   **SQL_Latin1_General_CP1_CI_AS** en tant que classe **Classement SQL** .  
 
-    -   **L’authentification Windows**, [au lieu de l’authentification SQL](https://technet.microsoft.com/en-us/library/ms144284.aspx), est obligatoire.  
+    -   **L’authentification Windows**, [au lieu de l’authentification SQL](https://technet.microsoft.com/library/ms144284.aspx), est obligatoire.  
 
     -   Une **instance SQL Server** dédiée est requise.  
 

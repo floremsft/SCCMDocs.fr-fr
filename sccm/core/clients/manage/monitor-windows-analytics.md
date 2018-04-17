@@ -1,25 +1,26 @@
 ---
 title: Surveiller les clients avec Windows Analytics
 titleSuffix: Configuration Manager
-description: "Windows Analytics est un ensemble de solutions qui s’exécutent sur Operations Management Suite et qui vous permettent d’obtenir des insights utiles sur l’état actuel de votre environnement en exploitant les données de télémétrie Windows envoyées par les appareils de votre environnement."
+description: Windows Analytics est un ensemble de solutions qui s’exécutent sur Operations Management Suite et qui vous permettent d’obtenir des insights utiles sur l’état actuel de votre environnement en exploitant les données de télémétrie Windows envoyées par les appareils de votre environnement.
 ms.custom: na
 ms.date: 01/02/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-client
+ms.technology:
+- configmgr-client
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: CF35CE87-3BA8-4A84-9BC8-ABCEA4666212
-caps.latest.revision: "23"
+caps.latest.revision: 23
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 6e0b6ec99755b89213b540f22315038911b8eb29
-ms.sourcegitcommit: f1535281b2c3fecff773b722c3f7590bf6ba10a0
+ms.openlocfilehash: 15b1d07f35f774f3ec8f082a86c90ecb989a438e
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-windows-analytics-with-configuration-manager"></a>Utiliser Windows Analytics avec Configuration Manager
 
@@ -47,7 +48,7 @@ La clé d’ID commercial mappe les informations des appareils que vous gérez �
 Pour plus d’informations sur chaque niveau de télémétrie Windows 10, consultez [Configurer la télémétrie Windows dans votre organisation](https://technet.microsoft.com/itpro/windows/manage/configure-windows-telemetry-in-your-organization#telemetry-levels).
 
    > [!Note]
-   > Avec la mise à jour 1710, vous pouvez définir la collecte de données de télémétrie dans Windows 10 sur le niveau **Avancé (limité)**. Ce paramètre vous permet d’obtenir un insight actionnable sur les appareils de votre environnement sans que ces derniers aient à envoyer toutes les données au niveau de télémétrie **Avancé** avec Windows 10 version 1709 ou ultérieure. Le niveau de télémétrie Avancé (limité) inclut les mesures du niveau de base, ainsi qu’une partie des données collectées au niveau Avancé et pertinentes pour Windows Analytics.
+   > Avec la mise à jour 1710, vous pouvez définir la collecte de données de télémétrie dans Windows 10 sur le niveau **Avancé (limité)**. Ce paramètre vous permet d’obtenir un insight actionnable sur les périphériques de votre environnement sans que ces derniers aient à envoyer toutes les données au niveau de télémétrie **Avancé** avec Windows 10 version 1709 ou ultérieure. Le niveau de télémétrie Avancé (limité) inclut les mesures du niveau de base, ainsi qu’une partie des données collectées au niveau Avancé et pertinentes pour Windows Analytics.
 
 
   -  **Participer à la collecte de données commerciales sur les appareils Windows 7, 8 et 8.1**   
@@ -64,6 +65,6 @@ Pour plus d’informations sur la configuration de la solution Upgrade Readiness
 
 ## <a name="use-windows-analytics-to-identify-gaps-in-windows-information-protection-policies"></a>Utiliser Windows Analytics pour identifier les écarts dans les stratégies de Protection des informations Windows
 
-Les appareils Windows 10 version 1703 et ultérieures configurés avec une stratégie [Protection des informations Windows](https://docs.microsoft.com/en-us/windows/threat-protection/windows-information-protection/protect-enterprise-data-using-wip) (WIP) envoient des données de télémétrie sur les applications qui accèdent à des données d’entreprise dans votre environnement, mais qui ne sont pas prises en compte dans les règles d’application de la stratégie WIP. Les utilisateurs peuvent avoir besoin de ces applications pour rester productifs, mais la Protection des informations Windows bloque l’accès des utilisateurs. Le fait de savoir que les utilisateurs accèdent aux données d’entreprise est utile pour la maintenance de vos stratégies de Protection des informations Windows dans Configuration Manager. 
+Les appareils Windows 10 version 1703 et ultérieures configurés avec une stratégie [Protection des informations Windows](https://docs.microsoft.com/windows/threat-protection/windows-information-protection/protect-enterprise-data-using-wip) (WIP) envoient des données de télémétrie sur les applications qui accèdent à des données d’entreprise dans votre environnement, mais qui ne sont pas prises en compte dans les règles d’application de la stratégie WIP. Les utilisateurs peuvent avoir besoin de ces applications pour rester productifs, mais la Protection des informations Windows bloque l’accès des utilisateurs. Le fait de savoir que les utilisateurs accèdent aux données d’entreprise est utile pour la maintenance de vos stratégies de Protection des informations Windows dans Configuration Manager. 
 
 Accédez à ces données de Protection des informations Windows à l’aide de cette [requête Operations Management Suite](https://go.microsoft.com/fwlink/?linkid=849952).

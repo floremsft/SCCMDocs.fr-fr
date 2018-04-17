@@ -1,26 +1,27 @@
 ---
-title: "Créer des profils de messagerie Exchange ActiveSync"
+title: Créer des profils de messagerie Exchange ActiveSync
 titleSuffix: Configuration Manager
-description: "Découvrez comment créer et configurer des profils de messagerie dans System Center Configuration Manager qui fonctionnent avec Microsoft Intune."
+description: Découvrez comment créer et configurer des profils de messagerie dans System Center Configuration Manager qui fonctionnent avec Microsoft Intune.
 ms.custom: na
 ms.date: 07/28/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-hybrid
+ms.technology:
+- configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 120442be-179e-450c-a0c4-284046895da3
-caps.latest.revision: "4"
-caps.handback.revision: "0"
+caps.latest.revision: 4
+caps.handback.revision: 0
 author: lleonard-msft
 ms.author: alleonar
 manager: angrobe
-ms.openlocfilehash: 5fc0d5e68e27b3bde9ed3aa45a439c8b333da1d6
-ms.sourcegitcommit: 922d6d9c91ba2158b938df381277be1b5f1d434a
+ms.openlocfilehash: ab429e2702ab1595b035c8e2895dad584be4061a
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="exchange-activesync-email-profiles-in-system-center-configuration-manager"></a>Profils de messagerie Exchange ActiveSync dans System Center Configuration Manager
 
@@ -31,13 +32,13 @@ Avec Microsoft Intune et Exchange ActiveSync, vous pouvez configurer des apparei
  Vous pouvez configurer les types d'appareils suivants avec des profils de messagerie :  
 
 - Windows 10
-- Windows Phone 8.1
+- Windows Phone 8.1
 - iPhone exécutant iOS 9 et ultérieur 
 - iPad exécutant iOS 9 et ultérieur 
 - Samsung KNOX Standard 4 et versions ultérieures
 - Android for Work
 
-Pour déployer des profils de messagerie sur des appareils, vous devez inscrire ces derniers dans Intune. Pour plus d'informations sur la façon d'inscrire vos appareils, consultez [Gérer les appareils mobiles avec Microsoft Intune](https://technet.microsoft.com/en-us/library/dn646962.aspx).
+Pour déployer des profils de messagerie sur des appareils, vous devez inscrire ces derniers dans Intune. Pour plus d'informations sur la façon d'inscrire vos appareils, consultez [Gérer les appareils mobiles avec Microsoft Intune](https://technet.microsoft.com/library/dn646962.aspx).
 
 > [!NOTE]
 > Intune propose deux profils de messagerie Android for Work, un pour chacune des applications de messagerie Gmail et Nine Work. Ces applications sont disponibles dans Google Play Store et prennent en charge les connexions à Exchange. Pour activer la connectivité de la messagerie, déployez l’une de ces applications de messagerie sur les appareils de vos utilisateurs, puis créez et déployez le profil approprié. Les applications de messagerie telles que Nine Work peuvent être payantes. Si vous avez des questions, consultez les détails de la licence de l’application ou contactez le fabricant de l’application.

@@ -1,32 +1,33 @@
 ---
-title: "Capacités de la version Technical Preview 1601"
+title: Capacités de la version Technical Preview 1601
 titleSuffix: Configuration Manager
-description: "Découvrez les fonctionnalités disponibles dans la version d’évaluation technique 1601 pour System Center Configuration Manager."
+description: Découvrez les fonctionnalités disponibles dans la version d’évaluation technique 1601 pour System Center Configuration Manager.
 ms.custom: na
 ms.date: 01/23/2017
 ms.prod: configuration-manager
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: aae1cf2f-2c04-4f68-a03a-f4a925433c09
-caps.latest.revision: "7"
+caps.latest.revision: 7
 author: erikje
 ms.author: erikje
 manager: angrobe
 robots: noindex,nofollow
-ms.openlocfilehash: 70efb483ac15ba14497b884ed753032e8e48a4b5
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: b17a89ab08c99a1c3cd8a501e7d58d5b42a110a3
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="capabilities-in-technical-preview-1601-for-system-center-configuration-manager"></a>Fonctionnalités de la version d’évaluation technique 1601 pour System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (version d’évaluation technique)*
+*S’applique à : System Center Configuration Manager (Technical Preview)*
 
-Cet article présente les fonctionnalités qui sont disponibles dans la version d’évaluation technique 1601 pour System Center Configuration Manager. Vous pouvez installer cette version pour mettre à jour et ajouter de nouvelles fonctionnalités à votre site de version d’évaluation technique de Configuration Manager.      Avant d’installer cette version d’évaluation technique, passez en revue la rubrique de présentation, [Technical Preview pour System Center Configuration Manager](../../core/get-started/technical-preview.md), pour vous familiariser avec les conditions générales et les limitations d’utilisation d’une version d’évaluation technique, la mise à jour entre les versions et l’envoi de commentaires sur les fonctionnalités dans une version d’évaluation technique.  
+Cet article présente les fonctionnalités qui sont disponibles dans la version d’évaluation technique 1601 pour System Center Configuration Manager. Vous pouvez installer cette version pour mettre à jour et ajouter de nouvelles fonctionnalités à votre site Configuration Manager Technical Preview.      Avant d’installer cette version d’évaluation technique, passez en revue la rubrique de présentation, [Technical Preview pour System Center Configuration Manager](../../core/get-started/technical-preview.md), pour vous familiariser avec les conditions générales et les limitations d’utilisation d’une version d’évaluation technique, la mise à jour entre les versions et l’envoi de commentaires sur les fonctionnalités dans une version d’évaluation technique.  
 
  **Problèmes connus relatifs à cette version d’évaluation technique :**  
 
@@ -79,11 +80,11 @@ Dans la version Technical Preview 1601, nous avons ajouté la prise en charge d
 
     -   Abonnement Microsoft Intune L’abonnement Microsoft Intune doit être configuré dans la console Configuration Manager.  
 
-    -   [Conditions requises pour l’inscription automatique à Azure AD](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-automatic-device-registration/?rnd=1).  
+    -   [Conditions requises pour l’inscription automatique à Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-conditional-access-automatic-device-registration/?rnd=1).  
 
     Pour utiliser cette option, vous devez créer une stratégie de conformité dans Configuration Manager avec des règles spécifiques décrites ci-dessous, et définir une stratégie d’accès conditionnel dans la console Intune.  En outre, pour que l’accès soit autorisé seulement aux PC conformes, vous devez activer l’option **Les appareils doivent être conformes** comme spécification requise pour les PC Windows. Voici les règles de stratégie de conformité qui sont applicables aux ordinateurs gérés par System Center Configuration Manager.  
 
-    -   **Exiger l’inscription dans Azure Active Directory :** Cette règle vérifie si l’appareil de l’utilisateur a fait l’objet d’une jonction d’espace de travail à Azure AD. Dans le cas contraire, l’appareil est automatiquement inscrit dans Azure AD. L’inscription automatique est prise en charge seulement sur Windows 8.1. Pour les PC Windows 7, déployez un fichier MSI pour effectuer l’inscription automatique. Pour plus d’informations, cliquez [ici](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-automatic-device-registration/?rnd=1).  
+    -   **Exiger l’inscription dans Azure Active Directory :** Cette règle vérifie si l’appareil de l’utilisateur a fait l’objet d’une jonction d’espace de travail à Azure AD. Dans le cas contraire, l’appareil est automatiquement inscrit dans Azure AD. L’inscription automatique est prise en charge seulement sur Windows 8.1. Pour les PC Windows 7, déployez un fichier MSI pour effectuer l’inscription automatique. Pour plus d’informations, cliquez [ici](https://azure.microsoft.com/documentation/articles/active-directory-conditional-access-automatic-device-registration/?rnd=1).  
 
     -   **Toutes les mises à jour requises installées avec une échéance supérieure à X jours :** Cette règle vérifie si l’appareil de l’utilisateur a toutes les mises à jour obligatoires (spécifiées dans la règle **Mises à jour automatiques requises**) dans le délai et la période de grâce que vous avez spécifiés. Elle installe automatiquement toutes les mises à jour requises en attente.  
 
@@ -140,7 +141,7 @@ Un client est en ligne s’il est actuellement connecté à un rôle de système
 |![icône de statut déconnecté des clients](media/offline-status-icon.png)|Le client est hors connexion.|  
 |![icône de statut inconnu des clients](media/unknown-status-icon.png)|L’état du client est inconnu.|  
 
-### <a name="prerequisites"></a>Conditions préalables  
+### <a name="prerequisites"></a>Prérequis  
  L’état de connexion du client n’a pas de conditions préalables. Vous pouvez commencer à l’utiliser dès que la version d’évaluation technique 1601 de Configuration Manager est installée.  
 
 ### <a name="limitations"></a>Limitations  
@@ -188,7 +189,7 @@ Un client est en ligne s’il est actuellement connecté à un rôle de système
 
  Ensuite, vous associez la stratégie de configuration d’applications avec le type de déploiement iOS lors du déploiement de l’application. Vous pouvez également déployer la stratégie à partir du nœud **Stratégies de configuration des applications**, ciblée vers une application et un regroupement existants.  
 
- Essayez d'exécuter les tâches suivantes, puis utilisez les informations fournies au début de cette rubrique pour nous dire si tout a fonctionné comme prévu :  
+ Essayez d'exécuter les tâches suivantes, puis utilisez les informations fournies au début de cette rubrique pour nous dire si tout a fonctionné comme prévu :  
 
 -   Si vous avez une application iOS qui prend en charge la configuration d’applications, consultez la documentation du fournisseur de l’application pour rechercher les paires nom/valeur que vous devez spécifier pour configurer l’application.  
 

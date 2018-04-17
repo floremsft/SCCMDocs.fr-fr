@@ -1,25 +1,26 @@
 ---
-title: "Gérer l'accès à la messagerie"
+title: Gérer l'accès à la messagerie
 titleSuffix: Configuration Manager
-description: "Apprenez à utiliser l’accès conditionnel System Center Configuration Manager pour gérer l’accès à la messagerie Exchange."
+description: Apprenez à utiliser l’accès conditionnel System Center Configuration Manager pour gérer l’accès à la messagerie Exchange.
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-hybrid
+ms.technology:
+- configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: fa648e73-5fb8-4818-ab57-7466ffaf888e
-caps.latest.revision: "24"
+caps.latest.revision: 24
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.openlocfilehash: a83c2030de8a146dad7bf2258e8a983c8ab6c45e
-ms.sourcegitcommit: 922d6d9c91ba2158b938df381277be1b5f1d434a
+ms.openlocfilehash: e36674d27757daab9ced4e7e8b51942a4929b5ff
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-email-access-in-system-center-configuration-manager"></a>Gérer l’accès à la messagerie dans System Center Configuration Manager
 
@@ -47,7 +48,7 @@ Vous pouvez contrôler l'accès à Exchange Online et Exchange sur site à parti
 
 Les applications de bureau Office peuvent accéder à Exchange Online sur les PC exécutant :  
 
--   Office 2013 et ultérieur pour ordinateur avec [l’authentification moderne](https://support.office.com/en-US/article/Using-Office-365-modern-authentication-with-Office-clients-776c0036-66fd-41cb-8928-5495c0f9168a) activée.  
+-   Office 2013 et ultérieur pour ordinateur avec [l’authentification moderne](https://support.office.com/article/Using-Office-365-modern-authentication-with-Office-clients-776c0036-66fd-41cb-8928-5495c0f9168a) activée.  
 
 -   Windows 7.0 ou Windows 8.1  
 
@@ -171,7 +172,7 @@ Les navigateurs non pris en charge seront bloqués. Les applications OWA pour iO
 #### <a name="for-exchange-online-and-tenants-in-the-new-exchange-online-dedicated-environment"></a>Pour Exchange Online (et les locataires dans le nouvel environnement Exchange Online Dedicated)
 
 >[!NOTE]
->Vous pouvez aussi créer une stratégie d’accès conditionnel dans la console de gestion Azure AD. Celle-ci vous permet de créer les stratégies d’accès conditionnel aux appareils (appelées dans Azure AD « stratégies d’accès conditionnel en fonction de l’appareil ») en plus des autres stratégies d’accès conditionnel comme l’authentification multifacteur. Vous pouvez aussi définir des stratégies d’accès conditionnel pour des applications d’entreprise tierces comme Salesforce et Box prises en charge par Azure AD. Pour plus d’informations, consultez [Guide pratique pour définir la stratégie d’accès conditionnel en fonction de l’appareil Azure Active Directory pour contrôler l’accès aux applications connectées Azure Active Directory](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-policy-connected-applications/).
+>Vous pouvez aussi créer une stratégie d’accès conditionnel dans la console de gestion Azure AD. Celle-ci vous permet de créer les stratégies d’accès conditionnel aux appareils (appelées dans Azure AD « stratégies d’accès conditionnel en fonction de l’appareil ») en plus des autres stratégies d’accès conditionnel comme l’authentification multifacteur. Vous pouvez aussi définir des stratégies d’accès conditionnel pour des applications d’entreprise tierces comme Salesforce et Box prises en charge par Azure AD. Pour plus d’informations, consultez [Guide pratique pour définir la stratégie d’accès conditionnel en fonction de l’appareil Azure Active Directory pour contrôler l’accès aux applications connectées Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-conditional-access-policy-connected-applications/).
 
  Le flux suivant est utilisé par les stratégies d'accès conditionnel pour Exchange Online pour évaluer s'il faut autoriser ou bloquer des appareils.  
 
@@ -185,7 +186,7 @@ Les navigateurs non pris en charge seront bloqués. Les applications OWA pour iO
 
 -   Inscrire l’appareil dans Azure Active Directory (cela se produit automatiquement quand l’appareil est inscrit auprès d’Intune).  
 
-     Pour les PC joints à un domaine, vous devez le configurer pour qu’il [s’inscrive automatiquement](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-automatic-device-registration/) auprès d’Azure Active Directory.  
+     Pour les PC joints à un domaine, vous devez le configurer pour qu’il [s’inscrive automatiquement](https://azure.microsoft.com/documentation/articles/active-directory-conditional-access-automatic-device-registration/) auprès d’Azure Active Directory.  
 
 -   Activer la messagerie, ce qui entraîne l’association de l’ID Exchange ActiveSync de l’appareil à l’enregistrement de l’appareil dans Azure Active Directory (s’applique uniquement aux appareils iOS et Android).  
 
@@ -219,7 +220,7 @@ Les navigateurs non pris en charge seront bloqués. Les applications OWA pour iO
 
 2.  Développez **Paramètres de conformité**, développez **Accès conditionnel**, puis cliquez sur **Exchange Online**.  
 
-3.  Sous l'onglet **Accueil** , dans le groupe **Liens** , cliquez sur **Configurer la stratégie d'accès conditionnel dans la console Intune**. Vous pouvez être amené à fournir le nom d’utilisateur et le mot de passe du compte utilisé pour connecter Configuration Manager à un administrateur général du service Intune.  
+3.  Sous l’onglet **Accueil**, dans le groupe **Liens**, cliquez sur **Configurer la stratégie d’accès conditionnel dans la console Intune**. Vous pouvez être amené à fournir le nom d’utilisateur et le mot de passe du compte utilisé pour connecter Configuration Manager à un administrateur général du service Intune.  
 
      La console d’administration Intune s’ouvre.  
 

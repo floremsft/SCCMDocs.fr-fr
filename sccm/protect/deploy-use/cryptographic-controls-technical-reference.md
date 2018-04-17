@@ -1,23 +1,24 @@
 ---
-title: "Informations techniques de référence sur les contrôles de chiffrement"
+title: Informations techniques de référence sur les contrôles de chiffrement
 titleSuffix: Configuration Manager
-description: "Découvrez de quelle manière la signature et le chiffrement permettent d’empêcher les tentatives malveillantes de lecture des données dans System Center Configuration Manager."
+description: Découvrez de quelle manière la signature et le chiffrement permettent d’empêcher les tentatives malveillantes de lecture des données dans System Center Configuration Manager.
 ms.custom: na
 ms.date: 12/8/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 2c1ed6f4c93f74719ab3fe5d723f7dc01eb1ede7
-ms.sourcegitcommit: 08f9854fb6c6d21e1e923b13e38a64d0bc2bc9a4
+ms.openlocfilehash: 3057d3d78dbb67e0b1b061a6845a6885570b239a
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="cryptographic-controls-technical-reference"></a>Informations techniques de référence sur les contrôles de chiffrement
 
@@ -286,5 +287,5 @@ Pour améliorer la sécurité de vos clients et serveurs Configuration Manager, 
 -   Désactiver SSL 3.0, TLS 1.0 et TLS 1.1 
 -   Réorganiser les suites de chiffrement en rapport avec TLS 
 
-Pour plus d’informations, consultez [Guide pratique pour restreindre l’utilisation de certains algorithmes et protocoles de chiffrement dans Schannel.dll](https://support.microsoft.com/en-us/kb/245030/) et [Hiérarchisation des suites de chiffrement Schannel](https://msdn.microsoft.com/en-us/library/windows/desktop/bb870930.aspx). Ces procédures n’affectent pas les fonctionnalités de Configuration Manager.
+Pour plus d’informations, consultez [Guide pratique pour restreindre l’utilisation de certains algorithmes et protocoles de chiffrement dans Schannel.dll](https://support.microsoft.com/en-us/kb/245030/) et [Hiérarchisation des suites de chiffrement Schannel](https://msdn.microsoft.com/library/windows/desktop/bb870930.aspx). Ces procédures n’affectent pas les fonctionnalités de Configuration Manager.
 

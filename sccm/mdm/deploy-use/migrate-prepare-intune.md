@@ -1,21 +1,21 @@
 ---
-title: "Préparer Intune à la migration des utilisateurs"
+title: Préparer Intune à la migration des utilisateurs
 titleSuffix: Configuration Manager
-description: "Apprenez à préparer Intune sur Azure à la migration des utilisateurs à partir de la gestion hybride des appareils mobiles."
-keywords: 
+description: Apprenez à préparer Intune sur Azure à la migration des utilisateurs à partir de la gestion hybride des appareils mobiles.
+keywords: ''
 author: dougeby
 manager: dougeby
 ms.date: 12/05/2017
 ms.topic: article
 ms.prod: configmgr-hybrid
-ms.service: 
-ms.technology: 
+ms.service: ''
+ms.technology: ''
 ms.assetid: db97ae9e-34f4-4e10-a282-cd211f612bb4
-ms.openlocfilehash: 226586f0ee42cdad98b1d74f25421685d85e0dcf
-ms.sourcegitcommit: 8c6e9355846ff6a73c534c079e3cdae09cf13c45
+ms.openlocfilehash: 8d636f2c46f3fa14fbc76a605d2cf55a2c0375c6
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="prepare-intune-for-user-migration"></a>Préparer Intune à la migration des utilisateurs 
 
@@ -42,7 +42,7 @@ Dans Configuration Manager, ajoutez un regroupement à l’abonnement Intune don
 Vos utilisateurs et groupes sont probablement déjà dans AAD, car vous avez configuré la synchronisation d’annuaires. Pour vous assurer que vos utilisateurs font partie du groupe approprié, nous vous recommandons de passer en revue vos groupes d’utilisateurs Intune. Vous ciblez des stratégies, profils, applications, etc. sur ces groupes. Assurez-vous que les utilisateurs que vous migrez vers la version autonome d’Intune font partie des groupes appropriés. 
 
 ## <a name="configure-role-based-administration-control-rbac"></a>Configurer le contrôle de l’administration basée sur des rôles
-Dans le cadre de la migration, configurez tous les rôles de contrôle de l’administration basée sur des rôles nécessaires dans Intune et affectez des utilisateurs à ces rôles. Notez qu’il existe des différences entre le contrôle de l’administration basée sur des rôles dans Configuration Manager et Intune, comme l’étendue des ressources. Pour plus d’informations, consultez [Contrôle de l’administration basée sur des rôles avec Intune](https://docs.microsoft.com/en-us/intune/role-based-access-control).
+Dans le cadre de la migration, configurez tous les rôles de contrôle de l’administration basée sur des rôles nécessaires dans Intune et affectez des utilisateurs à ces rôles. Notez qu’il existe des différences entre le contrôle de l’administration basée sur des rôles dans Configuration Manager et Intune, comme l’étendue des ressources. Pour plus d’informations, consultez [Contrôle de l’administration basée sur des rôles avec Intune](https://docs.microsoft.com/intune/role-based-access-control).
 
 ## <a name="assign-apps-and-policies-to-aad-groups"></a>Affecter des stratégies et applications aux groupes AAD
 Si vous avez terminé la phase d’[importation des données Configuration Manager dans Microsoft Intune](migrate-import-data.md) du processus de migration pour migrer différents objets Configuration Manager vers Intune, un grand nombre de vos objets est peut-être déjà affecté aux groupes AAD. Toutefois, vous devez vérifier que tous les objets (applications, stratégies, profils, etc.) sont affectés aux bons groupes AAD. Si vous affectez correctement les objets, les appareils de l’utilisateur sont automatiquement configurés une fois que l’utilisateur a migré, laquelle migration doit être transparente pour lui. Pour plus d’informations sur l’affectation des objets à un groupe AAD, consultez : 
@@ -62,7 +62,7 @@ Des scripts PowerShell sont disponibles pour vous aider à préparer la transiti
 ### <a name="steps-to-ensure-conditional-access-works-properly-after-user-migration"></a>Procédure permettant de s’assurer que l’accès conditionnel fonctionne correctement après la migration des utilisateurs
 Pour que l’accès conditionnel fonctionne correctement après la migration des utilisateurs et pour vous assurer que vos utilisateurs continuent d’avoir accès à leur serveur e-mail, vérifiez que les conditions suivantes sont vraies :
 - Si le paramètre de niveau d’accès par défaut Exchange ActiveSync (DefaultAccessLevel) a la valeur Bloquer ou Quarantaine, les appareils risquent de perdre l’accès à leurs e-mails. 
-- Si le connecteur Exchange est installé dans Configuration Manager et que le paramètre **Niveau d’accès lorsqu’un périphérique mobile n’est pas géré par une règle** a la valeur **Autoriser l’accès**, vous devez installer le [connecteur Exchange sur site](https://docs.microsoft.com/en-us/intune/conditional-access-exchange-create#configure-exchange-on-premises-access) dans Intune avant de migrer les utilisateurs. Configurer le paramètre de niveau d’accès par défaut dans Intune dans le panneau **Exchange sur site** des **paramètres d’accès Exchange ActiveSync avancés**. Pour plus d’informations, consultez [Configurer l’accès à Exchange sur site](https://docs.microsoft.com/intune/conditional-access-exchange-create#configure-exchange-on-premises-access).
+- Si le connecteur Exchange est installé dans Configuration Manager et que le paramètre **Niveau d’accès lorsqu’un périphérique mobile n’est pas géré par une règle** a la valeur **Autoriser l’accès**, vous devez installer le [connecteur Exchange sur site](https://docs.microsoft.com/intune/conditional-access-exchange-create#configure-exchange-on-premises-access) dans Intune avant de migrer les utilisateurs. Configurer le paramètre de niveau d’accès par défaut dans Intune dans le panneau **Exchange sur site** des **paramètres d’accès Exchange ActiveSync avancés**. Pour plus d’informations, consultez [Configurer l’accès à Exchange sur site](https://docs.microsoft.com/intune/conditional-access-exchange-create#configure-exchange-on-premises-access).
 - Utilisez la même configuration pour les deux connecteurs. Le dernier connecteur que vous configurez remplace les paramètres de l’organisation ActiveSync précédemment écrits par l’autre connecteur. Si vous configurez les connecteurs différemment, vous risquez d’obtenir des modifications inattendues de l’accès conditionnel.
 - Supprimez les utilisateurs du ciblage de l’accès conditionnel dans Configuration Manager une fois qu’ils ont migré vers la version autonome d’Intune.
 

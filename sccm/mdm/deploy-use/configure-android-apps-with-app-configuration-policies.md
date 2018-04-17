@@ -1,26 +1,27 @@
 ---
-title: "Configurer des applications Android for Work avec des stratégies de configuration des applications"
+title: Configurer des applications Android for Work avec des stratégies de configuration des applications
 titleSuffix: Configuration Manager
-description: "Évitez les problèmes de configuration sur les appareils sous Android for Work en déployant des stratégies de configuration des applications sur les appareils avant qu’ils n’exécutent des applications."
+description: Évitez les problèmes de configuration sur les appareils sous Android for Work en déployant des stratégies de configuration des applications sur les appareils avant qu’ils n’exécutent des applications.
 ms.custom: na
 ms.date: 09/12/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-hybrid
+ms.technology:
+- configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 9126d188-7780-45a4-b21d-7fcf4fad7da2
-caps.latest.revision: "0"
-caps.handback.revision: "0"
+caps.latest.revision: 0
+caps.handback.revision: 0
 author: NathBarn
 ms.author: NathBarn
 manager: angrobe
-ms.openlocfilehash: 79d1b3fed3baa74c8ad195925ccda35713cb8865
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 0b1d4993e6ddb2301121a1e32b1672425e919dea
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="apply-settings-to-android-for-work-apps-with-app-configuration-policies-in-system-center-configuration-manager"></a>Appliquer des paramètres à des applications Android for Work avec des stratégies de configuration des applications dans System Center Configuration Manager
 
@@ -35,7 +36,7 @@ Vous pouvez utiliser des stratégies de configuration des applications dans Syst
 Si l’utilisateur entre les paramètres incorrectement, il est de la responsabilité du support technique de les corriger, ce qui ralentit le déploiement de l’application. Pour éviter ces problèmes, vous pouvez utiliser des stratégies de configuration d’application pour déployer les paramètres obligatoires sur les utilisateurs avant qu’ils n’exécutent l’application. Les paramètres sont automatiquement associés à un utilisateur. Aucune intervention de la part de l’utilisateur n’est nécessaire.
 Au lieu de déployer les stratégies de configuration directement sur des utilisateurs et des appareils, associez une stratégie à un type de déploiement lorsque vous déployez l’application. Les paramètres de stratégie sont appliqués chaque fois que l’application les vérifie, soit, en général, lors de sa première exécution.
 
-Les stratégies de configuration des applications Android sont disponibles uniquement sur les appareils Android for Work. Les stratégies de configuration des applications s’appliquent aux applications approuvées du magasin Play for Work. Pour plus d’informations sur les applications Android achetées en volume, consultez la page [Guide pratique pour déployer des applications sur des appareils Android for Work](https://docs.microsoft.com/en-us/intune/deploy-use/android-for-work-apps).
+Les stratégies de configuration des applications Android sont disponibles uniquement sur les appareils Android for Work. Les stratégies de configuration des applications s’appliquent aux applications approuvées du magasin Play for Work. Pour plus d’informations sur les applications Android achetées en volume, consultez la page [Guide pratique pour déployer des applications sur des appareils Android for Work](https://docs.microsoft.com/intune/deploy-use/android-for-work-apps).
 
 Pour plus d’informations sur les types d’installation d’application, consultez [Introduction à la gestion des applications](/sccm/apps/understand/introduction-to-application-management).
 

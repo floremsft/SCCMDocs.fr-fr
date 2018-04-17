@@ -1,27 +1,28 @@
 ---
-title: "Extensions de schéma"
+title: Extensions de schéma
 titleSuffix: Configuration Manager
-description: "Étendre le schéma Active Directory pour prendre en charge System Center Configuration Manager."
+description: Étendre le schéma Active Directory pour prendre en charge System Center Configuration Manager.
 ms.custom: na
 ms.date: 2/7/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 95c13c00-909f-4fbb-bbaa-1eba9d54d8c5
-caps.latest.revision: "8"
-caps.handback.revision: "0"
+caps.latest.revision: 8
+caps.handback.revision: 0
 author: mestew
 ms.author: mstewart
 manager: angrobe
 robots: noindex
-ms.openlocfilehash: 1fa1e3be3d08c9aa1f9271868f6b01e20b63e444
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: cc658166a7094f716db0ee495bc2338b52303b50
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="schema-extensions-for-system-center-configuration-manager"></a>Extensions de schéma pour System Center Configuration Manager
 
@@ -31,7 +32,7 @@ Vous pouvez étendre le schéma Active Directory pour prendre en charge Configur
 
 -   Il est conseillé d’étendre le schéma Active Directory, mais ceci n’est pas obligatoire.  
 
-Avant d’ [étendre le schéma Active Directory](https://docs.microsoft.com/en-us/sccm/core/plan-design/network/extend-the-active-directory-schema), vous devez être familiarisé avec les services de domaine Active Directory et la [modification du schéma Active Directory](https://technet.microsoft.com/library/cc759402\(v=ws.10\).aspx).  
+Avant d’ [étendre le schéma Active Directory](https://docs.microsoft.com/sccm/core/plan-design/network/extend-the-active-directory-schema), vous devez être familiarisé avec les services de domaine Active Directory et la [modification du schéma Active Directory](https://technet.microsoft.com/library/cc759402\(v=ws.10\).aspx).  
 
 ## <a name="considerations-for-extending-the-active-directory-schema-for-configuration-manager"></a>Considérations relatives à l’extension du schéma Active Directory pour Configuration Manager  
 
@@ -142,7 +143,7 @@ Quand vous étendez le schéma pour System Center Configuration Manager, les cla
 
 > [!NOTE]  
 
->  Les extensions de schéma peuvent inclure des attributs et des classes issus de versions précédentes du produit, qui ne sont plus utilisés par System Center Configuration Manager. Exemple :  
+>  Les extensions de schéma peuvent inclure des attributs et des classes issus de versions précédentes du produit, qui ne sont plus utilisés par System Center Configuration Manager. Par exemple :  
 
 >   
 >  -   Attribut : cn=MS-SMS-Site-Boundaries  

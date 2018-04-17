@@ -1,25 +1,26 @@
 ---
-title: "Configurer l’inventaire matériel pour les appareils mobiles"
+title: Configurer l’inventaire matériel pour les appareils mobiles
 titleSuffix: Configuration Manager
-description: "Configurez l’inventaire matériel pour les appareils mobiles inscrits par Microsoft Intune et System Center Configuration Manager."
+description: Configurez l’inventaire matériel pour les appareils mobiles inscrits par Microsoft Intune et System Center Configuration Manager.
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-hybrid
+ms.technology:
+- configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 78a0aecc-f775-451e-aa05-56377ec91b1f
-caps.latest.revision: "7"
+caps.latest.revision: 7
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: c176955c3fcfe40f2089b84c50a982906b59f04d
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: c3dcb39b50293d5c221a1b8b13fcfbf8aa53ad83
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-configure-hardware-inventory-for-mobile-devices-enrolled-by-microsoft-intune-and-system-center-configuration-manager"></a>Comment configurer l’inventaire matériel pour les appareils mobiles inscrits par Microsoft Intune et System Center Configuration Manager
 
@@ -27,7 +28,7 @@ ms.lasthandoff: 10/12/2017
 
 Dans Configuration Manager, vous pouvez collecter l’inventaire matériel sur des appareils iOS, Android et Windows à l’aide du connecteur Microsoft Intune. Pour plus d’informations sur la manière de configurer l’inventaire matériel, consultez [Guide pratique pour étendre l’inventaire matériel dans System Center Configuration Manager](../../core/clients/manage/inventory/extend-hardware-inventory.md).  
 
- Pour plus d’informations sur la façon d’inscrire des appareils dans Microsoft Intune, consultez [Gérer les appareils mobiles avec Microsoft Intune](https://technet.microsoft.com/en-us/library/dn646962.aspx).  
+ Pour plus d’informations sur la façon d’inscrire des appareils dans Microsoft Intune, consultez [Gérer les appareils mobiles avec Microsoft Intune](https://technet.microsoft.com/library/dn646962.aspx).  
 
 ## <a name="hardware-inventory-for-mobile-devices"></a>Inventaire matériel pour les appareils mobiles  
  Les tableaux suivants répertorient les classes d’inventaire disponibles pour l’inventaire matériel sur les plateformes mobiles couramment utilisées.  
@@ -112,7 +113,7 @@ Dans Configuration Manager, vous pouvez collecter l’inventaire matériel sur d
 
  **Windows RT**  
 
-|Classe d'inventaire matériel|Windows RT|  
+|Classe d'inventaire matériel|Windows RT|  
 |------------------------------|----------------|  
 |Nom|Device_ComputerSystem.DeviceName|  
 |ID d'appareil unique|Device_ComputerSystem.DeviceName|  
