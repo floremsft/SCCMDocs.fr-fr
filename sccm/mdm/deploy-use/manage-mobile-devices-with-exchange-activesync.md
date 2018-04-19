@@ -1,25 +1,26 @@
 ---
-title: "Gérer les appareils mobiles "
+title: 'Gérer les appareils mobiles '
 titleSuffix: Configuration Manager
-description: "Découvrez comment gérer des appareils mobiles à l’aide du connecteur Exchange Server dans System Center Configuration Manager."
+description: Découvrez comment gérer des appareils mobiles à l’aide du connecteur Exchange Server dans System Center Configuration Manager.
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-hybrid
+ms.technology:
+- configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: aba688d9-fd5b-4c42-8cb4-f7e1b161ef50
-caps.latest.revision: "8"
+caps.latest.revision: 8
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.openlocfilehash: ff7fef664780730510f17d723a1d13ca691405af
-ms.sourcegitcommit: 0a6b2c53ff4445b5d4f3638fdb0b489d54e333d3
+ms.openlocfilehash: 23073ff562e1ca533e196fff0415efc0451d6fee
+ms.sourcegitcommit: 27da4be015f1496b7b89ebddb517a2685f1ecf74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="manage-mobile-devices-with-system-center-configuration-manager-and-exchange"></a>Gérer des appareils mobiles à l’aide de System Center Configuration Manager et d’Exchange
 
@@ -34,7 +35,7 @@ Utilisez le connecteur Exchange Server dans System Center Configuration Manager 
 > [!IMPORTANT]  
 >  Avant d’installer le connecteur Exchange Server, vérifiez que Configuration Manager prend bien en charge la version de Microsoft Exchange que vous utilisez. Pour plus d’informations, consultez la section « Connecteur Exchange Server » dans [Systèmes d’exploitation pris en charge pour les sites et les clients pour System Center Configuration Manager](/sccm/core/plan-design/configs/supported-operating-systems-for-site-system-servers).  
 
- Quand vous utilisez le connecteur Exchange Server, vous pouvez gérer les appareils mobiles avec les paramètres que vous configurez dans Configuration Manager au lieu des stratégies de boîte aux lettres Exchange ActiveSync par défaut. Définissez les paramètres à utiliser dans les paramètres des groupes suivants : **Général**, **Mot de passe**, **Gestion de la messagerie**, **Sécurité** et **Application**. Par exemple, dans le paramètre du groupe **Mot de passe** , vous pouvez indiquer que les appareils mobiles requièrent un mot de passe, la longueur minimale du mot de passe, la complexité du mot de passe, et si la récupération de mot de passe est autorisée.  
+ Quand vous utilisez le connecteur Exchange Server, vous pouvez gérer les appareils mobiles avec les paramètres que vous configurez dans Configuration Manager au lieu des stratégies de boîte aux lettres Exchange ActiveSync par défaut. Définissez les paramètres à utiliser dans les paramètres des groupes suivants : **Général**, **Mot de passe**, **Gestion de la messagerie**, **Sécurité**et **Application**. Par exemple, dans le paramètre du groupe **Mot de passe** , vous pouvez indiquer que les appareils mobiles requièrent un mot de passe, la longueur minimale du mot de passe, la complexité du mot de passe, et si la récupération de mot de passe est autorisée.  
 
  Si vous configurez au moins un paramètre dans le groupe, Configuration Manager gère tous les paramètres dans le groupe pour les appareils mobiles. Si vous ne configurez pas de paramètre dans un groupe, Exchange Server continue à gérer les appareils mobiles pour ces paramètres. Les stratégies de boîte aux lettres Exchange ActiveSync configurées sur Exchange Server et attribuées aux utilisateurs continueront à être appliquées.  
 
@@ -107,6 +108,12 @@ Utilisez le connecteur Exchange Server dans System Center Configuration Manager 
     -   **New-ActiveSyncMailboxPolicy**  
 
     -   **Remove-ActiveSyncDevice**  
+    
+    -   **Get-CasMailbox**  
+    
+    -   **Get-User**  
+    
+    -   **Set-ActiveSyncOrganizationSettings**  
 
     > [!NOTE]  
     >  Les rôles de gestion Exchange Server suivants comprennent les applets de commande suivantes : Gestion des destinataires, Gestion de l’organisation en affichage seul et Gestion du serveur. Pour plus d'informations sur les groupes de rôles de gestion dans Microsoft Exchange Server 2010, consultez [Présentation des groupes de rôles de gestion](http://go.microsoft.com/fwlink/p/?LinkId=212914).  

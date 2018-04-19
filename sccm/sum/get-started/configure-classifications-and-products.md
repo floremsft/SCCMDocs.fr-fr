@@ -1,22 +1,23 @@
 ---
-title: "Configurer les classifications et les produits à synchroniser"
+title: Configurer les classifications et les produits
 titleSuffix: Configuration Manager
-description: "Suivez ces étapes pour configurer les classifications et les produits à synchroniser dans la console Configuration Manager."
-keywords: 
-author: dougeby
-ms.author: dougeby
-manager: angrobe
-ms.date: 11/20/2017
+description: Suivez ces étapes pour configurer les classifications et les produits de mise à jour logicielle qui doivent être synchronisés dans la console Configuration Manager.
+keywords: ''
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.date: 04/10/2018
 ms.topic: article
 ms.prod: configuration-manager
-ms.service: 
-ms.technology: configmgr-sum
+ms.service: ''
+ms.technology:
+- configmgr-sum
 ms.assetid: 5ddde4e6-d553-4182-b752-6bc8b4a26745
-ms.openlocfilehash: f36ff74b794e57b51742c40d10bd25a9cb4a13a5
-ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
+ms.openlocfilehash: 9ba0872b1d2e4ef5dd027df3f7c16a6b3a94e9ac
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 #  <a name="configure-classifications-and-products-to-synchronize"></a>Configurer les classifications et les produits à synchroniser  
 
@@ -53,9 +54,11 @@ ms.lasthandoff: 11/21/2017
     >       
 
     > [!NOTE]    
-    > À compter de Configuration Manager version 1706, vous pouvez cocher la case **Inclure les mises à jour du microprogramme et des pilotes Microsoft Surface** pour synchroniser les pilotes Microsoft Surface. Tous les points de mise à jour logicielle doivent exécuter Windows Server 2016 pour synchroniser correctement les pilotes Surface. Si vous activez un point de mise à jour logicielle sur un ordinateur exécutant Windows Server 2012 après avoir activé les pilotes Surface, les résultats d’analyse pour les mises à jour du pilote ne sont pas exacts. Ainsi, les données de conformité affichées dans la console Configuration Manager et dans les rapports Configuration Manager ne sont pas correctes.  
-    > 
-    > La case **Inclure les mises à jour du microprogramme et des pilotes Microsoft Surface** est toujours disponible dans Configuration Manager version 1710. Toutefois, il s’agit d’une fonctionnalité en préversion dans Configuration Manager version 1706 et vous devez l’activer pour qu’elle soit disponible. Les fonctionnalités de préversion sont des fonctions incluses dans la branche Current Branch à des fins de test préalable dans un environnement de production. Ces fonctionnalités sont entièrement prises en charge mais sont toujours en cours de développement. Elles peuvent donc être modifiées jusqu'à ce qu’elles passent en préversion. Pour plus d’informations, consultez [Utiliser des fonctionnalités de préversions de mises à jour](https://docs.microsoft.com/sccm/core/servers/manage/install-in-console-updates#bkmk_prerelease).
+    > À compter de Configuration Manager version 1706, vous pouvez cocher la case **Inclure les mises à jour du microprogramme et des pilotes Microsoft Surface** pour synchroniser les pilotes Microsoft Surface.<!--1098490--> Tous les points de mise à jour logicielle doivent exécuter Windows Server 2016 pour synchroniser correctement les pilotes Surface. Si vous activez un point de mise à jour logicielle sur un ordinateur exécutant Windows Server 2012 après avoir activé les pilotes Surface, les résultats d’analyse pour les mises à jour du pilote ne sont pas exacts. Ainsi, les données de conformité affichées dans la console Configuration Manager et dans les rapports Configuration Manager ne sont pas correctes.  
+    >  
+    > Cette fonctionnalité a été introduite dans la version 1706 comme [fonctionnalité en préversion](/sccm/core/servers/manage/pre-release-features). À compter de la version 1710, cette fonctionnalité n’est plus une fonctionnalité en préversion.  
+    >  
+    > Par défaut, Configuration Manager n’active pas cette fonctionnalité facultative. Vous devez activer cette fonctionnalité avant de l’utiliser. Pour plus d’informations, consultez [Activer les fonctionnalités facultatives des mises à jour](/sccm/core/servers/manage/install-in-console-updates#bkmk_options).<!--505213-->  
 
 5.  Sous l'onglet **Produits** , spécifiez les produits pour lesquels vous souhaitez synchroniser les mises à jour logicielles, puis cliquez sur **Fermer**.  
 

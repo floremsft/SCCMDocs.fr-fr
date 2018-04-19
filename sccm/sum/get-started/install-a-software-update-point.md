@@ -1,22 +1,23 @@
 ---
-title: "Installer et configurer un point de mise à jour logicielle"
+title: Installer et configurer un point de mise à jour logicielle
 titleSuffix: Configuration Manager
-description: "Il doit y avoir un point de mise à jour logicielle installé sur le site d’administration centrale et sur les sites principaux pour permettre l’évaluation de la conformité des mises à jour logicielles et le déploiement des mises à jour logicielles sur les clients."
-keywords: 
+description: Il doit y avoir un point de mise à jour logicielle installé sur le site d’administration centrale et sur les sites principaux pour permettre l’évaluation de la conformité des mises à jour logicielles et le déploiement des mises à jour logicielles sur les clients.
+keywords: ''
 author: dougeby
 ms.author: dougeby
 manager: angrobe
 ms.date: 05/30/2017
 ms.topic: article
 ms.prod: configuration-manager
-ms.service: 
-ms.technology: configmgr-sum
+ms.service: ''
+ms.technology:
+- configmgr-sum
 ms.assetid: b099a645-6434-498f-a408-1d438e394396
-ms.openlocfilehash: c17dd40175bac5ecc4361e905f009f1ed5c2f5a4
-ms.sourcegitcommit: 986fc2d54f7c5fa965fd4df42f4db4ecce6b79cb
+ms.openlocfilehash: 19cc49355d931595f08f81685ca0549ad9cba4e5
+ms.sourcegitcommit: a19e12d5c3198764901d44f4df7c60eb542e765f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="install-and-configure-a-software-update-point"></a>Installer et configurer un point de mise à jour logicielle  
 
@@ -24,9 +25,9 @@ ms.lasthandoff: 11/17/2017
 
 
 > [!IMPORTANT]  
->  Avant d'installer le rôle de système de site du point de mise à jour logicielle, vous devez vérifier que le serveur satisfait aux dépendances requises et qu'il détermine l'infrastructure du point de mise à jour logicielle sur le site. Pour plus d’informations sur la planification des mises à jour logicielles et pour savoir comment déterminer l’infrastructure de votre point de mise à jour logicielle, consultez [Planifier les mises à jour logicielles](../plan-design/plan-for-software-updates.md).  
+>  Avant d’installer le rôle de système de site du point de mise à jour logicielle, vous devez vérifier que le serveur a les dépendances nécessaires et qu’il détermine l’infrastructure du point de mise à jour logicielle sur le site. Pour plus d’informations sur la planification des mises à jour logicielles et pour savoir comment déterminer l’infrastructure de votre point de mise à jour logicielle, consultez [Planifier les mises à jour logicielles](../plan-design/plan-for-software-updates.md).  
 
- Le point de mise à jour logicielle est requis sur le site d'administration centrale et les sites principaux pour permettre l'évaluation de la conformité des mises à jour logicielles et pour déployer des mises à jour logicielles sur des clients. Le point de mise à jour de logicielle est facultatif sur les sites secondaires. Le rôle de système de site du point de mise à jour logicielle doit être créé sur un serveur sur lequel WSUS est installé. Le point de mise à jour logicielle interagit avec les services WSUS pour configurer les paramètres de mise à jour logicielle et demander la synchronisation des métadonnées de mises à jour logicielles. Dans une hiérarchie Configuration Manager, vous devez installer et configurer le point de mise à jour logicielle d’abord sur le site d’administration centrale, puis sur les sites principaux enfants et, enfin, sur les sites secondaires (le cas échéant). Si vous disposez d'un site principal autonome, et non d'un site d'administration centrale, installez et configurez d'abord le point de mise à jour logicielle sur le site principal, puis éventuellement sur des sites secondaires. Certains paramètres sont uniquement disponibles quand vous configurez le point de mise à jour logicielle sur un site de niveau supérieur. Il existe différentes options à prendre en compte en fonction de l'emplacement auquel vous avez installé le point de mise à jour logicielle.  
+ Le point de mise à jour logicielle est nécessaire sur le site d’administration centrale et les sites principaux pour permettre l’évaluation de la conformité des mises à jour logicielles et pour déployer des mises à jour logicielles sur des clients. Le point de mise à jour de logicielle est facultatif sur les sites secondaires. Le rôle de système de site du point de mise à jour logicielle doit être créé sur un serveur sur lequel WSUS est installé. Le point de mise à jour logicielle interagit avec les services WSUS pour configurer les paramètres de mise à jour logicielle et demander la synchronisation des métadonnées de mises à jour logicielles. Dans une hiérarchie Configuration Manager, vous devez installer et configurer le point de mise à jour logicielle d’abord sur le site d’administration centrale, puis sur les sites principaux enfants et, enfin, sur les sites secondaires (le cas échéant). Si vous disposez d'un site principal autonome, et non d'un site d'administration centrale, installez et configurez d'abord le point de mise à jour logicielle sur le site principal, puis éventuellement sur des sites secondaires. Certains paramètres sont uniquement disponibles quand vous configurez le point de mise à jour logicielle sur un site de niveau supérieur. Il existe différentes options à prendre en compte en fonction de l'emplacement auquel vous avez installé le point de mise à jour logicielle.  
 
 > [!IMPORTANT]  
 >  Vous pouvez installer plusieurs points de mise à jour logicielle sur un site. Le premier point de mise à jour logicielle que vous installez est configuré en tant que source de synchronisation, laquelle synchronise les mises à jour à partir de Microsoft Update ou à partir de la source de synchronisation en amont. Les autres points de mise à jour logicielle sur le site sont configurés en tant que réplicas du premier point de mise à jour logicielle. Par conséquent, certains paramètres ne sont pas disponibles une fois que vous avez installé et configuré le point de mise à jour logicielle initial.  
@@ -34,7 +35,7 @@ ms.lasthandoff: 11/17/2017
 > [!IMPORTANT]  
 >  Vous ne pouvez pas installer le rôle système de site du point de mise à jour logicielle sur un serveur configuré et utilisé comme serveur WSUS autonome ni utiliser un point de mise à jour logicielle pour gérer directement des clients WSUS. Les serveurs WSUS existants sont uniquement pris en charge en tant que sources de synchronisation en amont pour le point de mise à jour logicielle actif. Consultez [Synchroniser à partir d’un emplacement de source de données en amont](#BKMK_wsussync)
 
- Vous pouvez ajouter le rôle de système de site de point de mise à jour logicielle à un serveur de système de site existant ou en créer un nouveau. Sur la page **Sélection du rôle système** de l' **Assistant Création d'un serveur de système de site** ou l' **Assistant Ajout des rôles de système de site** , selon que vous ajoutez le rôle de système de site à un serveur de site nouveau ou existant, sélectionnez **Point de mise à jour logicielle**, puis configurez les paramètres du point de mise à jour logicielle dans l'Assistant. Les paramètres varient selon la version de Configuration Manager utilisée. Pour plus d’informations sur l’installation de rôles de système de site, consultez [Installer des rôles de système de site](../../core/servers/deploy/configure/install-site-system-roles.md).  
+ Vous pouvez ajouter le rôle de système de site de point de mise à jour logicielle à un serveur de système de site existant ou en créer un nouveau. Dans la page **Sélection du rôle système** de **l’Assistant Création d’un serveur de système de site** ou **l’Assistant Ajout des rôles de système de site, selon que vous ajoutez le rôle de système de site à un serveur de site nouveau ou existant, sélectionnez **Point de mise à jour logicielle**, puis configurez les paramètres du point de mise à jour logicielle dans l’Assistant. Les paramètres varient selon la version de Configuration Manager utilisée. Pour plus d’informations sur l’installation de rôles de système de site, consultez [Installer des rôles de système de site](../../core/servers/deploy/configure/install-site-system-roles.md).  
 
  Utilisez les sections suivantes pour plus d'informations sur les paramètres du point de mise à jour logicielle sur un site.  
 
@@ -78,7 +79,7 @@ ms.lasthandoff: 11/17/2017
  Pour plus d’informations sur les comptes Configuration Manager, consultez [Comptes utilisés dans System Center Configuration Manager](../../core/plan-design/hierarchy/accounts.md).  
 
 ## <a name="synchronization-source"></a>Source de synchronisation  
- Vous pouvez configurer la source de synchronisation en amont pour la synchronisation des mises à jour logicielles sur la page **Source de synchronisation** de l'Assistant ou sous l'onglet **Paramètres de synchronisation** dans les propriétés du composant du point de mise à jour logicielle. Vos options pour la source de synchronisation varient selon le site.  
+ Vous pouvez configurer la source de synchronisation en amont pour la synchronisation des mises à jour logicielles dans la page **Source de synchronisation** de l’Assistant ou sous l’onglet **Paramètres de synchronisation** dans les propriétés du composant de point de mise à jour logicielle. Vos options pour la source de synchronisation varient selon le site.  
 
  Utilisez le tableau suivant pour les options disponibles lorsque vous configurez le point de mise à jour logicielle au niveau d'un site.  
 
@@ -94,14 +95,14 @@ ms.lasthandoff: 11/17/2017
     > [!NOTE]  
     >  En présence d’un pare-feu entre le point de mise à jour logicielle et Internet, une configuration du pare-feu peut s’avérer nécessaire pour autoriser l’utilisation des ports HTTP et HTTPS pour le site web WSUS. Vous pouvez également choisir de restreindre l'accès sur le pare-feu à des domaines limités. Pour plus d’informations sur la planification d’un pare-feu prenant en charge les mises à jour logicielles, consultez [Configure firewalls](../plan-design/plan-for-software-updates.md#BKMK_ConfigureFirewalls).  
 
--   **<a name="BKMK_wsussync"></a>Synchroniser à partir d’un emplacement de source de données en amont** : utilisez ce paramètre pour synchroniser les métadonnées des mises à jour logicielles à partir de la source de synchronisation en amont. Les sites principaux enfants et les sites secondaires sont automatiquement configurés pour utiliser l'URL du site parent pour ce paramètre. Vous pouvez synchroniser les mises à jour logicielles à partir d’un serveur WSUS existant. Spécifiez une URL, comme https://WSUSServer:8531, où 8531 est le port qui est utilisé pour se connecter au serveur WSUS.  
+-   **<a name="BKMK_wsussync"></a>Synchroniser à partir d’un emplacement de source de données en amont** : utilisez ce paramètre pour synchroniser les métadonnées des mises à jour logicielles à partir de la source de synchronisation en amont. Les sites principaux enfants et les sites secondaires sont automatiquement configurés pour utiliser l'URL du site parent pour ce paramètre. Vous pouvez synchroniser les mises à jour logicielles à partir d’un serveur WSUS existant. Spécifiez une URL, comme https://WSUSServer:8531, où 8531 est le port utilisé pour se connecter au serveur WSUS.  
 
 -   **Ne pas synchroniser à partir de Microsoft Update ou de la source de données en amont**: utilisez ce paramètre pour synchroniser manuellement les mises à jour logicielles quand le point de mise à jour logicielle sur le site de niveau supérieur est déconnecté d’Internet. Pour plus d’informations, consultez [Synchroniser les mises à jour logicielles à partir d’un point de mise à jour logicielle déconnecté](synchronize-software-updates-disconnected.md).  
 
 > [!NOTE]  
 >  En présence d’un pare-feu entre le point de mise à jour logicielle et Internet, une configuration du pare-feu peut s’avérer nécessaire pour autoriser l’utilisation des ports HTTP et HTTPS pour le site web WSUS. Vous pouvez également choisir de restreindre l'accès sur le pare-feu à des domaines limités. Pour plus d’informations sur la planification d’un pare-feu prenant en charge les mises à jour logicielles, consultez [Configure firewalls](../plan-design/plan-for-software-updates.md#BKMK_ConfigureFirewalls).  
 
- Vous pouvez également configurer la création d'événements de rapports WSUS dans la page **Source de synchronisation** de l'Assistant ou sous l'onglet **Paramètres de synchronisation** dans les propriétés du composant de point de mise à jour logicielle. Configuration Manager n’utilise pas ces événements. Vous devez donc normalement choisir le paramètre par défaut **Ne pas créer les événements de rapports WSUS**.  
+ Vous pouvez également configurer la création d’événements de rapport WSUS dans la page **Source de synchronisation** de l’Assistant ou sous l’onglet **Paramètres de synchronisation** dans les propriétés du composant de point de mise à jour logicielle. Configuration Manager n’utilise pas ces événements. Vous devez donc normalement choisir le paramètre par défaut **Ne pas créer les événements de rapports WSUS**.  
 
 ## <a name="synchronization-schedule"></a>Calendrier des synchronisations  
  Configurez le calendrier des synchronisations sur la page **Calendrier des synchronisations** de l'Assistant ou dans les propriétés du composant du point de mise à jour logicielle. Ce paramètre est configuré uniquement sur le point de mise à jour logicielle sur le site de niveau supérieur.  
@@ -123,7 +124,7 @@ ms.lasthandoff: 11/17/2017
 >  La page **Règles de remplacement** de l’Assistant est uniquement disponible quand vous configurez le premier point de mise à jour logicielle sur le site. Cette page ne s'affiche pas lorsque vous installez des points de mise à jour logicielle supplémentaires.  
 
 ## <a name="classifications"></a>Classifications  
- Configurez les paramètres des classifications sur la page **Classifications** de l'Assistant ou sous l'onglet **Classifications** dans les propriétés du composant du point de mise à jour logicielle. Pour plus d’informations sur les classifications de mise à jour logicielle, consultez [Update classifications](../plan-design/plan-for-software-updates.md#BKMK_UpdateClassifications).  
+ Configurez les paramètres des classifications dans la page **Classifications** de l’Assistant ou sous l’onglet **Classifications** dans les propriétés du composant de point de mise à jour logicielle. Pour plus d’informations sur les classifications de mise à jour logicielle, consultez [Update classifications](../plan-design/plan-for-software-updates.md#BKMK_UpdateClassifications).  
 
 > [!NOTE]  
 >  La page **Classifications** de l’Assistant est uniquement disponible quand vous configurez le premier point de mise à jour logicielle sur le site. Cette page ne s'affiche pas lorsque vous installez des points de mise à jour logicielle supplémentaires.  
@@ -132,7 +133,7 @@ ms.lasthandoff: 11/17/2017
 >  Lorsque vous installez pour la première fois le point de mise à jour logicielle sur le site de niveau supérieur, désactivez toutes les classifications des mises à jour logicielles. Après la synchronisation initiale des mises à jour logicielles, configurez les classifications à partir d'une liste actualisée, puis relancez la synchronisation. Ce paramètre est configuré uniquement sur le point de mise à jour logicielle sur le site de niveau supérieur.  
 
 ## <a name="products"></a>Produits  
- Configurez les paramètres des produits sur la page **Produits** de l'Assistant ou sous l'onglet **Produits** dans les propriétés du composant du point de mise à jour logicielle.  
+ Configurez les paramètres des produits dans la page **Produits** de l’Assistant ou sous l’onglet **Produits** dans les propriétés du composant de point de mise à jour logicielle.  
 
 > [!NOTE]  
 >  La page **Produits** de l’Assistant est uniquement disponible quand vous configurez le premier point de mise à jour logicielle sur le site. Cette page ne s'affiche pas lorsque vous installez des points de mise à jour logicielle supplémentaires.  
@@ -141,12 +142,15 @@ ms.lasthandoff: 11/17/2017
 >  Lorsque vous installez pour la première fois le point de mise à jour logicielle sur le site de niveau supérieur, désactivez tous les produits. Après la synchronisation initiale des mises à jour logicielles, configurez les produits à partir d'une liste actualisée, puis relancez la synchronisation. Ce paramètre est configuré uniquement sur le point de mise à jour logicielle sur le site de niveau supérieur.  
 
 ## <a name="languages"></a>Langues  
- Configurez les paramètres linguistiques sur la page **Langues** de l'Assistant ou sous l'onglet **Langues** dans les propriétés du composant du point de mise à jour logicielle. Spécifiez les langues pour lesquelles vous souhaitez synchroniser les fichiers de mise à jour logicielle et les détails du résumé. Le paramètre **Fichier de mise à jour logicielle** est configuré au niveau de chaque point de mise à jour logicielle dans la hiérarchie Configuration Manager. Les paramètres **Détails du résumé** sont configurés uniquement sur le point de mise à jour logicielle de niveau supérieur. Pour plus d'informations, voir [Languages](../plan-design/plan-for-software-updates.md#BKMK_UpdateLanguages).  
+ Configurez les paramètres linguistiques dans la page **Langues** de l’Assistant ou sous l’onglet **Langues** dans les propriétés du composant de point de mise à jour logicielle. Spécifiez les langues pour lesquelles vous souhaitez synchroniser les fichiers de mise à jour logicielle et les détails du résumé. Le paramètre **Fichier de mise à jour logicielle** est configuré au niveau de chaque point de mise à jour logicielle dans la hiérarchie Configuration Manager. Les paramètres **Détails du résumé** sont configurés uniquement sur le point de mise à jour logicielle de niveau supérieur. Pour plus d'informations, voir [Languages](../plan-design/plan-for-software-updates.md#BKMK_UpdateLanguages).  
 
 > [!NOTE]  
 >  La page **Langues** de l’Assistant est uniquement disponible quand vous installez le point de mise à jour logicielle sur le site d’administration centrale. Vous pouvez configurer les langues du fichier de mise à jour logicielle sur les sites enfants à partir de l'onglet **Langues** dans les propriétés du composant du point de mise à jour logicielle.  
 
+## <a name="third-party-updates"></a>Mises à jour tierces
+À compter de la version 1802 de Configuration Manager, vous pouvez activer les mises à jour tierces pour les clients Configuration Manager. Quand vous activez les mises à jour de logiciels tiers dans les propriétés du composant de point de mise à jour logicielle, le point de mise à jour logicielle télécharge le certificat de signature utilisé par WSUS pour les mises à jour tierces. Cette option n’est pas disponible pendant l’installation du point de mise à jour logicielle et doit être configurée après l’installation. Pour activer les paramètres client des mises à jour tierces, consultez l’article [À propos des paramètres client](/sccm/core/clients/deploy/about-client-settings#Enable-third-party-software-updates).
+
 ## <a name="next-steps"></a>Étapes suivantes
-Vous avez installé le point de mise à jour logicielle en commençant par le site de premier niveau dans la hiérarchie Configuration Manager. Répétez les procédures décrites dans cette rubrique pour installer le point de mise à jour logicielle sur chaque site enfant.
+Vous avez installé le point de mise à jour logicielle en commençant par le site de premier niveau dans la hiérarchie Configuration Manager. Répétez les procédures décrites dans cet article pour installer le point de mise à jour logicielle sur chaque site enfant.
 
 Une fois que vous avez installé tous les points de mise à jour logicielle, vous pouvez [synchroniser les mises à jour logicielles](synchronize-software-updates.md).

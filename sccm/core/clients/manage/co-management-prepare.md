@@ -1,45 +1,46 @@
 ---
-title: Préparer les appareils Windows 10 pour la cogestion
+title: Préparer Windows 10 pour la cogestion
+titleSuffix: Configuration Manager
 description: Découvrez comment préparer vos appareils Windows 10 pour la cogestion.
-keywords: ''
 author: mestew
 ms.author: mstewart
 manager: dougeby
-ms.date: 03/22/2018
+ms.date: 03/28/2018
 ms.topic: article
 ms.prod: configuration-manager
 ms.service: ''
 ms.technology: ''
 ms.assetid: 101de2ba-9b4d-4890-b087-5d518a4aa624
-ms.openlocfilehash: 61aef0351e32ef6cf31911a8dfd27e86de82f38c
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: a45ded0f3824c148f64f9578e51cc112c05d9f78
+ms.sourcegitcommit: aed99ba3c5e9482199cb3fc5c92f6f3a160cb181
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="prepare-windows-10-devices-for-co-management"></a>Préparer les appareils Windows 10 pour la cogestion
-Vous pouvez activer la cogestion sur les appareils Windows 10 qui sont joints à AD et à Azure AD, inscrits à Intune et clients dans Configuration Manager. Pour les nouveaux appareils Windows 10 et pour ceux qui sont déjà inscrits à Intune, installez le client Configuration Manager avant de pouvoir les cogérer. Pour les appareils Windows 10 qui sont déjà des clients Configuration Manager, inscrivez-les à Intune et activez la cogestion dans la console Configuration Manager.
+Vous pouvez activer la cogestion sur les appareils Windows 10 qui sont joints à AD et à Azure AD, et inscrits auprès de Microsoft Intune et d’un client dans Configuration Manager. Pour les nouveaux appareils Windows 10 et pour ceux qui sont déjà inscrits à Intune, installez le client Configuration Manager avant de pouvoir les cogérer. Pour les appareils Windows 10 qui sont déjà des clients Configuration Manager, inscrivez-les à Intune et activez la cogestion dans la console Configuration Manager.
 
 > [!IMPORTANT]
-> Les appareils mobiles Windows 10 ne prennent pas en charge la cogestion.
+> Les appareils mobiles Windows 10 ne prennent pas en charge la cogestion.
+
+
 
 ## <a name="command-line-to-install-configuration-manager-client"></a>Ligne de commande pour installer un client Configuration Manager
 Créez une application dans Intune pour les appareils Windows 10 qui ne sont pas encore des clients Configuration Manager. Lors de la création de l’application dans les sections suivantes, utilisez cette ligne de commande :
 
-ccmsetup.msi CCMSETUPCMD="/mp:&#60;*URL du point de terminaison de l’authentification mutuelle pour la passerelle de gestion cloud*&#62;/ CCMHOSTNAME=&#60;*URL du point de terminaison de l’authentification mutuelle pour la passerelle de gestion cloud*&#62; SMSSiteCode=&#60;*Codesite*&#62; SMSMP=https:&#47;/&#60;*Nom de domaine complet du point de gestion*&#62; AADTENANTID=&#60;*ID du locataire AAD*&#62; AADTENANTNAME=&#60;*Nom du locataire*&#62; AADCLIENTAPPID=&#60;*ID de l’application serveur pour l’intégration AAD*&#62; AADRESOURCEURI=https:&#47;/&#60;*ID de la ressource*&#62;”
+`ccmsetup.msi CCMSETUPCMD="/mp:<URL of cloud management gateway mutual auth endpoint> CCMHOSTNAME=<URL of cloud management gateway mutual auth endpoint> SMSSiteCode=<Sitecode> SMSMP=https://<FQDN of MP> AADTENANTID=<AAD tenant ID> AADCLIENTAPPID=<Server AppID for AAD Integration> AADRESOURCEURI=https://<Resource ID>"`
 
 Par exemple, si vous aviez les valeurs suivantes :
 
-- **URL du point de terminaison de l’authentification mutuelle pour la passerelle de gestion cloud** : https:/&#47;contoso.cloudapp.net/CCM_Proxy_MutualAuth/72057594037928100    
+- **URL du point de terminaison de l’authentification mutuelle pour la passerelle de gestion cloud** : https:/&#47;contoso.cloudapp.net/CCM_Proxy_MutualAuth/72186325152220500    
 
    >[!Note]    
    >Utilisez la valeur **MutualAuthPath** dans la vue SQL **vProxy_Roles** pour la valeur **URL du point de terminaison de l’authentification mutuelle pour la passerelle de gestion cloud**.
 
-- **Nom de domaine complet du point de gestion** : sccmmp.corp.contoso.com    
+- **Nom de domaine complet du point de gestion** : mp1.contoso.com    
 - **CodeSite** : PS1    
-- **ID du locataire Azure AD** : 72F988BF-86F1-41AF-91AB-2D7CD011XXXX    
-- **Nom du locataire Azure AD** : contoso    
-- **ID de l’application cliente Azure AD** : bef323b3-042f-41a6-907a-f9faf0d1XXXX     
+- **ID du locataire Azure AD** : daf4a1c2-3a0c-401b-966f-0b855d3abd1a    
+- **ID d’application du client Azure AD** : 7506ee10-f7ec-415a-b415-cd3d58790d97     
 - **URI de l’ID de la ressource AAD** : ConfigMgrServer    
 
   > [!Note]    
@@ -47,7 +48,7 @@ Par exemple, si vous aviez les valeurs suivantes :
 
 Vous utiliseriez la ligne de commande suivante :
 
-ccmsetup.msi CCMSETUPCMD="/mp:https:/&#47;contoso.cloudapp.net/CCM_Proxy_MutualAuth/72057594037928100    CCMHOSTNAME=contoso.cloudapp.net/CCM_Proxy_MutualAuth/72057594037928100 SMSSiteCode=PS1 SMSMP=https:/&#47;sccmmp.corp.contoso.com AADTENANTID=72F988BF-86F1-41AF-91AB-2D7CD011XXXX AADTENANTNAME=contoso  AADCLIENTAPPID=bef323b3-042f-41a6-907a-f9faf0d1XXXX AADRESOURCEURI=https:/&#47;ConfigMgrServer”
+`ccmsetup.msi CCMSETUPCMD="/mp:https://contoso.cloudapp.net/CCM_Proxy_MutualAuth/72186325152220500    CCMHOSTNAME=contoso.cloudapp.net/CCM_Proxy_MutualAuth/72186325152220500 SMSSiteCode=PS1 SMSMP=https://mp1.contoso.com AADTENANTID=daf4a1c2-3a0c-401b-966f-0b855d3abd1a AADCLIENTAPPID=7506ee10-f7ec-415a-b415-cd3d58790d97 AADRESOURCEURI=https://ConfigMgrServer"`
 
 > [!Tip]
 > Pour trouver les paramètres de ligne de commande pour votre site, effectuez les étapes suivantes :     

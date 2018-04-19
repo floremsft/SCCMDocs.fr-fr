@@ -3,7 +3,7 @@ title: Mises à jour dans la console
 titleSuffix: Configuration Manager
 description: Installer des mises à jour pour Configuration Manager à partir du cloud Microsoft
 ms.custom: na
-ms.date: 03/22/2018
+ms.date: 03/28/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,11 +16,11 @@ caps.latest.revision: 36
 author: mestew
 ms.author: mstewart
 manager: dougeby
-ms.openlocfilehash: 5d364e35c8777c782499da978f0d1a31694278cc
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: 054bbd8e7b1dd3f5d565afe60eb7e3379cc7a9ee
+ms.sourcegitcommit: aed99ba3c5e9482199cb3fc5c92f6f3a160cb181
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="install-in-console-updates-for-system-center-configuration-manager"></a>Installation de mises à jour dans la console pour System Center Configuration Manager
 
@@ -191,7 +191,7 @@ Pour surveiller l’état d’avancement, procédez comme suit :
 
     -   **Post-installation** : pour plus d’informations, consultez [Tâches post-installation](#post-installation-tasks).  
 
--   Vous pouvez consulter le fichier **CMUpdate.log** dans **&lt;<Répertoire_Installation_ConfiMgr>\Logs**  
+-   Vous pouvez consulter le fichier **CMUpdate.log** dans **&lt;Répertoire_Installation_ConfiMgr>\Logs**  
 
 
 #### <a name="4-when-the-update-installation-completes"></a>4. Après l’installation de la mise à jour  
@@ -210,13 +210,17 @@ Une fois l’installation de la mise à jour sur le premier site terminée :
 #### <a name="5-update-configuration-manager-consoles"></a>5. Mettre à jour des consoles Configuration Manager  
 Dès lors qu’un site d’administration centrale ou un site principal est mis à jour, chaque console Configuration Manager qui se connecte à ce site doit aussi être mise à jour. Vous êtes invité à mettre à jour une console dans les cas suivants :  
 
--   Lorsque vous ouvrez la console
+-   lorsque vous ouvrez la console ;
 
 -   Quand vous accédez à un nouveau nœud dans une console ouverte
 
 Nous vous recommandons d’installer la mise à jour immédiatement.  
 
 Une fois la mise à niveau de la console terminée, vous pouvez vérifier que les versions de la console et du site sont correctes. Accédez à **À propos de System Center Configuration Manager** en haut à gauche de la console.  
+
+ > [!Note]  
+ > À compter de la version 1802, la version de la console est légèrement différente de la version du site. La version mineure de la console correspond maintenant à la version publiée de Configuration Manager. Par exemple, dans Configuration Manager version 1802, la version initiale du site est 5.0.8634.1000, et la version initiale de la console est 5.**1802**.1082.1700. Les numéros de build (1082) et de révision (1700) peuvent changer avec les correctifs logiciels futurs sur la version 1802.
+
 
 
 ###  <a name="bkmk_toptier"></a> Pour démarrer l’installation de la mise à jour sur le site de niveau supérieur  

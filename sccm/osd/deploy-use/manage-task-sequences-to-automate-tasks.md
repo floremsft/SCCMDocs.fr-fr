@@ -16,11 +16,11 @@ caps.latest.revision: 10
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 5ec9266f33b318ac9c42f86840ebd7ac59713bdf
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: 262bfa3991bbd95fad779da9520358d527a42b07
+ms.sourcegitcommit: a19e12d5c3198764901d44f4df7c60eb542e765f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="manage-task-sequences-to-automate-tasks-in-system-center-configuration-manager"></a>Gérer les séquences de tâches pour automatiser des tâches dans System Center Configuration Manager
 
@@ -251,7 +251,14 @@ Le message de notification suivant s’affiche quand l’utilisateur final ouvre
         >     - Si le regroupement contient un serveur  
 
     -   **Commentaires (facultatif) :**spécifiez des informations supplémentaires qui décrivent ce déploiement de la séquence de tâches.  
-    - **Sélectionner un modèle de déploiement** : à partir de Configuration Manager version 1802, vous pouvez enregistrer et spécifier un modèle de déploiement pour une séquence de tâches. <!--1357391-->
+    - **Sélectionner un modèle de déploiement** : À partir de la version 1802 de Configuration Manager, <!--1357391--> vous pouvez enregistrer et spécifier un modèle de déploiement pour une séquence de tâches.     
+
+         > [!IMPORTANT]
+         > Dans la version 1802 de Configuration Manager, certains éléments ne sont pas enregistrés dans le modèle.  <!--510610--> Veillez à appliquer les éléments suivants quand vous exécutez l’Assistant Déploiement :
+         > - Installation logicielle 
+         > - Planification 
+         > - Prétélécharger le contenu
+ 
 6.  Sur la page **Paramètres de déploiement** , spécifiez les informations suivantes, puis cliquez sur **Suivant**.  
 
     -   **Objet**: dans la liste déroulante, choisissez l’une des options suivantes :  

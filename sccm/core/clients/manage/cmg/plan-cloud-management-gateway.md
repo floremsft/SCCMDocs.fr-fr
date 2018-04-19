@@ -10,11 +10,11 @@ ms.assetid: 2dc8c9f1-4176-4e35-9794-f44b15f4e55f
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 614c5ba3acb81f90a75726e8783125fb53a39a93
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: dabc248c1788ecad4d7b25c0a1f592e0ddeef826
+ms.sourcegitcommit: a19e12d5c3198764901d44f4df7c60eb542e765f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="plan-for-the-cloud-management-gateway-in-configuration-manager"></a>Planifier la passerelle de gestion cloud dans Configuration Manager
 
@@ -136,7 +136,7 @@ De même, quand les clients basés à Paris se déplacent et utilisent Internet,
 
 
 
-## <a name="requirements"></a>Spécifications
+## <a name="requirements"></a>spécifications
 
 - Un **abonnement Azure** pour héberger la passerelle de gestion cloud.  
 
@@ -155,7 +155,7 @@ De même, quand les clients basés à Paris se déplacent et utilisent Internet,
 
 - **D’autres certificats** peuvent être nécessaires, en fonction de la version du système d’exploitation et du modèle d’authentification de votre client. Pour plus d’informations, consultez [Certificats de passerelle de gestion cloud](/sccm/core/clients/manage/cmg/certificates-for-cloud-management-gateway).  
 
-    - À compter de la version 1802, vous devez configurer tous les [**points de gestion pour qu’ils utilisent HTTPS**](/sccm/core/clients/manage/cmg/certificates-for-cloud-management-gateway#enable-management-point-for-https).  
+    - À compter de la version 1802, vous devez configurer tous les [**points de gestion activés pour la passerelle de gestion cloud afin d’utiliser le protocole HTTPS**](/sccm/core/clients/manage/cmg/certificates-for-cloud-management-gateway#enable-management-point-for-https).  
 
 - L’intégration à **Azure AD** peut être nécessaire pour les clients Windows 10. Pour plus d’informations, consultez [Configurer des services Azure](/sccm/core/servers/deploy/configure/azure-services-wizard).  
 

@@ -1,26 +1,27 @@
 ---
-title: "Configurer la gestion d’appareils hybrides Android avec Microsoft Intune"
+title: Configurer la gestion d’appareils hybrides Android avec Microsoft Intune
 titleSuffix: Configuration Manager
-description: "Préparez la gestion des appareils mobiles Android avec Configuration Manager et Intune."
+description: Préparez la gestion des appareils mobiles Android avec Configuration Manager et Intune.
 ms.custom: na
 ms.date: 08/11/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-hybrid
+ms.technology:
+- configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: c517fe34-0130-465b-a020-bdb555878778
-caps.latest.revision: "9"
-caps.handback.revision: "0"
+caps.latest.revision: 9
+caps.handback.revision: 0
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: c9b35122f6afbb4fffbbff48b919fd696939c897
-ms.sourcegitcommit: 51cfce302fa8ddf633ad1f379b1161c0617089b8
+ms.openlocfilehash: c75979e8485fa3ece2178af6d21ff06282206569
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-android-hybrid-device-management-with-system-center-configuration-manager-and-microsoft-intune"></a>Configurer la gestion hybride des appareils mobiles Android avec System Center Configuration Manager et Microsoft Intune
 
@@ -60,7 +61,7 @@ Les étapes suivantes permettent à Configuration Manager de gérer des appareil
 > Un problème connu empêche le bon fonctionnement de l’option **Gérer les appareils pris en charge pour les utilisateurs uniquement dans ces groupes comme Android for Work**. Les appareils des utilisateurs dans les groupes Azure AD spécifiés sont inscrits en tant qu’appareils Android et non Android for Work. Pour activer Android for Work, vous devez utiliser l’option **Gérer les appareils pris en charge comme Android for Work**.
 
 
-Une fois la configuration terminée, vous devez indiquer aux utilisateurs comment inscrire leurs appareils. Consultez [Ce qu’il faut dire aux utilisateurs sur l’inscription de leurs appareils](https://docs.microsoft.com/en-us/intune/end-user-educate). Ces informations s’appliquent aux appareils mobiles gérés par Microsoft Intune et Configuration Manager.
+Une fois la configuration terminée, vous devez indiquer aux utilisateurs comment inscrire leurs appareils. Consultez [Ce qu’il faut dire aux utilisateurs sur l’inscription de leurs appareils](https://docs.microsoft.com/intune/end-user-educate). Ces informations s’appliquent aux appareils mobiles gérés par Microsoft Intune et Configuration Manager.
 
 Lorsque la liaison est établie, vous voyez le nom du compte et le nom de l’organisation dans le portail Intune. À ce stade, vous pouvez fermer les deux navigateurs.
 

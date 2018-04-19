@@ -1,26 +1,27 @@
 ---
-title: "Référence des tâches de maintenance"
+title: Référence des tâches de maintenance
 titleSuffix: Configuration Manager
-description: "Lisez les détails de chaque tâche de maintenance de site de System Center Configuration Manager, et déterminez si ces tâches sont activées par défaut."
+description: Lisez les détails de chaque tâche de maintenance de site de System Center Configuration Manager, et déterminez si ces tâches sont activées par défaut.
 ms.custom: na
 ms.date: 3/8/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 68dc6acd-5848-47a4-b4c1-ffa40e47890b
-caps.latest.revision: "16"
-caps.handback.revision: "0"
+caps.latest.revision: 16
+caps.handback.revision: 0
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 3f67bddcb7233b62769271871354c86c5440e320
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: 21b5e47efd2678f78fe7b7c0e10524ec7141634d
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="reference-for-maintenance-tasks-for-system-center-configuration-manager"></a>Référence des tâches de maintenance pour System Center Configuration Manager
 
@@ -105,7 +106,7 @@ Cette rubrique répertorie les détails de chaque tâche de maintenance de site 
 -   **Site principal**  : activé    
 -   Site secondaire : non disponible  
 
-**Supprimer les données de découverte anciennes** : cette tâche permet de supprimer de la base de données d’anciennes données de découverte. Ces données peuvent inclure les enregistrements résultant des méthodes de découverte par pulsations, de découverte réseau et de découverte Active Directory Domain Services (Système, Utilisateur et Groupe). Lorsque cette tâche s’exécute sur un site, les données associées à celui-ci sont supprimées, et ces modifications sont répliquées vers d’autres sites. Pour plus d'informations sur la découverte, voir [Exécuter la découverte pour System Center Configuration Manager](../../../core/servers/deploy/configure/run-discovery.md).  
+**Supprimer les données de découverte anciennes** : cette tâche permet de supprimer de la base de données d’anciennes données de découverte. Ces données peuvent inclure les enregistrements résultant des méthodes de découverte par pulsations, de découverte réseau et de découverte Active Directory Domain Services (Système, Utilisateur et Groupe). Cette tâche supprime également les anciens appareils marqués comme étant désactivés. Lorsque cette tâche s’exécute sur un site, les données associées à celui-ci sont supprimées, et ces modifications sont répliquées vers d’autres sites. Pour plus d'informations sur la découverte, voir [Exécuter la découverte pour System Center Configuration Manager](../../../core/servers/deploy/configure/run-discovery.md).  
 
 -   Site d’administration centrale : non disponible    
 -   **Site principal**  : activé    
@@ -213,7 +214,7 @@ Cette tâche s’applique aux appareils qui sont inscrits à l’aide de Microso
 
 **Supprimer les données de découverte des clients inactifs** : cette tâche permet de supprimer de la base de données des données de découverte de clients inactifs. Les clients sont marqués comme inactifs quand le client est marqué comme obsolète et par les configurations effectuées pour l’état du client.
 
-Cette tâche ne fonctionne que sur les ressources qui des clients Configuration Manager. Elle est différente de la tâche **Supprimer les données de découverte anciennes** qui supprime tous les anciens enregistrements de données de découverte. Lorsque cette tâche s'exécute sur un site, elle supprime les données de la base de données de tous les sites d'une hiérarchie. Pour plus d’informations, voir [Comment configurer l’état du client dans System Center Configuration Manager](../../../core/clients/deploy/configure-client-status.md).  
+Cette tâche ne fonctionne que sur les ressources qui des clients Configuration Manager. Elle est différente de la tâche **Supprimer les données de découverte anciennes** qui supprime tous les anciens enregistrements de données de découverte. Lorsque cette tâche s'exécute sur un site, elle supprime les données de la base de données de tous les sites d'une hiérarchie. Pour plus d’informations, voir [Guide pratique pour configurer l’état du client dans System Center Configuration Manager](../../../core/clients/deploy/configure-client-status.md).  
 
 > [!IMPORTANT]  
 > Quand elle est activée, configurez cette tâche pour qu’elle s’exécute à un intervalle plus important que celui planifié pour la **Découverte par pulsations d’inventaire**. Les clients actifs peuvent ainsi envoyer un enregistrement de type Découverte par pulsations d’inventaire pour marquer leur enregistrement de client comme actif, de sorte que cette tâche ne les supprime pas.  

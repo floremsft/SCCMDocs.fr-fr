@@ -10,11 +10,11 @@ ms.prod: configuration-manager
 ms.technology:
 - configmgr-other
 ms.assetid: 71eaa409-b955-45d6-8309-26bf3b3b0911
-ms.openlocfilehash: 1c7adec8f8919736c61859791802a96766af31bb
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: 0e4d2add8ece7f548955064a479d9545a1fc64e1
+ms.sourcegitcommit: a19e12d5c3198764901d44f4df7c60eb542e765f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="certificates-for-the-cloud-management-gateway"></a>Certificats pour la passerelle de gestion cloud
 
@@ -125,7 +125,7 @@ Après avoir émis un certificat d’authentification client pour un ordinateur,
 
 6.  Dans cette boîte de dialogue Nouveau certificat, passez à l’onglet **Détails**. Cliquez sur **Copier dans un fichier...**.
 
-7.  Effectuez l’Assistant Exportation de certificat en utilisant le format de certificat par défaut, **X.509 binaire encodé DER (*.cer)**. Notez le nom et l’emplacement du certificat exporté.
+7.  Effectuez l’Assistant Exportation de certificat en utilisant le format de certificat par défaut, **X.509 binaire encodé DER (.cer)**. Notez le nom et l’emplacement du certificat exporté.
 
 8. Exportez tous les certificats dans le chemin de certification du certificat d’authentification client d’origine. Notez quels certificats exportés sont des autorités de certification intermédiaires, et lesquels sont des autorités de certification racines de confiance.
 
@@ -136,7 +136,7 @@ Après avoir émis un certificat d’authentification client pour un ordinateur,
 *Spécifications pour les certificats*
 - Dans les versions 1706 ou 1710, lors de la gestion de clients traditionnels avec des identités locales en utilisant un certificat d’authentification client, ce certificat est recommandé mais pas obligatoire.
 - Dans la version 1710, lors de la gestion de clients Windows 10 joints à Azure AD, ce certificat est obligatoire pour les points de gestion. 
-- À compter de la version 1802, ce certificat est obligatoire dans tous les scénarios. 
+- À compter de la version 1802, ce certificat est obligatoire dans tous les scénarios. Seuls les points de gestion que vous activez pour la passerelle de gestion cloud doivent être HTTPS. Ce changement de comportement offre une meilleure prise en charge de l’authentification basée sur un jeton Azure AD. 
 
 Provisionnez ce certificat en dehors du contexte de Configuration Manager. Par exemple, utilisez les services de certificats Active Directory et la stratégie de groupe pour émettre un certificat de serveur web. Pour plus d’informations, consultez [Spécifications pour les certificats d’infrastructure à clé publique](/sccm/core/plan-design/network/pki-certificate-requirements) et [Déployer le certificat de serveur web pour les systèmes de site qui exécutent IIS](/sccm/core/plan-design/network/example-deployment-of-pki-certificates#BKMK_webserver2008_cm2012).
 
@@ -145,5 +145,5 @@ Provisionnez ce certificat en dehors du contexte de Configuration Manager. Par e
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Configurer la passerelle de gestion cloud](/sccm/core/clients/manage/cmg/setup-cloud-management-gateway)
-- [Forum aux questions sur la passerelle de gestion cloud](/sccm/core/clients/manage/cmg/cloud-management-gateway-faq)
+- [Questions fréquentes (FAQ) sur la passerelle de gestion cloud](/sccm/core/clients/manage/cmg/cloud-management-gateway-faq)
 - [Sécurité et confidentialité de la passerelle de gestion cloud](/sccm/core/clients/manage/cmg/security-and-privacy-for-cloud-management-gateway)

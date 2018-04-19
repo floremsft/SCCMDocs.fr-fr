@@ -15,11 +15,11 @@ ms.assetid: 5bd637b1-d7a1-411b-877a-c7aae9741173
 author: mestew
 ms.author: mstewart
 manager: dougeby
-ms.openlocfilehash: 4582d1105f2465c37e001570227112bfca3bad1c
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: 9c9ff975a58e7c56375fa7740a0a5bb6ebfa6341
+ms.sourcegitcommit: 27da4be015f1496b7b89ebddb517a2685f1ecf74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="whats-new-in-version-1802-of-system-center-configuration-manager"></a>Nouveautés de la version 1802 de System Center Configuration Manager
 
@@ -82,9 +82,9 @@ Cette fonctionnalité profite aux clients qui ont une hiérarchie multisite, gé
 Avec l’affinité de site de point de distribution cloud, un client Internet reçoit une liste ordonnée. Cette liste établit la priorité des points de distribution cloud à partir du site affecté au client. Ce comportement permet à l’administrateur de conserver le but de sa conception pour les téléchargements de contenu à partir des ressources de site.
  
 
-## <a name="management-insights"></a>Insights de gestion
+## <a name="management-insights"></a>Management insights
 <!-- 1353967 -->
-Les insights de gestion dans System Center Configuration Manager fournissent des informations sur l’état actuel de votre environnement. Les informations sont basées sur l’analyse des données provenant de la base de données du site. Elles vous aident à mieux comprendre votre environnement et à prendre des mesures en fonction. Pour plus d’informations, consultez [Insights de gestion](/sccm/core/servers/manage/management-insights)
+Les insights de gestion dans System Center Configuration Manager fournissent des informations sur l’état actuel de votre environnement. Les informations sont basées sur l’analyse des données provenant de la base de données du site. Ces informations vous aident à mieux comprendre votre environnement et à prendre des mesures en fonction de ces renseignements. Pour plus d’informations, consultez [Insights de gestion](/sccm/core/servers/manage/management-insights)
 
 Dans Configuration Manager 1802, les insights suivants sont disponibles :
 - Applications :
@@ -149,8 +149,8 @@ Le tableau de bord des appareils Surface fournit des informations sur les appare
 Pour plus d’informations, consultez l’article [Tableau de bord Surface](/sccm/core/clients/manage/surface-device-dashboard).
 
 ### <a name="change-in-the-configuration-manager-client-install"></a>Changement dans l’installation du client Configuration Manager
-<!--1356195-->|
-À compter de cette version, Silverlight n’est plus installé automatiquement sur les appareils clients. Pour plus d’informations, consultez [Prérequis au déploiement de clients sur des ordinateurs Windows](/sccm/core/clients/deploy/prerequisites-for-deploying-clients-to-windows-computers.#BKMK_ExternalDependencies).
+<!--1356195-->
+À compter de cette version, Silverlight n’est plus installé automatiquement sur les appareils clients. Pour plus d’informations, consultez [Prérequis pour le déploiement de clients sur des ordinateurs Windows](/sccm/core/clients/deploy/prerequisites-for-deploying-clients-to-windows-computers#bkmk_ExternalDependencies).
 
 ## <a name="co-management"></a>Cogestion
 

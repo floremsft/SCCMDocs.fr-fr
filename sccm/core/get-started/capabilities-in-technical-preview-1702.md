@@ -1,7 +1,7 @@
 ---
-title: "Capacités de la version Technical Preview 1702"
+title: Capacités de la version Technical Preview 1702
 titleSuffix: Configuration Manager
-description: "Découvrez les fonctionnalités disponibles dans la version Technical Preview 1702 pour System Center Configuration Manager."
+description: Découvrez les fonctionnalités disponibles dans la version Technical Preview 1702 pour System Center Configuration Manager.
 ms.custom: na
 ms.date: 02/24/2017
 ms.prod: configuration-manager
@@ -12,21 +12,21 @@ ms.suite: na
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: aedd608d-6db3-4ea5-851d-70f2dcda6bb5
-caps.latest.revision: 
+caps.latest.revision: 5
 author: erikje
 ms.author: erikje
 manager: angrobe
-ms.openlocfilehash: ed2a858c55cbf389a0e974f4699b5a9c548953ef
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: 94c025a75cd0aef62ee00c11b8ee5a113fba2bb1
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="capabilities-in-technical-preview-1702-for-system-center-configuration-manager"></a>Fonctionnalités de Technical Preview 1702 pour System Center Configuration Manager
 
 *S’applique à : System Center Configuration Manager (Technical Preview)*
 
-Cet article présente les fonctionnalités qui sont disponibles dans la version Technical Preview 1702 pour System Center Configuration Manager. Vous pouvez installer cette version pour mettre à jour et ajouter de nouvelles fonctionnalités à votre site de version d’évaluation technique Configuration Manager. Avant d’installer cette version d’évaluation technique, passez en revue la rubrique de présentation, [Technical Preview pour System Center Configuration Manager](../../core/get-started/technical-preview.md), pour vous familiariser avec les conditions générales et les limitations d’utilisation d’une version d’évaluation technique, la mise à jour entre les versions et l’envoi de commentaires sur les fonctionnalités dans une version d’évaluation technique.    
+Cet article présente les fonctionnalités qui sont disponibles dans la version Technical Preview 1702 pour System Center Configuration Manager. Vous pouvez installer cette version pour mettre à jour et ajouter de nouvelles fonctionnalités à votre site Configuration Manager Technical Preview. Avant d’installer cette version de la version d’évaluation technique, passez en revue la rubrique de présentation, [Version d’évaluation technique pour System Center Configuration Manager](../../core/get-started/technical-preview.md), pour vous familiariser avec les conditions générales et limitations d’utilisation d’une version d’évaluation technique, la mise à jour entre les versions et l’envoi de commentaires sur les fonctionnalités dans une version d’évaluation technique.    
 
 
 **Vous trouverez ci-dessous les nouvelles fonctionnalités propres à cette version.**  
@@ -42,7 +42,7 @@ Cet aperçu présente de nouvelles options pour les commentaires dans la console
 -  Quand vous cliquez avec le bouton droit sur n’importe quel objet dans la console.   
     ![Option de clic droit](./media/feedback-option.png)   
 
-Un clic sur **Commentaires** affiche le site de commentaires Configuration Manager UserVoice dans votre navigateur, à l’adresse https://configurationmanager.uservoice.com/forums/300492-ideas.
+Lorsque vous cliquez sur **Commentaires**, le site de commentaires de Configuration Manager UserVoice s’affiche dans votre navigateur, à l’adresse https://configurationmanager.uservoice.com/forums/300492-ideas.
 ##  <a name="changes-for-updates-and-servicing"></a>Modifications pour les mises à jour et la maintenance
 Les éléments suivants sont une nouveauté dans cette préversion.
 
@@ -104,7 +104,7 @@ Azure AD stocke les appareils sous l’unité d’organisation **AADDC Computers
 Azure AD n’a pas d’unité d’organisation qui stocke des groupes. Au lieu de cela, utilisez la même structure générale que les requêtes Système ou Utilisateur, et configurez la requête LDAP pour qu’elle pointe vers l’unité d’organisation qui contient les groupes que vous souhaitez découvrir.
 
 Pour plus d’informations sur Azure AD, consultez les articles suivants :  
- - [Services de domaine Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory-ds) sur azure.microsoft.com.
+ - [Services de domaine Azure Active Directory](https://azure.microsoft.com/services/active-directory-ds) sur azure.microsoft.com.
  - [Documentation des Services de domaine Active Directory](https://docs.microsoft.com/azure/active-directory-domain-services) sur docs.microsoft.com.
 
 ## <a name="conditional-access-device-compliance-policy-improvements"></a>Améliorations apportées aux stratégies de conformité des appareils pour l’accès conditionnel
@@ -116,14 +116,14 @@ Cela permet également aux organisations de réduire les fuites de données via 
 - Consultez cet article pour en savoir plus sur le [fonctionnement des stratégies de conformité des appareils](https://docs.microsoft.com/sccm/protect/deploy-use/device-compliance-policies).
 - Consultez cet article pour en savoir plus sur [la façon de créer des stratégies de conformité des appareils](https://docs.microsoft.com/sccm/protect/deploy-use/create-compliance-policy).
 
-### <a name="try-it-out"></a>Essayez
+### <a name="try-it-out"></a>Faîtes un essai
 
 **Scénario :** Identifier les applications susceptibles de provoquer des fuites de données en envoyant des données d’entreprise hors de l’entreprise, ou les applications qui provoquent une consommation excessive de données, puis [créer une stratégie de conformité de l’appareil avec accès conditionnel](https://docs.microsoft.com/sccm/protect/deploy-use/create-compliance-policy) qui ajoute ces applications à la liste des applications non conformes. Cela bloquera l’accès aux ressources d’entreprise qui prennent en charge l’accès conditionnel, jusqu’à ce que l’utilisateur puisse supprimer l’application bloquée.
 
 ## <a name="antimalware-client-version-alert"></a>Alerte de version du client de logiciel anti-programme malveillant
 À compter de cette préversion, Configuration Manager Endpoint Protection fournit une alerte si plus de 20 % (par défaut) des clients gérés utilisent une version du client de logiciel anti-programme malveillant (par exemple Windows Defender ou Endpoint Protection client) qui a expiré.
 
-### <a name="try-it-out"></a>Essayez
+### <a name="try-it-out"></a>Faîtes un essai
 Vérifiez qu’Endpoint Protection est activé sur tous les clients de bureau et serveur à l’aide de la stratégie de paramètres client. Vous pouvez maintenant afficher **Version du client de logiciel anti-programme malveillant** et **État du déploiement d’Endpoint Protection** en accédant à **Actifs et Conformité** > **Vue d’ensemble** > **Appareils** > **Tous les clients bureau et serveur**. Pour vérifier une alerte, affichez **Alertes** dans l’espace de travail **Surveillance**. Si plus de 20 % des clients gérés exécutent une version de logiciel anti-programme malveillant ayant expiré, l’alerte « La version du client de logiciel anti-programme malveillant est obsolète » s’affiche. Cette alerte n’apparaît pas sous l’onglet **Surveillance** > **Vue d’ensemble**. Pour mettre à jour les clients de logiciel anti-programme malveillant ayant expiré, activez les mises à jour logicielles pour les clients de logiciel anti-programme malveillant.
 
 Pour configurer le pourcentage auquel l’alerte est générée, développez **Surveillance** > **Alertes** > **Toutes les alertes**, double-cliquez sur **Clients de logiciel anti-programme malveillant obsolètes** et modifiez l’option **Générez une alerte si le pourcentage de clients gérés avec une version obsolète du client de logiciel anti-programme malveillant est supérieur à**.
@@ -155,7 +155,7 @@ La nouvelle stratégie s'affiche sous le nœud **Stratégies de conformité** de
 4. Une fois terminé, cliquez sur **OK**.
 
 ### <a name="monitor-the-compliance-policy"></a>Analyser la stratégie de conformité
-Après avoir créé la stratégie de conformité, vous pouvez surveiller les résultats de conformité dans la console Configuration Manager. Pour plus d’informations, consultez [Surveiller la stratégie de conformité](https://docs.microsoft.com/en-us/sccm/protect/deploy-use/create-compliance-policy#monitor-the-compliance-policy).
+Après avoir créé la stratégie de conformité, vous pouvez surveiller les résultats de conformité dans la console Configuration Manager. Pour plus d’informations, consultez [Surveiller la stratégie de conformité](https://docs.microsoft.com/sccm/protect/deploy-use/create-compliance-policy#monitor-the-compliance-policy).
 
 
 ## <a name="improvements-to-software-center-settings-and-notification-messages-for-high-impact-task-sequences"></a>Améliorations apportées aux paramètres du Centre logiciel et aux messages de notification pour les séquences de tâches à fort impact
@@ -301,7 +301,7 @@ Android for Work est une plateforme distincte d’Android, et vous devrez choisi
 Les sections suivantes décrivent la gestion Android for Work.
 
 #### <a name="enable-android-for-work-management"></a>Activer la gestion Android for Work
-1. Créez un compte Google sur https://accounts.google.com/SignUp à utiliser comme compte d’administrateur Android for Work. Ce compte sera associé à toutes les tâches de gestion Android for Work pour ce client Intune. Ce compte Google peut être partagé par les administrateurs qui gèrent des appareils Android. Il s’agit du compte Google utilisé par votre organisation pour gérer et publier des applications dans la console Play for Work. Vous utiliserez ce compte pour approuver les applications dans le magasin Play for Work. Veillez donc à prendre note du nom du compte et du mot de passe.
+1. Créez un compte Google sur https://accounts.google.com/SignUp, que vous utiliserez comme compte d’administrateur Android for Work. Ce compte sera associé à toutes les tâches de gestion Android for Work pour ce locataire Intune. Ce compte Google peut être partagé par les administrateurs qui gèrent des appareils Android. Il s’agit du compte Google utilisé par votre organisation pour gérer et publier des applications dans la console Play for Work. Vous utiliserez ce compte pour approuver les applications dans le magasin Play for Work. Veillez donc à prendre note du nom du compte et du mot de passe.
 2. Activez l’inscription Android en liant le compte Google au client Intune géré dans Configuration Manager :
   1. Accédez à **Administration** > **Vue d’ensemble** > **Services Cloud** > **Abonnements Microsoft Intune** et sélectionnez votre abonnement Intune.
   2. Dans le ruban, cliquez sur **Configurer des plateformes** > **Android** et vérifiez que l’option **Activer l’inscription Android** est activée.
@@ -326,7 +326,7 @@ Vous verrez le nom du compte et le nom de l’organisation dans le portail Intun
 #### <a name="approve-and-deploy-android-for-work-apps"></a>Approuver et déployer des applications Android for Work
 Effectuez les étapes suivantes pour approuver des applications dans le magasin Play for Work, les synchroniser avec la console Configuration Manager et les déployer sur des appareils Android for Work gérés. Pour déployer des applications sur les profils professionnels des utilisateurs, vous devez approuver les applications dans Play for Work, puis les synchroniser avec la console Configuration Manager.
 
-1. Ouvrez un navigateur et accédez à https://play.google.com/work.
+1. Ouvrez un navigateur et accédez à : https://play.google.com/work.
 2. Connectez-vous à l’aide du compte d’administrateur Google que vous avez lié à votre client Intune.
 3. Recherchez les applications que vous souhaitez déployer dans votre environnement et cliquez sur **Approuver** pour chacune d’elles.
 4. Dans la console Configuration Manager, accédez à **Administrateur** > **Vue d’ensemble** > **Services Cloud** > **Android for Work** et cliquez sur **Synchroniser**.

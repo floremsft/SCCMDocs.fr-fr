@@ -6,18 +6,18 @@ keywords: ''
 author: mestew
 ms.author: mstewart
 manager: dougeby
-ms.date: 03/22/2018
+ms.date: 03/26/2018
 ms.topic: article
 ms.prod: configuration-manager
 ms.service: ''
 ms.technology:
 - configmgr-sum
 ms.assetid: eac542eb-9aa1-4c63-b493-f80128e4e99b
-ms.openlocfilehash: 5bd1a3afd7957e4db1b43e344a7b88e18de50695
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: 4fbbe4b6792c51cd7adeeae3a96f81927153362c
+ms.sourcegitcommit: a19e12d5c3198764901d44f4df7c60eb542e765f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="manage-office-365-proplus-with-configuration-manager"></a>Gérer Office 365 ProPlus avec Configuration Manager
 
@@ -174,6 +174,17 @@ Utilisez la procédure suivante sur le site d’administration centrale ou sur l
 11. Désormais, quand vous téléchargez des mises à jour Office 365, celles-ci sont téléchargées dans les langues sélectionnées dans l’Assistant et dans celles configurées durant cette procédure. Pour vérifier que les mises à jour sont téléchargées dans les langues correctes, accédez à la source du package de la mise à jour et recherchez les fichiers dont le nom comprend le code de langue.  
 ![Noms de fichiers avec des langues supplémentaires](..\media\5-verification.png)
 
+## <a name="updating-office-365-during-task-sequences-when-office-365-is-installed-in-the-base-image"></a>Mise à jour d’Office 365 pendant des séquences de tâches quand Office 365 est installé dans l’image de base
+Quand vous installez un système d’exploitation où Office 365 est déjà installé dans l’image, la valeur de la clé de Registre du canal de mise à jour peut avoir l’emplacement d’installation d’origine. Dans ce cas, l’analyse des mises à jour n’affiche aucune mise à jour du client Office 365 comme étant applicable. Une tâche planifiée de mises à jour automatiques d’Office s’exécute plusieurs fois par semaine. Après l’exécution de cette tâche, le canal de mise à jour pointe vers l’URL du CDN Office configurée et l’analyse affiche ces mises à jour comme étant applicables. <!--510452-->
+
+Afin de vérifier que le canal de mise à jour est défini pour trouver les mises à jour applicables, effectuez les étapes suivantes :
+1. Sur une machine avec la même version d’Office 365 que celle de l’image de base de système d’exploitation, ouvrez le Planificateur de tâches (taskschd.msc) et identifiez la tâche de mise à jour automatique d’Office 365. En règle générale, elle se trouve sous **Bibliothèque du Planificateur de tâches** >**Microsoft**>**Office**.
+2. Cliquez avec le bouton droit sur la tâche des mises à jour automatiques et sélectionnez **Propriétés**.
+3. Accédez à l’onglet **Actions** et cliquez sur **Modifier**. Copiez la commande et les arguments. 
+4. Dans la console Configuration Manager, modifiez votre séquence de tâches.
+5. Ajoutez une nouvelle étape **Exécuter la ligne de commande** avant l’étape **Installer les mises à jour** dans la séquence de tâches. 
+6. Copiez la commande et les arguments que vous avez regroupés à partir de la tâche planifiée de mises à jour automatiques d’Office. 
+7. Cliquez sur **OK**. 
 
 ## <a name="change-the-update-channel-after-you-enable-office-365-clients-to-receive-updates-from-configuration-manager"></a>Modifier le canal de mise à jour une fois les clients Office 365 habilités à recevoir des mises à jour de Configuration Manager
 Pour modifier le canal de mise à jour une fois que les clients Office 365 sont habilités à recevoir des mises à jour de Configuration Manager, utilisez une stratégie de groupe pour distribuer un changement de valeur de clé de registre aux clients Office 365. Modifiez la clé de Registre **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Office\ClickToRun\Configuration\CDNBaseUrl** pour qu’elle utilise l’une des valeurs suivantes :

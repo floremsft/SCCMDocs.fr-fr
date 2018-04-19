@@ -17,11 +17,11 @@ caps.handback.revision: 0
 author: mestew
 ms.author: mstewart
 manager: dougeby
-ms.openlocfilehash: 29806161b29b87834c0cb4b1e478d92bff7a7b3c
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: 19bb8b2c4e47dcc8a75db568e7f93541544a4566
+ms.sourcegitcommit: a19e12d5c3198764901d44f4df7c60eb542e765f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-and-run-powershell-scripts-from-the-configuration-manager-console"></a>Créer et exécuter des scripts PowerShell à partir de la console Configuration Manager
 
@@ -70,10 +70,6 @@ La fonctionnalité Exécuter les scripts prend actuellement en charge :
 >[!WARNING]
 >Notez bien que quand vous utilisez des paramètres, elle ouvre une surface d’exposition à des risques potentiels d’attaque par injection de code PowerShell. Plusieurs moyens de limitation et de contournement existent, comme utiliser des expressions régulières pour valider l’entrée des paramètres ou utiliser des paramètres prédéfinis. Une bonne pratique courante est de ne pas inclure de secrets dans vos scripts PowerShell (pas de mots de passe, etc.). [En savoir plus sur la sécurité des scripts PowerShell](/sccm/apps/deploy-use/learn-script-security) <!--There are external tools available to validate your PowerShell scripts such as the [PowerShell Injection Hunter](https://www.powershellgallery.com/packages/InjectionHunter/1.0.0) tool. -->
 
-
-## <a name="group-policy-considerations-for-scripts"></a>Considérations sur la stratégie de groupe pour les scripts
-<!--While running scripts on devices, Configuration Manager sets policy to allow local scripts and remote signed scripts.--> 
-La définition d’une stratégie d’exécution via la stratégie de groupe peut ne pas autoriser l’exécution des scripts avec Configuration Manager. Pour plus d’informations sur les stratégies d’exécution et leur définition, consultez l’article [À propos sur des stratégies d’exécution](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies). <!--507185-->
 
 ## <a name="run-script-authors-and-approvers"></a>Auteurs et approbateurs de scripts
 
@@ -275,9 +271,13 @@ Une fois que vous avez lancé l’exécution d’un script sur un regroupement d
 ## <a name="script-output"></a>Sortie du script
 
 - À compter de Configuration Manager version 1802, les scripts retournent un résultat au format JSON. Ce format retourne toujours une sortie de script lisible. 
-- Les scripts qui obtiennent un résultat inconnu, ou ceux où le client était hors connexion, ne s’affichent pas dans les graphiques ou les jeux de données. <!--507179-->
+- Les scripts qui obtiennent un résultat inconnu, ou dans le cas où le client était hors connexion, ne s’affichent pas dans les graphiques ou les jeux de données. <!--507179-->
 - Évitez de retourner une sortie de script longue, car elle est tronquée à 4 Ko. <!--508488-->
 - Certaines fonctionnalités de mise en forme de la sortie des scripts ne sont pas disponibles lors de l’exécution de Configuration Manager version 1802 ou ultérieure avec une version d’un niveau inférieur du client. <!--508487-->
+    - Quand vous disposez d’un client Configuration Manager antérieur à la version 1802, vous obtenez une sortie de type chaîne.
+    -  Pour le client Configuration Manager versions 1802 et ultérieures, vous obtenez une sortie au format JSON.
+        - Par exemple, vous pouvez obtenir des résultats qui indiquent TEXT sur une version du client et "TEXT" (sortie incluse entre guillemets doubles) sur une autre version, auquel cas ces résultats se présentent dans le graphique sous la forme de deux catégories différentes.
+        - Si vous devez éviter ce comportement, exécutez le script sur deux regroupements différents : un avec des clients antérieurs à la version 1802 et un autre avec des clients 1802 et ultérieurs. Vous pouvez également convertir un objet enum en valeur de chaîne dans les scripts pour que ces derniers s’affichent correctement au format JSON. 
 - Convertissez un objet enum en valeur de chaîne dans les scripts pour que ces derniers s’affichent correctement au format JSON. <!--508377--> ![Convertir un objet enum en valeur de chaîne](./media/run-scripts/enum-tostring-JSON.png)
 
 

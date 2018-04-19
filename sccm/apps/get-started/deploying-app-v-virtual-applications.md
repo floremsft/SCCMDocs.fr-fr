@@ -1,26 +1,27 @@
 ---
-title: "Déployer des applications virtuelles App-V"
+title: Déployer des applications virtuelles App-V
 titleSuffix: Configuration Manager
-description: "Examinez les éléments à prendre en compte quand vous créez et déployez des applications virtuelles."
+description: Examinez les éléments à prendre en compte quand vous créez et déployez des applications virtuelles.
 ms.custom: na
-ms.date: 02/16/2017
+ms.date: 03/12/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-app
+ms.technology:
+- configmgr-app
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ddcad9f2-a542-4079-83ca-007d7cb44995
-caps.latest.revision: "11"
-caps.handback.revision: "0"
+caps.latest.revision: 11
+caps.handback.revision: 0
 author: mattbriggs
 ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: bf324f458c37fa137e24179eb4455fcbe75c855d
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 99c259a20a7e9c9f34d7b355e6fea5d4c6861392
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="deploy-app-v-virtual-applications-with-system-center-configuration-manager"></a>Déployer des applications virtuelles App-V avec System Center Configuration Manager
 
@@ -46,7 +47,7 @@ En plus des autres exigences et procédures System Center Configuration Manager 
 
 -   Quand vous séquencez une application, vous devez enregistrer le package dans un emplacement auquel Configuration Manager peut accéder. Vous pouvez ensuite créer un déploiement d'application qui contient cette application virtuelle.  
 
--   Configuration Manager ne prend pas en charge l’utilisation de la fonctionnalité de cache en lecture seule partagé d’App-V.  
+-   Configuration Manager ne prend pas en charge l’utilisation de la fonctionnalité de cache en lecture seule partagé d’App-V 4.6.  
 
 -   Configuration Manager prend en charge la fonctionnalité de magasin de contenu partagé d’App-V 5.  
 
@@ -66,7 +67,7 @@ En plus des autres exigences et procédures System Center Configuration Manager 
      Pour pouvoir déployer correctement des applications virtuelles, vous devez également mettre à jour le client App-V 4.6 SP1 avec le correctif décrit dans l’article [2645225](http://go.microsoft.com/fwlink/p/?LinkId=237322) de la Base de connaissances.  
 
 -   **App-V 5, App-V 5.0 SP1, App-V 5.0 SP2, App-V 5.0 SP3 et App-V 5.1** : pour App-V 5.0 SP2, vous devez installer le [correctif logiciel 5](https://support.microsoft.com/en-us/kb/2963211) ou utiliser App-V 5.0 SP3.  
--   **App-V 5.2** : il est intégré à Windows 10 Entreprise (mise à jour anniversaire et versions ultérieures).
+-   **App-V 5.2** : intégré à Windows 10 Éducation (1607 et ultérieur), Windows 10 Entreprise (1607 et ultérieur) et Windows Server 2016.
 
 Pour plus d’informations sur App-V dans Windows 10, consultez les rubriques suivantes :
 
@@ -83,7 +84,7 @@ Pour plus d’informations sur App-V dans Windows 10, consultez les rubriques s
 
 3.   **Distribuer** : la distribution est le processus qui consiste à mettre à disposition des applications App-V sur des points de distribution Configuration Manager.
 
-4.   **Déployer** : le déploiement est le processus qui consiste à mettre à disposition l’application sur des ordinateurs clients. C’est ce qu’on appelle l’« émission en continu » dans une infrastructure complète App-V.  
+4.   **Déployer** : le déploiement est le processus qui consiste à mettre à disposition l’application sur des ordinateurs clients. C’est ce qu’on appelle la publication et le streaming dans l’infrastructure complète App-V.  
 
 ##  <a name="configuration-manager-virtual-application-delivery-methods"></a>Méthodes de remise des applications virtuelles Configuration Manager  
 Configuration Manager prend en charge deux méthodes pour la remise des applications virtuelles aux clients : la remise sous forme d’émission en continu et la remise locale (Télécharger et exécuter).
@@ -100,7 +101,7 @@ Si la remise sous forme d’émission en continu est la méthode de remise la mi
 |Cette méthode utilise les protocoles réseau standard pour émettre en continu le contenu des packages à partir de points de distribution.<br /><br /> Étant donné que les raccourcis de programmes représentant des applications virtuelles appellent une connexion au point de distribution, la remise des applications virtuelles s'effectue à la demande.<br /><br /> Cette méthode s'adresse particulièrement aux clients disposant d'une connexion haut débit aux points de distribution.<br /><br /> Les applications virtuelles mises à jour qui sont distribuées à l'échelle de l'entreprise sont disponibles dès lors que les clients reçoivent une stratégie les informant que la version actuelle est remplacée et que seules sont téléchargées les modifications apportées à la version précédente.<br /><br /> Les autorisations d'accès sont définies au niveau du point de distribution pour empêcher les utilisateurs d'accéder à des applications ou des packages non autorisés.|Les applications virtuelles ne sont pas émises en continu tant que l'utilisateur n'exécute pas l'application une première fois. Dans ce scénario, un utilisateur peut recevoir des raccourcis de programme d'applications virtuelles et se déconnecter ensuite du réseau avant d'avoir exécuté les applications virtuelles pour la première fois. Si l’utilisateur tente d’exécuter l’application virtuelle alors que le client est hors connexion, l’utilisateur obtient une erreur et ne peut pas exécuter l’application virtualisée, car aucun point de distribution Configuration Manager n’est disponible pour émettre en continu l’application. L'application sera indisponible tant que l'utilisateur ne se sera pas reconnecté au réseau et exécuté l'application.<br /><br /> Pour éviter ce problème, vous pouvez utiliser la méthode de remise locale pour remettre les applications virtuelles aux clients ou activer la gestion des clients via Internet pour une remise sous forme d'émission en continu.|  
 
 ###  <a name="local-delivery-download-and-execute"></a>Remise locale (Télécharger et exécuter)  
-Quand vous utilisez la méthode de remise locale, le client Configuration Manager télécharge dans un premier temps l’intégralité du package d’application virtuelle dans le cache du client Configuration Manager. Configuration Manager donne ensuite instruction au client App-V d’émettre l’application en continu du cache Configuration Manager vers le cache App-V. Si vous déployez une application virtuelle sur des ordinateurs clients et que son contenu ne se trouve pas dans la mémoire cache App-V, le client App-V émet en continu le contenu de l’application de la mémoire cache du client Configuration Manager vers la mémoire cache App-V, puis il exécute l’application. Dès lors que l’application s’est exécutée correctement, vous pouvez définir le client Configuration Manager afin que les anciennes versions du package soient supprimées au prochain cycle de suppression ou conservées dans le cache du client Configuration Manager.  
+« Télécharger et exécuter » est l’approche la plus courante lors de l’utilisation de Configuration Manager, car elle imite la manière dont les autres formats d’application sont fournis avec Configuration Manager. Quand vous utilisez la méthode de remise locale, le client Configuration Manager télécharge dans un premier temps l’intégralité du package d’application virtuelle dans le cache du client Configuration Manager. Configuration Manager donne ensuite instruction au client App-V d’émettre l’application en continu du cache Configuration Manager vers le cache App-V. Si vous déployez une application virtuelle sur des ordinateurs clients et que son contenu ne se trouve pas dans la mémoire cache App-V, le client App-V émet en continu le contenu de l’application de la mémoire cache du client Configuration Manager vers la mémoire cache App-V, puis il exécute l’application. Dès lors que l’application s’est exécutée correctement, vous pouvez définir le client Configuration Manager afin que les anciennes versions du package soient supprimées au prochain cycle de suppression ou conservées dans le cache du client Configuration Manager. La conservation locale de contenu peut tirer profit des méthodes d’optimisation de la distribution de contenu de package, telles que BranchCache et PeerCache.
 
 Si la remise sous forme d’émission locale est la méthode de remise la mieux adaptée à votre cas, utilisez les informations figurant dans le tableau suivant :   
 

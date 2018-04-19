@@ -1,9 +1,9 @@
 ---
-title: "Gérer l’accès aux services O365 pour les PC gérés"
+title: Gérer l’accès aux services O365
 titleSuffix: Configuration Manager
-description: "Découvrez comment configurer l’accès conditionnel pour les PC gérés par System Center Configuration Manager."
+description: Découvrez comment configurer l’accès conditionnel aux services Office 365 pour les PC gérés par System Center Configuration Manager.
 ms.custom: na
-ms.date: 01/10/2018
+ms.date: 04/10/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -12,26 +12,26 @@ ms.technology:
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 34024741-edfa-4088-8599-d6bafc331e62
-caps.latest.revision: 
-author: andredm7
-ms.author: andredm
-manager: angrobe
-ms.openlocfilehash: e1f50ea65236473f059ded6ef85c37646e929e53
-ms.sourcegitcommit: e121d8d3dd82b9f2dde2cb5206cbee602ab8e107
+caps.latest.revision: 15
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: 1e02cb911397d5f1f837996318b12049d328c9c3
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-access-to-o365-services-for-pcs-managed-by-system-center-configuration-manager"></a>Gérer l’accès aux services O365 pour les PC gérés par System Center Configuration Manager
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
-Cet article explique comment configurer l’accès conditionnel pour les PC gérés par Configuration Manager.  
+<!--1191496-->
+Configurez l’accès conditionnel aux services Office 365 pour les PC gérés par Configuration Manager.  
 
-<!--
- >> [!Tip]  
-> This feature was first introduced in version 1602 as a [pre-release feature](/sccm/core/servers/manage/pre-release-features). Beginning with version 1702, this feature is no longer a pre-release feature.
--->
+> [!Note]  
+> Par défaut, Configuration Manager n’active pas cette fonctionnalité facultative. Vous devez activer cette fonctionnalité avant de l’utiliser. Pour plus d’informations, consultez [Activer les fonctionnalités facultatives des mises à jour](/sccm/core/servers/manage/install-in-console-updates#bkmk_options).<!--505213-->  
+
 
 Pour plus d’informations sur la configuration de l’accès conditionnel pour les appareils inscrits et gérés par Microsoft Intune, consultez [Gérer l’accès aux services dans System Center Configuration Manager](../../protect/deploy-use/manage-access-to-services.md). Cet article aborde également les appareils qui sont joints à un domaine et dont la conformité n’est pas évaluée.
 
@@ -95,15 +95,18 @@ Pour plus d’informations sur la configuration de l’accès conditionnel pour 
     - **Exiger l’activation de BitLocker sur l’appareil**
     - **Exiger l’activation du démarrage sécurisé sur l’appareil** 
     - **Exiger l’activation de l’intégrité du code sur l’appareil**
-    - **Exiger l’activation du logiciel anti-programme malveillant sur l’appareil**
+    - **Exiger l’activation du logiciel anti-programme malveillant sur l’appareil**  
 
->[!Tip]
-> Introduits avec la version 1710, les critères d’accès conditionnel pour l’attestation d’intégrité des appareils est une fonctionnalité en préversion. Pour activer cette fonctionnalité, consultez [Fonctionnalités en préversion](/sccm/core/servers/manage/pre-release-features). 
+    >[!Tip]  
+    > Les critères d’accès conditionnel pour l’attestation d’intégrité de l’appareil ont été ajoutés à la version 1710, sous la forme d’une [fonctionnalité en préversion](/sccm/core/servers/manage/pre-release-features). À compter de la version 1802, cette fonctionnalité n’est plus en préversion.<!--1235616-->  
+
+    > [!Note]  
+    > Par défaut, Configuration Manager n’active pas cette fonctionnalité facultative. Vous devez activer cette fonctionnalité avant de l’utiliser. Pour plus d’informations, consultez [Activer les fonctionnalités facultatives des mises à jour](/sccm/core/servers/manage/install-in-console-updates#bkmk_options).<!--505213-->  
 
 ### <a name="step-2-evaluate-the-effect-of-conditional-access"></a>Étape 2. Évaluer l’incidence de l’accès conditionnel  
- Exécutez le rapport de conformité de l’accès conditionnel. Il se trouve dans la section Analyse, sous Rapports > Gestion de la conformité et des paramètres. Ce rapport affiche l’état de conformité de tous les appareils.  L’accès à Exchange Online et à SharePoint Online d’appareils signalés non conformes est bloqué.  
+ Exécutez le **rapport de conformité de l’accès conditionnel**. Il se trouve dans l’espace de travail **Analyse**, sous **Rapports** > **Gestion de la conformité et des paramètres**. Ce rapport affiche l’état de conformité de tous les appareils. L’accès à Exchange Online et à SharePoint Online d’appareils signalés non conformes est bloqué.  
 
- ![Rapport CA &#95;conformité&#95;](media/CA_compliance_report.png)  
+ ![Console Configuration Manager, espace de travail Analyse, création de rapports, rapports, conformité et gestion des paramètres : rapport de conformité de l’accès conditionnel](media/CA_compliance_report.png)  
 
 ### <a name="configure-active-directory-security-groups"></a>Configurer les groupes de sécurité Active Directory  
  Les stratégies d’accès conditionnel ciblent des groupes d’utilisateurs en fonction des types de stratégies. Ces groupes contiennent les utilisateurs que la stratégie cible ou qui sont exemptés de celle-ci. Quand une stratégie cible un utilisateur, chaque appareil qu’il utilise doit être conforme à cette stratégie pour pouvoir accéder au service.  
@@ -114,12 +117,12 @@ Pour plus d’informations sur la configuration de l’accès conditionnel pour 
 
 -   **Groupes ciblés** : groupes d’utilisateurs auxquels la stratégie est appliquée. Le même groupe doit être utilisé pour satisfaire aux exigences de conformité et à la stratégie d’accès conditionnel.  
 
--   **Groupes exemptés :** groupes d’utilisateurs exempts de la stratégie (facultatif)  
+-   **Groupes exemptés :** groupes d’utilisateurs exempts de la stratégie (facultatif).  
     Si un utilisateur se trouve dans les deux, il est exempté de la stratégie.  
 
      Seuls les groupes ciblés par la stratégie d’accès conditionnel sont évalués.  
 
-### <a name="step-3--create-a-conditional-access-policy-for-exchange-online-and-sharepoint-online"></a>Étape 3.  Créer une stratégie d’accès conditionnel pour Exchange Online et SharePoint Online  
+### <a name="step-3-create-a-conditional-access-policy-for-exchange-online-and-sharepoint-online"></a>Étape 3. Créer une stratégie d’accès conditionnel pour Exchange Online et SharePoint Online  
 
 1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.  
 

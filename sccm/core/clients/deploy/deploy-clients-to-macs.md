@@ -1,25 +1,26 @@
 ---
-title: "Déployer des clients Mac"
+title: Déployer des clients Mac
 titleSuffix: Configuration Manager
-description: "Découvrez comment déployer des clients sur des ordinateurs Mac dans System Center Configuration Manager."
+description: Découvrez comment déployer des clients sur des ordinateurs Mac dans System Center Configuration Manager.
 ms.custom: na
 ms.date: 05/04/2017
 ms.prod: configuration-manager
 ms.reviewer: aaroncz
 ms.suite: na
-ms.technology: configmgr-client
+ms.technology:
+- configmgr-client
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e46ad501-5d73-44ac-92de-0de14ef72b83
-caps.latest.revision: "12"
+caps.latest.revision: 12
 author: arob98
 ms.author: angrobe
 manager: angrobe
 ms.openlocfilehash: 1b7f20a48e0e7219d933c367fb9f0315fc287dfd
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 03/27/2018
 ---
 # <a name="how-to-deploy-clients-to-macs"></a>How to deploy clients to Macs
 
@@ -198,7 +199,7 @@ Utilisez cette procédure pour l’automatisation de l’installation du client 
 > -   Le fichier de nomenclature et le fichier de liste des propriétés (.plist) créés par l’installation du client Configuration Manager.  
 > -   Le contenu du dossier /Library/Application Support/Microsoft/CCM/Logs.  
 >   
->  Les informations recueillies par CmDiagnostics sont ajoutées à un fichier zip enregistré sur le Bureau de l’ordinateur et nommé cmdiag-*<nom_hôte\>***-***&gt;date_et_heure\>*.zip.***
+>  Les informations collectées par CmDiagnostics sont ajoutées à un fichier zip enregistré sur le bureau de l’ordinateur et nommé cmdiag-*<nom_hôte\>***-***&gt;date et heure\>*.zip.***
 
 
 ##  <a name="use-a-certificate-request-and-installation-method-that-is-independent-from-configuration-manager"></a>Utiliser une demande de certificat et une méthode d'installation indépendantes de Configuration Manager  

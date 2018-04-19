@@ -17,11 +17,11 @@ caps.handback.revision: 0
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 42b9364fc88acc3f403db8d2ca9243a117fd78bf
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: bd03457abdd5cc4464c10227626ba72637c96f90
+ms.sourcegitcommit: a19e12d5c3198764901d44f4df7c60eb542e765f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="about-client-settings-in-system-center-configuration-manager"></a>À propos des paramètres client dans System Center Configuration Manager
 
@@ -196,7 +196,7 @@ En règle générale, les utilisateurs sont invités à entrer leurs information
 > [!NOTE]  
 >  Voici comment fonctionne la détection automatique :  
 >   
->  le client effectue une demande d'emplacement de service à un point de gestion. S'il existe un point de site Web du catalogue d'applications dans le même site que le client, ce serveur est donné au client en tant que le serveur du catalogue d'applications à utiliser. Si plusieurs point du site web du catalogue des applications sont disponibles dans le site, un serveur HTTPS est prioritaire sur un serveur qui n’est pas activé pour le protocole HTTPS. Après ce filtrage, tous les clients reçoivent l'un des serveurs à utiliser comme le catalogue d'applications. Configuration Manager n’équilibre pas la charge entre plusieurs serveurs. Quand le site du client ne contient pas de point du site web du catalogue des applications, le point de gestion retourne de manière non déterministique un point du site web du catalogue des applications à partir de la hiérarchie.  
+>  le client effectue une demande d'emplacement de service à un point de gestion. S'il existe un point de site Web du catalogue d'applications dans le même site que le client, ce serveur est donné au client en tant que le serveur du catalogue d'applications à utiliser. Si plusieurs points du site web du catalogue des applications sont disponibles dans le site, un serveur HTTPS est prioritaire sur un serveur qui n’est pas activé pour le protocole HTTPS. Après ce filtrage, tous les clients reçoivent l'un des serveurs à utiliser comme le catalogue d'applications. Configuration Manager n’équilibre pas la charge entre plusieurs serveurs. Quand le site du client ne contient pas de point du site web du catalogue des applications, le point de gestion retourne de manière non déterministique un point du site web du catalogue des applications à partir de la hiérarchie.  
 >   
 >  Pour les clients basés sur intranet, si vous configurez le point du site web du catalogue d’applications avec un nom NetBIOS pour l’URL du catalogue d’applications, le point de gestion donne aux clients ce nom NetBIOS, plutôt que le nom de domaine complet de l’intranet. Pour les clients basés sur Internet, le point de gestion donne uniquement le nom de domaine complet Internet au client.  
 >   
@@ -551,7 +551,7 @@ Donnez à vos utilisateurs la possibilité d’accepter ou de refuser des transf
 
 ### <a name="grant-remote-control-permission-to-local-administrators-group"></a>Accorder l'autorisation de contrôle à distance au groupe Administrateurs local
 
-Indiquez si les administrateurs locaux sur le serveur qui lance la connexion de contrôle à distance peuvent établir des sessions de contrôle à distance vers des ordinateurs client.  
+Indiquez si les administrateurs locaux sur le serveur qui lance la connexion de contrôle à distance peuvent établir des sessions de contrôle à distance vers des ordinateurs clients.  
 
 ### <a name="access-level-allowed"></a>Niveau d'accès autorisé
 
@@ -801,8 +801,9 @@ Ce paramètre configure le port local permettant à l’écouteur HTTP de télé
 
 Lorsque ce paramètre est défini sur **Oui**, il permet de configurer les paramètres d’installation d’Office 365. Il permet également de télécharger des fichiers à partir de réseaux de distribution de contenu (CDN) Office et déployer les fichiers en tant qu’application dans Configuration Manager. Pour plus d’informations, consultez [Gérer Office 365 ProPlus](/sccm/sum/deploy-use/manage-office-365-proplus-updates).
 
+### <a name="enable-third-party-software-updates"></a>Activer les mises à jour de logiciels tiers 
 
-
+Le fait d’affecter la valeur **Oui** à cette option définit la stratégie pour « Autoriser les mises à jour signées provenant d’un emplacement intranet du service de mise à jour Microsoft » et installe le certificat de signature dans la banque d’éditeurs approuvés sur le client. Ce paramètre client a été ajouté dans Configuration Manager version 1802.
 ## <a name="state-messaging"></a>Messagerie d’état
 
 ### <a name="state-message-reporting-cycle-minutes"></a>Cycle de diffusion des messages d'état (en minutes)

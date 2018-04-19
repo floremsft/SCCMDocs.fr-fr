@@ -1,9 +1,9 @@
 ---
-title: Créer une séquence de tâches pour mettre à niveau un système d’exploitation
+title: Créer une séquence de tâches de mise à niveau du système d’exploitation
 titleSuffix: Configuration Manager
 description: Utiliser une séquence de tâches automatiquement mise à niveau à partir de Windows 7 ou ultérieur vers Windows 10
 ms.custom: na
-ms.date: 03/22/2018
+ms.date: 04/10/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,11 +16,11 @@ caps.latest.revision: 12
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 91d3bf5b1488eb7eac52c7426e4bdeeb92ff43b8
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: 48a5e7aa381924e3c0ad052833c9588e3dffa4f5
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-task-sequence-to-upgrade-an-operating-system-in-system-center-configuration-manager"></a>Créer une séquence de tâches pour mettre à niveau un système d’exploitation dans System Center Configuration Manager
 
@@ -87,9 +87,16 @@ Dans Configuration Manager, utilisez des séquences de tâches pour automatiquem
 
 
 ## <a name="configure-pre-cache-content"></a>Configurer la mise en cache préalable du contenu
-La fonctionnalité de mise en cache préalable pour les déploiements disponibles de séquences de tâches permet aux clients de télécharger le contenu de package de mise à niveau de système d’exploitation approprié avant l’installation de la séquence de tâches par l’utilisateur.
+<!--1021244-->
+La fonctionnalité de mise en cache préalable pour les déploiements disponibles de séquences de tâches permet aux clients de télécharger le contenu de package de mise à niveau de système d’exploitation approprié avant l’installation de la séquence de tâches par l’utilisateur.  
+
 > [!TIP]  
-> Cette fonctionnalité a été introduite dans la version 1702 en tant que [fonctionnalité en préversion](/sccm/core/servers/manage/pre-release-features). À compter de la version 1706, cette fonctionnalité n’est plus une fonctionnalité en préversion.
+> Cette fonctionnalité a été introduite dans la version 1702 en tant que [fonctionnalité en préversion](/sccm/core/servers/manage/pre-release-features). À compter de la version 1706, cette fonctionnalité n’est plus une fonctionnalité en préversion.  
+
+
+> [!Note]  
+> Par défaut, Configuration Manager n’active pas cette fonctionnalité facultative. Vous devez activer cette fonctionnalité avant de l’utiliser. Pour plus d’informations, consultez [Activer les fonctionnalités facultatives des mises à jour](/sccm/core/servers/manage/install-in-console-updates#bkmk_options).<!--505213-->  
+
 
 Par exemple, vous voulez une seule séquence de tâches de mise à niveau sur place pour tous les utilisateurs, et vous avez plusieurs architectures et langues. Dans les versions précédentes, le téléchargement du contenu commence quand l’utilisateur installe un déploiement de séquences de tâches disponible à partir du Centre logiciel. Ce délai a pour effet de retarder la disponibilité de l’installation. Tout le contenu référencé dans la séquence de tâches est téléchargé. Ce contenu comprend tous les packages de mise à niveau du système d’exploitation pour chaque langue et chaque architecture. Si chaque package de mise à niveau fait environ trois Go, le contenu total est très volumineux.
 

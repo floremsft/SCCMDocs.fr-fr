@@ -3,7 +3,7 @@ title: Propriétés d’installation du client
 titleSuffix: Configuration Manager
 description: Découvrez les propriétés de la ligne de commande ccmsetup pour l’installation du client Configuration Manager.
 ms.custom: na
-ms.date: 03/22/2018
+ms.date: 03/28/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,11 +16,11 @@ caps.latest.revision: 15
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 057b078767a08574a806cb6af1cdb3812148a457
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: 40e844fbb15a101574d9628648dde0db59c855c4
+ms.sourcegitcommit: aed99ba3c5e9482199cb3fc5c92f6f3a160cb181
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="about-client-installation-properties-in-system-center-configuration-manager"></a>À propos des propriétés d’installation du client dans System Center Configuration Manager
 
@@ -250,6 +250,20 @@ Exemple : `CCMSetup.exe /ExcludeFeatures:ClientUI` n’installe pas le Centre lo
 
 
 
+## <a name="ccmsetupMsiProps"></a> Propriétés de Ccmsetup.msi  
+ Les propriétés suivantes peuvent modifier le comportement à l’installation de ccmsetup.msi.
+
+### <a name="ccmsetupcmd"></a>CCMSETUPCMD 
+
+Spécifie des propriétés de ligne de commande qui sont passées à ccmsetup.exe après son installation par ccmsetup.msi. Placez les autres propriétés entre guillemets. Utilisez cette propriété lors de l’amorçage du client Configuration Manager à l’aide de la méthode d’installation d’Intune MDM. 
+
+Exemple : `ccmsetup.msi CCMSETUPCMD="/mp:https://mp.contoso.com CCMHOSTNAME=mp.contoso.com"`
+
+ > [!Tip]
+ > Microsoft Intune limite la ligne de commande à 1 024 caractères. 
+
+
+
 ##  <a name="clientMsiProps"></a> Propriétés de Client.msi  
  Les propriétés suivantes peuvent modifier le comportement d’installation de client.msi. Si vous utilisez la méthode d'installation push du client, vous pouvez également spécifier les propriétés sous l'onglet **Client** de la boîte de dialogue **Propriétés de l'installation push du client** .  
 
@@ -282,16 +296,16 @@ Spécifie l’identificateur du locataire Azure AD. Ce client est lié à Config
 
 Exemple : `ccmsetup.exe AADTENANTID=607b7853-6f6f-4d5d-b3d4-811c33fdd49a`
 
+<!-- 
+### AADTENANTNAME
 
-### <a name="aadtenantname"></a>AADTENANTNAME
+Specifies the Azure AD tenant name. This tenant is linked to Configuration Manager when you [configure Azure services](/sccm/core/servers/deploy/configure/azure-services-wizard) for Cloud Management. To obtain the value for this property, use the following steps:
+- On a Windows 10 device that is joined to the same Azure AD tenant, open a command prompt.
+- Run the following command: `dsregcmd.exe /status`
+- In the Device State section, find the **TenantName** value. For example, `TenantName : Contoso`
 
-Spécifie le nom du locataire Azure AD. Ce client est lié à Configuration Manager quand vous [configurez des services Azure](/sccm/core/servers/deploy/configure/azure-services-wizard) pour la gestion cloud. Pour obtenir la valeur de cette propriété, utilisez les étapes suivantes :
-- Sur un appareil Windows 10 qui est joint au même locataire Azure AD, ouvrez une invite de commandes.
-- Exécutez la commande suivante : `dsregcmd.exe /status`
-- Dans la section État de l’appareil, recherchez la valeur de **TenantName**. Par exemple, `TenantName : Contoso`
-
-Exemple : `ccmsetup.exe AADTENANTNAME=Contoso`
-
+Example: `ccmsetup.exe AADTENANTNAME=Contoso`
+-->
 
 ### <a name="ccmadmins"></a>CCMADMINS  
 
@@ -337,7 +351,7 @@ Exemple : **CCMSetup.exe  CCMALLOWSILENTREBOOT**
 
  Vous pouvez rechercher une correspondance exacte (utilisez **Subject:**) ou une correspondance partielle (utilisez **SubjectStr:)**dans le nom d’objet ou l’autre nom de l’objet. Exemples :  
 
- `CCMCERTSEL="Subject:computer1.contoso.com"` recherche un certificat avec une correspondance exacte au nom d’ordinateur « computer1,contoso.com » dans le nom d’objet ou l’autre nom de l’objet.  
+ `CCMCERTSEL="Subject:computer1.contoso.com"` recherche un certificat avec une correspondance exacte au nom d’ordinateur « computer1.contoso.com » dans le nom d’objet ou l’autre nom de l’objet.  
 
  `CCMCERTSEL="SubjectStr:contoso.com"` recherche un certificat contenant « contoso.com » dans le nom d’objet ou l’autre nom de l’objet.  
 
@@ -637,7 +651,7 @@ Exemple : `CCMSetup.exe SMSMP=https://smsmp01.contoso.com`
 
  Exemple : `CCMSetup.exe SMSSITECODE=XZY`  
 
-##  <a name="BKMK_attributevalues"></a> Valeurs d'attribut prises en charge pour les critères de sélection de certificat PKI  
+##  <a name="BKMK_attributevalues"></a> Valeurs d’attribut prises en charge pour les critères de sélection de certificat PKI  
  Configuration Manager prend en charge les valeurs d’attribut suivantes pour les critères de sélection de certificat PKI :  
 
 |Attribut d'OID|Attribut de nom unique|Définition de l'attribut|  

@@ -1,25 +1,26 @@
 ---
-title: "Surveiller l’utilisation des applications avec le contrôle de logiciel"
+title: Surveiller l’utilisation des applications avec le contrôle de logiciel
 titleSuffix: Configuration Manager
-description: 
+description: Découvrez les opérations qui sont disponibles dans le contrôle de logiciel System Center Configuration Manager.
 ms.custom: na
 ms.date: 09/20/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-app
+ms.technology:
+- configmgr-app
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b1fdaee2-2816-4447-94cd-609f6948f215
-caps.latest.revision: "8"
+caps.latest.revision: 8
 author: mattbriggs
 ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: c44d606efbbcd099bdcd6d5f83aad156525d9279
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 6864c1a7b10056d664706c25f958b3c73e6855a6
+ms.sourcegitcommit: a19e12d5c3198764901d44f4df7c60eb542e765f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="software-metering-in-system-center-configuration-manager"></a>Contrôle de logiciel dans System Center Configuration Manager
 
@@ -129,7 +130,7 @@ Le contrôle de logiciel ne présente aucune dépendance externe, seulement des 
 |**Activer**<br /><br /> **Désactiver**|Active ou désactive une règle de contrôle de logiciel. Ce paramètre est téléchargé vers des ordinateurs client en fonction de l' **Intervalle d'interrogation de la stratégie client** dans la section **Stratégie client** des paramètres client (par défaut, toutes les 60 minutes).<br /><br /> Consultez [Configurer les paramètres client](../../core/clients/deploy/configure-client-settings.md).|
 
 ##  <a name="monitor-software-metering"></a>Surveiller le contrôle de logiciel
- Le contrôle de logiciel dans Configuration Manager inclut un certain nombre de rapports intégrés qui vous permettent de surveiller les informations concernant les opérations de contrôle de logiciel. Ces rapports affiche la catégorie de rapport de **contrôle des logiciels**.
+ Le contrôle de logiciel dans Configuration Manager inclut un certain nombre de rapports intégrés qui vous permettent de surveiller les informations concernant les opérations de contrôle de logiciel. Ces rapports affichent la catégorie de rapport de **contrôle des logiciels**.
 
  Pour plus d’informations sur la configuration de la génération de rapports dans Configuration Manager, consultez [Génération de rapports dans System Center Configuration Manager](../../core/servers/manage/reporting.md).
 

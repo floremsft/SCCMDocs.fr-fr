@@ -1,26 +1,27 @@
 ---
-title: "Configurer l’infrastructure de certificats"
+title: Configurer l’infrastructure de certificats
 titleSuffix: Configuration Manager
-description: "Découvrez comment configurer l’inscription de certificats dans System Center Configuration Manager."
+description: Découvrez comment configurer l’inscription de certificats dans System Center Configuration Manager.
 ms.custom: na
 ms.date: 07/25/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 29ae59b7-2695-4a0f-a9ff-4f29222f28b3
-caps.latest.revision: "7"
-caps.handback.revision: "0"
+caps.latest.revision: 7
+caps.handback.revision: 0
 author: lleonard-msft
 ms.author: alleonar
 manager: angrobe
 ms.openlocfilehash: 9ef62bbf6269a6090f2345b10c24cc4df16c1e3b
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 03/27/2018
 ---
 # <a name="configure-certificate-infrastructure"></a>Configurer l’infrastructure de certificats
 
@@ -96,7 +97,7 @@ Suivez ces étapes pour configurer votre infrastructure pour les certificats SCE
 
      Pour plus d'informations, voir [Outils et paramètres des services de certificat](http://go.microsoft.com/fwlink/p/?LinkId=309015) dans la bibliothèque des technologies PKI sur TechNet.  
 
-8.  Vérifiez que le service d'inscription d'appareils réseau fonctionne en utilisant le lien suivant comme exemple : **https://server.contoso.com/certsrv/mscep/mscep.dll**. Vous devriez voir la page Web intégrée Service d'inscription d'appareils réseau. Cette page explique ce qu'est le service et explique que les appareils réseau utilisent l'URL pour soumettre des demandes de certificat.  
+8.  Vérifiez que le service d’inscription de périphérique réseau fonctionne en utilisant le lien suivant comme exemple : **https://server.contoso.com/certsrv/mscep/mscep.dll**. Vous devriez voir la page Web intégrée Service d'inscription d'appareils réseau. Cette page explique ce qu'est le service et explique que les appareils réseau utilisent l'URL pour soumettre des demandes de certificat.  
 
  Maintenant que le service d'inscription d'appareils réseau et les dépendances sont configurés, vous êtes prêt à installer et à configurer le point d'enregistrement de certificat.
 
@@ -130,7 +131,7 @@ Vous devez installer et configurer au moins un point d’enregistrement de certi
     -   Si vous avez sélectionné **Traiter les demandes de certificat SCEP**, configurez les éléments suivants :
         -   **Nom du site web**, **Numéro de port HTTPS** et **Nom de l’application virtuelle** du point d’enregistrement de certificat. Ces champs sont automatiquement renseignés avec les valeurs par défaut. 
         -   **URL du service d’inscription de périphérique réseau et certificat d’autorité de certification racine** : cliquez sur **Ajouter**, puis, dans la boîte de dialogue **Ajouter l’URL et le certificat d’autorité de certification racine**, spécifiez les éléments suivants :
-            - **URL du service d’inscription de périphériques réseau** : spécifiez l’URL au format suivant : https://*<FQDN_serveur>*/certsrv/mscep/mscep.dll. Par exemple, si le nom de domaine complet de votre serveur exécutant le service d'inscription d'appareils réseau est server1.contoso.com, entrez **https://server1.contoso.com/certsrv/mscep/mscep.dll**.
+            - **URL du service d’inscription de périphériques réseau** : spécifiez l’URL au format suivant : https://*<FQDN_serveur>*/certsrv/mscep/mscep.dll. Par exemple, si le nom de domaine complet de votre serveur exécutant le service d’inscription de périphérique réseau est server1.contoso.com, tapez **https://server1.contoso.com/certsrv/mscep/mscep.dll**.
             - **Certificat d'Autorité de certification racine**: Recherchez et sélectionnez le fichier de certificat (.cer) que vous avez créé et enregistré à l' **Étape 1 : Installer et configurer le service d'inscription d'appareils réseau et les dépendances**. Ce certificat d’autorité de certification racine permet au point d’enregistrement de certificat de valider le certificat d’authentification client que le module de stratégie de System Center Configuration Manager va utiliser.  
 
     - Si vous avez sélectionné **Traiter les demandes de certificats PFX**, vous configurez les détails de la connexion et les informations d’identification pour l’autorité de certification sélectionnée.
@@ -162,7 +163,7 @@ Vous devez installer et configurer au moins un point d’enregistrement de certi
 
     -   Sur le serveur de système de site, utilisez le fichier *<chemin_installation_ConfigMgr\>*\Logs\crpsetup.log et le fichier *<chemin_installation_ConfigMgr\>*\Logs\crpmsi.log. Une installation réussie renvoie un code de sortie 0.  
 
-    -   À l’aide d’un navigateur, vérifiez que vous pouvez vous connecter à l’URL du point d’enregistrement de certificat, par exemple https://server1.contoso.com/CMCertificateRegistration. Vous devez voir une page **Erreur de serveur** pour le nom de l'application, avec une description HTTP 404.  
+    -   Dans un navigateur, vérifiez que vous pouvez vous connecter à l’URL du point d’enregistrement de certificat, par exemple, https://server1.contoso.com/CMCertificateRegistration. Vous devez voir une page **Erreur de serveur** pour le nom de l'application, avec une description HTTP 404.  
 
 11. Recherchez le fichier de certificat exporté pour l’autorité de certification racine, créé automatiquement par le point d’enregistrement de certificat dans le dossier suivant sur l’ordinateur du serveur de site principal : *<chemin_installation_ConfigMgr\>*\inboxes\certmgr.box. Enregistrez ce fichier à un emplacement sécurisé auquel vous pouvez accéder en toute sécurité si vous installez plus tard le module de stratégie de System Center Configuration Manager sur le serveur exécutant le service d’inscription d’appareils réseau.  
 
@@ -190,7 +191,7 @@ Vous devez installer et configurer le module de stratégie de System Center Conf
 
 4.  Sur la page **Dossier d'installation** , acceptez le dossier d'installation par défaut pour le module de stratégie ou spécifiez un autre dossier, puis cliquez sur **Suivant**.  
 
-5.  Sur la page **Point d'enregistrement de certificat** , spécifiez l'URL du point d'enregistrement de certificat en utilisant le nom de domaine complet du serveur de système de site et le nom de l'application virtuelle qui est indiqué dans les propriétés du point d'enregistrement de certificat. Le nom de l'application virtuelle par défaut est CMCertificateRegistration. Par exemple, si le nom de domaine complet du serveur de système de site est server1.contoso.com et que vous avez utilisé le nom de l'application virtuelle par défaut, spécifiez **https://server1.contoso.com/CMCertificateRegistration**.  
+5.  Sur la page **Point d'enregistrement de certificat** , spécifiez l'URL du point d'enregistrement de certificat en utilisant le nom de domaine complet du serveur de système de site et le nom de l'application virtuelle qui est indiqué dans les propriétés du point d'enregistrement de certificat. Le nom de l'application virtuelle par défaut est CMCertificateRegistration. Par exemple, si le nom de domaine complet du serveur de système de site est server1.contoso.com et que vous avez utilisé le nom de l’application virtuelle par défaut, spécifiez **https://server1.contoso.com/CMCertificateRegistration**.  
 
 6.  Acceptez le port par défaut **443** ou spécifiez l'autre numéro de port utilisé par le point d'enregistrement de certificat, puis cliquez sur **Suivant**.  
 

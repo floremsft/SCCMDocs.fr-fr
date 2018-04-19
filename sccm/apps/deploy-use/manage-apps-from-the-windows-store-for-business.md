@@ -1,25 +1,26 @@
 ---
-title: "Gérer les applications à partir du Microsoft Store pour Entreprises"
+title: Gérer les applications à partir du Microsoft Store pour Entreprises
 titleSuffix: Configuration Manager
-description: "Gérez et déployez les applications à partir du Microsoft Store pour Entreprises en utilisant System Center Configuration Manager."
+description: Gérez et déployez les applications à partir du Microsoft Store pour Entreprises en utilisant System Center Configuration Manager.
 ms.custom: na
 ms.date: 12/29/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-app
+ms.technology:
+- configmgr-app
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8cdb22a6-72d7-41f5-9bed-c098b1bcf675
-caps.latest.revision: "11"
+caps.latest.revision: 11
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 15644a8c1acdbde85c7ca194a72a10c3cc2c0fcc
-ms.sourcegitcommit: f1535281b2c3fecff773b722c3f7590bf6ba10a0
+ms.openlocfilehash: 89bb52b806c99395bca14be34d06611174823a3c
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-apps-from-the-microsoft-store-for-business-with-system-center-configuration-manager"></a>Gérer les applications à partir du Microsoft Store pour Entreprises avec System Center Configuration Manager
 Le [Microsoft Store pour Entreprises](https://www.microsoft.com/business-store) vous donne accès à des applications Windows pour votre organisation que vous pouvez acheter individuellement ou en volume. En connectant le Store à Configuration Manager, vous pouvez synchroniser la liste des applications que vous avez achetées avec Configuration Manager. Vous pouvez ensuite voir ces applications dans la console Configuration Manager et les déployer comme toute autre application.
@@ -88,10 +89,10 @@ La synchronisation de la liste des applications achetées par votre organisation
 ### <a name="for-configuration-manager-versions-prior-to-1706"></a>Pour les versions de Configuration Manager antérieures à 1706
 
 **Dans Azure Active Directory, inscrivez Configuration Manager en tant qu’outil de gestion « Application web et/ou API web ». Cette action vous donne un ID de client dont vous aurez besoin plus tard.**
-1. Dans le nœud Active Directory de [https://manage.windowsazure.com](https://manage.windowsazure.com), sélectionnez votre Azure Active Directory, puis cliquez sur **Applications** > **Ajouter**.
+1. Dans le nœud Active Directory de [https://manage.windowsazure.com](https://manage.windowsazure.com), sélectionnez votre annuaire Azure Active Directory, puis cliquez sur **Applications** > **Ajouter**.
 2.  Cliquez sur **Ajouter une application développée par mon organisation**.
 3.  Attribuez un nom à l’application, sélectionnez **Application web** et/ou **API web**, puis cliquez sur la flèche **Suivant**.
-4.  Entrez la même URL pour **URL de connexion** et pour **URI ID d’application**. L’URL peut être une chaîne quelconque qui ne doit pas nécessairement correspondre à une adresse réelle. Par exemple, vous pouvez entrer *https://votredomaine/sccm*.
+4.  Entrez la même URL pour **URL de connexion** et pour **URI ID d’application**. L’URL peut être une chaîne quelconque qui ne doit pas nécessairement correspondre à une adresse réelle. Par exemple, vous pouvez entrer *https://yourdomain/sccm*.
 5.  Effectuez toutes les étapes de l'Assistant.
 
 **Dans Azure Active Directory, créez une clé de client pour l’outil de gestion inscrit**.
@@ -99,7 +100,7 @@ La synchronisation de la liste des applications achetées par votre organisation
 2.  Sous **Clés**, sélectionnez une durée dans la liste, puis cliquez sur **Enregistrer**. Cette action crée une nouvelle clé de client. Ne quittez pas cette page tant que vous n’avez pas correctement intégré Microsoft Store pour Entreprises à Configuration Manager.
 
 **Dans le Microsoft Store pour Entreprises, configurez Configuration Manager comme outil de gestion du Store**
-1.  Ouvrez [https://businessstore.microsoft.com/fr-fr/managementtools](https://businessstore.microsoft.com/en-us/managementtools) et connectez-vous si vous y êtes invité.
+1.  Ouvrez [https://businessstore.microsoft.com/managementtools](https://businessstore.microsoft.com/managementtools) et connectez-vous si vous y êtes invité.
 2.  Acceptez les conditions d’utilisation si cela vous est demandé.
 3.  Sous **Outils de gestion**, cliquez sur **Ajouter un outil de gestion**.
 4.  Dans **Rechercher l’outil par son nom**, tapez le nom de l’application que vous avez créée précédemment dans AAD, puis cliquez sur **Ajouter**.
@@ -151,6 +152,6 @@ Pour chaque application de store que vous gérez, vous pouvez afficher des infor
 
 Après le déploiement d’applications en ligne, toute mise à jour de cette application proviendra directement du Microsoft Store. De plus, Configuration Manager ne vérifie pas la compatibilité des versions des applications en ligne. Windows signale simplement l’application comme étant installée.  
 
-Quand vous déployez des applications hors connexion sur des appareils Windows 10 avec le client Configuration Manager, n’autorisez pas les utilisateurs à mettre à jour des applications externes aux déploiements Configuration Manager. Le contrôle des mises à jour des applications hors connexion est particulièrement important dans les environnements multi-utilisateurs tels que les classes. L’une des façons de désactiver le Microsoft Store consiste à utiliser la [stratégie de groupe](https://docs.microsoft.com/en-us/windows/configuration/stop-employees-from-using-microsoft-store#a-href-idblock-store-group-policyablock-microsoft-store-using-group-policy). 
+Quand vous déployez des applications hors connexion sur des appareils Windows 10 avec le client Configuration Manager, n’autorisez pas les utilisateurs à mettre à jour des applications externes aux déploiements Configuration Manager. Le contrôle des mises à jour des applications hors connexion est particulièrement important dans les environnements multi-utilisateurs tels que les classes. L’une des façons de désactiver le Microsoft Store consiste à utiliser la [stratégie de groupe](https://docs.microsoft.com/windows/configuration/stop-employees-from-using-microsoft-store#a-href-idblock-store-group-policyablock-microsoft-store-using-group-policy). 
 
 Une fois que l’administrateur Microsoft Store pour entreprises a acheté une application hors connexion, ne publiez pas l’application pour des utilisateurs par le biais du store. Cette configuration garantit que les utilisateurs ne peuvent pas effectuer d’installation ou de mise à jour en ligne. Les utilisateurs recevront uniquement les mises à jour d’applications hors connexion par le biais de Configuration Manager. 

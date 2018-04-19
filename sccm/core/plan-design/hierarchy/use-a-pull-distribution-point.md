@@ -1,25 +1,26 @@
 ---
 title: Point de distribution d'extraction
 titleSuffix: Configuration Manager
-description: "Découvrez les configurations et les limites de l’utilisation d’un point de distribution d’extraction avec System Center Configuration Manager."
+description: Découvrez les configurations et les limites de l’utilisation d’un point de distribution d’extraction avec System Center Configuration Manager.
 ms.custom: na
 ms.date: 2/14/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7d8f530b-1a39-4a9d-a2f0-675b516da7e4
-caps.latest.revision: "9"
+caps.latest.revision: 9
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: b4acf5753c8629bcd0f4e2ef5a97bfcb570e9d24
-ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
+ms.openlocfilehash: 3ef93ae505c2af709a3bd1e6a0e7a278993a77ff
+ms.sourcegitcommit: 27da4be015f1496b7b89ebddb517a2685f1ecf74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-a-pull-distribution-point-with-system-center-configuration-manager"></a>Utiliser un point de distribution d’extraction avec System Center Configuration Manager
 
@@ -45,14 +46,37 @@ Les points de distribution d’extraction prennent en charge les mêmes configur
 
 -   Dès que du contenu est distribué à un point de distribution d'extraction, sur le serveur de site, le composant Package Transfer Manager vérifie la base de données de site pour confirmer si le contenu est disponible sur un point de distribution source. Si Package Transfer Manager ne peut pas confirmer que le contenu se trouve sur un point de distribution source pour le point de distribution d'extraction, la vérification est répétée toutes les 20 minutes jusqu'à ce que le contenu soit disponible.  
 
--   Une fois la disponibilité du contenu confirmée par Package Transfer Manager, une notification est adressée au point de distribution d'extraction pour télécharger le contenu. Après avoir reçu cette notification, le point de distribution d'extraction tente de télécharger le contenu auprès de ses points de distribution source.  
+-   Une fois la disponibilité du contenu confirmée par Package Transfer Manager, une notification est adressée au point de distribution d'extraction pour télécharger le contenu. Si cette notification échoue, il réessayera en fonction des **Paramètres de nouvelle tentative** du composant de distribution de logiciels pour les points de distribution d’extraction. Après avoir reçu cette notification, le point de distribution d'extraction tente de télécharger le contenu auprès de ses points de distribution source.  
 
--   Une fois le téléchargement du contenu terminé, le point de distribution d'extraction soumet cet état à un point de gestion. Toutefois, si l’état n’est pas reçu après 60 minutes, Package Transfer Manager sort de veille et vérifie auprès du point de distribution d’extraction si le contenu a été téléchargé. Si le téléchargement du contenu est en cours, Package Transfer Manager se met en veille pendant 60 minutes avant de vérifier de nouveau auprès du point de distribution d'extraction. Ce cycle se répète jusqu'à ce que le point de distribution d'extraction termine le transfert du contenu.  
+-   Pendant que le point de distribution d’extraction télécharge le contenu, Package Transfer Manager interroge l’état en fonction des **Paramètres d’interrogation de l’état** du composant de distribution de logiciels pour les points de distribution d’extraction.  Une fois le téléchargement du contenu terminé, le point de distribution d’extraction soumet cet état à un point de gestion.
 
 **Vous pouvez configurer un point de distribution d’extraction** pendant l’installation du point de distribution ou après son installation en modifiant les propriétés du rôle de système de site du point de distribution.  
 
 **Vous pouvez supprimer la configuration de point de distribution d’extraction** en modifiant les propriétés du point de distribution. Lorsque vous supprimez la configuration de point de distribution d’extraction, le point de distribution reprend un fonctionnement normal et les prochains transferts de contenu vers le point de distribution sont alors gérés par le serveur de site.  
 
+## <a name="to-configure-software-distribution-component-for-pull-distribution-points"></a>Pour configurer le composant de distribution de logiciels pour les points de distribution d’extraction
+
+1.  Dans la console Configuration Manager, choisissez **Administration** > **Sites**.  
+
+2.  Sélectionnez le site de votre choix, puis sélectionnez **Configurer les composants de site** > **Distribution de logiciels**.
+
+3. Sélectionnez l’onglet **Point de distribution d’extraction**.  
+
+4.  Dans la liste **Paramètres de nouvelle tentative**, configurez les valeurs suivantes :  
+
+    -   **Nombre de tentatives** : nombre de fois où Package Transfer Manager tente de notifier le point de distribution d’extraction pour télécharger le contenu.  Si ce nombre est dépassé, Package Transfer Manager annule le transfert.
+
+    -   **Délai avant une nouvelle tentative (en minutes)** : nombre de minutes d’attente de Package Transfer Manager entre les tentatives. 
+
+5.  Dans la liste **Paramètres d’interrogation de l’état**, configurez les valeurs suivantes :  
+
+    -   **Nombre d’interrogations** : nombre de fois où Package Transfer Manager contacte le point de distribution d’extraction pour recevoir l’état de la tâche.  Si ce nombre est dépassé avant l’achèvement de la tâche, Package Transfer Manager annule le transfert.
+
+    -   **Délai avant une nouvelle tentative (en minutes)** : nombre de minutes d’attente de Package Transfer Manager entre les tentatives. 
+    
+    > [!NOTE]  
+    >  Quand Package Transfer Manager annule une tâche en raison du dépassement du nombre de tentatives d’interrogation de l’état, le point de distribution d’extraction continue à télécharger le contenu.  Quand il a terminé, le message d’état approprié est envoyé à Package Transfer Manager et la console reflète le nouvel état.
+    
 ## <a name="limitations-for-pull-distribution-points"></a>Limitations des points de distribution d’extraction  
 
 -   Un point de distribution cloud ne peut pas être configuré en tant que point de distribution d'extraction.  
@@ -61,12 +85,12 @@ Les points de distribution d’extraction prennent en charge les mêmes configur
 
 -   **La configuration de contenu préparé se substitue à la configuration du point de distribution d’extraction**. Un point de distribution d'extraction configuré pour du contenu préparé attend le contenu. Il n’extrait pas de contenu d’un point de distribution source et, comme un point de distribution standard avec la configuration de contenu préparé, il ne reçoit pas de contenu du serveur de site.  
 
--   **Un point de distribution d’extraction n’utilise pas les limites de taux de transfert configurées** lors du transfert de contenu. Si vous configurez un point de distribution précédemment installé en tant que point de distribution d'extraction, les limites de taux configurées sont enregistrées, mais pas utilisées. Si, par la suite, vous supprimez la configuration du point de distribution d’extraction, les limites de taux configurées sont implémentées selon la configuration précédente.  
+-   **Un point de distribution d’extraction n’utilise pas de configurations pour la planification ou les limites de taux de transfert** lors du transfert de contenu. Si vous configurez un point de distribution précédemment installé comme point de distribution d’extraction, les configurations de la planification et des limites de taux de transfert sont enregistrées, mais pas utilisées. Si, par la suite, vous supprimez la configuration du point de distribution d’extraction, les configurations de la planification et des limites de taux de transfert sont implémentées selon la configuration précédente.  
 
     > [!NOTE]  
-    >  Lorsqu'un point de distribution est configuré en tant que point de distribution d'extraction, l'onglet **Limites du taux de transfert** n'est pas disponible dans les propriétés du point de distribution.  
+    >  Quand un point de distribution est configuré comme point de distribution d’extraction, les onglets **Planification** et **Limites du taux de transfert** ne sont pas disponibles dans les propriétés du point de distribution.  
 
--   Un point de distribution d’extraction n’utilise pas les **paramètres de nouvelle tentative** pour la distribution de contenu. Les**Paramètres de nouvelle tentative** peuvent être configurés dans le cadre des **Propriétés du composant de distribution de logiciels** pour chaque site. Pour afficher ou configurer ces propriétés, dans l’espace de travail **Administration** de la console Configuration Manager, développez **Configuration du site**, puis sélectionnez **Sites**. Ensuite, dans le volet des résultats, sélectionnez un site puis, dans l’onglet **Accueil**, sélectionnez **Configurer les composants de site**. Enfin, sélectionnez **Distribution de logiciels**.  
+-   Les points de distribution d’extraction n’utilisent pas les paramètres de l’onglet **Général** des **Propriétés du composant de distribution de logiciels** de chaque site.  Cela inclut les paramètres de **distribution simultanée** et de **nouvelle tentative de multidiffusion**.  Utilisez l’onglet **Point de distribution d’extraction** pour configurer les paramètres des points de distribution d’extraction.
 
 -   Pour transférer du contenu depuis un point de distribution source dans une forêt distante, un client Configuration Manager doit être installé sur l’ordinateur qui héberge le point de distribution d’extraction. Un compte d'accès réseau qui peut accéder au point de distribution source doit être configuré.  
 

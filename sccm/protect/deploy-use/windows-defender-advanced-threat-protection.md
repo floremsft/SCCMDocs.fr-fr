@@ -1,41 +1,42 @@
 ---
-title: Windows Defender Advanced Threat Protection
+title: Windows Defender - Protection avancée contre les menaces
 titleSuffix: Configuration Manager
-description: "Découvrez comment gérer et surveiller le nouveau service Windows Defender Advanced Threat Protection (ATP) qui aide les entreprises à contrer les attaques avancées."
+description: Découvrez comment gérer et surveiller le nouveau service Windows Defender - Protection avancée contre les menaces qui aide les entreprises à contrer les attaques avancées.
 ms.custom: na
 ms.date: 03/07/2017
 ms.prod: configuration-manager
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a5fc033e-828e-4e45-9097-bbbd0697ebdf
-caps.latest.revision: "5"
+caps.latest.revision: 5
 author: NathBarn
 ms.author: nathbarn
 manager: angrobe
-ms.openlocfilehash: 561a03c7046accaa8e6d36407c75cbd4248188ce
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 84786d741eda2be24a7deb39478e68c68adc38fe
+ms.sourcegitcommit: aed99ba3c5e9482199cb3fc5c92f6f3a160cb181
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 03/30/2018
 ---
-# <a name="windows-defender-advanced-threat-protection"></a>Windows Defender Advanced Threat Protection
+# <a name="windows-defender-advanced-threat-protection"></a>Windows Defender - Protection avancée contre les menaces
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
-À compter de la version 1606 de Configuration Manager (Current Branch), Endpoint Protection facilite la gestion et la surveillance du service Windows Defender Advanced Threat Protection (ATP). Ce nouveau service aide les entreprises à détecter, analyser et contrer les attaques avancées ciblant leurs réseaux.  En savoir plus sur [Windows Defender ATP](http://aka.ms/technet-wdatp). Les stratégies Configuration Manager facilitent l’intégration et la surveillance des appareils gérés qui exécutent Windows 10 version 1607 (build 14328) ou ultérieure.
+À compter de la version 1606 de Configuration Manager (Current Branch), Endpoint Protection facilite la gestion et le monitoring du service [Windows Defender - Protection avancée contre les menaces (ATP)](http://aka.ms/technet-wdatp). Windows Defender ATP permet aux entreprises de détecter, d’investiguer et de répondre aux attaques avancées sur leur réseau.  Les stratégies Configuration Manager ou Microsoft Intune facilitent l’intégration et le monitoring des appareils gérés qui exécutent Windows 10 version 1607 (build 14328) ou ultérieure.
 
-Windows Defender ATP est un service disponible dans le [Centre de sécurité Windows](https://securitycenter.windows.com). Grâce à l’ajout et au déploiement d’un fichier de configuration de l’intégration du client, Configuration Manager peut surveiller l’état du déploiement ainsi que l’intégrité de l’agent Windows Defender ATP. Windows Defender ATP est uniquement pris en charge sur les PC qui exécutent le client Configuration Manager. Ce service n’est pas disponible pour les appareils gérés à l’aide de la gestion des appareils mobiles (MDM) locale ou de la gestion MDM hybride dans Intune.
+Windows Defender ATP est un service disponible dans le [Centre de sécurité Windows Defender](https://securitycenter.windows.com). Grâce à l’ajout et au déploiement d’un fichier de configuration de l’intégration du client, Configuration Manager peut surveiller l’état du déploiement ainsi que l’intégrité de l’agent Windows Defender ATP. Windows Defender ATP est pris en charge sur les PC exécutant le client Configuration Manager ou gérés par Microsoft Intune, mais les ordinateurs gérés par la gestion MDM hybride d’Intune ne sont pas pris en charge.
 
  **Conditions préalables**  
 
--   Abonnement au service en ligne Windows Defender Advanced Threat Protection  
+-   Abonnement au service en ligne Windows Defender - Protection avancée contre les menaces  
 -   Ordinateurs clients exécutant Windows 10 version 1607 ou ultérieure  
--   Ordinateurs clients exécutant la version 1610 de Configuration Manager ou un agent client ultérieur
+-   Ordinateurs clients exécutant la version 1610 de Configuration Manager, un agent client ultérieur ou qui sont gérés par Microsoft Intune
 
-## <a name="how-to-create-an-onboarding-configuration-file"></a>Créer un fichier de configuration de l’intégration  
+## <a name="how-to-create-an-onboarding-configuration-file"></a>Guide pratique pour créer un fichier de configuration d’intégration  
 
  1.  Connectez-vous au [service en ligne Windows Defender ATP](https://securitycenter.windows.com/).   
 
@@ -72,7 +73,7 @@ Windows Defender ATP est un service disponible dans le [Centre de sécurité Wi
 
 1.  Dans la console Configuration Manager, accédez à **Surveillance** > **Vue d’ensemble** > **Sécurité**, puis cliquez sur **Windows Defender ATP**.  
 
-2.  Examinez le tableau de bord Protection avancée contre les menaces Windows Defender.  
+2.  Examinez le tableau de bord Windows Defender - Protection avancée contre les menaces.  
 
     -   **État du déploiement de l’agent Windows Defender** : nombre et pourcentage d’ordinateurs clients gérés éligibles avec la stratégie Windows Defender ATP intégrée active.  
 
@@ -110,6 +111,6 @@ Windows Defender ATP est un service disponible dans le [Centre de sécurité Wi
 > [!IMPORTANT]
 > Les fichiers de configuration de Windows Defender ATP contiennent des informations sensibles qui doivent être conservées de manière sécurisée.
 
-[Protection avancée contre les menaces Windows Defender](https://technet.microsoft.com/itpro/windows/keep-secure/windows-defender-advanced-threat-protection)
+[Windows Defender - Protection avancée contre les menaces](https://technet.microsoft.com/itpro/windows/keep-secure/windows-defender-advanced-threat-protection)
 
-[Résoudre les problèmes liés à l’intégration de la protection avancée contre les menaces Windows Defender](https://technet.microsoft.com/itpro/windows/keep-secure/troubleshoot-onboarding-windows-defender-advanced-threat-protection)
+[Résoudre les problèmes liés à l’intégration de Windows Defender - Protection avancée contre les menaces](https://technet.microsoft.com/itpro/windows/keep-secure/troubleshoot-onboarding-windows-defender-advanced-threat-protection)
