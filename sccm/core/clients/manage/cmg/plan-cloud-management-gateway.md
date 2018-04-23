@@ -2,7 +2,7 @@
 title: Planifier la passerelle de gestion cloud
 titleSuffix: Configuration Manager
 description: Planifiez et concevez la passerelle de gestion cloud pour simplifier la gestion des clients Internet.
-ms.date: 03/22/2018
+ms.date: 04/10/2018
 ms.prod: configuration-manager
 ms.technology:
 - configmgr-client
@@ -10,20 +10,26 @@ ms.assetid: 2dc8c9f1-4176-4e35-9794-f44b15f4e55f
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: dabc248c1788ecad4d7b25c0a1f592e0ddeef826
-ms.sourcegitcommit: a19e12d5c3198764901d44f4df7c60eb542e765f
+ms.openlocfilehash: 2b207ffe95a078c955817d9251da3adbdf4de10d
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="plan-for-the-cloud-management-gateway-in-configuration-manager"></a>Planifier la passerelle de gestion cloud dans Configuration Manager
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
-
+ 
+<!--1101764-->
 La passerelle de gestion cloud fournit un moyen simple de gérer les clients Configuration Manager sur Internet. En déployant la passerelle de gestion cloud comme un service cloud dans Microsoft Azure, vous pouvez gérer les clients traditionnels qui sont itinérants sur Internet sans infrastructure supplémentaire. De même, vous n’avez pas besoin d’exposer votre infrastructure locale sur Internet. 
 
 > [!Tip]  
-> Cette fonctionnalité a été introduite dans la version 1610 en tant que [fonctionnalité en préversion](/sccm/core/servers/manage/pre-release-features). À compter de la version 1802, cette fonctionnalité n’est plus en préversion.
+> Cette fonctionnalité a été introduite dans la version 1610 en tant que [fonctionnalité en préversion](/sccm/core/servers/manage/pre-release-features). À compter de la version 1802, cette fonctionnalité n’est plus en préversion.  
+
+
+> [!Note]  
+> Par défaut, Configuration Manager n’active pas cette fonctionnalité facultative. Vous devez activer cette fonctionnalité avant de l’utiliser. Pour plus d’informations, consultez [Activer les fonctionnalités facultatives des mises à jour](/sccm/core/servers/manage/install-in-console-updates#bkmk_options).<!--505213-->  
+
 
 Une fois les prérequis établis, la création de la passerelle de gestion cloud se fait via les trois étapes suivantes dans la console Configuration Manager :
 1. Déployer le service cloud de la passerelle de gestion cloud sur Azure.
@@ -186,6 +192,7 @@ Le tableau suivant détaille la prise en charge par la passerelle de gestion clo
 | Endpoint Protection     | ![Pris en charge](media/green_check.png) |
 | Inventaire matériel et logiciel     | ![Pris en charge](media/green_check.png) |
 | État du client et notifications     | ![Pris en charge](media/green_check.png) |
+| Exécuter les scripts     | ![Pris en charge](media/green_check.png) |
 | Paramètres de conformité     | ![Pris en charge](media/green_check.png) |
 | Installation du client</br>(avec intégration d’Azure AD)     | ![Pris en charge](media/green_check.png)  (1706) |
 | Distribution de logiciels (ciblée sur des appareils)     | ![Pris en charge](media/green_check.png) |

@@ -3,7 +3,7 @@ title: Mises à jour dans la console
 titleSuffix: Configuration Manager
 description: Installer des mises à jour pour Configuration Manager à partir du cloud Microsoft
 ms.custom: na
-ms.date: 03/28/2018
+ms.date: 04/10/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c14a3607-253b-41fb-8381-ae2d534a9022
 caps.latest.revision: 36
-author: mestew
-ms.author: mstewart
+author: aczechowski
+ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 054bbd8e7b1dd3f5d565afe60eb7e3379cc7a9ee
-ms.sourcegitcommit: aed99ba3c5e9482199cb3fc5c92f6f3a160cb181
+ms.openlocfilehash: 9924346ccbd862aa4462075a3307b4ec40b955bc
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-in-console-updates-for-system-center-configuration-manager"></a>Installation de mises à jour dans la console pour System Center Configuration Manager
 
@@ -191,7 +191,7 @@ Pour surveiller l’état d’avancement, procédez comme suit :
 
     -   **Post-installation** : pour plus d’informations, consultez [Tâches post-installation](#post-installation-tasks).  
 
--   Vous pouvez consulter le fichier **CMUpdate.log** dans **&lt;Répertoire_Installation_ConfiMgr>\Logs**  
+-   Vous pouvez consulter le fichier **CMUpdate.log** dans **&lt;<Répertoire_Installation_ConfiMgr>\Logs**  
 
 
 #### <a name="4-when-the-update-installation-completes"></a>4. Après l’installation de la mise à jour  
@@ -311,7 +311,7 @@ Quand vous êtes prêt à réessayer l’installation d’une mise à jour, sél
 #### <a name="retry-installation-for-the-hierarchy"></a>Réessayer l’installation pour la hiérarchie
 Vous pouvez réessayer l’installation d’une mise à jour pour l’ensemble de la hiérarchie lorsque cette mise à jour est dans l’un des états suivants :  
 
-  -   La vérification des prérequis a généré un ou plusieurs avertissements, et l’option permettant d’ignorer les avertissements de vérification des prérequis n’a pas été activée dans l’Assistant Mise à jour. (La valeur de mise à jour pour **Ignorer l’avertissement de condition préalable** dans le nœud **Mises à jour et maintenance** est **Non**.)   
+  -   Les vérifications des prérequis ont généré un ou plusieurs avertissements, et l’option permettant d’ignorer les avertissements de vérification des prérequis n’a pas été activée dans l’Assistant Mise à jour. (La valeur de mise à jour pour **Ignorer l’avertissement de condition préalable** dans le nœud **Mises à jour et maintenance** est **Non**.)   
   -   La vérification des prérequis a échoué.    
   -   L’installation a échoué.
   -   La réplication du contenu sur le site a échoué.   
@@ -324,7 +324,7 @@ Accédez à **Administration** > **Mises à jour et maintenance**, sélectionnez
 #### <a name="retry-installation-for-the-site"></a>Réessayer l’installation pour le site  
  Vous pouvez réessayer l’installation d’une mise à jour sur un site spécifique lorsque cette mise à jour est dans l’un des états suivants :  
 
-  -   La vérification des prérequis a généré un ou plusieurs avertissements, et l’option permettant d’ignorer les avertissements de vérification des prérequis n’a pas été activée dans l’Assistant Mise à jour. (La valeur de mise à jour pour **Ignorer l’avertissement de condition préalable** dans le nœud Mises à jour et maintenance est **Non**.)  
+  -   Les vérifications des prérequis ont généré un ou plusieurs avertissements, et l’option permettant d’ignorer les avertissements de vérification des prérequis n’a pas été activée dans l’Assistant Mise à jour. (La valeur de mise à jour pour **Ignorer l’avertissement de condition préalable** dans le nœud Mises à jour et maintenance est **Non**.)  
   -   La vérification des prérequis a échoué.    
   -   L’installation a échoué.    
 
@@ -369,10 +369,36 @@ Lorsqu’une mise à jour inclut une ou plusieurs fonctionnalités facultatives,
 
 Pour afficher les fonctionnalités disponibles et leur état, dans la console, accédez à **Administration** > **Mises à jour et maintenance** > **Fonctionnalités**.
 
-Quand une fonctionnalité n’est pas facultative, elle est installée automatiquement et n’apparaît pas dans le nœud **Fonctionnalités**.  
+Quand une fonctionnalité n’est pas facultative, elle est installée automatiquement. Elle n’apparaît pas dans le nœud **Fonctionnalités**.  
+
+> [!Important]  
+> Dans une hiérarchie multisite, vous pouvez uniquement activer les fonctionnalités facultatives ou en préversion sur le site d’administration centrale. Ceci vise à éviter les conflits au sein de la hiérarchie. <!--507197-->
+ 
+
+Quand vous activez une nouvelle fonctionnalité ou une fonctionnalité en préversion, le Gestionnaire de hiérarchie de Configuration Manager (HMAN) doit traiter le changement avant que cette fonctionnalité ne soit disponible. Le traitement du changement est souvent immédiat, mais il peut prendre jusqu’à 30 minutes en fonction du cycle de traitement HMAN. Une fois le changement traité, vous devez redémarrer la console pour voir les nouveaux nœuds associés à cette fonctionnalité.
+
+#### <a name="list-of-optional-features"></a>Liste des fonctionnalités facultatives
+Les fonctionnalités suivantes sont facultatives dans la dernière version de Configuration Manager :<!--505213-->  
+- [Accès conditionnel pour les PC gérés](/sccm/mdm/deploy-use/manage-access-to-o365-services-for-pcs-managed-by-sccm)  <!--1191496-->
+- [Passport for Work](/sccm/protect/deploy-use/windows-hello-for-business-settings) (également appelé *Windows Hello Entreprise*) <!--1245704-->
+- [VPN pour Windows 10](/sccm/protect/deploy-use/vpn-profiles) <!--1283610-->
+- [Stratégie Windows Defender Exploit Guard](/sccm/protect/deploy-use/create-deploy-exploit-guard-policy) <!--1355468-->
+- [Connecteur OMS (Microsoft Operations Management Suite)](/sccm/core/clients/manage/sync-data-microsoft-operations-management-suite) <!--1258052-->
+- [Créer un certificat PFX](/sccm/protect/deploy-use/introduction-to-certificate-profiles) <!--1321368-->
+- [Cache d’homologue client](/sccm/core/plan-design/hierarchy/client-peer-cache) <!--1101436-->
+- [Point de service de l’entrepôt de données](/sccm/core/servers/manage/data-warehouse) <!--1277922-->
+- [Passerelle de gestion cloud](/sccm/core/clients/manage/cmg/plan-cloud-management-gateway) <!--1101764-->
+- [Mises à jour du pilote Surface](/sccm/sum/get-started/configure-classifications-and-products) <!--1098490-->
+- [Mise en cache préalable du contenu de la séquence de tâches](/sccm/osd/deploy-use/create-a-task-sequence-to-upgrade-an-operating-system#configure-pre-cache-content) <!--1021244-->
+- [Exécuter l’étape de la séquence de tâches](/sccm/osd/deploy-use/manage-task-sequences-to-automate-tasks#add-child-task-sequences-to-a-task-sequence) <!--1261338-->
+- [Créer et exécuter des scripts](/sccm/apps/deploy-use/create-deploy-scripts) <!--1236459-->
+- [Évaluation de l’attestation de l’intégrité des appareils pour les stratégies de conformité pour l’accès conditionnel](/sccm/mdm/deploy-use/manage-access-to-o365-services-for-pcs-managed-by-sccm) <!--1235616-->
+- [Approuver les demandes d’application pour les utilisateurs par appareil](/sccm/apps/deploy-use/deploy-applications#specify-deployment-settings) <!--1357015-->  
 
 
-Quand vous activez une nouvelle fonctionnalité ou une fonctionnalité en préversion, le Gestionnaire de hiérarchie de Configuration Manager (HMAN) doit traiter le changement avant que cette fonctionnalité ne soit disponible. Le traitement du changement est souvent immédiat, mais il peut prendre jusqu’à 30 minutes en fonction du cycle de traitement HMAN. Une fois le changement traité, vous devez redémarrer la console pour voir la nouvelle interface utilisateur associée à cette fonctionnalité.
+> [!Tip]  
+> Pour plus d’informations sur les fonctionnalités qui nécessitent un consentement pour être activées, consultez [Fonctionnalités en préversion](/sccm/core/servers/manage/pre-release-features).  
+> Pour plus d’informations sur les fonctionnalités qui sont disponibles uniquement dans la branche Technical Preview, consultez [Technical Preview](/sccm/core/get-started/technical-preview).
 
 
 

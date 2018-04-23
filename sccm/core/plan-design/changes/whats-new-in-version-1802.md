@@ -3,7 +3,7 @@ title: Nouvelle version 1802
 titleSuffix: Configuration Manager
 description: Découvrez des informations détaillées sur les modifications et les nouvelles fonctionnalités introduites dans la version 1802 de Configuration Manager.
 ms.custom: na
-ms.date: 03/22/2018
+ms.date: 04/11/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -12,20 +12,27 @@ ms.technology:
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 5bd637b1-d7a1-411b-877a-c7aae9741173
-author: mestew
-ms.author: mstewart
+author: aczechowski
+ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 9c9ff975a58e7c56375fa7740a0a5bb6ebfa6341
-ms.sourcegitcommit: 27da4be015f1496b7b89ebddb517a2685f1ecf74
+ms.openlocfilehash: a667c34dc39ef0578ff840e5603080b09c67c63c
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="whats-new-in-version-1802-of-system-center-configuration-manager"></a>Nouveautés de la version 1802 de System Center Configuration Manager
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
 La mise à jour 1802 pour la Current Branch de Configuration Manager est disponible en tant que mise à jour dans la console. Appliquez cette mise à jour sur les sites qui exécutent la version 1702, 1706 ou 1710. <!-- baseline only statement: -->Lors de l’installation d’un nouveau site, elle est également disponible sous la forme d’une version de base de référence.
+
+En plus des nouvelles fonctionnalités, cette version inclut également des modifications supplémentaires comme des corrections de bogues. Pour plus d’informations, consultez [Récapitulatif des modifications dans Current Branch de System Center Configuration Manager version 1802](https://support.microsoft.com/help/4101375).
+
+<!--
+The following additional updates to this release are also now available:
+- [Update rollup for System Center Configuration Manager current branch, version 1710](https://support.microsoft.com/help/4057517)
+-->
 
 > [!TIP]  
 > Pour installer un nouveau site, vous devez utiliser une version de base de Configuration Manager.  

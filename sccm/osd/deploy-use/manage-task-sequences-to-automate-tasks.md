@@ -3,7 +3,7 @@ title: Gérer les séquences de tâches
 titleSuffix: Configuration Manager
 description: Créez, modifiez, déployez, importez et exportez des séquences de tâches pour les gérer et automatiser les tâches dans votre environnement.
 ms.custom: na
-ms.date: 03/22/2018
+ms.date: 04/10/2018
 ms.prod: configuration-manager
 ms.reviewer: nac
 ms.suite: na
@@ -15,12 +15,12 @@ ms.assetid: a1f099f1-e9b5-4189-88b3-f53e3b4e4add
 caps.latest.revision: 10
 author: aczechowski
 ms.author: aaroncz
-manager: angrobe
-ms.openlocfilehash: 262bfa3991bbd95fad779da9520358d527a42b07
-ms.sourcegitcommit: a19e12d5c3198764901d44f4df7c60eb542e765f
+manager: dougeby
+ms.openlocfilehash: 9ed5a94d644aa0bdb7d63c3b976da7dd566dfedd
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-task-sequences-to-automate-tasks-in-system-center-configuration-manager"></a>Gérer les séquences de tâches pour automatiser des tâches dans System Center Configuration Manager
 
@@ -483,8 +483,12 @@ Vous pouvez gérer les variables par ordinateur sur un site principal ou sur un 
 6.  Après avoir ajouté toutes les variables au regroupement, cliquez sur **OK**.  
 
 ## <a name="add-child-task-sequences-to-a-task-sequence"></a>Ajouter des séquences de tâches enfants à une séquence de tâches
+<!--1261338-->
+À partir de Configuration Manager version 1710, vous pouvez ajouter une nouvelle étape de séquence de tâches qui exécute une autre séquence de tâches. Cette étape crée une relation parent-enfant entre les séquences de tâches. Effectuez cette étape pour créer des séquences de tâches plus modulaires réutilisables.  
 
-À partir de Configuration Manager version 1710, vous pouvez ajouter une nouvelle étape de séquence de tâches qui exécute une autre séquence de tâches. Cette étape crée une relation parent-enfant entre les séquences de tâches. Effectuez cette étape pour créer des séquences de tâches plus modulaires réutilisables.
+> [!Note]  
+> Par défaut, Configuration Manager n’active pas cette fonctionnalité facultative. Vous devez activer cette fonctionnalité avant de l’utiliser. Pour plus d’informations, consultez [Activer les fonctionnalités facultatives des mises à jour](/sccm/core/servers/manage/install-in-console-updates#bkmk_options).<!--505213-->  
+
 
 Lorsque vous ajoutez une séquence de tâches enfant à une séquence de tâches, considérez les éléments suivants :
 

@@ -15,11 +15,11 @@ ms.assetid: 56dc4b07-5aa4-43e2-9be8-d26ae5ff5613
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: ac96927b563673311e9ca55d1f2d4edaac30adbe
-ms.sourcegitcommit: a19e12d5c3198764901d44f4df7c60eb542e765f
+ms.openlocfilehash: f3c200fe699f85c195e41fc2b395a3d710b1788a
+ms.sourcegitcommit: d3863a9b34f9925515cabe9a290a6c733e10108b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/04/2018
 ---
 # <a name="capabilities-in-technical-preview-1803-for-system-center-configuration-manager"></a>Fonctionnalités de Technical Preview 1803 pour System Center Configuration Manager
 
@@ -146,7 +146,7 @@ Le fait de sélectionner l’option **Activer les mises à jour de logiciels tie
 Suite à vos [commentaires User Voice](https://configurationmanager.uservoice.com/forums/300492-ideas/suggestions/20234866-allow-us-to-copy-information-out-of-the-asset-det), vous pouvez maintenant activer la fonctionnalité copier/coller dans le volet des détails de composants dans les affichages d’analyse de l’état du déploiement et de la distribution.  <!--1357552-->
 
 ## <a name="scap-extensions"></a>Extensions SCAP
-La préversion des Extensions SCAP est disponible dans le dossier Cd.latest sous SMSSETUP\TOOLS\ConfigMgrSCAPExtension\ConfigMgrExtensionsForSCAP.msi. Cette préversion des Extensions SCAP peut être installée sur toutes les versions actuellement prises en charge de Configuration Manager Current Branch et LTSB 1606.
+La préversion des Extensions SCAP est disponible dans le dossier Cd.latest sous SMSSETUP\TOOLS\ConfigMgrSCAPExtension\ConfigMgrExtensionsForSCAP.msi. Cette préversion des Extensions SCAP peut être installée sur toutes les versions actuellement prises en charge de Configuration Manager Current Branch et LTSB 1606. Pour plus d’informations, consultez [À propos des Extensions SCAP (Security Content Automation Protocol)](/sccm/compliance/plan-design/scap/about-scap).
 
 
 
