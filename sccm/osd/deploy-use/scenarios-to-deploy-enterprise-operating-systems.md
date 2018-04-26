@@ -1,17 +1,18 @@
 ---
-title: "Scénarios de déploiement de systèmes d’exploitation d’entreprise"
+title: Scénarios de déploiement de systèmes d’exploitation d’entreprise
 titleSuffix: Configuration Manager
-description: "En savoir plus sur différents scénarios de déploiement de systèmes d’exploitation d’entreprise avec System Center Configuration Manager."
+description: En savoir plus sur différents scénarios de déploiement de systèmes d’exploitation d’entreprise avec System Center Configuration Manager.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-osd
+ms.technology:
+- configmgr-osd
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f74fdb86-c7c2-447f-91f6-b42df6370d7f
-caps.latest.revision: "11"
+caps.latest.revision: 11
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
@@ -50,7 +51,7 @@ Les scénarios de déploiement de système d’exploitation suivants sont dispon
 
  La taille du cache par défaut sur les clients Configuration Manager n'est peut-être pas suffisante pour la plupart des déploiements d'image de système d'exploitation. Si vous planifiez de télécharger l'image complète dans le cache du client, vous devez régler la taille du cache du client Configuration Manager sur les ordinateurs de destination pour qu'il puisse héberger la taille de l'image déployée.  
 
- Pour plus d'informations, voir [Configure the Client Cache for Configuration Manager Clients](../../core/clients/manage/manage-clients.md#BKMK_ClientCache).  
+ Pour plus d'informations, voir [Configurer le cache du client pour les clients Configuration Manager](../../core/clients/manage/manage-clients.md#BKMK_ClientCache).  
 
 ## <a name="task-sequence-deployments"></a>Déploiements de séquences de tâches  
  La séquence de tâches que vous créez peut déployer l'image du système d'exploitation sur un ordinateur client Configuration Manager selon l'une des manières suivantes :  
