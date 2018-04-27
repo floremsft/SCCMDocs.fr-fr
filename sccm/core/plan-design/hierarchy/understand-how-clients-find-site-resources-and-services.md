@@ -1,25 +1,26 @@
 ---
 title: Rechercher des ressources de site
 titleSuffix: Configuration Manager
-description: "Découvrez comment et quand les clients System Center Configuration Manager utilisent l’emplacement du service pour rechercher des ressources de site."
+description: Découvrez comment et quand les clients System Center Configuration Manager utilisent l’emplacement du service pour rechercher des ressources de site.
 ms.custom: na
 ms.date: 2/7/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ae72df4b-5f5d-4e19-9052-bda28edfbace
-caps.latest.revision: "10"
+caps.latest.revision: 10
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: d0cbaf0b9f10926015cf203dbb28633976034162
-ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
+ms.openlocfilehash: 76d9d486bf0c07da3d81596b1b065fe6532b29fe
+ms.sourcegitcommit: e4ca9fb1fad2caaf61bb46e0a12f4d6b96f15513
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="learn-how-clients-find-site-resources-and-services-for-system-center-configuration-manager"></a>Comprendre comment les clients recherchent des services et des ressources de site pour System Center Configuration Manager
 
@@ -61,8 +62,8 @@ Quand un client est attribué pour la première fois à un site principal, il s�
 
 Un client sélectionne le point de gestion avec lequel communiquer en fonction de son emplacement réseau et de son groupe de limites configurés. Le point de gestion utilisé par le client n’est pas obligatoirement son point de gestion attribué.  
 
-    > [!NOTE]  
-    >  A client always uses the assigned management point for registration messages and certain policy messages, even when other communications are sent to a proxy or local management point.  
+   > [!NOTE]  
+   >  Un client utilise toujours le point de gestion attribué pour les messages d’enregistrement et certains messages de la stratégie, même quand d’autres communications sont envoyées à un point de gestion proxy ou local.
 
 Vous pouvez utiliser des points de gestion préférés. Les points de gestion préférés sont ceux du site attribué au client qui sont associés à un groupe de limites que le client utilise pour rechercher des serveurs de système de site. L’association d’un point de gestion préféré à un groupe de limites en tant que serveur de système de site est similaire à l’association de points de distribution ou de points de migration d’état à un groupe de limites. Si vous activez les points de gestion préférés pour la hiérarchie, lorsqu'un client utilise un point de gestion à partir de son site attribué, il va tenter d'utiliser un point de gestion préféré avant d'utiliser d'autres points de gestion à partir de son site attribué.  
 
