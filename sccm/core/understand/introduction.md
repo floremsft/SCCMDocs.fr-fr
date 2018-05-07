@@ -81,7 +81,7 @@ Utilisez les rubriques suivantes et les autres sections de cette rubrique pour e
  Elle peut également exécuter des consoles secondaires pour prendre en charge des tâches spécifiques de gestion de client. Par exemple :  
 
 -   l’**Explorateur de ressources**pour afficher des informations sur la parc matériel et logiciel ;  
--   le**Contrôle à distance** pour se connecter à distance à un ordinateur client afin d’effectuer des tâches de dépannage.  
+-   le **Contrôle à distance** pour se connecter à distance à un ordinateur client afin d’effectuer des tâches de dépannage.  
 
 Vous pouvez installer la console Configuration Manager sur des ordinateurs supplémentaires, ainsi que restreindre l’accès et limiter ce que les utilisateurs administratifs voient dans la console à l’aide de l'administration basée sur des rôles de Configuration Manager.  
 
@@ -90,7 +90,7 @@ Pour plus d’informations, consultez [Installer des consoles System Center Conf
 ##  <a name="BKMK_ApplicationCatalog"></a> Le catalogue d'applications, le centre logiciel et le portail d'entreprise  
  Le **catalogue d’applications** est un site web sur lequel les utilisateurs peuvent rechercher et demander des logiciels pour leurs PC Windows. Pour utiliser le catalogue d'applications, vous devez installer le point de service Web du catalogue d'applications et le point de site Web du catalogue d'applications pour le site.  
 
- Le**Centre logiciel** est une application installée quand le client Configuration Manager est installé sur des ordinateurs Windows. Les utilisateurs exécutent cette application pour demander des logiciels et gérer les logiciels que Configuration Manager déploie à leur intention. Le Centre logiciel permet aux utilisateurs d'effectuer les opérations suivantes :  
+ Le **Centre logiciel** est une application installée quand le client Configuration Manager est installé sur des ordinateurs Windows. Les utilisateurs exécutent cette application pour demander des logiciels et gérer les logiciels que Configuration Manager déploie à leur intention. Le Centre logiciel permet aux utilisateurs d'effectuer les opérations suivantes :  
 
 -   rechercher et installer des logiciels à partir du catalogue d'applications ;  
 -   afficher leur historique de demande de logiciels ;  
